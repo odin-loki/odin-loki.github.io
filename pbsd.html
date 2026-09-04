@@ -15,11 +15,11 @@
 <meta property="og:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
 <meta property="og:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
 <meta property="og:url" content="https://imortek.com.au/pbsd.html">
-<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
 <meta name="twitter:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
-<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -307,6 +307,34 @@
       </div>
     </div>
 
+    <div class="split split--center reveal" style="margin-top:52px">
+      <figure class="figure">
+        <img src="/assets/img/pbsd/port-mascot.jpg"
+             alt="The BSD daemon shown twice: on the left the original red mascot, on the right the same figure rendered as a cyan wireframe, with an equals sign between them"
+             width="1280" height="699" loading="lazy" decoding="async">
+        <figcaption>
+          The project in one picture. Same daemon, same shape, rebuilt in a different
+          representation &mdash; and the equals sign is the part that has to be earned, file by file,
+          by differential verification. BSD Daemon &copy; Marshall Kirk McKusick.
+        </figcaption>
+      </figure>
+      <div>
+        <span class="eyebrow eyebrow--amber">What &ldquo;equals&rdquo; has to mean</span>
+        <h3 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">A port is a claim of equivalence</h3>
+        <p class="dim">
+          Saying a file has been ported is saying the new one behaves like the old one. That is a
+          claim, and claims need evidence. A C++23 rewrite that compiles is a plausible-looking
+          wireframe; it is not yet the same daemon.
+        </p>
+        <p class="dim">
+          So the equals sign is the gate. Differential execution runs both and compares observable
+          behaviour. IR comparison checks they mean the same thing to the compiler. Until one of
+          those passes, the file stays open in the migration log and does not count toward
+          progress &mdash; however finished it looks.
+        </p>
+      </div>
+    </div>
+
     <div class="note note--violet reveal" style="margin-top:32px">
       <strong>The rule that makes this defensible:</strong> the model does not self-certify.
       It proposes; deterministic tooling disposes. Every non-negotiable in the repository
@@ -496,7 +524,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-04T03:43:02Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-04T04:02:02Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

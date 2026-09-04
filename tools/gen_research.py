@@ -271,7 +271,8 @@ print('wrote %d research page bodies' % count)
 # Emit the build.sh page rows so the builder picks them up.
 rows = []
 for e in RESEARCH:
-    title = e['title'] + ' | Imortek Research'
+    # Keep titles inside what a search result actually renders (~60 chars).
+    title = e.get('seo_title') or (e['name'] + ' — ' + e['field'] + ' | Imortek')
     desc = e['blurb'].replace('"', "'")
     js = '<script src=\\"/assets/js/demos/filtering.js\\" defer></script>' if e.get('demo') else ''
     rows.append('"research/%s~%s~%s~~%s~article"' % (e['slug'], title, desc, js))

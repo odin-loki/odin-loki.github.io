@@ -435,48 +435,55 @@
     // reduced motion.
     if (reduced) return;
 
-    slots.forEach(function (slot) {
-      var base = slot.dataset.video;
-      if (!base) return;
+    // tools/build.sh writes this from the contents of assets/video/, so a site
+    // with no clips issues no requests for clips that are not there.
+    fetch('/assets/video/manifest.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (available) {
+        if (!Array.isArray(available) || !available.length) return;
+        slots.forEach(function (slot) {
+          var base = slot.dataset.video;
+          if (!base) return;
+          var name = base.split('/').pop();
+          if (available.indexOf(name) < 0) return;
+          mountVideo(slot, base);
+        });
+      })
+      .catch(function () { /* no manifest — canvas animations stay */ });
+  }
 
-      fetch(base + '.mp4', { method: 'HEAD' })
-        .then(function (r) {
-          if (!r.ok) return;
-          var v = document.createElement('video');
-          v.className = 'slot-video';
-          v.muted = true;
-          v.loop = true;
-          v.autoplay = true;
-          v.playsInline = true;
-          v.setAttribute('playsinline', '');
-          v.setAttribute('aria-hidden', 'true');
-          v.preload = 'metadata';
-          if (slot.dataset.poster) v.poster = slot.dataset.poster;
+  function mountVideo(slot, base) {
+    var v = document.createElement('video');
+    v.className = 'slot-video';
+    v.muted = true;
+    v.loop = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('aria-hidden', 'true');
+    v.preload = 'metadata';
+    if (slot.dataset.poster) v.poster = slot.dataset.poster;
 
-          var webm = document.createElement('source');
-          webm.src = base + '.webm';
-          webm.type = 'video/webm';
-          var mp4 = document.createElement('source');
-          mp4.src = base + '.mp4';
-          mp4.type = 'video/mp4';
-          v.appendChild(webm);
-          v.appendChild(mp4);
+    var webm = document.createElement('source');
+    webm.src = base + '.webm';
+    webm.type = 'video/webm';
+    var mp4 = document.createElement('source');
+    mp4.src = base + '.mp4';
+    mp4.type = 'video/mp4';
+    v.appendChild(webm);
+    v.appendChild(mp4);
 
-          v.addEventListener('canplay', function () {
-            slot.appendChild(v);
-            requestAnimationFrame(function () { v.classList.add('is-in'); });
-            // stop the canvas underneath — no point animating behind a video
-            var canvas = slot.querySelector('canvas');
-            if (canvas) canvas.classList.add('is-superseded');
-            slot.classList.add('has-video');
-          }, { once: true });
+    v.addEventListener('canplay', function () {
+      slot.appendChild(v);
+      requestAnimationFrame(function () { v.classList.add('is-in'); });
+      var canvas = slot.querySelector('canvas');
+      if (canvas) canvas.classList.add('is-superseded');
+      slot.classList.add('has-video');
+    }, { once: true });
 
-          v.load();
-          var playing = v.play();
-          if (playing && playing.catch) playing.catch(function () { /* autoplay blocked */ });
-        })
-        .catch(function () { /* no video for this slot — canvas stays */ });
-    });
+    v.load();
+    var playing = v.play();
+    if (playing && playing.catch) playing.catch(function () { /* autoplay blocked */ });
   }
 
   /* ---------- Boot ---------- */

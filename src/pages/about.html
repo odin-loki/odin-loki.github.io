@@ -1,34 +1,89 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <div class="split split--wide-left split--center">
+    <div class="split split--center" style="grid-template-columns:.95fr 1.05fr">
+      <div class="portrait reveal">
+        <img src="/assets/img/people/odin-loch.jpg"
+             alt="Odin Loch, founder of Imortek"
+             width="720" height="900" loading="eager" decoding="async">
+        <div class="portrait__tag">
+          <span class="mono">Odin Loch</span>
+          <span class="tiny muted">Sydney, Australia</span>
+        </div>
+      </div>
+
       <div>
         <span class="eyebrow">About</span>
-        <h1>Imortek is <span class="gradient-text">one person</span> and a very high bar</h1>
+        <h1>Hello &mdash; I&rsquo;m <span class="gradient-text">Odin Loch</span></h1>
         <p class="lede">
-          Odin Loch, Sydney, Australia. Two diplomas &mdash; software, and hospital science &mdash;
-          currently working as a toolmaker. Imortek is the trading name for the software and
-          research published under this bar: nothing counts as done until something other than
-          an opinion says it is.
+          I build operating systems, AI architectures, decompilers and numerical libraries,
+          mostly at night, from Sydney. Imortek is the name I publish that work under.
         </p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub profile</a>
-          <a class="btn btn--ghost" data-email data-subject="Hello" href="#">Get in touch</a>
+        <p class="lede">
+          I have two diplomas &mdash; software, and hospital science &mdash; and I currently work as a
+          toolmaker. None of that is the qualification people expect for this kind of software,
+          which is exactly why everything I publish is written to be checked rather than
+          believed.
+        </p>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="btn btn--primary" href="https://github.com/odin-loki" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            github.com/odin-loki
+          </a>
+          <a class="btn btn--ghost" data-email data-subject="Hello" href="#">Send me an email</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Trading as<b>Imortek</b></div>
+          <div class="phero__meta-item">Day job<b>Toolmaker</b></div>
+          <div class="phero__meta-item">Repositories<b data-gh-total="repos">15</b></div>
+          <div class="phero__meta-item">Licence<b>AGPL-3.0+</b></div>
         </div>
       </div>
-      <div>
-        <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">The practice</span>
-          <div class="spec" style="border:0">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Name</span><span class="spec__v">Odin Loch, trading as Imortek</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Location</span><span class="spec__v">Sydney, Australia</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Day job</span><span class="spec__v">Toolmaker</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Repositories</span><span class="spec__v"><span data-gh-total="repos">15</span> public</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Languages</span><span class="spec__v">C, C++23, Rust, Python, C#</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Licence</span><span class="spec__v">AGPL-3.0+ with a commercial tier</span></div>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow eyebrow--violet">In my own words</span>
+    <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">Why I work like this</h2>
+    <div class="stack" style="margin-top:1.5rem;font-size:1.04rem">
+      <p class="dim">
+        I like all engineering and all the sciences, and I have never been good at staying inside
+        one of them. That is why the shelf has a hardened BSD next to an AEAD scheme next to
+        carbide tooling next to a paper about how you would measure national wealth in megajoules.
+        It is not a strategy. It is what I am actually interested in.
+      </p>
+      <p class="dim">
+        Working alone means nobody checks my work, so I built the checking into the work.
+        ParanoidBSD will not mark a file as ported until differential or IR verification passes,
+        because I know perfectly well that a file which merely compiles has told me nothing.
+        MathScript returns <code>Result&lt;T&gt;</code> everywhere instead of throwing, because I
+        wanted the failure cases visible in the type rather than discovered at three in the
+        morning. AEGIS has one rule &mdash; nothing is done until an attack simulation confirms it &mdash;
+        because my intuition about traffic analysis was wrong repeatedly, and the simulation was
+        not.
+      </p>
+      <p class="dim">
+        The same reasoning explains the parts of this site that look like they are arguing against
+        me. Cell AI&rsquo;s perplexity is four orders of magnitude worse than GPT-2 and that is on
+        its front page. The decompiler recovers algorithms at F1 0.056 on stripped binaries, next
+        to the 1.000 it gets with symbols. The AES work failed, and it is published as a failure
+        with the statistics that show why. If I hid those, you would have no way of telling which
+        of my other numbers to trust.
+      </p>
+      <p class="dim">
+        ParanoidBSD describes itself as &ldquo;a secure operating system made by a
+        Schizophrenic&rdquo;. That is my line about myself and I am keeping it. It does not mean
+        the engineering is unreliable &mdash; the gates on this work are stricter than a lot of
+        commercial software ever sees, and they are written down where you can read them. It
+        means I would rather tell you who is building this than have you find out later.
+      </p>
+      <p class="dim">
+        If you are deciding whether to depend on any of it: read the tests, the provenance
+        records and the published limitations. They are the parts built to be checked, and they
+        will tell you far more than I can.
+      </p>
     </div>
   </div>
 </section>

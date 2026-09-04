@@ -296,20 +296,27 @@ Nothing else is required — the slot detects the file and switches over on the 
 
 ```bash
 ls -lh assets/video/hero.mp4     # confirm size
-git add assets/video/hero.mp4 assets/video/hero.webm assets/img/video/hero.jpg
+./tools/build.sh                  # regenerates assets/video/manifest.json
+git add assets/video/ assets/img/video/hero.jpg
 git commit -m "Add hero background video"
 git push -u origin claude/portfolio-website-setup-yfwqzs
 ```
 
+**You must run `./tools/build.sh` after adding a clip.** The builder writes
+`assets/video/manifest.json` from whatever `.mp4` files are sitting in `assets/video/`, and
+the site only requests clips named in that manifest. This is deliberate: it means a site
+with no videos issues no requests for videos, rather than firing a 404 per page.
+
 The mechanism, in short:
 
-1. The page asks the server whether the file exists, with a `HEAD` request.
-2. If it does not, nothing happens and the canvas animation keeps running. No console error,
-   no layout shift.
-3. If it does, a muted, looping, `playsinline` `<video>` fades in over the canvas and the
-   canvas animation stops to save battery.
-4. If the visitor has `prefers-reduced-motion` set, the video is never requested at all and
-   the poster image is used instead.
+1. On load the page fetches `assets/video/manifest.json` — one small request that always
+   succeeds.
+2. For each hero slot, if its name is in the manifest, a muted, looping, `playsinline`
+   `<video>` is created; otherwise nothing happens and the canvas animation keeps running.
+3. When the video can play, it fades in over the canvas and the canvas animation stops to
+   save battery.
+4. If the visitor has `prefers-reduced-motion` set, no video is requested at all and the
+   poster image is used instead.
 
 That last point matters: these are decorative background loops, and a visitor who has asked
 their operating system for less motion should not be served an autoplaying video regardless

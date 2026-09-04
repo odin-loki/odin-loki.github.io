@@ -34,6 +34,7 @@ BASIS = {
 RESEARCH = [
 {
   'slug': 'aria-aead',
+  'seo_title': 'ARIA — nonce-free AEAD | Imortek Research',
   'name': 'ARIA',
   'title': 'ARIA — an AEAD scheme that cannot lose nonce synchronisation',
   'field': 'Cryptography',
@@ -73,6 +74,7 @@ RESEARCH = [
 },
 {
   'slug': 'compression',
+  'seo_title': 'Izaac, GRIA & NMP — compression | Imortek Research',
   'name': 'Izaac · GRIA · NMP',
   'title': 'Three frameworks for compression under one vocabulary',
   'field': 'Information theory',
@@ -112,6 +114,7 @@ RESEARCH = [
 },
 {
   'slug': 'uhpm',
+  'seo_title': 'UHPM — unified hash-predictive memory | Imortek',
   'name': 'UHPM',
   'title': 'UHPM — memory retrieval and inference under one loss function',
   'field': 'AI & machine learning',
@@ -151,6 +154,7 @@ RESEARCH = [
 },
 {
   'slug': 'neural-decompiler',
+  'seo_title': 'Neural Decompiler — research | Imortek',
   'name': 'Neural Decompiler',
   'title': 'Neural Decompiler — decompilation as conditional sequence modelling',
   'field': 'AI & machine learning',
@@ -190,6 +194,7 @@ RESEARCH = [
 },
 {
   'slug': 'modelling-aes',
+  'seo_title': 'Modelling AES — two negative results | Imortek',
   'name': 'Modelling AES',
   'title': 'Modelling AES — two neural attacks, both honestly negative',
   'field': 'Cryptography',
@@ -229,6 +234,7 @@ RESEARCH = [
 },
 {
   'slug': 'gf2-algebra',
+  'seo_title': 'GF(2) algebra — seven papers | Imortek Research',
   'name': 'GF(2) Algebra',
   'title': 'GF(2) algebra — seven papers on the smallest interesting field',
   'field': 'Mathematics',
@@ -266,6 +272,7 @@ RESEARCH = [
 },
 {
   'slug': 'asset-tracking',
+  'seo_title': 'ARIA-INTEL — multi-source tracking | Imortek',
   'name': 'ARIA-INTEL',
   'title': 'ARIA-INTEL — multi-source tracking to actionable intelligence, on one CPU core',
   'field': 'Tracking & sensors',
@@ -309,6 +316,7 @@ RESEARCH = [
 },
 {
   'slug': 'filtering',
+  'seo_title': 'GH-SR-IMM — heavy-tailed tracking | Imortek',
   'name': 'GH-SR-IMM',
   'title': 'GH-SR-IMM — separating heavy tails from manoeuvre',
   'field': 'Tracking & sensors',
@@ -349,12 +357,13 @@ RESEARCH = [
 },
 {
   'slug': 'physics',
+  'seo_title': 'NLFGN-UFT — non-local gravity | Imortek Research',
   'name': 'NLFGN-UFT',
   'title': 'Non-local field-gravity, and an argument about superluminal recession',
   'field': 'Physics',
   'tier': 'speculative',
   'folder': 'Physics',
-  'blurb': 'A variational non-local gravity programme that keeps causal messaging at speeds ≤ c, paired with an essay arguing that superluminal recession is an interpretational split rather than a failure of ΛCDM.',
+  'blurb': 'A variational non-local gravity programme keeping causal messaging at speeds ≤ c, plus an essay arguing superluminal recession is an interpretational split, not a failure of ΛCDM.',
   'lede': 'Two papers with very different confidence levels. One is a speculative unification programme grounded in a stated variational action, with its couplings admittedly unpinned. The other is a careful essay arguing that the "galaxies receding faster than light" dispute is a disagreement between rigorous GR positions, not evidence that anything is broken.',
   'what': [
     '<strong>NLFGN-UFT</strong> proposes a non-local gravity theory that retains causal messaging at speeds ≤ c — explicitly distinguished from folklore "instantaneous non-locality". The field decomposes as <code>φ = φ_f + φ_e + φ_int + Σ φ_subtle + ΣΣ φ_network</code>, with advanced and retarded kernels whose exponential decay is parameterised by <code>λ = ℏ/(m·v_field)</code>. Newton, Friedmann and growth equations are modified to carry network contributions, and the quantum state is composite: <code>|Ψ⟩ = |ψ_base⟩ ⊗ |ψ_network⟩ ⊗ |ψ_subtle⟩</code>.',
@@ -388,6 +397,7 @@ RESEARCH = [
 },
 {
   'slug': 'carbide',
+  'seo_title': 'HX-70 GradePlex — HRC 40–70 tooling | Imortek',
   'name': 'HX-70 GradePlex',
   'title': 'Carbide tooling for HRC 40–70, where WC-Co gives out and CBN is too narrow',
   'field': 'Materials & engineering',
@@ -426,6 +436,7 @@ RESEARCH = [
 },
 {
   'slug': 'economics',
+  'seo_title': 'EREM & SPX — energy wealth, market risk | Imortek',
   'name': 'EREM · SPX',
   'title': 'Wealth measured in megajoules, and a structural read on SPX call volume',
   'field': 'Policy & economics',
@@ -464,6 +475,7 @@ RESEARCH = [
 },
 {
   'slug': 'fungal',
+  'seo_title': 'Fungal Network Algorithm | Imortek Research',
   'name': 'Fungal Network Algorithm',
   'title': 'Topology as memory — a network that stores history in its own shape',
   'field': 'AI & machine learning',

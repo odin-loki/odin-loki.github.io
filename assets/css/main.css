@@ -122,10 +122,16 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
 .center { text-align: center; }
 .skip-link {
-  position: absolute; left: -9999px; top: 0; z-index: 999;
-  background: var(--teal); color: #04231f; padding: 10px 18px; border-radius: 0 0 var(--r) 0; font-weight: 600;
+  position: absolute; top: 0; left: 0; z-index: 999;
+  background: var(--teal); color: #04231f; padding: 10px 18px;
+  border-radius: 0 0 var(--r) 0; font-weight: 600;
+  /* Hidden without pushing the scroll box sideways. */
+  width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap;
 }
-.skip-link:focus { left: 0; }
+.skip-link:focus {
+  width: auto; height: auto; overflow: visible; clip: auto; clip-path: none;
+}
 
 /* ---------- Typography helpers ---------- */
 .eyebrow {
@@ -888,3 +894,60 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
   .chess-evalbar { width: 10px; }
   .cand { grid-template-columns: 46px 1fr 46px; gap: 8px; }
 }
+
+/* ---------- Portrait ---------- */
+.portrait { position: relative; max-width: 420px; }
+.portrait img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow-3);
+  filter: saturate(.92) contrast(1.03);
+}
+.portrait::after {
+  content: ""; position: absolute; inset: 0; border-radius: var(--r-lg); pointer-events: none;
+  background: linear-gradient(180deg, rgba(94,234,212,.06) 0%, transparent 30%,
+              rgba(6,8,11,.55) 100%);
+}
+.portrait__tag {
+  position: absolute; left: 16px; bottom: 14px; z-index: 1;
+  display: grid; gap: 1px;
+}
+.portrait__tag .mono { color: var(--ink); font-size: .92rem; font-weight: 500; }
+@media (max-width: 940px) { .portrait { max-width: 300px; margin-inline: auto; } }
+
+/* ---------- Figure with caption ---------- */
+.figure { margin: 0; }
+.figure img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--line-2); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-2);
+}
+.figure figcaption {
+  margin-top: 12px; font-size: .82rem; color: var(--ink-mute); line-height: 1.55;
+}
+
+
+/* ==========================================================================
+   Overflow containment
+   Grid and flex items default to min-width:auto, which lets an
+   overflow-x:auto descendant — a code block, a wide table — push the whole
+   track wider than the viewport. Opting out is what keeps the page from
+   scrolling sideways on a phone.
+   ========================================================================== */
+.grid > *,
+.split > *,
+.flagship > *,
+.demo__split > *,
+.footer__grid > *,
+.hero__grid > *,
+.rgrid > *,
+.controls > *,
+.readout > * { min-width: 0; }
+
+.table-scroll, .code, .term, .log, .demo__stage, .demo__side { min-width: 0; max-width: 100%; }
+.code { overflow-x: auto; }
+.spec__v, .verdict__op, .feed__desc { min-width: 0; overflow-wrap: anywhere; }
+
+/* The marquee is deliberately wider than the viewport; its clip is the point. */
+.marquee { overflow: hidden; }

@@ -94,7 +94,9 @@ assets/js/site.js   nav, scroll, reveal, hero canvas, live GitHub stats, video s
 assets/js/demos/    one file per interactive demo
 assets/js/chess/    engine, features, Cypha head
 assets/data/        distilled chess weights
-assets/video/       optional Runway clips (see docs/VIDEO-SCRIPTS.md)
+assets/video/       optional Runway clips + generated manifest.json
+assets/img/people/  portrait
+assets/img/pbsd/    the port mascot
 *.html              generated — do not edit
 ```
 
@@ -107,6 +109,10 @@ assets/video/       optional Runway clips (see docs/VIDEO-SCRIPTS.md)
   requested.
 - Live GitHub data is fetched client-side and cached for 45 minutes; static fallbacks in the
   HTML mean the page reads correctly if the API is unavailable.
+- Social cards: `assets/img/og.png` site-wide, overridden per page by convention if
+  `assets/img/og-<slug>.jpg` exists (PBSD and the Kickstarter have their own).
+- `./tools/build.sh` also regenerates `sitemap.xml` inputs and the video manifest, so run it
+  after adding pages or clips.
 
 ## Licence
 

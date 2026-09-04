@@ -18,6 +18,14 @@ emit_head() {
   local title="$1" desc="$2" slug="$3" extra_css="$4" og_type="$5"
   local canon="$SITE_URL/"
   [[ "$slug" != "index" ]] && canon="$SITE_URL/$slug.html"
+
+  # Per-page social card by convention: assets/img/og-<slug>.jpg overrides the
+  # site-wide card if it exists.
+  local og_img="$SITE_URL/assets/img/og.png"
+  local og_base="${slug##*/}"
+  if [[ -f "assets/img/og-${og_base}.jpg" ]]; then
+    og_img="$SITE_URL/assets/img/og-${og_base}.jpg"
+  fi
   cat <<HEAD
 <!DOCTYPE html>
 <html lang="en">
@@ -36,11 +44,11 @@ emit_head() {
 <meta property="og:title" content="$title">
 <meta property="og:description" content="$desc">
 <meta property="og:url" content="$canon">
-<meta property="og:image" content="$SITE_URL/assets/img/og.png">
+<meta property="og:image" content="$og_img">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$desc">
-<meta name="twitter:image" content="$SITE_URL/assets/img/og.png">
+<meta name="twitter:image" content="$og_img">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -196,23 +204,23 @@ PAGES=(
 "aegis~AEGIS — metadata-hiding transport for consortiums | Imortek~Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.~~<script src=\"/assets/js/demos/aegis.js\" defer></script>~product"
 "sentinel~SENTINEL — crime analytics and investigative leads | Imortek~A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.~~<script src=\"/assets/js/demos/sentinel.js\" defer></script>~product"
 "cellai~Cell AI — a reaction-diffusion sequence model | Imortek~A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.~~<script src=\"/assets/js/demos/cellai.js\" defer></script>~product"
-"chess~Play chess against Cypha | Imortek~Cypha distilled from a real chess engine — tens of thousands of positions labelled with the engine's own search evaluations, fitted with WorldPrior whitening and natural-gradient updates. Play it in your browser.~~<script src=\"/assets/js/chess/engine.js\" defer></script><script src=\"/assets/js/chess/features.js\" defer></script><script src=\"/assets/js/chess/cypha.js\" defer></script><script src=\"/assets/js/demos/chess.js\" defer></script>~product"
+"chess~Play chess against Cypha | Imortek~Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.~~<script src=\"/assets/js/chess/engine.js\" defer></script><script src=\"/assets/js/chess/features.js\" defer></script><script src=\"/assets/js/chess/cypha.js\" defer></script><script src=\"/assets/js/demos/chess.js\" defer></script>~product"
 "kickstarter~Back ParanoidBSD — the PBSD Kickstarter | Imortek~ParanoidBSD is porting a hardened BSD to C++23. The campaign funds the AI credits and verification compute that finish the port. Pre-launch — get notified.~~<script src=\"/assets/js/demos/funding.js\" defer></script>~website"
 "research~Research shelf — cryptography, AI, physics, materials | Imortek~Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.~~<script src=\"/assets/js/demos/research.js\" defer></script>~website"
 "licensing~Licensing — AGPL-3.0+ and commercial terms | Imortek~Free under AGPL-3.0+ for personal use, charity, education and organisations under AUD 50,000/yr. Tiered commercial licence above that. Work out which applies to you.~~<script src=\"/assets/js/demos/licence.js\" defer></script>~website"
 "about~About Imortek and Odin Loch | Imortek~A one-person research and systems engineering practice in Sydney, Australia. What Imortek is, how it works, and how to get in touch.~~~profile"
-"research/aria-aead~ARIA — an AEAD scheme that cannot lose nonce synchronisation | Imortek Research~Authenticated encryption that derives the nonce from the message and session key instead of transmitting it, making sender/receiver drift structurally impossible.~~~article"
-"research/compression~Three frameworks for compression under one vocabulary | Imortek Research~Shared-PRF coordination, graded reversibility, and neural networks treated as measurable compression operators — unified under one information-theoretic vocabulary.~~~article"
-"research/uhpm~UHPM — memory retrieval and inference under one loss function | Imortek Research~Locality-sensitive-hash memory and hierarchical predictive coding unified under a single free-energy functional, reporting a 289× query-latency speedup over full attention at 100K tokens.~~~article"
-"research/neural-decompiler~Neural Decompiler — decompilation as conditional sequence modelling | Imortek Research~An encoder–decoder Transformer with hierarchical memory and a load-balanced mixture of experts, reframing assembly-to-source recovery as a sequence modelling problem.~~~article"
-"research/modelling-aes~Modelling AES — two neural attacks, both honestly negative | Imortek Research~A paired study attacking AES-128 from both directions with neural networks, reporting that neither works — and quantifying exactly how far short each falls.~~~article"
-"research/gf2-algebra~GF(2) algebra — seven papers on the smallest interesting field | Imortek Research~From an exhaustive enumeration of all 16 binary operations to permutation polynomials, circuit optimisation and differentiable logic gates — including a uniqueness theorem for AND.~~~article"
-"research/asset-tracking~ARIA-INTEL — multi-source tracking to actionable intelligence, on one CPU core | Imortek Research~A PMBM random-finite-set tracker with pattern-of-life modelling, eight tradecraft detectors and Bayesian threat scoring — 2,363 lines, NumPy and SciPy only, 28 ms per scan.~~~article"
-"research/filtering~GH-SR-IMM — separating heavy tails from manoeuvre | Imortek Research~A heavy-tailed multi-target tracker that decouples outlier robustness from manoeuvre handling, reporting a 51.6% average GOSPA improvement.~~<script src=\"/assets/js/demos/filtering.js\" defer></script>~article"
-"research/physics~Non-local field-gravity, and an argument about superluminal recession | Imortek Research~A variational non-local gravity programme that keeps causal messaging at speeds ≤ c, paired with an essay arguing that superluminal recession is an interpretational split rather than a failure of ΛCDM.~~~article"
-"research/carbide~Carbide tooling for HRC 40–70, where WC-Co gives out and CBN is too narrow | Imortek Research~A functionally-graded carbide substrate, a five-layer coating stack, and a forge-to-machine supply chain — targeting the gap between where conventional inserts fail and where CBN geometries exist.~~~article"
-"research/economics~Wealth measured in megajoules, and a structural read on SPX call volume | Imortek Research~Two lines: recasting national wealth into physical energy units to break the circular dependency on monetary institutions, and five models converging on a 2028–2029 window for a gamma unwind.~~~article"
-"research/fungal~Topology as memory — a network that stores history in its own shape | Imortek Research~A bio-inspired self-organising network where edges and weights are the consequence of input history rather than the storage medium, growing and pruning by purely local rules.~~~article"
+"research/aria-aead~ARIA — nonce-free AEAD | Imortek Research~Authenticated encryption that derives the nonce from the message and session key instead of transmitting it, making sender/receiver drift structurally impossible.~~~article"
+"research/compression~Izaac, GRIA & NMP — compression | Imortek Research~Shared-PRF coordination, graded reversibility, and neural networks treated as measurable compression operators — unified under one information-theoretic vocabulary.~~~article"
+"research/uhpm~UHPM — unified hash-predictive memory | Imortek~Locality-sensitive-hash memory and hierarchical predictive coding unified under a single free-energy functional, reporting a 289× query-latency speedup over full attention at 100K tokens.~~~article"
+"research/neural-decompiler~Neural Decompiler — research | Imortek~An encoder–decoder Transformer with hierarchical memory and a load-balanced mixture of experts, reframing assembly-to-source recovery as a sequence modelling problem.~~~article"
+"research/modelling-aes~Modelling AES — two negative results | Imortek~A paired study attacking AES-128 from both directions with neural networks, reporting that neither works — and quantifying exactly how far short each falls.~~~article"
+"research/gf2-algebra~GF(2) algebra — seven papers | Imortek Research~From an exhaustive enumeration of all 16 binary operations to permutation polynomials, circuit optimisation and differentiable logic gates — including a uniqueness theorem for AND.~~~article"
+"research/asset-tracking~ARIA-INTEL — multi-source tracking | Imortek~A PMBM random-finite-set tracker with pattern-of-life modelling, eight tradecraft detectors and Bayesian threat scoring — 2,363 lines, NumPy and SciPy only, 28 ms per scan.~~~article"
+"research/filtering~GH-SR-IMM — heavy-tailed tracking | Imortek~A heavy-tailed multi-target tracker that decouples outlier robustness from manoeuvre handling, reporting a 51.6% average GOSPA improvement.~~<script src=\"/assets/js/demos/filtering.js\" defer></script>~article"
+"research/physics~NLFGN-UFT — non-local gravity | Imortek Research~A variational non-local gravity programme keeping causal messaging at speeds ≤ c, plus an essay arguing superluminal recession is an interpretational split, not a failure of ΛCDM.~~~article"
+"research/carbide~HX-70 GradePlex — HRC 40–70 tooling | Imortek~A functionally-graded carbide substrate, a five-layer coating stack, and a forge-to-machine supply chain — targeting the gap between where conventional inserts fail and where CBN geometries exist.~~~article"
+"research/economics~EREM & SPX — energy wealth, market risk | Imortek~Two lines: recasting national wealth into physical energy units to break the circular dependency on monetary institutions, and five models converging on a 2028–2029 window for a gamma unwind.~~~article"
+"research/fungal~Fungal Network Algorithm | Imortek Research~A bio-inspired self-organising network where edges and weights are the consequence of input history rather than the storage medium, growing and pruning by purely local rules.~~~article"
 "404~Page not found | Imortek~That page does not exist. Head back to the Imortek homepage.~~~website"
 )
 
@@ -233,5 +241,21 @@ for row in "${PAGES[@]}"; do
   count=$((count+1))
   printf '  built %-18s %6s bytes\n' "$out" "$(wc -c < "$out")"
 done
+
+# Video manifest — the site only requests clips that actually exist here.
+mkdir -p assets/video
+{
+  printf '['
+  first=1
+  for f in assets/video/*.mp4; do
+    [[ -e "$f" ]] || continue
+    name="$(basename "$f" .mp4)"
+    [[ $first -eq 1 ]] || printf ','
+    printf '"%s"' "$name"
+    first=0
+  done
+  printf ']'
+} > assets/video/manifest.json
+echo "  video manifest: $(cat assets/video/manifest.json)"
 
 echo "Built $count pages at $BUILT"
