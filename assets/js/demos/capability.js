@@ -232,9 +232,10 @@
   /* ---------- Canvas ---------- */
 
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 300;
+  var W = 0, H_PREF = 300, H = H_PREF;
 
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     var w = canvas.clientWidth || canvas.parentNode.clientWidth;
     W = w;
     canvas.width = Math.floor(w * dpr);

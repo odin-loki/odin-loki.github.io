@@ -100,6 +100,37 @@ assets/img/pbsd/    the port mascot
 *.html              generated — do not edit
 ```
 
+## Responsive behaviour
+
+The layout adapts across three regimes rather than just collapsing at one breakpoint.
+
+| Viewport | Behaviour |
+|---|---|
+| 320–420px | 16px gutters, buttons wrap and go full-width, grid floors use `min(100%, Npx)` so a 300px card never forces a 320px screen to scroll |
+| 420–1024px | Fluid single and two-column grids; demo side panels stack under their canvas |
+| 1024–1440px | 1200px container, 16px root |
+| 1600px+ | Container grows to 1560px and the root font eases 16px → 19px, so everything sized in `rem` scales with it rather than stranding a narrow column on a large display |
+| Short/landscape (`max-height: 560px`) | Header un-sticks, section padding halves, and demo canvases size to ~66% of viewport height instead of a fixed 380–400px |
+| `pointer: coarse` | Chips, segmented controls, switches and range thumbs all enlarge |
+
+Canvas demos call `window.ImortekFitHeight(preferred)` (in `site.js`) rather than hard-coding
+a height, which is what keeps a 400px canvas from exceeding a 390px-tall landscape phone.
+
+Verified across **260 page/viewport combinations** (26 pages × 10 sizes from 320×568 to
+2560×1440, including 844×390 landscape): no horizontal overflow and no page errors anywhere.
+Re-run it yourself:
+
+```bash
+npm i -D playwright              # once
+python3 -m http.server 8123 &
+node tools/qa/responsive-audit.js
+```
+
+It exits non-zero on any failure, so it drops straight into CI if you ever want it there.
+
+There is also a print stylesheet: chrome, demos and decorative canvases drop out, and the
+page prints dark-on-white.
+
 ## Conventions
 
 - No trackers, no cookies, no analytics, no third-party scripts. The only external request

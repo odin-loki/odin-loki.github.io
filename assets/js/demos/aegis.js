@@ -16,7 +16,7 @@
 
   var canvas = document.getElementById('ae-canvas');
   var ctx = canvas.getContext('2d');
-  var W = 0, H = 400, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H_PREF = 400, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   var N = 5;
   var NAMES = ['Alice', 'Bob', 'Carol', 'Dave', 'Erin'];
@@ -146,6 +146,7 @@
 
   /* ---------- Rendering ---------- */
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     W = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);

@@ -24,7 +24,7 @@
     { id: 2, name: 'Class C', col: '#fbbf24', rgb: [251, 191, 36] }
   ];
 
-  var W = 0, H = 380, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H_PREF = 380, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
   var samples = [];         // { x, y, k }   in normalised [0,1] space
   var active = 0;
   var useRFF = false;
@@ -194,6 +194,7 @@
   var surfaceCache = null, surfaceKey = '';
 
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     W = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);

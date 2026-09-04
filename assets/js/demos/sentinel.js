@@ -14,7 +14,7 @@
 
   var canvas = document.getElementById('sn-canvas');
   var ctx = canvas.getContext('2d');
-  var W = 0, H = 380, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H_PREF = 380, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   var points = [];            // {x, y} in [0,1]
   var model = 'kde';
@@ -108,6 +108,7 @@
 
   /* ---------- Rendering ---------- */
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     W = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);

@@ -503,5 +503,14 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 
+  /* Demo canvases pick their height from the viewport rather than a constant,
+     so a phone held sideways does not get a canvas taller than the screen. */
+  window.ImortekFitHeight = function (preferred) {
+    var vh = window.innerHeight || 800;
+    var vw = window.innerWidth || 1024;
+    var cap = vh * (vw < 900 && vh < 620 ? 0.66 : 0.74);   // short/landscape gets less
+    return Math.round(Math.max(190, Math.min(preferred, cap)));
+  };
+
   window.ImortekReduced = reduced;
 })();

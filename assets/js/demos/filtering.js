@@ -14,7 +14,7 @@
 
   var canvas = document.getElementById('filt-canvas');
   var ctx = canvas.getContext('2d');
-  var W = 0, H = 340, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H_PREF = 340, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   var outlierRate = 0.12, sensorNoise = 0.02, manoeuvre = 1.0, show = 'both';
   var truth = [], meas = [], estG = [], estH = [], rmseG = 0, rmseH = 0;
@@ -124,6 +124,7 @@
 
   /* ---------- Draw ---------- */
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     W = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);

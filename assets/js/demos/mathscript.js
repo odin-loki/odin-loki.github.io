@@ -337,7 +337,7 @@
   var ctx = canvas.getContext('2d');
   var derivEl = document.getElementById('ms-deriv');
   var resultEl = document.getElementById('ms-result');
-  var W = 0, H = 320, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H_PREF = 320, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
   var range = 6;
 
   var EXAMPLES = [
@@ -350,6 +350,7 @@
   ];
 
   function sizeCanvas() {
+    H = window.ImortekFitHeight ? window.ImortekFitHeight(H_PREF) : H_PREF;
     W = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);

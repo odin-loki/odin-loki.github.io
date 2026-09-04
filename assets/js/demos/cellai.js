@@ -116,7 +116,7 @@
     }
     octx.putImageData(img, 0, 0);
     ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(off, 0, 0, canvas.clientWidth, 380);
+    ctx.drawImage(off, 0, 0, canvas.clientWidth, CA_H);
   }
 
   function renderPartitions() {
@@ -252,12 +252,14 @@
   });
   document.getElementById('ca-reset').addEventListener('click', seed);
 
+  var CA_H_PREF = 380, CA_H = CA_H_PREF;
   function sizeCanvas() {
+    CA_H = window.ImortekFitHeight ? window.ImortekFitHeight(CA_H_PREF) : CA_H_PREF;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var w = canvas.clientWidth || canvas.parentNode.clientWidth;
     canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(380 * dpr);
-    canvas.style.height = '380px';
+    canvas.height = Math.floor(CA_H * dpr);
+    canvas.style.height = CA_H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   window.addEventListener('resize', function () { sizeCanvas(); render(); });
