@@ -1,0 +1,131 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Electronics <span style="opacity:.5">/</span> Hybrid components
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Electronics</span>
+        <h1>Circuit elements that are analogue and digital in the same device</h1>
+        <p class="lede">Mixed-signal design converts between analogue and digital. These components do not convert: memristive drift, Josephson quantisation and phase-change switching are physically continuous and discrete at once, in the same element. The folder builds a simulation framework for them and then audits itself hard enough to publish a bug register.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--blue">Reference implementation</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/New%20Classes%20of%20Electrical%20Components" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="reference"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Code exists and runs. Performance not independently checked.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">New Classes of Electrical Components</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Electronics</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Reference framework with a complete self-audit and published bug register.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Memristors, Josephson junctions, GMR and phase-change elements simulated across six phases — with a self-audit that found and published seven bugs in its own framework.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The component models are grounded in real device physics: the Strukov&ndash;Williams memristor with its R(w) and parabolic window f(w) = 1−(2w/D−1)², Josephson junctions at f = V/Φ₀ = 0.4836 GHz/µV with a Stewart&ndash;McCumber parameter β<sub>c</sub> = 0.076 (overdamped, no hysteresis), giant-magnetoresistance elements under a Stoner&ndash;Wohlfarth approximation, and phase-change memory as a thresholded two-state switch.</p>
+      <p class="dim">The framework runs six phases: foundation models, advanced models, a modified-nodal-analysis circuit solver, GPU acceleration, application engines, and an EDA export layer producing SPICE and Verilog-AMS. Verification is done by executing every code block and checking each physics claim against first-principles derivation and literature values &mdash; not by inspection.</p>
+      <p class="dim">The result is a document that mostly reports on itself. <strong>Seven bugs</strong> were found and registered, including a 10× error in the quantum-tunnelling-resistance alpha constant that made the modelled conductance unmeasurable, and a drift formula using Ron/D² where Strukov&ndash;Williams uses Ron/D &mdash; a factor of 10⁸ in absolute timescale, consistent throughout the framework and therefore invisible until someone checked it against the original.</p>
+    </div>
+    <div class="note  reveal" style="margin-top:28px">
+      <strong>A published bug register is a quality signal.</strong> Most simulation work reports what worked. This one executed every code block, checked every physics claim against first principles, found seven errors including one that made a modelled conductance ten orders of magnitude off, and published all of them with fixes. The drift-formula finding is the instructive one: it was consistent everywhere, so nothing looked wrong until someone compared it to the 1975 original.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/hybrid-components.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Bugs found and published</td><td class="mono" style="color:var(--ink)">7</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Full register, all single-value or formula-level fixes</td></tr>
+          <tr><td>Josephson frequency constant</td><td class="mono" style="color:var(--ink)">0.4836 GHz/µV</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Verified from 2eV/h = 483.6 MHz/µV</td></tr>
+          <tr><td>Stewart–McCumber parameter</td><td class="mono" style="color:var(--ink)">β_c = 0.076</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Overdamped — no hysteresis, as modelled</td></tr>
+          <tr><td>Memristor R(w) / f(w)</td><td class="mono" style="color:var(--ink)">verified at 5 boundary values</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Python and SPICE export agree at every test point</td></tr>
+          <tr><td>Drift-formula discrepancy</td><td class="mono" style="color:var(--ink)">10⁸× vs Strukov–Williams</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Code uses Ron/D²; original uses Ron/D</td></tr>
+          <tr><td>QTR alpha constant error</td><td class="mono" style="color:var(--ink)">10×</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">α = 10.25e9 → 1.025e9 m⁻¹ eV⁻⁰·⁵; fixes G₀ to 7.7e−5 S</td></tr>
+          <tr><td>Radau IIA step-count reduction</td><td class="mono" style="color:var(--ink)">21,032× vs backward Euler</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">~7,000× net after 3× per-step cost</td></tr>
+          <tr><td>Adjoint gradient accuracy</td><td class="mono" style="color:var(--ink)">0.0002% vs numerical</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">dL/dR check</td></tr>
+          <tr><td>Shared-memory budget at n = 32</td><td class="mono" style="color:var(--ink)">4.2 KB &lt; 48 KB</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Fits entirely on-chip per SM</td></tr>
+          <tr><td>GPU throughput figures</td><td class="mono" style="color:var(--ink)">unverified</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">RTX 3090 numbers require hardware the audit did not have</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Modified nodal analysis solver.</strong> The circuit-level backbone, verified independently of the component models.</li>
+          <li><strong>Warp-sorted GPU state machine.</strong> States sorted so each warp is homogeneous, eliminating the 4× SIMT divergence penalty; inverse permutation verified at zero error.</li>
+          <li><strong>Coalesced memory layout.</strong> (n,n,N) rather than (N,n,n) — one transaction per warp instead of a 64× penalty.</li>
+          <li><strong>EDA export layer.</strong> SPICE and Verilog-AMS emission, cross-checked against the Python models at every test point.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>The memristor drift timescale is unphysical by a factor of 10⁸. It is self-consistent across the framework, so relative behaviour is fine and absolute timing is not.</li>
+          <li>GPU throughput claims — 2.3 TOPS LU, 180 µs batched Euler, 48 ns real-time — could not be verified without the hardware. They remain document claims.</li>
+          <li>IBIS export cannot represent hysteretic I–V at all; the standard assumes an LTI port. Valid only for single-state characterisation.</li>
+          <li>Two of the seven bugs are in the Phase 4 application engines, which means those results need re-running.</li>
+          <li>No physical devices were fabricated or measured. This is simulation throughout.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/New%20Classes%20of%20Electrical%20Components" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

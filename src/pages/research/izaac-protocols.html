@@ -1,0 +1,128 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Information theory <span style="opacity:.5">/</span> Izaac protocols
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Information theory</span>
+        <h1>Twelve protocols built on one primitive: randomness both sides already have</h1>
+        <p class="lede">If two parties hold the same compact state σ, they can each derive the same arbitrarily long pseudorandom sequence with no communication at all. The theoretical paper argues that this is information-theoretically equivalent to a free broadcast channel with zero latency, which collapses a surprising number of communication lower bounds at once. The applications paper turns that into twelve engineering specifications.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--amber">Design document</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Izaac%20as%20Side%20Data" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="design"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Specified in detail; implementation partial or absent.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Izaac as Side Data</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Information theory</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design documents with reference Python. No external cryptographic review.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>A compact shared cryptographic state σ acts as a free broadcast channel — and twelve concrete protocols, from Byzantine consensus to coordinated differential privacy, are derived from that one observation.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The primitive is deliberately small: a shared state σ ∈ {0,1}<sup>S</sup> from which both parties compute identical streams locally. The <strong>meta-theorem</strong> is that shared deterministic randomness behaves like a broadcast channel that costs nothing to use &mdash; and that this is why so many barriers in distributed computing, cryptography and information theory fall to the same trick.</p>
+      <p class="dim">Five consequences are proved in the theoretical paper: Byzantine consensus with <em>zero</em> post-setup communication while still tolerating f &lt; n/3 faults, matching PBFT’s optimal fault tolerance without its O(n²) messages; compression below the unconditional entropy limit via shared side information; single-round verifiable random functions; non-interactive multi-party computation with privacy by simulation and correctness by mask cancellation; and space-optimal probabilistic data structures.</p>
+      <p class="dim">The companion paper specifies twelve protocols at production-engineering detail &mdash; blockchain leader election, privacy-preserving analytics, deterministic consensus, shared-hash Bloom-style structures, reproducible Monte Carlo with O(log n) fast-forward, coordinated differential privacy, deterministic coverage-guided fuzzing, trading-backtest commitment for regulators, lazy infinite structures from compact seeds, content-addressed replica placement, synchronised rate limiting without datacentre coordination, and collision-free MAC scheduling. Each carries a formal security claim, a complexity analysis and a worked example.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>The setup assumption is doing the work.</strong> A free broadcast channel is a very strong primitive, and the price of it is that σ must be distributed securely and kept synchronised. Every result in both papers is conditional on that. The honest reading is not "consensus is free" but "consensus is free once you have solved a different distribution problem, and here is exactly what you get for solving it".
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/izaac-protocols.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Byzantine fault tolerance</td><td class="mono" style="color:var(--ink)">f &lt; n/3</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Matches PBFT’s optimum</td></tr>
+          <tr><td>Post-setup communication for consensus</td><td class="mono" style="color:var(--ink)">zero</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Against PBFT’s O(n²) messages</td></tr>
+          <tr><td>Compression with shared side information</td><td class="mono" style="color:var(--ink)">≈1.2 bits/char, English text</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Against a no-side-information baseline</td></tr>
+          <tr><td>Shared-state size</td><td class="mono" style="color:var(--ink)">Θ(λ + log k)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Compact: the whole point of the construction</td></tr>
+          <tr><td>Fast-forward cost</td><td class="mono" style="color:var(--ink)">O(log n); O(1) in CTR mode</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Property of the σ construction</td></tr>
+          <tr><td>Protocols specified</td><td class="mono" style="color:var(--ink)">12</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Each with a security claim and complexity analysis</td></tr>
+          <tr><td>VRF rounds</td><td class="mono" style="color:var(--ink)">single</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Satisfying uniqueness, pseudorandomness and verifiability</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Shared deterministic stream σ.</strong> Both parties derive identical randomness locally from a compact state — no messages, no latency.</li>
+          <li><strong>Free-broadcast meta-theorem.</strong> The unifying claim: shared randomness is information-theoretically a free broadcast channel.</li>
+          <li><strong>Mask cancellation.</strong> The NI-MPC correctness mechanism — masks derived from σ cancel exactly when the parties combine shares.</li>
+          <li><strong>Formal reductions.</strong> Every construction reduced to standard assumptions: PRF security and collision resistance.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Everything depends on secure setup of σ. Compromise it and every protocol in the suite fails at once, predictably rather than gracefully.</li>
+          <li>The sub-entropy compression is a Wyner–Ziv side-information result. Beating a no-side-information baseline given side information is expected, not a broken bound.</li>
+          <li>"Zero communication" covers the post-setup steady state. Distributing σ, rotating it, and recovering from a fork all cost messages the analysis does not price.</li>
+          <li>Protocol specifications are engineering references with reference Python. No production deployment or third-party security review.</li>
+          <li>The consensus tables underspecify: leader selection needs no messages, but proposal propagation still does.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Izaac%20as%20Side%20Data" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

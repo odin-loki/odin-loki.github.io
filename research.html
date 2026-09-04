@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Research shelf — cryptography, AI, physics, materials | Imortek</title>
-<meta name="description" content="Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
+<meta name="description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="theme-color" content="#06080b">
 <meta name="color-scheme" content="dark">
@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Research shelf — cryptography, AI, physics, materials | Imortek">
-<meta property="og:description" content="Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
+<meta property="og:description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
 <meta property="og:url" content="https://imortek.com.au/research.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Research shelf — cryptography, AI, physics, materials | Imortek">
-<meta name="twitter:description" content="Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
+<meta name="twitter:description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
@@ -26,7 +26,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
 <link rel="stylesheet" href="/assets/css/main.css">
 
 </head>
@@ -89,11 +89,12 @@
     <p class="lede">
       This is a shelf, not a product catalogue. Some of it is result-bearing research with
       experiments and numbers. Some of it is a design document. Some of it is speculative and
-      says so in its own README. Twelve areas have a full write-up here, with every claim
-      listed next to the evidence behind it.
+      says so in its own README. Every folder now has a full write-up, drawn from the source
+      papers rather than the folder READMEs, with every claim listed next to the evidence
+      behind it &mdash; including the ones that report a negative result.
     </p>
     <div class="badge-row" style="margin-top:24px">
-      <span class="badge badge--teal">12 full write-ups</span>
+      <span class="badge badge--teal">46 full write-ups</span>
       <span class="badge">46 folders total</span>
       <span class="badge">14 fields</span>
       <span class="badge">AGPL-3.0+ / commercial</span>
@@ -115,39 +116,40 @@
     </div>
     <div class="chips reveal" id="r-filters" style="margin-bottom:12px">
       <button type="button" class="chip" data-field="all" aria-pressed="true">Everything<span class="chip__n">46</span></button>
-      <button type="button" class="chip" data-field="__written" aria-pressed="false">Full write-up<span class="chip__n">12</span></button>
-      <button type="button" class="chip" data-field="AI & machine learning" aria-pressed="false">AI & machine learning<span class="chip__n">7</span></button>
-      <button type="button" class="chip" data-field="Biology & medicine" aria-pressed="false">Biology & medicine<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Chemistry & products" aria-pressed="false">Chemistry & products<span class="chip__n">4</span></button>
+      <button type="button" class="chip" data-field="AI &amp; machine learning" aria-pressed="false">AI &amp; machine learning<span class="chip__n">9</span></button>
+      <button type="button" class="chip" data-field="Biology &amp; medicine" aria-pressed="false">Biology &amp; medicine<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="Chemistry &amp; products" aria-pressed="false">Chemistry &amp; products<span class="chip__n">3</span></button>
       <button type="button" class="chip" data-field="Computer architecture" aria-pressed="false">Computer architecture<span class="chip__n">1</span></button>
       <button type="button" class="chip" data-field="Cryptography" aria-pressed="false">Cryptography<span class="chip__n">3</span></button>
-      <button type="button" class="chip" data-field="Defence & security" aria-pressed="false">Defence & security<span class="chip__n">5</span></button>
+      <button type="button" class="chip" data-field="Defence &amp; security" aria-pressed="false">Defence &amp; security<span class="chip__n">4</span></button>
       <button type="button" class="chip" data-field="Electronics" aria-pressed="false">Electronics<span class="chip__n">2</span></button>
       <button type="button" class="chip" data-field="Information theory" aria-pressed="false">Information theory<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Materials & engineering" aria-pressed="false">Materials & engineering<span class="chip__n">5</span></button>
+      <button type="button" class="chip" data-field="Materials &amp; engineering" aria-pressed="false">Materials &amp; engineering<span class="chip__n">5</span></button>
       <button type="button" class="chip" data-field="Mathematics" aria-pressed="false">Mathematics<span class="chip__n">6</span></button>
       <button type="button" class="chip" data-field="Physics" aria-pressed="false">Physics<span class="chip__n">1</span></button>
-      <button type="button" class="chip" data-field="Policy & economics" aria-pressed="false">Policy & economics<span class="chip__n">4</span></button>
-      <button type="button" class="chip" data-field="Software & languages" aria-pressed="false">Software & languages<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Tracking & sensors" aria-pressed="false">Tracking & sensors<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="Policy &amp; economics" aria-pressed="false">Policy &amp; economics<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Software &amp; languages" aria-pressed="false">Software &amp; languages<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Tracking &amp; sensors" aria-pressed="false">Tracking &amp; sensors<span class="chip__n">2</span></button>
     </div>
     <p class="rcount reveal" style="margin-bottom:24px"><span id="r-count">46</span> of 46 shown</p>
     <div class="rgrid" id="r-grid">
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/100W%20Wideband%20Noise%20Generator" data-field="Electronics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/noise-generator.html" data-field="Electronics" data-written="true">
         <div class="rcard__head">
-          <h3>100W Wideband Noise Generator</h3>
+          <h3>100 W noise generator</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
         <span class="rcard__field">Electronics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">One SystemVerilog file supervising a Chua-circuit analogue core, a four-band PA chain, supply DAC, thermal ADC and a sub-microsecond hard-protection state machine.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/3%20to%208%20Value%20Boolean%20Algebra" data-field="Mathematics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/boolean-dimensions.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>3 to 8 Value Boolean Algebra</h3>
+          <h3>Boolean n = 3…8</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
         <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">A dimension-by-dimension census of Boolean function space from three to eight variables, tracking the fraction of genuinely irreducible functions from roughly a quarter to a virtual ceiling.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/aria-aead.html" data-field="Cryptography" data-written="true">
         <div class="rcard__head">
@@ -158,54 +160,59 @@
         <p style="margin-top:10px">Authenticated encryption that derives the nonce from the message and session key instead of transmitting it, making sender/receiver drift structurally impossible.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Ashby%20Optimiser" data-field="Materials & engineering" data-written="false">
+      <a class="rcard rcard--linked" href="/research/ashby.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>Ashby Optimiser</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">Materials & engineering</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">N isolated search units at geometrically spaced radii, round-robin scheduled, with homeostatic restarts on stagnation — benchmarked honestly against random search and a (1+1)-ES.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/asset-tracking.html" data-field="Tracking & sensors" data-written="true">
+      <a class="rcard rcard--linked" href="/research/asset-tracking.html" data-field="Tracking &amp; sensors" data-written="true">
         <div class="rcard__head">
           <h3>ARIA-INTEL</h3>
           <span class="badge badge--blue">Reference implementation</span>
         </div>
-        <span class="rcard__field">Tracking & sensors</span>
+        <span class="rcard__field">Tracking &amp; sensors</span>
         <p style="margin-top:10px">A PMBM random-finite-set tracker with pattern-of-life modelling, eight tradecraft detectors and Bayesian threat scoring — 2,363 lines, NumPy and SciPy only, 28 ms per scan.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Battle%20Sim" data-field="Defence & security" data-written="false">
+      <a class="rcard rcard--linked" href="/research/battle-sim.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
           <h3>Battle Sim</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Defence & security</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Defence &amp; security</span>
+        <p style="margin-top:10px">A short survey of modern mathematical combat models — Hughes-style discrete salvos, extended Lanchester formulations, Markov-state battle models — with their equations and their caveats.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Beauty%20Products" data-field="Chemistry & products" data-written="false">
+      <a class="rcard rcard--linked" href="/research/hemp-harmony.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
-          <h3>Beauty Products</h3>
+          <h3>Hemp Harmony</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Chemistry & products</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Chemistry &amp; products</span>
+        <p style="margin-top:10px">A three-phase botanical cosmeceutical with every ingredient class substantiated from peer-reviewed clinical, in-vitro and ethnobotanical evidence rather than asserted.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/CPU" data-field="Computer architecture" data-written="false">
+      <a class="rcard rcard--linked" href="/research/cpu.html" data-field="Computer architecture" data-written="true">
         <div class="rcard__head">
           <h3>CPU</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
         <span class="rcard__field">Computer architecture</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">A heterogeneous many-core architecture discussion paired with a SystemVerilog sketch that moves operating-system primitives — context switch, syscall dispatch, page-fault handling — into hardware.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Cocktails" data-field="Chemistry & products" data-written="false">
+      <a class="rcard rcard--linked" href="/research/cocktails.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
-          <h3>Cocktails</h3>
+          <h3>Bar operations</h3>
+          <span class="badge badge--blue">Reference implementation</span>
         </div>
-        <span class="rcard__field">Chemistry & products</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Chemistry &amp; products</span>
+        <p style="margin-top:10px">Four native-botanical bases driving every infusion, syrup and bitters on the menu, with explicit timings, batch ratios, QC checkpoints and shift rhythms.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/compression.html" data-field="Information theory" data-written="true">
         <div class="rcard__head">
@@ -216,72 +223,77 @@
         <p style="margin-top:10px">Shared-PRF coordination, graded reversibility, and neural networks treated as measurable compression operators — unified under one information-theoretic vocabulary.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Diamond%20Batterys" data-field="Materials & engineering" data-written="false">
+      <a class="rcard rcard--linked" href="/research/diamond-battery.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
-          <h3>Diamond Batterys</h3>
+          <h3>Diamond batteries</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Materials & engineering</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Materials &amp; engineering</span>
+        <p style="margin-top:10px">Four design series extrapolating the 2024 Bristol/UKAEA carbon-14 diamond cell toward utility scale, with the 400,000-tonne spent-fuel inventory as the feedstock argument.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Diffusion%20Welding" data-field="Materials & engineering" data-written="false">
+      <a class="rcard rcard--linked" href="/research/ucdw.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
-          <h3>Diffusion Welding</h3>
+          <h3>UCDW</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Materials & engineering</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Materials &amp; engineering</span>
+        <p style="margin-top:10px">Electrochemical ion migration, thermal diffusion and ultrasonic assistance combined in an ionic-liquid substrate, spanning 77% to 99% of parent-metal strength across five operating regimes.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Drugs" data-field="Chemistry & products" data-written="false">
+      <a class="rcard rcard--linked" href="/research/pharma.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
-          <h3>Drugs</h3>
+          <h3>Depot delivery</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Chemistry & products</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Chemistry &amp; products</span>
+        <p style="margin-top:10px">A genuine pharmaceutics playbook — PLGA tuning bands, phase-inversion gels, Higuchi release kinetics, ICH Q8 framing — paired with invented compounds that the folder banner-flags as fiction on every page.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/economics.html" data-field="Policy & economics" data-written="true">
+      <a class="rcard rcard--linked" href="/research/economics.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
           <h3>EREM · SPX</h3>
           <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Policy & economics</span>
+        <span class="rcard__field">Policy &amp; economics</span>
         <p style="margin-top:10px">Two lines: recasting national wealth into physical energy units to break the circular dependency on monetary institutions, and five models converging on a 2028–2029 window for a gamma unwind.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Electromechnical%20Inspired%20Algorithms" data-field="AI & machine learning" data-written="false">
+      <a class="rcard rcard--linked" href="/research/electromechanical.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
-          <h3>Electromechnical Inspired Algorithms</h3>
+          <h3>Babbage · Antikythera · TDC</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Software &amp; languages</span>
+        <p style="margin-top:10px">Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/filtering.html" data-field="Tracking & sensors" data-written="true">
+      <a class="rcard rcard--linked" href="/research/filtering.html" data-field="Tracking &amp; sensors" data-written="true">
         <div class="rcard__head">
           <h3>GH-SR-IMM</h3>
           <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">Tracking & sensors</span>
+        <span class="rcard__field">Tracking &amp; sensors</span>
         <p style="margin-top:10px">A heavy-tailed multi-target tracker that decouples outlier robustness from manoeuvre handling, reporting a 51.6% average GOSPA improvement.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/fungal.html" data-field="AI & machine learning" data-written="true">
+      <a class="rcard rcard--linked" href="/research/fungal.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>Fungal Network Algorithm</h3>
           <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
         <p style="margin-top:10px">A bio-inspired self-organising network where edges and weights are the consequence of input history rather than the storage medium, growing and pruning by purely local rules.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Future%20C%2B%2B" data-field="Software & languages" data-written="false">
+      <a class="rcard rcard--linked" href="/research/future-cpp.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
           <h3>Future C++</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Software & languages</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Software &amp; languages</span>
+        <p style="margin-top:10px">A long design conversation about a compiled language with C++ syntax and modern guarantees — which opens by arguing modern C++ already covers most of the wishlist, then works out what is left.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/gf2-algebra.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
@@ -292,46 +304,50 @@
         <p style="margin-top:10px">From an exhaustive enumeration of all 16 binary operations to permutation polynomials, circuit optimisation and differentiable logic gates — including a uniqueness theorem for AND.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/GM%20Enhancements" data-field="Biology & medicine" data-written="false">
+      <a class="rcard rcard--linked" href="/research/hsa.html" data-field="Biology &amp; medicine" data-written="true">
         <div class="rcard__head">
-          <h3>GM Enhancements</h3>
+          <h3>HSA</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Biology & medicine</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Biology &amp; medicine</span>
+        <p style="margin-top:10px">A three-phase genetic-modification programme written as engineering speculation, with tiered evidentiary disclaimers, a cumulative adverse-event table, and an opening banner declaring it theoretical and worldbuilding only.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/General%20Math%20Papers" data-field="Mathematics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/lcrp.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>General Math Papers</h3>
+          <h3>LCRP</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
         <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">A survey-and-framework paper arguing that a small set of mechanisms — divide and conquer, tree representation, information-theoretic limits — accounts for most quadratic-to-log-linear reductions across seven fields.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Izaac%20as%20Side%20Data" data-field="Information theory" data-written="false">
+      <a class="rcard rcard--linked" href="/research/izaac-protocols.html" data-field="Information theory" data-written="true">
         <div class="rcard__head">
-          <h3>Izaac as Side Data</h3>
+          <h3>Izaac protocols</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
         <span class="rcard__field">Information theory</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">A compact shared cryptographic state σ acts as a free broadcast channel — and twelve concrete protocols, from Byzantine consensus to coordinated differential privacy, are derived from that one observation.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/uhpm.html" data-field="AI & machine learning" data-written="true">
+      <a class="rcard rcard--linked" href="/research/uhpm.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>UHPM</h3>
           <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
         <p style="margin-top:10px">Locality-sensitive-hash memory and hierarchical predictive coding unified under a single free-energy functional, reporting a 289× query-latency speedup over full attention at 100K tokens.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Math%20Question%20Generator" data-field="Mathematics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/math-survey.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>Math Question Generator</h3>
+          <h3>Math survey</h3>
+          <span class="badge badge--blue">Reference implementation</span>
         </div>
         <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">A research-grade survey of number theory through financial mathematics — foundational theory, landmark results of the past decade, open problems, and the cross-domain connections between them.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/modelling-aes.html" data-field="Cryptography" data-written="true">
         <div class="rcard__head">
@@ -342,38 +358,41 @@
         <p style="margin-top:10px">A paired study attacking AES-128 from both directions with neural networks, reporting that neither works — and quantifying exactly how far short each falls.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/NN%20Shortcuts" data-field="AI & machine learning" data-written="false">
+      <a class="rcard rcard--linked" href="/research/nn-shortcuts.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>NN Shortcuts</h3>
+          <h3>SGF · Algebraic Autopsy</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">Every efficient deep-learning technique reduced to one primitive — an online sufficient statistic on a curved manifold — plus a post-hoc diagnostic that reads a trained network’s implicit algebra off its weights.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/neural-decompiler.html" data-field="AI & machine learning" data-written="true">
+      <a class="rcard rcard--linked" href="/research/neural-decompiler.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>Neural Decompiler</h3>
           <span class="badge badge--blue">Reference implementation</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
         <p style="margin-top:10px">An encoder–decoder Transformer with hierarchical memory and a load-balanced mixture of experts, reframing assembly-to-source recovery as a sequence modelling problem.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Neural%20Dust" data-field="Biology & medicine" data-written="false">
+      <a class="rcard rcard--linked" href="/research/nqd.html" data-field="Biology &amp; medicine" data-written="true">
         <div class="rcard__head">
-          <h3>Neural Dust</h3>
+          <h3>NQD</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Biology & medicine</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Biology &amp; medicine</span>
+        <p style="margin-top:10px">Quantum nanodiamond sensors at single-neuron proximity, read optically by ultrasound-powered CMOS motes that backscatter to a wearable array — no wires through the skull.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/New%20Classes%20of%20Electrical%20Components" data-field="Electronics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/hybrid-components.html" data-field="Electronics" data-written="true">
         <div class="rcard__head">
-          <h3>New Classes of Electrical Components</h3>
+          <h3>Hybrid components</h3>
+          <span class="badge badge--blue">Reference implementation</span>
         </div>
         <span class="rcard__field">Electronics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">Memristors, Josephson junctions, GMR and phase-change elements simulated across six phases — with a self-audit that found and published seven bugs in its own framework.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/physics.html" data-field="Physics" data-written="true">
         <div class="rcard__head">
@@ -384,134 +403,149 @@
         <p style="margin-top:10px">A variational non-local gravity programme keeping causal messaging at speeds ≤ c, plus an essay arguing superluminal recession is an interpretational split, not a failure of ΛCDM.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Plastic%20Products" data-field="Chemistry & products" data-written="false">
+      <a class="rcard rcard--linked" href="/research/ausdike.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
-          <h3>Plastic Products</h3>
+          <h3>AusDike™</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Chemistry & products</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Materials &amp; engineering</span>
+        <p style="margin-top:10px">An open-bottom self-ballasting levee panel taken from concept to tooling quote — 28 simulations, a buckling-governed wall, and one adverse finding the programme did not bury.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Prime%20Number%20Generator" data-field="Mathematics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/primes.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>Prime Number Generator</h3>
-        </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
-      </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Quantum%20Diamond%20Wafer" data-field="Materials & engineering" data-written="false">
-        <div class="rcard__head">
-          <h3>Quantum Diamond Wafer</h3>
-        </div>
-        <span class="rcard__field">Materials & engineering</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
-      </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Quantum%20Graph%20Optimisation" data-field="Mathematics" data-written="false">
-        <div class="rcard__head">
-          <h3>Quantum Graph Optimisation</h3>
+          <h3>Prime meta-pattern</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
         <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">Six MLPs trained to classify primes across five orders of magnitude, interpreted from weights alone — they rediscover trial division on the 6k±1 lattice, and then lose to it by 30–80×.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/RNGS" data-field="Cryptography" data-written="false">
+      <a class="rcard rcard--linked" href="/research/qdmp.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
-          <h3>RNGS</h3>
+          <h3>QDMP</h3>
+          <span class="badge badge--red">Speculative</span>
+        </div>
+        <span class="rcard__field">Materials &amp; engineering</span>
+        <p style="margin-top:10px">Engineered NV-centre arrays in a metamaterial diamond lattice, proposed as a structured thought experiment — with seven named scientific barriers assessed against the current literature.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
+      </a>
+      <a class="rcard rcard--linked" href="/research/qgo.html" data-field="Mathematics" data-written="true">
+        <div class="rcard__head">
+          <h3>QGO</h3>
+          <span class="badge badge--blue">Reference implementation</span>
+        </div>
+        <span class="rcard__field">Mathematics</span>
+        <p style="margin-top:10px">Five auditable layers — spectral compression, Chebyshev encoding, simulated QAOA, noise-weighted ranking, spectral lift-back — each with a named verification function and an explicit error term.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
+      </a>
+      <a class="rcard rcard--linked" href="/research/rngs.html" data-field="Cryptography" data-written="true">
+        <div class="rcard__head">
+          <h3>RNG portfolio</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
         <span class="rcard__field">Cryptography</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <p style="margin-top:10px">Transcendental-constant DAG, Boolean LCG, dual-attractor chaos and counter-rotating turbulence — four generators with genuinely different failure modes, benchmarked separately.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked" href="/research/carbide.html" data-field="Materials & engineering" data-written="true">
+      <a class="rcard rcard--linked" href="/research/carbide.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
           <h3>HX-70 GradePlex</h3>
           <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Materials & engineering</span>
+        <span class="rcard__field">Materials &amp; engineering</span>
         <p style="margin-top:10px">A functionally-graded carbide substrate, a five-layer coating stack, and a forge-to-machine supply chain — targeting the gap between where conventional inserts fail and where CBN geometries exist.</p>
         <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Statistical%20Generation" data-field="AI & machine learning" data-written="false">
+      <a class="rcard rcard--linked" href="/research/usg.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>Statistical Generation</h3>
+          <h3>USG</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">Generators shown to form a mathematical category under composition, with hash-based context compression that breaks the state-explosion ceiling that capped n-gram and HMM methods at three to five tokens.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Statistical%20Scheduler" data-field="Software & languages" data-written="false">
+      <a class="rcard rcard--linked" href="/research/scheduler.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
           <h3>Statistical Scheduler</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">Software & languages</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Software &amp; languages</span>
+        <p style="margin-top:10px">Fairness from a statistical CFS variant, placement quality from a contextual bandit, load balance from a PID loop — with formal guarantees for each and sub-millisecond measured placement latency.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Threat%20Asessments" data-field="Defence & security" data-written="false">
+      <a class="rcard rcard--linked" href="/research/threat-assessments.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Threat Asessments</h3>
+          <h3>Threat assessments</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Defence & security</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Defence &amp; security</span>
+        <p style="margin-top:10px">Hypothetical intelligence briefs on identity-replacement tradecraft, neurological interference and an explosive mixture — written from open sources in the register such documents actually use.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/UCN%20AIs" data-field="Policy & economics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/ucn-ais.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>UCN AIs</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Policy & economics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">Any Purpose Networks, General Purpose Networks, Signal AI and two learning primitives — worldbuilding artefacts written in the register of a mathematical-foundations paper.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/UCN%20Political%20System" data-field="Policy & economics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/ucn.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
-          <h3>UCN Political System</h3>
+          <h3>UCN</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Policy & economics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Policy &amp; economics</span>
+        <p style="margin-top:10px">Eight numbered papers covering constitution, economy, defence, IP, drug policy and foreign relations — every claim sourced, every incompatibility with current law acknowledged in the roadmap.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/UN%20Political%20System" data-field="Policy & economics" data-written="false">
+      <a class="rcard rcard--linked" href="/research/un-reform.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
-          <h3>UN Political System</h3>
+          <h3>UN reform</h3>
+          <span class="badge badge--red">Speculative</span>
         </div>
-        <span class="rcard__field">Policy & economics</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Policy &amp; economics</span>
+        <p style="margin-top:10px">A standing UN Defence Force under an elected Security Commissioner, argued from Charter articles and treaty law, with a closing section on why it probably will not be adopted.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/VDJ%20Inspired%20Algorithm" data-field="AI & machine learning" data-written="false">
+      <a class="rcard rcard--linked" href="/research/vdj.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>VDJ Inspired Algorithm</h3>
+          <h3>VDJ</h3>
+          <span class="badge badge--teal">Result-bearing</span>
         </div>
-        <span class="rcard__field">AI & machine learning</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Veritas" data-field="Defence & security" data-written="false">
+      <a class="rcard rcard--linked" href="/research/veritas.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>Veritas</h3>
+          <h3>VERITAS</h3>
+          <span class="badge badge--blue">Reference implementation</span>
         </div>
-        <span class="rcard__field">Defence & security</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">AI &amp; machine learning</span>
+        <p style="margin-top:10px">Nine theorems over binary pattern spaces, with PAC and ALT guarantees checked at runtime rather than argued offline — and a composition result showing the guarantees add.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Weapons-Defence" data-field="Defence & security" data-written="false">
+      <a class="rcard rcard--linked" href="/research/weapons-defence.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Weapons-Defence</h3>
+          <h3>Defence portfolio</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Defence & security</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Defence &amp; security</span>
+        <p style="margin-top:10px">Thirty-plus platform folders in defence-engineering register, with the unusual discipline that every ballistic, thermal and lifecycle figure is generated by a single shared physics engine and cited back to it.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
-      <a class="rcard rcard--linked rcard--plain" target="_blank" rel="noopener" href="https://github.com/odin-loki/Ideas/tree/main/Weapons-Police" data-field="Defence & security" data-written="false">
+      <a class="rcard rcard--linked" href="/research/weapons-police.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Weapons-Police</h3>
+          <h3>Police equipment</h3>
+          <span class="badge badge--amber">Design document</span>
         </div>
-        <span class="rcard__field">Defence & security</span>
-        <p style="margin-top:10px">Source documents in the <code>Ideas</code> repository. No write-up on this site yet.</p>
-        <span class="rcard__more" style="color:var(--ink-mute)">Open on GitHub &rarr;</span>
+        <span class="rcard__field">Defence &amp; security</span>
+        <p style="margin-top:10px">Body armour at a third the mass of the incumbent and a reduced-energy service pistol, both run through the same shared physics engine as the defence portfolio and both costed as procurement cases.</p>
+        <span class="rcard__more">Full write-up &rarr;</span>
       </a>
     </div>
   </div>
@@ -623,7 +657,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-04T09:28:56Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-04T21:05:48Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

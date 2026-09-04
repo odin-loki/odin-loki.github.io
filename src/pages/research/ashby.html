@@ -1,0 +1,126 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> Ashby Optimiser
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">AI &amp; machine learning</span>
+        <h1>Ross Ashby’s 1948 homeostat, rebuilt as a multi-scale optimiser</h1>
+        <p class="lede">W. Ross Ashby built the homeostat in 1948 to demonstrate that a system of independently adapting units could find stability without any of them knowing the whole. This optimiser takes the constraint seriously: each unit updates only from its own proposals, every unit gets an equal share of the budget, and the only structure imposed is that their search radii are geometrically spaced.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Ashby%20Optimiser" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Ashby Optimiser</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing. Python implementation with a test suite.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>N isolated search units at geometrically spaced radii, round-robin scheduled, with homeostatic restarts on stagnation — benchmarked honestly against random search and a (1+1)-ES.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The design constraints are deliberately restrictive. <strong>Unit isolation</strong> means each search unit updates only from proposals it generated itself &mdash; no sharing of the incumbent best, no crossover, no migration. <strong>Equal budget allocation</strong> means strict round-robin scheduling rather than adaptive resource reallocation towards promising units.</p>
+      <p class="dim">What the units do not share is compensated for by what they differ in: each runs at a distinct search radius, geometrically spaced across scales &mdash; the paper’s "gear ratio". A unit that stagnates triggers a <strong>homeostatic restart</strong>, the direct analogue of Ashby’s uniselector stepping to a new random configuration when the system left its viable range.</p>
+      <p class="dim">The benchmark is deliberately conventional: Sphere, Rastrigin, Rosenbrock and Ackley at dimensions 2 through 50, against random search and a (1+1) evolution strategy with step-size adaptation. The gains are concentrated where you would expect them &mdash; multi-modal problems, where a single search scale gets trapped.</p>
+    </div>
+    <div class="note  reveal" style="margin-top:28px">
+      <strong>Why the honest framing matters here.</strong> A four-order-of-magnitude drop in Rastrigin error from adding three more units looks spectacular and is mostly a statement about Rastrigin. The paper says so, characterises when the approach is effective, and places itself relative to multi-start methods instead of claiming to have beaten them. That is the right shape for a result like this.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/ashby.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Rastrigin median error, 1 unit → 4 units</td><td class="mono" style="color:var(--ink)">74.7 → 0.002</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">dim = 10, 500 evaluations</td></tr>
+          <tr><td>Error at 1,000 evaluations</td><td class="mono" style="color:var(--ink)">near zero across all dimensions to 50</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Author-run benchmark on the four standard functions</td></tr>
+          <tr><td>Benchmark suite</td><td class="mono" style="color:var(--ink)">Sphere, Rastrigin, Rosenbrock, Ackley</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Dimensions 2–50</td></tr>
+          <tr><td>Baselines compared</td><td class="mono" style="color:var(--ink)">random search, (1+1)-ES with step-size adaptation</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same evaluation budget</td></tr>
+          <tr><td>Design constraint</td><td class="mono" style="color:var(--ink)">strict unit isolation, equal budget</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Enforced by construction, not a tuned choice</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Geometric gear ratios.</strong> Search radii spaced geometrically across units, so the population spans scales rather than converging on one.</li>
+          <li><strong>Strict round-robin.</strong> Equal evaluation budget per unit, with no adaptive reallocation — the constraint that makes the result attributable to multi-scale structure.</li>
+          <li><strong>Unit isolation.</strong> Each unit updates only from its own proposals. No information flows between units.</li>
+          <li><strong>Homeostatic restart.</strong> A stagnating unit re-randomises, mirroring the uniselector in Ashby’s original machine.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>The paper states its own relationship to existing multi-start and restart methods rather than claiming novelty over them.</li>
+          <li>Gains are concentrated on multi-modal functions. On Sphere and Rosenbrock the multi-scale structure buys much less.</li>
+          <li>Four synthetic benchmark functions are not a real optimisation workload.</li>
+          <li>Dimensions tested stop at 50. Behaviour in the hundreds or thousands is unknown.</li>
+          <li>Unit isolation is a constraint chosen for conceptual fidelity to Ashby, not because it was shown to beat communicating units.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Ashby%20Optimiser" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

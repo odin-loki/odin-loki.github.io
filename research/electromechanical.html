@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Babbage, Antikythera &amp; TDC algorithms | Imortek</title>
+<meta name="description" content="Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/research/electromechanical.html">
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Babbage, Antikythera &amp; TDC algorithms | Imortek">
+<meta property="og:description" content="Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.">
+<meta property="og:url" content="https://imortek.com.au/research/electromechanical.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Babbage, Antikythera &amp; TDC algorithms | Imortek">
+<meta name="twitter:description" content="Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">Research &amp; Systems</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/#products" aria-haspopup="true">Products</a>
+          <div class="nav__menu">
+            <a href="/pbsd.html"><strong>ParanoidBSD</strong><span>Capability-secured C++23 operating system</span></a>
+            <a href="/cypha.html"><strong>Cypha</strong><span>First-principles AI — classify, sample, generate</span></a>
+            <a href="/chess.html"><strong>Cypha Chess</strong><span>Play the model, distilled from a real engine</span></a>
+            <a href="/retdec.html"><strong>RetDec Imortek</strong><span>Specification-extraction decompiler</span></a>
+            <a href="/mathscript.html"><strong>MathScript</strong><span>C++23 computer algebra &amp; numerics</span></a>
+            <a href="/aegis.html"><strong>AEGIS</strong><span>Metadata-hiding transport</span></a>
+            <a href="/sentinel.html"><strong>SENTINEL</strong><span>Crime analytics &amp; investigative leads</span></a>
+            <a href="/cellai.html"><strong>Cell AI</strong><span>Reaction-diffusion sequence model</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/research.html">Research</a>
+        <a class="nav__link" href="/licensing.html">Licensing</a>
+        <a class="nav__link" href="/about.html">About</a>
+        <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Software &amp; languages <span style="opacity:.5">/</span> Babbage · Antikythera · TDC
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Software &amp; languages</span>
+        <h1>Three mechanical computers, re-derived as modern algorithms</h1>
+        <p class="lede">Mechanical computers were designed under constraints that modern software has quietly rediscovered: no random access, no allocation, no division, and a hard limit on how much state you can hold. The papers here take that seriously enough to benchmark it &mdash; and find that the nineteenth-century memory pattern is the cache-friendly one.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Electromechnical%20Inspired%20Algorithms" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Electromechnical Inspired Algorithms</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Software &amp; languages</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing. C, Python/NumPy implementations; FPGA treatment conceptual.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim"><strong>Babbage’s method of finite differences</strong> is rebuilt as a family of algorithms from a cascade reference implementation up to a loop-unrolled variant, using only integer addition. The finding is not nostalgic: the cascaded, addition-only, in-place pattern that a gear train forces on you is exactly the cache-friendly access pattern, and it beats naive implementations through reduced allocation and better locality. The binomial-coefficient structure underlying all difference orders lets coefficients be generated with no table at all.</p>
+      <p class="dim">The <strong>Military-Grade Antikythera Algorithm</strong> extracts three engines from a 2,100-year-old bronze calculator: epicyclic interpolation via Fourier-mode reconstruction, prime-factor optimisation via continued fractions, and nested circular processing for multi-frequency decomposition. The original device encoded astronomical periods as rational fractions using the prime factors 7, 17, 19, 53, 127 and 223 &mdash; chosen to hit celestial cycles with the fewest gear teeth, which is the same problem as rational approximation under a cost budget.</p>
+      <p class="dim">The <strong>Torpedo Data Computer</strong> paper reimplements the US Navy’s 1932 fire-control system &mdash; the first continuous, real-time, submarine-based integrated fire-control computer. The Position Keeper digitally simulates wheel-and-disc mechanical integration <em>including</em> momentum and friction coefficients, preserving the temporal smoothing the analogue mechanism provided, rather than replacing it with an idealised integrator.</p>
+    </div>
+    <div class="note  reveal" style="margin-top:28px">
+      <strong>The finding worth keeping.</strong> Babbage could not allocate memory, could not multiply cheaply, and could not access an arbitrary element. Those three constraints forced a cascaded, in-place, addition-only design. Two centuries later, those are the same three properties that make code fast on a machine with a cache hierarchy. The mechanical constraint and the modern optimisation are the same constraint.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/electromechanical.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Difference-engine speedup</td><td class="mono" style="color:var(--ink)">3–6× over naive</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Profiled across 32–2048 points</td></tr>
+          <tr><td>Difference-engine memory reduction</td><td class="mono" style="color:var(--ink)">50–80%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">In-place cascade vs naive allocation</td></tr>
+          <tr><td>Antikythera engine speedup</td><td class="mono" style="color:var(--ink)">386× over naive Python</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">5,000-point datasets, fully optimised path</td></tr>
+          <tr><td>Antikythera prime factors</td><td class="mono" style="color:var(--ink)">[7, 17, 19, 53, 127, 223]</td><td><span class="badge ">Cited</span></td><td class="muted">From the mechanism itself — Nature, 2006</td></tr>
+          <tr><td>TDC solution rate</td><td class="mono" style="color:var(--ink)">&gt;1,000,000 solutions/sec</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Digital reimplementation</td></tr>
+          <tr><td>TDC accuracy</td><td class="mono" style="color:var(--ink)">±0.015°</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">10× better than the legacy Mark 117 reference</td></tr>
+          <tr><td>TDC memory over 24 h</td><td class="mono" style="color:var(--ink)">5.3 MB bounded</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Continuous operation</td></tr>
+          <tr><td>Gyro-angle envelope</td><td class="mono" style="color:var(--ink)">±80° → ±180°</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Extension of the original mechanical limit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Cascaded addition-only differencing.</strong> No multiplication, no division, in-place — the constraint the gear train imposed, which turns out to be the locality-friendly one.</li>
+          <li><strong>Continued-fraction rational approximation.</strong> The Antikythera’s gear-tooth minimisation problem, solved the way the ancients solved it.</li>
+          <li><strong>Fourier-mode epicyclic reconstruction.</strong> Vectorised trigonometry replacing the epicyclic gear train, for signal interpolation.</li>
+          <li><strong>Wheel-and-disc integrator simulation.</strong> Momentum and friction modelled explicitly so the digital Position Keeper keeps the analogue smoothing behaviour.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>All speedups are against naive implementations in the same language, not against optimised library baselines (BLAS, FFTW, or a tuned C polynomial evaluator).</li>
+          <li>386× over naive Python is largely a statement about naive Python.</li>
+          <li>The TDC accuracy comparison is against a historical system, on the author’s reimplementation of both sides.</li>
+          <li>The FPGA implementations are described as conceptual; no synthesis results or timing closure.</li>
+          <li>Fire-control and ballistic content is a historical reconstruction exercise, not an operational system.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Electromechnical%20Inspired%20Algorithms" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          Independent research and systems software by Odin Loch. Sydney, Australia.
+          Source-available under AGPL-3.0+ with a tiered commercial licence.
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">Commercial licence available</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/cypha.html">Cypha</a></li>
+          <li><a href="/chess.html">Cypha Chess</a></li>
+          <li><a href="/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/mathscript.html">MathScript</a></li>
+          <li><a href="/aegis.html">AEGIS</a></li>
+          <li><a href="/sentinel.html">SENTINEL</a></li>
+          <li><a href="/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Imortek</a></li>
+          <li><a href="/research.html">Research shelf</a></li>
+          <li><a href="/licensing.html">Licensing</a></li>
+          <li><a href="/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">Commercial enquiries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Source</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub profile</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD repo</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">Ideas / research</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 text</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
+      <span class="mono tiny">Built 2026-09-04T21:05:48Z &middot; No trackers, no cookies, no analytics.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+
+</body>
+</html>

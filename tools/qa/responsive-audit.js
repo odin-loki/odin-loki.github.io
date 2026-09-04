@@ -19,13 +19,27 @@ const { chromium } = require('playwright');
 
 const BASE = process.argv[2] || 'http://localhost:8123';
 
+// Every page the builder emits. Regenerate with the slug list in
+// tools/research_data.py if that changes.
 const PAGES = [
   'index', 'pbsd', 'cypha', 'chess', 'retdec', 'mathscript', 'aegis',
-  'sentinel', 'cellai', 'kickstarter', 'research', 'licensing', 'about', '404',
-  'research/aria-aead', 'research/compression', 'research/uhpm',
-  'research/neural-decompiler', 'research/modelling-aes', 'research/gf2-algebra',
-  'research/asset-tracking', 'research/filtering', 'research/physics',
-  'research/carbide', 'research/economics', 'research/fungal',
+  'sentinel', 'cellai', 'kickstarter', 'research', 'licensing', 'about',
+  '404', 'research/aria-aead', 'research/compression', 'research/uhpm',
+  'research/neural-decompiler', 'research/modelling-aes',
+  'research/gf2-algebra', 'research/asset-tracking', 'research/filtering',
+  'research/physics', 'research/carbide', 'research/economics',
+  'research/fungal', 'research/nn-shortcuts', 'research/usg',
+  'research/scheduler', 'research/ashby', 'research/vdj',
+  'research/electromechanical', 'research/izaac-protocols', 'research/lcrp',
+  'research/boolean-dimensions', 'research/veritas', 'research/primes',
+  'research/qgo', 'research/ucdw', 'research/diamond-battery',
+  'research/qdmp', 'research/hybrid-components', 'research/ausdike',
+  'research/noise-generator', 'research/rngs', 'research/nqd',
+  'research/math-survey', 'research/battle-sim', 'research/cpu',
+  'research/future-cpp', 'research/pharma', 'research/hsa',
+  'research/weapons-defence', 'research/weapons-police',
+  'research/threat-assessments', 'research/ucn', 'research/ucn-ais',
+  'research/un-reform', 'research/hemp-harmony', 'research/cocktails',
 ];
 
 const SIZES = [
@@ -42,7 +56,10 @@ const SIZES = [
 ];
 
 (async () => {
-  const browser = await chromium.launch();
+  // PLAYWRIGHT_CHROMIUM_EXECUTABLE lets a sandbox point at a preinstalled
+  // browser instead of one downloaded into node_modules.
+  const exe = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
+  const browser = await chromium.launch(exe ? { executablePath: exe } : {});
   const problems = [];
   let checks = 0;
 

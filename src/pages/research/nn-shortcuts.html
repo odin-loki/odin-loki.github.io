@@ -1,0 +1,130 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> SGF · Algebraic Autopsy
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">AI &amp; machine learning</span>
+        <h1>Sixteen acceleration tricks that turn out to be one trick</h1>
+        <p class="lede">Gradient checkpointing, online softmax, FlashAttention, Muon, K-FAC, WSD scheduling, speculative decoding, mixture-of-experts routing and compute-aware data filtering were each invented to solve a different problem. Surveyed together, they are the same algorithm sixteen times: replace a two-pass batch computation with a one-pass stream that carries a compact sufficient statistic, on a manifold whose metric is the Fisher information.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/NN%20Shortcuts" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">NN Shortcuts</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing on the autopsy; framework-level on SGF. C++17/CUDA reference library exists.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Every efficient deep-learning technique reduced to one primitive — an online sufficient statistic on a curved manifold — plus a post-hoc diagnostic that reads a trained network’s implicit algebra off its weights.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The <strong>Streaming Geometry Framework</strong> paper surveys sixteen canonical techniques across memory, numerical stability, kernel fusion, optimisation geometry, loss-landscape dynamics, scheduling, inference and data curation, and extracts three meta-patterns: <em>Streaming Sufficiency</em> (any algorithm accumulating global batch state can be rewritten as a stream over a compact sufficient statistic), <em>Spectral Geometry</em> (the natural language for updates, normalisation, routing and attention is the singular-value spectrum), and <em>Data&ndash;Compute Duality</em> (data quality, compute and capacity sit on one joint Pareto frontier).</p>
+      <p class="dim">The three are shown to be projections of a single principle the paper calls <strong>Incremental Riemannian Estimation</strong>. From IRE it derives SGF, an architecture in which optimiser, normaliser, router, scheduler, memory manager and inference engine are all instances of the same primitive, with a C++17/CUDA reference library implementing five novel predictions &mdash; among them ZClip-triggered WSD cooldown and edge-of-stability-adaptive checkpointing.</p>
+      <p class="dim">The companion <strong>Algebraic Autopsy</strong> paper asks the inverse question: what algebra did a trained network actually learn to compute? Four instruments &mdash; singular-value power-law exponent, Marchenko&ndash;Pastur bulk deviation, ReLU dead-unit sparsity, and effective rank &mdash; are applied to an MLP trained on prime classification. The answer is that the network is mostly tropical routing and low-rank Grassmannian geometry, and that genuinely dense arithmetic accounts for only 11% of the computation it performs.</p>
+    </div>
+    <div class="note  reveal" style="margin-top:28px">
+      <strong>The interesting claim is the ordering, not the number.</strong> α = 0.427 for the trained network sits between 0.37 for the prime-gap data prior and 0.85 for a reference trained architecture. That ordering &mdash; data prior below learned structure below large-model structure &mdash; is what makes α a usable diagnostic. A single α in isolation would tell you nothing.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/nn-shortcuts.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Dense (ℝ, +, ×) content of the trained network</td><td class="mono" style="color:var(--ink)">11%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Prime-classification MLP, four-instrument autopsy</td></tr>
+          <tr><td>Dominant algebra identified</td><td class="mono" style="color:var(--ink)">low-rank Grassmannian, score 0.758</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Instrument scoring across four candidate algebras</td></tr>
+          <tr><td>Spectral exponent of the trained network</td><td class="mono" style="color:var(--ink)">α = 0.427</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Between the data prior (0.37) and a reference model (0.85)</td></tr>
+          <tr><td>Low-rank variant cost</td><td class="mono" style="color:var(--ink)">0.76× parameters, 0.75× FLOPs</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Identical accuracy; rank chosen by the autopsy, not tuned</td></tr>
+          <tr><td>Composite cost of the native variant</td><td class="mono" style="color:var(--ink)">0.57×</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Parameters × FLOPs against the dense baseline</td></tr>
+          <tr><td>Post-training exponent under rank constraint</td><td class="mono" style="color:var(--ink)">α = 1.22</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Geometric constraint acting as a spectral regulariser</td></tr>
+          <tr><td>ReLU dead-unit fraction</td><td class="mono" style="color:var(--ink)">54%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">The tropical-content signal in instrument 3</td></tr>
+          <tr><td>Newton–Schulz spectral whitening overhead</td><td class="mono" style="color:var(--ink)">&lt;1% of training compute</td><td><span class="badge ">Cited</span></td><td class="muted">5 iterations in bfloat16, LLaMA-scale, from the Muon literature</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Sufficient-statistic reduction.</strong> Welford’s (n, mean, M2) and the online-softmax (max, sum) pair are the canonical instances; the paper generalises the pattern to all sixteen techniques.</li>
+          <li><strong>Fisher metric as the parameter-space geometry.</strong> K-FAC’s Kronecker factorisation and Adam’s diagonal second moment are both read as approximations to the same natural gradient.</li>
+          <li><strong>Spectral transform family.</strong> Optimisers indexed by the exponent p in G → UΣᵖVᵀ — Shampoo at p = ½, Muon at p = 0.</li>
+          <li><strong>Four autopsy instruments.</strong> Power-law exponent, Marchenko–Pastur bulk deviation, dead-unit sparsity, effective rank — all computable post hoc from weights alone.</li>
+          <li><strong>Five algebraic moves.</strong> Semiring substitution, symmetry exploitation, basis factorisation, idempotent sparsification, sufficient-statistic compression — argued exhaustive over known efficiency gains.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>The unification is a survey argument, not a theorem: no proof that the sixteen techniques are formally equivalent, only that they share a template.</li>
+          <li>The SGF predictions about which technique combinations interact synergistically are stated but not experimentally validated.</li>
+          <li>The autopsy substrate is a small MLP on prime classification. Whether the same instruments read the same way on a transformer at scale is untested.</li>
+          <li>Five open problems are listed as unresolved; the framework is explicitly incomplete without them.</li>
+          <li>The library is a reference implementation. No third-party benchmark against production training stacks.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/NN%20Shortcuts" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

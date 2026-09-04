@@ -124,17 +124,33 @@ Licensed under AGPL-3.0+.</pre>
       </div>
       <div class="reveal" data-delay=".08">
         <span class="eyebrow eyebrow--amber">The exception</span>
-        <h3>HardenedBSD-derived code stays BSD</h3>
+        <h3>Upstream code in ParanoidBSD is not relicensed</h3>
         <p class="dim">
-          ParanoidBSD contains code derived from HardenedBSD. That code remains under its original
-          BSD licence. It cannot be relicensed and Imortek does not claim to.
+          ParanoidBSD vendors two upstream trees and ports from both. <code>hbsd/</code> stays under
+          HardenedBSD&rsquo;s and FreeBSD&rsquo;s own terms; <code>kde/</code> stays under
+          KDE&rsquo;s. Neither can be relicensed and Imortek does not claim to. Ported files under
+          <code>pbsd/</code> keep the upstream copyright header they inherited, and that header
+          governs the file &mdash; it beats the per-path default.
         </p>
         <p class="dim">
-          <code>docs/PROVENANCE.md</code> in the PBSD repository records which modules are
-          HardenedBSD-derived and which are new PBSD work, so the boundary is checkable rather
-          than asserted. New work &mdash; the capability nucleus, the tooling, the compositor and
-          theme &mdash; carries the Imortek dual licence.
+          <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
+             rel="noopener"><code>LICENSING.md</code></a> is the authoritative per-path map, and
+          <code>docs/PROVENANCE.md</code> records which modules are ported and which are new PBSD
+          work, so the boundary is checkable rather than asserted. New work &mdash; the capability
+          nucleus, the tooling, the compositor and the Aero theme &mdash; carries the Imortek dual
+          licence.
         </p>
+        <div class="note note--amber" style="margin-top:16px">
+          <strong>Three carve-outs the audit turned up.</strong> Twenty-two ported files inherit the
+          original four-clause BSD licence, whose advertising clause the AGPL cannot accept, so they
+          are excluded from the AGPL grant and must not enter an AGPL binary.
+          <code>pbsd/zfs/</code> derives from OpenZFS, which is CDDL and has no compatibility route
+          to the AGPL &mdash; ZFS stays a separate unmodified module. And the KDE-derived work is
+          compatible only through the &ldquo;or later&rdquo; clause, so GPL-2.0-only code must never
+          enter the tree. All three are listed in
+          <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
+             rel="noopener"><code>NOTICES.md</code></a> and enforced by a CI check.
+        </div>
       </div>
     </div>
   </div>
@@ -164,7 +180,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was proprietary</td></tr>
           <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was MIT</td></tr>
           <tr><td><a href="/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed</td></tr>
-          <tr><td><a href="/pbsd.html">ParanoidBSD</a></td><td>AGPL-3.0+ / commercial for new work</td><td><span class="badge badge--amber">Split, permanently</span></td><td class="muted">HardenedBSD-derived code stays BSD</td></tr>
+          <tr><td><a href="/pbsd.html">ParanoidBSD</a></td><td>AGPL-3.0+ / commercial for new work</td><td><span class="badge badge--amber">Split, permanently</span></td><td class="muted">hbsd/ and kde/ excluded; per-file headers govern</td></tr>
         </tbody>
       </table>
     </div>

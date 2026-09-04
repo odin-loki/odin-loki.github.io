@@ -1,0 +1,257 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Mathematics <span style="opacity:.5">/</span> Prime meta-pattern
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Mathematics</span>
+        <h1>What a neural network learns about primes, and why it still loses</h1>
+        <p class="lede">Train a network to tell primes from composites, then refuse to look at the feature-generating code and work out what it learned from the weights alone. The answer is the small-prime trial-division sieve on 6k±1 candidates, in that order, with strikingly stable feature importances across five orders of magnitude. The follow-up paper then benchmarks the network against the thing it rediscovered, and reports the loss.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Prime%20Number%20Generator" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Prime Number Generator</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Mathematics</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing. Full report set, reproducible benchmarks, negative result reported.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Six MLPs trained to classify primes across five orders of magnitude, interpreted from weights alone — they rediscover trial division on the 6k±1 lattice, and then lose to it by 30–80×.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">Six multilayer perceptrons are trained at scales s = log₁₀ n ∈ {3,…,8} on a deliberately rich, redundant 105-dimensional feature set. Interpretation uses two independent routes: <strong>black-box weight analysis</strong> (singular-value spectra, Hill exponents, effective rank, integrated-gradient attribution by feature group) and <strong>knowledge distillation</strong> into decision trees and sparse L1 logistic regressions.</p>
+      <p class="dim">Both routes converge on the same function. The top features, in order and at every scale, are <code>is_6k_pm1</code>, then <code>n mod 5</code>, 7, 11, 13, 17, 19 &mdash; the small-prime trial-division sieve, restricted to the 6k±1 lattice on which all primes above 3 live. Two clean exponential scaling laws fall out: the residue-feature attribution share decays as 0.543·exp(−0.041·s) while the binary-bit share grows as 2.23·exp(0.219·s), with Hill α ≈ 3.19 constant throughout.</p>
+      <p class="dim">The second paper operationalises the finding into three generators and benchmarks them head-to-head. The conventional baseline (6k±1 enumeration, small-prime pre-filter, Sorenson&ndash;Webster deterministic Miller&ndash;Rabin) is exactly correct and fastest. The NN-augmented variant is also exactly correct &mdash; the verifier guarantees it &mdash; and 30&ndash;80× slower. The pure-NN variant is not a primality test at all. The conclusion the paper draws is that the network’s value here is interpretive, not generative.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>This is a negative result, published as one.</strong> The operational conclusion in the paper’s own words is that the conventional sieve-plus-Miller-Rabin pipeline strictly dominates the neural variants on speed and correctness. The work is still worth reading, because "gradient descent reliably converges on the right structural family, and here is the scaling law for which part it emphasises at which magnitude" is a real finding. It is just not the finding a headline would have wanted.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/primes.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Function recovered by distillation</td><td class="mono" style="color:var(--ink)">small-prime sieve on 6k±1</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same feature ordering at every scale s = 3…8</td></tr>
+          <tr><td>Residue-attribution scaling law</td><td class="mono" style="color:var(--ink)">0.543 · exp(−0.041 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Integrated-gradient attribution by feature group</td></tr>
+          <tr><td>Binary-bit attribution scaling law</td><td class="mono" style="color:var(--ink)">2.23 · exp(0.219 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same analysis, opposite direction</td></tr>
+          <tr><td>Hill tail exponent</td><td class="mono" style="color:var(--ink)">α ≈ 3.19</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Constant across all six scales</td></tr>
+          <tr><td>NN-augmented generator speed</td><td class="mono" style="color:var(--ink)">30–80× slower</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">50 random starts × 5 consecutive primes per scale</td></tr>
+          <tr><td>Pure-NN primality recall</td><td class="mono" style="color:var(--ink)">0.21–0.68</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">At τ = 0.5; skip rate 2–22%</td></tr>
+          <tr><td>Verifier exactness bound</td><td class="mono" style="color:var(--ink)">exact for n &lt; 3.317 × 10²⁴</td><td><span class="badge ">Cited</span></td><td class="muted">Sorenson–Webster deterministic Miller–Rabin</td></tr>
+          <tr><td>Probabilistic error above that bound</td><td class="mono" style="color:var(--ink)">≈9.1 × 10⁻¹³ per call</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">k = 20 rounds, 4⁻²⁰</td></tr>
+          <tr><td>Cross-study agreement</td><td class="mono" style="color:var(--ink)">every cross-checkable claim</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Against an independent non-NN baseline study</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Run the sieve the network rediscovered</h2>
+      <p class="lede">
+        Three generators scan the same window of consecutive integers. The conventional one walks
+        the 6k&plusmn;1 lattice, trial-divides by small primes, and verifies with Miller&ndash;Rabin.
+        The augmented one swaps the trial division for the distilled scorer and keeps the verifier.
+        The third uses the scorer alone. Move the scale up and watch which one stops working.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="prime-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> 6k&plusmn;1 sieve &mdash; live in your browser</h3>
+        <div class="seg" role="group" aria-label="Highlight">
+          <button type="button" data-lane="all" aria-pressed="true">Everything</button>
+          <button type="button" data-lane="conv">Real primes</button>
+          <button type="button" data-lane="nn">Scorer accepts</button>
+          <button type="button" data-lane="lost">Primes it lost</button>
+        </div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="prime-canvas" height="200"
+                  aria-label="A window of consecutive integers, each coloured by how the three generators classified it"></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:rgba(107,123,141,.30)"></i> Off the 6k&plusmn;1 lattice</span>
+            <span><i style="background:rgba(107,123,141,.62)"></i> Rejected</span>
+            <span><i style="background:#5eead4"></i> Prime, scorer agreed</span>
+            <span><i style="background:#f87171"></i> Prime, scorer missed it</span>
+            <span><i style="background:#fbbf24"></i> Composite, scorer accepted</span>
+          </div>
+          <div class="table-scroll" style="margin-top:18px">
+            <table class="data">
+              <thead><tr><th>&nbsp;</th><th>Conventional</th><th>NN-augmented</th><th>Pure NN</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Primes found</td>
+                  <td class="mono" id="pr-conv-found">&mdash;</td>
+                  <td class="mono" id="pr-aug-found">&mdash;</td>
+                  <td class="mono" id="pr-pure-found">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Miller&ndash;Rabin calls</td>
+                  <td class="mono" id="pr-conv-mr">&mdash;</td>
+                  <td class="mono" id="pr-aug-mr">&mdash;</td>
+                  <td class="mono">0</td>
+                </tr>
+                <tr>
+                  <td>Primes skipped</td>
+                  <td class="mono" id="pr-conv-missed">&mdash;</td>
+                  <td class="mono" id="pr-aug-missed">&mdash;</td>
+                  <td class="mono" id="pr-pure-missed">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Filter cost per candidate</td>
+                  <td class="mono" id="pr-conv-us">&mdash;</td>
+                  <td class="mono" id="pr-aug-us">&mdash;</td>
+                  <td class="mono" id="pr-pure-us">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>False positives</td>
+                  <td><span class="badge badge--teal">None</span></td>
+                  <td><span class="badge badge--teal">None</span></td>
+                  <td><span class="badge badge--red">Recall <b id="pr-pure-recall">&mdash;</b></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div class="ctrl">
+            <label for="pr-scale">Scale <b id="pr-scale-v">10^5</b></label>
+            <input type="range" id="pr-scale" min="3" max="8" step="1" value="5">
+          </div>
+          <div class="ctrl">
+            <label for="pr-tau">Threshold &tau; <b id="pr-tau-v">0.50</b></label>
+            <input type="range" id="pr-tau" min="10" max="90" step="5" value="50">
+          </div>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Trial divisors used</span>
+              <span class="spec__v mono" id="pr-filter">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Composites accepted</span>
+              <span class="spec__v mono" id="pr-pure-fp">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Verifier calls saved</span>
+              <span class="spec__v mono" id="pr-mrsaved">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0">
+              <span class="spec__k">Filter cost ratio</span>
+              <span class="spec__v mono" id="pr-slowdown">&mdash;</span>
+            </div>
+          </div>
+          <p class="tiny muted" id="pr-verdict">&nbsp;</p>
+          <button class="btn btn--sm btn--block" id="pr-again">Scan a new window</button>
+          <div class="note" style="font-size:.8rem;padding:12px 14px">
+            The paper reports the NN-augmented generator running <strong>30&ndash;80&times;
+            slower</strong> than the conventional one &mdash; MLP inference per candidate, with no
+            matching reduction in candidate count &mdash; and pure-NN primality recall of
+            <strong>0.21&ndash;0.68</strong> at &tau;&nbsp;=&nbsp;0.5. The ratio here is larger
+            because it isolates the filter; the paper&rsquo;s figure is end-to-end, with the
+            verifier in both denominators. This page reproduces the mechanism, not the figures.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Miller&ndash;Rabin here is the real thing &mdash; the first thirteen primes as witnesses,
+        deterministic below 3.317&nbsp;&times;&nbsp;10<sup>24</sup>, so every &ldquo;prime&rdquo; on
+        this page is exactly that. The scorer is a real 105&nbsp;&rarr;&nbsp;64&nbsp;&rarr;&nbsp;1
+        forward pass over the same deliberately redundant feature set the paper used, but its first
+        layer is hand-set rather than trained: twelve units form clipped ramps reading zero when
+        <em>p</em> divides <em>n</em>, for <em>p</em> in {5,&nbsp;7,&nbsp;11,&nbsp;13,&nbsp;17,&nbsp;19},
+        weighted by &minus;log(1&nbsp;&minus;&nbsp;1/<em>p</em>). That is trial division written as a
+        likelihood ratio &mdash; the function Paper&nbsp;1 distilled out of the trained weights. The
+        other fifty-two units carry the redundant features at small random weights; they are what
+        costs the network its recall, and what costs it its speed.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Weights-only interpretation.</strong> The feature-generating source is deliberately not consulted; only trained weights and gradients are used.</li>
+          <li><strong>Two independent extraction routes.</strong> Spectral weight analysis and distillation into trees and sparse logistic models, cross-checked against each other.</li>
+          <li><strong>Head-to-head generator benchmark.</strong> Three generators at six scales, 50 random starts × 5 consecutive primes each.</li>
+          <li><strong>Deterministic verification.</strong> Sorenson–Webster Miller–Rabin, exact below 3.317 × 10²⁴, with k = 20 probabilistic rounds above.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>The network does not discover a prime formula. No such formula is known and the prime-counting function is provably non-elementary — the paper says so in its own setup.</li>
+          <li>The pure-NN generator has recall between 0.21 and 0.68. It is not a primality test and is not presented as one.</li>
+          <li>The NN-augmented generator is slower than the classical one it was built to improve, by 30–80×.</li>
+          <li>Distillation recovers what the features made available. A different feature set would recover a different function.</li>
+          <li>Scales stop at s = 8. Behaviour at cryptographic sizes is untested and not claimed.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Prime%20Number%20Generator" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,130 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Defence &amp; security <span style="opacity:.5">/</span> Police equipment
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Defence &amp; security</span>
+        <h1>Two law-enforcement equipment studies, costed over ten years</h1>
+        <p class="lede">Police equipment procurement turns on two numbers nobody enjoys putting next to each other: what it costs, and what it does to the officer wearing it for ten years. These two studies put both in the same table — mass, injury score, service life and ten-year total cost of ownership across a 500-officer force.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--amber">Design document</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Weapons-Police" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="design"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Specified in detail; implementation partial or absent.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Weapons-Police</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Defence &amp; security</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design prospectuses, simulation-verified. No manufacture, no field trial, no procurement.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Body armour at a third the mass of the incumbent and a reduced-energy service pistol, both run through the same shared physics engine as the defence portfolio and both costed as procurement cases.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim"><strong>APES-L Mark I</strong> is a full-body armour system specified at 6.5 kg against a 20.25 kg incumbent, with 23 spec simulations behind it and a V50 cross-check against the shared portfolio physics. The lifecycle model gives panel service at ten years, ceramic tile replacement at four and soft-panel refresh at six &mdash; which is what makes the ten-year cost comparison meaningful rather than a sticker-price argument.</p>
+      <p class="dim"><strong>MP-4.6P Guardian LE</strong> is a service pistol chambered in a reduced-energy 4.6 × 22 mm loading at 396 m/s and 259 J, against 501 m/s and 326 J for the military 4.6 × 30 mm on the same bolt geometry. The seven-phase lifecycle simulation covers recoil, structural safety factor, Archard bore life, parts life and a Monte Carlo mean-rounds-between-failure estimate.</p>
+      <p class="dim">Both platforms inherit the defence portfolio’s discipline: the same simulator, the same results file, the same parts-commonality matrix &mdash; the 4.6 × 22 mm appears in the shared cartridge table, and APES-L shares materials with the military APES system. Each folder ships a <code>platform_simulation.py</code> that re-runs the physics and prints pass/fail against the spec.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>Ten-year cost is where equipment arguments are actually won.</strong> A 6.5 kg armour system against a 20.25 kg one is a comfort claim until you attach service life and replacement intervals to it. Putting panel life, tile replacement and soft-panel refresh in the same model as the ballistic performance is what turns a spec sheet into a procurement case — and it is also what makes the assumptions visible enough to argue with.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/weapons-police.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>APES-L mass</td><td class="mono" style="color:var(--ink)">6.5 kg vs 20.25 kg incumbent</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulation-derived, 23 spec simulations</td></tr>
+          <tr><td>APES-L panel service life</td><td class="mono" style="color:var(--ink)">10 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>APES-L ceramic tile replacement</td><td class="mono" style="color:var(--ink)">4 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>APES-L soft panel refresh</td><td class="mono" style="color:var(--ink)">6 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>Injury-score improvement</td><td class="mono" style="color:var(--ink)">66.2%</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Modelled, against the incumbent system</td></tr>
+          <tr><td>Ten-year TCO saving</td><td class="mono" style="color:var(--ink)">+$1.85 M per 500 officers</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Procurement case, not an audited figure</td></tr>
+          <tr><td>Guardian LE cartridge</td><td class="mono" style="color:var(--ink)">4.6 × 22 mm DPAP, 396 m/s, 259 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Against 501 m/s / 326 J for the military 4.6 × 30 mm</td></tr>
+          <tr><td>Guardian LE chamber pressure</td><td class="mono" style="color:var(--ink)">246 MPa</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulator output</td></tr>
+          <tr><td>Guardian LE free recoil</td><td class="mono" style="color:var(--ink)">1.2 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Momentum-conservation model</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Shared portfolio physics.</strong> Both platforms verified through the same simulator and results file as the defence portfolio — no separate number source.</li>
+          <li><strong>Seven-phase lifecycle model.</strong> Recoil, structural safety factor, Archard bore wear, parts life and Monte Carlo reliability, per platform.</li>
+          <li><strong>V50 cross-check.</strong> Armour ballistic limit checked against the portfolio’s NIJ-calibrated model rather than asserted.</li>
+          <li><strong>Ten-year TCO framing.</strong> Procurement argued on lifecycle cost across a 500-officer force, not unit price.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Genre note from the folder: defence-research register, with no real procurement office or fielded materiel implied.</li>
+          <li>Nothing has been manufactured or tested. All figures are simulation output.</li>
+          <li>The 66.2% injury-score improvement is a modelled metric, not a clinical or field outcome.</li>
+          <li>The $1.85 M ten-year saving depends on procurement, maintenance and replacement assumptions that no real force has validated.</li>
+          <li>Two platforms is a narrow portfolio; the shared-physics discipline is inherited from the parent folder rather than established here.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Weapons-Police" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

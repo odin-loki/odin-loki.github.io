@@ -1,0 +1,128 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Software &amp; languages <span style="opacity:.5">/</span> Future C++
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Software &amp; languages</span>
+        <h1>The argument before the RFC: what a third systems language would need</h1>
+        <p class="lede">Between C++ and Rust there is a recurring question: what would a third option look like that keeps C++ syntax but bakes in memory safety, data-race detection, green threads, algebraic data types and a package manager? This transcript works through it and is honest that its own opening argument partly undercuts its conclusion.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--red">Speculative</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Future%20C%2B%2B" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="speculative"><i class="on" data-l="Speculative"></i><i class="" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Theory or design only. No in-house measurement.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Future C++</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Software &amp; languages</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design conversation. The brainstorm before the RFC.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>A long design conversation about a compiled language with C++ syntax and modern guarantees — which opens by arguing modern C++ already covers most of the wishlist, then works out what is left.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The discussion axes are the expected ones done properly: <strong>memory safety</strong> (borrow checking, bounds checking, lifetime annotations), <strong>concurrency</strong> (compile-time data-race detection, async/await, green threads, message passing, software transactional memory), <strong>metaprogramming</strong> (compile-time function evaluation, algebraic data types with pattern matching, traits and concepts), and <strong>tooling</strong> &mdash; the package manager, test runner, benchmark harness and documentation generator that C++ has chronically lacked.</p>
+      <p class="dim">The syntax position is "C++ look, C#-style ergonomics": <code>property&lt;&gt;</code> and <code>event&lt;&gt;</code>, <code>async Task</code>, extension methods, string interpolation, a simplified generic syntax, and Boost-as-core for the standard library with modules replacing headers.</p>
+      <p class="dim">The arc is the interesting part, and the folder flags it as a weakness. Phase one argues that modern C++ &mdash; concepts, ranges, coroutines, modules, <code>std::expected</code>, <code>std::format</code> &mdash; already closes most of the gap. Phase two asks what borrow checking and integrated tooling would still add. Phase three sketches "cleaned-up C++ plus cherry-picked C# ergonomics". The README notes that phases one and three do not fully reconcile.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>Filed under speculative for a reason.</strong> This is a transcript, and it is on the shelf because the shelf is a complete index rather than a curated selection. The one durable point in it is the tooling argument: whatever else modern C++ has fixed, it has not shipped a package manager, and that is the axis where the discussion needs no defending.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/future-cpp.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Transcript length</td><td class="mono" style="color:var(--ink)">~3,700+ lines</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Single conversation log</td></tr>
+          <tr><td>Discussion axes</td><td class="mono" style="color:var(--ink)">6</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Safety, concurrency, metaprogramming, tooling, syntax, standard library</td></tr>
+          <tr><td>Arc phases</td><td class="mono" style="color:var(--ink)">3</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Modern C++ may suffice → the wishlist → cleaned-up C++ + C# ergonomics</td></tr>
+          <tr><td>Grammar</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No formal syntax specification</td></tr>
+          <tr><td>Compiler</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No implementation</td></tr>
+          <tr><td>Benchmarks</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Nothing to measure</td></tr>
+          <tr><td>Self-identified inconsistency</td><td class="mono" style="color:var(--ink)">phases 1 and 3 do not reconcile</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Stated in the folder’s own caveats</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Borrow checking and lifetimes.</strong> Rust-style compile-time memory safety, discussed as an addition to C++ syntax rather than a replacement for it.</li>
+          <li><strong>Green threads plus STM.</strong> Concurrency borrowed from Go, C# and Haskell/Clojure rather than from C++’s own threading model.</li>
+          <li><strong>ADTs and pattern matching.</strong> From ML, Swift and Rust — the metaprogramming gap the discussion keeps returning to.</li>
+          <li><strong>Integrated toolchain.</strong> Package manager, test runner, benchmarking and documentation as first-class, which is the one axis where the case is unambiguous.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Speculative. No grammar, no compiler, no benchmarks — the folder’s own caveat list.</li>
+          <li>Free-form question-and-answer, not a normative specification.</li>
+          <li>The early "modern C++ might already be enough" argument and the later expansive feature mashups are in tension, as the README acknowledges.</li>
+          <li>Illustrative pseudo-syntax throughout; nothing that a parser could consume.</li>
+          <li>No comparison against the languages already occupying this space (Rust, Zig, Carbon, Circle).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Future%20C%2B%2B" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,128 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> USG
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">AI &amp; machine learning</span>
+        <h1>Statistical language models that compose, and prove that they do</h1>
+        <p class="lede">Classical statistical generation died of one problem. For vocabulary V and context length n the state space grows as Vⁿ, so n &gt; 5 was infeasible and the field ceded the ground to neural models. The Universal Statistical Generator replaces the explicit state table with a fixed hash table, which trades exactness for a bounded memory footprint and buys a thousand-token context.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Statistical%20Generation" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Statistical Generation</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing. Python reference implementation, computationally validated theory.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Generators shown to form a mathematical category under composition, with hash-based context compression that breaks the state-explosion ceiling that capped n-gram and HMM methods at three to five tokens.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The framework synthesises three established bodies of mathematics: <strong>category theory</strong> for composition, <strong>Lévy process theory</strong> for the generative dynamics, and <strong>information-theoretic filtration</strong> for parameter selection. The central formal contribution is a proof that statistical generators form a valid category under a naturally defined composition operator &mdash; so a complex generator can be assembled from verified simple ones and inherit their guarantees.</p>
+      <p class="dim">The engineering contribution is <strong>hash-based context compression</strong>. Arbitrary-length context histories are mapped through SHA-256 into a fixed table of M = 2³² entries, making memory O(M) rather than O(Vⁿ) &mdash; independent of both vocabulary and context length. Effective context goes from 3&ndash;5 tokens to 1,000+, a 200× extension, at roughly 4 GB.</p>
+      <p class="dim">Parameter reduction runs through a two-stage information-theoretic pipeline: Minimum Description Length scoring followed by Marchenko&ndash;Pastur spectral thresholding, which separates signal eigenvalues from the random-matrix bulk. The paper reports the result as provably noise-optimal under its stated assumptions, and validates every theoretical claim computationally against a Python reference implementation.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>What "90% of neural" is and is not.</strong> The comparison is held-out perplexity against a state-of-the-art neural baseline on the author’s setup. It is not a claim that the framework substitutes for a large language model. What it buys instead is determinism, auditability and formal composability &mdash; properties neural architectures do not offer and some applications require.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/usg.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Context length vs classical methods</td><td class="mono" style="color:var(--ink)">1,000+ tokens (200×)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Property of the hash construction, not a benchmark</td></tr>
+          <tr><td>Memory footprint</td><td class="mono" style="color:var(--ink)">O(M), M = 2³² (~4 GB)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Independent of vocabulary size and context length</td></tr>
+          <tr><td>Perplexity vs state-of-the-art neural</td><td class="mono" style="color:var(--ink)">within ~10%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Held-out comparison, author-run</td></tr>
+          <tr><td>Convergence rate</td><td class="mono" style="color:var(--ink)">O(1/√n)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">From the Lévy-process formulation</td></tr>
+          <tr><td>Training time</td><td class="mono" style="color:var(--ink)">O(N)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Linear in corpus size</td></tr>
+          <tr><td>Composability</td><td class="mono" style="color:var(--ink)">generators form a category</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Proved for the stated composition operator</td></tr>
+          <tr><td>Classical ceiling being replaced</td><td class="mono" style="color:var(--ink)">n = 3–5 tokens</td><td><span class="badge ">Cited</span></td><td class="muted">n-gram, HMM and PPM literature, 1980s–2000s</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Categorical composition.</strong> Objects are generators, morphisms are composition operations; associativity and identity are proved, so modular assembly is sound.</li>
+          <li><strong>Lévy-process dynamics.</strong> Generation is modelled as an increment process, which supplies the O(1/√n) convergence rate.</li>
+          <li><strong>SHA-256 context hashing.</strong> Arbitrary history → fixed table index. Collisions are the price; bounded memory is the purchase.</li>
+          <li><strong>MDL + Marchenko–Pastur filtration.</strong> Two-stage parameter reduction: description-length scoring, then spectral thresholding against the random-matrix bulk.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Hash collisions merge distinct contexts. The paper bounds the effect but the mapping is lossy by construction.</li>
+          <li>"Within 10% of neural perplexity" is author-run on the author’s corpus. No third-party benchmark.</li>
+          <li>The determinism and composability guarantees are real; they are also the reason the model cannot do what a large neural model does.</li>
+          <li>The paper itself names the cases where classical methods still win: very constrained environments, structured parsing, maximum-compression applications.</li>
+          <li>M = 2³² is a design constant. Behaviour at other table sizes is not characterised.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Statistical%20Generation" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

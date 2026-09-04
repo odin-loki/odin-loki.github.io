@@ -1,0 +1,133 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Cryptography <span style="opacity:.5">/</span> RNG portfolio
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Cryptography</span>
+        <h1>Four random number generators, built on four different physical metaphors</h1>
+        <p class="lede">Most RNG work picks one construction and defends it. This folder builds four, from four unrelated metaphors, and reports each one’s statistics honestly including the one that is only 739 bits of state on a Cortex-M4 and the one that was fixed after v1 failed a correlation test.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/RNGS" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">RNGS</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Cryptography</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing: statistical batteries run on three of four. Reference implementations in Python, C and ANSI C.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Transcendental-constant DAG, Boolean LCG, dual-attractor chaos and counter-rotating turbulence — four generators with genuinely different failure modes, benchmarked separately.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">The <strong>Meta-DAG RNG</strong> seeds from eight classical transcendental constants (π, e, √2, φ, ζ(3), γ, Catalan’s, Glaisher&ndash;Kinkelin), mixes through eight self-modifying bitwise and arithmetic meta-operations whose selection is driven by the evolving state, and diffuses across an eight-node directed acyclic graph with dynamically evolving paths. Total state space 2<sup>1536</sup> × 40320.</p>
+      <p class="dim">The <strong>OTB-LCG</strong> takes the opposite approach &mdash; classical linear congruential theory at 256-bit width, with maximum period guaranteed by Hull&ndash;Dobell, XOR-based Boolean parity functions for parameter generation, multi-source hardware entropy, Von Neumann bias correction and SHA-256 post-processing. The Boolean parameter layer eliminates the 22.66% bias characteristic of naive LCG implementations.</p>
+      <p class="dim"><strong>SynerChaos v2</strong> targets embedded constraints: dual-attractor integer chaotic maps with cross-layer coupling, a 32-bit maximal LFSR for temporal decorrelation, and a dual-mixer output stage with 8-octant bias correction, in 739 bits of state and 80 bytes of memory. <strong>TurbulentFlow</strong> generates decimal digits directly, evolving two 32-bit streams in opposite rotational directions from one seed and XOR-combining them so per-stream correlations destroy each other.</p>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:28px">
+      <strong>Four different constructions, four different amounts of evidence.</strong> OTB-LCG has NIST numbers. SynerChaos has a before-and-after correlation measurement and a memory budget. TurbulentFlow has entropy and chi-square on 100,000 samples. Meta-DAG has a state-space calculation and an argument that it <em>would</em> pass. Those are not the same standard of proof, and the folder does not present them as if they were.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/rngs.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Meta-DAG state space</td><td class="mono" style="color:var(--ink)">2¹⁵³⁶ × 40320</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Eight nodes, eight meta-operations, permutation term</td></tr>
+          <tr><td>Meta-DAG entropy rate</td><td class="mono" style="color:var(--ink)">≥63.9 bits per 64-bit output</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Estimated, not measured</td></tr>
+          <tr><td>Meta-DAG period lower bound</td><td class="mono" style="color:var(--ink)">2⁶⁴</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Lower bound only</td></tr>
+          <tr><td>OTB-LCG state space</td><td class="mono" style="color:var(--ink)">2²⁵⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Maximum period by Hull–Dobell</td></tr>
+          <tr><td>OTB-LCG naive-LCG bias eliminated</td><td class="mono" style="color:var(--ink)">22.66%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Via XOR Boolean parity parameter generation</td></tr>
+          <tr><td>OTB-LCG NIST SP 800-22</td><td class="mono" style="color:var(--ink)">99%+ pass rate</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Rev. 1a battery, author-run</td></tr>
+          <tr><td>SynerChaos correlation reduction</td><td class="mono" style="color:var(--ink)">500/999 → &lt;10/999 (98%)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">v1 → v2 sequential correlations</td></tr>
+          <tr><td>SynerChaos footprint</td><td class="mono" style="color:var(--ink)">739-bit state, 80 bytes</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Down from 112 bytes in v1</td></tr>
+          <tr><td>SynerChaos throughput</td><td class="mono" style="color:var(--ink)">~80 cycles/output</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">ARM Cortex-M4, 32-bit outputs</td></tr>
+          <tr><td>TurbulentFlow entropy</td><td class="mono" style="color:var(--ink)">3.3219 bits</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">100,000 samples; theoretical max log₂10 ≈ 3.3219</td></tr>
+          <tr><td>TurbulentFlow chi-square</td><td class="mono" style="color:var(--ink)">p = 0.582</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Well above α = 0.05</td></tr>
+          <tr><td>TurbulentFlow avalanche pass rate</td><td class="mono" style="color:var(--ink)">&gt;0.999</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">MurmurHash3-derived finaliser</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Transcendental seeding + self-modifying DAG.</strong> Eight irrational constants as entropy seeds, with the operation set itself evolving under state control.</li>
+          <li><strong>Hull–Dobell maximum period.</strong> Classical LCG theory at 256-bit width, with Boolean parity functions choosing the parameters.</li>
+          <li><strong>Dual-attractor chaotic coupling.</strong> Two integer chaotic maps cross-coupled, then decorrelated by a maximal LFSR.</li>
+          <li><strong>Counter-rotating stream XOR.</strong> Two streams evolved in opposite rotational directions from one seed, so their correlations cancel on combination.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Meta-DAG’s NIST and Diehard performance is argued as "consistent with passing", not reported as a run. That is a claim about plausibility, not a test result.</li>
+          <li>Meta-DAG’s period lower bound of 2⁶⁴ is far below its 2¹⁵³⁶ state space — the gap is unexplained.</li>
+          <li>None of the four has an external cryptographic audit. SynerChaos ships an explicitly honest self-assessment of its security claims and should be read that way.</li>
+          <li>TurbulentFlow is a non-cryptographic generator by design and says so; the decimal-digit output range is unusual and limits reuse.</li>
+          <li>The OTB-LCG NIST pass rate is author-run on the author’s implementation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/RNGS" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

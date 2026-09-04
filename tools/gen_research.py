@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Generate src/pages/research/*.html and the research index from research_data."""
-import os, sys, urllib.parse
+import os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from research_data import RESEARCH, ALL_FOLDERS, TIER_LABEL, BASIS
 
@@ -10,6 +10,16 @@ REPO = 'https://github.com/odin-loki/Ideas/tree/main/'
 
 def folder_url(name):
     return REPO + urllib.parse.quote(name)
+
+# Field labels and prose carry bare ampersands ("AI & machine learning"), which
+# are invalid in markup even where browsers forgive them. Escape only the ones
+# that are not already the start of an entity, so &mdash; and friends survive.
+_BARE_AMP = re.compile(r'&(?![a-zA-Z][a-zA-Z0-9]{1,31};|#\d{1,6};|#x[0-9a-fA-F]{1,5};)')
+
+
+def amp(t):
+    return _BARE_AMP.sub('&amp;', t)
+
 
 CALLOUT_CLASS = {'red': 'note--red', 'amber': 'note--amber',
                  'violet': 'note--violet', 'teal': ''}
@@ -131,8 +141,8 @@ def page(e):
     A('</section>')
 
     # ---------- demo slot ----------
-    if e.get('demo') == 'filtering':
-        A(FILTER_DEMO)
+    if e.get('demo'):
+        A(DEMOS[e['demo']])
 
     # ---------- methods + limits ----------
     A('<section class="section section--alt">')
@@ -270,11 +280,143 @@ FILTER_DEMO = '''<section class="section" id="demo">
 </section>
 '''
 
+
+PRIME_DEMO = '''<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Run the sieve the network rediscovered</h2>
+      <p class="lede">
+        Three generators scan the same window of consecutive integers. The conventional one walks
+        the 6k&plusmn;1 lattice, trial-divides by small primes, and verifies with Miller&ndash;Rabin.
+        The augmented one swaps the trial division for the distilled scorer and keeps the verifier.
+        The third uses the scorer alone. Move the scale up and watch which one stops working.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="prime-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> 6k&plusmn;1 sieve &mdash; live in your browser</h3>
+        <div class="seg" role="group" aria-label="Highlight">
+          <button type="button" data-lane="all" aria-pressed="true">Everything</button>
+          <button type="button" data-lane="conv">Real primes</button>
+          <button type="button" data-lane="nn">Scorer accepts</button>
+          <button type="button" data-lane="lost">Primes it lost</button>
+        </div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="prime-canvas" height="200"
+                  aria-label="A window of consecutive integers, each coloured by how the three generators classified it"></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:rgba(107,123,141,.30)"></i> Off the 6k&plusmn;1 lattice</span>
+            <span><i style="background:rgba(107,123,141,.62)"></i> Rejected</span>
+            <span><i style="background:#5eead4"></i> Prime, scorer agreed</span>
+            <span><i style="background:#f87171"></i> Prime, scorer missed it</span>
+            <span><i style="background:#fbbf24"></i> Composite, scorer accepted</span>
+          </div>
+          <div class="table-scroll" style="margin-top:18px">
+            <table class="data">
+              <thead><tr><th>&nbsp;</th><th>Conventional</th><th>NN-augmented</th><th>Pure NN</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Primes found</td>
+                  <td class="mono" id="pr-conv-found">&mdash;</td>
+                  <td class="mono" id="pr-aug-found">&mdash;</td>
+                  <td class="mono" id="pr-pure-found">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Miller&ndash;Rabin calls</td>
+                  <td class="mono" id="pr-conv-mr">&mdash;</td>
+                  <td class="mono" id="pr-aug-mr">&mdash;</td>
+                  <td class="mono">0</td>
+                </tr>
+                <tr>
+                  <td>Primes skipped</td>
+                  <td class="mono" id="pr-conv-missed">&mdash;</td>
+                  <td class="mono" id="pr-aug-missed">&mdash;</td>
+                  <td class="mono" id="pr-pure-missed">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Filter cost per candidate</td>
+                  <td class="mono" id="pr-conv-us">&mdash;</td>
+                  <td class="mono" id="pr-aug-us">&mdash;</td>
+                  <td class="mono" id="pr-pure-us">&mdash;</td>
+                </tr>
+                <tr>
+                  <td>False positives</td>
+                  <td><span class="badge badge--teal">None</span></td>
+                  <td><span class="badge badge--teal">None</span></td>
+                  <td><span class="badge badge--red">Recall <b id="pr-pure-recall">&mdash;</b></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div class="ctrl">
+            <label for="pr-scale">Scale <b id="pr-scale-v">10^5</b></label>
+            <input type="range" id="pr-scale" min="3" max="8" step="1" value="5">
+          </div>
+          <div class="ctrl">
+            <label for="pr-tau">Threshold &tau; <b id="pr-tau-v">0.50</b></label>
+            <input type="range" id="pr-tau" min="10" max="90" step="5" value="50">
+          </div>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Trial divisors used</span>
+              <span class="spec__v mono" id="pr-filter">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Composites accepted</span>
+              <span class="spec__v mono" id="pr-pure-fp">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0">
+              <span class="spec__k">Verifier calls saved</span>
+              <span class="spec__v mono" id="pr-mrsaved">&mdash;</span>
+            </div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0">
+              <span class="spec__k">Filter cost ratio</span>
+              <span class="spec__v mono" id="pr-slowdown">&mdash;</span>
+            </div>
+          </div>
+          <p class="tiny muted" id="pr-verdict">&nbsp;</p>
+          <button class="btn btn--sm btn--block" id="pr-again">Scan a new window</button>
+          <div class="note" style="font-size:.8rem;padding:12px 14px">
+            The paper reports the NN-augmented generator running <strong>30&ndash;80&times;
+            slower</strong> than the conventional one &mdash; MLP inference per candidate, with no
+            matching reduction in candidate count &mdash; and pure-NN primality recall of
+            <strong>0.21&ndash;0.68</strong> at &tau;&nbsp;=&nbsp;0.5. The ratio here is larger
+            because it isolates the filter; the paper&rsquo;s figure is end-to-end, with the
+            verifier in both denominators. This page reproduces the mechanism, not the figures.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Miller&ndash;Rabin here is the real thing &mdash; the first thirteen primes as witnesses,
+        deterministic below 3.317&nbsp;&times;&nbsp;10<sup>24</sup>, so every &ldquo;prime&rdquo; on
+        this page is exactly that. The scorer is a real 105&nbsp;&rarr;&nbsp;64&nbsp;&rarr;&nbsp;1
+        forward pass over the same deliberately redundant feature set the paper used, but its first
+        layer is hand-set rather than trained: twelve units form clipped ramps reading zero when
+        <em>p</em> divides <em>n</em>, for <em>p</em> in {5,&nbsp;7,&nbsp;11,&nbsp;13,&nbsp;17,&nbsp;19},
+        weighted by &minus;log(1&nbsp;&minus;&nbsp;1/<em>p</em>). That is trial division written as a
+        likelihood ratio &mdash; the function Paper&nbsp;1 distilled out of the trained weights. The
+        other fifty-two units carry the redundant features at small random weights; they are what
+        costs the network its recall, and what costs it its speed.
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
+
+DEMOS = {'filtering': FILTER_DEMO, 'primes': PRIME_DEMO}
+
 count = 0
 for e in RESEARCH:
     path = os.path.join(OUT, e['slug'] + '.html')
     with open(path, 'w') as f:
-        f.write(page(e))
+        f.write(amp(page(e)))
     count += 1
 print('wrote %d research page bodies' % count)
 
@@ -284,7 +426,7 @@ for e in RESEARCH:
     # Keep titles inside what a search result actually renders (~60 chars).
     title = e.get('seo_title') or (e['name'] + ' — ' + e['field'] + ' | Imortek')
     desc = e['blurb'].replace('"', "'")
-    js = '<script src=\\"/assets/js/demos/filtering.js\\" defer></script>' if e.get('demo') else ''
+    js = ('<script src=\\"/assets/js/demos/%s.js\\" defer></script>' % e['demo']) if e.get('demo') else ''
     rows.append('"research/%s~%s~%s~~%s~article"' % (e['slug'], title, desc, js))
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'research_rows.txt'), 'w') as f:
     f.write('\n'.join(rows) + '\n')
@@ -305,8 +447,9 @@ A('    <h1>Forty-six folders of <span class="gradient-text">work in progress</sp
 A('    <p class="lede">')
 A('      This is a shelf, not a product catalogue. Some of it is result-bearing research with')
 A('      experiments and numbers. Some of it is a design document. Some of it is speculative and')
-A('      says so in its own README. Twelve areas have a full write-up here, with every claim')
-A('      listed next to the evidence behind it.')
+A('      says so in its own README. Every folder now has a full write-up, drawn from the source')
+A('      papers rather than the folder READMEs, with every claim listed next to the evidence')
+A('      behind it &mdash; including the ones that report a negative result.')
 A('    </p>')
 A('    <div class="badge-row" style="margin-top:24px">')
 A('      <span class="badge badge--teal">' + str(len(RESEARCH)) + ' full write-ups</span>')
@@ -334,8 +477,10 @@ A('    </div>')
 A('    <div class="chips reveal" id="r-filters" style="margin-bottom:12px">')
 A('      <button type="button" class="chip" data-field="all" aria-pressed="true">Everything'
   '<span class="chip__n">' + str(len(ALL_FOLDERS)) + '</span></button>')
-A('      <button type="button" class="chip" data-field="__written" aria-pressed="false">Full write-up'
-  '<span class="chip__n">' + str(len(RESEARCH)) + '</span></button>')
+# The "full write-up" chip only means something while some folders lack one.
+if len(RESEARCH) < len(ALL_FOLDERS):
+    A('      <button type="button" class="chip" data-field="__written" aria-pressed="false">Full write-up'
+      '<span class="chip__n">' + str(len(RESEARCH)) + '</span></button>')
 for f in fields:
     n = sum(1 for _, ff in ALL_FOLDERS if ff == f)
     A('      <button type="button" class="chip" data-field="' + f + '" aria-pressed="false">' + f +
@@ -409,5 +554,5 @@ A('  </div>')
 A('</section>')
 
 with open(os.path.join(OUT, '..', 'research.html'), 'w') as f:
-    f.write('\n'.join(idx) + '\n')
+    f.write(amp('\n'.join(idx) + '\n'))
 print('wrote research index')

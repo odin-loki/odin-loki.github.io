@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VDJ algorithm — immune-inspired recognition | Imortek</title>
+<meta name="description" content="V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/research/vdj.html">
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VDJ algorithm — immune-inspired recognition | Imortek">
+<meta property="og:description" content="V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.">
+<meta property="og:url" content="https://imortek.com.au/research/vdj.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VDJ algorithm — immune-inspired recognition | Imortek">
+<meta name="twitter:description" content="V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">Research &amp; Systems</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/#products" aria-haspopup="true">Products</a>
+          <div class="nav__menu">
+            <a href="/pbsd.html"><strong>ParanoidBSD</strong><span>Capability-secured C++23 operating system</span></a>
+            <a href="/cypha.html"><strong>Cypha</strong><span>First-principles AI — classify, sample, generate</span></a>
+            <a href="/chess.html"><strong>Cypha Chess</strong><span>Play the model, distilled from a real engine</span></a>
+            <a href="/retdec.html"><strong>RetDec Imortek</strong><span>Specification-extraction decompiler</span></a>
+            <a href="/mathscript.html"><strong>MathScript</strong><span>C++23 computer algebra &amp; numerics</span></a>
+            <a href="/aegis.html"><strong>AEGIS</strong><span>Metadata-hiding transport</span></a>
+            <a href="/sentinel.html"><strong>SENTINEL</strong><span>Crime analytics &amp; investigative leads</span></a>
+            <a href="/cellai.html"><strong>Cell AI</strong><span>Reaction-diffusion sequence model</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/research.html">Research</a>
+        <a class="nav__link" href="/licensing.html">Licensing</a>
+        <a class="nav__link" href="/about.html">About</a>
+        <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> VDJ
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">AI &amp; machine learning</span>
+        <h1>The immune system’s combinatorics, borrowed for embedded pattern recognition</h1>
+        <p class="lede">A vertebrate immune system generates recognition capability for antigens it has never seen, from a finite segment library, with no training corpus. That is an appealing property for anything that has to work on scarce data in a small memory budget, and it is a combinatorial mechanism before it is a biological one.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/VDJ%20Inspired%20Algorithm" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">VDJ Inspired Algorithm</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing on performance. Reference implementation, instrumented profile.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim">Four properties of the RAG1/RAG2 recombination machinery are abstracted into software: <strong>combinatorial assembly</strong> from a finite segment library, <strong>geometric progression weighting</strong> across recombination depth, <strong>pattern-driven state transitions</strong>, and <strong>single-example generalisation</strong>. Nothing here is a neural network; it is a combinatorial system with a biological derivation.</p>
+      <p class="dim">The framework is five modules &mdash; OneShotLearner, PatternRecognizer, CombinatorialGenerator, MetaPatternProcessor, SpaceExplorer &mdash; plus seven supporting subsystems, all communicating through one typed Pattern dataclass. The mathematical foundations of each module are derived, and the whole is profiled by instrumented execution rather than estimated.</p>
+      <p class="dim">The geometric 1/2ᵏ weighting produces a clean engineering consequence: marginal information gain from deeper combinations falls below 1.6% past depth r = 6, which is a mathematical justification for a cap rather than a tuned hyperparameter. The target deployment is defence, embedded and real-time work where data scarcity, interpretability and resource limits rule out large-scale statistical learning.</p>
+    </div>
+    <div class="note  reveal" style="margin-top:28px">
+      <strong>The r = 6 cap is the nicest result here.</strong> Most systems cap search depth because someone tried a few values. This one caps it because the geometric weighting makes the marginal information gain past depth six smaller than 1.6% &mdash; the hyperparameter falls out of the construction. That is what a good abstraction buys you.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/vdj.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>Full pipeline latency</td><td class="mono" style="color:var(--ink)">13.0 ms (σ = 4.4 ms)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">n = 16, r = 5; NumPy 2.4.2, Python 3.12, CPU only</td></tr>
+          <tr><td>Peak memory footprint</td><td class="mono" style="color:var(--ink)">997 KB</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same configuration</td></tr>
+          <tr><td>Marginal gain past depth r = 6</td><td class="mono" style="color:var(--ink)">&lt;1.6%</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Consequence of the geometric 1/2ᵏ weighting</td></tr>
+          <tr><td>Topological fingerprinting + spatial exploration</td><td class="mono" style="color:var(--ink)">&lt;2.5 ms at n = 64</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Effectively free at all tested input sizes</td></tr>
+          <tr><td>Module count</td><td class="mono" style="color:var(--ink)">5 primary + 7 supporting</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Architecture as specified</td></tr>
+          <tr><td>Learning regime</td><td class="mono" style="color:var(--ink)">single example</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Inherited from the V(D)J abstraction</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Segment-library recombination.</strong> Finite V, D and J segment sets recombined combinatorially, as the biological mechanism does.</li>
+          <li><strong>Geometric depth weighting.</strong> 1/2ᵏ decay across recombination depth, which both scores candidates and bounds useful depth.</li>
+          <li><strong>Typed Pattern dataclass.</strong> A single typed interchange format between all twelve subsystems — the reason the modules compose.</li>
+          <li><strong>Topological fingerprinting.</strong> Scale-invariant shape features, measured to be near-free at the tested sizes.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>All performance figures are single-machine, CPU-only, NumPy. No embedded-target measurements despite embedded being the stated use case.</li>
+          <li>Combinatorial systems scale by construction: n = 64 is the largest size profiled and the growth beyond it is not characterised empirically.</li>
+          <li>One-shot generalisation is demonstrated by the mechanism, not benchmarked against few-shot statistical baselines.</li>
+          <li>The biological derivation motivates the design; it is not evidence that the design is good.</li>
+          <li>No accuracy results on a standard pattern-recognition dataset.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/VDJ%20Inspired%20Algorithm" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          Independent research and systems software by Odin Loch. Sydney, Australia.
+          Source-available under AGPL-3.0+ with a tiered commercial licence.
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">Commercial licence available</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/cypha.html">Cypha</a></li>
+          <li><a href="/chess.html">Cypha Chess</a></li>
+          <li><a href="/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/mathscript.html">MathScript</a></li>
+          <li><a href="/aegis.html">AEGIS</a></li>
+          <li><a href="/sentinel.html">SENTINEL</a></li>
+          <li><a href="/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Imortek</a></li>
+          <li><a href="/research.html">Research shelf</a></li>
+          <li><a href="/licensing.html">Licensing</a></li>
+          <li><a href="/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">Commercial enquiries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Source</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub profile</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD repo</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">Ideas / research</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 text</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
+      <span class="mono tiny">Built 2026-09-04T21:05:48Z &middot; No trackers, no cookies, no analytics.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+
+</body>
+</html>

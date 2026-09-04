@@ -1,0 +1,128 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Biology &amp; medicine <span style="opacity:.5">/</span> NQD
+    </p>
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Biology &amp; medicine</span>
+        <h1>Neural interfacing with injectable nanodiamonds and ultrasound-powered motes</h1>
+        <p class="lede">The original neural-dust proposal put ultrasound-powered motes in tissue to avoid transcranial wiring. This architecture adds a second tier below it: fluorescent nanodiamonds bearing nitrogen-vacancy centres, injectable intravenously, sitting close enough to individual neurons to do quantum magnetometry on them — with the motes acting as the optical readout layer rather than the sensor.</p>
+        <div class="badge-row" style="margin-top:22px">
+          <span class="badge badge--red">Speculative</span>
+          <span class="badge">AGPL-3.0+ / commercial</span>
+        </div>
+        <div class="btn-row" style="margin-top:22px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Ideas/tree/main/Neural%20Dust" target="_blank" rel="noopener">Read the source documents &rarr;</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Evidence level</span>
+          <div class="tier-meter" data-tier="speculative"><i class="on" data-l="Speculative"></i><i class="" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
+          <p class="small dim" style="margin:16px 0 0">Theory or design only. No in-house measurement.</p>
+          <div class="spec" style="border:0;margin-top:14px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Neural Dust</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Biology &amp; medicine</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Speculative architecture. Complete on paper — mathematics, fabrication spec, OS model, roadmap. Nothing built.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal" style="margin-bottom:1.6rem">
+      <span class="eyebrow">What it is</span>
+      <h2>Quantum nanodiamond sensors at single-neuron proximity, read optically by ultrasound-powered CMOS motes that backscatter to a wearable array — no wires through the skull.</h2>
+    </div>
+    <div class="reveal stack" style="font-size:1.02rem">
+      <p class="dim"><strong>Tier 1</strong> is the Quantum Nanodiamond sensor: 150&ndash;250 nm fluorescent nanodiamonds carrying NV centres, surface-functionalised for neuronal attachment and small enough to inject intravenously. NV centres give magnetometry, thermometry, electric-field sensing and nuclear-spin memory at room temperature, which is what makes single-neuron proximity sensing conceivable without cryogenics.</p>
+      <p class="dim"><strong>Tier 2</strong> is the Acoustic Processing and Exchange mote: 80&ndash;150 µm aluminium-nitride and 65 nm CMOS hybrid devices on parylene-C flexible substrates. Each harvests power piezoelectrically from ultrasound, optically interrogates the nanodiamonds around it, processes locally, can stimulate tissue, and communicates back by acoustic backscatter to an external wearable transceiver array.</p>
+      <p class="dim">Together the two tiers form a distributed quantum&ndash;classical mesh covering large tissue volumes with no transcranial wires and no large implant, and with a graceful degradation model &mdash; individual sensors and motes failing degrades resolution rather than killing the interface. The document develops the mathematical framework, fabrication specifications, deployment protocols, an operating-system model and a clinical roadmap.</p>
+    </div>
+    <div class="note note--violet reveal" style="margin-top:28px">
+      <strong>The interesting part is the division of labour.</strong> Putting the quantum sensing and the classical processing in physically separate tiers is the idea worth taking seriously here: the nanodiamond does not need power or a radio, and the mote does not need to be small enough to sit on a neuron. Whether that division survives contact with tissue optics is the open question, and the document does not resolve it.
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Claims ledger</span>
+      <h2>Every number, and what stands behind it</h2>
+      <p class="lede">A claim is only worth the evidence attached to it. Each row below carries its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured on synthetic data, projected from literature, or simply cited.</p>
+    </div>
+    <figure class="diagram reveal" style="margin-bottom:26px">
+      <div class="diagram__scroll">
+        <img src="/assets/img/diagrams/research/nqd.svg" alt="Breakdown of this page’s claims by what stands behind each one" loading="lazy" decoding="async">
+      </div>
+      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>
+      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the same data row by row.</figcaption>
+    </figure>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
+        <tbody>
+          <tr><td>QND sensor size</td><td class="mono" style="color:var(--ink)">150–250 nm</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Fluorescent nanodiamond with NV centres, IV-injectable</td></tr>
+          <tr><td>APEX mote size</td><td class="mono" style="color:var(--ink)">80–150 µm</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">AlN piezo + 65 nm CMOS on parylene-C</td></tr>
+          <tr><td>Sensing modalities</td><td class="mono" style="color:var(--ink)">magnetometry, thermometry, E-field, nuclear spin memory</td><td><span class="badge ">Cited</span></td><td class="muted">Established NV-centre capabilities</td></tr>
+          <tr><td>Power delivery</td><td class="mono" style="color:var(--ink)">piezoelectric ultrasound harvesting</td><td><span class="badge ">Cited</span></td><td class="muted">The original neural-dust mechanism</td></tr>
+          <tr><td>Uplink</td><td class="mono" style="color:var(--ink)">acoustic backscatter</td><td><span class="badge ">Cited</span></td><td class="muted">To an external wearable transceiver array</td></tr>
+          <tr><td>Architecture tiers</td><td class="mono" style="color:var(--ink)">2</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Quantum sensing below, classical processing above</td></tr>
+          <tr><td>Transcranial wiring required</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">The central architectural claim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tiny muted reveal" style="margin-top:14px">
+      <strong>Measured</strong> — author-run experiment on the stated setup. <strong>Synthetic</strong> — measured, but on synthetic rather than real data. <strong>Derived</strong> — follows from the stated construction or proof. <strong>Projected</strong> — paper-stated projection, not an author-run benchmark. <strong>Cited</strong> — taken from external literature.
+    </p>
+  </div>
+</section>
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Methods</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">How it works</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>NV-centre quantum sensing.</strong> Room-temperature magnetometry and thermometry from nitrogen-vacancy defects — the reason diamond is the sensor material.</li>
+          <li><strong>Surface functionalisation for neuronal attachment.</strong> Chemistry that puts the sensor where the signal is rather than nearby.</li>
+          <li><strong>Piezoelectric ultrasound harvesting.</strong> Power in without wires, at a depth ultrasound can reach.</li>
+          <li><strong>Acoustic backscatter uplink.</strong> Data out by modulating reflection rather than transmitting — the mote never needs a radio.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Stated limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What it does not do</h2>
+        <p class="dim">Taken from the folder&rsquo;s own README. Nothing here has been softened.</p>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li>Speculative throughout. No device has been fabricated and no in-vivo work is reported.</li>
+          <li>IV-injectable nanodiamonds crossing the blood-brain barrier and attaching selectively to neurons is assumed, not demonstrated.</li>
+          <li>Optical interrogation of nanodiamonds through brain tissue at useful depth is the hardest unsolved step and is treated as an engineering parameter.</li>
+          <li>Biocompatibility, clearance and long-term retention of both tiers are unaddressed at the level a clinical roadmap would require.</li>
+          <li>The clinical application roadmap is aspirational; nothing here is close to a regulatory pathway.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal" style="background:radial-gradient(900px 320px at 50% -10%,rgba(94,234,212,.08),transparent 70%),linear-gradient(180deg,var(--panel) 0%,var(--bg-elev) 100%)">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Use it</span>
+        <h2 style="max-width:24ch;margin-inline:auto;font-size:clamp(1.4rem,2.8vw,2.1rem)">Free under AGPL-3.0+ for almost everyone</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.6rem">Personal use, charities, education and organisations under AUD&nbsp;50,000 a year pay nothing. A tiered commercial licence covers everyone else.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary" href="https://github.com/odin-loki/Ideas/tree/main/Neural%20Dust" target="_blank" rel="noopener">Open the folder</a>
+          <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+          <a class="btn btn--ghost" href="/research.html">Back to the shelf</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
