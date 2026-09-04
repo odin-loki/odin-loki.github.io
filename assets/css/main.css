@@ -375,9 +375,16 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 /* ---------- Feature list ---------- */
 .flist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-.flist li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; color: var(--ink-dim); font-size: .94rem; }
+/* The marker is absolutely positioned rather than a grid track. These items mix
+   <strong>, <code> and bare text, and every one of those is a separate grid
+   item — under a 20px first track the prose ended up one word per line. */
+.flist li {
+  position: relative; padding-left: 32px;
+  color: var(--ink-dim); font-size: .94rem;
+}
 .flist li::before {
-  content: ""; width: 7px; height: 7px; margin-top: .55em; margin-left: 6px; border-radius: 2px;
+  content: ""; position: absolute; left: 6px; top: .58em;
+  width: 7px; height: 7px; border-radius: 2px;
   background: var(--teal); box-shadow: 0 0 10px rgba(94,234,212,.6); transform: rotate(45deg);
 }
 .flist strong { color: var(--ink); font-weight: 600; }
@@ -722,8 +729,14 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
 .tier__price small { font-size: .8rem; color: var(--ink-mute); font-weight: 400; }
 .tier__name { font-size: 1.08rem; font-weight: 620; margin: 0; }
 .tier ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; flex: 1; }
-.tier ul li { display: grid; grid-template-columns: 15px 1fr; gap: 10px; font-size: .87rem; color: var(--ink-dim); }
-.tier ul li::before { content: "\2713"; color: var(--teal); font-size: .85rem; line-height: 1.5; }
+.tier ul li {
+  position: relative; padding-left: 25px;
+  font-size: .87rem; color: var(--ink-dim);
+}
+.tier ul li::before {
+  content: "\2713"; position: absolute; left: 0; top: 0;
+  color: var(--teal); font-size: .85rem; line-height: 1.5;
+}
 
 /* ---------- Budget bars ---------- */
 .bar { display: grid; gap: 6px; }
