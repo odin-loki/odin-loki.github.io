@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Node (only used by local tooling, never committed)
+node_modules/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Local scratch
+*.log
+/tmp/

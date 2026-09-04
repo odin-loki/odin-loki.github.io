@@ -1,0 +1,208 @@
+<section class="phero" data-video="/assets/video/sentinel" data-poster="/assets/img/video/sentinel.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">SENTINEL &middot; Phases 1&ndash;2 complete</span>
+        <h1>Investigative leads that can be <span class="gradient-text">traced back</span></h1>
+        <p class="lede">
+          A C++23 and Qt 6 desktop tool that ingests public crime data, runs statistical models,
+          and produces ranked leads &mdash; where every output traces to its source record, its model,
+          and its parameters. If an analyst cannot show why a lead ranked where it did, it should
+          not be a lead.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Build a hotspot model</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/SENTINEL" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">UI<b>Qt 6, 9-page dashboard</b></div>
+          <div class="phero__meta-item">Tests<b>495 automated</b></div>
+          <div class="phero__meta-item">Storage<b>SQLite</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="SENTINEL" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Stated up front</span>
+          <p class="small dim" style="margin:0 0 12px">
+            This is analytical software that ranks locations and associations from public crime
+            data. It is a tool for directing an analyst&rsquo;s attention, not a system that decides
+            anything about a person.
+          </p>
+          <p class="small dim" style="margin:0">
+            The calibration and fairness pages exist because a model that is well ranked and badly
+            calibrated is more dangerous than no model. Phase 3&ndash;5 planning is explicitly
+            fairness-first, and published benchmarks are a stated deliverable rather than a
+            marketing claim.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pipeline</span>
+      <h2>Ingest &rarr; NLP &rarr; features &rarr; models &rarr; inference</h2>
+      <p class="lede">Each stage writes what it did into the provenance chain, so a lead at the end carries the record of how it got there.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Ingest</span>
+        <p class="small dim" style="margin:0">UK Police API and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
+        <p class="small dim" style="margin:0">Classical, rule-based modus-operandi extraction and crime classification. No language model in the loop &mdash; deliberately, because the output has to be explainable.</p></div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Models</span>
+        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, DBSCAN series detection, KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+      <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Inference</span>
+        <p class="small dim" style="margin:0">Rossmo geographic profiling, MO analysis, evidence scoring, anomaly detection, co-offending PageRank and community detection, and the hint engine.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Two models over the same incidents</h2>
+      <p class="lede">
+        Place incidents on the map. <strong>KDE</strong> asks where crime is dense.
+        <strong>Rossmo&rsquo;s formula</strong> asks something different and more interesting: given
+        that offenders avoid a buffer zone around home, where does the offender most likely live?
+        Both run live, over the same points you place.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="sn-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> sentinel &mdash; spatial inference</h3>
+        <div class="seg" role="group" aria-label="Model">
+          <button type="button" data-model="kde" aria-pressed="true">KDE hotspots</button>
+          <button type="button" data-model="rossmo">Rossmo profile</button>
+          <button type="button" data-model="both">Both</button>
+        </div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="sn-canvas" height="380"
+                  aria-label="Incident map with kernel density and geographic profiling surfaces"></canvas>
+          <p class="demo__hint" style="margin-top:12px">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Click to add an incident. The surfaces recompute on every point.
+          </p>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="sn-bw">KDE bandwidth <b id="sn-bw-v">0.09</b></label>
+              <input type="range" id="sn-bw" min="0.03" max="0.25" step="0.01" value="0.09">
+            </div>
+            <div class="ctrl">
+              <label for="sn-buffer">Rossmo buffer B <b id="sn-buffer-v">0.10</b></label>
+              <input type="range" id="sn-buffer" min="0.02" max="0.30" step="0.01" value="0.10">
+            </div>
+            <div class="ctrl">
+              <label for="sn-f">Decay f <b id="sn-f-v">1.2</b></label>
+              <input type="range" id="sn-f" min="0.4" max="2.5" step="0.1" value="1.2">
+            </div>
+          </div>
+          <div class="chips" style="margin-top:16px">
+            <button type="button" class="chip" data-scenario="series">Load a series</button>
+            <button type="button" class="chip" data-scenario="dispersed">Dispersed offences</button>
+            <button type="button" class="chip" data-scenario="clear">Clear</button>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Incidents</div>
+              <div class="readout__v plain" id="sn-n">0</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Peak density</div>
+              <div class="readout__v" id="sn-peak">&mdash;</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Top-ranked lead</h4>
+            <div class="verdict" id="sn-lead">
+              <div class="verdict__label">No leads</div>
+              <div class="verdict__why">Place at least three incidents.</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Provenance chain</h4>
+            <div class="log" id="sn-prov" style="height:180px"></div>
+          </div>
+          <div class="note note--amber" style="font-size:.78rem;padding:12px 14px">
+            <strong>Rossmo is contested.</strong> Geographic profiling performs well on series by
+            a single offender with a stable anchor point, and poorly when those assumptions break.
+            Treating its peak as evidence about a person would be a misuse of it.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Live implementations of Gaussian KDE and Rossmo&rsquo;s criminal geographic targeting formula,
+        written for this page. The shipping tool adds Hawkes processes, DBSCAN series detection
+        and Gaussian process regression over real ingested data.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Complete</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What works today</h2>
+        <ul class="checks" style="margin-top:1.4rem">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>End-to-end pipeline from ingest to ranked leads</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 automated tests</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-data validation on UK and US datasets</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows and Linux packaging</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only REST API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nine-page dashboard: events, map, calibration, cases, co-offending graph, leads, audit log, settings, debug</span></li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Limitations</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What does not</h2>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li><strong>Rule-based NLP only.</strong> Modus-operandi extraction is classical, with the recall limits that implies.</li>
+          <li><strong>Single-machine desktop.</strong> No multi-user deployment, no shared case state across analysts.</li>
+          <li><strong>Limited live connectors.</strong> Few real-time data sources are wired up.</li>
+          <li><strong>Basic map.</strong> Custom-rendered, not a GIS. Optional GIS integration is a Phase 3&ndash;5 item.</li>
+        </ul>
+        <h3 style="margin-top:2rem;font-size:1.05rem">Phases 3&ndash;5, planned</h3>
+        <p class="small dim">
+          Multi-jurisdiction support, optional GIS integration, published benchmarks,
+          fairness-first deployment, and a possible managed service. The backlog is in
+          <code>REMAINING.md</code> rather than in a roadmap deck.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap wrap-narrow center">
+    <span class="eyebrow" style="justify-content:center">Provenance</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Every lead carries its own receipt</h2>
+    <p class="lede" style="margin-inline:auto;text-align:center">
+      Source record, model, parameters, and the transformation at every stage. An audit log
+      viewer is one of the nine dashboard pages, not a feature request. For software that ranks
+      where police attention goes, that is the minimum bar &mdash; and it is the reason the research
+      prototype behind it, ARIA-INTEL, is labelled as not ready for the same use.
+    </p>
+    <div class="btn-row" style="justify-content:center;margin-top:24px">
+      <a class="btn btn--ghost" href="/research/asset-tracking.html">The research prototype &rarr;</a>
+      <a class="btn btn--ghost" href="/licensing.html">Licensing terms</a>
+    </div>
+  </div>
+</section>

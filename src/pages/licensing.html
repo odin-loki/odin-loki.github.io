@@ -1,0 +1,235 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">Licensing</span>
+        <h1>Free for almost everyone. <span class="gradient-text">Paid where it pays.</span></h1>
+        <p class="lede">
+          Everything Imortek publishes is source-available under the GNU Affero General Public
+          License v3.0 or later. If you are a person, a charity, a school, or an organisation
+          earning under AUD&nbsp;50,000 a year, that costs you nothing. Above that threshold, or if
+          you need to keep your modifications private, there is a tiered commercial licence.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#chooser">Work out which applies to you</a>
+          <a class="btn btn--ghost" data-email data-subject="Commercial licence enquiry" href="#">Email about a commercial licence</a>
+        </div>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card" style="border-color:rgba(94,234,212,.35)">
+            <div class="badge-row" style="margin-bottom:12px"><span class="badge badge--teal">Free</span></div>
+            <h3 style="font-size:1.08rem;margin:0 0 8px">AGPL-3.0 or later</h3>
+            <p class="small dim" style="margin:0">
+              Personal use, charities, education, and organisations under AUD&nbsp;50,000 annual
+              income. Share your modifications back, open-source research built on it, and keep
+              the attribution line.
+            </p>
+          </div>
+          <div class="card" style="border-color:rgba(167,139,250,.35)">
+            <div class="badge-row" style="margin-bottom:12px"><span class="badge badge--violet">Paid</span></div>
+            <h3 style="font-size:1.08rem;margin:0 0 8px">Commercial licence</h3>
+            <p class="small dim" style="margin:0">
+              Tiered by organisation size. No obligation to publish your modifications, no
+              copyleft reach into your own code, and no attribution requirement unless you want one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="chooser">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Which licence do you need?</h2>
+      <p class="lede">
+        Four questions. The answer is computed in your browser and nothing is recorded.
+        This is a guide to the terms, not legal advice &mdash; the licence texts govern.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="lic-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> licence chooser</h3>
+        <button class="btn btn--sm btn--ghost" id="lic-reset">Start over</button>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div id="lic-questions" style="display:grid;gap:22px"></div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Result</h4>
+            <div class="verdict" id="lic-verdict">
+              <div class="verdict__label">Answer the questions</div>
+              <div class="verdict__why">The recommendation updates as you go.</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">What that means for you</h4>
+            <ul class="checks" id="lic-obligations" style="font-size:.85rem"></ul>
+          </div>
+          <div id="lic-cta"></div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A summary of the published terms. Where this page and the licence files in the
+        repositories disagree, the licence files win.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The terms</span>
+      <h2>Side by side</h2>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead>
+          <tr><th>&nbsp;</th><th>AGPL-3.0+</th><th>Commercial licence</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Cost</strong></td><td>Free</td><td>Tiered by organisation size</td></tr>
+          <tr><td><strong>Who it is for</strong></td><td>Individuals, charities, education, organisations under AUD 50,000 a year</td><td>Everyone above that threshold</td></tr>
+          <tr><td><strong>Use in a product</strong></td><td>Yes</td><td>Yes</td></tr>
+          <tr><td><strong>Modify the source</strong></td><td>Yes</td><td>Yes</td></tr>
+          <tr><td><strong>Must publish your modifications</strong></td><td>Yes, under the same dual licence</td><td>No</td></tr>
+          <tr><td><strong>Network use triggers source obligations</strong></td><td>Yes &mdash; this is the &ldquo;A&rdquo; in AGPL</td><td>No</td></tr>
+          <tr><td><strong>Research built on it</strong></td><td>Must be open-sourced</td><td>No obligation</td></tr>
+          <tr><td><strong>Attribution line required</strong></td><td>Yes</td><td>Optional</td></tr>
+          <tr><td><strong>Support</strong></td><td>Best effort, via GitHub issues</td><td>Direct, by arrangement</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="split" style="margin-top:44px">
+      <div class="reveal">
+        <span class="eyebrow">Attribution</span>
+        <h3>The line AGPL users must carry</h3>
+        <p class="dim small">In your about box, documentation, or footer:</p>
+        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+Licensed under AGPL-3.0+.</pre>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">Copy attribution</button>
+        </div>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">The exception</span>
+        <h3>HardenedBSD-derived code stays BSD</h3>
+        <p class="dim">
+          ParanoidBSD contains code derived from HardenedBSD. That code remains under its original
+          BSD licence. It cannot be relicensed and Imortek does not claim to.
+        </p>
+        <p class="dim">
+          <code>docs/PROVENANCE.md</code> in the PBSD repository records which modules are
+          HardenedBSD-derived and which are new PBSD work, so the boundary is checkable rather
+          than asserted. New work &mdash; the capability nucleus, the tooling, the compositor and
+          theme &mdash; carries the Imortek dual licence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Per project</span>
+      <h2>What each repository carries today</h2>
+      <p class="lede">
+        Imortek is standardising on the dual licence across the catalogue. Where a repository has
+        not been updated yet, this table says so rather than pretending otherwise.
+      </p>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead><tr><th>Project</th><th>Target licence</th><th>In the repository today</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/research.html">Ideas</a> &mdash; research shelf</td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td></tr>
+          <tr><td><a href="/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td></tr>
+          <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">AGPL-3.0 in place</span></td></tr>
+          <tr><td><a href="/pbsd.html">ParanoidBSD</a></td><td>AGPL-3.0+ / commercial for new work</td><td><span class="badge badge--amber">BSD for HardenedBSD-derived code, permanently</span></td></tr>
+          <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--blue">MIT today</span></td></tr>
+          <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
+          <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
+          <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
+          <tr><td><a href="/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:24px">
+      <strong>If a repository&rsquo;s LICENSE file disagrees with this table, the LICENSE file is what
+      binds.</strong> Relicensing is being rolled out project by project; until a repository
+      carries the dual licence, what is in it is what applies to you. Ask if you need certainty
+      before relying on it.
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow">Questions people actually ask</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Before you email</h2>
+    <details class="acc" style="margin-top:24px" open>
+      <summary>We are a startup under AUD 50,000. Do we really pay nothing?</summary>
+      <div class="acc__body">
+        Correct &mdash; you use it under AGPL-3.0+ for free. The obligations still apply: publish your
+        modifications under the same dual licence, keep the attribution line, and be aware that
+        offering it over a network counts as distribution under AGPL. When you cross the threshold,
+        talk to us then.
+      </div>
+    </details>
+    <details class="acc">
+      <summary>What does &ldquo;network use triggers source obligations&rdquo; actually mean?</summary>
+      <div class="acc__body">
+        The AGPL closes the gap the GPL leaves open. Under the GPL, running modified software as a
+        web service is not distribution, so no source has to be released. The AGPL says that if
+        users interact with your modified version over a network, they are entitled to its source.
+        If you run a SaaS product on top of this software, that clause is the one to read carefully
+        &mdash; and it is usually the reason organisations take a commercial licence.
+      </div>
+    </details>
+    <details class="acc">
+      <summary>How is the AUD 50,000 threshold measured?</summary>
+      <div class="acc__body">
+        Annual income of the organisation, not revenue attributable to the software. It is a
+        deliberately low-friction test: if you are small enough that working it out is annoying,
+        you are small enough to be on the free tier.
+      </div>
+    </details>
+    <details class="acc">
+      <summary>What do the commercial tiers cost?</summary>
+      <div class="acc__body">
+        Tiered by organisation size, quoted per enquiry. There is no published price list because
+        the catalogue spans an operating system, a decompiler, a numerics library and an anonymity
+        transport &mdash; and what you need from each differs enormously. Email with what you want to
+        use and roughly how big you are, and you will get a number rather than a discovery call.
+      </div>
+    </details>
+    <details class="acc">
+      <summary>Can we get a licence for one project rather than all of them?</summary>
+      <div class="acc__body">
+        Yes. Per-project licences are the normal case; catalogue-wide is available if you want it.
+      </div>
+    </details>
+    <details class="acc">
+      <summary>Is any of this legal advice?</summary>
+      <div class="acc__body">
+        No. This page is a plain-language summary written by the author of the software, not a
+        lawyer. The AGPL-3.0 text and the commercial licence agreement are what actually bind. If
+        the distinction matters to your organisation, have your own counsel read them.
+      </div>
+    </details>
+    <div class="btn-row" style="margin-top:28px">
+      <a class="btn btn--primary" data-email data-subject="Commercial licence enquiry" href="#">Email about a commercial licence</a>
+      <a class="btn btn--ghost" href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">Read the AGPL-3.0 text</a>
+    </div>
+  </div>
+</section>

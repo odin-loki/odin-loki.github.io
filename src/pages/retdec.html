@@ -1,0 +1,254 @@
+<section class="phero" data-video="/assets/video/retdec" data-poster="/assets/img/video/retdec.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
+        <h1>A decompiler that recovers the <span class="gradient-text">algorithm</span>, not just the code</h1>
+        <p class="lede">
+          Pseudocode tells you what the bytes do. It rarely tells you what they <em>mean</em>.
+          RetDec Imortek treats semantic recovery as the primary output: which cryptographic
+          primitive this is, which sort, which serialization format, which concurrency
+          mechanism &mdash; with C as a by-product.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">Version<b>v2.0.21</b></div>
+          <div class="phero__meta-item">Upstream<b>RetDec v5.0</b></div>
+          <div class="phero__meta-item">Stars<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Why fork RetDec</span>
+          <p class="small dim">
+            Upstream RetDec v5.0 has been inactive since 2022. It remains one of the few
+            open decompilers with a genuinely broad front end &mdash; and that breadth is worth
+            keeping alive.
+          </p>
+          <div class="spec" style="border:0;margin-top:6px">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Semantic library recovery</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Qt 6 interface</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Optional offline neural refinement</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Added</span><span class="spec__v">Algorithm, concurrency &amp; serialization detection</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Front end</span>
+      <h2>Native, bytecode and emerging formats</h2>
+      <p class="lede">Output is format-dependent, because pretending everything decompiles to C helps nobody.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Native</span>
+        <h3 style="font-size:1.02rem">ELF &middot; PE &middot; Mach-O</h3>
+        <p class="small dim" style="margin:0">Produces C pseudocode, plus the semantic layer that is the point of the fork.</p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".05">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Bytecode</span>
+        <h3 style="font-size:1.02rem">Python &middot; Lua &middot; JVM &middot; DEX &middot; CIL</h3>
+        <p class="small dim" style="margin:0">Python and Lua bytecode return their own languages; managed code paths emit Java-family or C#-family output.</p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".1">
+        <div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Emerging</span>
+        <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
+        <p class="small dim" style="margin:0">WebAssembly converts to WAT. PTX is handled as a first-class input rather than an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Watch a function climb the abstraction ladder</h2>
+      <p class="lede">
+        Pick a binary function and step it through the pipeline: raw bytes, disassembly,
+        lifted IR, C pseudocode, and finally the semantic verdict &mdash; the named algorithm,
+        with the evidence that identified it.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="rd-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; specification extraction</h3>
+        <div class="chips" id="rd-samples"></div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <div class="btn-row" style="margin-top:16px">
+            <button class="btn btn--sm" id="rd-prev">&larr; Back</button>
+            <button class="btn btn--sm btn--primary" id="rd-next">Next stage &rarr;</button>
+            <button class="btn btn--sm btn--ghost" id="rd-auto">Auto-run</button>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Semantic verdict</h4>
+            <div class="verdict" id="rd-verdict">
+              <div class="verdict__label">Not yet recovered</div>
+              <div class="verdict__why">Step through to the semantic stage.</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Evidence</h4>
+            <div class="log" id="rd-evidence" style="height:200px"></div>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Confidence</div>
+              <div class="readout__v" id="rd-conf">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Mode</div>
+              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">name-blind</div>
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="rd-symbols">
+            <span class="switch__track"></span>
+            <span>Binary has symbols</span>
+          </label>
+          <p class="tiny muted">
+            With symbols stripped, recovery must work from structure alone &mdash; constants,
+            round counts, control-flow shape. That is the hard case, and the one the
+            measured F1 of 0.056 refers to.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A scripted walkthrough of real recovery stages, written for this page. The
+        decompiler itself is C++ and runs offline.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What it recovers</span>
+      <h2>Six families of structure</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
+        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
+        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
+        <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; including the depth-limit switch that gives introsort away.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
+        <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
+        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Measured</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binaries, and the number that hurts</h2>
+        <p class="dim">
+          All 216 ELF binaries in the test corpus produce buildable C with
+          <code>--buildable</code>, which is on by default. Algorithm recovery is a different
+          story, and the honest way to report it is both numbers side by side.
+        </p>
+        <div class="table-scroll" style="margin-top:20px">
+          <table class="data">
+            <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
+            <tbody>
+              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
+              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
+              <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
+              <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note note--amber" style="margin-top:20px">
+          <strong>Read those two F1 numbers together.</strong> 1.000 with symbols means the
+          detector agrees with the symbol table. 0.056 without means structural recovery on
+          stripped binaries is, today, close to the floor. Quoting only the first would be
+          marketing; quoting only the second would hide that the pipeline works when it has
+          anything to go on.
+        </div>
+      </div>
+
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--violet">Neural refinement</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Optional, offline, and gated</h2>
+        <p class="dim">
+          Refinement runs through llama.cpp with GGUF models, entirely offline, only when
+          <code>RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
+          and it never replaces the baseline.
+        </p>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Compile gate.</strong> Refined output must pass <code>gcc -fsyntax-only</code> before it is accepted.</li>
+          <li><strong>Structural validation.</strong> The refinement must still correspond to the lifted structure.</li>
+          <li><strong>Deterministic baseline preserved.</strong> The unrefined decompiler output remains the auditable artefact. If you need to defend a finding, you defend that one.</li>
+          <li><strong>No network.</strong> Local GGUF inference. Nothing about your binary leaves the machine.</li>
+        </ul>
+        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+<span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
+<span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--alt">
+  <div class="wrap">
+    <div class="split split--center reveal">
+      <div>
+        <span class="eyebrow">Interface</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, or no GUI at all</h2>
+        <p class="dim">
+          Synchronised code views across C, assembly, IR and control-flow graphs, with function
+          navigation, string inspection, a binary browser and an assistant panel. Headless mode
+          drops every GUI dependency so the same build runs in CI.
+        </p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="badge-row" style="margin-bottom:14px">
+            <span class="badge badge--teal">Dual licensed</span>
+          </div>
+          <p class="small dim" style="margin:0 0 12px">
+            AGPL-3.0+ for open-source use, or a commercial licence for proprietary deployment.
+            Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
+          </p>
+          <p class="small muted" style="margin:0">
+            Shippable at v2.0.21. CI gates reflect development rather than production maturity
+            standards &mdash; stated by the project, not inferred.
+          </p>
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn--sm btn--ghost" href="/licensing.html">Licensing terms</a>
+            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">The research line behind it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

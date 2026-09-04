@@ -1,0 +1,379 @@
+<!-- ============================ HERO ============================ -->
+<section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">Cypha &middot; v2.4.0</span>
+        <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
+        <p class="lede">
+          Cypha is not a transformer wrapper and not a tuned copy of somebody else&rsquo;s model.
+          One public type &mdash; <code>cypha::Cypha</code> &mdash; classifies, regresses, samples
+          latents and generates sequences, with a learning rule derived from where four
+          formal programmes intersect.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Train one in your browser</a>
+          <a class="btn btn--fund" href="/chess.html">Play chess against it</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">Release<b>v2.4.0</b></div>
+          <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="Cypha" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Four programmes, one learning rule</span>
+          <ul class="flist">
+            <li><strong>AIXI / Solomonoff</strong> &mdash; minimum-description-length priors decide what the model is allowed to believe cheaply.</li>
+            <li><strong>Information geometry</strong> &mdash; updates follow the natural gradient, so learning respects the curvature of the parameter space.</li>
+            <li><strong>Active inference / free energy</strong> &mdash; gives the structural decomposition into prior, differential and context.</li>
+            <li><strong>Information bottleneck</strong> &mdash; sets the encoder objective: keep what predicts, discard the rest.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ARCHITECTURE ============================ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Architecture</span>
+      <h2>Seven layers, each doing one job</h2>
+      <p class="lede">
+        Every component below exists because one of the four programmes demands it &mdash;
+        not because it appeared in a paper that quarter.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Encoder</span>
+        <h3 style="font-size:1.02rem">Pluggable front end</h3>
+        <p class="small dim" style="margin:0">
+          Raw input to feature vector. Ships <code>VectorEncoder</code>,
+          <code>RFFEncoder</code> (random Fourier features) and <code>ConcatEncoder</code>.
+          Swap it without touching anything downstream.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".04">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Projection</span>
+        <h3 style="font-size:1.02rem">EncoderProjection</h3>
+        <p class="small dim" style="margin:0">
+          Features into latent space via Fisher&ndash;Rao contrastive updates, with
+          Frobenius-norm capping so a single outlier cannot blow the geometry apart.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".08">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
+        <h3 style="font-size:1.02rem">WorldPrior</h3>
+        <p class="small dim" style="margin:0">
+          A shared diagonal Gaussian fitted online by Welford/EMA. This is the
+          &ldquo;infinite context&rdquo; that never forgets &mdash; and whose movement is the
+          drift signal.
+        </p>
+      </div>
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">&Delta;&#8342;</span>
+        <h3 style="font-size:1.02rem">ClassDifferential</h3>
+        <p class="small dim" style="margin:0">
+          Per-class natural-parameter offsets, attracted toward observations and pulled
+          back by MDL decay. A class is a <em>displacement from the world</em>, not a
+          separate model.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".04">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Memory</span>
+        <h3 style="font-size:1.02rem">DIFMemory</h3>
+        <p class="small dim" style="margin:0">
+          Computes log-likelihood ratios under generalised-hyperbolic posteriors, with
+          Bessel-ratio lookup tables so the heavy tails do not cost a transcendental
+          per sample.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".08">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Context</span>
+        <h3 style="font-size:1.02rem">TieredContextBuffer</h3>
+        <p class="small dim" style="margin:0">
+          Short, mid and long tiers weighted by NIGField confidence, so recent evidence
+          can dominate without erasing what the long tier established.
+        </p>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Classification, end to end:</strong> encode &rarr; project &rarr; score each class&rsquo;s
+      log-likelihood ratio against the world prior &rarr; return the argmax, together with a
+      confidence, an anomaly score and an out-of-distribution flag. The demo below is that
+      exact pipeline, in miniature.
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INTERACTIVE DEMO ============================ -->
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Train a classifier by clicking</h2>
+      <p class="lede">
+        A faithful 2-D miniature of the Cypha pipeline: a world prior fitted online, per-class
+        differentials attracted toward what you place, and classification by log-likelihood
+        ratio. It learns from every single click &mdash; there is no batch, no epoch, no restart.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="cypha-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; online classifier</h3>
+        <div class="controls">
+          <label class="switch">
+            <input type="checkbox" id="cy-rff">
+            <span class="switch__track"></span>
+            <span>Latent RFF encoder</span>
+          </label>
+          <label class="switch">
+            <input type="checkbox" id="cy-surface" checked>
+            <span class="switch__track"></span>
+            <span>Decision surface</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="cy-canvas" height="380"
+                  aria-label="Click to place labelled training samples and watch the decision surface form"></canvas>
+          <p class="demo__hint" style="margin-top:12px">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Click the canvas to add a sample of the selected class. Drag to paint a cluster.
+          </p>
+
+          <div style="margin-top:18px">
+            <h4 class="panel__title" style="margin-bottom:10px">Class to place</h4>
+            <div class="chips" id="cy-classes"></div>
+          </div>
+
+          <div style="margin-top:18px">
+            <h4 class="panel__title" style="margin-bottom:10px">Load a dataset</h4>
+            <div class="chips">
+              <button type="button" class="chip" data-set="blobs">Three separable blobs</button>
+              <button type="button" class="chip" data-set="rings">Concentric rings</button>
+              <button type="button" class="chip" data-set="xor">XOR</button>
+              <button type="button" class="chip" data-set="clear">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Samples</div>
+              <div class="readout__v plain" id="cy-n">0</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Accuracy</div>
+              <div class="readout__v" id="cy-acc">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Max LLR</div>
+              <div class="readout__v violet" id="cy-llr">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Prior drift</div>
+              <div class="readout__v amber" id="cy-drift">0.00</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Last inference</h4>
+            <div class="verdict" id="cy-verdict">
+              <div class="verdict__label">Idle</div>
+              <div class="verdict__why">Hover the canvas to classify a point without training on it.</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Class differentials &Delta;&#8342;</h4>
+            <div id="cy-deltas" style="display:grid;gap:9px"></div>
+          </div>
+
+          <div>
+            <div class="ctrl">
+              <label for="cy-lr">&Delta;&#8342; learning rate <b id="cy-lr-v">0.050</b></label>
+              <input type="range" id="cy-lr" min="0.005" max="0.30" step="0.005" value="0.05">
+            </div>
+            <div class="ctrl">
+              <label for="cy-mdl">MDL decay &lambda; <b id="cy-mdl-v">0.0010</b></label>
+              <input type="range" id="cy-mdl" min="0" max="0.02" step="0.0005" value="0.001">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel__foot" id="cy-foot">
+        A 2-D teaching implementation written for this page &mdash; same structure as the real
+        pipeline, none of its scale. The C++ implementation is in
+        <a href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">native/</a>.
+      </div>
+    </div>
+
+    <div class="note note--amber reveal" style="margin-top:24px">
+      <strong>Try XOR with the RFF encoder off.</strong> Accuracy collapses toward chance, and
+      that is not a bug in this demo &mdash; it is the documented limitation of a linear
+      log-likelihood ratio, stated plainly in the Cypha README. Switch the latent RFF encoder
+      on and watch it recover. Publishing the failure mode next to the fix is the whole point.
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Measured</span>
+      <h2>Results, with the comparison that matters</h2>
+      <p class="lede">
+        Figures from the repository&rsquo;s own benchmark runs after the diagnostic fix.
+        Correctness is proved by a CTest matrix matching committed fixture goldens &mdash; not
+        by a leaderboard position.
+      </p>
+    </div>
+
+    <div class="table-scroll reveal">
+      <table class="data">
+        <thead>
+          <tr><th>Dataset</th><th>Task</th><th class="num">Cypha</th><th class="num">Online SGD</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Linearly separable</td><td>2-class</td><td class="num">0.783</td><td class="num">0.644</td><td class="muted">Same online budget</td></tr>
+          <tr><td>Iris</td><td>3-class</td><td class="num">0.900</td><td class="num">&mdash;</td><td class="muted">Classical baseline set</td></tr>
+          <tr><td>Wine</td><td>3-class</td><td class="num">0.969</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Digits</td><td>10-class</td><td class="num">0.922</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Breast cancer</td><td>2-class</td><td class="num">0.957</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>WikiText-2</td><td>Sequence, 300k tokens</td><td class="num">2.664 BPC</td><td class="num">&mdash;</td><td class="muted">Hybrid GRIA+LSTM L2+Wave2 BPTT</td></tr>
+          <tr><td>XOR</td><td>2-class, latent RFF</td><td class="num">~0.763</td><td class="num">&mdash;</td><td class="muted">Linear LLR alone caps near chance</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card reveal">
+        <span class="eyebrow" style="margin-bottom:12px">Generation</span>
+        <p class="small dim" style="margin:0">
+          Temperature-scaled, field-conditioned, latent-boundary interpolation, adversarial
+          (entropy-maximising), OOD sampling, MDL-constrained, ancestral, and KDE sampling
+          from the replay buffer.
+        </p>
+      </div>
+      <div class="card reveal" data-delay=".05">
+        <span class="eyebrow" style="margin-bottom:12px">Anomaly &amp; active learning</span>
+        <p class="small dim" style="margin:0">
+          Anomaly scores from gate values, active-query scores as entropy &times; boundary
+          proximity, and drift detection read directly off world-prior movement.
+        </p>
+      </div>
+      <div class="card reveal" data-delay=".1">
+        <span class="eyebrow" style="margin-bottom:12px">Replay</span>
+        <p class="small dim" style="margin:0">
+          A 10,000-capacity priority buffer weighted by recency and surprise, replayed at a
+          0.30 ratio &mdash; so the rare, informative sample is not drowned by the common one.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DEFAULTS + HONESTY ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">Reference defaults</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Profiled, not guessed</h2>
+        <p class="dim">These come out of a profiled medium-grid optimisation and ship as the reference configuration.</p>
+        <div class="spec" style="margin-top:20px">
+          <div class="spec__row"><span class="spec__k">Feature dim</span><span class="spec__v mono">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF budget</span><span class="spec__v mono">256</span></div>
+          <div class="spec__row"><span class="spec__k">Replay ratio</span><span class="spec__v mono">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Context window</span><span class="spec__v mono">32</span></div>
+          <div class="spec__row"><span class="spec__k">World prior LR</span><span class="spec__v mono">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">Class diff LR</span><span class="spec__v mono">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">Encoder LR</span><span class="spec__v mono">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Honest framing</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What Cypha is not</h2>
+        <ul class="flist flist--amber">
+          <li><strong>Not a wrapper.</strong> Bespoke from first principles &mdash; which also means it does not inherit anyone else&rsquo;s tuning.</li>
+          <li><strong>Linear LLR has a ceiling.</strong> XOR sits near chance without the latent RFF encoder, which lifts it to roughly 76.3%.</li>
+          <li><strong>Validation is parity-based.</strong> CTest against committed fixture goldens. No leaderboard claims are made.</li>
+          <li><strong>CUDA is inference-only.</strong> Training stays on CPU, because on this architecture CPU is faster.</li>
+          <li><strong>Theory lives elsewhere.</strong> Harmonic-spectrum and NMP work is a separate compression-algorithms paper; Cypha is the implementation layer.</li>
+        </ul>
+        <div class="btn-row" style="margin-top:24px">
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha/releases" target="_blank" rel="noopener">Prebuilt v2.4.0 releases &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CHESS ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow">Product demo</span>
+        <h2 style="max-width:24ch;margin-inline:auto">Cypha, distilled from a real chess engine</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.4rem">
+          26,568 positions labelled with a conventional alpha-beta engine&rsquo;s own search
+          evaluations, fitted with the same WorldPrior whitening and natural-gradient updates
+          used everywhere else in the architecture. It reproduces the teacher&rsquo;s evaluation at
+          <strong>R&sup2; 0.866</strong> on held-out positions, and scores 5W&ndash;19L&ndash;6D
+          against that teacher at equal search depth.
+        </p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--primary btn--lg" href="/chess.html">Play a game</a>
+          <a class="btn btn--ghost btn--lg" href="/chess.html#how">How it was distilled</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BUILD ============================ -->
+<section class="section section--tight section--alt">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow">Build it</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Three commands</h2>
+    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+<span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
+<span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
+
+<span class="c-com"># REST service</span>
+<span class="c-pr">$</span> <span class="c-cmd">cypha_rest --listen 127.0.0.1:8099 --cypha fixtures/reference.cypha</span>
+<span class="c-com"># Qt shell (build with -DCYPHA_BUILD_QT=ON)</span>
+<span class="c-pr">$</span> <span class="c-cmd">cypha_qt_shell</span></pre>
+    <div class="btn-row" style="margin-top:22px">
+      <button class="btn btn--sm" data-copy="cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja">Copy build command</button>
+      <a class="btn btn--sm btn--ghost" href="/licensing.html">Licensing terms</a>
+    </div>
+  </div>
+</section>

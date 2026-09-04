@@ -1,0 +1,245 @@
+<section class="phero" data-video="/assets/video/cellai" data-poster="/assets/img/video/cellai.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
+        <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
+        <p class="lede">
+          Cell AI replaces self-attention with reaction-diffusion partition dynamics and
+          Hebbian/BCM plasticity that runs <em>during</em> the forward pass. It does not approach
+          transformer performance and its README says so on the first screen. It is published as
+          a research log: what a fully different sequence model looks like at full scale, and
+          exactly where it breaks.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
+          <div class="phero__meta-item">v1 parameters<b>125.8M</b></div>
+          <div class="phero__meta-item">Training PPL<b>450k&ndash;1.18M</b></div>
+          <div class="phero__meta-item">GPT-2 baseline<b>~20</b></div>
+          <div class="phero__meta-item">Experiments<b>E0&ndash;E26</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Why publish this</span>
+          <p class="small dim" style="margin:0 0 12px">
+            Training perplexity of 450,000 against GPT-2&rsquo;s 20 is not a near miss. It is four
+            orders of magnitude, and no amount of framing changes that.
+          </p>
+          <p class="small dim" style="margin:0">
+            The value is the E0&ndash;E26 experiment ladder with its failures annotated: which
+            architectural ideas collapsed, how, and what the diagnostics said. A negative result
+            with a documented cause is a contribution. A negative result quietly deleted is a
+            waste of the work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>The dynamics underneath the architecture</h2>
+      <p class="lede">
+        This is a Gray&ndash;Scott reaction-diffusion system &mdash; the same class of dynamics the
+        CellularPDE core is built on. Two chemicals diffuse at different rates and react; feed
+        and kill rates decide whether you get spots, stripes, dividing cells or nothing at all.
+        The architecture&rsquo;s bet is that this kind of self-organising field can carry
+        computation. Watch it and judge the plausibility for yourself.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="ca-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; reaction-diffusion core</h3>
+        <div class="chips" id="ca-presets"></div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="ca-canvas" height="380"
+                  aria-label="Live Gray-Scott reaction-diffusion simulation"></canvas>
+          <p class="demo__hint" style="margin-top:12px">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Click or drag on the field to inject chemical B and perturb the pattern.
+          </p>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="ca-feed">Feed rate F <b id="ca-feed-v">0.0545</b></label>
+              <input type="range" id="ca-feed" min="0.01" max="0.09" step="0.0005" value="0.0545">
+            </div>
+            <div class="ctrl">
+              <label for="ca-kill">Kill rate k <b id="ca-kill-v">0.0620</b></label>
+              <input type="range" id="ca-kill" min="0.04" max="0.075" step="0.0005" value="0.0620">
+            </div>
+            <div class="ctrl">
+              <label for="ca-speed">Steps per frame <b id="ca-speed-v">8</b></label>
+              <input type="range" id="ca-speed" min="1" max="20" step="1" value="8">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Steps</div>
+              <div class="readout__v plain" id="ca-steps">0</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Mean B</div>
+              <div class="readout__v" id="ca-meanb">0.000</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Activity</div>
+              <div class="readout__v violet" id="ca-activity">0.000</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Regime</div>
+              <div class="readout__v amber" id="ca-regime" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Partition state</h4>
+            <canvas id="ca-partitions" height="90" style="width:100%;background:#04060a;border-radius:var(--r-sm);display:block"></canvas>
+            <p class="tiny muted" style="margin-top:8px">
+              N = 4 partitions of the field, as in the CellularPDE core. Height is each
+              partition&rsquo;s mean activation; leakage &lambda; = 0.01 couples them.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn--sm" id="ca-pause">Pause</button>
+            <button class="btn btn--sm btn--ghost" id="ca-reset">Reset field</button>
+          </div>
+          <p class="tiny muted">
+            Gray&ndash;Scott with D<sub>a</sub>=1.0, D<sub>b</sub>=0.5, nine-point Laplacian,
+            explicit Euler. This is the dynamical substrate, not the trained model &mdash; the
+            trained model is 125.8M parameters and does not fit in a browser tab.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A live Gray&ndash;Scott solver written for this page, illustrating the class of dynamics
+        <code>CellularPDE</code> is built from. The architecture itself is PyTorch.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Architecture</span>
+      <h2>What replaces attention</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Core</span>
+        <h3 style="font-size:1.05rem">CellularPDE</h3>
+        <p class="small dim" style="margin:0">
+          N = 4 partitions of D = 256-dimensional state, leakage &lambda; = 0.01, sigmoid reaction
+          terms &mdash; a discrete reaction-diffusion system standing where self-attention would be.
+        </p></div>
+      <div class="card card--hover reveal" data-delay=".05"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Plasticity</span>
+        <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
+        <p class="small dim" style="margin:0">
+          BCM-style Hebbian learning with &alpha; = 0.1, &beta; = 0.01, applied <em>during</em> the
+          forward pass rather than after it. This is the boldest idea in the architecture and the
+          source of its documented gradient-starvation problem.
+        </p></div>
+      <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">v3 optimisation</span>
+        <h3 style="font-size:1.05rem">SpectralPDE &amp; SparseHebbian</h3>
+        <p class="small dim" style="margin:0">
+          SpectralPDE cuts complexity from O(D²) to O(D log D). SparseHebbian compresses updates
+          from 65,536 weights to 1,024. MultiScalePartitions run fast and slow streams;
+          AnnealedRouter uses Gumbel-Softmax scheduling.
+        </p></div>
+      <div class="card card--hover reveal" data-delay=".15"><div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Signal path</span>
+        <h3 style="font-size:1.05rem">The full stack</h3>
+        <p class="small dim" style="margin:0">
+          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
+          &rarr; ResonanceSystem (FFT phase coupling) &rarr; CrystalLattice (K = 3) &rarr; optional
+          Kuramoto coupling &rarr; MultiModalModel routing &rarr; logits.
+        </p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--amber">The ladder</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">E0 to E26, failures annotated</h2>
+        <p class="dim">
+          The architecture-search programme is the actual artefact here. Twenty-seven experiments,
+          each with what was tried and what went wrong, including the ones that went backwards.
+        </p>
+        <div class="table-scroll" style="margin-top:20px">
+          <table class="data">
+            <thead><tr><th>Finding</th><th>Outcome</th></tr></thead>
+            <tbody>
+              <tr><td>PerFreqResonance</td><td class="muted">Documented issues, did not deliver</td></tr>
+              <tr><td>Routing</td><td class="muted">Collapsed to class degeneracy in some configurations</td></tr>
+              <tr><td>E26 vs E25</td><td class="muted">Regression — the later experiment was worse</td></tr>
+              <tr><td>ResonanceSystem</td><td class="muted">Minimal gradient contribution</td></tr>
+              <tr><td>Generation (v1)</td><td class="muted">Lacks proper autoregressive sampling</td></tr>
+              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">Speculative, unintegrated</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow">Numbers</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">The gap, stated plainly</h2>
+        <div class="grid grid-2" style="gap:14px;margin-top:20px">
+          <div class="card">
+            <div class="stat"><div class="stat__num" style="color:var(--red)">450k&ndash;1.18M</div>
+            <div class="stat__label">Cell AI v1 training perplexity band</div></div>
+          </div>
+          <div class="card">
+            <div class="stat"><div class="stat__num"><em>~20</em></div>
+            <div class="stat__label">GPT-2 baseline perplexity</div></div>
+          </div>
+          <div class="card">
+            <div class="stat"><div class="stat__num">125.8M</div>
+            <div class="stat__label">v1 parameters</div></div>
+          </div>
+          <div class="card">
+            <div class="stat"><div class="stat__num"><em>O(D log D)</em></div>
+            <div class="stat__label">SpectralPDE, down from O(D²)</div></div>
+          </div>
+        </div>
+        <div class="note note--red" style="margin-top:22px">
+          <strong>The question the repository asks itself:</strong> &ldquo;what fails, what works,
+          and can we close the gap honestly?&rdquo; The answer so far is that the gap has not
+          closed. That is written in the README rather than in a footnote.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap wrap-narrow center">
+    <span class="eyebrow" style="justify-content:center">Sister projects</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where these ideas went instead</h2>
+    <p class="lede" style="margin-inline:auto;text-align:center">
+      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
+      working first-principles architecture, and the long-context memory work became UHPM.
+    </p>
+    <div class="btn-row" style="justify-content:center;margin-top:24px">
+      <a class="btn btn--ghost" href="/cypha.html">Cypha &rarr;</a>
+      <a class="btn btn--ghost" href="/research/uhpm.html">UHPM long-context memory &rarr;</a>
+      <a class="btn btn--ghost" href="/research/fungal.html">Fungal Network Algorithm &rarr;</a>
+    </div>
+  </div>
+</section>

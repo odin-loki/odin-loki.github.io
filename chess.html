@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Play chess against Cypha | Imortek</title>
+<meta name="description" content="Cypha distilled from a real chess engine — tens of thousands of positions labelled with the engine's own search evaluations, fitted with WorldPrior whitening and natural-gradient updates. Play it in your browser.">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/chess.html">
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Play chess against Cypha | Imortek">
+<meta property="og:description" content="Cypha distilled from a real chess engine — tens of thousands of positions labelled with the engine's own search evaluations, fitted with WorldPrior whitening and natural-gradient updates. Play it in your browser.">
+<meta property="og:url" content="https://imortek.com.au/chess.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Play chess against Cypha | Imortek">
+<meta name="twitter:description" content="Cypha distilled from a real chess engine — tens of thousands of positions labelled with the engine's own search evaluations, fitted with WorldPrior whitening and natural-gradient updates. Play it in your browser.">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">Research &amp; Systems</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/#products" aria-haspopup="true">Products</a>
+          <div class="nav__menu">
+            <a href="/pbsd.html"><strong>ParanoidBSD</strong><span>Capability-secured C++23 operating system</span></a>
+            <a href="/cypha.html"><strong>Cypha</strong><span>First-principles AI — classify, sample, generate</span></a>
+            <a href="/chess.html"><strong>Cypha Chess</strong><span>Play the model, distilled from a real engine</span></a>
+            <a href="/retdec.html"><strong>RetDec Imortek</strong><span>Specification-extraction decompiler</span></a>
+            <a href="/mathscript.html"><strong>MathScript</strong><span>C++23 computer algebra &amp; numerics</span></a>
+            <a href="/aegis.html"><strong>AEGIS</strong><span>Metadata-hiding transport</span></a>
+            <a href="/sentinel.html"><strong>SENTINEL</strong><span>Crime analytics &amp; investigative leads</span></a>
+            <a href="/cellai.html"><strong>Cell AI</strong><span>Reaction-diffusion sequence model</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/research.html">Research</a>
+        <a class="nav__link" href="/licensing.html">Licensing</a>
+        <a class="nav__link" href="/about.html">About</a>
+        <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <p class="tiny mono muted" style="margin-bottom:18px">
+      <a href="/cypha.html" style="color:var(--ink-mute)">Cypha</a>
+      <span style="opacity:.5">/</span> Chess
+    </p>
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">Product demo</span>
+        <h1>Play chess against <span class="gradient-text">Cypha</span></h1>
+        <p class="lede">
+          Cypha did not learn chess from games. It learned it from an engine &mdash; the Imortek
+          reference engine, a conventional alpha-beta searcher with piece-square evaluation and
+          quiescence. Tens of thousands of positions were labelled with that engine&rsquo;s own
+          search evaluations, and Cypha&rsquo;s regression head was fitted to reproduce them.
+        </p>
+        <p class="lede">
+          What you play against below is that fitted head, running in your browser, inside a
+          shallow search. Every number on this page was measured by the training run that
+          produced it.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#board">Play a game</a>
+          <a class="btn btn--ghost" href="#how">How it was distilled</a>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Measured, not claimed</span>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Held-out R&sup2;</div>
+              <div class="readout__v" id="cx-r2">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">RMSE</div>
+              <div class="readout__v plain" id="cx-rmse">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Positions</div>
+              <div class="readout__v plain" id="cx-positions" style="font-size:1.05rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">vs teacher</div>
+              <div class="readout__v amber" id="cx-match" style="font-size:1.05rem">&mdash;</div>
+            </div>
+          </div>
+          <p class="small muted" style="margin-top:16px">
+            R&sup2; is against held-out positions the model never saw during fitting. The match
+            line is Cypha at search depth 2 against the teacher engine at the same depth, with
+            randomised openings and colours alternated.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="board">
+  <div class="wrap">
+    <div class="demo reveal" id="cx-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head</h3>
+        <div class="controls">
+          <div class="seg" role="group" aria-label="Strength">
+            <button type="button" data-depth="1">Casual</button>
+            <button type="button" data-depth="2" aria-pressed="true">Standard</button>
+            <button type="button" data-depth="3">Careful</button>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="cx-flip">
+            <span class="switch__track"></span>
+            <span>Play as black</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div class="chess-wrap">
+            <div class="chess-evalbar" aria-hidden="true"><div class="chess-evalbar__fill" id="cx-evalfill"></div></div>
+            <div class="chess-board" id="cx-board" role="grid" aria-label="Chess board"></div>
+          </div>
+          <p class="demo__hint" style="margin-top:14px">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Click a piece, then click where it goes. Legal destinations are marked.
+          </p>
+          <div class="btn-row" style="margin-top:16px">
+            <button class="btn btn--sm btn--primary" id="cx-new">New game</button>
+            <button class="btn btn--sm" id="cx-undo">Take back</button>
+            <button class="btn btn--sm btn--ghost" id="cx-hint">What would Cypha play?</button>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Position</h4>
+            <div class="verdict" id="cx-status">
+              <div class="verdict__label">Loading model&hellip;</div>
+              <div class="verdict__why">Fetching the distilled weights.</div>
+            </div>
+          </div>
+
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Cypha eval</div>
+              <div class="readout__v" id="cx-eval">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Nodes</div>
+              <div class="readout__v plain" id="cx-nodes" style="font-size:1.05rem">&mdash;</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">What Cypha considered</h4>
+            <div id="cx-candidates" style="display:grid;gap:8px"></div>
+          </div>
+
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Moves</h4>
+            <div class="log" id="cx-moves" style="height:130px"></div>
+          </div>
+
+          <div class="note" style="font-size:.79rem;padding:12px 14px">
+            The evaluation is a <strong>linear</strong> function of 388 features. It has no search
+            depth of its own, no opening book and no endgame knowledge. Beating it is expected;
+            the interesting part is that a single whitened linear head reproduces an engine&rsquo;s
+            search evaluation at all.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Engine, features, distilled weights and player all run locally. Nothing is sent anywhere,
+        and no model is downloaded beyond a few kilobytes of coefficients.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Method</span>
+      <h2>How an engine becomes a Cypha model</h2>
+      <p class="lede">
+        This is knowledge distillation, done with the same components as every other Cypha
+        application. Nothing chess-specific was added to the architecture &mdash; only the features.
+      </p>
+    </div>
+
+    <div class="grid grid-4">
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Step 1</span>
+        <h3 style="font-size:1.02rem">The teacher</h3>
+        <p class="small dim" style="margin:0">
+          A 0x88 engine with full legal move generation, material and piece-square evaluation,
+          MVV-LVA ordering and quiescence search. Verified against five standard perft positions
+          including kiwipete, so the rules are provably right before anything is learned from it.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Step 2</span>
+        <h3 style="font-size:1.02rem">The data</h3>
+        <p class="small dim" style="margin:0">
+          Positions drawn from self-play with randomised openings and deliberate noise, so the
+          set spans real games rather than one narrow line. Each is labelled with the teacher&rsquo;s
+          own search score, clipped to &plusmn;12 pawns to keep mate scores from dominating.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Step 3</span>
+        <h3 style="font-size:1.02rem">The features</h3>
+        <p class="small dim" style="margin:0">
+          388 dimensions: a 384-wide piece-square occupancy difference (6 types &times; 64 squares)
+          plus bishop pair, doubled pawns, mobility and game phase. Always from the side to move&rsquo;s
+          perspective, so one weight vector serves both colours.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Step 4</span>
+        <h3 style="font-size:1.02rem">The fit</h3>
+        <p class="small dim" style="margin:0">
+          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
+          metric, normalised-LMS weight updates, MDL decay pulling weights back toward the prior,
+          and a surprise-weighted replay buffer at Cypha&rsquo;s reference 0.30 ratio.
+        </p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:48px">
+      <div class="reveal">
+        <span class="eyebrow">Why this is a fair demonstration</span>
+        <h3>The architecture did the work, not the domain</h3>
+        <p class="dim">
+          Every component in step 4 is a real Cypha component doing its real job. The WorldPrior
+          is the same online Gaussian that gives the 2-D classifier on the
+          <a href="/cypha.html#demo">Cypha page</a> its decision surface. The whitening is the
+          information-geometry claim made concrete: updates follow the natural gradient rather
+          than the raw one. MDL decay is the Solomonoff prior expressed as a shrinkage term.
+        </p>
+        <p class="dim">
+          What changed for chess is the feature map and the head &mdash; regression instead of
+          classification. That is the argument the Cypha README makes about being one type that
+          does several jobs, tested on a domain where the answer is unambiguous: either it plays
+          legal, reasonable chess or it does not.
+        </p>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">What this does not show</span>
+        <h3>The honest limits</h3>
+        <ul class="flist flist--amber" style="margin-top:1.2rem">
+          <li><strong>It is linear.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for XOR.</li>
+          <li><strong>The teacher is modest.</strong> The reference engine is a competent classical searcher, not Stockfish. Distilling it well means matching a modest evaluator well.</li>
+          <li><strong>No search depth of its own.</strong> Strength here comes mostly from the alpha-beta wrapper, exactly as it does for the teacher.</li>
+          <li><strong>Distillation is not discovery.</strong> Cypha reproduced an evaluation function it was shown. It did not learn chess from scratch, and nothing on this page claims it did.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note note--violet reveal" style="margin-top:32px">
+      <strong>Reproduce it:</strong> <code>node tools/chess/perft.js</code> verifies the engine
+      against the standard test positions, and <code>node tools/chess/train.js</code> regenerates
+      the model from scratch with a fixed seed. The numbers at the top of this page are read
+      directly out of the file that run produces.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          Independent research and systems software by Odin Loch. Sydney, Australia.
+          Source-available under AGPL-3.0+ with a tiered commercial licence.
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">Commercial licence available</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/cypha.html">Cypha</a></li>
+          <li><a href="/chess.html">Cypha Chess</a></li>
+          <li><a href="/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/mathscript.html">MathScript</a></li>
+          <li><a href="/aegis.html">AEGIS</a></li>
+          <li><a href="/sentinel.html">SENTINEL</a></li>
+          <li><a href="/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Imortek</a></li>
+          <li><a href="/research.html">Research shelf</a></li>
+          <li><a href="/licensing.html">Licensing</a></li>
+          <li><a href="/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">Commercial enquiries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Source</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub profile</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD repo</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">Ideas / research</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 text</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
+      <span class="mono tiny">Built 2026-09-04T03:43:02Z &middot; No trackers, no cookies, no analytics.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/chess/engine.js" defer></script><script src="/assets/js/chess/features.js" defer></script><script src="/assets/js/chess/cypha.js" defer></script><script src="/assets/js/demos/chess.js" defer></script>
+</body>
+</html>

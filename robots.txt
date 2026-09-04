@@ -1,0 +1,5 @@
+# imortek.com.au
+User-agent: *
+Allow: /
+
+Sitemap: https://imortek.com.au/sitemap.xml

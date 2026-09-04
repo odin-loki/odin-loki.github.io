@@ -1,0 +1,218 @@
+<section class="phero" data-video="/assets/video/mathscript" data-poster="/assets/img/video/mathscript.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 pre-release</span>
+        <h1>One C++23 library, from <span class="gradient-text">LU to CFD</span></h1>
+        <p class="lede">
+          Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
+          optimisation, signal and image processing, number theory, graphs, geometry, topology,
+          quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
+          LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Plot and differentiate live</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="MathScript" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">Test suites<b>816 CTest</b></div>
+          <div class="phero__meta-item">Coverage gate<b>90%</b></div>
+          <div class="phero__meta-item">Static libraries<b>35</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="MathScript" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Two decisions that shape everything</span>
+          <ul class="flist flist--violet">
+            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code>Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>A symbolic CAS, running in your browser</h2>
+      <p class="lede">
+        Type an expression. It is tokenised, parsed to an AST, differentiated symbolically,
+        simplified, then evaluated numerically for the plot &mdash; alongside a Simpson-rule
+        integral and bisection root-finding over the visible interval.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="ms-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> mathscript-repl</h3>
+        <div class="chips" id="ms-examples"></div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <label class="sr-only" for="ms-input">Expression in x</label>
+          <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
+                   style="flex:1 1 240px;font-family:var(--mono)">
+          </div>
+          <canvas class="demo-canvas" id="ms-canvas" height="320"
+                  aria-label="Plot of the entered function and its symbolic derivative"></canvas>
+          <div class="legend" style="margin-top:12px">
+            <span><i style="background:#5eead4"></i> f(x)</span>
+            <span><i style="background:#a78bfa"></i> f&prime;(x), symbolic</span>
+            <span><i style="background:#fbbf24"></i> roots of f</span>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="ms-range">Domain <b id="ms-range-v">&plusmn;6.0</b></label>
+              <input type="range" id="ms-range" min="1" max="20" step="0.5" value="6">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Symbolic derivative</h4>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">&int; over domain</div>
+              <div class="readout__v" id="ms-int">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Roots found</div>
+              <div class="readout__v violet" id="ms-roots">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">AST nodes</div>
+              <div class="readout__v plain" id="ms-nodes">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Parse</div>
+              <div class="readout__v plain" id="ms-parse" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Result&lt;T&gt;</h4>
+            <div class="verdict" id="ms-result">
+              <div class="verdict__label">Ok</div>
+              <div class="verdict__why">Parsed and differentiated without error.</div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            Supported: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, constants <code>pi</code> and <code>e</code>. The real CAS is
+            considerably larger; this is the same idea at reading scale.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A tokeniser, recursive-descent parser, symbolic differentiator and simplifier written for
+        this page. The C++ implementation lives in the <code>symbolic</code> library.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Scope</span>
+      <h2>Thirty-five static libraries, six domains</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Core</span>
+        <h3 style="font-size:1.02rem">Core systems</h3>
+        <p class="small dim" style="margin:0">Dense and sparse linear algebra with in-tree LU, QR, SVD, eigensolvers and Cholesky. <code>Result&lt;T&gt;</code> error handling throughout.</p></div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Numerical</span>
+        <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
+        <p class="small dim" style="margin:0">Time integration, finite elements and computational fluid dynamics, plus special functions and quadrature.</p></div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Statistics</span>
+        <h3 style="font-size:1.02rem">Statistics &amp; ML</h3>
+        <p class="small dim" style="margin:0">Distributions, inference, regression and the optimisation machinery underneath them.</p></div>
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Applied</span>
+        <h3 style="font-size:1.02rem">Signal, image, control, finance</h3>
+        <p class="small dim" style="margin:0">Transforms, filtering, image processing, control theory and quantitative finance primitives.</p></div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Symbolic</span>
+        <h3 style="font-size:1.02rem">Computer algebra</h3>
+        <p class="small dim" style="margin:0">A small symbolic CAS sitting alongside the numerics rather than bolted on top of them.</p></div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Specialised</span>
+        <h3 style="font-size:1.02rem">Graphs, geometry, topology, quantum</h3>
+        <p class="small dim" style="margin:0">Number theory, graph algorithms, computational geometry, topology and quantum primitives.</p></div>
+    </div>
+
+    <div class="split" style="margin-top:48px">
+      <div class="reveal">
+        <span class="eyebrow">Shipping surface</span>
+        <h3>Three executables, optional everything else</h3>
+        <div class="spec" style="margin-top:16px">
+          <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Compiler / batch driver</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">Interactive session</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-server</span><span class="spec__v">Service mode</span></div>
+          <div class="spec__row"><span class="spec__k">Optional</span><span class="spec__v">Qt GUI, CUDA, MPI, LLVM ORC JIT</span></div>
+        </div>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow">Verification</span>
+        <h3>What 816 suites buy you</h3>
+        <div class="table-scroll" style="margin-top:16px">
+          <table class="data">
+            <thead><tr><th>Gate</th><th class="num">Setting</th></tr></thead>
+            <tbody>
+              <tr><td>CTest suites</td><td class="num">816, 100% passed</td></tr>
+              <tr><td>Platform</td><td class="num">Windows MSVC Release</td></tr>
+              <tr><td>CI matrix</td><td class="num">MSVC + Linux GCC 13</td></tr>
+              <tr><td>Coverage gate</td><td class="num">90%</td></tr>
+              <tr><td>Sanitizers</td><td class="num">Enabled</td></tr>
+              <tr><td>Fuzzing</td><td class="num">Enabled</td></tr>
+              <tr><td>Benchmark regressions</td><td class="num">28, 10% tolerance</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note note--amber" style="margin-top:18px">
+          <strong>Pre-release means pre-release.</strong> v1.0.0 has not shipped. The 816-suite
+          figure is from Windows MSVC Release; the Linux GCC 13 leg runs in CI but the headline
+          number is the one measured on Windows.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--alt">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow">Why no exceptions</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">A numerical library that cannot throw at you</h2>
+    <p class="dim">
+      Numerical code fails in ordinary ways: a singular matrix, a non-convergent iteration, a
+      domain error in a special function. Signalling that with an exception means every caller
+      either wraps everything in <code>try</code> or discovers the failure at the top of the stack
+      with no context. MathScript makes the failure part of the return type.
+    </p>
+    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+<span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
+<span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
+
+<span class="c-key">auto</span> x = lu-&gt;<span class="c-fn">solve</span>(b);
+<span class="c-key">if</span> (!x) <span class="c-key">return</span> x.<span class="c-fn">error</span>();
+
+<span class="c-com">// No raw pointers, no unsafe casts, no exceptions:
+// the restricted subset is enforced at compile time.</span></pre>
+    <div class="btn-row" style="margin-top:22px">
+      <a class="btn btn--sm btn--ghost" href="/licensing.html">Licensing terms</a>
+      <a class="btn btn--sm btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Browse the source</a>
+    </div>
+  </div>
+</section>

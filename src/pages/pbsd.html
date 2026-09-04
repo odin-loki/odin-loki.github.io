@@ -1,0 +1,349 @@
+<!-- ============================ HERO ============================ -->
+<section class="phero" data-video="/assets/video/pbsd" data-poster="/assets/img/video/pbsd.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow eyebrow--amber">Flagship &middot; ParanoidBSD</span>
+        <h1>An operating system where authority is <span class="gradient-text">held, not assumed</span></h1>
+        <p class="lede">
+          ParanoidBSD ports HardenedBSD 15-STABLE to C++23 modules and adds a capability
+          and handle nucleus on top of the hardening HBSD already ships. KDE Plasma 6 sits
+          on the desk. The BSD tree is the behavioural specification &mdash; and it is ported
+          faithfully, bugs included.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--fund" href="/kickstarter.html">Back the Kickstarter</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--ghost" href="#demo">Try the security model</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="ParanoidBSD" data-gh-field="language">C / C++23</b></div>
+          <div class="phero__meta-item">Base<b>HardenedBSD 15-STABLE</b></div>
+          <div class="phero__meta-item">Desktop<b>KDE Plasma 6</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="ParanoidBSD" data-gh-field="updated">recently</b></div>
+          <div class="phero__meta-item">Stars<b data-gh-repo="ParanoidBSD" data-gh-field="stars">&mdash;</b></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Repository layout</span>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">pbsd/</span><span class="spec__v">C++23 modules &mdash; kernel nucleus, userland ports, UDA, BIFROST, compositor, theme</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">hbsd/</span><span class="spec__v">HardenedBSD 15-STABLE source &mdash; the original, kept as the spec</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin and frameworks for the desktop wave</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventory, deterministic rewrite passes, agent port, Clang helpers</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Specs, security model, migration status, provenance</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL driver, watchdog, progress console</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ THE PROBLEM ============================ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>Ambient authority is the bug you cannot patch</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          On a conventional Unix, a process does not <em>hold</em> the right to open
+          <code>/etc/master.passwd</code>. It simply asks, and the kernel decides afterwards,
+          based on who the process claims to be. Every process can name every resource on the
+          system. The name space is global and ambient; the check is a late afterthought.
+        </p>
+        <p class="dim">
+          That is why a single parsing bug in a font renderer can become a credential theft.
+          The renderer never needed the password file &mdash; but nothing in the architecture
+          stopped it from asking.
+        </p>
+        <p class="dim">
+          HardenedBSD already does serious work here: ASLR, PaX-derived mitigations, SafeStack,
+          CFI, hardened memory allocators. PBSD keeps all of it and changes the shape of the
+          question underneath &mdash; from <em>&ldquo;is this process allowed?&rdquo;</em> to
+          <em>&ldquo;does this process hold a handle to that?&rdquo;</em>
+        </p>
+      </div>
+      <div>
+        <div class="card">
+          <h3 style="font-size:1rem">Two ways to answer one syscall</h3>
+          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+<span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
+<span class="c-com">// kernel walks a global namespace, then
+// checks uid/gid/MAC after the fact</span>
+
+<span class="c-com">// Handle nucleus — the PBSD path</span>
+<span class="c-key">auto</span> f = dir_handle.<span class="c-fn">open</span>(<span class="c-str">"master.passwd"</span>, Rights::Read);
+<span class="c-com">// there is no global namespace to walk.
+// no handle, no name, no operation.</span></pre>
+          <p class="small muted" style="margin-top:14px">
+            Illustrative shape of the difference, not a verbatim API listing.
+            The authoritative model is in <code>docs/</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INTERACTIVE DEMO ============================ -->
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Walk a syscall through the nucleus</h2>
+      <p class="lede">
+        Give the process some handles, pick something for it to attempt, and switch between
+        the two authority models. The verdict and the reasoning are computed live in your
+        browser &mdash; this is a teaching model of the design, not a kernel emulator.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="cap-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> Capability nucleus &mdash; reference monitor</h3>
+        <div class="seg" role="group" aria-label="Authority model">
+          <button type="button" data-mode="ambient">Ambient authority (traditional)</button>
+          <button type="button" data-mode="capability" aria-pressed="true">Handle nucleus (PBSD)</button>
+        </div>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="cap-canvas" height="300" aria-label="Animated diagram of a syscall traversing the reference monitor"></canvas>
+
+          <div style="margin-top:20px">
+            <h4 class="panel__title" style="margin-bottom:12px">The process attempts&hellip;</h4>
+            <div class="chips" id="cap-ops"></div>
+          </div>
+
+          <div style="margin-top:20px">
+            <h4 class="panel__title" style="margin-bottom:12px">Trace</h4>
+            <div class="log" id="cap-log" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:12px">Handles held by the process</h4>
+            <div id="cap-caps" style="display:grid;gap:11px"></div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Verdict</h4>
+            <div id="cap-verdict" class="verdict">
+              <div class="verdict__label">Awaiting attempt</div>
+              <div class="verdict__why">Pick an operation to run it through the monitor.</div>
+            </div>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Reachable</div>
+              <div class="readout__v" id="cap-reach">0</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Denied</div>
+              <div class="readout__v red" id="cap-denied">0</div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            &ldquo;Reachable&rdquo; counts how many of the listed operations this process could
+            perform at all under the current model. Under ambient authority, reachability is
+            decided by identity; under the nucleus, by the handles it actually holds.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel__foot">
+        A pedagogical model of the PBSD security design, written for this page. The real
+        nucleus lives in <code>pbsd/</code>; the specification is in
+        <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ THE PORT ============================ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The port</span>
+      <h2>Four stages, and a model that never certifies itself</h2>
+      <p class="lede">
+        Porting a BSD userland and kernel to C++23 by hand is a decade of work. Porting it
+        by asking a language model to rewrite files is a fast way to produce plausible
+        garbage. PBSD does neither.
+      </p>
+    </div>
+
+    <div class="grid grid-4 reveal">
+      <div class="card card--hover">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Stage 1</span>
+        <h3 style="font-size:1.05rem">Inventory</h3>
+        <p class="small dim" style="margin:0">
+          <code>tools/inventory_c_sources.py</code> and <code>clang_cxx23_port.py</code> score
+          every C file by difficulty and write <code>c_inventory.csv</code>. Nothing is guessed
+          about scope.
+        </p>
+      </div>
+      <div class="card card--hover">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Stage 2</span>
+        <h3 style="font-size:1.05rem">Deterministic passes</h3>
+        <p class="small dim" style="margin:0">
+          <code>run_todo_passes.py</code> applies safe mechanical rewrites in tiers 0&ndash;4.
+          No model involved. Anything a pass refuses is logged to
+          <code>refusals.jsonl</code> rather than forced.
+        </p>
+      </div>
+      <div class="card card--hover">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Stage 3</span>
+        <h3 style="font-size:1.05rem">Agent loop</h3>
+        <p class="small dim" style="margin:0">
+          <code>pbsd.py</code> fills stubbed and refused files with DeepSeek Flash escalating
+          to Pro at maximum reasoning effort &mdash; 48 Flash and 24 Pro workers by default.
+          <strong>This is what the Kickstarter funds.</strong>
+        </p>
+      </div>
+      <div class="card card--hover">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">Stage 4</span>
+        <h3 style="font-size:1.05rem">Verification gate</h3>
+        <p class="small dim" style="margin:0">
+          Compile, ASan, UBSan, differential execution and IR comparison. A file that only
+          compiles is <em>unverified</em>. Failures land in
+          <code>agent_port_failures.jsonl</code>.
+        </p>
+      </div>
+    </div>
+
+    <div class="note note--violet reveal" style="margin-top:32px">
+      <strong>The rule that makes this defensible:</strong> the model does not self-certify.
+      It proposes; deterministic tooling disposes. Every non-negotiable in the repository
+      exists to keep that boundary intact &mdash; which is also why the port cannot simply be
+      run faster by spending more on inference alone.
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NON-NEGOTIABLES ============================ -->
+<section class="section">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Non-negotiables</span>
+      <h2>Rules the repository is actually held to</h2>
+    </div>
+
+    <details class="acc reveal" open>
+      <summary>No file is done until differential or IR verification passes</summary>
+      <div class="acc__body">
+        Compile-only is treated as unverified. A ported file must either produce identical
+        observable behaviour to the HardenedBSD original under differential execution, or
+        match at the IR level. Files that pass neither stay open in the migration log and are
+        not counted in progress figures.
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary>Port faithfully &mdash; do not silently &ldquo;fix&rdquo; bugs in the original</summary>
+      <div class="acc__body">
+        The HardenedBSD tree is the behavioural specification. If the original has a defect,
+        the port reproduces it, because a differential test cannot distinguish a fix from a
+        regression. Improvements are made afterwards, logged separately, so the change is
+        visible and reviewable rather than buried inside a translation.
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary>Deterministic tooling first; models fill only what remains</summary>
+      <div class="acc__body">
+        Mechanical rewrites are applied by scripts that behave identically every run. Models
+        are used exclusively on the residue &mdash; stubbed inventory entries and files the
+        deterministic passes refused. This keeps the majority of the port reproducible and
+        auditable, and confines model output to the parts a human would have had to write
+        by hand anyway.
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary>Kernel C++ is freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
+      <div class="acc__body">
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no RTTI,
+        no heap-allocating standard library paths on kernel entry. The constraints are
+        written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
+        can tell what is legal in kernel context without guessing.
+      </div>
+    </details>
+    <details class="acc reveal">
+      <summary>Every module needs a provenance entry before it counts as done</summary>
+      <div class="acc__body">
+        <code>docs/PROVENANCE.md</code> records where each module came from and under which
+        licence. This is what makes the licensing statement below verifiable rather than
+        aspirational &mdash; you can check, module by module, which code is HardenedBSD-derived
+        and which is new PBSD work.
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============================ LICENSING ============================ -->
+<section class="section section--tight section--alt">
+  <div class="wrap">
+    <div class="split split--center reveal">
+      <div>
+        <span class="eyebrow">Licensing</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Two licences, honestly separated</h2>
+        <p class="dim">
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: AGPL-3.0+ free for personal use, charities, education
+          and organisations under AUD&nbsp;50,000 a year, with a tiered commercial licence above that.
+        </p>
+        <p class="dim">
+          Code derived from HardenedBSD stays under its original BSD licence. It cannot be
+          relicensed and Imortek does not claim to. <code>docs/PROVENANCE.md</code> is the
+          record of which is which.
+        </p>
+        <a class="btn btn--ghost" href="/licensing.html">Full licensing terms &rarr;</a>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; commercial</span></div>
+            <h4 style="margin:0 0 6px">New PBSD work</h4>
+            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, the capability nucleus, UDA, BIFROST, compositor and theme.</p>
+          </div>
+          <div class="card">
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (unchanged)</span></div>
+            <h4 style="margin:0 0 6px">HardenedBSD-derived</h4>
+            <p class="small muted" style="margin:0"><code>hbsd/</code> and every ported file tracing back to it. Original terms, original attribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow eyebrow--amber">What it needs now</span>
+        <h2 style="max-width:22ch;margin-inline:auto">The port runs on compute it does not have</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.8rem">
+          Deterministic passes are free. The agent loop that fills the residue &mdash; and the
+          verification runs that gate it &mdash; are not. That is the entire ask.
+        </p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--fund btn--lg" href="/kickstarter.html">See the campaign</a>
+          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Read the source first</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

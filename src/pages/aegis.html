@@ -1,0 +1,248 @@
+<section class="phero" data-video="/assets/video/aegis" data-poster="/assets/img/video/aegis.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">AEGIS &middot; Phase 8 complete</span>
+        <h1>Encryption hides what you said. <span class="gradient-text">This hides that you spoke.</span></h1>
+        <p class="lede">
+          AEGIS is a traffic-analysis resistant transport for permissioned consortiums.
+          It assumes content encryption is a solved problem and attacks the part encryption
+          cannot touch: who talks to whom, when, and how much.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Run the correlation attack</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ANONYMOUS" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="ANONYMOUS" data-gh-field="language">Rust</b></div>
+          <div class="phero__meta-item">Adversary<b>Global passive</b></div>
+          <div class="phero__meta-item">Workspace tests<b>195 passing</b></div>
+          <div class="phero__meta-item">Fuzzing<b>1.17M+ execs</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="ANONYMOUS" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:14px">The one rule</span>
+          <p class="lede" style="font-size:1.12rem;color:var(--ink)">
+            &ldquo;Nothing is done until an attack simulation confirms it.&rdquo;
+          </p>
+          <p class="small dim" style="margin-top:14px">
+            Intuition about traffic analysis failed repeatedly during development. Only the
+            simulation harness proved trustworthy, so it became the gate. The Python harness in
+            <code>sim/</code> is the evidence ledger behind every quantitative claim in the
+            specification &mdash; not an afterthought that validates a design already shipped.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The threat</span>
+      <h2>Metadata is the part that identifies you</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          A global passive adversary cannot read your messages. It does not need to. It watches
+          every link at once and correlates: this endpoint transmitted 14 KB at 09:41:03, that
+          endpoint received 14 KB at 09:41:06, and the pattern repeats twice a day for eleven weeks.
+        </p>
+        <p class="dim">
+          Volume and timing are enough to reconstruct the relationship graph of an entire
+          organisation without breaking a single cipher. For a consortium &mdash; banks settling with
+          each other, hospitals sharing records, newsrooms with sources &mdash; the graph
+          <em>is</em> the sensitive information.
+        </p>
+        <p class="dim">
+          AEGIS makes the wire a flat, unchanging wall. Constant rate regardless of what is
+          happening underneath, so volume and timing carry no signal at all. The demonstration
+          below lets you run the attack against both configurations and see the difference.
+        </p>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <span class="badge badge--violet" style="margin-bottom:10px">Mode 1</span>
+            <h4 style="margin:0 0 6px">Shaped mixnet</h4>
+            <p class="small dim" style="margin:0">
+              Small and bursty data plus all control traffic. Sphinx packets emitted at a constant
+              rate, with hard-cap receiver padding so a receiver&rsquo;s inbound volume is also fixed.
+            </p>
+          </div>
+          <div class="card">
+            <span class="badge badge--teal" style="margin-bottom:10px">Mode 2</span>
+            <h4 style="margin:0 0 6px">Bulk plane</h4>
+            <p class="small dim" style="margin:0">
+              Large file transfer with a tunable security level &mdash; raw, bucketed, or uniformly
+              batched. You choose where you sit on the cost curve; nothing is hidden about the price.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>Be the global passive adversary</h2>
+      <p class="lede">
+        Five senders are each talking to exactly one of five receivers. You see only the traffic
+        volume on every link &mdash; never the contents, never the routing. Correlate the series and
+        try to recover the pairing. Then switch the constant-rate defence on and try again.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="ae-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> traffic-analysis harness</h3>
+        <label class="switch">
+          <input type="checkbox" id="ae-cover">
+          <span class="switch__track"></span>
+          <span>AEGIS constant-rate shaping</span>
+        </label>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="ae-canvas" height="400"
+                  aria-label="Traffic volume on each link over time, and the adversary's correlation matrix"></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> Sender link</span>
+            <span><i style="background:#a78bfa"></i> Receiver link</span>
+            <span><i style="background:#fbbf24"></i> Correlation, high</span>
+            <span><i style="background:#1e2833"></i> Correlation, low</span>
+          </div>
+          <div class="controls" style="margin-top:20px">
+            <div class="ctrl">
+              <label for="ae-time">Observation window <b id="ae-time-v">240 s</b></label>
+              <input type="range" id="ae-time" min="30" max="600" step="10" value="240">
+            </div>
+            <div class="ctrl">
+              <label for="ae-noise">Network jitter <b id="ae-noise-v">0.20</b></label>
+              <input type="range" id="ae-noise" min="0" max="1" step="0.05" value="0.2">
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Adversary&rsquo;s conclusion</h4>
+            <div class="verdict" id="ae-verdict">
+              <div class="verdict__label">Correlating&hellip;</div>
+              <div class="verdict__why">&nbsp;</div>
+            </div>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Pairs recovered</div>
+              <div class="readout__v red" id="ae-recovered">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Peak correlation</div>
+              <div class="readout__v" id="ae-peak">&mdash;</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Cost of the defence</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Bandwidth</div>
+                <div class="readout__v amber" id="ae-bw">1.0&times;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Added latency</div>
+                <div class="readout__v amber" id="ae-lat">0 ms</div>
+              </div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            Chance is 20% &mdash; one pair in five recovered by guessing. Anything meaningfully above
+            that is the adversary winning. The cost figures are the honest other half: constant-rate
+            shaping is not free, and AEGIS does not pretend it is.
+          </p>
+          <button class="btn btn--sm btn--block" id="ae-reset">New pairing</button>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A single-hop illustration written for this page. The real system layers Sphinx routing,
+        guard-node vetting, distributed randomness beacons and zero-knowledge reputation proofs
+        on top of the shaping shown here.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Evidence</span>
+      <h2>Eight phases, each behind a red-team gate</h2>
+      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports.</p>
+    </div>
+    <div class="grid grid-4 reveal">
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Crypto test vectors</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="195">195</em></div><div class="stat__label">Workspace tests passing</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="1.17" data-suffix="M+">1.17M+</em></div><div class="stat__label">Fuzz executions, zero crashes</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="41" data-suffix="/41">41/41</em></div><div class="stat__label">Topology tests</div></div></div>
+    </div>
+    <div class="table-scroll reveal" style="margin-top:28px">
+      <table class="data">
+        <thead><tr><th>Area</th><th class="num">Result</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Crypto vectors</td><td class="num">36 / 36</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Relay routing</td><td class="num">14 / 14</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Topology</td><td class="num">41 / 41</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Negotiator / bulk correlation</td><td class="num">25 / 25</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Workspace tests</td><td class="num">195</td><td class="muted">All passing</td></tr>
+          <tr><td>Security fuzzing</td><td class="num">1.17M+</td><td class="muted">libFuzzer via WSL, zero crashes</td></tr>
+          <tr><td>Testnet</td><td class="num">Real TCP</td><td class="muted">Sphinx packet routing over real sockets</td></tr>
+          <tr><td>Trace analysis</td><td class="num">Benign vs malicious</td><td class="muted">Real-trace comparison</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--violet">Defences</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What sits on top of the shaping</h2>
+        <ul class="flist flist--violet" style="margin-top:1.4rem">
+          <li><strong>Forward-secrecy handshakes.</strong> Compromise of long-term keys does not retroactively expose sessions.</li>
+          <li><strong>Reputation-aware path selection.</strong> Routes prefer relays with established behaviour.</li>
+          <li><strong>Distributed randomness beacons.</strong> No single party controls path selection entropy.</li>
+          <li><strong>Zero-knowledge reputation proofs.</strong> A relay proves it exceeds a reputation threshold without revealing its score.</li>
+          <li><strong>Guard-node vetting.</strong> Sybil resistance at the point where it matters most.</li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow eyebrow--amber">Honest boundaries</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where the guarantees stop</h2>
+        <ul class="flist flist--amber" style="margin-top:1.4rem">
+          <li><strong>Internal traffic only.</strong> Strong guarantees apply inside the consortium. Clearnet exit is weaker and is not claimed otherwise.</li>
+          <li><strong>Empirical, not proven.</strong> Results are empirical bounds under the stated adversary model. They are not mathematical proofs.</li>
+          <li><strong>Latency is inherent.</strong> Multi-second latency is a property of the design, not a tuning problem that will be optimised away.</li>
+          <li><strong>Wrong tool for two parties.</strong> AEGIS suits relationship-graph hiding across many endpoints. For a two-party link, link-layer defences do better.</li>
+          <li><strong>Open research remains.</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> is the honest backlog of what is not finished.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:32px">
+      <strong>Repository hygiene:</strong> GitHub Actions CI, <code>cargo deny</code> dependency
+      auditing, and a workspace-wide policy forbidding unsafe code. For a Rust network stack
+      handling adversarial input, <code>#![forbid(unsafe_code)]</code> across the workspace is the
+      single most load-bearing line in the project.
+    </div>
+  </div>
+</section>
