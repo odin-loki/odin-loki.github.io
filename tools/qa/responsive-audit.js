@@ -65,16 +65,27 @@ const SIZES = [
 
   for (const [label, width, height] of SIZES) {
     const ctx = await browser.newContext({ viewport: { width, height } });
+    // The webfont stylesheet is render-blocking, so a sandbox that cannot
+    // reach fonts.googleapis.com stalls DOMContentLoaded by ~13s per page —
+    // 77 minutes across the matrix. Fail those requests immediately: the
+    // font never arrives either way, so this only removes the waiting, and
+    // the layout under test is the fallback stack in both cases.
+    await ctx.route(/fonts\.(googleapis|gstatic)\.com/, r => r.abort());
+
     for (const name of PAGES) {
       const page = await ctx.newPage();
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
 
-      await page.goto(`${BASE}/${name}.html`, { waitUntil: 'domcontentloaded' });
-      await page.waitForTimeout(280);
-
-      const overflow = await page.evaluate(() =>
-        document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      let overflow = 0;
+      try {
+        await page.goto(`${BASE}/${name}.html`, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        await page.waitForTimeout(280);
+        overflow = await page.evaluate(() =>
+          document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      } catch (e) {
+        problems.push(`${name} @ ${label} ${width}x${height}: ${e.message.split('\n')[0]}`);
+      }
 
       if (overflow > 2) {
         problems.push(`${name} @ ${label} ${width}x${height}: overflows by ${overflow}px`);
@@ -85,6 +96,7 @@ const SIZES = [
       checks++;
       await page.close();
     }
+    console.log(`  ${label.padEnd(16)} ${checks} checks, ${problems.length} problem(s) so far`);
     await ctx.close();
   }
 
