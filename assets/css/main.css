@@ -814,8 +814,22 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
   transition: opacity 1s var(--ease);
   pointer-events: none;
 }
-.slot-video.is-in { opacity: .55; }
-.hero .slot-video.is-in { opacity: .5; }
+.slot-video.is-in { opacity: .5; }
+.hero .slot-video.is-in { opacity: .46; }
+
+/* A scrim between the video and the copy. Without it the bright passes in a
+   clip drop body-text contrast below readable — the gradient keeps the text
+   side dark while the far side still shows the footage. */
+.has-video::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6,8,11,.94) 0%, rgba(6,8,11,.80) 38%,
+                            rgba(6,8,11,.44) 72%, rgba(6,8,11,.30) 100%),
+    linear-gradient(180deg, rgba(6,8,11,.60) 0%, rgba(6,8,11,0) 26%,
+                            rgba(6,8,11,0) 62%, rgba(6,8,11,.72) 100%);
+}
+/* The copy sits above the scrim. */
+.hero__inner, .phero__inner { position: relative; z-index: 1; }
 .hero__canvas.is-superseded, canvas.is-superseded { opacity: 0; transition: opacity .8s var(--ease); }
 .has-video { position: relative; }
 
