@@ -744,7 +744,11 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
 .form-msg.err { color: var(--red); }
 
 /* ---------- 404 ---------- */
-.err-page { min-height: 62vh; display: grid; place-items: center; text-align: center; padding-block: 80px; }
+.err-page {
+  min-height: 62vh; display: grid; place-items: center; text-align: center;
+  padding-block: 80px;
+}
+.err-page > .wrap { min-width: 0; max-width: min(var(--wrap-narrow), 100%); }
 .err-code { font-family: var(--mono); font-size: clamp(4rem, 16vw, 9rem); font-weight: 600; line-height: 1; letter-spacing: -.04em; }
 
 /* ---------- Verdict block (capability demo) ---------- */
@@ -951,6 +955,7 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
    scrolling sideways on a phone.
    ========================================================================== */
 .grid > *,
+.err-page > *,
 .split > *,
 .flagship > *,
 .demo__split > *,
@@ -1061,4 +1066,43 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
   body { background: #fff; color: #111; }
   a { color: #111; text-decoration: underline; }
   .card, .panel, .table-scroll { border-color: #ccc; }
+}
+
+/* ---------- Diagrams ---------- */
+.diagram {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-elev) 100%);
+  padding: 18px;
+  overflow: hidden;
+}
+.diagram img { width: 100%; height: auto; display: block; }
+.diagram figcaption {
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: .84rem; color: var(--ink-mute); line-height: 1.55;
+}
+.diagram figcaption b { color: var(--ink-dim); font-weight: 550; }
+.diagram--bare { padding: 0; border: 0; background: none; }
+.diagram--bare img { border: 1px solid var(--line); border-radius: var(--r-lg); }
+
+/* The hint is declared before the media query that reveals it — the other way
+   round and this base rule would win on order and keep it hidden. */
+.diagram__hint {
+  display: none; font-size: .74rem; color: var(--ink-mute);
+  font-family: var(--mono); margin-top: 10px;
+}
+
+/* On a phone a wide diagram becomes unreadable when squeezed; let it scroll
+   at a legible size instead of shrinking to nothing. */
+@media (max-width: 720px) {
+  .diagram { padding: 12px; }
+  .diagram__scroll {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    /* a hairline edge so it reads as scrollable, not clipped */
+    mask-image: linear-gradient(90deg, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent);
+  }
+  .diagram__scroll img { width: 680px; max-width: none; }
+  .diagram__hint { display: block; }
 }

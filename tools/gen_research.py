@@ -96,6 +96,16 @@ def page(e):
       'its basis: measured on the author&rsquo;s own hardware, derived from the construction, measured '
       'on synthetic data, projected from literature, or simply cited.</p>')
     A('    </div>')
+    A('    <figure class="diagram reveal" style="margin-bottom:26px">')
+    A('      <div class="diagram__scroll">')
+    A('        <img src="/assets/img/diagrams/research/' + e['slug'] + '.svg" '
+      'alt="Breakdown of this page\u2019s claims by what stands behind each one" '
+      'loading="lazy" decoding="async">')
+    A('      </div>')
+    A('      <span class="diagram__hint">scroll to see the whole chart &rarr;</span>')
+    A('      <figcaption><b>Every claim, weighted by its evidence.</b> The table below is the '
+      'same data row by row.</figcaption>')
+    A('    </figure>')
     A('    <div class="table-scroll reveal">')
     A('      <table class="data">')
     A('        <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>')
@@ -369,6 +379,17 @@ A('<section class="section">')
 A('  <div class="wrap wrap-narrow">')
 A('    <span class="eyebrow eyebrow--violet">How to read this shelf</span>')
 A('    <h2>Four evidence levels, used consistently</h2>')
+A('    <figure class="diagram reveal" style="margin:24px 0 30px">')
+A('      <div class="diagram__scroll">')
+A('        <img src="/assets/img/diagrams/evidence-tiers.svg" alt="The four evidence levels used '
+  'across the research shelf, from speculative through design document and reference '
+  'implementation to result-bearing" loading="lazy" decoding="async">')
+A('      </div>')
+A('      <span class="diagram__hint">scroll to see the whole diagram &rarr;</span>')
+A('      <figcaption><b>Nothing reaches a fifth level.</b> There is no \u201cvalidated\u201d tier '
+  'in use, because nothing here has been independently replicated or externally audited.'
+  '</figcaption>')
+A('    </figure>')
 A('    <p class="lede" style="margin-bottom:2rem">Every write-up carries one of these, and a claims '
   'ledger that marks each individual number as measured, synthetic, derived, projected or cited.</p>')
 for key in ['speculative', 'design', 'reference', 'result']:

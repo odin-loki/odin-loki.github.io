@@ -52,6 +52,8 @@
       </p>
     </div>
 
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/licence-flow.svg" alt="A decision flow: individuals, charities, education and organisations under AUD 50,000 take AGPL-3.0 or later at no cost; organisations at or above that threshold, or needing private modifications, take the commercial licence" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>The whole decision, on one line.</b> The chooser below asks the same four questions and tells you which branch you are on.</figcaption></figure>
+
     <div class="demo reveal" id="lic-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot dot--pulse"></span> licence chooser</h3>
@@ -144,31 +146,35 @@ Licensed under AGPL-3.0+.</pre>
       <span class="eyebrow">Per project</span>
       <h2>What each repository carries today</h2>
       <p class="lede">
-        Imortek is standardising on the dual licence across the catalogue. Where a repository has
-        not been updated yet, this table says so rather than pretending otherwise.
+        The catalogue is now on one licence. Every repository below carries AGPL-3.0+ with the
+        commercial tier, and the last column records what each one was before, because a licence
+        change is the kind of thing people deserve to be told about rather than have quietly
+        swapped underneath them.
       </p>
     </div>
     <div class="table-scroll reveal">
       <table class="data">
-        <thead><tr><th>Project</th><th>Target licence</th><th>In the repository today</th></tr></thead>
+        <thead><tr><th>Project</th><th>Licence</th><th>Status</th><th>Note</th></tr></thead>
         <tbody>
-          <tr><td><a href="/research.html">Ideas</a> &mdash; research shelf</td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td></tr>
-          <tr><td><a href="/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td></tr>
-          <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">AGPL-3.0 in place</span></td></tr>
-          <tr><td><a href="/pbsd.html">ParanoidBSD</a></td><td>AGPL-3.0+ / commercial for new work</td><td><span class="badge badge--amber">BSD for HardenedBSD-derived code, permanently</span></td></tr>
-          <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--blue">MIT today</span></td></tr>
-          <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
-          <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
-          <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
-          <tr><td><a href="/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge">Check the repository</span></td></tr>
+          <tr><td><a href="/research.html">Ideas</a> &mdash; research shelf</td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
+          <tr><td><a href="/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
+          <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
+          <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was CC BY 4.0</td></tr>
+          <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed &middot; <code>vendor/</code> excluded</td></tr>
+          <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was proprietary</td></tr>
+          <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was MIT</td></tr>
+          <tr><td><a href="/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed</td></tr>
+          <tr><td><a href="/pbsd.html">ParanoidBSD</a></td><td>AGPL-3.0+ / commercial for new work</td><td><span class="badge badge--amber">Split, permanently</span></td><td class="muted">HardenedBSD-derived code stays BSD</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note note--amber reveal" style="margin-top:24px">
       <strong>If a repository&rsquo;s LICENSE file disagrees with this table, the LICENSE file is what
-      binds.</strong> Relicensing is being rolled out project by project; until a repository
-      carries the dual licence, what is in it is what applies to you. Ask if you need certainty
-      before relying on it.
+      binds.</strong> Two things worth stating plainly about the change. Permissive licences are
+      irrevocable for copies already distributed &mdash; anyone who received Cypha under CC BY 4.0,
+      or SENTINEL under MIT, keeps those rights to that copy; the new terms govern this release
+      onward. And AEGIS, MathScript and Cell AI were not previously open at all, so for those the
+      change grants rights rather than removing them.
     </div>
   </div>
 </section>

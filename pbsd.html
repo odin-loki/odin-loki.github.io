@@ -175,6 +175,12 @@
   </div>
 </section>
 
+<section class="section section--tight">
+  <div class="wrap">
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-authority.svg" alt="Two authority models compared side by side: under ambient authority the process reaches sockets, exec and ptrace and is refused the password file only after asking; under the handle nucleus only the resource it holds a handle to can be named at all" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>Where the check happens.</b> On the left the request always travels and is judged afterwards. On the right, three of the four operations have no name to ask with, so there is nothing to refuse.</figcaption></figure>
+  </div>
+</section>
+
 <!-- ============================ INTERACTIVE DEMO ============================ -->
 <section class="section" id="demo">
   <div class="wrap">
@@ -263,6 +269,8 @@
         garbage. PBSD does neither.
       </p>
     </div>
+
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-pipeline.svg" alt="The ParanoidBSD port pipeline: inventory, deterministic passes, agent loop and a verification gate, with rejected files looping back" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>How a file becomes a ported file.</b> The dashed red path is the part that matters &mdash; work that fails verification goes back into the loop rather than counting as progress.</figcaption></figure>
 
     <div class="grid grid-4 reveal">
       <div class="card card--hover">
@@ -524,7 +532,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-04T08:20:25Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-04T08:52:41Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>
