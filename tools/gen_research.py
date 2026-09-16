@@ -24,6 +24,21 @@ def amp(t):
 CALLOUT_CLASS = {'red': 'note--red', 'amber': 'note--amber',
                  'violet': 'note--violet', 'teal': ''}
 
+def field_url(field):
+    """The shelf, already filtered to one field.
+
+    The filter chips write their field into location.hash and read it back on
+    load, so this URL has worked since the shelf was built — nothing linked to
+    it. Naming the field on an article and not linking it was the cheapest
+    navigation on the site, left on the floor."""
+    return '/research.html#' + urllib.parse.quote(field)
+
+def field_peers(e):
+    """The other articles in this field, in shelf order, and where this one
+    sits among them."""
+    peers = [x for x in RESEARCH if x['field'] == e['field']]
+    return peers, peers.index(e)
+
 def page(e):
     tier_name, tier_badge, tier_desc = TIER_LABEL[e['tier']]
     o = []
@@ -35,11 +50,14 @@ def page(e):
     A('  <div class="wrap phero__inner">')
     A('    <p class="tiny mono muted" style="margin-bottom:18px">')
     A('      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> '
-      '<span style="opacity:.5">/</span> ' + e['field'] + ' <span style="opacity:.5">/</span> ' + e['name'])
+      '<span style="opacity:.5">/</span> <a href="' + field_url(e['field']) +
+      '" style="color:var(--ink-mute)">' + e['field'] + '</a> '
+      '<span style="opacity:.5">/</span> ' + e['name'])
     A('    </p>')
     A('    <div class="split split--wide-left">')
     A('      <div>')
-    A('        <span class="eyebrow">' + e['field'] + '</span>')
+    A('        <a class="eyebrow eyebrow--link" href="' + field_url(e['field']) + '">' +
+          e['field'] + '</a>')
     A('        <h1>' + e['title'] + '</h1>')
     A('        <p class="lede">' + e['lede'] + '</p>')
     A('        <div class="badge-row" style="margin-top:22px">')
@@ -192,6 +210,33 @@ def page(e):
     A('    </div>')
     A('  </div>')
     A('</section>')
+
+    # ---------- where this sits in its field ----------
+    # Forty-six leaf pages whose only way out was the shelf. Anyone working
+    # through a subject had to go back to the index between every article.
+    peers, i = field_peers(e)
+    if len(peers) > 1:
+        prev = peers[i - 1] if i > 0 else None
+        nxt = peers[i + 1] if i < len(peers) - 1 else None
+        A('<nav class="section section--tight fieldnav" aria-label="' + e['field'] + '">')
+        A('  <div class="wrap fieldnav__inner">')
+        A('    ' + (
+            '<a class="fieldnav__side fieldnav__side--prev" href="/research/' + prev['slug'] + '.html" rel="prev">'
+            '<span class="fieldnav__dir">Previous</span>'
+            '<span class="fieldnav__name">' + prev['name'] + '</span></a>'
+            if prev else '<span class="fieldnav__side"></span>'))
+        A('    <a class="fieldnav__mid" href="' + field_url(e['field']) + '">')
+        A('      <span class="fieldnav__count mono">' + str(i + 1) + ' of ' + str(len(peers)) + '</span>')
+        A('      <span class="fieldnav__field">' + e['field'] + '</span>')
+        A('    </a>')
+        A('    ' + (
+            '<a class="fieldnav__side fieldnav__side--next" href="/research/' + nxt['slug'] + '.html" rel="next">'
+            '<span class="fieldnav__dir">Next</span>'
+            '<span class="fieldnav__name">' + nxt['name'] + '</span></a>'
+            if nxt else '<span class="fieldnav__side"></span>'))
+        A('  </div>')
+        A('</nav>')
+
     return '\n'.join(o) + '\n'
 
 

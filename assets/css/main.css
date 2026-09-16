@@ -1463,3 +1463,53 @@ body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px))
   content: "\2197"; margin-inline-start: 2px; color: var(--ink-mute); font-size: .8rem;
 }
 .langsel__machine:hover .langsel__endo { color: var(--ink); }
+
+/* ---------- Where an article sits in its field ----------
+   Forty-six research articles, and until now the only way out of one was
+   back to the shelf. Anyone working through a subject had to return to the
+   index between every piece. This is the row that lets them just keep
+   reading — and the middle of it is the shelf, already filtered. */
+.eyebrow--link { display: inline-block; border-bottom: 1px solid transparent; }
+.eyebrow--link:hover { color: var(--teal); border-bottom-color: currentColor; text-decoration: none; }
+
+.fieldnav { padding-block: clamp(28px, 4vw, 44px); border-top: 1px solid var(--line); }
+.fieldnav__inner {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;
+}
+.fieldnav__side {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
+  padding: 12px 14px; border-radius: var(--r); border: 1px solid transparent;
+}
+a.fieldnav__side:hover { border-color: var(--line-2); background: var(--panel); text-decoration: none; }
+.fieldnav__side--next { text-align: end; }
+.fieldnav__dir {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.fieldnav__side--prev .fieldnav__dir::before { content: "\2190\00a0"; }
+.fieldnav__side--next .fieldnav__dir::after  { content: "\00a0\2192"; }
+.fieldnav__name {
+  color: var(--ink-dim); font-size: .95rem; font-weight: 560;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+a.fieldnav__side:hover .fieldnav__name { color: var(--ink); }
+
+.fieldnav__mid {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line-2);
+  flex: none;
+}
+.fieldnav__mid:hover { border-color: var(--teal); text-decoration: none; }
+.fieldnav__count { font-size: .72rem; color: var(--ink-mute); }
+.fieldnav__field { font-size: .82rem; color: var(--ink-dim); white-space: nowrap; }
+.fieldnav__mid:hover .fieldnav__field { color: var(--teal); }
+
+@media (max-width: 720px) {
+  /* The field pill moves under the two arrows rather than squeezing between
+     them, which is what stops a long field name from crushing both names. */
+  .fieldnav__inner { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fieldnav__mid { grid-column: 1 / -1; grid-row: 1; flex-direction: row; gap: 10px;
+                   justify-self: center; }
+  .fieldnav__side { padding: 10px 12px; }
+  .fieldnav__name { font-size: .88rem; }
+}

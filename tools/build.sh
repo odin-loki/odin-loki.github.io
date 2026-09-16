@@ -664,6 +664,11 @@ declare -A KEYWORDS=(
 )
 
 
+# Precomputed by tools/related.py from the search index. Absent on a first
+# build — the index does not exist yet — and the pages come out without the
+# block, which is what the second pass is for.
+[[ -f assets/data/voice-index.json ]] && python3 tools/related.py cache
+
 count=0
 for lrow in "${LOC_ROWS[@]}"; do
   IFS=$'\t' read -r LC_CODE LC_ENDONYM LC_DIR LC_SPEECH LC_HREF LC_NAME LC_TAG <<< "$lrow"
@@ -721,6 +726,10 @@ for lrow in "${LOC_ROWS[@]}"; do
       else
         python3 tools/i18n_segments.py apply "$slug" "$LC_CODE" | python3 tools/i18n_protect.py
       fi
+      # The four nearest pages, written in rather than injected. See
+      # tools/related.py — until now this was the best navigation on the site
+      # and no crawler could see any of it.
+      cat ".cache/related/$LC_CODE/$slug.html" 2>/dev/null || true
       emit_foot "$extra_js"
     } > "$out"
     count=$((count+1)); lcount=$((lcount+1))

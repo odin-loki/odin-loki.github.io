@@ -2,11 +2,11 @@
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px">
-      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Cryptography <span style="opacity:.5">/</span> ARIA
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> <a href="/research.html#Cryptography" style="color:var(--ink-mute)">Cryptography</a> <span style="opacity:.5">/</span> ARIA
     </p>
     <div class="split split--wide-left">
       <div>
-        <span class="eyebrow">Cryptography</span>
+        <a class="eyebrow eyebrow--link" href="/research.html#Cryptography">Cryptography</a>
         <h1>ARIA — an AEAD scheme that cannot lose nonce synchronisation</h1>
         <p class="lede">AES-GCM and ChaCha20-Poly1305 both fail badly when a nonce desynchronises after loss of state. ARIA removes the failure mode by never transmitting a nonce at all: it derives one deterministically from the message and the session key, over a three-layer algebraic tower of finite fields.</p>
         <div class="badge-row" style="margin-top:22px">
@@ -126,3 +126,13 @@
     </div>
   </div>
 </section>
+<nav class="section section--tight fieldnav" aria-label="Cryptography">
+  <div class="wrap fieldnav__inner">
+    <span class="fieldnav__side"></span>
+    <a class="fieldnav__mid" href="/research.html#Cryptography">
+      <span class="fieldnav__count mono">1 of 3</span>
+      <span class="fieldnav__field">Cryptography</span>
+    </a>
+    <a class="fieldnav__side fieldnav__side--next" href="/research/modelling-aes.html" rel="next"><span class="fieldnav__dir">Next</span><span class="fieldnav__name">Modelling AES</span></a>
+  </div>
+</nav>

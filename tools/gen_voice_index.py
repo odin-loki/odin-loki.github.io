@@ -29,9 +29,15 @@ of on or that the their then there these they this to was were what when where w
 with you your not no can could would should do does did just very more most some such own same
 than too s t are our we us he she his her them'''.split())
 
+# The related block is now written into the page by the builder, from this
+# very index. Reading it back would let a page's neighbours become part of
+# what the page is about, and the two passes would chase each other. Strip it.
+RELATED = re.compile(r'(?is)<section class="section section--tight related">.*?</section>')
+
 def text_of(path):
     html = open(path, encoding='utf-8', errors='replace').read()
     html = re.sub(r'(?is)<(script|style|svg)\b.*?</\1>', ' ', html)
+    html = RELATED.sub(' ', html)
     body = re.search(r'(?is)<main\b.*?>(.*)</main>', html)
     html = body.group(1) if body else html
     html = re.sub(r'(?s)<[^>]+>', ' ', html)
