@@ -13,6 +13,12 @@ A static site — no framework, no bundler, no npm install, no build step you ha
 Twenty-six pages, each carrying a working interactive demonstration of the thing it
 describes, all running client-side.
 
+Two audiences share the site. The product pages stay technical, because the people who
+evaluate this software want the detail — but each one opens its `#who` section in plain
+English, naming three concrete groups the thing is actually for and the problem each of them
+has. `/beta.html` is plain English throughout. Keep it that way: if a sentence there needs a
+computer-science degree, it belongs further down the page, not in the pitch.
+
 | Page | What it demonstrates |
 |---|---|
 | `/` | Live GitHub stats, animated capability lattice, product catalogue |
@@ -25,6 +31,7 @@ describes, all running client-side.
 | `/sentinel.html` | **Interactive:** KDE hotspots and Rossmo geographic profiling, scored by hit rate |
 | `/cellai.html` | **Interactive:** live Gray–Scott reaction-diffusion |
 | `/kickstarter.html` | **Interactive:** the PBSD funding model with every assumption exposed |
+| `/beta.html` | Recruits beta testers for all seven programs — written in plain English, no jargon |
 | `/licensing.html` | **Interactive:** AGPL vs commercial chooser |
 | `/research.html` | 46 research areas, filterable, 12 with full write-ups |
 | `/research/*.html` | Per-area claims ledgers: every number tagged measured / synthetic / derived / projected / cited |
@@ -116,7 +123,7 @@ The layout adapts across three regimes rather than just collapsing at one breakp
 Canvas demos call `window.ImortekFitHeight(preferred)` (in `site.js`) rather than hard-coding
 a height, which is what keeps a 400px canvas from exceeding a 390px-tall landscape phone.
 
-Verified across **600 page/viewport combinations** (60 pages × 10 sizes from 320×568 to
+Verified across **610 page/viewport combinations** (61 pages × 10 sizes from 320×568 to
 2560×1440, including 844×390 landscape): no horizontal overflow and no page errors anywhere.
 Re-run it yourself:
 

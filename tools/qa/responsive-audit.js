@@ -23,7 +23,7 @@ const BASE = process.argv[2] || 'http://localhost:8123';
 // tools/research_data.py if that changes.
 const PAGES = [
   'index', 'pbsd', 'cypha', 'chess', 'retdec', 'mathscript', 'aegis',
-  'sentinel', 'cellai', 'kickstarter', 'research', 'licensing', 'about',
+  'sentinel', 'cellai', 'kickstarter', 'beta', 'research', 'licensing', 'about',
   '404', 'research/aria-aead', 'research/compression', 'research/uhpm',
   'research/neural-decompiler', 'research/modelling-aes',
   'research/gf2-algebra', 'research/asset-tracking', 'research/filtering',

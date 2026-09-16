@@ -251,11 +251,13 @@ $extra_css
             <a href="/aegis.html"><strong>AEGIS</strong><span>Metadata-hiding transport</span></a>
             <a href="/sentinel.html"><strong>SENTINEL</strong><span>Crime analytics &amp; investigative leads</span></a>
             <a href="/cellai.html"><strong>Cell AI</strong><span>Reaction-diffusion sequence model</span></a>
+            <a href="/beta.html"><strong>Become a beta tester</strong><span>Try any of them early, free, and tell us what broke</span></a>
           </div>
         </div>
         <a class="nav__link" href="/research.html">Research</a>
         <a class="nav__link" href="/licensing.html">Licensing</a>
         <a class="nav__link" href="/about.html">About</a>
+        <a class="nav__link" href="/beta.html">Beta</a>
         <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
         <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
       </div>
@@ -317,6 +319,7 @@ emit_foot() {
           <li><a href="/about.html">About Imortek</a></li>
           <li><a href="/research.html">Research shelf</a></li>
           <li><a href="/licensing.html">Licensing</a></li>
+          <li><a href="/beta.html">Become a beta tester</a></li>
           <li><a href="/kickstarter.html">PBSD Kickstarter</a></li>
           <li><a data-email data-subject="Commercial licence enquiry" href="#">Commercial enquiries</a></li>
         </ul>
@@ -360,6 +363,7 @@ PAGES=(
 "cellai~Cell AI — a reaction-diffusion sequence model | Imortek~A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.~~<script src=\"/assets/js/demos/cellai.js\" defer></script>~product"
 "chess~Play chess against Cypha | Imortek~Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.~~<script src=\"/assets/js/chess/engine.js\" defer></script><script src=\"/assets/js/chess/features.js\" defer></script><script src=\"/assets/js/chess/cypha.js\" defer></script><script src=\"/assets/js/demos/chess.js\" defer></script>~product"
 "kickstarter~Back ParanoidBSD — the PBSD Kickstarter is live | Imortek~The ParanoidBSD Kickstarter is live until 12 November 2026 — AUD 10,000, all-or-nothing, funding the compute that finishes the HardenedBSD-to-C++23 port.~~<script src=\"/assets/js/demos/funding.js\" defer></script>~website"
+"beta~Become a beta tester — try the software early | Imortek~Seven programs open for beta testing: a secure operating system, a small self-learning AI, a decompiler, a maths toolkit, a private transport, crime analytics and an AI experiment. Free, no NDA.~~~website"
 "research~Research shelf — cryptography, AI, physics, materials | Imortek~Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.~~<script src=\"/assets/js/demos/research.js\" defer></script>~website"
 "licensing~Licensing — AGPL-3.0+ and commercial terms | Imortek~Free under AGPL-3.0+ for personal use, charity, education and organisations under AUD 50,000/yr. Tiered commercial licence above that. Work out which applies to you.~~<script src=\"/assets/js/demos/licence.js\" defer></script>~website"
 "about~About Imortek and Odin Loch | Imortek~A one-person research and systems engineering practice in Sydney, Australia. What Imortek is, how it works, and how to get in touch.~~~profile"
@@ -429,6 +433,7 @@ declare -A KEYWORDS=(
   [sentinel]="SENTINEL, crime analytics, Hawkes process, DBSCAN, KDE hotspots, Rossmo geographic profiling, investigative leads, Qt 6"
   [cellai]="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture"
   [kickstarter]="ParanoidBSD Kickstarter, PBSD crowdfunding, secure operating system Kickstarter, HardenedBSD C++23 port, memory-safe operating system, back ParanoidBSD, Odin Loch"
+  [beta]="beta testing, beta testers wanted, early access software, try before release, open source beta, Imortek beta, software testing volunteers"
   [research]="Imortek research, Odin Loch, cryptography research, AI research, physics, materials science, mathematics, policy, design documents"
   [licensing]="AGPL-3.0, commercial licence, dual licensing, source available, open source licence, Imortek licensing"
   [about]="Imortek, Odin Loch, about, Sydney Australia, systems engineering, independent research, contact"
@@ -471,7 +476,7 @@ done
     case "$slug" in
       404)                 continue ;;
       index)               loc=""            ; pri="1.0" ; freq="weekly"  ;;
-      pbsd|kickstarter)    loc="$slug.html"  ; pri="0.9" ; freq="weekly"  ;;
+      pbsd|kickstarter|beta) loc="$slug.html" ; pri="0.9" ; freq="weekly"  ;;
       research)            loc="$slug.html"  ; pri="0.8" ; freq="weekly"  ;;
       research/*)          loc="$slug.html"  ; pri="0.6" ; freq="monthly" ;;
       *)
