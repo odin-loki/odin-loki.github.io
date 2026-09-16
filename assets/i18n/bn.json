@@ -100,6 +100,10 @@
   "gh.cached": "সংরক্ষিত অনুলিপি",
   "gh.noDescription": "কোনো বিবরণ নেই",
   "gloss.notInDict": "অভিধানে নেই।",
+  "gloss.didYouMean": "আপনি কি বোঝাতে চেয়েছেন",
+  "gloss.or": "অথবা",
+  "gloss.listSep": ",",
+  "gloss.queryEnd": "?",
   "gloss.lookingUp": "খোঁজা হচ্ছে…",
   "gloss.forget": "Cypha যা শিখেছে তা মুছে ফেলুন"
 }

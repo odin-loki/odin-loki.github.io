@@ -100,6 +100,10 @@
   "gh.cached": "сохранённый снимок",
   "gh.noDescription": "Без описания",
   "gloss.notInDict": "Нет в словаре.",
+  "gloss.didYouMean": "Возможно, вы имели в виду",
+  "gloss.or": "или",
+  "gloss.listSep": ",",
+  "gloss.queryEnd": "?",
   "gloss.lookingUp": "ищу…",
   "gloss.forget": "Забыть то, чему научилась Cypha"
 }

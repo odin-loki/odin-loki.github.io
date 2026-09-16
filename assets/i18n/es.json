@@ -100,6 +100,10 @@
   "gh.cached": "copia guardada",
   "gh.noDescription": "Sin descripción",
   "gloss.notInDict": "No está en el diccionario.",
+  "gloss.didYouMean": "Quizá querías decir",
+  "gloss.or": "o",
+  "gloss.listSep": ",",
+  "gloss.queryEnd": "?",
   "gloss.lookingUp": "buscando…",
   "gloss.forget": "Olvidar lo que Cypha aprendió"
 }

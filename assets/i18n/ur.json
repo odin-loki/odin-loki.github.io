@@ -100,6 +100,10 @@
   "gh.cached": "محفوظ شدہ نقل",
   "gh.noDescription": "کوئی تفصیل نہیں",
   "gloss.notInDict": "لغت میں موجود نہیں۔",
+  "gloss.didYouMean": "کیا آپ کی مراد تھی",
+  "gloss.or": "یا",
+  "gloss.listSep": "،",
+  "gloss.queryEnd": "؟",
   "gloss.lookingUp": "تلاش کیا جا رہا ہے…",
   "gloss.forget": "Cypha نے جو سیکھا اسے بھلا دیں"
 }

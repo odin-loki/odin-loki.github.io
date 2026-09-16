@@ -72,6 +72,10 @@
     'gh.noDescription': 'No description',
 
     'gloss.notInDict': 'Not in the dictionary.',
+    'gloss.didYouMean': 'Did you mean',
+    'gloss.or': 'or',
+    'gloss.listSep': ',',
+    'gloss.queryEnd': '?',
     'gloss.lookingUp': 'looking it up…',
     'gloss.forget': 'Forget what Cypha learned'
   };

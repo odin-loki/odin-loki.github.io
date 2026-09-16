@@ -22,14 +22,11 @@
       sent anywhere; what it learns lives in your browser only.
    ============================================================= */
 (function (root) {
+  'use strict';
+
   var I18N = root.ImortekI18n;
   var T = (I18N && I18N.t) || function (k) { return k; };
   var LOC = (I18N && I18N.locale) || { code: 'en' };
-  function esc(t) {
-    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  }
-  'use strict';
 
   var main = document.getElementById('main');
   if (!main) return;
@@ -242,19 +239,71 @@
     var pop = document.createElement('span');
     pop.className = 'gloss__pop is-dict';
     pop.setAttribute('role', 'note');
-    pop.innerHTML = '<b>' + word + '</b><span class="dim">looking it up\u2026</span>';
+    pop.innerHTML = '<b>' + escHtml(word) + '</b><span class="dim">looking it up\u2026</span>';
     host.insertAdjacentElement('afterend', pop);
     close();
     popped = { el: host, pop: pop };
     root.ImortekDict.lookup(word).then(function (hit) {
       if (!popped || popped.pop !== pop) return;
-      pop.innerHTML = hit
-        ? '<b>' + hit.word + (hit.pos ? ' <span class="gloss__pos">' + POS[hit.pos] + '</span>' : '') +
-          '</b>' + hit.gloss + '<span class="gloss__src">WordNet</span>'
-        : '<b>' + word + '</b><span class="dim">' + esc(T('gloss.notInDict')) + '</span>';
+      if (hit) {
+        pop.innerHTML = '<b>' + escHtml(hit.word) +
+          (hit.pos ? ' <span class="gloss__pos">' + POS[hit.pos] + '</span>' : '') +
+          '</b>' + hit.gloss + '<span class="gloss__src">WordNet</span>';
+        return;
+      }
+      // A miss is more useful with a near word beside it than with an
+      // apology. suggest() only reads shards already resident, so this
+      // costs nothing on the wire.
+      pop.innerHTML = '<b>' + escHtml(word) + '</b>' +
+        '<span class="dim">' + escHtml(T('gloss.notInDict')) + '</span>';
+      if (!root.ImortekDict.suggest) return;
+      root.ImortekDict.suggest(word, 3).then(function (near) {
+        if (!popped || popped.pop !== pop || !near.length) return;
+        var wrap = document.createElement('span');
+        wrap.className = 'gloss__near';
+        wrap.appendChild(document.createTextNode(T('gloss.didYouMean') + ' '));
+        near.forEach(function (n, i) {
+          if (i) wrap.appendChild(document.createTextNode(
+            i === near.length - 1 ? ' ' + T('gloss.or') + ' ' : T('gloss.listSep') + ' '));
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'gloss__near-btn';
+          b.textContent = n;
+          // Two things about this handler. The host is the paragraph,
+          // not the popup, so re-opening against it replaces this popup
+          // rather than nesting inside the node about to be removed.
+          // And the click must not reach main's own handler: that one
+          // treats any click outside a .gloss as "close the popup", so
+          // without stopPropagation it would tear down the very popup
+          // this call is opening.
+          b.addEventListener('click', function (ev) {
+            ev.stopPropagation();
+            lookupWord(n, host);
+          });
+          wrap.appendChild(b);
+        });
+        wrap.appendChild(document.createTextNode(T('gloss.queryEnd')));
+        pop.appendChild(wrap);
+      });
     });
   }
   var POS = { n: 'noun', v: 'verb', a: 'adjective', r: 'adverb' };
+
+  /* The looked-up word is page text, not a URL parameter, but it reaches
+     innerHTML and there is no reason for that to be the one place this
+     site trusts its input.
+
+     Named escHtml, not esc: esc() above is the REGEX escaper markUp()
+     uses, and a second `function esc' at this scope silently replaces
+     it. The glossary then built /(^|[^\w-])(ISO C++23)(?![\w-])/ out
+     of an unescaped term, which throws "Nothing to repeat", and the
+     init promise's .catch swallowed it -- so the whole layer, click
+     handler included, stopped working with nothing in the console. */
+  function escHtml(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
 
   function learn(rec) {
     if (model.opened.indexOf(rec.term.t) >= 0) return;
@@ -307,11 +356,11 @@
     panel.innerHTML =
       '<button type="button" class="gloss-ctl__btn" aria-pressed="false">' +
         '<span class="gloss-ctl__dot" aria-hidden="true"></span>' +
-        '<span class="gloss-ctl__label">' + esc(T('tools.explain')) + '</span>' +
+        '<span class="gloss-ctl__label">' + escHtml(T('tools.explain')) + '</span>' +
       '</button>' +
       '<span class="gloss-ctl__stat mono"></span>' +
-      '<button type="button" class="gloss-ctl__reset" title="' + esc(T('gloss.forget')) + '">' +
-        esc(T('tools.reset')) + '</button>';
+      '<button type="button" class="gloss-ctl__reset" title="' + escHtml(T('gloss.forget')) + '">' +
+        escHtml(T('tools.reset')) + '</button>';
     (root.ImortekToolbar ? root.ImortekToolbar() : document.body).appendChild(panel);
     stat = panel.querySelector('.gloss-ctl__stat');
 

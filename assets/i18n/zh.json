@@ -100,6 +100,10 @@
   "gh.cached": "缓存快照",
   "gh.noDescription": "没有说明",
   "gloss.notInDict": "词典中没有这个词。",
+  "gloss.didYouMean": "你是想找",
+  "gloss.or": "或",
+  "gloss.listSep": "、",
+  "gloss.queryEnd": "？",
   "gloss.lookingUp": "正在查询…",
   "gloss.forget": "清除 Cypha 学到的内容"
 }

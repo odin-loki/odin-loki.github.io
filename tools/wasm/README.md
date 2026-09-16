@@ -16,7 +16,8 @@ git clone --depth 1 --branch 13.2.0 \
 cp -r /tmp/xsimd/include /tmp/ms/vendor/xsimd/          # CMake's FetchContent
                                                         # needs network; this does not
 cd /tmp/ms
-git apply /path/to/tools/wasm/mathscript-portability.patch
+# The portability fixes are UPSTREAM now -- odin-loki/MathScript d4e22df --
+# so a fresh clone already has them and there is no patch to apply.
 cp /path/to/tools/wasm/mathscript_web.cpp web/
 
 source /path/to/emsdk/emsdk_env.sh
@@ -77,8 +78,9 @@ or AVX-512.
 random Fourier features reconstruct the exact RBF kernel as the feature count grows, for
 all three projection kinds the library implements.
 
-`cypha_core` builds clean: **47/47 objects**. Two defect classes had to be fixed
-(`tools/wasm/cypha-portability.patch`, 44 files):
+`cypha_core` builds clean: **47/47 objects**. Two defect classes had to be fixed.
+They are UPSTREAM now -- odin-loki/Cypha `fd6ec5d`, 44 files -- so a fresh clone
+already has them; what follows is the record of what they were:
 
 - **43 files** use `std::max`, `std::fill`, `std::sort` and friends without including
   `<algorithm>`. libstdc++ leaks it transitively; libc++ does not. Same class of bug as

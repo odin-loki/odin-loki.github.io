@@ -100,6 +100,10 @@
   "gh.cached": "نسخة محفوظة",
   "gh.noDescription": "بلا وصف",
   "gloss.notInDict": "غير موجود في القاموس.",
+  "gloss.didYouMean": "هل تقصد",
+  "gloss.or": "أو",
+  "gloss.listSep": "،",
+  "gloss.queryEnd": "؟",
   "gloss.lookingUp": "جارٍ البحث عنه…",
   "gloss.forget": "نسيان ما تعلّمه Cypha"
 }
