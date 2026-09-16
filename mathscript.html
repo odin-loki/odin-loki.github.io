@@ -216,6 +216,88 @@
   </div>
 </section>
 
+<!-- ======================= THE REAL LIBRARY ======================= -->
+<section class="section" id="wasm">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Not a reimplementation</span>
+      <h2>The actual C++ library, compiled to WebAssembly</h2>
+      <p class="lede">
+        Everything above is JavaScript written for this page &mdash; honest, but a model of the
+        real thing. Below is the real thing: <code>libms_symbolic</code> itself, compiled from
+        the same source that builds the native library, running in your browser.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="msw-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot"></span> ms::sym_diff &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="msw-state">not loaded</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div class="ctrl">
+            <label for="msw-input">Expression</label>
+            <input type="text" id="msw-input" value="sin(x)*x^2" spellcheck="false"
+                   autocomplete="off" style="width:100%">
+          </div>
+          <div class="ctrl">
+            <label for="msw-var">Variable</label>
+            <input type="text" id="msw-var" value="x" spellcheck="false" autocomplete="off"
+                   style="width:6rem">
+          </div>
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn btn--primary btn--sm" id="msw-load">Load the library &mdash; 113 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="msw-run" disabled>Run</button>
+          </div>
+          <div class="chips" id="msw-examples" style="margin-top:14px"></div>
+          <p class="tiny muted" style="margin-top:12px">
+            Nothing is downloaded until you press load, and then it is fetched once. The module
+            is 113 KB of WebAssembly and 10 KB of loader &mdash; the full library build is 4.9 MB,
+            so this links only what these four calls reach.
+          </p>
+        </div>
+        <div class="demo__side">
+          <div class="readout" style="grid-template-columns:1fr">
+            <div class="readout__item">
+              <div class="readout__k">Simplified</div>
+              <div class="readout__v plain" id="msw-parse" style="font-size:.9rem">&mdash;</div>
+            </div>
+            <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
+              <div class="readout__k">Derivative</div>
+              <div class="readout__v violet" id="msw-deriv" style="font-size:.9rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Integral</div>
+              <div class="readout__v plain" id="msw-integ" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Library</div>
+              <div class="readout__v plain" id="msw-version" style="font-size:.85rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Vector ISA</div>
+              <div class="readout__v plain" id="msw-isa" style="font-size:.85rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
+            <strong>The ISA line is the library telling the truth about itself.</strong> It asks
+            <code>ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            answers AVX2 or AVX-512; here there is one vector ISA and it says so.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Built with Emscripten from the MathScript tree. Three portability defects had to be
+        fixed to get there, all of which also affect native builds on Apple clang and on ARM
+        &mdash; see <code>tools/wasm/README.md</code>.
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
@@ -417,7 +499,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T08:12:31Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T08:38:30Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>
@@ -427,6 +509,6 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
-<script src="/assets/js/demos/mathscript.js" defer></script>
+<script src="/assets/js/demos/mathscript.js" defer></script><script src="/assets/js/demos/mathscript-wasm.js" defer></script>
 </body>
 </html>

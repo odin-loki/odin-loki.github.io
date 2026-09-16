@@ -1,0 +1,146 @@
+diff --git a/include/ms/simd/isa.hpp b/include/ms/simd/isa.hpp
+index c96e17f..3bfa681 100644
+--- a/include/ms/simd/isa.hpp
++++ b/include/ms/simd/isa.hpp
+@@ -5,6 +5,21 @@
+ 
+ namespace ms::simd {
+ 
++// True only where x86 feature detection is meaningful. Testing for GCC or
++// Clang instead of for the architecture is the usual mistake and breaks every
++// non-x86 target those compilers support — aarch64 as much as WebAssembly.
++#if defined(__i386__) || defined(__x86_64__) || defined(_M_IX86) || defined(_M_X64)
++#define MS_ISA_X86 1
++#else
++#define MS_ISA_X86 0
++#endif
++
++#if defined(__wasm_simd128__)
++#define MS_ISA_WASM_SIMD 1
++#else
++#define MS_ISA_WASM_SIMD 0
++#endif
++
+ struct IsaFeatures {
+     bool sse2 = false;
+     bool sse41 = false;
+@@ -12,6 +27,7 @@ struct IsaFeatures {
+     bool avx2 = false;
+     bool fma = false;
+     bool avx512f = false;
++    bool wasm_simd128 = false;   // the one vector ISA WebAssembly has
+ };
+ 
+ IsaFeatures detect_isa();
+diff --git a/src/runtime/CMakeLists.txt b/src/runtime/CMakeLists.txt
+index 6c2b7c8..cb4a763 100644
+--- a/src/runtime/CMakeLists.txt
++++ b/src/runtime/CMakeLists.txt
+@@ -17,7 +17,7 @@ set(MS_RUNTIME_CPU_SOURCES
+     cpu/lapack_dgesvd.cpp
+ )
+ 
+-if(MS_ENABLE_AVX512)
++if(MS_ENABLE_AVX512 AND NOT EMSCRIPTEN)
+     list(APPEND MS_RUNTIME_CPU_SOURCES cpu/avx512_dgemm.cpp)
+ else()
+     list(APPEND MS_RUNTIME_CPU_SOURCES cpu/avx512_dgemm_stub.cpp)
+@@ -39,7 +39,7 @@ target_include_directories(ms_runtime PUBLIC
+ target_link_libraries(ms_runtime PUBLIC ms_core ms_cuda ms_frameworks ms_simd)
+ target_compile_features(ms_runtime PUBLIC cxx_std_23)
+ 
+-if(MS_ENABLE_AVX512)
++if(MS_ENABLE_AVX512 AND NOT EMSCRIPTEN)
+     if(MSVC)
+         set_source_files_properties(cpu/avx512_dgemm.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX512")
+     else()
+diff --git a/src/runtime/cpu/lapack_dpotrf.cpp b/src/runtime/cpu/lapack_dpotrf.cpp
+index 9e4fa92..b6ec3a2 100644
+--- a/src/runtime/cpu/lapack_dpotrf.cpp
++++ b/src/runtime/cpu/lapack_dpotrf.cpp
+@@ -1,6 +1,7 @@
+ #include "ms/cpu/lapack.hpp"
+ 
+ #include <cmath>
++#include <cstddef>
+ 
+ namespace ms::cpu::lapack {
+ 
+diff --git a/src/simd/CMakeLists.txt b/src/simd/CMakeLists.txt
+index 7e059b0..c9e3de9 100644
+--- a/src/simd/CMakeLists.txt
++++ b/src/simd/CMakeLists.txt
+@@ -7,7 +7,12 @@ target_compile_features(ms_simd PUBLIC cxx_std_23)
+ # enables Kernel::Avx512 reporting and the dedicated avx512_dgemm TU.
+ # Compiling this TU as AVX-512 would SIGILL on machines without the ISA
+ # (CI already passes -DMS_ENABLE_AVX512=OFF).
+-if(MSVC)
++if(EMSCRIPTEN)
++    # WebAssembly has one SIMD ISA and it is not x86's. Passing -mavx2 here is
++    # a hard error from emcc, which also refuses any -m<x86 isa> flag unless
++    # -msimd128 comes with it. xsimd maps onto wasm128 from this flag alone.
++    target_compile_options(ms_simd PRIVATE -msimd128)
++elseif(MSVC)
+     target_compile_options(ms_simd PRIVATE /arch:AVX2)
+ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+     target_compile_options(ms_simd PRIVATE -mavx2 -mfma)
+diff --git a/src/simd/isa.cpp b/src/simd/isa.cpp
+index a5d7c48..7230660 100644
+--- a/src/simd/isa.cpp
++++ b/src/simd/isa.cpp
+@@ -1,20 +1,22 @@
+ #include "ms/simd/isa.hpp"
+ #include <string>
+ 
++#if MS_ISA_X86
+ #if defined(_MSC_VER)
+ #include <intrin.h>
+-#elif defined(__GNUC__) || defined(__clang__)
++#else
+ #include <cpuid.h>
+ #endif
++#endif
+ 
+ namespace ms::simd {
+ 
+ namespace {
+ 
+ void cpuid(int info[4], int leaf, int subleaf = 0) {
+-#if defined(_MSC_VER)
++#if MS_ISA_X86 && defined(_MSC_VER)
+     __cpuidex(info, leaf, subleaf);
+-#elif defined(__GNUC__) || defined(__clang__)
++#elif MS_ISA_X86
+     __cpuid_count(leaf, subleaf, info[0], info[1], info[2], info[3]);
+ #else
+     (void)leaf;
+@@ -27,6 +29,11 @@ void cpuid(int info[4], int leaf, int subleaf = 0) {
+ 
+ IsaFeatures detect_isa() {
+     IsaFeatures f;
++#if !MS_ISA_X86
++    // Nothing to interrogate: the vector width is fixed at compile time.
++    f.wasm_simd128 = MS_ISA_WASM_SIMD != 0;
++    return f;
++#else
+     int info[4] = {0, 0, 0, 0};
+     cpuid(info, 0);
+     if (info[0] == 0) {
+@@ -43,6 +50,7 @@ IsaFeatures detect_isa() {
+     f.avx2 = (info[1] & (1 << 5)) != 0;
+     f.avx512f = (info[1] & (1 << 16)) != 0;
+     return f;
++#endif
+ }
+ 
+ std::string isa_summary(const IsaFeatures& features) {
+@@ -65,6 +73,9 @@ std::string isa_summary(const IsaFeatures& features) {
+     if (features.sse2) {
+         s += "SSE2 ";
+     }
++    if (features.wasm_simd128) {
++        s += "WASM SIMD128 ";
++    }
+     if (s.empty()) {
+         return "scalar";
+     }
