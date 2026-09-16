@@ -581,7 +581,12 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
    ========================================================================== */
 
 /* Two-column split used across product + home sections */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+/* Column ratios come through --split, not through grid-template-columns.
+   An inline style beats a stylesheet rule, so a page that set the columns
+   directly kept them at every width — the About page sat in two columns on a
+   390px phone, giving the prose about four words a line. Setting a custom
+   property instead leaves the breakpoint below free to do its job. */
+.split { display: grid; grid-template-columns: var(--split, 1fr 1fr); gap: 56px; align-items: start; }
 .split--wide-left { grid-template-columns: 1.25fr .75fr; }
 .split--wide-right { grid-template-columns: .8fr 1.2fr; }
 .split--center { align-items: center; }
@@ -960,7 +965,14 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
   display: grid; gap: 1px;
 }
 .portrait__tag .mono { color: var(--ink); font-size: .92rem; font-weight: 500; }
-@media (max-width: 940px) { .portrait { max-width: 300px; margin-inline: auto; } }
+/* Once the split has stacked, the portrait sits above the text — so on a
+   phone it is the whole first screen, and the reader scrolls past a face to
+   reach the sentence saying whose it is. Scaling with the viewport keeps it
+   at 300px on a tablet and brings it to about 220px on a handset, which is a
+   portrait rather than a wall. */
+@media (max-width: 940px) {
+  .portrait { max-width: min(300px, 58vw); margin-inline: auto; }
+}
 
 /* ---------- Figure with caption ---------- */
 .figure { margin: 0; }

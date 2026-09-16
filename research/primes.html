@@ -129,11 +129,11 @@
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
-      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Mathematics <span style="opacity:.5">/</span> Prime meta-pattern
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> <a href="/research.html#Mathematics" style="color:var(--ink-mute)">Mathematics</a> <span style="opacity:.5">/</span> Prime meta-pattern
     </p>
     <div class="split split--wide-left">
       <div>
-        <span class="eyebrow">Mathematics</span>
+        <a class="eyebrow eyebrow--link" href="/research.html#Mathematics">Mathematics</a>
         <h1>What a neural network learns about primes, and why it still loses</h1>
         <p class="lede">Train a network to tell primes from composites, then refuse to look at the feature-generating code and work out what it learned from the weights alone. The answer is the small-prime trial-division sieve on 6k±1 candidates, in that order, with strikingly stable feature importances across five orders of magnitude. The follow-up paper then benchmarks the network against the thing it rediscovered, and reports the loss.</p>
         <div class="badge-row" style="margin-top:22px">
@@ -382,6 +382,43 @@
     </div>
   </div>
 </section>
+<nav class="section section--tight fieldnav" aria-label="Mathematics">
+  <div class="wrap fieldnav__inner">
+    <a class="fieldnav__side fieldnav__side--prev" href="/research/boolean-dimensions.html" rel="prev"><span class="fieldnav__dir">Previous</span><span class="fieldnav__name">Boolean n = 3…8</span></a>
+    <a class="fieldnav__mid" href="/research.html#Mathematics">
+      <span class="fieldnav__count mono" translate="no">4 of 6</span>
+      <span class="fieldnav__field">Mathematics</span>
+    </a>
+    <a class="fieldnav__side fieldnav__side--next" href="/research/qgo.html" rel="next"><span class="fieldnav__dir">Next</span><span class="fieldnav__name">QGO</span></a>
+  </div>
+</nav>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">Closest on this site</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Related reading</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/research/nn-shortcuts.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SGF &amp; Algebraic Autopsy</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/modelling-aes.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Modelling AES — two negative results</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/boolean-dimensions.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Boolean dimensional emergence, n = 3 to 8</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/qgo.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Quantum Graph Optimisation — QAOA pipeline</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">Chosen by term overlap with this page, not by hand — so it is honest about what is actually close, including when that is nothing obvious.</p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -448,7 +485,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T20:53:19Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
+      <span class="mono tiny">Built 2026-09-16T22:09:08Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
     </div>
   </div>
 </footer>

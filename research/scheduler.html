@@ -129,11 +129,11 @@
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
-      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Software &amp; languages <span style="opacity:.5">/</span> Statistical Scheduler
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> <a href="/research.html#Software%20%26%20languages" style="color:var(--ink-mute)">Software &amp; languages</a> <span style="opacity:.5">/</span> Statistical Scheduler
     </p>
     <div class="split split--wide-left">
       <div>
-        <span class="eyebrow">Software &amp; languages</span>
+        <a class="eyebrow eyebrow--link" href="/research.html#Software%20%26%20languages">Software &amp; languages</a>
         <h1>A cluster scheduler with three controllers and a regret bound</h1>
         <p class="lede">Most schedulers pick one control philosophy and live with its blind spot. This one runs three: a statistical Completely Fair Scheduler variant for fairness, a Linear Thompson Sampling bandit that learns which node placements actually work out, and a discrete-time PID controller holding load balance. Each carries its own guarantee, and the paper proves them separately before measuring the whole.</p>
         <div class="badge-row" style="margin-top:22px">
@@ -254,6 +254,43 @@
     </div>
   </div>
 </section>
+<nav class="section section--tight fieldnav" aria-label="Software &amp; languages">
+  <div class="wrap fieldnav__inner">
+    <span class="fieldnav__side"></span>
+    <a class="fieldnav__mid" href="/research.html#Software%20%26%20languages">
+      <span class="fieldnav__count mono" translate="no">1 of 3</span>
+      <span class="fieldnav__field">Software &amp; languages</span>
+    </a>
+    <a class="fieldnav__side fieldnav__side--next" href="/research/electromechanical.html" rel="next"><span class="fieldnav__dir">Next</span><span class="fieldnav__name">Babbage · Antikythera · TDC</span></a>
+  </div>
+</nav>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">Closest on this site</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Related reading</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/research/usg.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">USG — composable statistical generation</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/electromechanical.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Babbage, Antikythera &amp; TDC algorithms</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/asset-tracking.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">ARIA-INTEL — multi-source tracking</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/filtering.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">GH-SR-IMM — heavy-tailed tracking</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">Chosen by term overlap with this page, not by hand — so it is honest about what is actually close, including when that is nothing obvious.</p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -320,7 +357,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T20:53:19Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
+      <span class="mono tiny">Built 2026-09-16T22:09:08Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
     </div>
   </div>
 </footer>

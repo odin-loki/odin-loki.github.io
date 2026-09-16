@@ -129,11 +129,11 @@
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
-      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Electronics <span style="opacity:.5">/</span> Hybrid components
+      <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> <a href="/research.html#Electronics" style="color:var(--ink-mute)">Electronics</a> <span style="opacity:.5">/</span> Hybrid components
     </p>
     <div class="split split--wide-left">
       <div>
-        <span class="eyebrow">Electronics</span>
+        <a class="eyebrow eyebrow--link" href="/research.html#Electronics">Electronics</a>
         <h1>Circuit elements that are analogue and digital in the same device</h1>
         <p class="lede">Mixed-signal design converts between analogue and digital. These components do not convert: memristive drift, Josephson quantisation and phase-change switching are physically continuous and discrete at once, in the same element. The folder builds a simulation framework for them and then audits itself hard enough to publish a bug register.</p>
         <div class="badge-row" style="margin-top:22px">
@@ -256,6 +256,43 @@
     </div>
   </div>
 </section>
+<nav class="section section--tight fieldnav" aria-label="Electronics">
+  <div class="wrap fieldnav__inner">
+    <span class="fieldnav__side"></span>
+    <a class="fieldnav__mid" href="/research.html#Electronics">
+      <span class="fieldnav__count mono" translate="no">1 of 2</span>
+      <span class="fieldnav__field">Electronics</span>
+    </a>
+    <a class="fieldnav__side fieldnav__side--next" href="/research/noise-generator.html" rel="next"><span class="fieldnav__dir">Next</span><span class="fieldnav__name">100 W noise generator</span></a>
+  </div>
+</nav>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">Closest on this site</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Related reading</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/research/noise-generator.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">100 W wideband noise generator</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/electromechanical.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Babbage, Antikythera &amp; TDC algorithms</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/gf2-algebra.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">GF(2) algebra — seven papers</h3>
+      </a>
+      <a class="card card--hover related__item" href="/research/qgo.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Quantum Graph Optimisation — QAOA pipeline</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">Chosen by term overlap with this page, not by hand — so it is honest about what is actually close, including when that is nothing obvious.</p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -322,7 +359,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T20:53:19Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
+      <span class="mono tiny">Built 2026-09-16T22:09:08Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
     </div>
   </div>
 </footer>
