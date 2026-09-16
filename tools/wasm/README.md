@@ -69,6 +69,61 @@ That reads "if the compiler is GCC-like, assume x86". It now gates on
 The panel's ISA line is that call, live. On a desktop the same code answers AVX2
 or AVX-512.
 
+---
+
+# Cypha in the browser
+
+`/cypha.html` gains a panel running `cypha::rff_features` — **40 KB** — measuring how well
+random Fourier features reconstruct the exact RBF kernel as the feature count grows, for
+all three projection kinds the library implements.
+
+`cypha_core` builds clean: **47/47 objects**. Two defect classes had to be fixed
+(`tools/wasm/cypha-portability.patch`, 44 files):
+
+- **43 files** use `std::max`, `std::fill`, `std::sort` and friends without including
+  `<algorithm>`. libstdc++ leaks it transitively; libc++ does not. Same class of bug as
+  MathScript's, and it breaks Apple clang builds the same way.
+- **`src/rff_features.cpp` — a real numerical bug in ORF.**
+
+## The ORF bug
+
+`init_rff_weights_orf` implements Yu et al. (NeurIPS 2016): orthogonal rows whose norms are
+drawn from `chi_d`, so an orthogonal row has the same length distribution as the Gaussian row
+it replaces. A `N(0, s² I_d)` row has norm `s·√d`. The code had:
+
+```cpp
+const double chi_norm = std::sqrt(chi2(rng) / static_cast<double>(std::max(d_in, 1)));
+```
+
+Dividing by `d_in` makes `E[chi_norm²] = 1`, i.e. every row is normalised to unit length —
+`√d` too short. The features then approximate a *different* kernel, so the error against the
+exact RBF never converges. Measured, d=4, γ=0.5, 60 points:
+
+| features D | iid | SORF | ORF before | ORF after |
+|---|---|---|---|---|
+| 16 | 15.77 | 14.79 | 30.60 | 15.00 |
+| 64 | 7.86 | 10.17 | 20.36 | 6.56 |
+| 256 | 4.20 | 8.31 | 21.77 (plateaued) | **3.53 (best)** |
+
+Removing the division is the whole fix. ORF goes from three times worse than iid and flat, to
+the best of the three — which is what the paper says it should be. It was invisible natively
+because nothing compared the approximation against the exact kernel; compiling for the web
+happened to be the thing that ran that comparison.
+
+---
+
+# RetDec's decoder in the browser
+
+`/retdec.html` gains the bottom rung of its ladder for real: **Capstone 5, x86, 791 KB**,
+the same disassembler `deps/capstone` links natively. Paste bytes, get instructions.
+
+No patch needed — Capstone is pure C and cross-compiles untouched.
+
+The rungs above it do not ship and the page says so: lifting to LLVM IR, structuring and
+naming the algorithm are LLVM's work, and LLVM does not fit in a web page at any size.
+
+---
+
 ## What is not here, and why
 
 - **SENTINEL** — `sentinel_core` links `Qt6::Core/Network/Sql/Charts/Widgets`, so the
@@ -77,7 +132,6 @@ or AVX-512.
 - **RetDec** — `deps/` is LLVM, Capstone, Keystone, OpenSSL, Eigen and llama.cpp.
   Compiling LLVM to WebAssembly is a multi-hour, multi-gigabyte job and the artifact
   would be far too large to serve.
-- **Cypha** — plausible: C++23, and CUDA/Qt/OpenSSL/SQLite all default off. The
-  obstacle is `std::thread`; threaded WebAssembly needs `SharedArrayBuffer`, which
-  needs COOP/COEP response headers, and **GitHub Pages cannot send them**. It has to
-  build single-threaded.
+Cypha and RetDec's decoder are now here; see above. Cypha is built single-threaded, because
+threaded WebAssembly needs `SharedArrayBuffer`, which needs COOP/COEP response headers, and
+**GitHub Pages cannot send them**.

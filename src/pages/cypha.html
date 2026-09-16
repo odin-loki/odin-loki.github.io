@@ -40,6 +40,73 @@
   </div>
 </section>
 
+<!-- ======================= RFF IN WASM ======================= -->
+<section class="section" id="wasm">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The library itself</span>
+      <h2>Random features, measured rather than described</h2>
+      <p class="lede">
+        Cypha&rsquo;s case for random Fourier features is that they let a linear head separate
+        what a linear head cannot. That is a measurable claim, so this measures it &mdash; with
+        <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="cyw-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot"></span> cypha::rff_features &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="cyw-state">not loaded</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <p class="small dim" style="margin-top:0">
+            The exact RBF kernel over <b>n</b> sampled points gives a matrix <b>K</b>. Random
+            features reconstruct an approximation <b>K&#770;</b>. What is plotted is
+            <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> as the number of features grows:
+            more features, closer approximation.
+          </p>
+          <div class="grid grid-2" style="gap:18px;margin-top:16px">
+            <div class="ctrl">
+              <label for="cyw-dim">Input dimension <b id="cyw-dim-v">4</b></label>
+              <input type="range" id="cyw-dim" min="2" max="16" step="1" value="4">
+            </div>
+            <div class="ctrl">
+              <label for="cyw-gamma">RBF bandwidth &gamma; <b id="cyw-gamma-v">0.50</b></label>
+              <input type="range" id="cyw-gamma" min="0.1" max="2" step="0.1" value="0.5">
+            </div>
+          </div>
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn btn--primary btn--sm" id="cyw-load">Load the library &mdash; 40 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cyw-run" disabled>Re-measure</button>
+          </div>
+          <canvas class="demo-canvas" id="cyw-canvas" height="300" style="margin-top:18px"></canvas>
+        </div>
+        <div class="demo__side">
+          <div id="cyw-table" class="log" style="height:260px;font-size:.76rem"></div>
+          <div class="readout" style="grid-template-columns:1fr">
+            <div class="readout__item">
+              <div class="readout__k">Library</div>
+              <div class="readout__v plain" id="cyw-version" style="font-size:.82rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
+            <strong>Compiling this found a bug.</strong> ORF &mdash; the dense orthogonal variant
+            &mdash; was normalising every row to unit length, when Yu et al. draw the row norm from
+            <code>chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
+            &radic;d too short, so the features approximated the wrong kernel and the error
+            plateaued instead of converging. One line. It is now the best of the three.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
+        COOP/COEP headers GitHub Pages cannot send.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ ARCHITECTURE ============================ -->
 <section class="section section--alt">
   <div class="wrap">

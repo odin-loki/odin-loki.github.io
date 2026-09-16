@@ -1,0 +1,484 @@
+diff --git a/native/apps/cyphalm_train.cpp b/native/apps/cyphalm_train.cpp
+index de316bb..3ae58eb 100644
+--- a/native/apps/cyphalm_train.cpp
++++ b/native/apps/cyphalm_train.cpp
+@@ -1,4 +1,5 @@
+ // cyphalm_train — train Cypha sequence from corpus text and save a checkpoint.
++#include <algorithm>
+ #include <filesystem>
+ #include <iostream>
+ #include <limits>
+diff --git a/native/include/cypha/orthogonal_rff_encoder.hpp b/native/include/cypha/orthogonal_rff_encoder.hpp
+index 4bef840..c4556b0 100644
+--- a/native/include/cypha/orthogonal_rff_encoder.hpp
++++ b/native/include/cypha/orthogonal_rff_encoder.hpp
+@@ -3,6 +3,7 @@
+ #include "cypha/preprocessor.hpp"
+ #include "cypha/rff_features.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+ 
+diff --git a/native/qt/src/bulk_train_worker.cpp b/native/qt/src/bulk_train_worker.cpp
+index f5a15e6..2b96a35 100644
+--- a/native/qt/src/bulk_train_worker.cpp
++++ b/native/qt/src/bulk_train_worker.cpp
+@@ -1,5 +1,6 @@
+ #include "bulk_train_worker.h"
+ 
++#include <algorithm>
+ #include <QMetaType>
+ #include <QVector>
+ 
+diff --git a/native/src/cypha.cpp b/native/src/cypha.cpp
+index 3c3effd..3bd2872 100644
+--- a/native/src/cypha.cpp
++++ b/native/src/cypha.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cypha.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <filesystem>
+ #include <fstream>
+diff --git a/native/src/cyphalm/cellai_ssm_spectral.cpp b/native/src/cyphalm/cellai_ssm_spectral.cpp
+index fe74c48..3f76e5d 100644
+--- a/native/src/cyphalm/cellai_ssm_spectral.cpp
++++ b/native/src/cyphalm/cellai_ssm_spectral.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/cellai_ssm.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <complex>
+ #include <cstddef>
+diff --git a/native/src/cyphalm/context_bank.cpp b/native/src/cyphalm/context_bank.cpp
+index a2cc40a..88ae913 100644
+--- a/native/src/cyphalm/context_bank.cpp
++++ b/native/src/cyphalm/context_bank.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/context_bank.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <stdexcept>
+ 
+diff --git a/native/src/cyphalm/cyphalm_alpha_spectrum.cpp b/native/src/cyphalm/cyphalm_alpha_spectrum.cpp
+index ae5046c..98a163c 100644
+--- a/native/src/cyphalm/cyphalm_alpha_spectrum.cpp
++++ b/native/src/cyphalm/cyphalm_alpha_spectrum.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/cyphalm_alpha_spectrum.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <numeric>
+ 
+diff --git a/native/src/cyphalm/cyphalm_nig_expert.cpp b/native/src/cyphalm/cyphalm_nig_expert.cpp
+index 8f9a6a8..ad04b2d 100644
+--- a/native/src/cyphalm/cyphalm_nig_expert.cpp
++++ b/native/src/cyphalm/cyphalm_nig_expert.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/cyphalm_nig_expert.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <stdexcept>
+ 
+diff --git a/native/src/cyphalm/embed_table.cpp b/native/src/cyphalm/embed_table.cpp
+index fb95062..905c737 100644
+--- a/native/src/cyphalm/embed_table.cpp
++++ b/native/src/cyphalm/embed_table.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/embed_table.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+ #include <stdexcept>
+diff --git a/native/src/cyphalm/hierarchical_ssm.cpp b/native/src/cyphalm/hierarchical_ssm.cpp
+index 17a79c3..335256e 100644
+--- a/native/src/cyphalm/hierarchical_ssm.cpp
++++ b/native/src/cyphalm/hierarchical_ssm.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/hierarchical_ssm.hpp"
+ 
++#include <algorithm>
+ #include <numeric>
+ #include <stdexcept>
+ 
+diff --git a/native/src/cyphalm/ngram_fusion.cpp b/native/src/cyphalm/ngram_fusion.cpp
+index 5351f18..f2fa474 100644
+--- a/native/src/cyphalm/ngram_fusion.cpp
++++ b/native/src/cyphalm/ngram_fusion.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/ngram_fusion.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <random>
+ #include <stdexcept>
+diff --git a/native/src/cyphalm/view_embedding.cpp b/native/src/cyphalm/view_embedding.cpp
+index c1bf34a..b0f7f00 100644
+--- a/native/src/cyphalm/view_embedding.cpp
++++ b/native/src/cyphalm/view_embedding.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/cyphalm/view_embedding.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <random>
+ 
+diff --git a/native/src/federated_aggregate.cpp b/native/src/federated_aggregate.cpp
+index e0c4f6e..eee5123 100644
+--- a/native/src/federated_aggregate.cpp
++++ b/native/src/federated_aggregate.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/federated_aggregate.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <stdexcept>
+ 
+diff --git a/native/src/forecast/event_vocabulary.cpp b/native/src/forecast/event_vocabulary.cpp
+index 930e880..00f3257 100644
+--- a/native/src/forecast/event_vocabulary.cpp
++++ b/native/src/forecast/event_vocabulary.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/forecast/event_vocabulary.hpp"
+ 
++#include <algorithm>
+ #include <sstream>
+ #include <stdexcept>
+ 
+diff --git a/native/src/forecast/forecast_pipeline.cpp b/native/src/forecast/forecast_pipeline.cpp
+index 3e031c3..db16177 100644
+--- a/native/src/forecast/forecast_pipeline.cpp
++++ b/native/src/forecast/forecast_pipeline.cpp
+@@ -2,6 +2,7 @@
+ 
+ #include "cypha/cyphalm/cyphalm_config.hpp"
+ 
++#include <algorithm>
+ #include <fstream>
+ #include <random>
+ #include <sstream>
+diff --git a/native/src/forecast/views_scoring.cpp b/native/src/forecast/views_scoring.cpp
+index 81499a9..86a0a58 100644
+--- a/native/src/forecast/views_scoring.cpp
++++ b/native/src/forecast/views_scoring.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/forecast/views_scoring.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <limits>
+ 
+diff --git a/native/src/intelligence/nig_statistic_state.cpp b/native/src/intelligence/nig_statistic_state.cpp
+index 665be24..657df3c 100644
+--- a/native/src/intelligence/nig_statistic_state.cpp
++++ b/native/src/intelligence/nig_statistic_state.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/intelligence/nig_statistic_state.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <stdexcept>
+ 
+diff --git a/native/src/mt19937_rng.cpp b/native/src/mt19937_rng.cpp
+index 8c52328..75a9db9 100644
+--- a/native/src/mt19937_rng.cpp
++++ b/native/src/mt19937_rng.cpp
+@@ -1,5 +1,6 @@
+ #include "cypha/mt19937_rng.hpp"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+ #include <cstring>
+diff --git a/native/src/regression.cpp b/native/src/regression.cpp
+index d18ba85..6eddda8 100644
+--- a/native/src/regression.cpp
++++ b/native/src/regression.cpp
+@@ -1,4 +1,5 @@
+ // M4 — mixture-of-experts regression helpers (see `include/cypha/regression.hpp`).
++#include <algorithm>
+ #include <cmath>
+ #include <cstddef>
+ #include <vector>
+diff --git a/native/src/rff_features.cpp b/native/src/rff_features.cpp
+index 713dc0b..8769fb8 100644
+--- a/native/src/rff_features.cpp
++++ b/native/src/rff_features.cpp
+@@ -247,7 +247,13 @@ void init_rff_weights_orf(std::mt19937& rng, double gamma, int D, int d_in, std:
+     std::vector<double> Q;
+     init_orthogonal_rows(rng, d_in, Q);
+     for (int i = 0; i < d_in && r < D; ++i, ++r) {
+-      const double chi_norm = std::sqrt(chi2(rng) / static_cast<double>(std::max(d_in, 1)));
++      // Yu et al. draw the row norm from chi_d, so that an orthogonal row has
++      // the same length distribution as the Gaussian row it replaces: a
++      // N(0, s^2 I_d) row has norm s*sqrt(d), not s. Dividing by d_in here
++      // normalised every row to unit length, which is sqrt(d_in) too short
++      // and makes the features approximate a different kernel — the error
++      // against the exact RBF then plateaus instead of converging.
++      const double chi_norm = std::sqrt(chi2(rng));
+       const double row_scale = base_scale * chi_norm;
+       for (int c = 0; c < d_in; ++c) {
+         w_flat[static_cast<std::size_t>(r * d_in + c)] =
+diff --git a/native/tests/regression/cyphalm_model_golden.cpp b/native/tests/regression/cyphalm_model_golden.cpp
+index 5016bc1..639e62c 100644
+--- a/native/tests/regression/cyphalm_model_golden.cpp
++++ b/native/tests/regression/cyphalm_model_golden.cpp
+@@ -3,6 +3,7 @@
+ //   cyphalm_model_golden
+ //   cyphalm_model_golden <checkpoint.json>
+ //   cyphalm_model_golden --mode ssm_gria_no_lstm
++#include <algorithm>
+ #include <cmath>
+ #include <iostream>
+ #include <string>
+diff --git a/native/tests/regression/dif_regressor_train_step_golden.cpp b/native/tests/regression/dif_regressor_train_step_golden.cpp
+index 819d708..da3ffcc 100644
+--- a/native/tests/regression/dif_regressor_train_step_golden.cpp
++++ b/native/tests/regression/dif_regressor_train_step_golden.cpp
+@@ -1,4 +1,5 @@
+ // DIFRegressor-shaped online step: native dif_train_step_vector + expert_target_ema vs Python sidecar.
++#include <algorithm>
+ #include <cmath>
+ #include <filesystem>
+ #include <fstream>
+diff --git a/native/tests/regression/em_step_smoke.cpp b/native/tests/regression/em_step_smoke.cpp
+index cd9ce6f..e04390f 100644
+--- a/native/tests/regression/em_step_smoke.cpp
++++ b/native/tests/regression/em_step_smoke.cpp
+@@ -1,4 +1,5 @@
+ /// EM keystone smoke: recover two separated 1-D Gaussians; mixture log-likelihood non-decreasing.
++#include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+ #include <random>
+diff --git a/native/tests/regression/generation_golden.cpp b/native/tests/regression/generation_golden.cpp
+index 840cee6..a9bafd1 100644
+--- a/native/tests/regression/generation_golden.cpp
++++ b/native/tests/regression/generation_golden.cpp
+@@ -1,5 +1,6 @@
+ // generation_golden — verify native generation math against Python fixture.
+ // Usage: generation_golden <fixtures/generation/sidecar.json>
++#include <algorithm>
+ #include <cmath>
+ #include <filesystem>
+ #include <fstream>
+diff --git a/native/tests/regression/mke_train_step_golden.cpp b/native/tests/regression/mke_train_step_golden.cpp
+index e3605fb..9221df1 100644
+--- a/native/tests/regression/mke_train_step_golden.cpp
++++ b/native/tests/regression/mke_train_step_golden.cpp
+@@ -1,6 +1,7 @@
+ // CTest: MKERegressor.train_step vs fixtures/mke_train_step/ (single) or mke_train_extended/ (multi).
+ // RFF φ from sidecar x + enc; score_matrix_use_field(φ); expert RLS; dif_train_step_vector(pred).
+ // Extended: refresh_world_log_norm_from_v each step; optional replay_warmup + TrainStepExtras.replay_u01.
++#include <algorithm>
+ #include <cmath>
+ #include <filesystem>
+ #include <fstream>
+diff --git a/native/tests/regression/regression_rff_golden.cpp b/native/tests/regression/regression_rff_golden.cpp
+index 4fb2cd3..de9d4dd 100644
+--- a/native/tests/regression/regression_rff_golden.cpp
++++ b/native/tests/regression/regression_rff_golden.cpp
+@@ -1,4 +1,5 @@
+ // CTest: RFF encode + ridge/bias + MKE expert dots vs fixtures/rff_regression/sidecar.json
++#include <algorithm>
+ #include <cmath>
+ #include <fstream>
+ #include <iostream>
+diff --git a/native/tests/regression/rpsm_world_stats_smoke.cpp b/native/tests/regression/rpsm_world_stats_smoke.cpp
+index 3fb4b84..3015b71 100644
+--- a/native/tests/regression/rpsm_world_stats_smoke.cpp
++++ b/native/tests/regression/rpsm_world_stats_smoke.cpp
+@@ -15,6 +15,7 @@
+ //   3. Correctness preserved: the already-validated Phase 0 property (multiclass training beats
+ //      a fresh, untrained layer) still holds with the new flag enabled, i.e. it does not regress
+ //      the frozen-classifier fix it's layered on top of.
++#include <algorithm>
+ #include <cmath>
+ #include <iostream>
+ #include <vector>
+diff --git a/native/tools/cypha_onnx_export.cpp b/native/tools/cypha_onnx_export.cpp
+index 6d126aa..03397ed 100644
+--- a/native/tools/cypha_onnx_export.cpp
++++ b/native/tools/cypha_onnx_export.cpp
+@@ -6,6 +6,7 @@
+ // Graph (field-conditioned μ₀ baked at export time):
+ //   x [batch,d] -> Gemm(enc_W, transB=1) -> [Tanh?] -> Sub(mu0) -> Mul(inv_v)
+ //   -> MatMul(D_T) -> Add(llr_bias) -> llr [-> Mul(1/T) -> Softmax -> probs]
++#include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+ #include <cstdlib>
+diff --git a/native/tools/cyphalm_ssm_diagnose.cpp b/native/tools/cyphalm_ssm_diagnose.cpp
+index fa9c339..9035212 100644
+--- a/native/tools/cyphalm_ssm_diagnose.cpp
++++ b/native/tools/cyphalm_ssm_diagnose.cpp
+@@ -1,4 +1,5 @@
+ // cyphalm_ssm_diagnose — Phase-5 CellAI SSM probe for D10/D17 (FUTURE.md §0c).
++#include <algorithm>
+ #include <iostream>
+ #include <string>
+ 
+diff --git a/native/tools/ewc_cyphalm_smoke.cpp b/native/tools/ewc_cyphalm_smoke.cpp
+index 0281ed7..96076c3 100644
+--- a/native/tools/ewc_cyphalm_smoke.cpp
++++ b/native/tools/ewc_cyphalm_smoke.cpp
+@@ -1,4 +1,5 @@
+ /// Smoke test for CyphaLM char-LSTM EWC on embed, Wx/Wh, and lm_head Wy/by.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/ewc_growable_d_smoke.cpp b/native/tools/ewc_growable_d_smoke.cpp
+index 4b34194..109864d 100644
+--- a/native/tools/ewc_growable_d_smoke.cpp
++++ b/native/tools/ewc_growable_d_smoke.cpp
+@@ -10,6 +10,7 @@
+ /// existed. This test pins down: (1) the fixed behavior computes a real, hand-verifiable
+ /// prefix-only penalty after `D` grows, (2) it is deterministic, and (3) `set_protect_world_field`
+ /// engages an additional, independently-verifiable term.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/ewc_hybrid_smoke.cpp b/native/tools/ewc_hybrid_smoke.cpp
+index d431d0f..929fdf9 100644
+--- a/native/tools/ewc_hybrid_smoke.cpp
++++ b/native/tools/ewc_hybrid_smoke.cpp
+@@ -1,4 +1,5 @@
+ /// Smoke test for hybrid EWC on SSM multiscale alpha + GRIA per-token alpha.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/ewc_weights_smoke.cpp b/native/tools/ewc_weights_smoke.cpp
+index 401a350..216a19c 100644
+--- a/native/tools/ewc_weights_smoke.cpp
++++ b/native/tools/ewc_weights_smoke.cpp
+@@ -1,4 +1,5 @@
+ /// Smoke test for hybrid EWC weight Fisher on GRIA U/V and SSM W_fast layer-0.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/fixture_generate.cpp b/native/tools/fixture_generate.cpp
+index f5c478d..4b45138 100644
+--- a/native/tools/fixture_generate.cpp
++++ b/native/tools/fixture_generate.cpp
+@@ -1,4 +1,5 @@
+ // cypha_fixture_gen — native parity fixture regeneration (replaces removed Python generators).
++#include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+ #include <cstring>
+diff --git a/native/tools/gate_score_match_p7_smoke.cpp b/native/tools/gate_score_match_p7_smoke.cpp
+index 9cad761..c5e46c7 100644
+--- a/native/tools/gate_score_match_p7_smoke.cpp
++++ b/native/tools/gate_score_match_p7_smoke.cpp
+@@ -1,4 +1,5 @@
+ // Phase 7 optimality acceptance: score-matching GH/NIG gate vs Bessel LUT on held-out log-likelihood.
++#include <algorithm>
+ #include <cmath>
+ #include <cstdint>
+ #include <iostream>
+diff --git a/native/tools/infer_latency_bench.cpp b/native/tools/infer_latency_bench.cpp
+index 17e0965..9e63683 100644
+--- a/native/tools/infer_latency_bench.cpp
++++ b/native/tools/infer_latency_bench.cpp
+@@ -1,4 +1,5 @@
+ /// Product infer latency: DIF REST /predict hot path vs batch score; CyphaLM predict_next.
++#include <algorithm>
+ #include <chrono>
+ #include <cstdio>
+ #include <fstream>
+diff --git a/native/tools/intelligence_profiler_papers.cpp b/native/tools/intelligence_profiler_papers.cpp
+index 9105ec5..bd111bf 100644
+--- a/native/tools/intelligence_profiler_papers.cpp
++++ b/native/tools/intelligence_profiler_papers.cpp
+@@ -1,4 +1,5 @@
+ /// Papers II–V scenarios for intelligence profiler: applications, landscape, epistemic loop, soft world.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdint>
+diff --git a/native/tools/kernel_approx_p5_smoke.cpp b/native/tools/kernel_approx_p5_smoke.cpp
+index 52afc01..2e47fc7 100644
+--- a/native/tools/kernel_approx_p5_smoke.cpp
++++ b/native/tools/kernel_approx_p5_smoke.cpp
+@@ -1,4 +1,5 @@
+ // Phase 5 optimality acceptance: ‖K̂−K‖_F vs iid/uniform baselines at rff_D=256.
++#include <algorithm>
+ #include <cmath>
+ #include <cstdlib>
+ #include <iostream>
+diff --git a/native/tools/native_sr_gate_laws_smoke.cpp b/native/tools/native_sr_gate_laws_smoke.cpp
+index 1ab898b..e739e7c 100644
+--- a/native/tools/native_sr_gate_laws_smoke.cpp
++++ b/native/tools/native_sr_gate_laws_smoke.cpp
+@@ -1,4 +1,5 @@
+ /// Smoke test for H16 symbolic-regression gate law fitting on LSTM traces.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/orf_encoder_bench.cpp b/native/tools/orf_encoder_bench.cpp
+index 5dbe572..53fa131 100644
+--- a/native/tools/orf_encoder_bench.cpp
++++ b/native/tools/orf_encoder_bench.cpp
+@@ -10,6 +10,7 @@
+ 
+ #include "../src/bench/d01_synthetic_golden.inc"
+ 
++#include <algorithm>
+ #include <cmath>
+ #include <iostream>
+ #include <random>
+diff --git a/native/tools/pgm_checkpoint_roundtrip_smoke.cpp b/native/tools/pgm_checkpoint_roundtrip_smoke.cpp
+index b6202b6..58be55c 100644
+--- a/native/tools/pgm_checkpoint_roundtrip_smoke.cpp
++++ b/native/tools/pgm_checkpoint_roundtrip_smoke.cpp
+@@ -1,4 +1,5 @@
+ // U06 PGM cell + Wy checkpoint round-trip smoke.
++#include <algorithm>
+ #include <cmath>
+ #include <filesystem>
+ #include <iostream>
+diff --git a/native/tools/rao_blackwell_p8_smoke.cpp b/native/tools/rao_blackwell_p8_smoke.cpp
+index 2a74c09..881b6c4 100644
+--- a/native/tools/rao_blackwell_p8_smoke.cpp
++++ b/native/tools/rao_blackwell_p8_smoke.cpp
+@@ -1,4 +1,5 @@
+ // Phase 8: audit generation.hpp / replay_buffer.hpp for MC sample averages vs RB conditional expectations.
++#include <algorithm>
+ #include <cmath>
+ #include <iostream>
+ #include <random>
+diff --git a/native/tools/reversible_ssm_cell_smoke.cpp b/native/tools/reversible_ssm_cell_smoke.cpp
+index b24099c..cece80d 100644
+--- a/native/tools/reversible_ssm_cell_smoke.cpp
++++ b/native/tools/reversible_ssm_cell_smoke.cpp
+@@ -1,6 +1,7 @@
+ /// Regression test for `ReversibleSSMCell` (H11): `reconstruct()` must be an exact algebraic
+ /// inverse of `forward()` — `x_hat = y - tanh(delta) == x` — since `delta` is cached verbatim
+ /// rather than re-derived. See docs/reports/STUB_AUDIT_2026-07-11.md.
++#include <algorithm>
+ #include <cassert>
+ #include <cmath>
+ #include <cstdio>
+diff --git a/native/tools/score_matrix_inv_v_fold_smoke.cpp b/native/tools/score_matrix_inv_v_fold_smoke.cpp
+index 39fa6b7..3340b2b 100644
+--- a/native/tools/score_matrix_inv_v_fold_smoke.cpp
++++ b/native/tools/score_matrix_inv_v_fold_smoke.cpp
+@@ -1,5 +1,6 @@
+ /// Perf §3.1: CPU score_matrix inv_v fold — compare folded accel path to a serial
+ /// reference with association (H−μ0)*(inv_v*D), and check finite outputs.
++#include <algorithm>
+ #include <cmath>
+ #include <cstdio>
+ #include <vector>

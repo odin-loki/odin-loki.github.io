@@ -43,6 +43,72 @@
   </div>
 </section>
 
+<!-- ======================= DECODER IN WASM ======================= -->
+<section class="section" id="wasm">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The bottom rung, for real</span>
+      <h2>The actual decoder, compiled to WebAssembly</h2>
+      <p class="lede">
+        Everything above this is a scripted walk through the abstraction ladder. This is the
+        first rung running for real: Capstone &mdash; the same disassembler the native RetDec
+        build links &mdash; decoding bytes you paste in.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="rdw-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot"></span> capstone &mdash; WebAssembly</h3>
+        <div class="seg" role="group" aria-label="Width">
+          <button type="button" data-bits="64" aria-pressed="true">x86-64</button>
+          <button type="button" data-bits="32">x86-32</button>
+        </div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div class="ctrl">
+            <label for="rdw-input">Bytes &mdash; hex, any separators</label>
+            <input type="text" id="rdw-input" value="55 48 89 e5 b8 01 00 00 00 5d c3"
+                   spellcheck="false" autocomplete="off" style="width:100%">
+          </div>
+          <div class="chips" id="rdw-examples" style="margin-top:12px"></div>
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">Load the decoder &mdash; 791 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Disassemble</button>
+          </div>
+          <p class="tiny muted" style="margin-top:12px">
+            791 KB because a real x86 decoder carries the whole instruction set &mdash; every
+            encoding, prefix and extension. That is the honest size of the thing.
+          </p>
+        </div>
+        <div class="demo__side">
+          <div class="log" id="rdw-out" style="height:260px;font-size:.76rem"></div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Decoder</div>
+              <div class="readout__v plain" id="rdw-version" style="font-size:.82rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Instructions</div>
+              <div class="readout__v violet" id="rdw-count" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
+            <strong>This is the decoder, not the decompiler.</strong> The rungs above &mdash;
+            lifting to LLVM IR, structuring control flow, naming the algorithm &mdash; are LLVM&rsquo;s
+            work, and LLVM does not fit in a web page at any size. Saying otherwise would be the
+            easiest lie on this site.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Capstone 5, built with Emscripten, x86 only. The native build links the same library
+        from <code>deps/capstone</code>.
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
