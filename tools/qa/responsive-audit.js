@@ -19,28 +19,27 @@ const { chromium } = require('playwright');
 
 const BASE = process.argv[2] || 'http://localhost:8123';
 
-// Every page the builder emits. Regenerate with the slug list in
-// tools/research_data.py if that changes.
-const PAGES = [
-  'index', 'pbsd', 'cypha', 'chess', 'retdec', 'mathscript', 'aegis',
-  'sentinel', 'cellai', 'kickstarter', 'beta', 'research', 'licensing', 'about',
-  '404', 'research/aria-aead', 'research/compression', 'research/uhpm',
-  'research/neural-decompiler', 'research/modelling-aes',
-  'research/gf2-algebra', 'research/asset-tracking', 'research/filtering',
-  'research/physics', 'research/carbide', 'research/economics',
-  'research/fungal', 'research/nn-shortcuts', 'research/usg',
-  'research/scheduler', 'research/ashby', 'research/vdj',
-  'research/electromechanical', 'research/izaac-protocols', 'research/lcrp',
-  'research/boolean-dimensions', 'research/veritas', 'research/primes',
-  'research/qgo', 'research/ucdw', 'research/diamond-battery',
-  'research/qdmp', 'research/hybrid-components', 'research/ausdike',
-  'research/noise-generator', 'research/rngs', 'research/nqd',
-  'research/math-survey', 'research/battle-sim', 'research/cpu',
-  'research/future-cpp', 'research/pharma', 'research/hsa',
-  'research/weapons-defence', 'research/weapons-police',
-  'research/threat-assessments', 'research/ucn', 'research/ucn-ais',
-  'research/un-reform', 'research/hemp-harmony', 'research/cocktails',
-];
+// Every English page the build actually produced, read out of sitemap.xml so
+// this list cannot fall behind the site the way a hand-kept one does. 404 is
+// deliberately absent from the sitemap and is added back by hand, because a
+// not-found page that overflows on a phone is still a page someone sees.
+const fs = require('fs');
+const PAGES = (() => {
+  const out = ['404'];
+  if (!fs.existsSync('sitemap.xml')) return out;
+  const xml = fs.readFileSync('sitemap.xml', 'utf8');
+  const codes = fs.existsSync('tools/locales.json')
+    ? JSON.parse(fs.readFileSync('tools/locales.json', 'utf8')).locales
+        .filter(l => !l.root).map(l => l.code)
+    : [];
+  for (const m of xml.matchAll(/<loc>https:\/\/imortek\.com\.au\/([^<]*)<\/loc>/g)) {
+    const path = m[1];
+    if (codes.some(c => path === `${c}/` || path.startsWith(`${c}/`))) continue;
+    const slug = path === '' ? 'index' : path.replace(/\.html$/, '');
+    if (!out.includes(slug)) out.push(slug);
+  }
+  return out;
+})();
 
 // The same core pages again in every other language, read out of
 // tools/locales.json so the audit cannot fall behind the builder. Arabic and
@@ -51,8 +50,8 @@ const CORE = [
   'sentinel', 'cellai', 'kickstarter', 'beta', 'research', 'licensing',
   'about', '404',
 ];
-const LOCALES = require('fs').existsSync('tools/locales.json')
-  ? JSON.parse(require('fs').readFileSync('tools/locales.json', 'utf8')).locales
+const LOCALES = fs.existsSync('tools/locales.json')
+  ? JSON.parse(fs.readFileSync('tools/locales.json', 'utf8')).locales
       .filter(l => !l.root).map(l => l.code)
   : [];
 for (const code of LOCALES) for (const slug of CORE) PAGES.push(`${code}/${slug}`);

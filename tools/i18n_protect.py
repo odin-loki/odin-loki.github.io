@@ -68,4 +68,12 @@ def protect(html):
     return ''.join(out)
 
 if __name__ == '__main__':
-    sys.stdout.write(protect(sys.stdin.read()))
+    # --dateline drops the written/updated line into the placeholder the
+    # research generator leaves behind. It rides along here because the body
+    # already passes through this filter and a page is not worth a third
+    # interpreter just to substitute one string.
+    line = ''
+    if len(sys.argv) > 2 and sys.argv[1] == '--dateline':
+        line = sys.argv[2]
+    body = protect(sys.stdin.read())
+    sys.stdout.write(body.replace('<!--dateline-->', line))

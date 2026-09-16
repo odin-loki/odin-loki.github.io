@@ -1484,6 +1484,12 @@ body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px))
 .eyebrow--link { display: inline-block; border-bottom: 1px solid transparent; }
 .eyebrow--link:hover { color: var(--teal); border-bottom-color: currentColor; text-decoration: none; }
 
+/* When a ledger was written and when it last moved. Google will not take a date
+   in the structured data on trust unless the reader can see the same date, and
+   a reader deciding whether to trust a figure wants to know its age anyway. */
+.dateline { margin: -8px 0 18px; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.dateline time { color: var(--ink-mute); }
+
 .fieldnav { padding-block: clamp(28px, 4vw, 44px); border-top: 1px solid var(--line); }
 .fieldnav__inner {
   display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;

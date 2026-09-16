@@ -45,10 +45,16 @@ PLACE  = re.compile(r'\{[a-z]+\}')
 # markup the English page does not have and is supposed to differ.
 NOTE = re.compile(r'(?is)<div class="wrap"><p class="i18n-note".*?</p></div>')
 
+# Related reading is chosen by each locale's own search index, and a translated
+# tree only holds fifteen pages where English holds sixty-one. The four nearest
+# neighbours are therefore SUPPOSED to differ between languages — comparing them
+# would report a hundred and fifty problems that are all the feature working.
+RELATED = re.compile(r'(?is)<section[^>]*\bclass="[^"]*\brelated\b[^"]*"[^>]*>.*?</section>')
+
 def body(path):
     s = open(path, encoding='utf-8').read()
     m = re.search(r'(?is)<main\b.*?>(.*)</main>', s)
-    return NOTE.sub('', m.group(1) if m else s)
+    return RELATED.sub('', NOTE.sub('', m.group(1) if m else s))
 
 def crosstalk():
     """Two languages holding the identical translation of the same sentence.

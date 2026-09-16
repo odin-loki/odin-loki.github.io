@@ -54,6 +54,10 @@ def page(e):
       '" style="color:var(--ink-mute)">' + e['field'] + '</a> '
       '<span style="opacity:.5">/</span> ' + e['name'])
     A('    </p>')
+    # When this ledger was written and last touched. The build fills it from
+    # git, so it cannot drift from the dates in the structured data and cannot
+    # be quietly left stale by hand.
+    A('    <!--dateline-->')
     A('    <div class="split split--wide-left">')
     A('      <div>')
     A('        <a class="eyebrow eyebrow--link" href="' + field_url(e['field']) + '">' +

@@ -80,6 +80,8 @@
   "related.eyebrow": "Le plus proche sur ce site",
   "related.title": "À lire ensuite",
   "related.note": "Choisi par recoupement de termes avec cette page, non à la main — donc honnête sur ce qui est réellement proche, y compris quand rien ne l’est.",
+  "meta.written": "Écrit le",
+  "meta.updated": "Mis à jour le",
   "notice.englishOnly": "Cette page de recherche n’est publiée qu’en anglais. Les pages techniques sont traduites ; les registres de faits ne le sont pas, car une affirmation mal traduite est une affirmation fausse.",
   "notice.partial": "Certaines parties de cette page sont encore en anglais. La traduction est en cours de rédaction ; rien n’est traduit automatiquement.",
   "notice.readEnglish": "La lire en anglais",

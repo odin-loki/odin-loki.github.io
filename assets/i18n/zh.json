@@ -80,6 +80,8 @@
   "related.eyebrow": "本站最接近的内容",
   "related.title": "相关阅读",
   "related.note": "根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。",
+  "meta.written": "撰写于",
+  "meta.updated": "更新于",
   "notice.englishOnly": "本研究页面仅以英文发布。技术页面已翻译，论据清单没有：一条被译错的论据就是一条假论据。",
   "notice.partial": "本页部分内容仍为英文。翻译正在撰写中，没有任何内容是机器翻译的。",
   "notice.readEnglish": "阅读英文版",

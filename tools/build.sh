@@ -37,6 +37,23 @@ short_name() {
   printf '%s' "${t%% — *}"
 }
 
+# "4 September 2026" — a date a person reads, next to the machine-readable one
+# the crawler reads. Google will not take a date in the structured data on
+# trust if the page itself shows nothing.
+nice_date() { date -u -d "$1" '+%-d %B %Y' 2>/dev/null || printf '%s' "$1"; }
+
+dateline() {
+  local pub="$1" mod="$2" out
+  out='<p class="dateline tiny mono muted">'
+  out+='<span>'"$(te meta.written)"' <time datetime="'"$pub"'">'"$(nice_date "$pub")"'</time></span>'
+  if [[ "$mod" != "$pub" ]]; then
+    out+=' <span aria-hidden="true" style="opacity:.4">/</span> '
+    out+='<span>'"$(te meta.updated)"' <time datetime="'"$mod"'">'"$(nice_date "$mod")"'</time></span>'
+  fi
+  out+='</p>'
+  printf '%s' "$out"
+}
+
 # The segment after the dash: "ARIA — nonce-free AEAD | Imortek Research" -> "nonce-free AEAD".
 sub_name() {
   local t="${1%% | *}"
@@ -332,6 +349,13 @@ emit_head() {
     entity+=',"headline":"'"$jname"'","description":"'"$jd"'","url":"'"$canon"'"'
     entity+=',"mainEntityOfPage":{"@id":"'"$canon"'#webpage"}'
     entity+=',"image":"'"$og_img"'","inLanguage":"'"$LC_TAG"'","isAccessibleForFree":true'
+    # Google asks an article when it was written and when it last changed, and
+    # asks that the answer match a date the reader can see on the page. Both
+    # come from git; the visible line is written in below.
+    entity+=',"datePublished":"'"${PG_PUB:-${BUILT%%T*}}"'"'
+    entity+=',"dateModified":"'"${PG_MOD:-${BUILT%%T*}}"'"'
+    [[ -n "$keywords" ]] && entity+=',"keywords":"'"$(jesc "$keywords")"'"'
+    entity+=',"isPartOf":{"@id":"'"$SITE_URL"'/#website"}'
     entity+=',"license":"https://www.gnu.org/licenses/agpl-3.0.en.html"'
     entity+=',"author":{"@id":"'"$SITE_URL"'/#odin-loch"}'
     entity+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}}'
@@ -358,6 +382,7 @@ emit_head() {
   ld+=',"name":"'"$jt"'","description":"'"$jd"'","inLanguage":"'"$LC_TAG"'"'
   ld+=',"isPartOf":{"@id":"'"$SITE_URL"'/#website"}'
   ld+=',"primaryImageOfPage":{"@type":"ImageObject","url":"'"$og_img"'","width":1200,"height":630}'
+  ld+=',"datePublished":"'"${PG_PUB:-${BUILT%%T*}}"'","dateModified":"'"${PG_MOD:-${BUILT%%T*}}"'"'
   ld+=',"breadcrumb":{"@id":"'"$canon"'#breadcrumb"}'
   ld+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}},'
   ld+='{"@type":"BreadcrumbList","@id":"'"$canon"'#breadcrumb","itemListElement":['"$crumbs"']}'
@@ -669,6 +694,17 @@ declare -A KEYWORDS=(
 # block, which is what the second pass is for.
 [[ -f assets/data/voice-index.json ]] && python3 tools/related.py cache
 
+# When each page was written and when it last changed, from git. Keyed
+# slug/locale, because a translated page moves when its catalogue moves.
+python3 tools/pagedates.py
+declare -A PUB=() MOD=()
+if [[ -f .cache/pagedates.tsv ]]; then
+  while IFS=$'\t' read -r _s _c _p _m; do
+    [[ -z "$_s" ]] && continue
+    PUB["$_s/$_c"]="$_p"; MOD["$_s/$_c"]="$_m"
+  done < .cache/pagedates.tsv
+fi
+
 count=0
 for lrow in "${LOC_ROWS[@]}"; do
   IFS=$'\t' read -r LC_CODE LC_ENDONYM LC_DIR LC_SPEECH LC_HREF LC_NAME LC_TAG <<< "$lrow"
@@ -716,15 +752,19 @@ for lrow in "${LOC_ROWS[@]}"; do
       fi
     fi
 
+    PG_PUB="${PUB["$slug/$LC_CODE"]:-${BUILT%%T*}}"
+    PG_MOD="${MOD["$slug/$LC_CODE"]:-${BUILT%%T*}}"
+
     { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type" "$keywords"
       [[ -n "$notice" ]] && printf '%s\n' "$notice"
       # Every body goes through the protector: ten languages are written by
       # hand and the rest of the world arrives through a machine translator,
       # which is careless with exactly the figures this site is built on.
       if [[ -z "$LC_PREFIX" ]]; then
-        python3 tools/i18n_protect.py < "$body"
+        python3 tools/i18n_protect.py --dateline "$(dateline "$PG_PUB" "$PG_MOD")" < "$body"
       else
-        python3 tools/i18n_segments.py apply "$slug" "$LC_CODE" | python3 tools/i18n_protect.py
+        python3 tools/i18n_segments.py apply "$slug" "$LC_CODE" \
+          | python3 tools/i18n_protect.py --dateline "$(dateline "$PG_PUB" "$PG_MOD")"
       fi
       # The four nearest pages, written in rather than injected. See
       # tools/related.py — until now this was the best navigation on the site
@@ -743,8 +783,9 @@ LC_CODE=en LC_PREFIX="" LC_DIR=ltr LC_TAG=en-AU LC_SPEECH=en-AU LC_OG=en_AU
 load_locale en
 
 # Sitemap — generated from PAGES so it can never drift from what was built.
-# Priority is by role: home, the flagship and the campaign, then products and the
-# shelf index, then the standing pages, then individual research articles.
+# Priority is by role: home, then the flagship, the campaign and the shelf that
+# forty-six articles hang off, then products, then the articles themselves, then
+# the standing pages.
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
   printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
@@ -756,8 +797,8 @@ load_locale en
       404)                 continue ;;
       index)               loc=""            ; pri="1.0" ; freq="weekly"  ;;
       pbsd|kickstarter|beta) loc="$slug.html" ; pri="0.9" ; freq="weekly"  ;;
-      research)            loc="$slug.html"  ; pri="0.8" ; freq="weekly"  ;;
-      research/*)          loc="$slug.html"  ; pri="0.6" ; freq="monthly" ;;
+      research)            loc="$slug.html"  ; pri="0.9" ; freq="weekly"  ;;
+      research/*)          loc="$slug.html"  ; pri="0.7" ; freq="monthly" ;;
       *)
         if [[ "$og_type" == "product" ]]; then
           loc="$slug.html" ; pri="0.8" ; freq="weekly"
@@ -790,7 +831,10 @@ load_locale en
       [[ -f "${lpre}${loc:-index.html}" ]] || continue
       printf '  <url>\n'
       printf '    <loc>https://imortek.com.au/%s%s</loc>\n' "$lpre" "$loc"
-      printf '    <lastmod>%s</lastmod>\n' "${BUILT%%T*}"
+      # The date this page actually changed, not the date the build ran. A
+      # sitemap where every URL moves every build teaches a crawler to stop
+      # believing the field.
+      printf '    <lastmod>%s</lastmod>\n' "${MOD["$slug/$lcode"]:-${BUILT%%T*}}"
       printf '    <changefreq>%s</changefreq>\n' "$freq"
       printf '    <priority>%s</priority>\n' "$pri"
       [[ -n "$alt" ]] && printf '%s' "$alt"

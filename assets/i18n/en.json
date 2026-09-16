@@ -80,6 +80,8 @@
   "related.eyebrow": "Closest on this site",
   "related.title": "Related reading",
   "related.note": "Chosen by term overlap with this page, not by hand — so it is honest about what is actually close, including when that is nothing obvious.",
+  "meta.written": "Written",
+  "meta.updated": "Updated",
   "notice.englishOnly": "This research page is published in English only. The technical pages are translated; the claim ledgers are not, because a mistranslated claim is a false claim.",
   "notice.partial": "Parts of this page are still in English. The translation is being written; nothing is machine-translated.",
   "notice.readEnglish": "Read it in English",
