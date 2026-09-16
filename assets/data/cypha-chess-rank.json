@@ -1,0 +1,56 @@
+{
+ "scale": "Imortek internal — reference engine at depth 1 anchored to 1000. Not FIDE.",
+ "gamesPerPairing": 14,
+ "totalGames": 210,
+ "method": "Bradley-Terry maximum likelihood over all pairings",
+ "players": {
+  "reference d1": {
+   "rating": 1000,
+   "se": 47,
+   "score": 28,
+   "games": 70,
+   "kind": "ref",
+   "depth": 1
+  },
+  "reference d2": {
+   "rating": 1171,
+   "se": 47,
+   "score": 45.5,
+   "games": 70,
+   "kind": "ref",
+   "depth": 2
+  },
+  "reference d3": {
+   "rating": 1245,
+   "se": 50,
+   "score": 52.5,
+   "games": 70,
+   "kind": "ref",
+   "depth": 3
+  },
+  "cypha d1": {
+   "rating": 798,
+   "se": 59,
+   "score": 10.5,
+   "games": 70,
+   "kind": "cy",
+   "depth": 1
+  },
+  "cypha d2": {
+   "rating": 1010,
+   "se": 46,
+   "score": 29,
+   "games": 70,
+   "kind": "cy",
+   "depth": 2
+  },
+  "cypha d3": {
+   "rating": 1161,
+   "se": 47,
+   "score": 44.5,
+   "games": 70,
+   "kind": "cy",
+   "depth": 3
+  }
+ }
+}

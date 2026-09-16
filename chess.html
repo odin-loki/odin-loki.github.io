@@ -283,6 +283,15 @@
               the position it just moved from, in pawns, measured against its own deeper search.
             </p>
             <p class="tiny muted" style="margin-top:8px">
+              <strong>Rating</strong> is on an internal ladder, not FIDE &mdash; there is no honest way
+              to put a FIDE number on something that has never played a rated human. The reference
+              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
+              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
+              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
+              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
+              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+            </p>
+            <p class="tiny muted" style="margin-top:8px">
               Each strength setting keeps <strong>its own model</strong>. A head playing at depth 1
               is corrected toward a depth-1 search; at depth 3 the target is a different, better
               one. Training both into one weight vector would just have them argue. Switch
@@ -465,13 +474,14 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T07:49:04Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T08:01:33Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
 <script src="/assets/js/chess/engine.js" defer></script><script src="/assets/js/chess/features.js" defer></script><script src="/assets/js/chess/cypha.js" defer></script><script src="/assets/js/demos/chess.js" defer></script>
 </body>

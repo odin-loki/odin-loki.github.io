@@ -346,6 +346,7 @@ emit_foot() {
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
 $extra_js
 </body>

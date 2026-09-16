@@ -1195,3 +1195,42 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
   display: block; margin-top: 6px; font-family: var(--mono);
   font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
 }
+
+/* ============================================================
+   Voice — read aloud, and speak to navigate.
+   ============================================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.voice-ctl {
+  position: fixed; left: 16px; bottom: 16px; z-index: 60;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  max-width: calc(100vw - 32px);
+  padding: 8px; background: rgba(15, 21, 28, .92); backdrop-filter: blur(8px);
+  border: 1px solid var(--line-2); border-radius: 999px; box-shadow: var(--shadow-2);
+}
+.voice-ctl__btn, .voice-ctl__icon {
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--panel-3); color: var(--ink-dim);
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.voice-ctl__btn { padding: 6px 12px; }
+.voice-ctl__icon { padding: 6px 9px; font-size: .62rem; }
+.voice-ctl.is-reading [data-act="read"] { background: var(--teal-deep); color: #06080b; }
+.voice-ctl.is-listening [data-act="listen"] { background: var(--violet-2); color: #06080b; }
+.voice-ctl__stat { font-size: .66rem; color: var(--ink-mute); }
+.voice-ctl__btn:focus-visible, .voice-ctl__icon:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* The block currently being read. */
+.voice-at {
+  background: rgba(94, 234, 212, .07);
+  box-shadow: -3px 0 0 var(--teal);
+  border-radius: 3px;
+}
+
+@media (max-width: 560px) {
+  .voice-ctl { left: 16px; right: 16px; bottom: 74px; justify-content: center; border-radius: 12px; }
+}
+@media (max-height: 560px) { .voice-ctl { display: none; } }
+@media print { .voice-ctl { display: none; } .voice-at { background: none; box-shadow: none; } }
