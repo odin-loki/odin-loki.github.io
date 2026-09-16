@@ -77,10 +77,23 @@
   }
 
   /* ---------- the spoken phrase as a sparse TF-IDF vector ---------- */
+  /* Mirrors stem() in tools/gen_voice_index.py exactly. If these drift, the
+     query and the index stop speaking the same language. */
+  function stem(w) {
+    if (w.length > 4 && /ies$/.test(w))  return w.slice(0, -3) + "y";
+    if (w.length > 4 && /sses$/.test(w)) return w.slice(0, -2);
+    if (w.length > 4 && /ally$/.test(w)) return w.slice(0, -4) + "al";
+    if (w.length > 4 && /ly$/.test(w))   return w.slice(0, -2);
+    if (w.length > 5 && /ing$/.test(w)) { var b = w.slice(0, -3); return (b.length > 3 && b.slice(-1) === b.slice(-2, -1)) ? b.slice(0, -1) : b; }
+    if (w.length > 4 && /ed$/.test(w))  { var c = w.slice(0, -2); return (c.length > 3 && c.slice(-1) === c.slice(-2, -1)) ? c.slice(0, -1) : c; }
+    if (w.length > 3 && /s$/.test(w) && !/ss$/.test(w)) return w.slice(0, -1);
+    return w;
+  }
+
   function embed(text) {
     if (!index) return null;
     var counts = {}, toks = String(text).toLowerCase().match(/[a-z][a-z'+-]{1,}/g) || [];
-    toks.forEach(function (t) { counts[t] = (counts[t] || 0) + 1; });
+    toks.forEach(function (t) { t = stem(t); counts[t] = (counts[t] || 0) + 1; });
     var v = {}, any = false, w, idf, n = 0;
     for (w in counts) {
       idf = index.idf[w];
@@ -108,7 +121,10 @@
      one from what the listener does not correct. */
   var FD = 5;                       // [cosine, phonetic, word overlap, is-command, length]
   var model = { prior: { n: 0, mean: z(FD), m2: z(FD) },
-                ok: { n: 0, mean: z(FD), m2: z(FD) }, heard: 0, used: 0 };
+                ok: { n: 0, mean: z(FD), m2: z(FD) },
+                no: { n: 0, mean: z(FD), m2: z(FD) },
+                heard: 0, used: 0, fixed: 0 };
+  var offered = null;   // the shortlist last read out, awaiting a yes or a no
   function z(n) { var a = [], i; for (i = 0; i < n; i++) a[i] = 0; return a; }
 
   function updatePrior(f) {
@@ -117,8 +133,10 @@
     for (i = 0; i < FD; i++) { d = f[i] - p.mean[i]; p.mean[i] += d / p.n; p.m2[i] += d * (f[i] - p.mean[i]); }
   }
   function pv(i) { return model.prior.n > 1 ? Math.max(0.004, model.prior.m2[i] / (model.prior.n - 1)) : 0.08; }
-  function updateOk(f) {
-    var d = model.ok, lr, i, prev;
+  function updateOk(f) { updateDiff(model.ok, f); }
+  function updateNo(f) { updateDiff(model.no, f); }
+  function updateDiff(d, f) {
+    var lr, i, prev;
     d.n++;
     lr = Math.max(0.15, 1 / (d.n + 1));
     for (i = 0; i < FD; i++) {
@@ -128,21 +146,25 @@
       d.mean[i] = model.prior.mean[i] + (d.mean[i] - model.prior.mean[i]) * 0.94;   // MDL decay
     }
   }
-  function okVar(i) {
-    var n = Math.max(0, model.ok.n - 1);
-    return Math.max(0.003, (model.ok.m2[i] + 4 * pv(i)) / (n + 4));
+  function dVar(d, i) {
+    var n = Math.max(0, d.n - 1);
+    return Math.max(0.003, (d.m2[i] + 4 * pv(i)) / (n + 4));
   }
-  function llr(f) {
-    if (model.ok.n < 2) return 0;
+  function ratio(d, f) {
+    if (d.n < 2) return 0;
     var s = 0, i, v0, vk, r0, rk;
     for (i = 0; i < FD; i++) {
-      v0 = pv(i); vk = okVar(i);
+      v0 = pv(i); vk = dVar(d, i);
       r0 = f[i] - model.prior.mean[i];
-      rk = f[i] - model.ok.mean[i];
+      rk = f[i] - d.mean[i];
       s += 0.5 * Math.log(v0 / vk) + (r0 * r0) / (2 * v0) - (rk * rk) / (2 * vk);
     }
     return s;
   }
+  /* Accepted shapes pull up, corrected ones pull down. A correction is the
+     most informative thing a listener can give you, so it is worth as much
+     here as an acceptance. */
+  function llr(f) { return ratio(model.ok, f) - ratio(model.no, f); }
   function saveModel() { try { localStorage.setItem(KEY, JSON.stringify(model)); } catch (e) {} }
   function loadModel() {
     try {
@@ -162,6 +184,17 @@
     { id: 'top',    say: ['top', 'start', 'beginning', 'go to the top'],                       run: function () { at = -1; startReading(); } },
     { id: 'home',   say: ['home', 'home page', 'go home'],                                     run: function () { go('/'); } },
     { id: 'help',   say: ['help', 'what can i say', 'commands', 'options'],                    run: sayHelp },
+    { id: 'search', say: ['search', 'find', 'search the site', 'look for something'],
+      run: function () { if (root.ImortekSimilar) root.ImortekSimilar.open(); announce('Search open.'); } },
+    { id: 'related', say: ['related', 'what is related', 'similar pages', 'see also'],
+      run: function () {
+        var r = document.querySelector('.related');
+        if (!r) { speak('Nothing related on this page.'); return; }
+        r.scrollIntoView({ block: 'start' });
+        var names = [].map.call(r.querySelectorAll('h3'), function (h) { return h.textContent; });
+        speak('Related: ' + names.join('. '));
+        announce('Related: ' + names.join(', '));
+      } },
     { id: 'listen-off', say: ['stop listening', 'turn off the microphone', 'stop the mic'],    run: function () { setListening(false); } }
   ];
 
@@ -297,8 +330,9 @@
     if (index) {
       var v = embed(said);
       if (v) {
+        var boost = index.boost || 1;
         index.pages.forEach(function (pg) {
-          var cs = cosine(v, pg.v);
+          var cs = cosine(v, pg.v) * (pg.m ? boost : 1);
           var titlePhone = overlap(saidPhone, phone(pg.t.replace(/[^a-z ]/gi, '')));
           out.push({ kind: 'page', url: pg.u, label: pg.t,
                      f: [Math.max(0, cs), titlePhone, overlap(said, pg.t.toLowerCase()), 0,
@@ -320,15 +354,17 @@
                  es: 's', ess: 's', tee: 't', tea: 't', you: 'u', yoo: 'u', vee: 'v',
                  doubleyou: 'w', ex: 'x', why: 'y', wye: 'y', zed: 'z', zee: 'z' };
   function despell(text) {
-    var words = text.split(/\s+/), out = [], run = [];
+    var words = text.split(/\s+/), out = [], run = [], raw = [];
     function flush() {
+      // Only a run of two or more collapses. "are" and "you" are letter names
+      // and also ordinary words, so a lone one keeps the word it was.
       if (run.length >= 2) out.push(run.join(''));
-      else if (run.length) out.push(run[0] === 'a' || run[0] === 'i' ? run[0] : run[0]);
-      run = [];
+      else if (run.length) out.push(raw[0]);
+      run = []; raw = [];
     }
     words.forEach(function (w) {
       var L = LETTER[w];
-      if (L) run.push(L);
+      if (L) { run.push(L); raw.push(w); }
       else { flush(); out.push(w); }
     });
     flush();
@@ -339,9 +375,43 @@
     return loadIndex().then(function () { decide(despell(String(said).toLowerCase())); });
   }
 
+  var ORDINAL = { one: 0, first: 0, 'number one': 0, two: 1, second: 1, 'number two': 1,
+                  three: 2, third: 2, 'number three': 2, yes: 0, yeah: 0, 'that one': 0 };
+
   function decide(said) {
     said = said.toLowerCase().trim();
     if (!said) return;
+
+    // Answering a shortlist. Picking one teaches the accepted shape; refusing
+    // teaches the rejected shape, which is the half most systems throw away.
+    if (offered) {
+      var pick = ORDINAL[said];
+      if (pick === undefined) {
+        for (var key in ORDINAL) if (said.indexOf(key) >= 0) { pick = ORDINAL[key]; break; }
+      }
+      if (pick !== undefined && offered.list[pick]) {
+        var chosen = offered.list[pick];
+        offered.list.forEach(function (c, i) { if (i !== pick) updateNo(c.f); });
+        updateOk(chosen.f);
+        model.fixed++;
+        offered = null;
+        saveModel(); setState();
+        announce('Opening ' + chosen.label);
+        speak('Opening ' + chosen.label.split(' — ')[0]);
+        setTimeout(function () { go(chosen.url); }, 800);
+        return;
+      }
+      if (/^(no|nope|none|wrong|not that|neither)\b/.test(said)) {
+        offered.list.forEach(function (c) { updateNo(c.f); });
+        model.fixed++;
+        offered = null;
+        saveModel(); setState();
+        announce('Understood. Say it another way, or say help.');
+        speak('Understood. Try saying it another way.');
+        return;
+      }
+      offered = null;   // anything else: treat as a fresh request
+    }
     model.heard++;
     var cands = candidates(said);
     cands.forEach(function (c) { updatePrior(c.f); });
@@ -367,8 +437,22 @@
       ok = top.f[0] >= 0.16 && (top.f[0] - runnerUp) >= 0.025;
     }
     if (!ok) {
-      announce('I did not catch that. Say "help" for what you can say.');
-      speak('Sorry, I did not catch that.');
+      // Rather than give up, read back the best few and let the listener pick.
+      // Rank the offer by similarity, not by the combined score. A page can
+      // top the combined score on title-word overlap alone, which is fine for
+      // acting on a confident match and useless as a suggestion.
+      var shortlist = cands.filter(function (c) { return c.kind === 'page'; })
+                           .sort(function (a, b) { return b.f[0] - a.f[0]; })
+                           .slice(0, 3);
+      if (shortlist.length && shortlist[0].f[0] > 0.015) {
+        offered = { list: shortlist, said: said };
+        var names = shortlist.map(function (c, i) { return (i + 1) + ', ' + c.label.split(' — ')[0]; });
+        var msg = 'Did you mean: ' + names.join('. Or ') + '. Say a number, or say no.';
+        announce(msg); speak(msg);
+      } else {
+        announce('I did not catch that. Say "help" for what you can say.');
+        speak('Sorry, I did not catch that. Say help for what you can say.');
+      }
       saveModel();
       return;
     }
@@ -419,7 +503,7 @@
     if (lb) { lb.setAttribute('aria-pressed', String(listening)); }
     if (statusEl) {
       statusEl.textContent = listening
-        ? (model.used + '/' + model.heard + ' understood')
+        ? (model.used + '/' + model.heard + ' understood' + (model.fixed ? ' \u00b7 ' + model.fixed + ' corrected' : ''))
         : (reading ? 'reading' : 'off');
     }
   }

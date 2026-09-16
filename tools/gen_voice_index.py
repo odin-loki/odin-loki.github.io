@@ -19,7 +19,7 @@ No language model is involved and none is downloaded. The vectors come from the
 site's own words and the dictionary's glosses, so the whole thing is
 reproducible from this repository.
 """
-import json, math, os, re, collections, random
+import json, math, os, re, collections, random, html as _html
 
 OUT   = 'assets/data/voice-index.json'
 DIM   = 64
@@ -38,10 +38,27 @@ def text_of(path):
     html = re.sub(r'&[a-z]+;|&#\d+;', ' ', html)
     return html
 
+def stem(w):
+    """A deliberately small stemmer, mirrored exactly in assets/js/similar.js
+    and assets/js/voice.js. Without it "commercially" never reaches the page
+    that says "commercial", which is the whole question somebody is asking."""
+    if len(w) > 4 and w.endswith('ies'):  return w[:-3] + 'y'
+    if len(w) > 4 and w.endswith('sses'): return w[:-2]
+    if len(w) > 4 and w.endswith('ally'): return w[:-4] + 'al'
+    if len(w) > 4 and w.endswith('ly'):   return w[:-2]
+    if len(w) > 5 and w.endswith('ing'):
+        b = w[:-3]
+        return b[:-1] if len(b) > 3 and b[-1] == b[-2] else b
+    if len(w) > 4 and w.endswith('ed'):
+        b = w[:-2]
+        return b[:-1] if len(b) > 3 and b[-1] == b[-2] else b
+    if len(w) > 3 and w.endswith('s') and not w.endswith('ss'): return w[:-1]
+    return w
+
 def tokens(s):
     # Two-letter words are kept. "AI" is dropped by the usual len > 2 rule, and
     # on this site that is the single most likely thing somebody says out loud.
-    return [w for w in re.findall(r"[a-z][a-z'+-]+", s.lower()) if w not in STOP]
+    return [stem(w) for w in re.findall(r"[a-z][a-z'+-]+", s.lower()) if w not in STOP]
 
 def main():
     pages = []
@@ -56,7 +73,7 @@ def main():
     for p in pages:
         html = open(p, encoding='utf-8', errors='replace').read()
         m = re.search(r'(?is)<title>(.*?)</title>', html)
-        titles[p] = re.sub(r'\s*\|\s*Imortek.*$', '', m.group(1)).strip() if m else p
+        titles[p] = _html.unescape(re.sub(r'\s*\|\s*Imortek.*$', '', m.group(1))).strip() if m else p
 
         c = collections.Counter(tokens(text_of(p)))
         # Somebody asking out loud for "the kickstarter" means the page called
@@ -71,8 +88,13 @@ def main():
     df = collections.Counter()
     for p in docs:
         df.update(docs[p].keys())
-    # Drop the very rare and the near-universal: neither helps tell pages apart.
-    vocab = sorted(w for w, n in df.items() if 2 <= n <= len(docs) * 0.6)
+    # Drop only what appears once — a typo or a one-off is not a search term.
+    # The near-universal used to be cut here too, at 60% of pages, which threw
+    # away "commercial" on a site where every product page mentions it and left
+    # "what does it cost to use commercially" with nothing to match on. IDF
+    # already discounts common words; cutting them as well was doing it twice.
+    vocab = sorted(w for w, n in df.items()
+                   if n >= 2 and n <= len(docs) * float(os.environ.get('VI_DF', '0.99')))
     idf = {w: math.log(len(docs) / df[w]) for w in vocab}
     vi = {w: i for i, w in enumerate(vocab)}
 
@@ -84,7 +106,7 @@ def main():
     # Instead each page keeps its strongest TF-IDF terms and the cosine is
     # computed in term space, exactly. Sparse, small, and interpretable: you
     # can read why a page matched.
-    TOP = 90
+    TOP = int(os.environ.get('VI_TOP', '200'))
 
     def vector(counter):
         v = {}
@@ -95,11 +117,40 @@ def main():
         norm = math.sqrt(sum(x * x for _, x in top)) or 1.0
         return {w: round(x / norm, 4) for w, x in top}
 
+    # Nearest neighbours, so every page can point at what it is actually
+    # closest to rather than at a hand-maintained "see also" list that rots.
+    vecs = {pg: vector(docs[pg]) for pg in pages}
+    def cos(a, b):
+        return sum(v * b[w] for w, v in a.items() if w in b)
+    # Hubness correction. The homepage and the campaign page mention every
+    # product, so raw cosine makes them everyone's nearest neighbour, which is
+    # useless as a "see also". Subtracting each page's mean similarity to the
+    # whole corpus leaves what is distinctively close.
+    # Wayfinding pages are never a "see also". They exist to send you somewhere
+    # else, so they mention everything and would otherwise be everyone's
+    # nearest neighbour. They stay in the search index; they just stop being
+    # suggested as related reading.
+    HUBS = {'index.html', 'beta.html', 'kickstarter.html', 'licensing.html',
+            'about.html', 'research.html', '404.html'}
+    targets = [p for p in pages if p not in HUBS]
+
+    sim = {a: {b: cos(vecs[a], vecs[b]) for b in targets if b != a} for a in pages}
+    hub = {b: sum(sim[a][b] for a in pages if a != b) / max(1, len(pages) - 1) for b in targets}
+    near = {}
+    for a in pages:
+        scored = sorted(((sim[a][b] - hub[b], sim[a][b], b) for b in targets if b != a), reverse=True)
+        near[a] = [{'u': '/' + b if b != 'index.html' else '/',
+                    't': titles[b], 's': round(raw, 3)}
+                   for adj, raw, b in scored[:4] if adj > 0.01]
+
     out = {'top': TOP,
            'idf': {w: round(idf[w], 3) for w in vocab},
+           'boost': float(os.environ.get('VI_BOOST', '1.35')),
            'pages': [{'u': '/' + p if p != 'index.html' else '/',
                       't': titles[p],
-                      'v': vector(docs[p])} for p in pages]}
+                      'v': vecs[p],
+                      'm': 0 if p.startswith('research/') else 1,
+                      'n': near[p]} for p in pages]}
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as fh:

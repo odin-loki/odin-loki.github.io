@@ -257,6 +257,7 @@ $extra_css
         <a class="nav__link" href="/research.html">Research</a>
         <a class="nav__link" href="/licensing.html">Licensing</a>
         <a class="nav__link" href="/about.html">About</a>
+        <a class="nav__link" href="#" data-search aria-label="Search this site (press slash)">Search</a>
         <a class="nav__link" href="/beta.html">Beta</a>
         <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
         <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
@@ -346,6 +347,7 @@ emit_foot() {
 
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
 $extra_js

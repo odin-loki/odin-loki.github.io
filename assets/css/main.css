@@ -1234,3 +1234,39 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 }
 @media (max-height: 560px) { .voice-ctl { display: none; } }
 @media print { .voice-ctl { display: none; } .voice-at { background: none; box-shadow: none; } }
+
+/* ============================================================
+   Related pages and site search.
+   ============================================================ */
+.related__item { display: block; text-decoration: none; }
+.related__item:hover { text-decoration: none; }
+.related__item h3 { color: var(--ink); }
+.related__item:hover h3 { color: var(--teal); }
+
+.sitesearch {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(3, 5, 8, .72); backdrop-filter: blur(4px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: clamp(40px, 12vh, 140px) 16px 16px;
+}
+.sitesearch__panel {
+  width: min(100%, 640px);
+  background: var(--panel); border: 1px solid var(--line-2);
+  border-radius: 14px; padding: 14px; box-shadow: var(--shadow-3);
+}
+.sitesearch input {
+  width: 100%; padding: 12px 14px; font-size: 1rem;
+  background: var(--bg-elev); color: var(--ink);
+  border: 1px solid var(--line-2); border-radius: 9px;
+}
+.sitesearch input:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
+.sitesearch__out { margin-top: 10px; max-height: min(52vh, 420px); overflow: auto; }
+.sitesearch__out a {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 12px; border-radius: 8px; color: var(--ink-dim); text-decoration: none;
+}
+.sitesearch__out a:hover, .sitesearch__out a:focus-visible {
+  background: var(--panel-2); color: var(--ink); text-decoration: none;
+}
+.sitesearch__out b { color: var(--ink-mute); font-size: .72rem; font-weight: 500; }
+@media print { .sitesearch, .related { display: none; } }
