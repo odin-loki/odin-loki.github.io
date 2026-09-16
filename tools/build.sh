@@ -109,7 +109,9 @@ for k, v in en.items():
         print("%s\t%s" % (v.replace("\n", " "), tr[k].replace("\n", " ")))
 ' "$code")
 }
-seg() { printf '%s' "${SEG[$1]-$1}"; }
+# An empty subscript is an error in bash, not an empty lookup, and the pages
+# with no keyword list were producing one warning each.
+seg() { [[ -z "$1" ]] && return; printf '%s' "${SEG[$1]-$1}"; }
 
 LC_RUNTIME=""
 load_runtime() {
