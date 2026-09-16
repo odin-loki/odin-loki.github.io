@@ -22,6 +22,13 @@
       sent anywhere; what it learns lives in your browser only.
    ============================================================= */
 (function (root) {
+  var I18N = root.ImortekI18n;
+  var T = (I18N && I18N.t) || function (k) { return k; };
+  var LOC = (I18N && I18N.locale) || { code: 'en' };
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
   'use strict';
 
   var main = document.getElementById('main');
@@ -204,7 +211,7 @@
       pop.innerHTML = hit
         ? '<b>' + hit.word + (hit.pos ? ' <span class="gloss__pos">' + POS[hit.pos] + '</span>' : '') +
           '</b>' + hit.gloss + '<span class="gloss__src">WordNet</span>'
-        : '<b>' + word + '</b><span class="dim">Not in the dictionary.</span>';
+        : '<b>' + word + '</b><span class="dim">' + esc(T('gloss.notInDict')) + '</span>';
     });
   }
   var POS = { n: 'noun', v: 'verb', a: 'adjective', r: 'adverb' };
@@ -249,9 +256,9 @@
     var picked = on ? document.querySelectorAll('.gloss__auto').length : 0;
     stat.textContent = on
       ? (model.want.n < MIN_OPENS
-          ? 'Open ' + (MIN_OPENS - model.want.n) + ' more and Cypha starts predicting'
-          : model.want.n + ' learned · ' + picked + ' pre-expanded')
-      : String(nodes.length) + ' terms on this page';
+          ? T('tools.openMore', { n: MIN_OPENS - model.want.n })
+          : model.want.n + ' ' + T('tools.learned') + ' \u00b7 ' + picked + ' ' + T('tools.preExpanded'))
+      : String(nodes.length) + ' ' + T('tools.termsOnPage');
   }
 
   function build() {
@@ -260,10 +267,11 @@
     panel.innerHTML =
       '<button type="button" class="gloss-ctl__btn" aria-pressed="false">' +
         '<span class="gloss-ctl__dot" aria-hidden="true"></span>' +
-        '<span class="gloss-ctl__label">Explain the jargon</span>' +
+        '<span class="gloss-ctl__label">' + esc(T('tools.explain')) + '</span>' +
       '</button>' +
       '<span class="gloss-ctl__stat mono"></span>' +
-      '<button type="button" class="gloss-ctl__reset" title="Forget what Cypha learned">reset</button>';
+      '<button type="button" class="gloss-ctl__reset" title="' + esc(T('gloss.forget')) + '">' +
+        esc(T('tools.reset')) + '</button>';
     (root.ImortekToolbar ? root.ImortekToolbar() : document.body).appendChild(panel);
     stat = panel.querySelector('.gloss-ctl__stat');
 
@@ -283,7 +291,15 @@
   }
 
   /* ---------- go ---------- */
-  fetch('/assets/data/glossary.json').then(function (r) { return r.json(); }).then(function (data) {
+  var glossUrl = LOC.code === 'en'
+    ? '/assets/data/glossary.json'
+    : '/assets/data/glossary.' + LOC.code + '.json';
+  fetch(glossUrl)
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .catch(function () {
+      return fetch('/assets/data/glossary.json').then(function (r) { return r.json(); });
+    })
+    .then(function (data) {
     terms = data.terms || [];
     terms.forEach(function (t) { byKey[t.t] = t; });
     markUp();

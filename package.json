@@ -1,0 +1,13 @@
+{
+  "name": "imortek-site",
+  "private": true,
+  "description": "Tooling for imortek.com.au. The site itself is static; this exists only so the responsive audit can install a browser driver.",
+  "scripts": {
+    "build": "bash tools/build.sh",
+    "index": "python3 tools/gen_voice_index.py",
+    "audit": "node tools/qa/responsive-audit.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

@@ -42,6 +42,21 @@ const PAGES = [
   'research/un-reform', 'research/hemp-harmony', 'research/cocktails',
 ];
 
+// The same core pages again in every other language, read out of
+// tools/locales.json so the audit cannot fall behind the builder. Arabic and
+// Urdu are the ones worth the extra minutes: a mirrored layout has its own
+// ways of overflowing, and nothing else in this repository would catch them.
+const CORE = [
+  'index', 'pbsd', 'cypha', 'chess', 'retdec', 'mathscript', 'aegis',
+  'sentinel', 'cellai', 'kickstarter', 'beta', 'research', 'licensing',
+  'about', '404',
+];
+const LOCALES = require('fs').existsSync('tools/locales.json')
+  ? JSON.parse(require('fs').readFileSync('tools/locales.json', 'utf8')).locales
+      .filter(l => !l.root).map(l => l.code)
+  : [];
+for (const code of LOCALES) for (const slug of CORE) PAGES.push(`${code}/${slug}`);
+
 const SIZES = [
   ['iPhone SE',        320,  568],
   ['Android',          360,  800],

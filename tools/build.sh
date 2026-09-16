@@ -49,6 +49,96 @@ sub_name() {
 # An article headline wants the whole descriptive title, not just its first word.
 page_name() { printf '%s' "${1%% | *}"; }
 
+# ---------------------------------------------------------------
+# Locales.
+#
+# English is the source and stays at the root, so every URL that has ever been
+# published or linked to keeps working. Each other locale is a parallel tree at
+# /<code>/, carrying the fifteen pages a visitor actually navigates. The
+# forty-six research ledgers are not translated: every figure in them is a
+# claim somebody can check, and a claim that survives translation intact is
+# not something this site can promise, so they stay in English and say so.
+# ---------------------------------------------------------------
+CORE_PAGES=" index pbsd cypha retdec mathscript aegis sentinel cellai chess kickstarter beta research licensing about 404 "
+
+mapfile -t LOC_ROWS < <(python3 -c '
+import json
+for l in json.load(open("tools/locales.json", encoding="utf-8"))["locales"]:
+    print("\t".join([l["code"], l["endonym"], l["dir"], l["speech"],
+                     l["hreflang"], l["name"], l["tag"]]))
+')
+
+# The catalogue for the locale currently being built. Keys are flat dotted
+# strings; a missing key falls through to the key itself, which is loud enough
+# to notice in a page and harmless enough not to break one.
+declare -A T=()
+load_locale() {
+  local code="$1" k v
+  T=()
+  while IFS=$'\t' read -r k v; do T["$k"]="$v"; done < <(
+    python3 -c '
+import json, sys
+d = json.load(open("assets/i18n/%s.json" % sys.argv[1], encoding="utf-8"))
+for k, v in d.items():
+    print("%s\t%s" % (k, v.replace("\n", " ")))
+' "$code")
+}
+t()  { printf '%s' "${T[$1]-$1}"; }
+
+# The subset of the catalogue that only the browser can use: text that comes
+# into being when something is clicked, spoken or found. Inlined into the head
+# of a localised page so it is set before any deferred script runs and no page
+# ever flashes English. English pages get nothing — the defaults in
+# assets/js/i18n.js already are English.
+# English text -> its translation, for the strings that live in this file
+# rather than in a page body: titles and meta descriptions.
+declare -A SEG=()
+load_segments() {
+  local code="$1" k v
+  SEG=()
+  [[ "$code" == "en" ]] && return
+  while IFS=$'\t' read -r k v; do SEG["$k"]="$v"; done < <(
+    python3 -c '
+import json, os, sys
+code = sys.argv[1]
+en = json.load(open("src/i18n/segments.en.json", encoding="utf-8"))
+p  = "src/i18n/segments.%s.json" % code
+tr = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+for k, v in en.items():
+    if k in tr and tr[k]:
+        print("%s\t%s" % (v.replace("\n", " "), tr[k].replace("\n", " ")))
+' "$code")
+}
+seg() { printf '%s' "${SEG[$1]-$1}"; }
+
+LC_RUNTIME=""
+load_runtime() {
+  local code="$1"
+  if [[ "$code" == "en" ]]; then LC_RUNTIME=""; return; fi
+  LC_RUNTIME="<script>window.__IMORTEK_I18N=$(python3 -c '
+import json, sys
+d = json.load(open("assets/i18n/%s.json" % sys.argv[1], encoding="utf-8"))
+keep = ("lang.", "tools.", "search.", "related.", "voice.", "gloss.")
+out = {k: v for k, v in d.items() if k.startswith(keep)}
+print(json.dumps(out, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003C"))
+' "$code");</script>"
+}
+te() { esc "${T[$1]-$1}"; }
+
+# A site path in the locale being built. Only the core pages exist per locale;
+# research articles and assets stay at the root and are linked there.
+u() {
+  local path="$1"
+  [[ -z "$LC_PREFIX" ]] && { printf '%s' "$path"; return; }
+  local slug="${path#/}"; slug="${slug%.html}"
+  [[ "$path" == "/" ]] && slug="index"
+  if [[ "$CORE_PAGES" == *" $slug "* ]]; then
+    printf '%s%s' "$LC_PREFIX" "$path"
+  else
+    printf '%s' "$path"
+  fi
+}
+
 # Repository behind each product page — emitted as schema.org codeRepository so
 # the page and its source are understood as the same thing.
 declare -A REPOS=(
@@ -57,13 +147,81 @@ declare -A REPOS=(
   [sentinel]=SENTINEL     [cellai]=CellAI
 )
 
+# The language selector. Rendered server-side as a plain list of links, so it
+# works with JavaScript off, a crawler can follow it to every translation, and
+# a screen reader meets a normal menu rather than a widget. Each row is labelled
+# in its own language and carries its own lang/dir, which is what makes a
+# browser pick the right font for 中文 next to اردو in the same list.
+emit_langsel() {
+  local slug="$1" row lcode lendo ldir lspeech lhref lname lpre lurl cur
+  printf '<div class="langsel">\n'
+  printf '  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="%s: %s">\n' \
+    "$(te lang.label)" "$(esc "$LC_ENDONYM")"
+  printf '    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>\n'
+  printf '    <span class="langsel__cur">%s</span>\n' "$(esc "$LC_ENDONYM")"
+  printf '    <span class="langsel__caret" aria-hidden="true"></span>\n'
+  printf '  </button>\n'
+  printf '  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="%s">\n' "$(te lang.choose)"
+  for row in "${LOC_ROWS[@]}"; do
+    IFS=$'\t' read -r lcode lendo ldir lspeech lhref lname _ltag <<< "$row"
+    lpre=""; [[ "$lcode" != "en" ]] && lpre="/$lcode"
+    # A page that exists in that locale, or that locale's homepage if it does
+    # not. Sending somebody to a translated homepage is honest; sending them to
+    # a URL that 404s is not.
+    if [[ "$CORE_PAGES" == *" $slug "* && "$slug" != "404" && "$slug" != "index" ]]; then
+      lurl="$lpre/$slug.html"
+    else
+      lurl="$lpre/"
+    fi
+    cur=""
+    [[ "$lcode" == "$LC_CODE" ]] && cur=' class="is-current" aria-current="true"'
+    printf '    <a role="menuitem" href="%s" data-lang="%s" data-endonym="%s" hreflang="%s" lang="%s" dir="%s"%s><span class="langsel__endo">%s</span><span class="langsel__name">%s</span></a>\n' \
+      "$lurl" "$lcode" "$(esc "$lendo")" "$lhref" "$lhref" "$ldir" "$cur" "$(esc "$lendo")" "$(esc "$lname")"
+  done
+  printf '  </div>\n'
+  printf '</div>\n'
+}
+
 emit_head() {
   local title="$1" desc="$2" slug="$3" extra_css="$4" og_type="$5" keywords="$6"
   local raw_title="$title" raw_desc="$desc"
+  local runtime_i18n="$LC_RUNTIME"
+
+  # og:locale:alternate tells a share card which other languages exist. Only
+  # for pages that really are translated.
+  local og_alt="" arow acode aog
+  if [[ "$CORE_PAGES" == *" $slug "* && "$slug" != "404" ]]; then
+    for arow in "${LOC_ROWS[@]}"; do
+      IFS=$'\t' read -r acode _ae _ad aog _ah _an _at <<< "$arow"
+      [[ "$acode" == "$LC_CODE" ]] && continue
+      og_alt+="
+<meta property=\"og:locale:alternate\" content=\"${aog//-/_}\">"
+    done
+  fi
   title="$(esc "$title")"
   desc="$(esc "$desc")"
-  local canon="$SITE_URL/"
-  [[ "$slug" != "index" ]] && canon="$SITE_URL/$slug.html"
+  local canon="$SITE_URL$LC_PREFIX/"
+  [[ "$slug" != "index" ]] && canon="$SITE_URL$LC_PREFIX/$slug.html"
+
+  # hreflang. Only the pages that genuinely exist in more than one language get
+  # alternates — pointing hreflang at a page that is not actually translated is
+  # worse than saying nothing, because it promises a reader a language the page
+  # does not speak. x-default is English, which is where an unmatched reader
+  # should land.
+  local alts="" row lcode lhref
+  if [[ "$CORE_PAGES" == *" $slug "* && "$slug" != "404" ]]; then
+    for row in "${LOC_ROWS[@]}"; do
+      IFS=$'\t' read -r lcode _lendo _ldir _lspeech lhref _lname _ltag <<< "$row"
+      local lpre=""; [[ "$lcode" != "en" ]] && lpre="/$lcode"
+      local lurl="$SITE_URL$lpre/"
+      [[ "$slug" != "index" ]] && lurl="$SITE_URL$lpre/$slug.html"
+      alts+="<link rel=\"alternate\" hreflang=\"$lhref\" href=\"$lurl\">
+"
+    done
+    local durl="$SITE_URL/"
+    [[ "$slug" != "index" ]] && durl="$SITE_URL/$slug.html"
+    alts+="<link rel=\"alternate\" hreflang=\"x-default\" href=\"$durl\">"
+  fi
 
   # Per-page social card by convention: assets/img/og-<slug>.jpg overrides the
   # site-wide card if it exists.
@@ -105,13 +263,13 @@ emit_head() {
   # Research articles are navigated through the shelf, so their trail says so.
   local crumbs
   if [[ "$slug" == "index" ]]; then
-    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"}'
+    crumbs='{"@type":"ListItem","position":1,"name":"'"$(jesc "$(t nav.home)")"'","item":"'"$SITE_URL$LC_PREFIX"'/"}'
   elif [[ "$slug" == research/* ]]; then
-    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"},'
-    crumbs+='{"@type":"ListItem","position":2,"name":"Research","item":"'"$SITE_URL"'/research.html"},'
+    crumbs='{"@type":"ListItem","position":1,"name":"'"$(jesc "$(t nav.home)")"'","item":"'"$SITE_URL$LC_PREFIX"'/"},'
+    crumbs+='{"@type":"ListItem","position":2,"name":"'"$(jesc "$(t nav.research)")"'","item":"'"$SITE_URL$LC_PREFIX"'/research.html"},'
     crumbs+='{"@type":"ListItem","position":3,"name":"'"$jshort"'","item":"'"$canon"'"}'
   else
-    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"},'
+    crumbs='{"@type":"ListItem","position":1,"name":"'"$(jesc "$(t nav.home)")"'","item":"'"$SITE_URL$LC_PREFIX"'/"},'
     crumbs+='{"@type":"ListItem","position":2,"name":"'"$jshort"'","item":"'"$canon"'"}'
   fi
 
@@ -137,7 +295,7 @@ emit_head() {
     entity=',{"@type":"TechArticle","@id":"'"$canon"'#article"'
     entity+=',"headline":"'"$jname"'","description":"'"$jd"'","url":"'"$canon"'"'
     entity+=',"mainEntityOfPage":{"@id":"'"$canon"'#webpage"}'
-    entity+=',"image":"'"$og_img"'","inLanguage":"en-AU","isAccessibleForFree":true'
+    entity+=',"image":"'"$og_img"'","inLanguage":"'"$LC_TAG"'","isAccessibleForFree":true'
     entity+=',"license":"https://www.gnu.org/licenses/agpl-3.0.en.html"'
     entity+=',"author":{"@id":"'"$SITE_URL"'/#odin-loch"}'
     entity+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}}'
@@ -158,10 +316,10 @@ emit_head() {
   ld+=',"worksFor":{"@id":"'"$SITE_URL"'/#organization"}'
   ld+=',"sameAs":["https://github.com/odin-loki"]},'
   ld+='{"@type":"WebSite","@id":"'"$SITE_URL"'/#website","url":"'"$SITE_URL"'/"'
-  ld+=',"name":"Imortek","inLanguage":"en-AU"'
+  ld+=',"name":"Imortek","inLanguage":"'"$LC_TAG"'"'
   ld+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}},'
   ld+='{"@type":"'"$page_type"'","@id":"'"$canon"'#webpage","url":"'"$canon"'"'
-  ld+=',"name":"'"$jt"'","description":"'"$jd"'","inLanguage":"en-AU"'
+  ld+=',"name":"'"$jt"'","description":"'"$jd"'","inLanguage":"'"$LC_TAG"'"'
   ld+=',"isPartOf":{"@id":"'"$SITE_URL"'/#website"}'
   ld+=',"primaryImageOfPage":{"@type":"ImageObject","url":"'"$og_img"'","width":1200,"height":630}'
   ld+=',"breadcrumb":{"@id":"'"$canon"'#breadcrumb"}'
@@ -172,7 +330,7 @@ emit_head() {
 
   cat <<HEAD
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="$LC_TAG" dir="$LC_DIR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -184,10 +342,16 @@ $kw_tag
 <meta name="theme-color" content="#06080b">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="$canon">
+$alts
+
+<meta name="imortek:locale" content="$LC_CODE">
+<meta name="imortek:speech" content="$LC_SPEECH">
+<meta name="imortek:prefix" content="$LC_PREFIX">
+$runtime_i18n
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="$og_type">
-<meta property="og:locale" content="en_AU">
+<meta property="og:locale" content="$LC_OG">$og_alt
 <meta property="og:title" content="$title">
 <meta property="og:description" content="$desc">
 <meta property="og:url" content="$canon">
@@ -214,13 +378,13 @@ $article_meta
 $extra_css
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">$(te site.skip)</a>
 <div class="progress-bar" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap">
     <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/">
+      <a class="brand" href="$(u /)">
         <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
@@ -232,36 +396,38 @@ $extra_css
           <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
         </svg>
         <span>Imortek</span>
-        <span class="brand__sub">Research &amp; Systems</span>
+        <span class="brand__sub">$(te site.tagline)</span>
       </a>
 
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="$(te nav.toggle)">
         <span></span>
       </button>
 
       <div class="nav__links" id="nav-links">
         <div class="nav__group">
-          <a class="nav__link" href="/#products" aria-haspopup="true">Products</a>
+          <a class="nav__link" href="$(u /)#products" aria-haspopup="true">$(te nav.products)</a>
           <div class="nav__menu">
-            <a href="/pbsd.html"><strong>ParanoidBSD</strong><span>Capability-secured C++23 operating system</span></a>
-            <a href="/cypha.html"><strong>Cypha</strong><span>First-principles AI — classify, sample, generate</span></a>
-            <a href="/chess.html"><strong>Cypha Chess</strong><span>Play the model, distilled from a real engine</span></a>
-            <a href="/retdec.html"><strong>RetDec Imortek</strong><span>Specification-extraction decompiler</span></a>
-            <a href="/mathscript.html"><strong>MathScript</strong><span>C++23 computer algebra &amp; numerics</span></a>
-            <a href="/aegis.html"><strong>AEGIS</strong><span>Metadata-hiding transport</span></a>
-            <a href="/sentinel.html"><strong>SENTINEL</strong><span>Crime analytics &amp; investigative leads</span></a>
-            <a href="/cellai.html"><strong>Cell AI</strong><span>Reaction-diffusion sequence model</span></a>
-            <a href="/beta.html"><strong>Become a beta tester</strong><span>Try any of them early, free, and tell us what broke</span></a>
+            <a href="$(u /pbsd.html)"><strong>$(te menu.pbsd.name)</strong><span>$(te menu.pbsd.desc)</span></a>
+            <a href="$(u /cypha.html)"><strong>$(te menu.cypha.name)</strong><span>$(te menu.cypha.desc)</span></a>
+            <a href="$(u /chess.html)"><strong>$(te menu.chess.name)</strong><span>$(te menu.chess.desc)</span></a>
+            <a href="$(u /retdec.html)"><strong>$(te menu.retdec.name)</strong><span>$(te menu.retdec.desc)</span></a>
+            <a href="$(u /mathscript.html)"><strong>$(te menu.mathscript.name)</strong><span>$(te menu.mathscript.desc)</span></a>
+            <a href="$(u /aegis.html)"><strong>$(te menu.aegis.name)</strong><span>$(te menu.aegis.desc)</span></a>
+            <a href="$(u /sentinel.html)"><strong>$(te menu.sentinel.name)</strong><span>$(te menu.sentinel.desc)</span></a>
+            <a href="$(u /cellai.html)"><strong>$(te menu.cellai.name)</strong><span>$(te menu.cellai.desc)</span></a>
+            <a href="$(u /beta.html)"><strong>$(te menu.beta.name)</strong><span>$(te menu.beta.desc)</span></a>
           </div>
         </div>
-        <a class="nav__link" href="/research.html">Research</a>
-        <a class="nav__link" href="/licensing.html">Licensing</a>
-        <a class="nav__link" href="/about.html">About</a>
-        <a class="nav__link" href="#" data-search aria-label="Search this site (press slash)">Search</a>
-        <a class="nav__link" href="/beta.html">Beta</a>
-        <a class="nav__link" href="/kickstarter.html">Kickstarter</a>
-        <a class="btn btn--fund btn--sm nav__cta" href="/kickstarter.html">Back PBSD</a>
+        <a class="nav__link" href="$(u /research.html)">$(te nav.research)</a>
+        <a class="nav__link" href="$(u /licensing.html)">$(te nav.licensing)</a>
+        <a class="nav__link" href="$(u /about.html)">$(te nav.about)</a>
+        <a class="nav__link" href="#" data-search aria-label="$(te search.aria)">$(te nav.search)</a>
+        <a class="nav__link nav__link--extra" href="$(u /beta.html)">$(te nav.beta)</a>
+        <a class="nav__link nav__link--extra" href="$(u /kickstarter.html)">$(te nav.kickstarter)</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="$(u /kickstarter.html)">$(te nav.cta)</a>
       </div>
+
+$(emit_langsel "$slug")
     </nav>
   </div>
 </header>
@@ -279,7 +445,7 @@ emit_foot() {
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__col">
-        <a class="brand" href="/" style="margin-bottom:14px">
+        <a class="brand" href="$(u /)" style="margin-bottom:14px">
           <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
               <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
@@ -291,60 +457,60 @@ emit_foot() {
           <span>Imortek</span>
         </a>
         <p class="small muted" style="max-width:38ch">
-          Independent research and systems software by Odin Loch. Sydney, Australia.
-          Source-available under AGPL-3.0+ with a tiered commercial licence.
+          $(te footer.blurb)
         </p>
         <div class="badge-row" style="margin-top:16px">
-          <span class="badge badge--teal">AGPL-3.0+</span>
-          <span class="badge">Commercial licence available</span>
+          <span class="badge badge--teal">$(te badge.agpl)</span>
+          <span class="badge">$(te badge.commercial)</span>
         </div>
       </div>
 
       <div class="footer__col">
-        <h4>Products</h4>
+        <h4>$(te footer.products)</h4>
         <ul>
-          <li><a href="/pbsd.html">ParanoidBSD</a></li>
-          <li><a href="/cypha.html">Cypha</a></li>
-          <li><a href="/chess.html">Cypha Chess</a></li>
-          <li><a href="/retdec.html">RetDec Imortek</a></li>
-          <li><a href="/mathscript.html">MathScript</a></li>
-          <li><a href="/aegis.html">AEGIS</a></li>
-          <li><a href="/sentinel.html">SENTINEL</a></li>
-          <li><a href="/cellai.html">Cell AI</a></li>
+          <li><a href="$(u /pbsd.html)">$(te menu.pbsd.name)</a></li>
+          <li><a href="$(u /cypha.html)">$(te menu.cypha.name)</a></li>
+          <li><a href="$(u /chess.html)">$(te menu.chess.name)</a></li>
+          <li><a href="$(u /retdec.html)">$(te menu.retdec.name)</a></li>
+          <li><a href="$(u /mathscript.html)">$(te menu.mathscript.name)</a></li>
+          <li><a href="$(u /aegis.html)">$(te menu.aegis.name)</a></li>
+          <li><a href="$(u /sentinel.html)">$(te menu.sentinel.name)</a></li>
+          <li><a href="$(u /cellai.html)">$(te menu.cellai.name)</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
-        <h4>Company</h4>
+        <h4>$(te footer.company)</h4>
         <ul>
-          <li><a href="/about.html">About Imortek</a></li>
-          <li><a href="/research.html">Research shelf</a></li>
-          <li><a href="/licensing.html">Licensing</a></li>
-          <li><a href="/beta.html">Become a beta tester</a></li>
-          <li><a href="/kickstarter.html">PBSD Kickstarter</a></li>
-          <li><a data-email data-subject="Commercial licence enquiry" href="#">Commercial enquiries</a></li>
+          <li><a href="$(u /about.html)">$(te footer.about)</a></li>
+          <li><a href="$(u /research.html)">$(te footer.researchShelf)</a></li>
+          <li><a href="$(u /licensing.html)">$(te footer.licensing)</a></li>
+          <li><a href="$(u /beta.html)">$(te footer.beta)</a></li>
+          <li><a href="$(u /kickstarter.html)">$(te footer.kickstarter)</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">$(te footer.commercial)</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
-        <h4>Source</h4>
+        <h4>$(te footer.source)</h4>
         <ul>
-          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub profile</a></li>
-          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD repo</a></li>
-          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">Ideas / research</a></li>
-          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 text</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">$(te footer.github)</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">$(te footer.pbsdRepo)</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">$(te footer.ideas)</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">$(te footer.agpl)</a></li>
+          <li><a href="/sitemap.xml">$(te footer.sitemap)</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built $BUILT &middot; No trackers, no cookies, no analytics.</span>
+      <span>&copy; 2025&ndash;<span data-year>2026</span> $(te footer.rights)</span>
+      <span class="mono tiny">$(te footer.built) $BUILT &middot; $(te footer.notrackers)</span>
     </div>
   </div>
 </footer>
 
+<script src="/assets/js/i18n.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/dictionary.js" defer></script>
 <script src="/assets/js/similar.js" defer></script>
@@ -446,28 +612,70 @@ declare -A KEYWORDS=(
 
 
 count=0
-for row in "${PAGES[@]}"; do
-  IFS='~' read -r slug title desc extra_css extra_js og_type <<< "$row"
-  body="src/pages/$slug.html"
-  if [[ ! -f "$body" ]]; then
-    echo "  ! missing $body — skipped"
-    continue
-  fi
-  out="$slug.html"
-  mkdir -p "$(dirname "$out")"
+for lrow in "${LOC_ROWS[@]}"; do
+  IFS=$'\t' read -r LC_CODE LC_ENDONYM LC_DIR LC_SPEECH LC_HREF LC_NAME LC_TAG <<< "$lrow"
+  LC_PREFIX=""
+  [[ "$LC_CODE" != "en" ]] && LC_PREFIX="/$LC_CODE"
+  LC_OG="${LC_SPEECH//-/_}"
+  load_locale   "$LC_CODE"
+  load_runtime  "$LC_CODE"
+  load_segments "$LC_CODE"
+  [[ -n "$LC_PREFIX" ]] && mkdir -p ".$LC_PREFIX"
 
-  keywords="${KEYWORDS[$slug]:-}"
-  if [[ -z "$keywords" && "$slug" == research/* ]]; then
-    keywords="$(short_name "$title"), $(sub_name "$title"), Imortek research, Odin Loch"
-  fi
+  lcount=0 lbytes=0
+  for row in "${PAGES[@]}"; do
+    IFS='~' read -r slug rawtitle rawdesc extra_css extra_js og_type <<< "$row"
+    # Only the core pages exist in a translated tree. A research ledger has one
+    # language and its URL says so.
+    [[ -n "$LC_PREFIX" && "$CORE_PAGES" != *" $slug "* ]] && continue
 
-  { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type" "$keywords"
-    cat "$body"
-    emit_foot "$extra_js"
-  } > "$out"
-  count=$((count+1))
-  printf '  built %-18s %6s bytes\n' "$out" "$(wc -c < "$out")"
+    body="src/pages/$slug.html"
+    if [[ ! -f "$body" ]]; then
+      echo "  ! missing $body — skipped"
+      continue
+    fi
+    out=".$LC_PREFIX/$slug.html"; out="${out#./}"
+    mkdir -p "$(dirname "$out")"
+
+    title="$(seg "$rawtitle")"
+    desc="$(seg "$rawdesc")"
+    keywords="${KEYWORDS[$slug]:-}"
+    if [[ -z "$keywords" && "$slug" == research/* ]]; then
+      keywords="$(short_name "$rawtitle"), $(sub_name "$rawtitle"), Imortek research, Odin Loch"
+    fi
+
+    # How much of this page is genuinely in this language. Below the bar the
+    # page says so out loud, because a reader who finds half a page in English
+    # deserves to be told rather than left wondering.
+    notice=""
+    if [[ -n "$LC_PREFIX" ]]; then
+      cov="$(python3 tools/i18n_segments.py cover "$slug" "$LC_CODE")"
+      if [[ "$cov" -lt 92 ]]; then
+        notice="<div class=\"wrap\"><p class=\"i18n-note\" role=\"note\">$(te notice.partial)</p></div>"
+      fi
+      if [[ "$slug" == "research" ]]; then
+        notice+="<div class=\"wrap\"><p class=\"i18n-note\" role=\"note\">$(te notice.englishOnly)</p></div>"
+      fi
+    fi
+
+    { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type" "$keywords"
+      [[ -n "$notice" ]] && printf '%s\n' "$notice"
+      if [[ -z "$LC_PREFIX" ]]; then
+        cat "$body"
+      else
+        python3 tools/i18n_segments.py apply "$slug" "$LC_CODE"
+      fi
+      emit_foot "$extra_js"
+    } > "$out"
+    count=$((count+1)); lcount=$((lcount+1))
+    lbytes=$((lbytes + $(wc -c < "$out")))
+  done
+  printf '  %-2s %-11s %3d pages  %6d KB\n' "$LC_CODE" "$LC_NAME" "$lcount" "$((lbytes/1024))"
 done
+
+# Back to English for everything generated after the page loop.
+LC_CODE=en LC_PREFIX="" LC_DIR=ltr LC_TAG=en-AU LC_SPEECH=en-AU LC_OG=en_AU
+load_locale en
 
 # Sitemap — generated from PAGES so it can never drift from what was built.
 # Priority is by role: home, the flagship and the campaign, then products and the

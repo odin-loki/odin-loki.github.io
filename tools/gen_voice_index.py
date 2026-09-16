@@ -19,7 +19,7 @@ No language model is involved and none is downloaded. The vectors come from the
 site's own words and the dictionary's glosses, so the whole thing is
 reproducible from this repository.
 """
-import json, math, os, re, collections, random, html as _html
+import json, math, os, re, sys, collections, random, html as _html
 
 OUT   = 'assets/data/voice-index.json'
 DIM   = 64
@@ -60,18 +60,62 @@ def tokens(s):
     # on this site that is the single most likely thing somebody says out loud.
     return [stem(w) for w in re.findall(r"[a-z][a-z'+-]+", s.lower()) if w not in STOP]
 
-def main():
+# Scripts with no space between words. Chinese is the one here; a whitespace
+# tokeniser returns one enormous token per sentence and the index is useless.
+CJK = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]')
+
+def tokens_i18n(s):
+    """Tokens for a language that is not English.
+
+    No stemming. The English stemmer turns Spanish "ambientales" into
+    "ambiental" by luck and Russian "операционная" into nothing at all, and a
+    wrong stem is worse than none: it silently merges words that are not the
+    same. What does carry across is the shape of the problem — a term that
+    appears in one page and not the others is still the discriminating one —
+    so TF-IDF works unchanged over raw word forms.
+
+    Latin words are lower-cased and kept whole. Han characters are indexed as
+    overlapping bigrams, which is the standard trick for a language that does
+    not write spaces and is enough to tell 操作系统 from 反编译器.
+    """
+    s = s.lower()
+    out = [w for w in re.findall(r"[^\W\d_]{2,}", s, re.UNICODE)
+           if not CJK.search(w) and w not in STOP]
+    for run in re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]+', s):
+        out.extend(run[i:i + 2] for i in range(len(run) - 1))
+        if len(run) == 1:
+            out.append(run)
+    return out
+
+def main(code='en'):
+    """Build the index for one language tree.
+
+    English lives at the root and indexes everything. Another locale indexes
+    its own fifteen pages plus the English research shelf: a research ledger
+    is not translated, but its product names and its numbers are the same in
+    every language, so leaving it out would mean a reader searching in Spanish
+    could never reach it at all. It stays flagged as non-core, so the pages
+    that do speak the reader's language rank ahead of it.
+    """
+    global tokens
+    root = '' if code == 'en' else code + '/'
+    if code != 'en':
+        tokens = tokens_i18n
     pages = []
-    for f in sorted(os.listdir('.')):
+    src = {}          # url path -> file on disk
+    base = code if code != 'en' else '.'
+    for f in sorted(os.listdir(base)):
         if f.endswith('.html') and f != '404.html':
-            pages.append(f)
+            pages.append(root + f)
+            src[root + f] = os.path.join(base, f)
     for f in sorted(os.listdir('research')):
         if f.endswith('.html'):
             pages.append('research/' + f)
+            src['research/' + f] = 'research/' + f
 
     docs, titles = {}, {}
     for p in pages:
-        html = open(p, encoding='utf-8', errors='replace').read()
+        html = open(src[p], encoding='utf-8', errors='replace').read()
         m = re.search(r'(?is)<title>(.*?)</title>', html)
         titles[p] = _html.unescape(re.sub(r'\s*\|\s*Imortek.*$', '', m.group(1))).strip() if m else p
 
@@ -130,8 +174,9 @@ def main():
     # else, so they mention everything and would otherwise be everyone's
     # nearest neighbour. They stay in the search index; they just stop being
     # suggested as related reading.
-    HUBS = {'index.html', 'beta.html', 'kickstarter.html', 'licensing.html',
-            'about.html', 'research.html', '404.html'}
+    HUBS = set(root + h for h in ('index.html', 'beta.html', 'kickstarter.html',
+                                  'licensing.html', 'about.html', 'research.html',
+                                  '404.html'))
     targets = [p for p in pages if p not in HUBS]
 
     sim = {a: {b: cos(vecs[a], vecs[b]) for b in targets if b != a} for a in pages}
@@ -139,24 +184,31 @@ def main():
     near = {}
     for a in pages:
         scored = sorted(((sim[a][b] - hub[b], sim[a][b], b) for b in targets if b != a), reverse=True)
-        near[a] = [{'u': '/' + b if b != 'index.html' else '/',
+        near[a] = [{'u': '/' + b if b != root + 'index.html' else '/' + root,
                     't': titles[b], 's': round(raw, 3)}
                    for adj, raw, b in scored[:4] if adj > 0.01]
 
     out = {'top': TOP,
            'idf': {w: round(idf[w], 3) for w in vocab},
            'boost': float(os.environ.get('VI_BOOST', '1.35')),
-           'pages': [{'u': '/' + p if p != 'index.html' else '/',
+           'pages': [{'u': '/' + p if p != root + 'index.html' else '/' + root,
                       't': titles[p],
                       'v': vecs[p],
                       'm': 0 if p.startswith('research/') else 1,
                       'n': near[p]} for p in pages]}
 
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, 'w', encoding='utf-8') as fh:
-        json.dump(out, fh, separators=(',', ':'))
-    print('  %d pages, %d vocab terms, top %d terms each -> %.1f KB'
-          % (len(pages), len(vocab), TOP, os.path.getsize(OUT) / 1024))
+    path = OUT if code == 'en' else OUT.replace('.json', '.%s.json' % code)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as fh:
+        json.dump(out, fh, separators=(',', ':'), ensure_ascii=False)
+    print('  %-3s %3d pages, %5d vocab terms -> %6.1f KB'
+          % (code, len(pages), len(vocab), os.path.getsize(path) / 1024))
 
 if __name__ == '__main__':
-    main()
+    codes = sys.argv[1:]
+    if not codes:
+        codes = ['en'] + [l['code'] for l in
+                          json.load(open('tools/locales.json', encoding='utf-8'))['locales']
+                          if not l.get('root') and os.path.isdir(l['code'])]
+    for c in codes:
+        main(c)

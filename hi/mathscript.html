@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MathScript — C++23 computer algebra and numerics | Imortek</title>
+<meta name="description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
+<meta name="keywords" content="MathScript, C++23, computer algebra, CAS, linear algebra, BLAS, LAPACK, ODE, PDE, FEM, numerical methods">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/hi/mathscript.html">
+<link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html">
+<link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html">
+<link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html">
+<link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html">
+<link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html">
+<link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html">
+<link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html">
+<link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html">
+<link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html">
+<link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html">
+
+<meta name="imortek:locale" content="hi">
+<meta name="imortek:speech" content="hi-IN">
+<meta name="imortek:prefix" content="/hi">
+<script>window.__IMORTEK_I18N={"lang.label":"भाषा","lang.choose":"भाषा चुनें","lang.suggested":"आपका ब्राउज़र यह भाषा पसंद करता है","lang.close":"बंद करें","tools.label":"पृष्ठ उपकरण","tools.toggle":"पृष्ठ उपकरण दिखाएँ या छिपाएँ","tools.readAloud":"पढ़कर सुनाएँ","tools.pause":"रोकें","tools.stop":"पढ़ना बंद करें","tools.next":"अगला अनुच्छेद","tools.voice":"आवाज़ से आदेश","tools.explain":"कठिन शब्द समझाएँ","tools.reset":"रीसेट","tools.termsOnPage":"शब्द इस पृष्ठ पर","tools.learned":"सीखे गए","tools.preExpanded":"पहले से खुले","tools.openMore":"{n} और खोलें, फिर Cypha अनुमान लगाना शुरू कर देगा","tools.understood":"समझा गया","tools.corrected":"सुधारा गया","tools.off":"बंद","tools.reading":"पढ़ा जा रहा है","search.placeholder":"खोजें — बताइए आपको क्या चाहिए","search.aria":"इस साइट पर खोजें","search.hint":"अर्थ के आधार पर मिलान करता है, सिर्फ़ शब्दों से नहीं। बंद करने के लिए Esc।","search.nothing":"कुछ भी मिलता-जुलता नहीं मिला।","related.eyebrow":"इस साइट पर सबसे निकट","related.title":"संबंधित पठन","related.note":"इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।","voice.help":"आप कह सकते हैं: पढ़ो, रुको, अगला, पीछे, ऊपर, होम, या किसी पृष्ठ का नाम। आप यह भी बता सकते हैं कि आपको क्या चाहिए और मैं सबसे निकट का पृष्ठ ढूँढ दूँगा।","voice.notCaught":"मैं समझ नहीं पाया। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.listening":"सुन रहा हूँ। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.micOff":"माइक्रोफ़ोन बंद है।","voice.micBlocked":"माइक्रोफ़ोन अवरुद्ध है। आवाज़ से आदेश देने के लिए इसे ब्राउज़र में अनुमति दें।","voice.opening":"खोल रहा हूँ","voice.didYouMean":"क्या आपका मतलब था","voice.sayNumber":"कोई संख्या बोलिए, या \"नहीं\" कहिए।","voice.understood":"समझ गया। दूसरे तरीक़े से कहिए, या \"मदद\" कहिए।","voice.endOfPage":"पृष्ठ समाप्त।","voice.searchOpen":"खोज खुल गई।","voice.nothingRelated":"इस पृष्ठ पर कुछ भी संबंधित नहीं है।","voice.related":"संबंधित","voice.goingTo":"जा रहा हूँ","voice.heading":"शीर्षक।","voice.or":"या","gloss.notInDict":"शब्दकोश में नहीं है।","gloss.lookingUp":"खोजा जा रहा है…","gloss.forget":"Cypha ने जो सीखा उसे भुला दें"};</script>
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:locale:alternate" content="en_AU">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ur_PK">
+<meta property="og:title" content="MathScript — C++23 computer algebra and numerics | Imortek">
+<meta property="og:description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
+<meta property="og:url" content="https://imortek.com.au/hi/mathscript.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MathScript — C++23 computer algebra and numerics | Imortek">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MathScript — C++23 computer algebra and numerics | Imortek">
+<meta name="twitter:description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image:alt" content="MathScript — C++23 computer algebra and numerics | Imortek">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"hi","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/hi/mathscript.html#webpage","url":"https://imortek.com.au/hi/mathscript.html","name":"MathScript — C++23 computer algebra and numerics | Imortek","description":"Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.","inLanguage":"hi","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/hi/mathscript.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/hi/mathscript.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://imortek.com.au/hi/"},{"@type":"ListItem","position":2,"name":"MathScript","item":"https://imortek.com.au/hi/mathscript.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/hi/mathscript.html#software","name":"MathScript","description":"Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.","url":"https://imortek.com.au/hi/mathscript.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/MathScript","sameAs":["https://github.com/odin-loki/MathScript"]}]}</script>
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">सामग्री पर जाएँ</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/hi/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">अनुसंधान और सिस्टम</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="नेविगेशन दिखाएँ या छिपाएँ">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/hi/#products" aria-haspopup="true">उत्पाद</a>
+          <div class="nav__menu">
+            <a href="/hi/pbsd.html"><strong>ParanoidBSD</strong><span>कैपेबिलिटी-आधारित सुरक्षा वाला C++23 ऑपरेटिंग सिस्टम</span></a>
+            <a href="/hi/cypha.html"><strong>Cypha</strong><span>मूल सिद्धांतों से बना AI — वर्गीकरण, नमूना, निर्माण</span></a>
+            <a href="/hi/chess.html"><strong>Cypha Chess</strong><span>असली इंजन से डिस्टिल किए गए मॉडल के साथ खेलें</span></a>
+            <a href="/hi/retdec.html"><strong>RetDec Imortek</strong><span>विनिर्देश निकालने वाला डीकंपाइलर</span></a>
+            <a href="/hi/mathscript.html"><strong>MathScript</strong><span>C++23 कंप्यूटर बीजगणित और संख्यात्मक गणना</span></a>
+            <a href="/hi/aegis.html"><strong>AEGIS</strong><span>मेटाडेटा छिपाने वाला ट्रांसपोर्ट</span></a>
+            <a href="/hi/sentinel.html"><strong>SENTINEL</strong><span>अपराध विश्लेषण और जाँच के सूत्र</span></a>
+            <a href="/hi/cellai.html"><strong>Cell AI</strong><span>रिएक्शन-डिफ्यूज़न अनुक्रम मॉडल</span></a>
+            <a href="/hi/beta.html"><strong>बीटा टेस्टर बनें</strong><span>किसी भी उत्पाद को पहले, मुफ़्त आज़माएँ और बताएँ कि क्या टूटा</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/hi/research.html">अनुसंधान</a>
+        <a class="nav__link" href="/hi/licensing.html">लाइसेंसिंग</a>
+        <a class="nav__link" href="/hi/about.html">परिचय</a>
+        <a class="nav__link" href="#" data-search aria-label="इस साइट पर खोजें">खोज</a>
+        <a class="nav__link nav__link--extra" href="/hi/beta.html">बीटा</a>
+        <a class="nav__link nav__link--extra" href="/hi/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/hi/kickstarter.html">PBSD को समर्थन दें</a>
+      </div>
+
+<div class="langsel">
+  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="भाषा: हिन्दी">
+    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="langsel__cur">हिन्दी</span>
+    <span class="langsel__caret" aria-hidden="true"></span>
+  </button>
+  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="भाषा चुनें">
+    <a role="menuitem" href="/mathscript.html" data-lang="en" data-endonym="English" hreflang="en" lang="en" dir="ltr"><span class="langsel__endo">English</span><span class="langsel__name">English</span></a>
+    <a role="menuitem" href="/zh/mathscript.html" data-lang="zh" data-endonym="中文" hreflang="zh-Hans" lang="zh-Hans" dir="ltr"><span class="langsel__endo">中文</span><span class="langsel__name">Chinese</span></a>
+    <a role="menuitem" href="/hi/mathscript.html" data-lang="hi" data-endonym="हिन्दी" hreflang="hi" lang="hi" dir="ltr" class="is-current" aria-current="true"><span class="langsel__endo">हिन्दी</span><span class="langsel__name">Hindi</span></a>
+    <a role="menuitem" href="/es/mathscript.html" data-lang="es" data-endonym="Español" hreflang="es" lang="es" dir="ltr"><span class="langsel__endo">Español</span><span class="langsel__name">Spanish</span></a>
+    <a role="menuitem" href="/ar/mathscript.html" data-lang="ar" data-endonym="العربية" hreflang="ar" lang="ar" dir="rtl"><span class="langsel__endo">العربية</span><span class="langsel__name">Arabic</span></a>
+    <a role="menuitem" href="/fr/mathscript.html" data-lang="fr" data-endonym="Français" hreflang="fr" lang="fr" dir="ltr"><span class="langsel__endo">Français</span><span class="langsel__name">French</span></a>
+    <a role="menuitem" href="/bn/mathscript.html" data-lang="bn" data-endonym="বাংলা" hreflang="bn" lang="bn" dir="ltr"><span class="langsel__endo">বাংলা</span><span class="langsel__name">Bengali</span></a>
+    <a role="menuitem" href="/pt/mathscript.html" data-lang="pt" data-endonym="Português" hreflang="pt" lang="pt" dir="ltr"><span class="langsel__endo">Português</span><span class="langsel__name">Portuguese</span></a>
+    <a role="menuitem" href="/ru/mathscript.html" data-lang="ru" data-endonym="Русский" hreflang="ru" lang="ru" dir="ltr"><span class="langsel__endo">Русский</span><span class="langsel__name">Russian</span></a>
+    <a role="menuitem" href="/ur/mathscript.html" data-lang="ur" data-endonym="اردو" hreflang="ur" lang="ur" dir="rtl"><span class="langsel__endo">اردو</span><span class="langsel__name">Urdu</span></a>
+  </div>
+</div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap"><p class="i18n-note" role="note">इस पृष्ठ के कुछ हिस्से अब भी अंग्रेज़ी में हैं। अनुवाद लिखा जा रहा है; कुछ भी मशीन से अनूदित नहीं है।</p></div>
+<section class="phero" data-video="/assets/video/mathscript" data-poster="/assets/img/video/mathscript.jpg">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 pre-release</span>
+        <h1>One C++23 library, from <span class="gradient-text">LU to CFD</span></h1>
+        <p class="lede">
+          Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
+          optimisation, signal and image processing, number theory, graphs, geometry, topology,
+          quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
+          LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#demo">Plot and differentiate live</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="MathScript" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">Test suites<b>816 CTest</b></div>
+          <div class="phero__meta-item">Coverage gate<b>90%</b></div>
+          <div class="phero__meta-item">Static libraries<b>35</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="MathScript" data-gh-field="updated">हाल ही में</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:16px">Two decisions that shape everything</span>
+          <ul class="flist flist--violet">
+            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code>Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="demo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive</span>
+      <h2>A symbolic CAS, running in your browser</h2>
+      <p class="lede">
+        Type an expression. It is tokenised, parsed to an AST, differentiated symbolically,
+        simplified, then evaluated numerically for the plot &mdash; alongside a Simpson-rule
+        integral and bisection root-finding over the visible interval.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="ms-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> mathscript-repl</h3>
+        <div class="chips" id="ms-examples"></div>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <label class="sr-only" for="ms-input">Expression in x</label>
+          <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
+                   style="flex:1 1 240px;font-family:var(--mono)">
+          </div>
+          <canvas class="demo-canvas" id="ms-canvas" height="320"
+                  aria-label="Plot of the entered function and its symbolic derivative"></canvas>
+          <div class="legend" style="margin-top:12px">
+            <span><i style="background:#5eead4"></i> f(x)</span>
+            <span><i style="background:#a78bfa"></i> f&prime;(x), symbolic</span>
+            <span><i style="background:#fbbf24"></i> roots of f</span>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="ms-range">Domain <b id="ms-range-v">&plusmn;6.0</b></label>
+              <input type="range" id="ms-range" min="1" max="20" step="0.5" value="6">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Symbolic derivative</h4>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">&int; over domain</div>
+              <div class="readout__v" id="ms-int">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Roots found</div>
+              <div class="readout__v violet" id="ms-roots">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">AST nodes</div>
+              <div class="readout__v plain" id="ms-nodes">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Parse</div>
+              <div class="readout__v plain" id="ms-parse" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Result&lt;T&gt;</h4>
+            <div class="verdict" id="ms-result">
+              <div class="verdict__label">Ok</div>
+              <div class="verdict__why">Parsed and differentiated without error.</div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            Supported: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, constants <code>pi</code> and <code>e</code>. The real CAS is
+            considerably larger; this is the same idea at reading scale.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        A tokeniser, recursive-descent parser, symbolic differentiator and simplifier written for
+        this page. The C++ implementation lives in the <code>symbolic</code> library.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= THE REAL LIBRARY ======================= -->
+<section class="section" id="wasm">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Not a reimplementation</span>
+      <h2>The actual C++ library, compiled to WebAssembly</h2>
+      <p class="lede">
+        Everything above is JavaScript written for this page &mdash; honest, but a model of the
+        real thing. Below is the real thing: <code>libms_symbolic</code> itself, compiled from
+        the same source that builds the native library, running in your browser.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="msw-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot"></span> ms::sym_diff &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="msw-state">not loaded</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <div class="ctrl">
+            <label for="msw-input">Expression</label>
+            <input type="text" id="msw-input" value="sin(x)*x^2" spellcheck="false"
+                   autocomplete="off" style="width:100%">
+          </div>
+          <div class="ctrl">
+            <label for="msw-var">Variable</label>
+            <input type="text" id="msw-var" value="x" spellcheck="false" autocomplete="off"
+                   style="width:6rem">
+          </div>
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn btn--primary btn--sm" id="msw-load">Load the library &mdash; 113 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="msw-run" disabled>Run</button>
+          </div>
+          <div class="chips" id="msw-examples" style="margin-top:14px"></div>
+          <p class="tiny muted" style="margin-top:12px">
+            Nothing is downloaded until you press load, and then it is fetched once. The module
+            is 113 KB of WebAssembly and 10 KB of loader &mdash; the full library build is 4.9 MB,
+            so this links only what these four calls reach.
+          </p>
+        </div>
+        <div class="demo__side">
+          <div class="readout" style="grid-template-columns:1fr">
+            <div class="readout__item">
+              <div class="readout__k">Simplified</div>
+              <div class="readout__v plain" id="msw-parse" style="font-size:.9rem">&mdash;</div>
+            </div>
+            <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
+              <div class="readout__k">Derivative</div>
+              <div class="readout__v violet" id="msw-deriv" style="font-size:.9rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Integral</div>
+              <div class="readout__v plain" id="msw-integ" style="font-size:.9rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Library</div>
+              <div class="readout__v plain" id="msw-version" style="font-size:.85rem">&mdash;</div>
+            </div>
+            <div class="readout__item">
+              <div class="readout__k">Vector ISA</div>
+              <div class="readout__v plain" id="msw-isa" style="font-size:.85rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
+            <strong>The ISA line is the library telling the truth about itself.</strong> It asks
+            <code>ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            answers AVX2 or AVX-512; here there is one vector ISA and it says so.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Built with Emscripten from the MathScript tree. Three portability defects had to be
+        fixed to get there, all of which also affect native builds on Apple clang and on ARM
+        &mdash; see <code>tools/wasm/README.md</code>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Scope</span>
+      <h2>Thirty-five static libraries, six domains</h2>
+    </div>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Six library domains — core systems, numerical, statistics and machine learning, applied, symbolic and specialised — over a Result<T> base rail with no exceptions or raw pointers" loading="lazy" decoding="async"></div><span class="diagram__hint">पूरा आरेख देखने के लिए स्क्रॉल करें &rarr;</span><figcaption><b>Thirty-five libraries, one error convention.</b> The rail underneath is the point: failure is in the return type, not in an exception you find at the top of the stack.</figcaption></figure>
+
+    <div class="grid grid-3">
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Core</span>
+        <h3 style="font-size:1.02rem">Core systems</h3>
+        <p class="small dim" style="margin:0">Dense and sparse linear algebra with in-tree LU, QR, SVD, eigensolvers and Cholesky. <code>Result&lt;T&gt;</code> error handling throughout.</p></div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Numerical</span>
+        <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
+        <p class="small dim" style="margin:0">Time integration, finite elements and computational fluid dynamics, plus special functions and quadrature.</p></div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Statistics</span>
+        <h3 style="font-size:1.02rem">Statistics &amp; ML</h3>
+        <p class="small dim" style="margin:0">Distributions, inference, regression and the optimisation machinery underneath them.</p></div>
+      <div class="card card--hover reveal"><div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Applied</span>
+        <h3 style="font-size:1.02rem">Signal, image, control, finance</h3>
+        <p class="small dim" style="margin:0">Transforms, filtering, image processing, control theory and quantitative finance primitives.</p></div>
+      <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Symbolic</span>
+        <h3 style="font-size:1.02rem">Computer algebra</h3>
+        <p class="small dim" style="margin:0">A small symbolic CAS sitting alongside the numerics rather than bolted on top of them.</p></div>
+      <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">Specialised</span>
+        <h3 style="font-size:1.02rem">Graphs, geometry, topology, quantum</h3>
+        <p class="small dim" style="margin:0">Number theory, graph algorithms, computational geometry, topology and quantum primitives.</p></div>
+    </div>
+
+    <div class="split" style="margin-top:48px">
+      <div class="reveal">
+        <span class="eyebrow">Shipping surface</span>
+        <h3>Three executables, optional everything else</h3>
+        <div class="spec" style="margin-top:16px">
+          <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Compiler / batch driver</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">Interactive session</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-server</span><span class="spec__v">Service mode</span></div>
+          <div class="spec__row"><span class="spec__k">Optional</span><span class="spec__v">Qt GUI, CUDA, MPI, LLVM ORC JIT</span></div>
+        </div>
+      </div>
+      <div class="reveal" data-delay=".08">
+        <span class="eyebrow">Verification</span>
+        <h3>What 816 suites buy you</h3>
+        <div class="table-scroll" style="margin-top:16px">
+          <table class="data">
+            <thead><tr><th>Gate</th><th class="num">Setting</th></tr></thead>
+            <tbody>
+              <tr><td>CTest suites</td><td class="num">816, 100% passed</td></tr>
+              <tr><td>Platform</td><td class="num">Windows MSVC Release</td></tr>
+              <tr><td>CI matrix</td><td class="num">MSVC + Linux GCC 13</td></tr>
+              <tr><td>Coverage gate</td><td class="num">90%</td></tr>
+              <tr><td>Sanitizers</td><td class="num">Enabled</td></tr>
+              <tr><td>Fuzzing</td><td class="num">Enabled</td></tr>
+              <tr><td>Benchmark regressions</td><td class="num">28, 10% tolerance</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note note--amber" style="margin-top:18px">
+          <strong>Pre-release means pre-release.</strong> v1.0.0 has not shipped. The 816-suite
+          figure is from Windows MSVC Release; the Linux GCC 13 leg runs in CI but the headline
+          number is the one measured on Windows.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHO IT IS FOR ======================= -->
+<section class="section section--alt" id="who">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who it is for</span>
+      <h2>A complete maths toolkit for programmers, in one piece</h2>
+      <p class="lede">Serious calculation work usually means bolting together a dozen separate pieces of software and hoping they agree. This is one library that covers the lot.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">01</span>
+        <h3 style="font-size:1.05rem">Teams that are not allowed to download anything</h3>
+        <p class="small dim" style="margin:0">Defence, medical, aerospace and banking build systems are often sealed off from the internet. Everything here is included, so there is nothing to fetch and nothing to get approved.</p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">02</span>
+        <h3 style="font-size:1.05rem">Teams tired of bolting Python onto a product</h3>
+        <p class="small dim" style="margin:0">A lot of software does its real work in one language and its maths in another, which means two sets of problems. This keeps the maths in the same language as the product.</p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">03</span>
+        <h3 style="font-size:1.05rem">Teaching and learning</h3>
+        <p class="small dim" style="margin:0">The methods are written out in full and can be read, rather than hidden inside a supplier's sealed component. Students can follow what is actually happening.</p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
+      people it is built for are the ones whose feedback actually changes it.
+      <a href="/hi/beta.html">Become a beta tester &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight section--alt">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow">Why no exceptions</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">A numerical library that cannot throw at you</h2>
+    <p class="dim">
+      Numerical code fails in ordinary ways: a singular matrix, a non-convergent iteration, a
+      domain error in a special function. Signalling that with an exception means every caller
+      either wraps everything in <code>try</code> or discovers the failure at the top of the stack
+      with no context. MathScript makes the failure part of the return type.
+    </p>
+    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+<span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
+<span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
+
+<span class="c-key">auto</span> x = lu-&gt;<span class="c-fn">solve</span>(b);
+<span class="c-key">if</span> (!x) <span class="c-key">return</span> x.<span class="c-fn">error</span>();
+
+<span class="c-com">// No raw pointers, no unsafe casts, no exceptions:
+// the restricted subset is enforced at compile time.</span></pre>
+    <div class="btn-row" style="margin-top:22px">
+      <a class="btn btn--sm btn--ghost" href="/hi/licensing.html">Licensing terms</a>
+      <a class="btn btn--sm btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Browse the source</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/hi/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          ओडिन लोच द्वारा स्वतंत्र अनुसंधान और सिस्टम सॉफ़्टवेयर। सिडनी, ऑस्ट्रेलिया। स्रोत AGPL-3.0+ के तहत उपलब्ध, साथ में श्रेणीबद्ध वाणिज्यिक लाइसेंस।
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">वाणिज्यिक लाइसेंस उपलब्ध</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>उत्पाद</h4>
+        <ul>
+          <li><a href="/hi/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/hi/cypha.html">Cypha</a></li>
+          <li><a href="/hi/chess.html">Cypha Chess</a></li>
+          <li><a href="/hi/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/hi/mathscript.html">MathScript</a></li>
+          <li><a href="/hi/aegis.html">AEGIS</a></li>
+          <li><a href="/hi/sentinel.html">SENTINEL</a></li>
+          <li><a href="/hi/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="/hi/about.html">Imortek के बारे में</a></li>
+          <li><a href="/hi/research.html">अनुसंधान संग्रह</a></li>
+          <li><a href="/hi/licensing.html">लाइसेंसिंग</a></li>
+          <li><a href="/hi/beta.html">बीटा टेस्टर बनें</a></li>
+          <li><a href="/hi/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">व्यावसायिक पूछताछ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>स्रोत कोड</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub प्रोफ़ाइल</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD रिपॉज़िटरी</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">विचार / अनुसंधान</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 का पूरा पाठ</a></li>
+          <li><a href="/sitemap.xml">साइटमैप</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T11:26:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
+<script src="/assets/js/glossary.js" defer></script>
+<script src="/assets/js/demos/mathscript.js" defer></script><script src="/assets/js/demos/mathscript-wasm.js" defer></script>
+</body>
+</html>

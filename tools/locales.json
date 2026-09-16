@@ -1,0 +1,96 @@
+{
+  "_note": "The ten most-spoken languages by total speakers (Ethnologue). English is the source and lives at the root; every other locale is served from /<code>/. 'dir' drives the html dir attribute and the logical-property CSS. 'speech' is the BCP-47 tag handed to speechSynthesis and SpeechRecognition.",
+  "locales": [
+    {
+      "code": "en",
+      "name": "English",
+      "tag": "en-AU",
+      "endonym": "English",
+      "dir": "ltr",
+      "speech": "en-AU",
+      "hreflang": "en",
+      "root": true
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "tag": "zh-Hans",
+      "endonym": "中文",
+      "dir": "ltr",
+      "speech": "zh-CN",
+      "hreflang": "zh-Hans"
+    },
+    {
+      "code": "hi",
+      "name": "Hindi",
+      "tag": "hi",
+      "endonym": "हिन्दी",
+      "dir": "ltr",
+      "speech": "hi-IN",
+      "hreflang": "hi"
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "tag": "es",
+      "endonym": "Español",
+      "dir": "ltr",
+      "speech": "es-ES",
+      "hreflang": "es"
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "tag": "ar",
+      "endonym": "العربية",
+      "dir": "rtl",
+      "speech": "ar-SA",
+      "hreflang": "ar"
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "tag": "fr",
+      "endonym": "Français",
+      "dir": "ltr",
+      "speech": "fr-FR",
+      "hreflang": "fr"
+    },
+    {
+      "code": "bn",
+      "name": "Bengali",
+      "tag": "bn",
+      "endonym": "বাংলা",
+      "dir": "ltr",
+      "speech": "bn-BD",
+      "hreflang": "bn"
+    },
+    {
+      "code": "pt",
+      "name": "Portuguese",
+      "tag": "pt",
+      "endonym": "Português",
+      "dir": "ltr",
+      "speech": "pt-BR",
+      "hreflang": "pt"
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "tag": "ru",
+      "endonym": "Русский",
+      "dir": "ltr",
+      "speech": "ru-RU",
+      "hreflang": "ru"
+    },
+    {
+      "code": "ur",
+      "name": "Urdu",
+      "tag": "ur",
+      "endonym": "اردو",
+      "dir": "rtl",
+      "speech": "ur-PK",
+      "hreflang": "ur"
+    }
+  ]
+}

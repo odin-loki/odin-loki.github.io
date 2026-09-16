@@ -16,11 +16,22 @@
 (function (root) {
   'use strict';
 
+  var I18N = root.ImortekI18n;
+  var T = (I18N && I18N.t) || function (k) { return k; };
+  var LOC = (I18N && I18N.locale) || { code: 'en', prefix: '' };
+
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
   var index = null, indexP = null;
 
   function load() {
     if (indexP) return indexP;
-    indexP = fetch('/assets/data/voice-index.json')
+    indexP = fetch(LOC.code === 'en'
+        ? '/assets/data/voice-index.json'
+        : '/assets/data/voice-index.' + LOC.code + '.json')
       .then(function (r) { return r.json(); })
       .then(function (d) { index = d; return d; })
       .catch(function () { return null; });
@@ -83,11 +94,15 @@
   /* ---------- related pages, appended to the end of <main> ---------- */
   function related() {
     var here = location.pathname;
-    if (here === '/404.html') return;
+    if (/\/404\.html$/.test(here)) return;
+    // The locale home is served at /es/ and at /es/index.html, and the index
+    // only knows one of them.
+    var home = (LOC.prefix || '') + '/';
     load().then(function (d) {
       if (!d) return;
       var me = d.pages.filter(function (p) {
-        return p.u === here || (p.u === '/' && /(^\/$|index\.html$)/.test(here));
+        return p.u === here ||
+               (p.u === home && (here === home || here === home + 'index.html'));
       })[0];
       if (!me || !me.n || !me.n.length) return;
       var main = document.getElementById('main');
@@ -98,8 +113,8 @@
       sec.innerHTML =
         '<div class="wrap">' +
           '<div class="section-head" style="margin-bottom:1.5rem">' +
-            '<span class="eyebrow">Closest on this site</span>' +
-            '<h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Related reading</h2>' +
+            '<span class="eyebrow">' + esc(T('related.eyebrow')) + '</span>' +
+            '<h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">' + esc(T('related.title')) + '</h2>' +
           '</div>' +
           '<div class="grid grid-2">' +
             me.n.map(function (n) {
@@ -110,8 +125,7 @@
             }).join('') +
           '</div>' +
           '<p class="tiny muted" style="margin-top:14px">' +
-            'Chosen by term overlap with this page, not by hand &mdash; so it is honest about what ' +
-            'is actually close, including when that is nothing obvious.' +
+            esc(T('related.note')) +
           '</p>' +
         '</div>';
       main.appendChild(sec);
@@ -125,10 +139,11 @@
     box = document.createElement('div');
     box.className = 'sitesearch';
     box.innerHTML =
-      '<div class="sitesearch__panel" role="dialog" aria-modal="true" aria-label="Search this site">' +
-        '<input type="search" placeholder="Search — describe what you want" aria-label="Search" autocomplete="off">' +
+      '<div class="sitesearch__panel" role="dialog" aria-modal="true" aria-label="' + esc(T('search.aria')) + '">' +
+        '<input type="search" placeholder="' + esc(T('search.placeholder')) + '" ' +
+             'aria-label="' + esc(T('search.aria')) + '" autocomplete="off">' +
         '<div class="sitesearch__out" role="listbox"></div>' +
-        '<p class="tiny muted" style="margin:10px 4px 0">Matches on meaning, not just exact words. Esc to close.</p>' +
+        '<p class="tiny muted" style="margin:10px 4px 0">' + esc(T('search.hint')) + '</p>' +
       '</div>';
     document.body.appendChild(box);
     var input = box.querySelector('input'), out = box.querySelector('.sitesearch__out');
@@ -142,7 +157,7 @@
                 return '<a href="' + r.u + '" role="option"><span>' + r.t + '</span>' +
                        '<b class="mono">' + r.s.toFixed(2) + '</b></a>';
               }).join('')
-            : (input.value.trim() ? '<p class="small muted" style="padding:10px">Nothing close.</p>' : '');
+            : (input.value.trim() ? '<p class="small muted" style="padding:10px">' + esc(T('search.nothing')) + '</p>' : '');
         });
       }, 120);
     });

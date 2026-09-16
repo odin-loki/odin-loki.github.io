@@ -7,6 +7,56 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var I18N = window.ImortekI18n;
+  var T = (I18N && I18N.t) || function (k) { return k; };
+  var LOC = (I18N && I18N.locale) || { code: 'en', prefix: '', dir: 'ltr' };
+
+  /* ---------- Language selector ----------
+     The button and the full list are rendered by the builder, so the choice
+     is a plain <a> list that works with JavaScript off and that a crawler can
+     follow to every translation. All this adds is the toggle, the outside
+     click, Escape, and remembering the choice — a reader who picked Arabic on
+     the homepage should land in Arabic from a bookmark to a product page. */
+  var LANG_KEY = 'imortek.lang';
+
+  function initLang() {
+    var wrap = document.querySelector('.langsel');
+    if (!wrap) return;
+    var btn = wrap.querySelector('.langsel__btn');
+    var menu = wrap.querySelector('.langsel__menu');
+    if (!btn || !menu) return;
+
+    function setOpen(open) {
+      wrap.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    }
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      setOpen(!wrap.classList.contains('is-open'));
+    });
+    menu.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-lang]');
+      if (!a) return;
+      try { localStorage.setItem(LANG_KEY, a.getAttribute('data-lang')); } catch (err) {}
+    });
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  }
+
+  /* Record the language of the page actually being read, so a reader who
+     navigates by link rather than by the selector is still remembered. Only
+     ever read back by the offer below — never used to redirect anybody. */
+  function rememberLang() {
+    try {
+      if (!localStorage.getItem(LANG_KEY)) return;
+      localStorage.setItem(LANG_KEY, LOC.code);
+    } catch (e) {}
+  }
+
   /* ---------- Mobile nav ---------- */
   function initNav() {
     var toggle = document.querySelector('.nav__toggle');
@@ -488,6 +538,9 @@
 
   /* ---------- Boot ---------- */
   function boot() {
+    initLang();
+    rememberLang();
+    hintLang();
     initNav();
     initScroll();
     initReveal();
@@ -514,6 +567,33 @@
 
   window.ImortekReduced = reduced;
 
+  /* A hint, never a redirect. Automatic language redirection breaks deep
+     links, hides content from crawlers, and is infuriating when it guesses
+     wrong. So the browser's own preference does exactly one thing: it puts a
+     dot on the selector and marks the matching row. Nothing moves, nothing
+     covers the page, and the reader stays where they chose to be. */
+  function hintLang() {
+    var wrap = document.querySelector('.langsel');
+    if (!wrap) return;
+    var rows = wrap.querySelectorAll('.langsel__menu a[data-lang]');
+    if (!rows.length) return;
+
+    var have = {};
+    [].forEach.call(rows, function (a) { have[a.getAttribute('data-lang')] = a; });
+
+    var prefs = navigator.languages || [navigator.language || ''];
+    var want = null;
+    for (var i = 0; i < prefs.length && !want; i++) {
+      var base = String(prefs[i]).toLowerCase().split('-')[0];
+      if (have[base]) want = base;
+    }
+    if (!want || want === LOC.code) return;
+
+    have[want].classList.add('is-suggested');
+    have[want].setAttribute('title', T('lang.suggested'));
+    wrap.classList.add('has-hint');
+  }
+
   /* ---------- Shared bottom toolbar ----------
      The voice controls and the glossary controls used to be two separate
      fixed elements, one bottom-left and one bottom-right. On a phone both
@@ -537,9 +617,9 @@
     bar.className = 'toolbar' + (open ? '' : ' is-collapsed');
     bar.innerHTML =
       '<button type="button" class="toolbar__grip" aria-expanded="' + open + '" ' +
-        'aria-controls="imortek-toolbar-items" title="Show or hide the page tools">' +
+        'aria-controls="imortek-toolbar-items" title="' + esc(T('tools.toggle')) + '">' +
         '<span class="toolbar__grip-icon" aria-hidden="true"></span>' +
-        '<span class="sr-only">Page tools</span>' +
+        '<span class="sr-only">' + esc(T('tools.label')) + '</span>' +
       '</button>' +
       '<div class="toolbar__items" id="imortek-toolbar-items"></div>';
     document.body.appendChild(bar);

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imortek — 安全的系统、原创的人工智能与诚实的工程</title>
+<meta name="description" content="Imortek 开发 ParanoidBSD、Cypha、RetDec Imortek、MathScript、AEGIS 与 SENTINEL — 以 AGPL-3.0+ 开放源码并提供商业授权的系统软件。作者 Odin Loch，悉尼。">
+<meta name="keywords" content="Imortek, Odin Loch, ParanoidBSD, Cypha, secure operating system, C++23, systems software, AGPL-3.0, independent research, Sydney Australia">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/zh/">
+<link rel="alternate" hreflang="en" href="https://imortek.com.au/">
+<link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/">
+<link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/">
+<link rel="alternate" hreflang="es" href="https://imortek.com.au/es/">
+<link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/">
+<link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/">
+<link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/">
+<link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/">
+<link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/">
+<link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/">
+<link rel="alternate" hreflang="x-default" href="https://imortek.com.au/">
+
+<meta name="imortek:locale" content="zh">
+<meta name="imortek:speech" content="zh-CN">
+<meta name="imortek:prefix" content="/zh">
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_AU">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ur_PK">
+<meta property="og:title" content="Imortek — 安全的系统、原创的人工智能与诚实的工程">
+<meta property="og:description" content="Imortek 开发 ParanoidBSD、Cypha、RetDec Imortek、MathScript、AEGIS 与 SENTINEL — 以 AGPL-3.0+ 开放源码并提供商业授权的系统软件。作者 Odin Loch，悉尼。">
+<meta property="og:url" content="https://imortek.com.au/zh/">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Imortek — 安全的系统、原创的人工智能与诚实的工程">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Imortek — 安全的系统、原创的人工智能与诚实的工程">
+<meta name="twitter:description" content="Imortek 开发 ParanoidBSD、Cypha、RetDec Imortek、MathScript、AEGIS 与 SENTINEL — 以 AGPL-3.0+ 开放源码并提供商业授权的系统软件。作者 Odin Loch，悉尼。">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image:alt" content="Imortek — 安全的系统、原创的人工智能与诚实的工程">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/#webpage","url":"https://imortek.com.au/zh/","name":"Imortek — 安全的系统、原创的人工智能与诚实的工程","description":"Imortek 开发 ParanoidBSD、Cypha、RetDec Imortek、MathScript、AEGIS 与 SENTINEL — 以 AGPL-3.0+ 开放源码并提供商业授权的系统软件。作者 Odin Loch，悉尼。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"}]}]}</script>
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/zh/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">研究与系统</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="切换导航">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/zh/#products" aria-haspopup="true">产品</a>
+          <div class="nav__menu">
+            <a href="/zh/pbsd.html"><strong>ParanoidBSD</strong><span>以能力机制保护的 C++23 操作系统</span></a>
+            <a href="/zh/cypha.html"><strong>Cypha</strong><span>从第一性原理出发的人工智能——分类、采样、生成</span></a>
+            <a href="/zh/chess.html"><strong>Cypha 国际象棋</strong><span>与从真实引擎蒸馏出的模型对弈</span></a>
+            <a href="/zh/retdec.html"><strong>RetDec Imortek</strong><span>能还原规格说明的反编译器</span></a>
+            <a href="/zh/mathscript.html"><strong>MathScript</strong><span>C++23 计算机代数与数值计算</span></a>
+            <a href="/zh/aegis.html"><strong>AEGIS</strong><span>隐藏元数据的传输层</span></a>
+            <a href="/zh/sentinel.html"><strong>SENTINEL</strong><span>犯罪分析与侦查线索</span></a>
+            <a href="/zh/cellai.html"><strong>Cell AI</strong><span>基于反应扩散的序列模型</span></a>
+            <a href="/zh/beta.html"><strong>成为测试用户</strong><span>免费抢先试用任何一款，并告诉我们哪里出了问题</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/zh/research.html">研究</a>
+        <a class="nav__link" href="/zh/licensing.html">授权</a>
+        <a class="nav__link" href="/zh/about.html">关于</a>
+        <a class="nav__link" href="#" data-search aria-label="搜索本站">搜索</a>
+        <a class="nav__link nav__link--extra" href="/zh/beta.html">测试版</a>
+        <a class="nav__link nav__link--extra" href="/zh/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/zh/kickstarter.html">支持 PBSD</a>
+      </div>
+
+<div class="langsel">
+  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="语言: 中文">
+    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="langsel__cur">中文</span>
+    <span class="langsel__caret" aria-hidden="true"></span>
+  </button>
+  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="选择语言">
+    <a role="menuitem" href="/" data-lang="en" data-endonym="English" hreflang="en" lang="en" dir="ltr"><span class="langsel__endo">English</span><span class="langsel__name">English</span></a>
+    <a role="menuitem" href="/zh/" data-lang="zh" data-endonym="中文" hreflang="zh-Hans" lang="zh-Hans" dir="ltr" class="is-current" aria-current="true"><span class="langsel__endo">中文</span><span class="langsel__name">Chinese</span></a>
+    <a role="menuitem" href="/hi/" data-lang="hi" data-endonym="हिन्दी" hreflang="hi" lang="hi" dir="ltr"><span class="langsel__endo">हिन्दी</span><span class="langsel__name">Hindi</span></a>
+    <a role="menuitem" href="/es/" data-lang="es" data-endonym="Español" hreflang="es" lang="es" dir="ltr"><span class="langsel__endo">Español</span><span class="langsel__name">Spanish</span></a>
+    <a role="menuitem" href="/ar/" data-lang="ar" data-endonym="العربية" hreflang="ar" lang="ar" dir="rtl"><span class="langsel__endo">العربية</span><span class="langsel__name">Arabic</span></a>
+    <a role="menuitem" href="/fr/" data-lang="fr" data-endonym="Français" hreflang="fr" lang="fr" dir="ltr"><span class="langsel__endo">Français</span><span class="langsel__name">French</span></a>
+    <a role="menuitem" href="/bn/" data-lang="bn" data-endonym="বাংলা" hreflang="bn" lang="bn" dir="ltr"><span class="langsel__endo">বাংলা</span><span class="langsel__name">Bengali</span></a>
+    <a role="menuitem" href="/pt/" data-lang="pt" data-endonym="Português" hreflang="pt" lang="pt" dir="ltr"><span class="langsel__endo">Português</span><span class="langsel__name">Portuguese</span></a>
+    <a role="menuitem" href="/ru/" data-lang="ru" data-endonym="Русский" hreflang="ru" lang="ru" dir="ltr"><span class="langsel__endo">Русский</span><span class="langsel__name">Russian</span></a>
+    <a role="menuitem" href="/ur/" data-lang="ur" data-endonym="اردو" hreflang="ur" lang="ur" dir="rtl"><span class="langsel__endo">اردو</span><span class="langsel__name">Urdu</span></a>
+  </div>
+</div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ============================ HERO ============================ -->
+<section class="hero" data-video="/assets/video/hero" data-poster="/assets/img/video/hero.jpg">
+  <canvas class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <div class="hero__grid">
+      <div>
+        <div><a class="eyebrow eyebrow--amber" href="/zh/kickstarter.html" style="margin-bottom:.55rem"><span class="dot dot--pulse"></span> ParanoidBSD 众筹进行中 &middot; 11 月 12 日截止</a></div>
+        <span class="eyebrow">澳大利亚悉尼 &middot; 独立研究</span>
+        <h1>安全的系统。<br><span class="gradient-text">原创的人工智能。</span><br>诚实的工程。</h1>
+        <p class="lede">
+          Imortek 是一间只有一个人的系统工程作坊，做的是多数公司不愿意做的软件：一个以能力机制保护的操作系统，一套从第一性原理推导出来的 AI 架构，一个能还原算法而非伪代码的反编译器。每一句话背后都有一项测试、一次实测，或一条写明的局限。
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="#products">
+            浏览产品
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn--fund btn--lg" href="/zh/kickstarter.html">支持 ParanoidBSD</a>
+          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            查看源码
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel" style="box-shadow:var(--shadow-3)">
+          <div class="panel__head">
+            <h2 class="panel__title">github.com/odin-loki</h2>
+            <span class="badge badge--teal"><span class="dot dot--pulse"></span><span data-gh-status>连接中&hellip;</span></span>
+          </div>
+          <div class="panel__body">
+            <div class="grid grid-2" style="gap:18px">
+              <div class="stat">
+                <div class="stat__num"><span data-gh-total="repos">15</span></div>
+                <div class="stat__label">公开仓库</div>
+              </div>
+              <div class="stat">
+                <div class="stat__num"><em data-gh-total="languages">7</em></div>
+                <div class="stat__label">正在使用的语言</div>
+              </div>
+              <div class="stat">
+                <div class="stat__num" style="font-size:1.15rem"><span data-gh-total="latest">ParanoidBSD</span></div>
+                <div class="stat__label">最近一次推送 &middot; <span data-gh-total="latest-when">不久前</span></div>
+              </div>
+              <div class="stat">
+                <div class="stat__num"><span data-gh-total="stars">2</span></div>
+                <div class="stat__label">所有仓库的星标总数</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel__foot">
+            在你的浏览器里直接读取 GitHub API。没有任何数据被发送到别处。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MARQUEE ============================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">C++23 模块</span>
+    <span class="marquee__item">HardenedBSD 15-STABLE</span>
+    <span class="marquee__item">能力与句柄安全</span>
+    <span class="marquee__item">KDE Plasma 6</span>
+    <span class="marquee__item">Rust</span>
+    <span class="marquee__item">Sphinx 混合网络</span>
+    <span class="marquee__item">Qt 6</span>
+    <span class="marquee__item">信息几何</span>
+    <span class="marquee__item">自然梯度</span>
+    <span class="marquee__item">LLVM / Clang 18</span>
+    <span class="marquee__item">自带 BLAS 与 LAPACK</span>
+    <span class="marquee__item">霍克斯过程</span>
+    <span class="marquee__item">差分验证</span>
+    <span class="marquee__item">AGPL-3.0+</span>
+    <span class="marquee__item">C++23 模块</span>
+    <span class="marquee__item">HardenedBSD 15-STABLE</span>
+    <span class="marquee__item">能力与句柄安全</span>
+    <span class="marquee__item">KDE Plasma 6</span>
+    <span class="marquee__item">Rust</span>
+    <span class="marquee__item">Sphinx 混合网络</span>
+    <span class="marquee__item">Qt 6</span>
+    <span class="marquee__item">信息几何</span>
+    <span class="marquee__item">自然梯度</span>
+    <span class="marquee__item">LLVM / Clang 18</span>
+    <span class="marquee__item">自带 BLAS 与 LAPACK</span>
+    <span class="marquee__item">霍克斯过程</span>
+    <span class="marquee__item">差分验证</span>
+    <span class="marquee__item">AGPL-3.0+</span>
+  </div>
+</div>
+
+<!-- ============================ PBSD FLAGSHIP ============================ -->
+<section class="section" id="flagship">
+  <div class="wrap">
+    <div class="flagship">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--amber">旗舰项目 &middot; 正在募资</span>
+        <h2>ParanoidBSD</h2>
+        <p class="lede" style="margin-bottom:1.5rem">
+          一个加固过的 BSD，用 C++23 重写，在 HardenedBSD 已有基础之上加一层能力与句柄内核 &mdash; 桌面则是 KDE Plasma 6。
+        </p>
+        <p class="dim">
+          几乎所有操作系统至今仍建立在没有内存安全的 C 之上。PBSD 把 HardenedBSD 15-STABLE 当作行为规格，逐个文件移植到 C++23 模块 &mdash; 再加上一个安全内核：每一项资源都必须通过无法伪造的句柄取得，而不是通过环境中的全局命名空间。
+        </p>
+        <ul class="flist flist--amber" style="margin:1.75rem 0">
+          <li><strong>忠实移植，而不是&ldquo;顺手改进&rdquo;。</strong> HardenedBSD 的代码树就是规格。连缺陷也照样移植，直到某项改动被单独记录下来为止。</li>
+          <li><strong>没有验证，就不算做完。</strong> 能编译不等于已验证。每个文件都要过差分验证或 IR 验证这一关。</li>
+          <li><strong>确定性工具优先。</strong> 安全重写流程在任何模型碰代码之前运行 &mdash; 而模型永远不为自己背书。</li>
+          <li><strong>自由站立的内核 C++。</strong> <code>-fno-exceptions -fno-rtti</code>，并附有文档化的内核 ABI。</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn--fund" href="/zh/kickstarter.html">众筹页面 &rarr;</a>
+          <a class="btn btn--ghost" href="/zh/pbsd.html">技术概览</a>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay=".12">
+        <div class="term" id="pbsd-term">
+          <div class="term__bar">
+            <span class="term__dot" style="background:#f87171"></span>
+            <span class="term__dot" style="background:#fbbf24"></span>
+            <span class="term__dot" style="background:#5eead4"></span>
+            <span class="term__title">pbsd.py &mdash; 迁移驱动程序</span>
+          </div>
+          <div class="term__body" data-typewriter aria-live="polite"></div>
+        </div>
+        <p class="tiny muted" style="margin-top:12px;text-align:center">
+          迁移驱动程序输出的示意重建。真实日志位于
+          <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/migration/</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRODUCTS ============================ -->
+<section class="section section--alt" id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">产品目录</span>
+      <h2>七套系统，一个工程标准</h2>
+      <p class="lede">
+        每一个都是有真实测试的真实仓库。下面每个页面都带一个能跑的交互演示，直接呈现背后的想法 &mdash; 在你的浏览器里运行，不用安装，也不用注册。
+      </p>
+    </div>
+
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/imortek-map.svg" alt="Imortek 目录全图：ParanoidBSD 与 AEGIS 属于系统，Cypha 与 Cell AI 属于智能，RetDec Imortek、MathScript 与 SENTINEL 属于工具，全部建立在同一套验证标准之上" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>一眼看完整个目录。</b> 底层是系统，中间是原创 AI，上层是分析工具 &mdash; 全部遵循同一标准，也全部使用同一许可证。</figcaption></figure>
+
+    <div class="grid grid-3">
+      <a class="product reveal" href="/zh/pbsd.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4 34 11v13c0 6.5-5.8 10.9-14 12.9C11.8 34.9 6 30.5 6 24V11z" stroke="#fbbf24" stroke-width="1.7" fill="rgba(251,191,36,.07)"/>
+            <path d="M14.5 20.2l4 4 7.5-8" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="badge badge--amber">旗舰项目</span>
+        </div>
+        <div>
+          <h3 class="product__name">ParanoidBSD</h3>
+          <span class="product__tag">C &middot; C++23 &middot; 操作系统</span>
+        </div>
+        <p class="product__desc">
+          HardenedBSD 15-STABLE 移植到 C++23 模块，配上能力／句柄安全内核与 KDE Plasma 6。交互演示：跟着一次系统调用走过内核。
+        </p>
+        <div class="product__meta">
+          <span class="badge">移植进行中</span>
+          <span class="badge badge--amber"><span class="dot dot--pulse"></span>众筹进行中</span>
+        </div>
+        <span class="product__more">打开 PBSD
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" data-delay=".05" href="/zh/cypha.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="4.2" fill="#5eead4"/>
+            <circle cx="20" cy="20" r="10" stroke="#5eead4" stroke-width="1.5" opacity=".55"/>
+            <circle cx="20" cy="20" r="15.5" stroke="#5eead4" stroke-width="1.3" opacity=".28"/>
+            <circle cx="30" cy="12" r="2.4" fill="#a78bfa"/><circle cx="9" cy="26" r="2.4" fill="#a78bfa"/>
+          </svg>
+          <span class="badge badge--teal">v2.4.0</span>
+        </div>
+        <div>
+          <h3 class="product__name">Cypha</h3>
+          <span class="product__tag">C++ &middot; AI 架构</span>
+        </div>
+        <p class="product__desc">
+          一个类型同时做分类、回归、隐变量采样与 token 生成。由 MDL 先验、自然梯度与信息瓶颈推导而来。交互演示：点几下，现场训练一个分类器。
+        </p>
+        <div class="product__meta">
+          <span class="badge">2.664 BPC</span>
+          <span class="badge badge--teal">会下国际象棋</span>
+        </div>
+        <span class="product__more">打开 Cypha
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" data-delay=".1" href="/zh/retdec.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="6" y="7" width="12" height="26" rx="2" stroke="#60a5fa" stroke-width="1.6" fill="rgba(96,165,250,.07)"/>
+            <rect x="22" y="7" width="12" height="26" rx="2" stroke="#5eead4" stroke-width="1.6" fill="rgba(94,234,212,.07)"/>
+            <path d="M9 12h6M9 16h6M9 20h4M25 12h6M25 16h4M25 20h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".6"/>
+            <path d="M18 20h4" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="badge badge--teal">v2.0.21</span>
+        </div>
+        <div>
+          <h3 class="product__name">RetDec Imortek</h3>
+          <span class="product__tag">C++ &middot; 反编译器</span>
+        </div>
+        <p class="product__desc">
+          还原算法、密码学原语、并发模式与序列化格式 &mdash; 不只是伪代码。Qt 6 界面，可选的离线神经网络精修。交互演示：把一段字节还原成有名字的算法。
+        </p>
+        <div class="product__meta">
+          <span class="badge">216/216 可构建</span>
+          <span class="badge">ELF &middot; PE &middot; WASM</span>
+        </div>
+        <span class="product__more">打开 RetDec Imortek
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" href="/zh/mathscript.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M5 32c6-2 7-24 13-24s7 22 13 20" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M5 20h30" stroke="currentColor" stroke-width="1.2" opacity=".35"/>
+            <circle cx="18" cy="8.6" r="2.2" fill="#5eead4"/>
+          </svg>
+          <span class="badge badge--violet">v1.0.0-pre</span>
+        </div>
+        <div>
+          <h3 class="product__name">MathScript</h3>
+          <span class="product__tag">C++23 &middot; 计算机代数</span>
+        </div>
+        <p class="product__desc">
+          线性代数、特殊函数、ODE/PDE/有限元/CFD、优化、信号处理，外加一个符号计算系统 &mdash; LU/QR/SVD 全部自带，不用 Eigen，也不用 OpenBLAS。交互演示：现场作图并求导。
+        </p>
+        <div class="product__meta">
+          <span class="badge">816 个 CTest 套件</span>
+          <span class="badge">Result&lt;T&gt;，不用异常</span>
+        </div>
+        <span class="product__more">打开 MathScript
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" data-delay=".05" href="/zh/aegis.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="9" cy="20" r="3" fill="#5eead4"/><circle cx="31" cy="20" r="3" fill="#5eead4"/>
+            <circle cx="20" cy="10" r="2.6" stroke="#a78bfa" stroke-width="1.5"/>
+            <circle cx="20" cy="30" r="2.6" stroke="#a78bfa" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="2.6" stroke="#a78bfa" stroke-width="1.5"/>
+            <path d="M12 19l5.5-8M12 21l5.5 8M12 20h5.5M22.5 12L28 19M22.5 28L28 21M22.5 20H28" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+          </svg>
+          <span class="badge badge--teal">第 8 阶段</span>
+        </div>
+        <div>
+          <h3 class="product__name">AEGIS</h3>
+          <span class="product__tag">Rust &middot; 匿名传输</span>
+        </div>
+        <p class="product__desc">
+          隐藏谁在跟谁通信、何时通信、通信量多大 &mdash; 对手是全局被动监听者。恒定速率的 Sphinx 混合网络，外加一个可调的批量通道。交互演示：相关性攻击，你自己跑一遍。
+        </p>
+        <div class="product__meta">
+          <span class="badge">195 项测试全绿</span>
+          <span class="badge">117 万次模糊测试</span>
+        </div>
+        <span class="product__more">打开 AEGIS
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" data-delay=".1" href="/zh/sentinel.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 5c5.5 0 10 4.4 10 9.9C30 22 20 35 20 35S10 22 10 14.9C10 9.4 14.5 5 20 5z" stroke="#60a5fa" stroke-width="1.6" fill="rgba(96,165,250,.07)"/>
+            <circle cx="20" cy="15" r="4" fill="#5eead4" opacity=".85"/>
+          </svg>
+          <span class="badge badge--blue">第 2 阶段完成</span>
+        </div>
+        <div>
+          <h3 class="product__name">SENTINEL</h3>
+          <span class="product__tag">C++23 &middot; Qt 6 &middot; 犯罪分析</span>
+        </div>
+        <p class="product__desc">
+          泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点与 Rossmo 地理画像 &mdash; 每一条线索都能追回到原始记录。交互演示：点几下就能构建一张热点图。
+        </p>
+        <div class="product__meta">
+          <span class="badge">495 项测试</span>
+          <span class="badge">完整溯源</span>
+        </div>
+        <span class="product__more">打开 SENTINEL
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" href="/zh/cellai.html">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="13" stroke="#a78bfa" stroke-width="1.5" fill="rgba(167,139,250,.06)"/>
+            <path d="M11 20c3-6 6 6 9 0s6-6 9 0" stroke="#5eead4" stroke-width="1.7" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="2.4" fill="#a78bfa"/>
+          </svg>
+          <span class="badge badge--violet">研究日志</span>
+        </div>
+        <div>
+          <h3 class="product__name">Cell AI</h3>
+          <span class="product__tag">Python &middot; 序列模型</span>
+        </div>
+        <p class="product__desc">
+          反应扩散的分区动力学，赫布／BCM 可塑性在前向传播
+          <em>过程中</em> 实时发生。诚实记录，连失败也写进去。交互演示：跑一遍反应扩散场。
+        </p>
+        <div class="product__meta">
+          <span class="badge">1.258 亿参数</span>
+          <span class="badge badge--red">困惑度不及 transformer</span>
+        </div>
+        <span class="product__more">打开 Cell AI
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="product reveal" data-delay=".05" href="/zh/research.html" style="border-style:dashed">
+        <div class="product__top">
+          <svg class="product__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M13 5v11L6 31c-.8 1.7.4 3.6 2.3 3.6h23.4c1.9 0 3.1-1.9 2.3-3.6L27 16V5" stroke="#5eead4" stroke-width="1.6" fill="rgba(94,234,212,.05)"/>
+            <path d="M11 5h18M14 23h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+          </svg>
+          <span class="badge">80 多份文档</span>
+        </div>
+        <div>
+          <h3 class="product__name">研究书架</h3>
+          <span class="product__tag">想法 &middot; 研发</span>
+        </div>
+        <p class="product__desc">
+          密码学、长上下文记忆、跟踪滤波、GF(2) 环论、场引力模型、硬质合金刀具、能源宏观经济学。这是一个书架，不是产品目录 &mdash; 标签上写的也正是这句话。
+        </p>
+        <div class="product__meta">
+          <span class="badge">46 篇文章</span>
+          <span class="badge">推测性内容已标注</span>
+        </div>
+        <span class="product__more">翻看书架
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRINCIPLES ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">这些工作是怎么做的</span>
+      <h2>把标准直说清楚</h2>
+      <p class="lede">
+        独立软件有信誉问题，而且这问题通常是自己挣来的。下面是这些仓库真正遵守的规矩 &mdash; 每一条你都能对着源码核实。
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card card--hover card--pad-lg reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:14px">01</span>
+        <h3>能编译不等于做完了</h3>
+        <p class="dim">
+          在 PBSD 里，任何一个移植过的文件在通过差分验证或 IR 验证之前都不算完成。在 MathScript 里，正确性就是 816 个 CTest 套件跑过已提交的基准值。在 Cypha 里，证据是与基准值一致 &mdash; 而不是排行榜上的一个数字。
+        </p>
+      </div>
+      <div class="card card--hover card--pad-lg reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:14px">02</span>
+        <h3>模型只补空缺，从不背书</h3>
+        <p class="dim">
+          AI 用在它配得上的地方 &mdash; 移植啃不动的文件、精修反编译输出 &mdash; 而且永远排在确定性工具之后、硬性关卡之前。做决定的是编译检查、消毒器、差分运行和 IR 比对，不是模型。
+        </p>
+      </div>
+      <div class="card card--hover card--pad-lg reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:14px">03</span>
+        <h3>局限是公布出来的，不是埋起来的</h3>
+        <p class="dim">
+          Cell AI 的困惑度比 transformer 差好几个数量级，它的 README 就是这么写的。AEGIS 明说明网出口更弱，且数秒级延迟是结构性的。RetDec 在不借助符号名时的算法 F1 是 0.056，就印在借助符号名的 1.000 旁边。这正是重点。
+        </p>
+      </div>
+      <div class="card card--hover card--pad-lg reveal" data-delay=".18">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:14px">04</span>
+        <h3>实测胜过直觉</h3>
+        <p class="dim">
+          AEGIS 是按一条规则造出来的：没有攻击模拟确认，就不算做完。开发过程中，关于流量分析的直觉一次又一次出错； <code>sim/</code> 里的模拟平台，就是规格书里每一个定量结论背后的证据台账。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WORKBENCH FEED ============================ -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">工作台现场直播</span>
+      <h2>最近动过的东西</h2>
+      <p class="lede">
+        你打开这个页面时从 GitHub API 取回的。安静就是安静 &mdash; 你和提交历史之间没有任何营销层。
+      </p>
+    </div>
+    <div class="panel reveal">
+      <div class="panel__head">
+        <h3 class="panel__title">最近推送</h3>
+        <span class="badge"><span class="dot dot--pulse" style="color:var(--teal)"></span> <span data-gh-status>加载中</span></span>
+      </div>
+      <div class="feed is-loading" data-gh-feed>
+        <div class="feed__skeleton"></div>
+        <div class="feed__skeleton"></div>
+        <div class="feed__skeleton"></div>
+      </div>
+      <div class="panel__foot">
+        只有仓库元数据 &mdash; 名称、描述和推送时间。
+        <a href="https://github.com/odin-loki" target="_blank" rel="noopener">查看所有仓库 &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LICENSING ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">授权</span>
+        <h2>对几乎所有人免费。该收费的地方收费。</h2>
+        <p class="lede">
+          Imortek 发布的一切都以源码形式提供，采用
+          <strong>GNU Affero 通用公共许可证 v3.0 或更高版本</strong>，另有分级商业授权，供需要把修改保密的机构使用。
+        </p>
+        <ul class="checks" style="margin:1.5rem 0">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>按 AGPL-3.0+ 免费</strong> 适用于个人使用、慈善机构、教育机构，以及年收入低于 <strong>50,000&nbsp;澳元</strong> 的任何组织。</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>商业授权</strong> 超过该门槛后按规模分级，且无须公开你的修改。</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>目录里的每一个仓库今天就带着这些条款 &mdash; 这不是计划，这就是 LICENSE 文件里写的内容。</span>
+          </li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/zh/licensing.html">看看哪一种适用于你</a>
+          <a class="btn btn--ghost" data-email data-subject="商业授权咨询" href="#">就商业授权发邮件</a>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay=".1">
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:18px">AGPL 要求署名</span>
+          <pre class="code" style="font-size:.86rem"><span class="c-com">/* In your about box, docs, or footer: */</span>
+<span class="c-str">"Powered by Ideas, developed by Odin Loch.
+ Licensed under AGPL-3.0+."</span></pre>
+          <p class="small muted" style="margin-top:16px">
+            按 AGPL，你还必须以同样的双重许可回馈你的修改，基于本软件的研究也必须开源。商业授权会免除这两项要求。
+          </p>
+          <div class="note note--amber" style="margin-top:20px;font-size:.86rem">
+            <strong>有一个例外，先说在前面：</strong> ParanoidBSD 中源自 HardenedBSD 的文件仍适用其原有的 BSD 许可证。它们不能被重新授权，Imortek 也不声称可以。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
+      <div class="cta-band__inner">
+        <span class="eyebrow eyebrow--amber"><span class="dot dot--pulse"></span> 正在进行 &middot; 2026 年 11 月 12 日截止</span>
+        <h2 style="max-width:20ch;margin-inline:auto">PBSD 众筹已开启</h2>
+        <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.8rem">
+          移植正在推进。现在缺的是把它做完所需的 AI 额度与验证算力。目标是 10,000 澳元，全有或全无，而这个数字背后的每一项假设都摊开在众筹页面上，还可以自己调参。
+        </p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn--fund btn--lg" href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">去 Kickstarter 支持 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--ghost btn--lg" href="/zh/kickstarter.html">看看钱花在哪里</a>
+          <a class="btn btn--ghost btn--lg" href="/zh/pbsd.html">读技术论证</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/zh/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          由 Odin Loch 独立开展的研究与系统软件，位于澳大利亚悉尼。源码以 AGPL-3.0+ 公开，另有分级商业授权。
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">提供商业授权</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>产品</h4>
+        <ul>
+          <li><a href="/zh/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/zh/cypha.html">Cypha</a></li>
+          <li><a href="/zh/chess.html">Cypha 国际象棋</a></li>
+          <li><a href="/zh/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/zh/mathscript.html">MathScript</a></li>
+          <li><a href="/zh/aegis.html">AEGIS</a></li>
+          <li><a href="/zh/sentinel.html">SENTINEL</a></li>
+          <li><a href="/zh/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/zh/about.html">关于 Imortek</a></li>
+          <li><a href="/zh/research.html">研究书架</a></li>
+          <li><a href="/zh/licensing.html">授权</a></li>
+          <li><a href="/zh/beta.html">成为测试用户</a></li>
+          <li><a href="/zh/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">商务洽谈</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>源码</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub 主页</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD 代码库</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">想法与研究</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 许可证全文</a></li>
+          <li><a href="/sitemap.xml">网站地图</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
+      <span class="mono tiny">构建于 2026-09-16T11:26:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
+<script src="/assets/js/glossary.js" defer></script>
+<script src="/assets/js/demos/lattice.js" defer></script>
+</body>
+</html>

@@ -31,6 +31,18 @@
 (function (root) {
   'use strict';
 
+  /* Localisation. The English defaults live in assets/js/i18n.js, so this
+     file never needs a second copy of them. */
+  var I18N = root.ImortekI18n;
+  var T = (I18N && I18N.t) || function (k) { return k; };
+  var LOC = (I18N && I18N.locale) || { speech: 'en-AU', prefix: '', code: 'en' };
+  var L = function (u) { return I18N ? I18N.url(u) : u; };
+
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
   var synth = root.speechSynthesis;
   var SR = root.SpeechRecognition || root.webkitSpeechRecognition;
   if (!synth && !SR) return;
@@ -182,44 +194,44 @@
     { id: 'next',   say: ['next', 'skip', 'next paragraph', 'forward'],                        run: function () { jump(1); } },
     { id: 'back',   say: ['back', 'previous', 'again', 'repeat', 'go back'],                   run: function () { jump(-1); } },
     { id: 'top',    say: ['top', 'start', 'beginning', 'go to the top'],                       run: function () { at = -1; startReading(); } },
-    { id: 'home',   say: ['home', 'home page', 'go home'],                                     run: function () { go('/'); } },
+    { id: 'home',   say: ['home', 'home page', 'go home'],                                     run: function () { go(L('/')); } },
     { id: 'help',   say: ['help', 'what can i say', 'commands', 'options'],                    run: sayHelp },
     { id: 'search', say: ['search', 'find', 'search the site', 'look for something'],
-      run: function () { if (root.ImortekSimilar) root.ImortekSimilar.open(); announce('Search open.'); } },
+      run: function () { if (root.ImortekSimilar) root.ImortekSimilar.open(); announce(T('voice.searchOpen')); } },
     { id: 'related', say: ['related', 'what is related', 'similar pages', 'see also'],
       run: function () {
         var r = document.querySelector('.related');
-        if (!r) { speak('Nothing related on this page.'); return; }
+        if (!r) { speak(T('voice.nothingRelated')); return; }
         r.scrollIntoView({ block: 'start' });
         var names = [].map.call(r.querySelectorAll('h3'), function (h) { return h.textContent; });
-        speak('Related: ' + names.join('. '));
-        announce('Related: ' + names.join(', '));
+        speak(T('voice.related') + ': ' + names.join('. '));
+        announce(T('voice.related') + ': ' + names.join(', '));
       } },
     { id: 'listen-off', say: ['stop listening', 'turn off the microphone', 'stop the mic'],    run: function () { setListening(false); } }
   ];
 
-  function go(url) { announce('Going to ' + url); location.href = url; }
+  function go(url) { announce(T('voice.goingTo') + ' ' + url); location.href = url; }
 
   /* Spoken shortcuts to a page. Retrieval handles descriptions; this handles
      the things people just say, where the words they use are not the words on
      the page — nobody asks for "AGPL tiers", they ask what it costs. */
   var PLACES = [
-    { u: '/',                say: ['home', 'home page', 'front page', 'imortek'] },
-    { u: '/pbsd.html',       say: ['paranoid bsd', 'paranoidbsd', 'the operating system', 'pbsd', 'the os'] },
-    { u: '/cypha.html',      say: ['cypha', 'cipher', 'the ai', 'the model', 'artificial intelligence',
+    { u: L('/'),             say: ['home', 'home page', 'front page', 'imortek'] },
+    { u: L('/pbsd.html'),       say: ['paranoid bsd', 'paranoidbsd', 'the operating system', 'pbsd', 'the os'] },
+    { u: L('/cypha.html'),      say: ['cypha', 'cipher', 'the ai', 'the model', 'artificial intelligence',
                                    'an ai that keeps learning', 'the learning ai', 'machine learning'] },
-    { u: '/chess.html',      say: ['chess', 'play chess', 'the chess game'] },
-    { u: '/retdec.html',     say: ['retdec', 'the decompiler', 'reverse engineering'] },
-    { u: '/mathscript.html', say: ['mathscript', 'the maths library', 'the math library', 'maths'] },
-    { u: '/aegis.html',      say: ['aegis', 'the transport', 'privacy', 'metadata'] },
-    { u: '/sentinel.html',   say: ['sentinel', 'crime analytics', 'the crime tool'] },
-    { u: '/cellai.html',     say: ['cell ai', 'cellai', 'the experiment'] },
-    { u: '/research.html',   say: ['research', 'the research shelf', 'papers', 'the shelf'] },
-    { u: '/licensing.html',  say: ['licensing', 'licence', 'license', 'the price', 'how much does it cost',
+    { u: L('/chess.html'),      say: ['chess', 'play chess', 'the chess game'] },
+    { u: L('/retdec.html'),     say: ['retdec', 'the decompiler', 'reverse engineering'] },
+    { u: L('/mathscript.html'), say: ['mathscript', 'the maths library', 'the math library', 'maths'] },
+    { u: L('/aegis.html'),      say: ['aegis', 'the transport', 'privacy', 'metadata'] },
+    { u: L('/sentinel.html'),   say: ['sentinel', 'crime analytics', 'the crime tool'] },
+    { u: L('/cellai.html'),     say: ['cell ai', 'cellai', 'the experiment'] },
+    { u: L('/research.html'),   say: ['research', 'the research shelf', 'papers', 'the shelf'] },
+    { u: L('/licensing.html'),  say: ['licensing', 'licence', 'license', 'the price', 'how much does it cost',
                                    'what does it cost', 'cost', 'pricing', 'is it free'] },
-    { u: '/about.html',      say: ['about', 'who made this', 'contact', 'get in touch', 'email'] },
-    { u: '/beta.html',       say: ['beta', 'become a beta tester', 'beta testing', 'try it', 'test it'] },
-    { u: '/kickstarter.html',say: ['kickstarter', 'the campaign', 'back it', 'fund it', 'donate'] }
+    { u: L('/about.html'),      say: ['about', 'who made this', 'contact', 'get in touch', 'email'] },
+    { u: L('/beta.html'),       say: ['beta', 'become a beta tester', 'beta testing', 'try it', 'test it'] },
+    { u: L('/kickstarter.html'),say: ['kickstarter', 'the campaign', 'back it', 'fund it', 'donate'] }
   ];
 
   /* ---------- reading ---------- */
@@ -239,9 +251,25 @@
     return out;
   }
 
+  /* The best available voice for this locale: an exact BCP-47 match, then
+     the same language in any region, then whatever the browser chose.
+     getVoices() is empty until the list loads, so this is looked up per
+     utterance rather than cached at start-up. */
+  function pickVoice(tag) {
+    if (!synth || !synth.getVoices) return null;
+    var vs = synth.getVoices() || [], lang = tag.toLowerCase(), base = lang.split('-')[0];
+    var i;
+    for (i = 0; i < vs.length; i++) if ((vs[i].lang || '').toLowerCase() === lang) return vs[i];
+    for (i = 0; i < vs.length; i++) if ((vs[i].lang || '').toLowerCase().split('-')[0] === base) return vs[i];
+    return null;
+  }
+
   function speak(text, onEnd) {
     if (!synth) return;
     var u = new SpeechSynthesisUtterance(text);
+    u.lang = LOC.speech;
+    var v = pickVoice(LOC.speech);
+    if (v) u.voice = v;
     u.rate = 1;
     u.onend = onEnd || null;
     synth.speak(u);
@@ -250,13 +278,13 @@
   function readFrom(i) {
     if (!synth) return;
     blocks = blocks.length ? blocks : collect();
-    if (i >= blocks.length) { stopReading(); announce('End of page.'); return; }
+    if (i >= blocks.length) { stopReading(); announce(T('voice.endOfPage')); return; }
     at = i;
     var b = blocks[at];
     highlight(b.el);
     reading = true;
     setState();
-    var prefix = /^H[1-4]$/.test(b.tag) ? 'Heading. ' : '';
+    var prefix = /^H[1-4]$/.test(b.tag) ? T('voice.heading') + ' ' : '';
     speak(prefix + b.text, function () { if (reading) readFrom(at + 1); });
   }
 
@@ -281,9 +309,7 @@
   function unhighlight() { if (marked) { marked.classList.remove('voice-at'); marked = null; } }
 
   function sayHelp() {
-    var t = 'You can say: read, stop, next, back, top, home, or the name of a page — '
-          + 'products, research, licensing, about, beta, kickstarter. '
-          + 'You can also describe what you want and I will find the closest page.';
+    var t = T('voice.help');
     announce(t);
     speak(t);
   }
@@ -291,11 +317,40 @@
   /* ---------- interpreting what was said ---------- */
   function loadIndex() {
     if (indexP) return indexP;
-    indexP = fetch('/assets/data/voice-index.json')
+    var url = LOC.code === 'en'
+      ? '/assets/data/voice-index.json'
+      : '/assets/data/voice-index.' + LOC.code + '.json';
+    indexP = fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (d) { index = d; return d; })
       .catch(function () { return null; });
+    loadSay();
     return indexP;
+  }
+
+  /* The spoken vocabulary. A Spanish speaker says "lee la página", not "read",
+     so the synonym lists are data rather than code. English keeps its built-in
+     lists and fetches nothing; every other locale merges its own on top, and
+     the English words stay in the list because product names are English and
+     people mix the two. Fetched only when the microphone is switched on. */
+  var sayP = null;
+  function loadSay() {
+    if (sayP || LOC.code === 'en') return sayP;
+    sayP = fetch('/assets/data/say.' + LOC.code + '.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        COMMANDS.forEach(function (c) {
+          if (d.cmd && d.cmd[c.id]) c.say = c.say.concat(d.cmd[c.id]);
+        });
+        PLACES.forEach(function (pl) {
+          var k = I18N ? I18N.unprefix(pl.u) : pl.u;
+          k = k === '/' ? 'index' : k.replace(/^\/|\.html$/g, '');
+          if (d.place && d.place[k]) pl.say = pl.say.concat(d.place[k]);
+        });
+        return d;
+      })
+      .catch(function () { return null; });
+    return sayP;
   }
 
   function overlap(a, b) {
@@ -396,8 +451,8 @@
         model.fixed++;
         offered = null;
         saveModel(); setState();
-        announce('Opening ' + chosen.label);
-        speak('Opening ' + chosen.label.split(' — ')[0]);
+        announce(T('voice.opening') + ' ' + chosen.label);
+        speak(T('voice.opening') + ' ' + chosen.label.split(' — ')[0]);
         setTimeout(function () { go(chosen.url); }, 800);
         return;
       }
@@ -406,8 +461,8 @@
         model.fixed++;
         offered = null;
         saveModel(); setState();
-        announce('Understood. Say it another way, or say help.');
-        speak('Understood. Try saying it another way.');
+        announce(T('voice.understood'));
+        speak(T('voice.understood'));
         return;
       }
       offered = null;   // anything else: treat as a fresh request
@@ -447,11 +502,11 @@
       if (shortlist.length && shortlist[0].f[0] > 0.015) {
         offered = { list: shortlist, said: said };
         var names = shortlist.map(function (c, i) { return (i + 1) + ', ' + c.label.split(' — ')[0]; });
-        var msg = 'Did you mean: ' + names.join('. Or ') + '. Say a number, or say no.';
+        var msg = T('voice.didYouMean') + ': ' + names.join('. ' + T('voice.or') + ' ') + '. ' + T('voice.sayNumber');
         announce(msg); speak(msg);
       } else {
-        announce('I did not catch that. Say "help" for what you can say.');
-        speak('Sorry, I did not catch that. Say help for what you can say.');
+        announce(T('voice.notCaught'));
+        speak(T('voice.notCaught'));
       }
       saveModel();
       return;
@@ -461,7 +516,7 @@
     saveModel();
     setState();
     if (top.kind === 'command') { announce(top.label); top.cmd.run(); }
-    else { announce('Opening ' + top.label); speak('Opening ' + top.label); setTimeout(function () { go(top.url); }, 900); }
+    else { announce(T('voice.opening') + ' ' + top.label); speak(T('voice.opening') + ' ' + top.label); setTimeout(function () { go(top.url); }, 900); }
   }
 
   /* ---------- the microphone ---------- */
@@ -471,14 +526,14 @@
       rec = new SR();
       rec.continuous = true;
       rec.interimResults = false;
-      rec.lang = document.documentElement.lang || 'en-AU';
+      rec.lang = LOC.speech;
       rec.onresult = function (e) {
         var last = e.results[e.results.length - 1];
         if (last && last.isFinal) interpret(last[0].transcript);
       };
       rec.onerror = function (e) {
         if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
-          announce('Microphone blocked. Allow it in your browser to use voice commands.');
+          announce(T('voice.micBlocked'));
           setListening(false);
         }
       };
@@ -487,8 +542,8 @@
     listening = on;
     if (rec) { try { on ? rec.start() : rec.stop(); } catch (e) {} }
     setState();
-    if (on) { loadIndex(); announce('Listening. Say "help" for what you can say.'); }
-    else announce('Microphone off.');
+    if (on) { loadIndex(); announce(T('voice.listening')); }
+    else announce(T('voice.micOff'));
   }
 
   /* ---------- control ---------- */
@@ -498,13 +553,14 @@
     panel.classList.toggle('is-reading', reading);
     panel.classList.toggle('is-listening', listening);
     var rb = panel.querySelector('[data-act="read"]');
-    if (rb) { rb.setAttribute('aria-pressed', String(reading)); rb.querySelector('span').textContent = reading ? 'Pause' : 'Read aloud'; }
+    if (rb) { rb.setAttribute('aria-pressed', String(reading)); rb.querySelector('span').textContent = reading ? T('tools.pause') : T('tools.readAloud'); }
     var lb = panel.querySelector('[data-act="listen"]');
     if (lb) { lb.setAttribute('aria-pressed', String(listening)); }
     if (statusEl) {
       statusEl.textContent = listening
-        ? (model.used + '/' + model.heard + ' understood' + (model.fixed ? ' \u00b7 ' + model.fixed + ' corrected' : ''))
-        : (reading ? 'reading' : 'off');
+        ? (model.used + '/' + model.heard + ' ' + T('tools.understood') +
+           (model.fixed ? ' \u00b7 ' + model.fixed + ' ' + T('tools.corrected') : ''))
+        : (reading ? T('tools.reading') : T('tools.off'));
     }
   }
 
@@ -513,11 +569,11 @@
     panel.className = 'voice-ctl';
     panel.innerHTML =
       (synth ? '<button type="button" class="voice-ctl__btn" data-act="read" aria-pressed="false">' +
-               '<span>Read aloud</span></button>' : '') +
-      (synth ? '<button type="button" class="voice-ctl__icon" data-act="next" aria-label="Next paragraph">&#9654;&#9654;</button>' +
-               '<button type="button" class="voice-ctl__icon" data-act="stop" aria-label="Stop reading">&#9632;</button>' : '') +
+               '<span>' + esc(T('tools.readAloud')) + '</span></button>' : '') +
+      (synth ? '<button type="button" class="voice-ctl__icon" data-act="next" aria-label="' + esc(T('tools.next')) + '">&#9654;&#9654;</button>' +
+               '<button type="button" class="voice-ctl__icon" data-act="stop" aria-label="' + esc(T('tools.stop')) + '">&#9632;</button>' : '') +
       (SR ? '<button type="button" class="voice-ctl__btn" data-act="listen" aria-pressed="false">' +
-            '<span>Voice commands</span></button>' : '') +
+            '<span>' + esc(T('tools.voice')) + '</span></button>' : '') +
       '<span class="voice-ctl__stat mono"></span>';
     // Into the shared bottom bar, not a fixed element of its own — two
     // independently-positioned bars overlap on a narrow screen.
