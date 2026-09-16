@@ -230,9 +230,9 @@ The layout adapts across three regimes rather than just collapsing at one breakp
 Canvas demos call `window.ImortekFitHeight(preferred)` (in `site.js`) rather than hard-coding
 a height, which is what keeps a 400px canvas from exceeding a 390px-tall landscape phone.
 
-Verified across **610 page/viewport combinations** (61 pages × 10 sizes from 320×568 to
-2560×1440, including 844×390 landscape): no horizontal overflow and no page errors anywhere.
-Re-run it yourself:
+Verified across **1,960 page/viewport combinations** (196 pages × 10 sizes from 320×568 to
+2560×1440, including 844×390 landscape, in all ten languages and both writing directions):
+no horizontal overflow and no page errors anywhere. Re-run it yourself:
 
 ```bash
 npm i -D playwright              # once
