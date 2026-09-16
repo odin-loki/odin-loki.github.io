@@ -1443,3 +1443,23 @@ body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px))
   .nav { gap: 10px; }
   .nav__link { padding: 7px 7px; font-size: .82rem; }
 }
+
+/* The one row in the selector that leaves the site. It is set apart because
+   it should be: everything above it is this site's own writing, and this is
+   a machine's. */
+.langsel__machine {
+  /* Eleventh of eleven rows, in a menu that scrolls once the viewport is
+     short — so it sticks to the bottom rather than hiding below the fold.
+     It is the row a reader who speaks none of the ten most needs. */
+  position: sticky; bottom: -6px; z-index: 1;
+  margin-top: 4px; padding-top: 11px;
+  border-top: 1px solid var(--line-2);
+  border-radius: 0 0 8px 8px;
+  background: var(--bg-elev);
+}
+.langsel__machine .langsel__endo { font-size: .86rem; color: var(--ink-dim); }
+.langsel__machine .langsel__name { color: var(--ink-mute); }
+.langsel__machine::after {
+  content: "\2197"; margin-inline-start: 2px; color: var(--ink-mute); font-size: .8rem;
+}
+.langsel__machine:hover .langsel__endo { color: var(--ink); }

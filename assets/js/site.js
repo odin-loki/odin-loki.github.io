@@ -45,6 +45,22 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') setOpen(false);
     });
+
+    machineRow(wrap);
+  }
+
+  /* The machine-translation row, on the pages that exist in English only.
+     The builder cannot know which language to offer — that is the reader's
+     browser — so it renders the row hidden with {lang} as a placeholder and
+     this fills it in. A reader already in English is offered nothing, because
+     there is nothing to offer them. */
+  function machineRow(wrap) {
+    var a = wrap.querySelector('.langsel__machine');
+    if (!a) return;
+    var want = String(navigator.language || '').toLowerCase().split('-')[0];
+    if (!want || want === 'en') return;
+    a.setAttribute('href', a.getAttribute('data-translate').replace(/\{lang\}/g, encodeURIComponent(want)));
+    a.hidden = false;
   }
 
   /* Record the language of the page actually being read, so a reader who

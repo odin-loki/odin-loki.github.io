@@ -315,8 +315,10 @@ run the check.
 
 ## Conventions
 
-- No trackers, no cookies, no analytics, no third-party scripts. The only external request
-  is Google Fonts.
+- No trackers, no cookies, no analytics, no third-party scripts. The only external request a
+  page makes on its own is Google Fonts. The research ledgers carry one outbound link, to a
+  machine translation of themselves — it is labelled as such, it is the only route out a
+  reader can take by accident, and nothing loads until they choose it.
 - Everything works without JavaScript except the demos, which degrade to static panels.
 - `prefers-reduced-motion` is respected throughout — animations freeze and videos are never
   requested.

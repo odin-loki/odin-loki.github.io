@@ -167,19 +167,53 @@ emit_langsel() {
   for row in "${LOC_ROWS[@]}"; do
     IFS=$'\t' read -r lcode lendo ldir lspeech lhref lname _ltag <<< "$row"
     lpre=""; [[ "$lcode" != "en" ]] && lpre="/$lcode"
-    # A page that exists in that locale, or that locale's homepage if it does
-    # not. Sending somebody to a translated homepage is honest; sending them to
-    # a URL that 404s is not.
-    if [[ "$CORE_PAGES" == *" $slug "* && "$slug" != "404" && "$slug" != "index" ]]; then
-      lurl="$lpre/$slug.html"
+    # Where this row goes depends on whether the page exists in that language.
+    #
+    # A core page does: go straight to it. A research ledger does not, and
+    # dropping the reader on that locale's homepage — which is what this used
+    # to do — loses their place and explains nothing. The research shelf in
+    # their language is the nearest page that both exists and says why the
+    # ledgers are English only, so that is where they go instead.
+    if [[ "$CORE_PAGES" == *" $slug "* ]]; then
+      if [[ "$slug" == "index" || "$slug" == "404" ]]; then
+        lurl="$lpre/"
+      else
+        lurl="$lpre/$slug.html"
+      fi
+    elif [[ -z "$lpre" ]]; then
+      lurl="/$slug.html"          # English: the article they are already on
     else
-      lurl="$lpre/"
+      lurl="$lpre/research.html"
     fi
     cur=""
     [[ "$lcode" == "$LC_CODE" ]] && cur=' class="is-current" aria-current="true"'
     printf '    <a role="menuitem" href="%s" data-lang="%s" data-endonym="%s" hreflang="%s" lang="%s" dir="%s"%s><span class="langsel__endo">%s</span><span class="langsel__name">%s</span></a>\n' \
       "$lurl" "$lcode" "$(esc "$lendo")" "$lhref" "$lhref" "$ldir" "$cur" "$(esc "$lendo")" "$(esc "$lname")"
   done
+
+  # One machine-translation row, on the pages that exist in English only.
+  #
+  # Every browser worth the name already offers this, so the row buys
+  # discoverability rather than capability — and it is worth having precisely
+  # on the ledgers, which are the pages deliberately not translated by hand.
+  # It leaves the site, so it says so, and it is the only outbound route here
+  # that a reader can take by accident.
+  #
+  # Rendered hidden with the locale as a placeholder: the target language
+  # comes from the reader's own browser, which is not knowable at build time.
+  # Without JavaScript the row simply never appears, because a link with no
+  # target language would be worse than no link.
+  if [[ "$CORE_PAGES" != *" $slug "* ]]; then
+    local thost="${SITE_URL#https://}"
+    thost="${thost//./-}.translate.goog"
+    printf '    <a class="langsel__machine" role="menuitem" href="#" hidden\n'
+    printf '       data-translate="https://%s/%s.html?_x_tr_sl=en&amp;_x_tr_tl={lang}&amp;_x_tr_hl={lang}"\n' \
+      "$thost" "$slug"
+    printf '       rel="nofollow noopener" title="%s"><span class="langsel__endo">%s</span>' \
+      "$(te lang.machineHint)" "$(te lang.machine)"
+    printf '<span class="langsel__name">%s</span></a>\n' "$(te lang.machineTag)"
+  fi
+
   printf '  </div>\n'
   printf '</div>\n'
 }
