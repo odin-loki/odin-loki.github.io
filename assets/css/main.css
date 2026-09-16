@@ -1157,15 +1157,8 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 .gloss__pop b { display: block; color: var(--ink); font-size: .8rem; margin-bottom: 4px; }
 .gloss__auto { color: var(--ink-mute); font-size: .92em; }
 
-.gloss-ctl {
-  position: fixed; right: 16px; bottom: 16px; z-index: 60;
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  max-width: calc(100vw - 32px);
-  padding: 8px 10px 8px 8px;
-  background: rgba(15, 21, 28, .92); backdrop-filter: blur(8px);
-  border: 1px solid var(--line-2); border-radius: 999px;
-  box-shadow: var(--shadow-2);
-}
+/* Lives inside the shared bar now; no positioning of its own. */
+.gloss-ctl { display: flex; align-items: center; gap: 10px; flex: none; }
 .gloss-ctl__btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 6px 12px; border: 0; border-radius: 999px; cursor: pointer;
@@ -1183,12 +1176,7 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 .gloss-ctl__reset:hover { color: var(--ink-dim); }
 .gloss-ctl:not(.is-on) .gloss-ctl__reset { display: none; }
 
-@media (max-width: 560px) {
-  .gloss-ctl { left: 16px; right: 16px; justify-content: center; border-radius: 12px; }
-  .gloss-ctl__stat { width: 100%; text-align: center; }
-}
-@media (max-height: 560px) { .gloss-ctl { display: none; } }
-@media print { .gloss-ctl { display: none; } .gloss { border-bottom: 0; } }
+@media print { .gloss { border-bottom: 0; } }
 .gloss__pop.is-dict { border-left-color: var(--violet); }
 .gloss__pos { font-weight: 400; color: var(--ink-mute); font-size: .92em; }
 .gloss__src {
@@ -1203,13 +1191,7 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
-.voice-ctl {
-  position: fixed; left: 16px; bottom: 16px; z-index: 60;
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  max-width: calc(100vw - 32px);
-  padding: 8px; background: rgba(15, 21, 28, .92); backdrop-filter: blur(8px);
-  border: 1px solid var(--line-2); border-radius: 999px; box-shadow: var(--shadow-2);
-}
+.voice-ctl { display: flex; align-items: center; gap: 8px; flex: none; }
 .voice-ctl__btn, .voice-ctl__icon {
   border: 0; border-radius: 999px; cursor: pointer;
   background: var(--panel-3); color: var(--ink-dim);
@@ -1229,11 +1211,7 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
   border-radius: 3px;
 }
 
-@media (max-width: 560px) {
-  .voice-ctl { left: 16px; right: 16px; bottom: 74px; justify-content: center; border-radius: 12px; }
-}
-@media (max-height: 560px) { .voice-ctl { display: none; } }
-@media print { .voice-ctl { display: none; } .voice-at { background: none; box-shadow: none; } }
+@media print { .voice-at { background: none; box-shadow: none; } }
 
 /* ============================================================
    Related pages and site search.
@@ -1270,3 +1248,69 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 }
 .sitesearch__out b { color: var(--ink-mute); font-size: .72rem; font-weight: 500; }
 @media print { .sitesearch, .related { display: none; } }
+
+
+/* ============================================================
+   The shared bottom toolbar.
+
+   One bar, not two. Two independently positioned fixed elements
+   overlapped each other on a narrow screen — and the page's own
+   buttons with them. This is a single row that scrolls sideways
+   instead of growing taller, so it can never take more than one
+   row of a small viewport, and it collapses to a tab.
+   ============================================================ */
+.toolbar {
+  position: fixed; z-index: 60;
+  left: 50%; transform: translateX(-50%);
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: stretch; gap: 6px;
+  max-width: min(100vw - 24px, 1100px);
+  padding: 6px; padding-left: 4px;
+  background: rgba(10, 14, 19, .94); backdrop-filter: blur(10px);
+  border: 1px solid var(--line-2); border-radius: 999px;
+  box-shadow: var(--shadow-3);
+  transition: max-width .22s ease, padding .22s ease;
+}
+.toolbar__items {
+  display: flex; align-items: center; gap: 10px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scrollbar-width: none; -ms-overflow-style: none;
+  padding: 2px 6px 2px 2px;
+}
+.toolbar__items::-webkit-scrollbar { display: none; }
+
+.toolbar__grip {
+  flex: none; width: 34px; border: 0; cursor: pointer;
+  border-radius: 999px; background: var(--panel-2);
+  display: grid; place-items: center;
+}
+.toolbar__grip:hover { background: var(--panel-3); }
+.toolbar__grip:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.toolbar__grip-icon {
+  width: 12px; height: 12px; border-right: 2px solid var(--ink-dim);
+  border-bottom: 2px solid var(--ink-dim); border-radius: 2px;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .22s ease;
+}
+.toolbar.is-collapsed .toolbar__grip-icon { transform: rotate(-135deg) translate(-2px, -2px); }
+
+/* Collapsed: just the tab. The items keep their layout so nothing
+   reflows when it reopens — they are clipped, not rebuilt. */
+.toolbar.is-collapsed { max-width: 46px; padding-right: 6px; }
+.toolbar.is-collapsed .toolbar__items {
+  width: 0; padding: 0; overflow: hidden; pointer-events: none;
+}
+
+/* Separator between the two groups, only when both are present. */
+.toolbar__items > * + * {
+  border-left: 1px solid var(--line-2); padding-left: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolbar, .toolbar__grip-icon { transition: none; }
+}
+@media print { .toolbar { display: none; } }
+
+/* Reserve the bar's height so it never permanently hides the footer. */
+body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }
+@media print { body.has-toolbar { padding-bottom: 0; } }

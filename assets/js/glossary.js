@@ -264,7 +264,7 @@
       '</button>' +
       '<span class="gloss-ctl__stat mono"></span>' +
       '<button type="button" class="gloss-ctl__reset" title="Forget what Cypha learned">reset</button>';
-    document.body.appendChild(panel);
+    (root.ImortekToolbar ? root.ImortekToolbar() : document.body).appendChild(panel);
     stat = panel.querySelector('.gloss-ctl__stat');
 
     var toggle = panel.querySelector('.gloss-ctl__btn');

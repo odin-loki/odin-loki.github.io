@@ -513,4 +513,47 @@
   };
 
   window.ImortekReduced = reduced;
-})();
+
+  /* ---------- Shared bottom toolbar ----------
+     The voice controls and the glossary controls used to be two separate
+     fixed elements, one bottom-left and one bottom-right. On a phone both
+     went full-width and landed on top of each other — and on top of the
+     page's own buttons. The responsive audit never caught it because it
+     checks horizontal overflow and page errors, not overlap.
+
+     They share one bar now. It collapses to a small tab, remembers that
+     choice, and scrolls sideways rather than growing taller, so it can
+     never cover more of a narrow screen than one row. */
+  window.ImortekToolbar = function () {
+    var bar = document.getElementById('imortek-toolbar');
+    if (bar) return bar.querySelector('.toolbar__items');
+
+    var KEY = 'imortek.toolbar.open';
+    var open = true;
+    try { open = localStorage.getItem(KEY) !== '0'; } catch (e) {}
+
+    bar = document.createElement('div');
+    bar.id = 'imortek-toolbar';
+    bar.className = 'toolbar' + (open ? '' : ' is-collapsed');
+    bar.innerHTML =
+      '<button type="button" class="toolbar__grip" aria-expanded="' + open + '" ' +
+        'aria-controls="imortek-toolbar-items" title="Show or hide the page tools">' +
+        '<span class="toolbar__grip-icon" aria-hidden="true"></span>' +
+        '<span class="sr-only">Page tools</span>' +
+      '</button>' +
+      '<div class="toolbar__items" id="imortek-toolbar-items"></div>';
+    document.body.appendChild(bar);
+    // A fixed bar permanently hides the last strip of the page, so reserve
+    // its height. Class-based, so a page without JavaScript keeps its layout.
+    document.body.classList.add('has-toolbar');
+
+    bar.querySelector('.toolbar__grip').addEventListener('click', function () {
+      open = !open;
+      bar.classList.toggle('is-collapsed', !open);
+      this.setAttribute('aria-expanded', String(open));
+      try { localStorage.setItem(KEY, open ? '1' : '0'); } catch (e) {}
+    });
+
+    return bar.querySelector('.toolbar__items');
+  };
+}());

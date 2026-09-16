@@ -519,7 +519,9 @@
       (SR ? '<button type="button" class="voice-ctl__btn" data-act="listen" aria-pressed="false">' +
             '<span>Voice commands</span></button>' : '') +
       '<span class="voice-ctl__stat mono"></span>';
-    document.body.appendChild(panel);
+    // Into the shared bottom bar, not a fixed element of its own — two
+    // independently-positioned bars overlap on a narrow screen.
+    (root.ImortekToolbar ? root.ImortekToolbar() : document.body).appendChild(panel);
     statusEl = panel.querySelector('.voice-ctl__stat');
 
     liveEl = document.createElement('div');
