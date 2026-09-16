@@ -9,6 +9,10 @@
    ============================================================= */
 (function () {
   'use strict';
+  /* The locale layer, or the English string unchanged if it never loaded.
+     A demo that throws because a translation file is missing would be a
+     worse bug than the one this fixes. */
+  var D = (window.ImortekI18n && window.ImortekI18n.d) || function (s) { return s; };
 
   var root = document.getElementById('cap-demo');
   if (!root) return;
@@ -36,7 +40,7 @@
   var OPS = [
     {
       id: 'passwd',
-      label: 'read the shadow password file',
+      label: D('read the shadow password file'),
       call: 'open("/etc/master.passwd", O_RDONLY)',
       target: D('Credential store'),
       needs: null,                       // no handle exists for this at all
@@ -50,7 +54,7 @@
     },
     {
       id: 'config',
-      label: 'read its own config file',
+      label: D('read its own config file'),
       call: 'dir.open("config.toml", Rights::Read)',
       target: D('/var/app'),
       needs: 'dir',
@@ -59,7 +63,7 @@
     },
     {
       id: 'socket',
-      label: 'open an outbound TCP connection',
+      label: D('open an outbound TCP connection'),
       call: 'socket(AF_INET, SOCK_STREAM, 0)',
       target: D('Network'),
       needs: 'net',
@@ -68,7 +72,7 @@
     },
     {
       id: 'mmap',
-      label: 'map writable + executable memory',
+      label: D('map writable + executable memory'),
       call: 'mmap(..., PROT_WRITE|PROT_EXEC, ...)',
       target: D('Address space'),
       needs: 'exec',
@@ -80,7 +84,7 @@
     },
     {
       id: 'ptrace',
-      label: 'attach a debugger to a sibling process',
+      label: D('attach a debugger to a sibling process'),
       call: 'ptrace(PT_ATTACH, pid, 0, 0)',
       target: D('Sibling process'),
       needs: 'debug',
@@ -89,7 +93,7 @@
     },
     {
       id: 'exec',
-      label: 'spawn a shell',
+      label: D('spawn a shell'),
       call: 'execve("/bin/sh", argv, envp)',
       target: D('Program loader'),
       needs: 'shell',
@@ -115,11 +119,11 @@
         allow: op.ambient.allow,
         why: op.ambient.why,
         stage: op.ambient.allow ? 'dac' : 'dac',
-        note: op.ambient.allow ? 'no handle was required at any point' : 'the request was formed, then refused'
+        note: op.ambient.allow ? D('no handle was required at any point') : D('the request was formed, then refused')
       };
     }
     if (op.needs === null) {
-      return { allow: false, why: op.cap.why, stage: 'unreachable', note: 'no handle exists for this resource' };
+      return { allow: false, why: op.cap.why, stage: 'unreachable', note: D('no handle exists for this resource') };
     }
     var ok = held(op.needs);
     return {
@@ -221,7 +225,7 @@
     if (!quiet) {
       log('');
       log('$ ' + op.call, 'hl');
-      log('  model    ' + (mode === 'ambient' ? 'ambient authority' : 'handle nucleus'), 'vi');
+      log('  model    ' + (mode === 'ambient' ? D('ambient authority') : D('handle nucleus')), 'vi');
       log('  monitor  ' + res.note);
       log('  result   ' + (res.allow ? D('PERMITTED') : D('REFUSED')), res.allow ? 'ok' : 'err');
     }
@@ -242,6 +246,38 @@
     canvas.height = Math.floor(H * dpr);
     canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  /* Draw a label at the largest size that still fits the width it was given,
+     down to a floor, and ellipsise below that. Canvas does no wrapping and no
+     shrinking of its own, so a translation that runs long simply draws outside
+     the box it belongs to. */
+  function fitText(text, x, y, maxW, size, weight) {
+    var font = function (n) { return (weight || '600') + ' ' + n + 'px system-ui, sans-serif'; };
+    var s = size;
+    for (; s >= size - 3; s--) {
+      ctx.font = font(s);
+      if (ctx.measureText(text).width <= maxW) { ctx.fillText(text, x, y); return; }
+    }
+    // Still too wide as one line: break on the best word boundary and use two.
+    ctx.font = font(size - 2);
+    var words = text.split(' ');
+    if (words.length > 1) {
+      var best = 1, bestDiff = Infinity, i, l, r;
+      for (i = 1; i < words.length; i++) {
+        l = ctx.measureText(words.slice(0, i).join(' ')).width;
+        r = ctx.measureText(words.slice(i).join(' ')).width;
+        if (Math.max(l, r) <= maxW && Math.abs(l - r) < bestDiff) { best = i; bestDiff = Math.abs(l - r); }
+      }
+      if (bestDiff < Infinity) {
+        ctx.fillText(words.slice(0, best).join(' '), x, y - 6);
+        ctx.fillText(words.slice(best).join(' '), x, y + 6);
+        return;
+      }
+    }
+    var t = text;
+    while (t.length > 1 && ctx.measureText(t + '…').width > maxW) t = t.slice(0, -1);
+    ctx.fillText(t === text ? t : t + '…', x, y);
   }
 
   function roundRect(x, y, w, h, r) {
@@ -329,10 +365,11 @@
     ctx.fillStyle = '#e8eef4';
     ctx.font = '600 12px system-ui, sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText('process', procX + 14, midY - 22);
+    ctx.fillText(D('process'), procX + 14, midY - 22);
     ctx.fillStyle = '#6b7b8d';
     ctx.font = '400 10px ui-monospace, monospace';
-    ctx.fillText('uid 1001  untrusted', procX + 14, midY - 6);
+    ctx.textAlign = 'left';
+    fitText('uid 1001  ' + D('untrusted'), procX + 14, midY - 6, procW - 28, 11, '400');
 
     // handle chips on the process
     if (mode === 'capability') {
@@ -356,15 +393,15 @@
       if (!any) {
         ctx.fillStyle = '#6b7b8d';
         ctx.font = 'italic 10px system-ui, sans-serif';
-        ctx.fillText('no handles held', procX + 14, midY + 20);
+        ctx.fillText(D('no handles held'), procX + 14, midY + 20);
       }
     } else {
       ctx.fillStyle = 'rgba(251,191,36,.85)';
       ctx.font = '500 10px ui-monospace, monospace';
-      ctx.fillText('ambient authority', procX + 14, midY + 20);
+      ctx.fillText(D('ambient authority'), procX + 14, midY + 20);
       ctx.fillStyle = '#6b7b8d';
       ctx.font = '400 9px ui-monospace, monospace';
-      ctx.fillText('can name every resource', procX + 14, midY + 34);
+      ctx.fillText(D('can name every resource'), procX + 14, midY + 34);
     }
 
     // --- resource box
@@ -375,12 +412,11 @@
     roundRect(resX, midY - 34, resW, 68, 10);
     ctx.fill(); ctx.stroke();
     ctx.fillStyle = res && res.allow ? '#5eead4' : '#a3b1c0';
-    ctx.font = '600 12px system-ui, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText(rTitle, resX + resW / 2, midY - 6);
+    fitText(rTitle, resX + resW / 2, midY - 10, resW - 16, 12);
     ctx.fillStyle = '#6b7b8d';
     ctx.font = '400 10px ui-monospace, monospace';
-    ctx.fillText(res ? (res.allow ? 'reached' : 'not reached') : 'idle', resX + resW / 2, midY + 12);
+    ctx.fillText(res ? (res.allow ? D('reached') : D('not reached')) : D('idle'), resX + resW / 2, midY + 12);
     ctx.textAlign = 'left';
 
     if (!op) {
@@ -462,7 +498,7 @@
         b.setAttribute('aria-pressed', String(b === btn));
       });
       log('');
-      log('# authority model → ' + (mode === 'ambient' ? 'ambient (traditional Unix)' : 'handle nucleus (PBSD)'), 'vi');
+      log('# authority model → ' + (mode === 'ambient' ? D('ambient (traditional Unix)') : D('handle nucleus (PBSD)')), 'vi');
       renderCaps();
       updateCounts();
       if (currentOp) {
@@ -481,5 +517,5 @@
   updateCounts();
   draw();
   log('# reference monitor ready', 'ok');
-  log('# model: handle nucleus (PBSD). toggle handles on the right.');
+  log('# model: ' + D('handle nucleus (PBSD)') + '. ' + D('toggle handles on the right.'));
 })();

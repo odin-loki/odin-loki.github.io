@@ -7,6 +7,10 @@
    ============================================================= */
 (function () {
   'use strict';
+  /* The locale layer, or the English string unchanged if it never loaded.
+     A demo that throws because a translation file is missing would be a
+     worse bug than the one this fixes. */
+  var D = (window.ImortekI18n && window.ImortekI18n.d) || function (s) { return s; };
   var root = document.getElementById('cx-demo');
   if (!root) return;
 
