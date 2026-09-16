@@ -1133,3 +1133,59 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
   .diagram__scroll img { width: 680px; max-width: none; }
   .diagram__hint { display: block; }
 }
+
+/* ============================================================
+   Plain-English layer — glossed terms, and Cypha's control.
+   The markup is injected by assets/js/glossary.js; with JS off
+   none of this applies and the prose is untouched.
+   ============================================================ */
+.gloss {
+  font: inherit; color: inherit; background: none; padding: 0;
+  border: 0; border-bottom: 1px dotted var(--line-3);
+  cursor: help; transition: border-color .15s ease, color .15s ease;
+}
+.gloss:hover, .gloss:focus-visible { color: var(--teal); border-bottom-color: var(--teal); }
+body.gloss-on .gloss { border-bottom-color: var(--teal-deep); }
+body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
+
+.gloss__pop {
+  display: block; margin: 10px 0; padding: 12px 14px;
+  background: var(--panel-2); border: 1px solid var(--line-2);
+  border-left: 2px solid var(--teal);
+  border-radius: 8px; font-size: .86rem; line-height: 1.55; color: var(--ink-dim);
+}
+.gloss__pop b { display: block; color: var(--ink); font-size: .8rem; margin-bottom: 4px; }
+.gloss__auto { color: var(--ink-mute); font-size: .92em; }
+
+.gloss-ctl {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  max-width: calc(100vw - 32px);
+  padding: 8px 10px 8px 8px;
+  background: rgba(15, 21, 28, .92); backdrop-filter: blur(8px);
+  border: 1px solid var(--line-2); border-radius: 999px;
+  box-shadow: var(--shadow-2);
+}
+.gloss-ctl__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--panel-3); color: var(--ink-dim);
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.gloss-ctl.is-on .gloss-ctl__btn { background: var(--teal-deep); color: #06080b; }
+.gloss-ctl__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line-3); }
+.gloss-ctl.is-on .gloss-ctl__dot { background: #06080b; }
+.gloss-ctl__stat { font-size: .68rem; color: var(--ink-mute); }
+.gloss-ctl__reset {
+  background: none; border: 0; cursor: pointer; padding: 4px 8px;
+  font-family: var(--mono); font-size: .66rem; color: var(--ink-mute);
+}
+.gloss-ctl__reset:hover { color: var(--ink-dim); }
+.gloss-ctl:not(.is-on) .gloss-ctl__reset { display: none; }
+
+@media (max-width: 560px) {
+  .gloss-ctl { left: 16px; right: 16px; justify-content: center; border-radius: 12px; }
+  .gloss-ctl__stat { width: 100%; text-align: center; }
+}
+@media (max-height: 560px) { .gloss-ctl { display: none; } }
+@media print { .gloss-ctl { display: none; } .gloss { border-bottom: 0; } }
