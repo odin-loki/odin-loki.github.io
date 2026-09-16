@@ -37,11 +37,14 @@ number appears, it was measured rather than estimated.
 ## 2. The voice, and why it matters
 
 This site's entire value proposition is that **every claim on it is checkable**. It is
-written for technically sophisticated readers and does not apologise for that. The owner
-has been asked directly whether to broaden it and declined:
+written for technically sophisticated readers and does not apologise for that.
 
-> "Keep it broad. I like the site. People interested enough will find their niche. Dumb
-> people won't bother. I like a little intellectual elitism."
+This is a deliberate, tested decision, not an oversight. The owner was asked directly —
+with three specific market options and a recommendation — whether to retarget the site at a
+narrower, less technical audience, and chose to keep it broad and technical. The reasoning
+was that readers who are interested enough will find their own way in, and that the
+technical register is what makes the work credible to the people who can actually evaluate
+it. That credibility is hard to win back once it has been traded for reach.
 
 So: **do not dumb the technical pages down.** What was added instead is an *on-ramp* — a
 plain-English `#who` section on each product page, a `/beta.html` written in plain English,
