@@ -257,7 +257,7 @@
         <span class="eyebrow">Attribution</span>
         <h3>The line AGPL users must carry</h3>
         <p class="dim small">In your about box, documentation, or footer:</p>
-        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+        <pre class="code" style="margin-top:12px" translate="no">Powered by Ideas, developed by Odin Loch.
 Licensed under AGPL-3.0+.</pre>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">Copy attribution</button>
@@ -267,16 +267,16 @@ Licensed under AGPL-3.0+.</pre>
         <span class="eyebrow eyebrow--amber">The exception</span>
         <h3>Upstream code in ParanoidBSD is not relicensed</h3>
         <p class="dim">
-          ParanoidBSD vendors two upstream trees and ports from both. <code>hbsd/</code> stays under
-          HardenedBSD&rsquo;s and FreeBSD&rsquo;s own terms; <code>kde/</code> stays under
+          ParanoidBSD vendors two upstream trees and ports from both. <code translate="no">hbsd/</code> stays under
+          HardenedBSD&rsquo;s and FreeBSD&rsquo;s own terms; <code translate="no">kde/</code> stays under
           KDE&rsquo;s. Neither can be relicensed and Imortek does not claim to. Ported files under
-          <code>pbsd/</code> keep the upstream copyright header they inherited, and that header
+          <code translate="no">pbsd/</code> keep the upstream copyright header they inherited, and that header
           governs the file &mdash; it beats the per-path default.
         </p>
         <p class="dim">
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
-             rel="noopener"><code>LICENSING.md</code></a> is the authoritative per-path map, and
-          <code>docs/PROVENANCE.md</code> records which modules are ported and which are new PBSD
+             rel="noopener"><code translate="no">LICENSING.md</code></a> is the authoritative per-path map, and
+          <code translate="no">docs/PROVENANCE.md</code> records which modules are ported and which are new PBSD
           work, so the boundary is checkable rather than asserted. New work &mdash; the capability
           nucleus, the tooling, the compositor and the Aero theme &mdash; carries the Imortek dual
           licence.
@@ -285,12 +285,12 @@ Licensed under AGPL-3.0+.</pre>
           <strong>Three carve-outs the audit turned up.</strong> Twenty-two ported files inherit the
           original four-clause BSD licence, whose advertising clause the AGPL cannot accept, so they
           are excluded from the AGPL grant and must not enter an AGPL binary.
-          <code>pbsd/zfs/</code> derives from OpenZFS, which is CDDL and has no compatibility route
+          <code translate="no">pbsd/zfs/</code> derives from OpenZFS, which is CDDL and has no compatibility route
           to the AGPL &mdash; ZFS stays a separate unmodified module. And the KDE-derived work is
           compatible only through the &ldquo;or later&rdquo; clause, so GPL-2.0-only code must never
           enter the tree. All three are listed in
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> and enforced by a CI check.
+             rel="noopener"><code translate="no">NOTICES.md</code></a> and enforced by a CI check.
         </div>
       </div>
     </div>
@@ -317,7 +317,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was CC BY 4.0</td></tr>
-          <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed &middot; <code>vendor/</code> excluded</td></tr>
+          <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed &middot; <code translate="no">vendor/</code> excluded</td></tr>
           <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was proprietary</td></tr>
           <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was MIT</td></tr>
           <tr><td><a href="/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed</td></tr>
@@ -462,7 +462,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

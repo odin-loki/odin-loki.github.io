@@ -192,7 +192,7 @@
       <div>
         <p class="dim">
           В обычном Unix процесс не <em>владеет</em> правом открыть
-          <code>/etc/master.passwd</code>. Он просто просит, а ядро решает уже после, исходя из того, кем процесс себя объявляет. Любой процесс может назвать любой ресурс в системе. Пространство имён глобальное и окружающее; проверка приделана задним числом.
+          <code translate="no">/etc/master.passwd</code>. Он просто просит, а ядро решает уже после, исходя из того, кем процесс себя объявляет. Любой процесс может назвать любой ресурс в системе. Пространство имён глобальное и окружающее; проверка приделана задним числом.
         </p>
         <p class="dim">
           Именно поэтому одна ошибка разбора в отрисовщике шрифтов превращается в кражу учётных данных. Отрисовщику никогда не был нужен файл паролей &mdash; но в архитектуре ничто не помешало ему его запросить.
@@ -205,7 +205,7 @@
       <div>
         <div class="card">
           <h3 style="font-size:1rem">Два способа ответить на один системный вызов</h3>
-          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+          <pre class="code" style="margin-top:14px" translate="no"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
 // checks uid/gid/MAC after the fact</span>
@@ -215,7 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Иллюстрация формы различия, а не дословный перечень API. Авторитетная модель лежит в <code>docs/</code>.
+            Иллюстрация формы различия, а не дословный перечень API. Авторитетная модель лежит в <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -293,7 +293,7 @@
       </div>
 
       <div class="panel__foot">
-        Учебная модель устройства безопасности PBSD, написанная для этой страницы. Настоящее ядро лежит в <code>pbsd/</code>; спецификация — в
+        Учебная модель устройства безопасности PBSD, написанная для этой страницы. Настоящее ядро лежит в <code translate="no">pbsd/</code>; спецификация — в
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -319,7 +319,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Этап 1</span>
         <h3 style="font-size:1.05rem">Инвентаризация</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> и <code>clang_cxx23_port.py</code> оценивают каждый файл на C по сложности и пишут <code>c_inventory.csv</code>. Об объёме работ ничего не угадывается.
+          <code translate="no">tools/inventory_c_sources.py</code> и <code translate="no">clang_cxx23_port.py</code> оценивают каждый файл на C по сложности и пишут <code translate="no">c_inventory.csv</code>. Об объёме работ ничего не угадывается.
         </p>
       </div>
       <div class="card card--hover">
@@ -327,8 +327,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Этап 2</span>
         <h3 style="font-size:1.05rem">Детерминированные проходы</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> применяет безопасные механические переписывания на уровнях 0&ndash;4. Модель не участвует. Всё, от чего проход отказался, записывается в
-          <code>refusals.jsonl</code> а не продавливается силой.
+          <code translate="no">run_todo_passes.py</code> применяет безопасные механические переписывания на уровнях 0&ndash;4. Модель не участвует. Всё, от чего проход отказался, записывается в
+          <code translate="no">refusals.jsonl</code> а не продавливается силой.
         </p>
       </div>
       <div class="card card--hover">
@@ -336,7 +336,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Этап 3</span>
         <h3 style="font-size:1.05rem">Агентный цикл</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> заполняет файлы-заглушки и отвергнутые файлы через DeepSeek Flash с эскалацией на Pro при максимальном усилии рассуждения &mdash; по умолчанию 48 воркеров Flash и 24 Pro.
+          <code translate="no">pbsd.py</code> заполняет файлы-заглушки и отвергнутые файлы через DeepSeek Flash с эскалацией на Pro при максимальном усилии рассуждения &mdash; по умолчанию 48 воркеров Flash и 24 Pro.
           <strong>Именно это и финансирует Kickstarter.</strong>
         </p>
       </div>
@@ -346,7 +346,7 @@
         <h3 style="font-size:1.05rem">Барьер проверки</h3>
         <p class="small dim" style="margin:0">
           Компиляция, ASan, UBSan, дифференциальное исполнение и сверка IR. Файл, который только компилируется, — <em>непроверенный</em>. Отказы попадают в
-          <code>agent_port_failures.jsonl</code>.
+          <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
     </div>
@@ -405,15 +405,15 @@
       </div>
     </details>
     <details class="acc reveal">
-      <summary>C++ в ядре — freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>C++ в ядре — freestanding: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        Ядро не может зависеть от хостовой среды выполнения C++. Никаких исключений, никакого RTTI, никаких путей стандартной библиотеки с выделением в куче на входе в ядро. Ограничения записаны в <code>docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
+        Ядро не может зависеть от хостовой среды выполнения C++. Никаких исключений, никакого RTTI, никаких путей стандартной библиотеки с выделением в куче на входе в ядро. Ограничения записаны в <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
       </div>
     </details>
     <details class="acc reveal">
       <summary>У каждого модуля должна быть запись о происхождении, прежде чем он считается готовым</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> фиксирует, откуда взялся каждый модуль и под какой лицензией. Именно это делает заявление о лицензиях ниже проверяемым, а не декларативным &mdash; можно модуль за модулем посмотреть, какой код происходит из HardenedBSD, а какой является новой работой PBSD.
+        <code translate="no">docs/PROVENANCE.md</code> фиксирует, откуда взялся каждый модуль и под какой лицензией. Именно это делает заявление о лицензиях ниже проверяемым, а не декларативным &mdash; можно модуль за модулем посмотреть, какой код происходит из HardenedBSD, а какой является новой работой PBSD.
       </div>
     </details>
   </div>
@@ -430,7 +430,7 @@
           Новый код PBSD &mdash; ядро, модули C++23, инструменты &mdash; предлагается на стандартных условиях Imortek: AGPL-3.0+ бесплатно для личного использования, благотворительных организаций, образования и организаций с оборотом до AUD&nbsp;50 000 в год, а выше этого порога — коммерческая лицензия по уровням.
         </p>
         <p class="dim">
-          Код, производный от HardenedBSD, остаётся под своей исходной лицензией BSD. Его нельзя перелицензировать, и Imortek этого не заявляет. <code>docs/PROVENANCE.md</code> — это запись о том, что к чему относится.
+          Код, производный от HardenedBSD, остаётся под своей исходной лицензией BSD. Его нельзя перелицензировать, и Imortek этого не заявляет. <code translate="no">docs/PROVENANCE.md</code> — это запись о том, что к чему относится.
         </p>
         <a class="btn btn--ghost" href="/ru/licensing.html">Полные условия лицензирования &rarr;</a>
       </div>
@@ -439,12 +439,12 @@
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ и коммерческая</span></div>
             <h4 style="margin:0 0 6px">Новая работа PBSD</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, ядро возможностей, UDA, BIFROST, композитор и тема.</p>
+            <p class="small muted" style="margin:0"><code translate="no">pbsd/</code>, <code translate="no">tools/</code>, <code translate="no">scripts/</code>, ядро возможностей, UDA, BIFROST, композитор и тема.</p>
           </div>
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (без изменений)</span></div>
             <h4 style="margin:0 0 6px">Производное от HardenedBSD</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> и каждый перенесённый файл, который к нему восходит. Исходные условия, исходное указание авторства.</p>
+            <p class="small muted" style="margin:0"><code translate="no">hbsd/</code> и каждый перенесённый файл, который к нему восходит. Исходные условия, исходное указание авторства.</p>
           </div>
         </div>
       </div>
@@ -573,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T18:37:11Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T20:36:07Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>

@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5، مبني بـEmscripten، لمعمارية x86 فقط. والبناء الأصلي يربط المكتبة نفسها من <code>deps/capstone</code>.
+        Capstone 5، مبني بـEmscripten، لمعمارية x86 فقط. والبناء الأصلي يربط المكتبة نفسها من <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; رجوع</button>
             <button class="btn btn--sm btn--primary" id="rd-next">المرحلة التالية &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">بيئة التشغيل</span>
-        <p class="small dim" style="margin:0">حاويات STL وبِنى بيئة تشغيل C++ &mdash; شكل <code>std::vector</code> يعاود الظهور من نمط الحجز.</p></div>
+        <p class="small dim" style="margin:0">حاويات STL وبِنى بيئة تشغيل C++ &mdash; شكل <code translate="no">std::vector</code> يعاود الظهور من نمط الحجز.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التعمية</span>
         <p class="small dim" style="margin:0">أوليّات AES وSHA وChaCha20 وRSA والمنحنيات الإهليلجية، تُحدَّد بالثوابت وبنية الجولات.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">الفرز &amp; البحث</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">الرسوم البيانية</span>
         <p class="small dim" style="margin:0">خوارزميات الرسوم البيانية وأنماط الاجتياز BFS/DFS.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التزامن</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>، وpthreads، وOpenMP، وTBB، والذرّيات الخام.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>، وpthreads، وOpenMP، وTBB، والذرّيات الخام.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">التسلسل</span>
         <p class="small dim" style="margin:0">تأطير Protobuf وFlatBuffers وMessagePack وJSON وXML.</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 ملفًّا ثنائيًّا، والرقم المؤلم</h2>
         <p class="dim">
           كل الملفات الثنائية ELF الـ216 في مجموعة الاختبار تنتج شيفرة C قابلة للبناء مع
-          <code>--buildable</code>، وهو مفعَّل افتراضيًّا. أما استعادة الخوارزميات فقصة أخرى، والطريقة الصادقة للإبلاغ عنها هي وضع الرقمين جنبًا إلى جنب.
+          <code translate="no">--buildable</code>، وهو مفعَّل افتراضيًّا. أما استعادة الخوارزميات فقصة أخرى، والطريقة الصادقة للإبلاغ عنها هي وضع الرقمين جنبًا إلى جنب.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>المقياس</th><th class="num">النتيجة</th><th>الشرط</th></tr></thead>
             <tbody>
-              <tr><td>مخرَج C قابل للبناء</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>، مفعَّل افتراضيًّا</td></tr>
+              <tr><td>مخرَج C قابل للبناء</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>، مفعَّل افتراضيًّا</td></tr>
               <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">0.056</td><td class="muted">أعمى عن الأسماء، فاصل ثقة 95% 0.034&ndash;0.083</td></tr>
               <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">1.000</td><td class="muted">بمساعدة الأسماء، ملفات ثنائية ذات رموز</td></tr>
-              <tr><td>إعادة ترجمة ملف <code>.c</code> الافتراضي</td><td class="num">لا</td><td class="muted">لا هذا التفريع ولا RetDec الأصلي</td></tr>
+              <tr><td>إعادة ترجمة ملف <code translate="no">.c</code> الافتراضي</td><td class="num">لا</td><td class="muted">لا هذا التفريع ولا RetDec الأصلي</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">اختياري، دون اتصال، وخلف بوابة</h2>
         <p class="dim">
           يجري التنقيح عبر llama.cpp بنماذج GGUF، دون اتصال تمامًا، فقط حين يكون
-          <code>RETDEC_NEURAL_REFINE=1</code> ويُعطى مسار نموذج. وهو مُطفأ افتراضيًّا ولا يحلّ محلّ الخط الأساس أبدًا.
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> ويُعطى مسار نموذج. وهو مُطفأ افتراضيًّا ولا يحلّ محلّ الخط الأساس أبدًا.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>بوابة ترجمة.</strong> على المخرَج المنقَّح أن يجتاز <code>gcc -fsyntax-only</code> قبل أن يُقبل.</li>
+          <li><strong>بوابة ترجمة.</strong> على المخرَج المنقَّح أن يجتاز <code translate="no">gcc -fsyntax-only</code> قبل أن يُقبل.</li>
           <li><strong>تحقّق بنيوي.</strong> يجب أن يظل التنقيح مطابقًا للبنية المرفوعة.</li>
           <li><strong>الخط الأساس الحتمي محفوظ.</strong> يبقى مخرَج المُفكِّك غير المنقَّح هو الأثر القابل للتدقيق. وإن احتجت إلى الدفاع عن نتيجة، فعنه تدافع.</li>
           <li><strong>لا شبكة.</strong> استدلال GGUF محلي. لا يغادر الجهازَ أي شيء عن ملفك الثنائي.</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T18:37:11Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T20:36:07Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>

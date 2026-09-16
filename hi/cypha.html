@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>एक AI संरचना जो बनी है <span class="gradient-text">मूल सिद्धांतों से</span>, किसी का फ़ोर्क नहीं</h1>
         <p class="lede">
-          Cypha न तो ट्रांसफ़ॉर्मर का रैपर है और न किसी और के मॉडल की ट्यून की हुई नक़ल। एक ही सार्वजनिक टाइप &mdash; <code>cypha::Cypha</code> &mdash; वर्गीकरण करता है, प्रतिगमन करता है, अव्यक्त चर से नमूने लेता है और अनुक्रम बनाता है, और उसका सीखने का नियम वहाँ से निकला है जहाँ चार औपचारिक कार्यक्रम आपस में मिलते हैं।
+          Cypha न तो ट्रांसफ़ॉर्मर का रैपर है और न किसी और के मॉडल की ट्यून की हुई नक़ल। एक ही सार्वजनिक टाइप &mdash; <code translate="no">cypha::Cypha</code> &mdash; वर्गीकरण करता है, प्रतिगमन करता है, अव्यक्त चर से नमूने लेता है और अनुक्रम बनाता है, और उसका सीखने का नियम वहाँ से निकला है जहाँ चार औपचारिक कार्यक्रम आपस में मिलते हैं।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">अपने ब्राउज़र में एक प्रशिक्षित कीजिए</a>
@@ -186,7 +186,7 @@
       <h2>यादृच्छिक फ़ीचर, जिन्हें बताया नहीं, नापा गया है</h2>
       <p class="lede">
         यादृच्छिक फ़ूरिये फ़ीचर के पक्ष में Cypha की दलील यह है कि उनसे एक रैखिक हेड वह अलग कर पाता है जो एक रैखिक हेड नहीं कर सकता। यह नापने लायक़ दावा है, इसलिए यहाँ उसे नापा गया है &mdash;
-        <code>cypha::rff_features</code> को WebAssembly में कंपाइल करके, JavaScript में दोबारा लिखकर नहीं।
+        <code translate="no">cypha::rff_features</code> को WebAssembly में कंपाइल करके, JavaScript में दोबारा लिखकर नहीं।
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>इसे कंपाइल करते हुए एक बग मिला।</strong> ORF &mdash; सघन ऑर्थोगोनल रूप &mdash; हर पंक्ति को इकाई लंबाई पर नॉर्मलाइज़ कर रहा था, जबकि Yu et al. पंक्ति का नॉर्म यहाँ से लेते हैं:
-            <code>chi_d</code> ताकि कोई ऑर्थोगोनल पंक्ति उस गाउसी पंक्ति से मेल खाए जिसकी वह जगह लेती है। पंक्तियाँ &radic;d गुना छोटी थीं, इसलिए फ़ीचर ग़लत कर्नेल का सन्निकटन कर रहे थे और त्रुटि अभिसरित होने के बजाय सपाट पड़ जाती थी। एक पंक्ति। अब वह तीनों में सबसे अच्छा है।
+            <code translate="no">chi_d</code> ताकि कोई ऑर्थोगोनल पंक्ति उस गाउसी पंक्ति से मेल खाए जिसकी वह जगह लेती है। पंक्तियाँ &radic;d गुना छोटी थीं, इसलिए फ़ीचर ग़लत कर्नेल का सन्निकटन कर रहे थे और त्रुटि अभिसरित होने के बजाय सपाट पड़ जाती थी। एक पंक्ति। अब वह तीनों में सबसे अच्छा है।
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">एनकोडर</span>
         <h3 style="font-size:1.02rem">बदला जा सकने वाला फ़्रंट एंड</h3>
         <p class="small dim" style="margin:0">
-          कच्चे इनपुट से फ़ीचर वेक्टर तक। इसके साथ आते हैं: <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (यादृच्छिक फ़ूरिये फ़ीचर) और <code>ConcatEncoder</code>। इसे बदल दीजिए, आगे की किसी चीज़ को छुए बिना।
+          कच्चे इनपुट से फ़ीचर वेक्टर तक। इसके साथ आते हैं: <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (यादृच्छिक फ़ूरिये फ़ीचर) और <code translate="no">ConcatEncoder</code>। इसे बदल दीजिए, आगे की किसी चीज़ को छुए बिना।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">प्रोफ़ाइल किए हुए, अंदाज़े से नहीं</h2>
         <p class="dim">ये एक प्रोफ़ाइल किए गए मध्यम-ग्रिड अनुकूलन से निकले हैं और संदर्भ विन्यास के रूप में साथ आते हैं।</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">फ़ीचर विमा</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF बजट</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">रीप्ले अनुपात</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">संदर्भ खिड़की</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">वर्ल्ड प्रायर LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">क्लास डिफ़ LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">एनकोडर LR</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL लैम्ब्डा</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">फ़ीचर विमा</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF बजट</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">रीप्ले अनुपात</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">संदर्भ खिड़की</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">वर्ल्ड प्रायर LR</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">क्लास डिफ़ LR</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">एनकोडर LR</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL लैम्ब्डा</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">इसे बनाइए</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">तीन कमांड</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-16T18:37:11Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T20:36:07Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
     </div>
   </div>
 </footer>

@@ -89,7 +89,29 @@ invalidate its translation and a sentence appearing on two pages is translated o
 untranslated falls through to English, and the builder measures that coverage per page and
 makes the page say so above the fold below 92%.
 
-The research ledgers are deliberately **not** translated. Every figure in them is a claim
+### The other seven thousand languages
+
+Ten are written by hand. Everyone else arrives through Chrome, Edge, Safari or Google
+Translate — and so does anybody reading the forty-six research ledgers, which are published in
+English only. Machine translation is not a hypothetical here; it is how most of the world will
+read most of this site.
+
+There is no translate widget and there will not be one. Every page says *no trackers, no
+cookies, no analytics*, and a third-party script that watches every visitor would make that a
+lie. What the site does instead is the two things that actually matter:
+
+- **`<html lang>` is correct on all 196 pages.** That single attribute is what every browser's
+  built-in translator keys off, and it is why a reader can right-click any page here and get a
+  usable translation without the site doing anything at all.
+- **`translate="no"` on what must not be mangled**, added at build time by
+  `tools/i18n_protect.py` — 483 elements across the research pages, 87 on each core page.
+  Machine translation reorders numbers and happily translates `exp`. A ledger cell reading
+  `0.543 · exp(-0.041 · s)` or `exact for n < 3.317 × 10²⁴` does not survive that, and this is
+  a site whose entire argument is that every number is checkable. Code is protected wherever
+  it appears; monospace cells are protected in the body but not in the footer, so the prose
+  there still translates like prose.
+
+The research ledgers are deliberately **not** translated by hand. Every figure in them is a claim
 somebody can check, and a mistranslated claim is a false claim. They stay in English, the
 shelf says so in the reader's language, and no `hreflang` promises otherwise.
 

@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">قراران يشكّلان كل شيء</span>
           <ul class="flist flist--violet">
-            <li><strong>BLAS/LAPACK داخل الشجرة.</strong> لا Eigen، ولا OpenBLAS. <code>linalg</code> يملك LU وQR وSVD وeig وCholesky والنوى على طراز LAPACK، فيكون النشر عملية ترجمة لا مطاردة اعتماديات.</li>
-            <li><strong>مجموعة فرعية مقيَّدة من C++.</strong> لا مؤشّرات خام، ولا استثناءات، ولا تحويلات غير آمنة &mdash; مفروضة وقت الترجمة. وشيفرة الإنتاج تُرجِع <code>Result&lt;T&gt;</code>، فتكون معالجة الأخطاء حتمية وظاهرة في النوع.</li>
+            <li><strong>BLAS/LAPACK داخل الشجرة.</strong> لا Eigen، ولا OpenBLAS. <code translate="no">linalg</code> يملك LU وQR وSVD وeig وCholesky والنوى على طراز LAPACK، فيكون النشر عملية ترجمة لا مطاردة اعتماديات.</li>
+            <li><strong>مجموعة فرعية مقيَّدة من C++.</strong> لا مؤشّرات خام، ولا استثناءات، ولا تحويلات غير آمنة &mdash; مفروضة وقت الترجمة. وشيفرة الإنتاج تُرجِع <code translate="no">Result&lt;T&gt;</code>، فتكون معالجة الأخطاء حتمية وظاهرة في النوع.</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">عبارة في x</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">المشتقّة الرمزية</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            المدعوم: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>، والثوابت <code>pi</code> و <code>e</code>. ونظام الجبر الرمزي الحقيقي أكبر بكثير؛ وهذه هي الفكرة نفسها بحجم قابل للقراءة.
+            المدعوم: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>، والثوابت <code translate="no">pi</code> و <code translate="no">e</code>. ونظام الجبر الرمزي الحقيقي أكبر بكثير؛ وهذه هي الفكرة نفسها بحجم قابل للقراءة.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        مُقسِّم رموز، ومُحلِّل نزول تعاودي، ومُفاضِل رمزي، ومُبسِّط، كُتبت لهذه الصفحة. أما تنفيذ C++ فيقع في مكتبة <code>symbolic</code> .
+        مُقسِّم رموز، ومُحلِّل نزول تعاودي، ومُفاضِل رمزي، ومُبسِّط، كُتبت لهذه الصفحة. أما تنفيذ C++ فيقع في مكتبة <code translate="no">symbolic</code> .
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">ليست إعادة تنفيذ</span>
       <h2>مكتبة C++ الحقيقية، مُترجَمة إلى WebAssembly</h2>
       <p class="lede">
-        كل ما فوق هذا JavaScript كُتب لهذه الصفحة &mdash; صادق، لكنه نموذج للشيء الحقيقي. وأدناه الشيء الحقيقي: <code>libms_symbolic</code> نفسه، مُترجَمًا من المصدر نفسه الذي يبني المكتبة الأصلية، يعمل في متصفحك.
+        كل ما فوق هذا JavaScript كُتب لهذه الصفحة &mdash; صادق، لكنه نموذج للشيء الحقيقي. وأدناه الشيء الحقيقي: <code translate="no">libms_symbolic</code> نفسه، مُترجَمًا من المصدر نفسه الذي يبني المكتبة الأصلية، يعمل في متصفحك.
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>سطر ISA هو المكتبة تقول الحقيقة عن نفسها.</strong> فهي تستدعي
-            <code>ms::detect_isa()</code>، وهو الاستدعاء نفسه الذي تجريه أصليًّا. على حاسوبك المكتبي يجيب بـAVX2 أو AVX-512؛ وهنا مجموعة تعليمات متجهية واحدة، وهي تقول ذلك.
+            <code translate="no">ms::detect_isa()</code>، وهو الاستدعاء نفسه الذي تجريه أصليًّا. على حاسوبك المكتبي يجيب بـAVX2 أو AVX-512؛ وهنا مجموعة تعليمات متجهية واحدة، وهي تقول ذلك.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        مبنية بـEmscripten من شجرة MathScript. وقد لزم إصلاح ثلاثة عيوب في قابلية النقل للوصول إلى ذلك، وكلها تؤثّر أيضًا على البناء الأصلي مع Apple clang وعلى ARM &mdash; انظر <code>tools/wasm/README.md</code>.
+        مبنية بـEmscripten من شجرة MathScript. وقد لزم إصلاح ثلاثة عيوب في قابلية النقل للوصول إلى ذلك، وكلها تؤثّر أيضًا على البناء الأصلي مع Apple clang وعلى ARM &mdash; انظر <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">أساسي</span>
         <h3 style="font-size:1.02rem">الأنظمة الأساسية</h3>
-        <p class="small dim" style="margin:0">جبر خطي كثيف ومتناثر مع LU وQR وSVD وحلّالات القيم الذاتية وCholesky داخل الشجرة. <code>Result&lt;T&gt;</code> لمعالجة الأخطاء في كل مكان.</p></div>
+        <p class="small dim" style="margin:0">جبر خطي كثيف ومتناثر مع LU وQR وSVD وحلّالات القيم الذاتية وCholesky داخل الشجرة. <code translate="no">Result&lt;T&gt;</code> لمعالجة الأخطاء في كل مكان.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">عددي</span>
         <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">لماذا بلا استثناءات</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">مكتبة عددية لا تستطيع أن ترمي عليك استثناءً</h2>
     <p class="dim">
-      الشيفرة العددية تفشل بطرق عادية: مصفوفة شاذّة، أو تكرار لا يتقارب، أو خطأ مجال في دالّة خاصة. والإشارة إلى ذلك باستثناء تعني أن كل مستدعٍ إمّا أن يلفّ كل شيء بـ <code>try</code> أو يكتشف الفشل في أعلى المكدس بلا أي سياق. وMathScript يجعل الفشل جزءًا من نوع الإرجاع.
+      الشيفرة العددية تفشل بطرق عادية: مصفوفة شاذّة، أو تكرار لا يتقارب، أو خطأ مجال في دالّة خاصة. والإشارة إلى ذلك باستثناء تعني أن كل مستدعٍ إمّا أن يلفّ كل شيء بـ <code translate="no">try</code> أو يكتشف الفشل في أعلى المكدس بلا أي سياق. وMathScript يجعل الفشل جزءًا من نوع الإرجاع.
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T18:37:11Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T20:36:07Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>

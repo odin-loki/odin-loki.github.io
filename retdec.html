@@ -244,7 +244,7 @@
       </div>
       <div class="panel__foot">
         Capstone 5, built with Emscripten, x86 only. The native build links the same library
-        from <code>deps/capstone</code>.
+        from <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -302,7 +302,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; Back</button>
             <button class="btn btn--sm btn--primary" id="rd-next">Next stage &rarr;</button>
@@ -359,7 +359,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
+        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> reappearing from the allocation pattern.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
         <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
@@ -367,7 +367,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
         <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
         <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
     </div>
@@ -382,17 +382,17 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binaries, and the number that hurts</h2>
         <p class="dim">
           All 216 ELF binaries in the test corpus produce buildable C with
-          <code>--buildable</code>, which is on by default. Algorithm recovery is a different
+          <code translate="no">--buildable</code>, which is on by default. Algorithm recovery is a different
           story, and the honest way to report it is both numbers side by side.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
             <tbody>
-              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
+              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, default on</td></tr>
               <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
               <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
-              <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
+              <tr><td>Default <code translate="no">.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
             </tbody>
           </table>
         </div>
@@ -410,16 +410,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Optional, offline, and gated</h2>
         <p class="dim">
           Refinement runs through llama.cpp with GGUF models, entirely offline, only when
-          <code>RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
           and it never replaces the baseline.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Compile gate.</strong> Refined output must pass <code>gcc -fsyntax-only</code> before it is accepted.</li>
+          <li><strong>Compile gate.</strong> Refined output must pass <code translate="no">gcc -fsyntax-only</code> before it is accepted.</li>
           <li><strong>Structural validation.</strong> The refinement must still correspond to the lifted structure.</li>
           <li><strong>Deterministic baseline preserved.</strong> The unrefined decompiler output remains the auditable artefact. If you need to defend a finding, you defend that one.</li>
           <li><strong>No network.</strong> Local GGUF inference. Nothing about your binary leaves the machine.</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -563,7 +563,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

@@ -249,7 +249,7 @@
         <span class="eyebrow">श्रेय</span>
         <h3>वह पंक्ति जो AGPL इस्तेमाल करने वालों को रखनी है</h3>
         <p class="dim small">अपने about बॉक्स, प्रलेखन, या फ़ुटर में:</p>
-        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+        <pre class="code" style="margin-top:12px" translate="no">Powered by Ideas, developed by Odin Loch.
 Licensed under AGPL-3.0+.</pre>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">श्रेय कॉपी करें</button>
@@ -259,19 +259,19 @@ Licensed under AGPL-3.0+.</pre>
         <span class="eyebrow eyebrow--amber">अपवाद</span>
         <h3>ParanoidBSD में अपस्ट्रीम कोड का लाइसेंस नहीं बदला जाता</h3>
         <p class="dim">
-          ParanoidBSD दो अपस्ट्रीम ट्री साथ रखता है और दोनों से पोर्ट करता है। <code>hbsd/</code> HardenedBSD और FreeBSD की अपनी शर्तों पर ही रहता है; <code>kde/</code> KDE की शर्तों पर रहता है। इनमें से किसी का लाइसेंस बदला नहीं जा सकता और Imortek ऐसा दावा भी नहीं करता। जो फ़ाइलें पोर्ट होकर
-          <code>pbsd/</code> में आई हैं, वे अपना विरासत में मिला अपस्ट्रीम कॉपीराइट हेडर रखती हैं, और उस फ़ाइल पर वही हेडर लागू होता है &mdash; वह प्रति-पथ तयशुदा नियम को हरा देता है।
+          ParanoidBSD दो अपस्ट्रीम ट्री साथ रखता है और दोनों से पोर्ट करता है। <code translate="no">hbsd/</code> HardenedBSD और FreeBSD की अपनी शर्तों पर ही रहता है; <code translate="no">kde/</code> KDE की शर्तों पर रहता है। इनमें से किसी का लाइसेंस बदला नहीं जा सकता और Imortek ऐसा दावा भी नहीं करता। जो फ़ाइलें पोर्ट होकर
+          <code translate="no">pbsd/</code> में आई हैं, वे अपना विरासत में मिला अपस्ट्रीम कॉपीराइट हेडर रखती हैं, और उस फ़ाइल पर वही हेडर लागू होता है &mdash; वह प्रति-पथ तयशुदा नियम को हरा देता है।
         </p>
         <p class="dim">
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
-             rel="noopener"><code>LICENSING.md</code></a> ही प्रति-पथ का प्रामाणिक नक़्शा है, और
-          <code>docs/PROVENANCE.md</code> दर्ज करता है कि कौन-से मॉड्यूल पोर्ट किए गए हैं और कौन-से नए PBSD का काम हैं, जिससे यह सीमा दावे भर की नहीं, बल्कि जाँचने लायक़ बनती है। नया काम &mdash; कैपेबिलिटी नाभिक, औज़ार, कंपोज़िटर और Aero थीम &mdash; Imortek के दोहरे लाइसेंस पर चलता है।
+             rel="noopener"><code translate="no">LICENSING.md</code></a> ही प्रति-पथ का प्रामाणिक नक़्शा है, और
+          <code translate="no">docs/PROVENANCE.md</code> दर्ज करता है कि कौन-से मॉड्यूल पोर्ट किए गए हैं और कौन-से नए PBSD का काम हैं, जिससे यह सीमा दावे भर की नहीं, बल्कि जाँचने लायक़ बनती है। नया काम &mdash; कैपेबिलिटी नाभिक, औज़ार, कंपोज़िटर और Aero थीम &mdash; Imortek के दोहरे लाइसेंस पर चलता है।
         </p>
         <div class="note note--amber" style="margin-top:16px">
           <strong>ऑडिट में तीन अपवाद निकले।</strong> बाईस पोर्ट की गई फ़ाइलों को मूल चार-खंड वाला BSD लाइसेंस विरासत में मिला है, जिसके विज्ञापन-खंड को AGPL स्वीकार नहीं कर सकता, इसलिए वे AGPL की अनुमति से बाहर हैं और किसी AGPL बाइनरी में नहीं जानी चाहिए।
-          <code>pbsd/zfs/</code> OpenZFS से निकला है, जो CDDL है और जिसका AGPL से मेल बिठाने का कोई रास्ता नहीं &mdash; ZFS एक अलग, बिना बदला हुआ मॉड्यूल ही रहता है। और KDE से निकला काम सिर्फ़ &ldquo;या बाद का&rdquo; खंड के ज़रिए संगत है, इसलिए सिर्फ़-GPL-2.0 वाला कोड ट्री में कभी नहीं आना चाहिए। तीनों यहाँ दर्ज हैं:
+          <code translate="no">pbsd/zfs/</code> OpenZFS से निकला है, जो CDDL है और जिसका AGPL से मेल बिठाने का कोई रास्ता नहीं &mdash; ZFS एक अलग, बिना बदला हुआ मॉड्यूल ही रहता है। और KDE से निकला काम सिर्फ़ &ldquo;या बाद का&rdquo; खंड के ज़रिए संगत है, इसलिए सिर्फ़-GPL-2.0 वाला कोड ट्री में कभी नहीं आना चाहिए। तीनों यहाँ दर्ज हैं:
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> और एक CI जाँच उन्हें लागू करती है।
+             rel="noopener"><code translate="no">NOTICES.md</code></a> और एक CI जाँच उन्हें लागू करती है।
         </div>
       </div>
     </div>
@@ -295,7 +295,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/hi/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/hi/cypha.html">Cypha</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले CC BY 4.0</td></tr>
-          <tr><td><a href="/hi/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले बिना लाइसेंस &middot; <code>vendor/</code> बाहर रखा गया</td></tr>
+          <tr><td><a href="/hi/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले बिना लाइसेंस &middot; <code translate="no">vendor/</code> बाहर रखा गया</td></tr>
           <tr><td><a href="/hi/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले मालिकाना</td></tr>
           <tr><td><a href="/hi/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले MIT</td></tr>
           <tr><td><a href="/hi/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / वाणिज्यिक</td><td><span class="badge badge--teal">लागू</span></td><td class="muted">पहले बिना लाइसेंस</td></tr>
@@ -421,7 +421,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-16T18:37:11Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T20:36:07Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
     </div>
   </div>
 </footer>

@@ -149,7 +149,7 @@
         <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
         <p class="lede">
           Cypha is not a transformer wrapper and not a tuned copy of somebody else&rsquo;s model.
-          One public type &mdash; <code>cypha::Cypha</code> &mdash; classifies, regresses, samples
+          One public type &mdash; <code translate="no">cypha::Cypha</code> &mdash; classifies, regresses, samples
           latents and generates sequences, with a learning rule derived from where four
           formal programmes intersect.
         </p>
@@ -190,7 +190,7 @@
       <p class="lede">
         Cypha&rsquo;s case for random Fourier features is that they let a linear head separate
         what a linear head cannot. That is a measurable claim, so this measures it &mdash; with
-        <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
+        <code translate="no">cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
       </p>
     </div>
 
@@ -234,7 +234,7 @@
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Compiling this found a bug.</strong> ORF &mdash; the dense orthogonal variant
             &mdash; was normalising every row to unit length, when Yu et al. draw the row norm from
-            <code>chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
+            <code translate="no">chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
             &radic;d too short, so the features approximated the wrong kernel and the error
             plateaued instead of converging. One line. It is now the best of the three.
           </div>
@@ -268,8 +268,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Encoder</span>
         <h3 style="font-size:1.02rem">Pluggable front end</h3>
         <p class="small dim" style="margin:0">
-          Raw input to feature vector. Ships <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (random Fourier features) and <code>ConcatEncoder</code>.
+          Raw input to feature vector. Ships <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (random Fourier features) and <code translate="no">ConcatEncoder</code>.
           Swap it without touching anything downstream.
         </p>
       </div>
@@ -515,14 +515,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Profiled, not guessed</h2>
         <p class="dim">These come out of a profiled medium-grid optimisation and ship as the reference configuration.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Feature dim</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF budget</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Replay ratio</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Context window</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">World prior LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">Class diff LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">Encoder LR</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Feature dim</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF budget</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">Replay ratio</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Context window</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">World prior LR</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">Class diff LR</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">Encoder LR</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -609,7 +609,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">Build it</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Three commands</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -689,7 +689,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

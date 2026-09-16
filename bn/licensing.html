@@ -249,7 +249,7 @@
         <span class="eyebrow">কৃতিত্ব</span>
         <h3>AGPL ব্যবহারকারীদের যে লাইনটি রাখতে হয়</h3>
         <p class="dim small">আপনার অ্যাবাউট বাক্সে, নথিপত্রে, বা ফুটারে:</p>
-        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+        <pre class="code" style="margin-top:12px" translate="no">Powered by Ideas, developed by Odin Loch.
 Licensed under AGPL-3.0+.</pre>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">কৃতিত্বের লাইন কপি করুন</button>
@@ -259,19 +259,19 @@ Licensed under AGPL-3.0+.</pre>
         <span class="eyebrow eyebrow--amber">ব্যতিক্রম</span>
         <h3>ParanoidBSD-তে মূল প্রকল্প থেকে আসা কোড পুনরায় লাইসেন্স করা হয় না</h3>
         <p class="dim">
-          ParanoidBSD মূল দুটি গাছ নিজের ভিতরে রাখে আর দুটি থেকেই পোর্ট করে। <code>hbsd/</code> থাকে HardenedBSD আর FreeBSD-র নিজস্ব শর্তে; <code>kde/</code> থাকে KDE-র শর্তে। কোনোটিই পুনরায় লাইসেন্স করা যায় না, আর Imortek তেমন দাবিও করে না। যে পোর্ট করা ফাইলগুলি আছে
-          <code>pbsd/</code> ফোল্ডারে, সেগুলি উত্তরাধিকারসূত্রে পাওয়া মূল কপিরাইট হেডারটাই রাখে, আর ওই হেডারই ফাইলটি নিয়ন্ত্রণ করে &mdash; পথভিত্তিক পূর্বনির্ধারিত নিয়মের চেয়ে সেটিই জেতে।
+          ParanoidBSD মূল দুটি গাছ নিজের ভিতরে রাখে আর দুটি থেকেই পোর্ট করে। <code translate="no">hbsd/</code> থাকে HardenedBSD আর FreeBSD-র নিজস্ব শর্তে; <code translate="no">kde/</code> থাকে KDE-র শর্তে। কোনোটিই পুনরায় লাইসেন্স করা যায় না, আর Imortek তেমন দাবিও করে না। যে পোর্ট করা ফাইলগুলি আছে
+          <code translate="no">pbsd/</code> ফোল্ডারে, সেগুলি উত্তরাধিকারসূত্রে পাওয়া মূল কপিরাইট হেডারটাই রাখে, আর ওই হেডারই ফাইলটি নিয়ন্ত্রণ করে &mdash; পথভিত্তিক পূর্বনির্ধারিত নিয়মের চেয়ে সেটিই জেতে।
         </p>
         <p class="dim">
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
-             rel="noopener"><code>LICENSING.md</code></a> হলো পথভিত্তিক প্রামাণিক মানচিত্র, আর
-          <code>docs/PROVENANCE.md</code> লিখে রাখে কোন মডিউলগুলি পোর্ট করা আর কোনগুলি নতুন PBSD-র কাজ, ফলে সীমানাটা দাবি নয়, মিলিয়ে দেখার মতো। নতুন কাজ &mdash; ক্যাপাবিলিটি নিউক্লিয়াস, সরঞ্জাম, কম্পোজিটর আর Aero থিম &mdash; বহন করে Imortek-এর দ্বৈত লাইসেন্স।
+             rel="noopener"><code translate="no">LICENSING.md</code></a> হলো পথভিত্তিক প্রামাণিক মানচিত্র, আর
+          <code translate="no">docs/PROVENANCE.md</code> লিখে রাখে কোন মডিউলগুলি পোর্ট করা আর কোনগুলি নতুন PBSD-র কাজ, ফলে সীমানাটা দাবি নয়, মিলিয়ে দেখার মতো। নতুন কাজ &mdash; ক্যাপাবিলিটি নিউক্লিয়াস, সরঞ্জাম, কম্পোজিটর আর Aero থিম &mdash; বহন করে Imortek-এর দ্বৈত লাইসেন্স।
         </p>
         <div class="note note--amber" style="margin-top:16px">
           <strong>নিরীক্ষায় উঠে আসা তিনটি ব্যতিক্রম।</strong> বাইশটি পোর্ট করা ফাইল উত্তরাধিকারসূত্রে পেয়েছে মূল চার-দফা BSD লাইসেন্স, যার বিজ্ঞাপন-দফা AGPL মেনে নিতে পারে না, তাই সেগুলি AGPL অনুমোদনের বাইরে রাখা হয়েছে আর কোনো AGPL বাইনারিতে ঢোকা চলবে না।
-          <code>pbsd/zfs/</code> এসেছে OpenZFS থেকে, যা CDDL-এ আর AGPL-এর সঙ্গে খাপ খাওয়ানোর কোনো পথ নেই &mdash; ZFS একটি আলাদা, অপরিবর্তিত মডিউল হিসেবেই থাকে। আর KDE থেকে আসা কাজটি খাপ খায় কেবল &ldquo;বা পরবর্তী&rdquo; দফাটির মাধ্যমে, তাই GPL-2.0-only কোড কখনও গাছে ঢোকা চলবে না। তিনটিই তালিকাভুক্ত আছে
+          <code translate="no">pbsd/zfs/</code> এসেছে OpenZFS থেকে, যা CDDL-এ আর AGPL-এর সঙ্গে খাপ খাওয়ানোর কোনো পথ নেই &mdash; ZFS একটি আলাদা, অপরিবর্তিত মডিউল হিসেবেই থাকে। আর KDE থেকে আসা কাজটি খাপ খায় কেবল &ldquo;বা পরবর্তী&rdquo; দফাটির মাধ্যমে, তাই GPL-2.0-only কোড কখনও গাছে ঢোকা চলবে না। তিনটিই তালিকাভুক্ত আছে
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> ফাইলে, আর একটি CI পরীক্ষা তা বলবৎ করে।
+             rel="noopener"><code translate="no">NOTICES.md</code></a> ফাইলে, আর একটি CI পরীক্ষা তা বলবৎ করে।
         </div>
       </div>
     </div>
@@ -295,7 +295,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/bn/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/bn/cypha.html">Cypha</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে ছিল CC BY 4.0</td></tr>
-          <tr><td><a href="/bn/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে লাইসেন্সহীন &middot; <code>vendor/</code> বাদ</td></tr>
+          <tr><td><a href="/bn/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে লাইসেন্সহীন &middot; <code translate="no">vendor/</code> বাদ</td></tr>
           <tr><td><a href="/bn/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে ছিল মালিকানাধীন</td></tr>
           <tr><td><a href="/bn/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে ছিল MIT</td></tr>
           <tr><td><a href="/bn/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / বাণিজ্যিক</td><td><span class="badge badge--teal">বহাল</span></td><td class="muted">আগে লাইসেন্সহীন</td></tr>
@@ -421,7 +421,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T18:37:11Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T20:36:07Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>

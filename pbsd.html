@@ -195,7 +195,7 @@
       <div>
         <p class="dim">
           On a conventional Unix, a process does not <em>hold</em> the right to open
-          <code>/etc/master.passwd</code>. It simply asks, and the kernel decides afterwards,
+          <code translate="no">/etc/master.passwd</code>. It simply asks, and the kernel decides afterwards,
           based on who the process claims to be. Every process can name every resource on the
           system. The name space is global and ambient; the check is a late afterthought.
         </p>
@@ -214,7 +214,7 @@
       <div>
         <div class="card">
           <h3 style="font-size:1rem">Two ways to answer one syscall</h3>
-          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+          <pre class="code" style="margin-top:14px" translate="no"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
 // checks uid/gid/MAC after the fact</span>
@@ -225,7 +225,7 @@
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
             Illustrative shape of the difference, not a verbatim API listing.
-            The authoritative model is in <code>docs/</code>.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -308,7 +308,7 @@
 
       <div class="panel__foot">
         A pedagogical model of the PBSD security design, written for this page. The real
-        nucleus lives in <code>pbsd/</code>; the specification is in
+        nucleus lives in <code translate="no">pbsd/</code>; the specification is in
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -336,8 +336,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Stage 1</span>
         <h3 style="font-size:1.05rem">Inventory</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> and <code>clang_cxx23_port.py</code> score
-          every C file by difficulty and write <code>c_inventory.csv</code>. Nothing is guessed
+          <code translate="no">tools/inventory_c_sources.py</code> and <code translate="no">clang_cxx23_port.py</code> score
+          every C file by difficulty and write <code translate="no">c_inventory.csv</code>. Nothing is guessed
           about scope.
         </p>
       </div>
@@ -346,9 +346,9 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Stage 2</span>
         <h3 style="font-size:1.05rem">Deterministic passes</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> applies safe mechanical rewrites in tiers 0&ndash;4.
+          <code translate="no">run_todo_passes.py</code> applies safe mechanical rewrites in tiers 0&ndash;4.
           No model involved. Anything a pass refuses is logged to
-          <code>refusals.jsonl</code> rather than forced.
+          <code translate="no">refusals.jsonl</code> rather than forced.
         </p>
       </div>
       <div class="card card--hover">
@@ -356,7 +356,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Stage 3</span>
         <h3 style="font-size:1.05rem">Agent loop</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> fills stubbed and refused files with DeepSeek Flash escalating
+          <code translate="no">pbsd.py</code> fills stubbed and refused files with DeepSeek Flash escalating
           to Pro at maximum reasoning effort &mdash; 48 Flash and 24 Pro workers by default.
           <strong>This is what the Kickstarter funds.</strong>
         </p>
@@ -368,7 +368,7 @@
         <p class="small dim" style="margin:0">
           Compile, ASan, UBSan, differential execution and IR comparison. A file that only
           compiles is <em>unverified</em>. Failures land in
-          <code>agent_port_failures.jsonl</code>.
+          <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
     </div>
@@ -447,18 +447,18 @@
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Kernel C++ is freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>Kernel C++ is freestanding: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
         The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no RTTI,
         no heap-allocating standard library paths on kernel entry. The constraints are
-        written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
+        written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
         can tell what is legal in kernel context without guessing.
       </div>
     </details>
     <details class="acc reveal">
       <summary>Every module needs a provenance entry before it counts as done</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> records where each module came from and under which
+        <code translate="no">docs/PROVENANCE.md</code> records where each module came from and under which
         licence. This is what makes the licensing statement below verifiable rather than
         aspirational &mdash; you can check, module by module, which code is HardenedBSD-derived
         and which is new PBSD work.
@@ -481,7 +481,7 @@
         </p>
         <p class="dim">
           Code derived from HardenedBSD stays under its original BSD licence. It cannot be
-          relicensed and Imortek does not claim to. <code>docs/PROVENANCE.md</code> is the
+          relicensed and Imortek does not claim to. <code translate="no">docs/PROVENANCE.md</code> is the
           record of which is which.
         </p>
         <a class="btn btn--ghost" href="/licensing.html">Full licensing terms &rarr;</a>
@@ -491,12 +491,12 @@
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; commercial</span></div>
             <h4 style="margin:0 0 6px">New PBSD work</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, the capability nucleus, UDA, BIFROST, compositor and theme.</p>
+            <p class="small muted" style="margin:0"><code translate="no">pbsd/</code>, <code translate="no">tools/</code>, <code translate="no">scripts/</code>, the capability nucleus, UDA, BIFROST, compositor and theme.</p>
           </div>
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (unchanged)</span></div>
             <h4 style="margin:0 0 6px">HardenedBSD-derived</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> and every ported file tracing back to it. Original terms, original attribution.</p>
+            <p class="small muted" style="margin:0"><code translate="no">hbsd/</code> and every ported file tracing back to it. Original terms, original attribution.</p>
           </div>
         </div>
       </div>
@@ -627,7 +627,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

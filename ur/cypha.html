@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>ایک AI ڈھانچہ جو بنا ہے <span class="gradient-text">بنیادی اصولوں سے</span>، کسی فورک سے نہیں</h1>
         <p class="lede">
-          Cypha نہ ٹرانسفارمر کا کوئی غلاف ہے، نہ کسی اور کے ماڈل کی تراشی ہوئی نقل۔ ایک ہی عوامی قسم &mdash; <code>cypha::Cypha</code> &mdash; درجہ بندی کرتی ہے، ریگریشن کرتی ہے، پوشیدہ متغیرات سے نمونے لیتی ہے اور سلسلے بناتی ہے، اور اس کا قاعدۂ تعلم وہاں سے اخذ ہوا ہے جہاں چار رسمی پروگرام آپس میں ملتے ہیں۔
+          Cypha نہ ٹرانسفارمر کا کوئی غلاف ہے، نہ کسی اور کے ماڈل کی تراشی ہوئی نقل۔ ایک ہی عوامی قسم &mdash; <code translate="no">cypha::Cypha</code> &mdash; درجہ بندی کرتی ہے، ریگریشن کرتی ہے، پوشیدہ متغیرات سے نمونے لیتی ہے اور سلسلے بناتی ہے، اور اس کا قاعدۂ تعلم وہاں سے اخذ ہوا ہے جہاں چار رسمی پروگرام آپس میں ملتے ہیں۔
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">اپنے براؤزر میں ایک تربیت دیں</a>
@@ -186,7 +186,7 @@
       <h2>بے ترتیب فیچر، بیان کرنے کے بجائے ناپے ہوئے</h2>
       <p class="lede">
         بے ترتیب Fourier فیچر کے حق میں Cypha کی دلیل یہ ہے کہ ان کی بدولت ایک لکیری head وہ چیز الگ کر لیتا ہے جو لکیری head نہیں کر سکتا۔ یہ ایک قابلِ پیمائش دعویٰ ہے، اس لیے یہاں اسے ناپا گیا ہے &mdash;
-        <code>cypha::rff_features</code> کو WebAssembly میں کمپائل کر کے، JavaScript میں دوبارہ بیان کر کے نہیں۔
+        <code translate="no">cypha::rff_features</code> کو WebAssembly میں کمپائل کر کے، JavaScript میں دوبارہ بیان کر کے نہیں۔
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>اسے کمپائل کرنے سے ایک خرابی نکلی۔</strong> ORF &mdash; گنجان عمودی قسم &mdash; ہر سطر کو اکائی لمبائی پر نارملائز کر رہا تھا، جبکہ Yu وغیرہ سطر کا نارم یہاں سے لیتے ہیں:
-            <code>chi_d</code> تاکہ ایک عمودی سطر اسی گاؤسی سطر سے مطابقت رکھے جس کی وہ جگہ لیتی ہے۔ سطریں &radic;d گنا چھوٹی تھیں، اس لیے فیچر غلط کرنل کی تقریب کر رہے تھے اور خطا تقارب کے بجائے ایک سطح پر جا ٹھہری۔ ایک سطر۔ اب یہ تینوں میں سب سے بہتر ہے۔
+            <code translate="no">chi_d</code> تاکہ ایک عمودی سطر اسی گاؤسی سطر سے مطابقت رکھے جس کی وہ جگہ لیتی ہے۔ سطریں &radic;d گنا چھوٹی تھیں، اس لیے فیچر غلط کرنل کی تقریب کر رہے تھے اور خطا تقارب کے بجائے ایک سطح پر جا ٹھہری۔ ایک سطر۔ اب یہ تینوں میں سب سے بہتر ہے۔
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">انکوڈر</span>
         <h3 style="font-size:1.02rem">بدلا جا سکنے والا اگلا سرا</h3>
         <p class="small dim" style="margin:0">
-          خام داخلہ سے فیچر ویکٹر تک۔ ساتھ آتے ہیں <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (بے ترتیب Fourier فیچر) اور <code>ConcatEncoder</code>۔ اسے بدل دیں، آگے کی کسی چیز کو چھوئے بغیر۔
+          خام داخلہ سے فیچر ویکٹر تک۔ ساتھ آتے ہیں <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (بے ترتیب Fourier فیچر) اور <code translate="no">ConcatEncoder</code>۔ اسے بدل دیں، آگے کی کسی چیز کو چھوئے بغیر۔
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ناپ کر نکالی گئیں، اندازے سے نہیں</h2>
         <p class="dim">یہ ایک درمیانے گرڈ کی پروفائل شدہ بہتری سے نکلی ہیں اور حوالہ جاتی ترتیب کے طور پر ساتھ آتی ہیں۔</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">فیچر جہت</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF بجٹ</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">ریپلے نسبت</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">سیاق کی کھڑکی</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">عالمی مفروضے کی LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">طبقاتی تفریق کی LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">انکوڈر کی LR</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">فیچر جہت</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF بجٹ</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">ریپلے نسبت</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">سیاق کی کھڑکی</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">عالمی مفروضے کی LR</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">طبقاتی تفریق کی LR</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">انکوڈر کی LR</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">اسے بنائیں</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">تین کمانڈ</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-16T18:37:11Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-16T20:36:07Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
     </div>
   </div>
 </footer>

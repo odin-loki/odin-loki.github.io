@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Software &amp; languages <span style="opacity:.5">/</span> Future C++
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="speculative"><i class="on" data-l="Speculative"></i><i class="" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Theory or design only. No in-house measurement.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Future C++</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Future C++</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Software &amp; languages</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design conversation. The brainstorm before the RFC.</span></div>
           </div>
@@ -164,8 +164,8 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">The discussion axes are the expected ones done properly: <strong>memory safety</strong> (borrow checking, bounds checking, lifetime annotations), <strong>concurrency</strong> (compile-time data-race detection, async/await, green threads, message passing, software transactional memory), <strong>metaprogramming</strong> (compile-time function evaluation, algebraic data types with pattern matching, traits and concepts), and <strong>tooling</strong> &mdash; the package manager, test runner, benchmark harness and documentation generator that C++ has chronically lacked.</p>
-      <p class="dim">The syntax position is "C++ look, C#-style ergonomics": <code>property&lt;&gt;</code> and <code>event&lt;&gt;</code>, <code>async Task</code>, extension methods, string interpolation, a simplified generic syntax, and Boost-as-core for the standard library with modules replacing headers.</p>
-      <p class="dim">The arc is the interesting part, and the folder flags it as a weakness. Phase one argues that modern C++ &mdash; concepts, ranges, coroutines, modules, <code>std::expected</code>, <code>std::format</code> &mdash; already closes most of the gap. Phase two asks what borrow checking and integrated tooling would still add. Phase three sketches "cleaned-up C++ plus cherry-picked C# ergonomics". The README notes that phases one and three do not fully reconcile.</p>
+      <p class="dim">The syntax position is "C++ look, C#-style ergonomics": <code translate="no">property&lt;&gt;</code> and <code translate="no">event&lt;&gt;</code>, <code translate="no">async Task</code>, extension methods, string interpolation, a simplified generic syntax, and Boost-as-core for the standard library with modules replacing headers.</p>
+      <p class="dim">The arc is the interesting part, and the folder flags it as a weakness. Phase one argues that modern C++ &mdash; concepts, ranges, coroutines, modules, <code translate="no">std::expected</code>, <code translate="no">std::format</code> &mdash; already closes most of the gap. Phase two asks what borrow checking and integrated tooling would still add. Phase three sketches "cleaned-up C++ plus cherry-picked C# ergonomics". The README notes that phases one and three do not fully reconcile.</p>
     </div>
     <div class="note note--amber reveal" style="margin-top:28px">
       <strong>Filed under speculative for a reason.</strong> This is a transcript, and it is on the shelf because the shelf is a complete index rather than a curated selection. The one durable point in it is the tooling argument: whatever else modern C++ has fixed, it has not shipped a package manager, and that is the axis where the discussion needs no defending.
@@ -190,13 +190,13 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Transcript length</td><td class="mono" style="color:var(--ink)">~3,700+ lines</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Single conversation log</td></tr>
-          <tr><td>Discussion axes</td><td class="mono" style="color:var(--ink)">6</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Safety, concurrency, metaprogramming, tooling, syntax, standard library</td></tr>
-          <tr><td>Arc phases</td><td class="mono" style="color:var(--ink)">3</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Modern C++ may suffice → the wishlist → cleaned-up C++ + C# ergonomics</td></tr>
-          <tr><td>Grammar</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No formal syntax specification</td></tr>
-          <tr><td>Compiler</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No implementation</td></tr>
-          <tr><td>Benchmarks</td><td class="mono" style="color:var(--ink)">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Nothing to measure</td></tr>
-          <tr><td>Self-identified inconsistency</td><td class="mono" style="color:var(--ink)">phases 1 and 3 do not reconcile</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Stated in the folder’s own caveats</td></tr>
+          <tr><td>Transcript length</td><td class="mono" style="color:var(--ink)" translate="no">~3,700+ lines</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Single conversation log</td></tr>
+          <tr><td>Discussion axes</td><td class="mono" style="color:var(--ink)" translate="no">6</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Safety, concurrency, metaprogramming, tooling, syntax, standard library</td></tr>
+          <tr><td>Arc phases</td><td class="mono" style="color:var(--ink)" translate="no">3</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Modern C++ may suffice → the wishlist → cleaned-up C++ + C# ergonomics</td></tr>
+          <tr><td>Grammar</td><td class="mono" style="color:var(--ink)" translate="no">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No formal syntax specification</td></tr>
+          <tr><td>Compiler</td><td class="mono" style="color:var(--ink)" translate="no">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">No implementation</td></tr>
+          <tr><td>Benchmarks</td><td class="mono" style="color:var(--ink)" translate="no">none</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Nothing to measure</td></tr>
+          <tr><td>Self-identified inconsistency</td><td class="mono" style="color:var(--ink)" translate="no">phases 1 and 3 do not reconcile</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Stated in the folder’s own caveats</td></tr>
         </tbody>
       </table>
     </div>
@@ -316,7 +316,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

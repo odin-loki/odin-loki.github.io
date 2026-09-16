@@ -679,10 +679,13 @@ for lrow in "${LOC_ROWS[@]}"; do
 
     { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type" "$keywords"
       [[ -n "$notice" ]] && printf '%s\n' "$notice"
+      # Every body goes through the protector: ten languages are written by
+      # hand and the rest of the world arrives through a machine translator,
+      # which is careless with exactly the figures this site is built on.
       if [[ -z "$LC_PREFIX" ]]; then
-        cat "$body"
+        python3 tools/i18n_protect.py < "$body"
       else
-        python3 tools/i18n_segments.py apply "$slug" "$LC_CODE"
+        python3 tools/i18n_segments.py apply "$slug" "$LC_CODE" | python3 tools/i18n_protect.py
       fi
       emit_foot "$extra_js"
     } > "$out"

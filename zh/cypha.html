@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>一套从 <span class="gradient-text">第一性原理</span>出发构建的 AI 架构，不是 fork 来的</h1>
         <p class="lede">
-          Cypha 不是 transformer 的包装层，也不是别人模型调过参的副本。一个公开类型 &mdash; <code>cypha::Cypha</code> &mdash; 做分类、回归、隐变量采样和序列生成，学习规则由四条形式化研究纲领的交汇处推导而来。
+          Cypha 不是 transformer 的包装层，也不是别人模型调过参的副本。一个公开类型 &mdash; <code translate="no">cypha::Cypha</code> &mdash; 做分类、回归、隐变量采样和序列生成，学习规则由四条形式化研究纲领的交汇处推导而来。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">在你的浏览器里训练一个</a>
@@ -186,7 +186,7 @@
       <h2>随机特征，测出来的，不是说出来的</h2>
       <p class="lede">
         Cypha 用随机傅里叶特征的理由是：它们能让一个线性头分开线性头本来分不开的东西。这是一个可测量的主张，所以这里就把它测一遍 &mdash; 用的是
-        <code>cypha::rff_features</code> 编译成的 WebAssembly，不是用 JavaScript 复述一遍。
+        <code translate="no">cypha::rff_features</code> 编译成的 WebAssembly，不是用 JavaScript 复述一遍。
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>编译这段代码时发现了一个 bug。</strong> ORF &mdash; 稠密正交变体 &mdash; 把每一行都归一化成了单位长度，而 Yu 等人是从
-            <code>chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
+            <code translate="no">chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">编码器</span>
         <h3 style="font-size:1.02rem">可插拔的前端</h3>
         <p class="small dim" style="margin:0">
-          从原始输入到特征向量。自带 <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> （随机傅里叶特征）与 <code>ConcatEncoder</code>。换掉它不用动下游的任何东西。
+          从原始输入到特征向量。自带 <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> （随机傅里叶特征）与 <code translate="no">ConcatEncoder</code>。换掉它不用动下游的任何东西。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">跑过性能剖析的，不是猜的</h2>
         <p class="dim">这些是从一次带性能剖析的中等网格优化里得出来的，作为参考配置发布。</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">特征维度</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF 预算</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">回放比例</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">上下文窗口</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">世界先验学习率</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">类差分学习率</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">编码器学习率</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">特征维度</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF 预算</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">回放比例</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">上下文窗口</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">世界先验学习率</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">类差分学习率</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">编码器学习率</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">自己构建</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">三条命令</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

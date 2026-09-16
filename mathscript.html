@@ -168,8 +168,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Two decisions that shape everything</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
-            <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code>Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
+            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code translate="no">Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
           </ul>
         </div>
       </div>
@@ -198,7 +198,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">Expression in x</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -219,7 +219,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">Symbolic derivative</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -247,15 +247,15 @@
             </div>
           </div>
           <p class="tiny muted">
-            Supported: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, constants <code>pi</code> and <code>e</code>. The real CAS is
+            Supported: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, constants <code translate="no">pi</code> and <code translate="no">e</code>. The real CAS is
             considerably larger; this is the same idea at reading scale.
           </p>
         </div>
       </div>
       <div class="panel__foot">
         A tokeniser, recursive-descent parser, symbolic differentiator and simplifier written for
-        this page. The C++ implementation lives in the <code>symbolic</code> library.
+        this page. The C++ implementation lives in the <code translate="no">symbolic</code> library.
       </div>
     </div>
   </div>
@@ -269,7 +269,7 @@
       <h2>The actual C++ library, compiled to WebAssembly</h2>
       <p class="lede">
         Everything above is JavaScript written for this page &mdash; honest, but a model of the
-        real thing. Below is the real thing: <code>libms_symbolic</code> itself, compiled from
+        real thing. Below is the real thing: <code translate="no">libms_symbolic</code> itself, compiled from
         the same source that builds the native library, running in your browser.
       </p>
     </div>
@@ -329,7 +329,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>The ISA line is the library telling the truth about itself.</strong> It asks
-            <code>ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
             answers AVX2 or AVX-512; here there is one vector ISA and it says so.
           </div>
         </div>
@@ -337,7 +337,7 @@
       <div class="panel__foot">
         Built with Emscripten from the MathScript tree. Three portability defects had to be
         fixed to get there, all of which also affect native builds on Apple clang and on ARM
-        &mdash; see <code>tools/wasm/README.md</code>.
+        &mdash; see <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -355,7 +355,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Core</span>
         <h3 style="font-size:1.02rem">Core systems</h3>
-        <p class="small dim" style="margin:0">Dense and sparse linear algebra with in-tree LU, QR, SVD, eigensolvers and Cholesky. <code>Result&lt;T&gt;</code> error handling throughout.</p></div>
+        <p class="small dim" style="margin:0">Dense and sparse linear algebra with in-tree LU, QR, SVD, eigensolvers and Cholesky. <code translate="no">Result&lt;T&gt;</code> error handling throughout.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Numerical</span>
         <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
@@ -459,10 +459,10 @@
     <p class="dim">
       Numerical code fails in ordinary ways: a singular matrix, a non-convergent iteration, a
       domain error in a special function. Signalling that with an exception means every caller
-      either wraps everything in <code>try</code> or discovers the failure at the top of the stack
+      either wraps everything in <code translate="no">try</code> or discovers the failure at the top of the stack
       with no context. MathScript makes the failure part of the return type.
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -543,7 +543,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

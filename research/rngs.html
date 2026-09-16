@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Cryptography <span style="opacity:.5">/</span> RNG portfolio
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">RNGS</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">RNGS</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Cryptography</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing: statistical batteries run on three of four. Reference implementations in Python, C and ANSI C.</span></div>
           </div>
@@ -190,18 +190,18 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Meta-DAG state space</td><td class="mono" style="color:var(--ink)">2¹⁵³⁶ × 40320</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Eight nodes, eight meta-operations, permutation term</td></tr>
-          <tr><td>Meta-DAG entropy rate</td><td class="mono" style="color:var(--ink)">≥63.9 bits per 64-bit output</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Estimated, not measured</td></tr>
-          <tr><td>Meta-DAG period lower bound</td><td class="mono" style="color:var(--ink)">2⁶⁴</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Lower bound only</td></tr>
-          <tr><td>OTB-LCG state space</td><td class="mono" style="color:var(--ink)">2²⁵⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Maximum period by Hull–Dobell</td></tr>
-          <tr><td>OTB-LCG naive-LCG bias eliminated</td><td class="mono" style="color:var(--ink)">22.66%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Via XOR Boolean parity parameter generation</td></tr>
-          <tr><td>OTB-LCG NIST SP 800-22</td><td class="mono" style="color:var(--ink)">99%+ pass rate</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Rev. 1a battery, author-run</td></tr>
-          <tr><td>SynerChaos correlation reduction</td><td class="mono" style="color:var(--ink)">500/999 → &lt;10/999 (98%)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">v1 → v2 sequential correlations</td></tr>
-          <tr><td>SynerChaos footprint</td><td class="mono" style="color:var(--ink)">739-bit state, 80 bytes</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Down from 112 bytes in v1</td></tr>
-          <tr><td>SynerChaos throughput</td><td class="mono" style="color:var(--ink)">~80 cycles/output</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">ARM Cortex-M4, 32-bit outputs</td></tr>
-          <tr><td>TurbulentFlow entropy</td><td class="mono" style="color:var(--ink)">3.3219 bits</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">100,000 samples; theoretical max log₂10 ≈ 3.3219</td></tr>
-          <tr><td>TurbulentFlow chi-square</td><td class="mono" style="color:var(--ink)">p = 0.582</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Well above α = 0.05</td></tr>
-          <tr><td>TurbulentFlow avalanche pass rate</td><td class="mono" style="color:var(--ink)">&gt;0.999</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">MurmurHash3-derived finaliser</td></tr>
+          <tr><td>Meta-DAG state space</td><td class="mono" style="color:var(--ink)" translate="no">2¹⁵³⁶ × 40320</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Eight nodes, eight meta-operations, permutation term</td></tr>
+          <tr><td>Meta-DAG entropy rate</td><td class="mono" style="color:var(--ink)" translate="no">≥63.9 bits per 64-bit output</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Estimated, not measured</td></tr>
+          <tr><td>Meta-DAG period lower bound</td><td class="mono" style="color:var(--ink)" translate="no">2⁶⁴</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Lower bound only</td></tr>
+          <tr><td>OTB-LCG state space</td><td class="mono" style="color:var(--ink)" translate="no">2²⁵⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Maximum period by Hull–Dobell</td></tr>
+          <tr><td>OTB-LCG naive-LCG bias eliminated</td><td class="mono" style="color:var(--ink)" translate="no">22.66%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Via XOR Boolean parity parameter generation</td></tr>
+          <tr><td>OTB-LCG NIST SP 800-22</td><td class="mono" style="color:var(--ink)" translate="no">99%+ pass rate</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Rev. 1a battery, author-run</td></tr>
+          <tr><td>SynerChaos correlation reduction</td><td class="mono" style="color:var(--ink)" translate="no">500/999 → &lt;10/999 (98%)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">v1 → v2 sequential correlations</td></tr>
+          <tr><td>SynerChaos footprint</td><td class="mono" style="color:var(--ink)" translate="no">739-bit state, 80 bytes</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Down from 112 bytes in v1</td></tr>
+          <tr><td>SynerChaos throughput</td><td class="mono" style="color:var(--ink)" translate="no">~80 cycles/output</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">ARM Cortex-M4, 32-bit outputs</td></tr>
+          <tr><td>TurbulentFlow entropy</td><td class="mono" style="color:var(--ink)" translate="no">3.3219 bits</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">100,000 samples; theoretical max log₂10 ≈ 3.3219</td></tr>
+          <tr><td>TurbulentFlow chi-square</td><td class="mono" style="color:var(--ink)" translate="no">p = 0.582</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Well above α = 0.05</td></tr>
+          <tr><td>TurbulentFlow avalanche pass rate</td><td class="mono" style="color:var(--ink)" translate="no">&gt;0.999</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">MurmurHash3-derived finaliser</td></tr>
         </tbody>
       </table>
     </div>
@@ -321,7 +321,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

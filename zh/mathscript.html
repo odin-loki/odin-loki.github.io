@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">两个决定了一切的决策</span>
           <ul class="flist flist--violet">
-            <li><strong>树内的 BLAS/LAPACK。</strong> 不用 Eigen，不用 OpenBLAS。 <code>linalg</code> 自己拥有 LU、QR、SVD、eig、Cholesky 以及 LAPACK 风格的核心例程，所以部署就是一次编译，而不是一场找依赖的苦役。</li>
-            <li><strong>一个受限的 C++ 子集。</strong> 不用裸指针，不用异常，不用不安全的类型转换 &mdash; 编译期强制。生产代码返回 <code>Result&lt;T&gt;</code>，所以错误处理是确定性的，而且在类型里看得见。</li>
+            <li><strong>树内的 BLAS/LAPACK。</strong> 不用 Eigen，不用 OpenBLAS。 <code translate="no">linalg</code> 自己拥有 LU、QR、SVD、eig、Cholesky 以及 LAPACK 风格的核心例程，所以部署就是一次编译，而不是一场找依赖的苦役。</li>
+            <li><strong>一个受限的 C++ 子集。</strong> 不用裸指针，不用异常，不用不安全的类型转换 &mdash; 编译期强制。生产代码返回 <code translate="no">Result&lt;T&gt;</code>，所以错误处理是确定性的，而且在类型里看得见。</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">关于 x 的表达式</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">符号导数</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            支持： <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>，常量 <code>pi</code> 与 <code>e</code>。真正的 CAS 要大得多；这里是同一个想法，缩到读得下的规模。
+            支持： <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>，常量 <code translate="no">pi</code> 与 <code translate="no">e</code>。真正的 CAS 要大得多；这里是同一个想法，缩到读得下的规模。
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        为这个页面写的分词器、递归下降解析器、符号求导器和化简器。C++ 实现在 <code>symbolic</code> 库里。
+        为这个页面写的分词器、递归下降解析器、符号求导器和化简器。C++ 实现在 <code translate="no">symbolic</code> 库里。
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">不是重新实现一遍</span>
       <h2>真正的那个 C++ 库，编译成了 WebAssembly</h2>
       <p class="lede">
-        上面的一切都是为这个页面写的 JavaScript &mdash; 它是老实的，但只是真东西的一个模型。下面才是真东西： <code>libms_symbolic</code> 本身，由构建本地库的同一份源码编译而来，在你的浏览器里运行。
+        上面的一切都是为这个页面写的 JavaScript &mdash; 它是老实的，但只是真东西的一个模型。下面才是真东西： <code translate="no">libms_symbolic</code> 本身，由构建本地库的同一份源码编译而来，在你的浏览器里运行。
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>指令集那一行是这个库在如实报告自己。</strong> 它调用的是
-            <code>ms::detect_isa()</code>，和它在本地运行时调用的是同一个。在你的台式机上它会回答 AVX2 或 AVX-512；在这里只有一种向量指令集，它也就照实说。
+            <code translate="no">ms::detect_isa()</code>，和它在本地运行时调用的是同一个。在你的台式机上它会回答 AVX2 或 AVX-512；在这里只有一种向量指令集，它也就照实说。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        用 Emscripten 从 MathScript 代码树构建。为此不得不修掉三个可移植性缺陷，这三个也都影响 Apple clang 和 ARM 上的本地构建 &mdash; 见 <code>tools/wasm/README.md</code>.
+        用 Emscripten 从 MathScript 代码树构建。为此不得不修掉三个可移植性缺陷，这三个也都影响 Apple clang 和 ARM 上的本地构建 &mdash; 见 <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">核心</span>
         <h3 style="font-size:1.02rem">核心系统</h3>
-        <p class="small dim" style="margin:0">稠密与稀疏线性代数，LU、QR、SVD、特征值求解器和 Cholesky 都在树内。 <code>Result&lt;T&gt;</code> 错误处理贯穿始终。</p></div>
+        <p class="small dim" style="margin:0">稠密与稀疏线性代数，LU、QR、SVD、特征值求解器和 Cholesky 都在树内。 <code translate="no">Result&lt;T&gt;</code> 错误处理贯穿始终。</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">数值</span>
         <h3 style="font-size:1.02rem">ODE、PDE、FEM、CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">为什么不用异常</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">一个不会朝你扔异常的数值库</h2>
     <p class="dim">
-      数值代码失败的方式都很平常：矩阵奇异、迭代不收敛、特殊函数里的定义域错误。用异常来发这个信号，意味着每个调用方要么把所有东西都包进 <code>try</code> ，要么在栈顶发现失败，却没有任何上下文。MathScript 把失败做成返回类型的一部分。
+      数值代码失败的方式都很平常：矩阵奇异、迭代不收敛、特殊函数里的定义域错误。用异常来发这个信号，意味着每个调用方要么把所有东西都包进 <code translate="no">try</code> ，要么在栈顶发现失败，却没有任何上下文。MathScript 把失败做成返回类型的一部分。
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

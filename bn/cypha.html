@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>একটি AI স্থাপত্য, গড়া <span class="gradient-text">মৌলিক নীতি থেকে</span>, কোনো ফর্ক থেকে নয়</h1>
         <p class="lede">
-          Cypha কোনো ট্রান্সফর্মার র‍্যাপার নয়, অন্য কারও মডেলের টিউন করা নকলও নয়। একটিমাত্র সর্বজনীন টাইপ &mdash; <code>cypha::Cypha</code> &mdash; শ্রেণিবিভাগ করে, রিগ্রেশন করে, সুপ্ত চলক থেকে নমুনা নেয় আর সিকোয়েন্স তৈরি করে; এর শিখন নিয়ম এসেছে চারটি আনুষ্ঠানিক গবেষণাধারা যেখানে মিলিত হয় সেখান থেকে।
+          Cypha কোনো ট্রান্সফর্মার র‍্যাপার নয়, অন্য কারও মডেলের টিউন করা নকলও নয়। একটিমাত্র সর্বজনীন টাইপ &mdash; <code translate="no">cypha::Cypha</code> &mdash; শ্রেণিবিভাগ করে, রিগ্রেশন করে, সুপ্ত চলক থেকে নমুনা নেয় আর সিকোয়েন্স তৈরি করে; এর শিখন নিয়ম এসেছে চারটি আনুষ্ঠানিক গবেষণাধারা যেখানে মিলিত হয় সেখান থেকে।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">ব্রাউজারেই একটিকে প্রশিক্ষণ দিন</a>
@@ -186,7 +186,7 @@
       <h2>র‍্যান্ডম ফিচার, বর্ণনা নয়, মেপে দেখা</h2>
       <p class="lede">
         র‍্যান্ডম ফুরিয়ে ফিচারের পক্ষে Cypha-র যুক্তি হলো, এগুলি একটি রৈখিক হেডকে এমন কিছু আলাদা করতে দেয় যা একটি রৈখিক হেড পারে না। এটি মাপা যায় এমন দাবি, তাই এখানে সেটি মাপা হচ্ছে &mdash;
-        <code>cypha::rff_features</code> WebAssembly-তে কম্পাইল করে, JavaScript-এ নতুন করে বলে নয়।
+        <code translate="no">cypha::rff_features</code> WebAssembly-তে কম্পাইল করে, JavaScript-এ নতুন করে বলে নয়।
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>এটি কম্পাইল করতে গিয়ে একটি বাগ ধরা পড়ল।</strong> ORF &mdash; ঘন অর্থোগোনাল রূপটি &mdash; প্রতিটি সারিকে একক দৈর্ঘ্যে স্বাভাবিক করছিল, অথচ Yu et al. সারির নর্ম নেন
-            <code>chi_d</code> থেকে, যাতে একটি অর্থোগোনাল সারি যে গাউসীয় সারির জায়গা নিচ্ছে তার সঙ্গে মেলে। সারিগুলি &radic;d গুণ বেশি ছোট ছিল, তাই ফিচারগুলি ভুল কার্নেলের কাছাকাছি যাচ্ছিল আর ভুলের মাত্রা অভিসারী না হয়ে থমকে যাচ্ছিল। এক লাইন। এখন তিনটির মধ্যে এটিই সবচেয়ে ভালো।
+            <code translate="no">chi_d</code> থেকে, যাতে একটি অর্থোগোনাল সারি যে গাউসীয় সারির জায়গা নিচ্ছে তার সঙ্গে মেলে। সারিগুলি &radic;d গুণ বেশি ছোট ছিল, তাই ফিচারগুলি ভুল কার্নেলের কাছাকাছি যাচ্ছিল আর ভুলের মাত্রা অভিসারী না হয়ে থমকে যাচ্ছিল। এক লাইন। এখন তিনটির মধ্যে এটিই সবচেয়ে ভালো।
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">এনকোডার</span>
         <h3 style="font-size:1.02rem">বদলে নেওয়া যায় এমন সামনের অংশ</h3>
         <p class="small dim" style="margin:0">
-          কাঁচা ইনপুট থেকে ফিচার ভেক্টর। সঙ্গে আসে <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (র‍্যান্ডম ফুরিয়ে ফিচার) ও <code>ConcatEncoder</code>। পরের ধাপের কিছু না ছুঁয়েই এটি বদলে নেওয়া যায়।
+          কাঁচা ইনপুট থেকে ফিচার ভেক্টর। সঙ্গে আসে <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (র‍্যান্ডম ফুরিয়ে ফিচার) ও <code translate="no">ConcatEncoder</code>। পরের ধাপের কিছু না ছুঁয়েই এটি বদলে নেওয়া যায়।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">প্রোফাইল করে পাওয়া, আন্দাজ করা নয়</h2>
         <p class="dim">এগুলি এসেছে একটি প্রোফাইল করা মাঝারি-গ্রিড অপ্টিমাইজেশন থেকে, আর রেফারেন্স কনফিগারেশন হিসেবেই আসে।</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">ফিচার মাত্রা</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF বাজেট</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">রিপ্লে অনুপাত</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">প্রেক্ষাপট জানালা</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">ওয়ার্ল্ড প্রায়র LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">ক্লাস ডিফ LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">এনকোডার LR</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL ল্যাম্বডা</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">ফিচার মাত্রা</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF বাজেট</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">রিপ্লে অনুপাত</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">প্রেক্ষাপট জানালা</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">ওয়ার্ল্ড প্রায়র LR</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">ক্লাস ডিফ LR</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">এনকোডার LR</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">MDL ল্যাম্বডা</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">বিল্ড করুন</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">তিনটি কমান্ড</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T18:37:11Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T20:36:07Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>

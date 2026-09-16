@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">दो फ़ैसले, जो सब कुछ तय करते हैं</span>
           <ul class="flist flist--violet">
-            <li><strong>BLAS/LAPACK अपने ही ट्री में।</strong> न Eigen, न OpenBLAS। <code>linalg</code> के पास ही LU, QR, SVD, eig, Cholesky और LAPACK-शैली के कर्नेल हैं, इसलिए तैनाती निर्भरताएँ ढूँढ़ना नहीं, बस एक कंपाइल है।</li>
-            <li><strong>C++ का एक सीमित उपसमुच्चय।</strong> न कच्चे पॉइंटर, न एक्सेप्शन, न असुरक्षित कास्ट &mdash; और यह कंपाइल के समय ही लागू होता है। उत्पादन कोड लौटाता है <code>Result&lt;T&gt;</code>, इसलिए त्रुटि-संभाल नियतात्मक है और टाइप में ही दिखती है।</li>
+            <li><strong>BLAS/LAPACK अपने ही ट्री में।</strong> न Eigen, न OpenBLAS। <code translate="no">linalg</code> के पास ही LU, QR, SVD, eig, Cholesky और LAPACK-शैली के कर्नेल हैं, इसलिए तैनाती निर्भरताएँ ढूँढ़ना नहीं, बस एक कंपाइल है।</li>
+            <li><strong>C++ का एक सीमित उपसमुच्चय।</strong> न कच्चे पॉइंटर, न एक्सेप्शन, न असुरक्षित कास्ट &mdash; और यह कंपाइल के समय ही लागू होता है। उत्पादन कोड लौटाता है <code translate="no">Result&lt;T&gt;</code>, इसलिए त्रुटि-संभाल नियतात्मक है और टाइप में ही दिखती है।</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">x में व्यंजक</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">प्रतीकात्मक अवकलज</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            समर्थित: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, स्थिरांक <code>pi</code> और <code>e</code>। असली CAS काफ़ी बड़ा है; यह वही विचार है, पढ़ने लायक़ पैमाने पर।
+            समर्थित: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, स्थिरांक <code translate="no">pi</code> और <code translate="no">e</code>। असली CAS काफ़ी बड़ा है; यह वही विचार है, पढ़ने लायक़ पैमाने पर।
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        एक टोकनाइज़र, रिकर्सिव-डिसेंट पार्सर, प्रतीकात्मक अवकलक और सरलक, जो इस पृष्ठ के लिए लिखे गए हैं। C++ कार्यान्वयन रहता है <code>symbolic</code> लाइब्रेरी में।
+        एक टोकनाइज़र, रिकर्सिव-डिसेंट पार्सर, प्रतीकात्मक अवकलक और सरलक, जो इस पृष्ठ के लिए लिखे गए हैं। C++ कार्यान्वयन रहता है <code translate="no">symbolic</code> लाइब्रेरी में।
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">दोबारा लिखा हुआ नहीं</span>
       <h2>असली C++ लाइब्रेरी, WebAssembly में कंपाइल की हुई</h2>
       <p class="lede">
-        ऊपर जो कुछ है, वह इस पृष्ठ के लिए लिखा गया JavaScript है &mdash; ईमानदार, पर असली चीज़ का एक नमूना। नीचे असली चीज़ है: <code>libms_symbolic</code> ख़ुद, उसी स्रोत से कंपाइल किया हुआ जिससे नेटिव लाइब्रेरी बनती है, और आपके ब्राउज़र में चलता हुआ।
+        ऊपर जो कुछ है, वह इस पृष्ठ के लिए लिखा गया JavaScript है &mdash; ईमानदार, पर असली चीज़ का एक नमूना। नीचे असली चीज़ है: <code translate="no">libms_symbolic</code> ख़ुद, उसी स्रोत से कंपाइल किया हुआ जिससे नेटिव लाइब्रेरी बनती है, और आपके ब्राउज़र में चलता हुआ।
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA वाली पंक्ति में लाइब्रेरी अपने बारे में सच बता रही है।</strong> वह पूछती है
-            <code>ms::detect_isa()</code>, वही कॉल जो वह नेटिव चलते हुए करती है। आपके डेस्कटॉप पर उसका जवाब AVX2 या AVX-512 होता है; यहाँ एक ही वेक्टर ISA है, और वह यही कहती है।
+            <code translate="no">ms::detect_isa()</code>, वही कॉल जो वह नेटिव चलते हुए करती है। आपके डेस्कटॉप पर उसका जवाब AVX2 या AVX-512 होता है; यहाँ एक ही वेक्टर ISA है, और वह यही कहती है।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        MathScript ट्री से Emscripten के साथ बनाया गया। वहाँ तक पहुँचने के लिए पोर्टेबिलिटी की तीन ख़ामियाँ ठीक करनी पड़ीं, और वे सब Apple clang तथा ARM पर नेटिव बिल्डों पर भी असर डालती हैं &mdash; देखिए <code>tools/wasm/README.md</code>.
+        MathScript ट्री से Emscripten के साथ बनाया गया। वहाँ तक पहुँचने के लिए पोर्टेबिलिटी की तीन ख़ामियाँ ठीक करनी पड़ीं, और वे सब Apple clang तथा ARM पर नेटिव बिल्डों पर भी असर डालती हैं &mdash; देखिए <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">मूल</span>
         <h3 style="font-size:1.02rem">मूल सिस्टम</h3>
-        <p class="small dim" style="margin:0">सघन और विरल रैखिक बीजगणित, जिसमें LU, QR, SVD, eigensolver और Cholesky अपने ही ट्री में हैं। <code>Result&lt;T&gt;</code> त्रुटि-संभाल हर जगह।</p></div>
+        <p class="small dim" style="margin:0">सघन और विरल रैखिक बीजगणित, जिसमें LU, QR, SVD, eigensolver और Cholesky अपने ही ट्री में हैं। <code translate="no">Result&lt;T&gt;</code> त्रुटि-संभाल हर जगह।</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">संख्यात्मक</span>
         <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">एक्सेप्शन क्यों नहीं</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">एक संख्यात्मक लाइब्रेरी जो आप पर एक्सेप्शन नहीं फेंक सकती</h2>
     <p class="dim">
-      संख्यात्मक कोड आम तरीक़ों से नाकाम होता है: कोई अव्युत्क्रमणीय मैट्रिक्स, कोई ऐसी पुनरावृत्ति जो अभिसरित नहीं होती, किसी विशेष फलन में प्रांत की त्रुटि। इसे एक्सेप्शन से बताने का मतलब है कि हर कॉल करने वाले को या तो सब कुछ लपेटना पड़ता है <code>try</code> में, या फिर नाकामी उसे स्टैक के सिरे पर बिना किसी संदर्भ के मिलती है। MathScript नाकामी को रिटर्न टाइप का हिस्सा बना देता है।
+      संख्यात्मक कोड आम तरीक़ों से नाकाम होता है: कोई अव्युत्क्रमणीय मैट्रिक्स, कोई ऐसी पुनरावृत्ति जो अभिसरित नहीं होती, किसी विशेष फलन में प्रांत की त्रुटि। इसे एक्सेप्शन से बताने का मतलब है कि हर कॉल करने वाले को या तो सब कुछ लपेटना पड़ता है <code translate="no">try</code> में, या फिर नाकामी उसे स्टैक के सिरे पर बिना किसी संदर्भ के मिलती है। MathScript नाकामी को रिटर्न टाइप का हिस्सा बना देता है।
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-16T18:37:11Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T20:36:07Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
     </div>
   </div>
 </footer>

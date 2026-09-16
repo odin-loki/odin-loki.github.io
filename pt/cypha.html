@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Uma arquitetura de IA construída a partir de <span class="gradient-text">princípios básicos</span>, não um fork</h1>
         <p class="lede">
-          O Cypha não é um wrapper de transformer nem uma cópia ajustada do modelo de outra pessoa. Um único tipo público &mdash; <code>cypha::Cypha</code> &mdash; classifica, faz regressão, amostra latentes e gera sequências, com uma regra de aprendizado derivada de onde quatro programas formais se cruzam.
+          O Cypha não é um wrapper de transformer nem uma cópia ajustada do modelo de outra pessoa. Um único tipo público &mdash; <code translate="no">cypha::Cypha</code> &mdash; classifica, faz regressão, amostra latentes e gera sequências, com uma regra de aprendizado derivada de onde quatro programas formais se cruzam.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Treine um no seu navegador</a>
@@ -186,7 +186,7 @@
       <h2>Random features, medidas em vez de descritas</h2>
       <p class="lede">
         O argumento do Cypha a favor das random Fourier features é que elas deixam uma cabeça linear separar o que uma cabeça linear não separa. Isso é uma afirmação mensurável, então aqui ela é medida &mdash; com
-        <code>cypha::rff_features</code> compilado para WebAssembly, não uma versão refeita em JavaScript.
+        <code translate="no">cypha::rff_features</code> compilado para WebAssembly, não uma versão refeita em JavaScript.
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Compilar isto revelou um bug.</strong> ORF &mdash; a variante ortogonal densa &mdash; estava normalizando toda linha para comprimento unitário, quando Yu et al. tiram a norma da linha de
-            <code>chi_d</code> para que uma linha ortogonal case com a linha gaussiana que ela substitui. As linhas estavam &radic;d vezes curtas demais, então as features aproximavam o kernel errado e o erro estagnava em vez de convergir. Uma linha. Agora é a melhor das três.
+            <code translate="no">chi_d</code> para que uma linha ortogonal case com a linha gaussiana que ela substitui. As linhas estavam &radic;d vezes curtas demais, então as features aproximavam o kernel errado e o erro estagnava em vez de convergir. Uma linha. Agora é a melhor das três.
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Encoder</span>
         <h3 style="font-size:1.02rem">Front end plugável</h3>
         <p class="small dim" style="margin:0">
-          Da entrada bruta ao vetor de features. Vem com <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (random Fourier features) e <code>ConcatEncoder</code>. Troque-o sem mexer em nada mais adiante.
+          Da entrada bruta ao vetor de features. Vem com <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (random Fourier features) e <code translate="no">ConcatEncoder</code>. Troque-o sem mexer em nada mais adiante.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Medidos com profiler, não chutados</h2>
         <p class="dim">Estes saem de uma otimização em grade média com profiling e vêm como a configuração de referência.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Dim. de features</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">Orçamento de RFF</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Proporção de replay</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Janela de contexto</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">LR do prior do mundo</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">LR do diferencial de classe</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">LR do encoder</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">Lambda do MDL</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Dim. de features</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">Orçamento de RFF</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">Proporção de replay</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Janela de contexto</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">LR do prior do mundo</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">LR do diferencial de classe</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">LR do encoder</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">Lambda do MDL</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">Compile</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Três comandos</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-16T18:37:11Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
+      <span class="mono tiny">Compilado em 2026-09-16T20:36:07Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
     </div>
   </div>
 </footer>

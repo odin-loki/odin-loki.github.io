@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">دو فیصلے جو سب کچھ طے کرتے ہیں</span>
           <ul class="flist flist--violet">
-            <li><strong>اپنے ہی کوڈ درخت میں BLAS/LAPACK۔</strong> نہ Eigen، نہ OpenBLAS۔ <code>linalg</code> کے پاس LU، QR، SVD، eig، Cholesky اور LAPACK طرز کے کرنل ہیں، اس لیے تنصیب انحصار ڈھونڈنے کے بجائے محض ایک کمپائل ہے۔</li>
-            <li><strong>C++ کا ایک محدود ذیلی مجموعہ۔</strong> نہ خام پوائنٹر، نہ استثنا، نہ غیر محفوظ کاسٹ &mdash; اور یہ کمپائل کے وقت نافذ ہوتا ہے۔ پیداواری کوڈ واپس دیتا ہے <code>Result&lt;T&gt;</code>، اس لیے غلطی سنبھالنا یقینی ہے اور قسم ہی میں نظر آتا ہے۔</li>
+            <li><strong>اپنے ہی کوڈ درخت میں BLAS/LAPACK۔</strong> نہ Eigen، نہ OpenBLAS۔ <code translate="no">linalg</code> کے پاس LU، QR، SVD، eig، Cholesky اور LAPACK طرز کے کرنل ہیں، اس لیے تنصیب انحصار ڈھونڈنے کے بجائے محض ایک کمپائل ہے۔</li>
+            <li><strong>C++ کا ایک محدود ذیلی مجموعہ۔</strong> نہ خام پوائنٹر، نہ استثنا، نہ غیر محفوظ کاسٹ &mdash; اور یہ کمپائل کے وقت نافذ ہوتا ہے۔ پیداواری کوڈ واپس دیتا ہے <code translate="no">Result&lt;T&gt;</code>، اس لیے غلطی سنبھالنا یقینی ہے اور قسم ہی میں نظر آتا ہے۔</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">x میں اظہار</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">علامتی تفرق</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            معاونت: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>، مستقل قدریں <code>pi</code> اور <code>e</code>۔ اصل CAS کہیں بڑا ہے؛ یہ وہی خیال ہے، پڑھنے کے پیمانے پر۔
+            معاونت: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>، مستقل قدریں <code translate="no">pi</code> اور <code translate="no">e</code>۔ اصل CAS کہیں بڑا ہے؛ یہ وہی خیال ہے، پڑھنے کے پیمانے پر۔
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        ایک ٹوکنائزر، بازگشتی نزول والا پارسر، علامتی تفرق کار اور سادہ کار، جو اسی صفحے کے لیے لکھے گئے۔ C++ نفاذ <code>symbolic</code> لائبریری میں ہے۔
+        ایک ٹوکنائزر، بازگشتی نزول والا پارسر، علامتی تفرق کار اور سادہ کار، جو اسی صفحے کے لیے لکھے گئے۔ C++ نفاذ <code translate="no">symbolic</code> لائبریری میں ہے۔
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">دوبارہ لکھا ہوا نہیں</span>
       <h2>اصل C++ لائبریری، WebAssembly میں کمپائل کی ہوئی</h2>
       <p class="lede">
-        اوپر کی ہر چیز اسی صفحے کے لیے لکھا ہوا JavaScript ہے &mdash; ایمان دار، مگر اصل چیز کا ایک نمونہ۔ نیچے اصل چیز ہے: <code>libms_symbolic</code> بذاتِ خود، اسی سورس سے کمپائل کیا ہوا جس سے اصل لائبریری بنتی ہے، آپ کے براؤزر میں چلتا ہوا۔
+        اوپر کی ہر چیز اسی صفحے کے لیے لکھا ہوا JavaScript ہے &mdash; ایمان دار، مگر اصل چیز کا ایک نمونہ۔ نیچے اصل چیز ہے: <code translate="no">libms_symbolic</code> بذاتِ خود، اسی سورس سے کمپائل کیا ہوا جس سے اصل لائبریری بنتی ہے، آپ کے براؤزر میں چلتا ہوا۔
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA کی سطر وہ جگہ ہے جہاں لائبریری اپنے بارے میں سچ بول رہی ہے۔</strong> یہ پوچھتی ہے
-            <code>ms::detect_isa()</code>، وہی کال جو وہ اصل میں کرتی ہے۔ آپ کے ڈیسک ٹاپ پر اس کا جواب AVX2 یا AVX-512 ہوتا ہے؛ یہاں ایک ہی ویکٹر ISA ہے اور وہ یہی کہتی ہے۔
+            <code translate="no">ms::detect_isa()</code>، وہی کال جو وہ اصل میں کرتی ہے۔ آپ کے ڈیسک ٹاپ پر اس کا جواب AVX2 یا AVX-512 ہوتا ہے؛ یہاں ایک ہی ویکٹر ISA ہے اور وہ یہی کہتی ہے۔
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        MathScript کے کوڈ درخت سے Emscripten کے ساتھ بنایا گیا۔ یہاں تک پہنچنے کے لیے تین قابلِ منتقلی نقص درست کرنے پڑے، اور تینوں Apple clang اور ARM پر اصل بلڈ کو بھی متاثر کرتے ہیں &mdash; دیکھیں <code>tools/wasm/README.md</code>.
+        MathScript کے کوڈ درخت سے Emscripten کے ساتھ بنایا گیا۔ یہاں تک پہنچنے کے لیے تین قابلِ منتقلی نقص درست کرنے پڑے، اور تینوں Apple clang اور ARM پر اصل بلڈ کو بھی متاثر کرتے ہیں &mdash; دیکھیں <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">بنیاد</span>
         <h3 style="font-size:1.02rem">بنیادی نظام</h3>
-        <p class="small dim" style="margin:0">گنجان اور کم گنجان لکیری الجبرا، ساتھ اپنے ہی LU، QR، SVD، eigensolver اور Cholesky۔ <code>Result&lt;T&gt;</code> سے غلطی سنبھالنا، ہر جگہ۔</p></div>
+        <p class="small dim" style="margin:0">گنجان اور کم گنجان لکیری الجبرا، ساتھ اپنے ہی LU، QR، SVD، eigensolver اور Cholesky۔ <code translate="no">Result&lt;T&gt;</code> سے غلطی سنبھالنا، ہر جگہ۔</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">عددی</span>
         <h3 style="font-size:1.02rem">ODE، PDE، FEM، CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">استثنا کیوں نہیں</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ایک عددی لائبریری جو آپ پر کچھ پھینک نہیں سکتی</h2>
     <p class="dim">
-      عددی کوڈ عام طریقوں سے ناکام ہوتا ہے: ایک مفرد میٹرکس، ایک ایسا اعادہ جو تقارب نہ کرے، کسی خصوصی تابع میں دائرے کی غلطی۔ اسے استثنا سے بتانے کا مطلب ہے کہ ہر بلانے والا یا تو سب کچھ لپیٹ دے <code>try</code> میں، یا ناکامی اسٹیک کے سرے پر بغیر کسی سیاق کے دریافت کرے۔ MathScript ناکامی کو واپسی کی قسم کا حصہ بنا دیتا ہے۔
+      عددی کوڈ عام طریقوں سے ناکام ہوتا ہے: ایک مفرد میٹرکس، ایک ایسا اعادہ جو تقارب نہ کرے، کسی خصوصی تابع میں دائرے کی غلطی۔ اسے استثنا سے بتانے کا مطلب ہے کہ ہر بلانے والا یا تو سب کچھ لپیٹ دے <code translate="no">try</code> میں، یا ناکامی اسٹیک کے سرے پر بغیر کسی سیاق کے دریافت کرے۔ MathScript ناکامی کو واپسی کی قسم کا حصہ بنا دیتا ہے۔
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-16T18:37:11Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-16T20:36:07Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
     </div>
   </div>
 </footer>

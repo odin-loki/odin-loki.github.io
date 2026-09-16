@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Una arquitectura de IA construida desde <span class="gradient-text">primeros principios</span>, no un fork</h1>
         <p class="lede">
-          Cypha no es un envoltorio de un transformer ni una copia ajustada del modelo de otro. Un solo tipo público &mdash; <code>cypha::Cypha</code> &mdash; clasifica, hace regresión, muestrea latentes y genera secuencias, con una regla de aprendizaje derivada de donde se cruzan cuatro programas formales.
+          Cypha no es un envoltorio de un transformer ni una copia ajustada del modelo de otro. Un solo tipo público &mdash; <code translate="no">cypha::Cypha</code> &mdash; clasifica, hace regresión, muestrea latentes y genera secuencias, con una regla de aprendizaje derivada de donde se cruzan cuatro programas formales.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Entrena uno en tu navegador</a>
@@ -186,7 +186,7 @@
       <h2>Características aleatorias, medidas y no descritas</h2>
       <p class="lede">
         El argumento de Cypha a favor de las características de Fourier aleatorias es que permiten a una cabeza lineal separar lo que una cabeza lineal no puede. Eso es una afirmación medible, así que aquí se mide &mdash; con
-        <code>cypha::rff_features</code> compilado a WebAssembly, no una recreación en JavaScript.
+        <code translate="no">cypha::rff_features</code> compilado a WebAssembly, no una recreación en JavaScript.
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Compilar esto sacó a la luz un fallo.</strong> ORF &mdash; la variante ortogonal densa &mdash; normalizaba cada fila a longitud unidad, cuando Yu et al. toman la norma de la fila de
-            <code>chi_d</code> para que una fila ortogonal encaje con la fila gaussiana a la que sustituye. Las filas quedaban &radic;d veces demasiado cortas, así que las características aproximaban el kernel equivocado y el error se estancaba en lugar de converger. Una línea. Ahora es la mejor de las tres.
+            <code translate="no">chi_d</code> para que una fila ortogonal encaje con la fila gaussiana a la que sustituye. Las filas quedaban &radic;d veces demasiado cortas, así que las características aproximaban el kernel equivocado y el error se estancaba en lugar de converger. Una línea. Ahora es la mejor de las tres.
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Codificador</span>
         <h3 style="font-size:1.02rem">Front end intercambiable</h3>
         <p class="small dim" style="margin:0">
-          De la entrada bruta al vector de características. Incluye <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (características de Fourier aleatorias) y <code>ConcatEncoder</code>. Cámbialo sin tocar nada aguas abajo.
+          De la entrada bruta al vector de características. Incluye <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (características de Fourier aleatorias) y <code translate="no">ConcatEncoder</code>. Cámbialo sin tocar nada aguas abajo.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Perfilados, no adivinados</h2>
         <p class="dim">Salen de una optimización perfilada sobre malla media y se distribuyen como la configuración de referencia.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Dim. de características</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">Presupuesto RFF</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Proporción de repetición</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Ventana de contexto</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">LR del prior del mundo</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">LR del diferencial de clase</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">LR del codificador</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">Lambda MDL</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Dim. de características</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">Presupuesto RFF</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">Proporción de repetición</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Ventana de contexto</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">LR del prior del mundo</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">LR del diferencial de clase</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">LR del codificador</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">Lambda MDL</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">Compílalo</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Tres comandos</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-16T18:37:11Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
+      <span class="mono tiny">Compilado 2026-09-16T20:36:07Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
     </div>
   </div>
 </footer>

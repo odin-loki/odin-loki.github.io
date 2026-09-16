@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Computer architecture <span style="opacity:.5">/</span> CPU
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="speculative"><i class="on" data-l="Speculative"></i><i class="" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Theory or design only. No in-house measurement.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">CPU</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">CPU</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Computer architecture</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Architecture fiction with HDL scaffolding. Not synthesisable, not simulated.</span></div>
           </div>
@@ -164,7 +164,7 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">The architecture side sets targets rather than specifications: 16 large out-of-order cores at 4 GHz on 8-stage pipelines alongside 4,096 small cores, a four-level cache hierarchy ending in 4 GiB of shared L4, MOESI coherence, DDR5 at 7,800 MT/s, hardware-accelerated virtualisation, and a Power-ISA-inspired (explicitly not clone) instruction encoding.</p>
-      <p class="dim">The HDL side is an <code>os_accelerator</code> block containing three sub-accelerators &mdash; syscall dispatch with a four-argument bundle, context switching over 32 × 64-bit registers plus PC, SP and flags, and memory management handling PAGE_FAULT, TLB_MISS and MEMORY_MAP cases &mdash; parameterised at a 1,024-entry process table and 512-byte context. Inside it, a <code>hardware_bios</code> state machine walks POWER_ON_SELF_TEST → HARDWARE_INIT → MEMORY_TEST → BOOT_SEQUENCE → SYSTEM_INIT → OS_HANDOFF.</p>
+      <p class="dim">The HDL side is an <code translate="no">os_accelerator</code> block containing three sub-accelerators &mdash; syscall dispatch with a four-argument bundle, context switching over 32 × 64-bit registers plus PC, SP and flags, and memory management handling PAGE_FAULT, TLB_MISS and MEMORY_MAP cases &mdash; parameterised at a 1,024-entry process table and 512-byte context. Inside it, a <code translate="no">hardware_bios</code> state machine walks POWER_ON_SELF_TEST → HARDWARE_INIT → MEMORY_TEST → BOOT_SEQUENCE → SYSTEM_INIT → OS_HANDOFF.</p>
       <p class="dim">The folder is explicit that this is not a buildable CPU. The nested-module HDL pattern is not synthesisable as written and would need restructuring; the architecture material is a transcript rather than a specification. It reads best as architecture-fiction with HDL scaffolding &mdash; the artefact that comes before anyone builds anything.</p>
     </div>
     <div class="note note--violet reveal" style="margin-top:28px">
@@ -190,15 +190,15 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Big cores</td><td class="mono" style="color:var(--ink)">16 × 4 GHz, 8-stage OOO</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Design target from the conversation log</td></tr>
-          <tr><td>Small cores</td><td class="mono" style="color:var(--ink)">4,096</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Heterogeneous big.LITTLE-style</td></tr>
-          <tr><td>Cache hierarchy</td><td class="mono" style="color:var(--ink)">L1 64 KiB / L2 512 KiB / L3 4 MiB / L4 4 GiB shared</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Four levels</td></tr>
-          <tr><td>Coherence protocol</td><td class="mono" style="color:var(--ink)">MOESI</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Design choice</td></tr>
-          <tr><td>Memory</td><td class="mono" style="color:var(--ink)">DDR5 7,800 MT/s</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Target</td></tr>
-          <tr><td>Process table size</td><td class="mono" style="color:var(--ink)">1,024 entries</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">os_accelerator parameter</td></tr>
-          <tr><td>Context size</td><td class="mono" style="color:var(--ink)">512 bytes (32 × 64-bit + PC/SP/flags)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">context_t definition</td></tr>
-          <tr><td>BIOS state machine</td><td class="mono" style="color:var(--ink)">6 states</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">POWER_ON_SELF_TEST through OS_HANDOFF</td></tr>
-          <tr><td>Synthesisability</td><td class="mono" style="color:var(--ink)">not synthesisable as written</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Nested module pattern — the folder says so</td></tr>
+          <tr><td>Big cores</td><td class="mono" style="color:var(--ink)" translate="no">16 × 4 GHz, 8-stage OOO</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Design target from the conversation log</td></tr>
+          <tr><td>Small cores</td><td class="mono" style="color:var(--ink)" translate="no">4,096</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Heterogeneous big.LITTLE-style</td></tr>
+          <tr><td>Cache hierarchy</td><td class="mono" style="color:var(--ink)" translate="no">L1 64 KiB / L2 512 KiB / L3 4 MiB / L4 4 GiB shared</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Four levels</td></tr>
+          <tr><td>Coherence protocol</td><td class="mono" style="color:var(--ink)" translate="no">MOESI</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Design choice</td></tr>
+          <tr><td>Memory</td><td class="mono" style="color:var(--ink)" translate="no">DDR5 7,800 MT/s</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Target</td></tr>
+          <tr><td>Process table size</td><td class="mono" style="color:var(--ink)" translate="no">1,024 entries</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">os_accelerator parameter</td></tr>
+          <tr><td>Context size</td><td class="mono" style="color:var(--ink)" translate="no">512 bytes (32 × 64-bit + PC/SP/flags)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">context_t definition</td></tr>
+          <tr><td>BIOS state machine</td><td class="mono" style="color:var(--ink)" translate="no">6 states</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">POWER_ON_SELF_TEST through OS_HANDOFF</td></tr>
+          <tr><td>Synthesisability</td><td class="mono" style="color:var(--ink)" translate="no">not synthesisable as written</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Nested module pattern — the folder says so</td></tr>
         </tbody>
       </table>
     </div>
@@ -318,7 +318,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

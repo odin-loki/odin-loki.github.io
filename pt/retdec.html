@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, compilado com Emscripten, só x86. O build nativo linka a mesma biblioteca de <code>deps/capstone</code>.
+        Capstone 5, compilado com Emscripten, só x86. O build nativo linka a mesma biblioteca de <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; Voltar</button>
             <button class="btn btn--sm btn--primary" id="rd-next">Próximo estágio &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">Contêineres da STL e estruturas de runtime do C++ &mdash; o formato de um <code>std::vector</code> reaparecendo a partir do padrão de alocação.</p></div>
+        <p class="small dim" style="margin:0">Contêineres da STL e estruturas de runtime do C++ &mdash; o formato de um <code translate="no">std::vector</code> reaparecendo a partir do padrão de alocação.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Criptografia</span>
         <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA e primitivas de curva elíptica, identificadas por constantes e pela estrutura de rodadas.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Ordenação e busca</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Grafos</span>
         <p class="small dim" style="margin:0">Algoritmos de grafos e padrões de percurso BFS/DFS.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concorrência</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB e atômicos crus.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB e atômicos crus.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialização</span>
         <p class="small dim" style="margin:0">Enquadramento Protobuf, FlatBuffers, MessagePack, JSON e XML.</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binários, e o número que dói</h2>
         <p class="dim">
           Todos os 216 binários ELF do corpus de teste produzem C compilável com
-          <code>--buildable</code>, que vem ligado por padrão. A recuperação de algoritmo é outra história, e o jeito honesto de relatá-la é pôr os dois números lado a lado.
+          <code translate="no">--buildable</code>, que vem ligado por padrão. A recuperação de algoritmo é outra história, e o jeito honesto de relatá-la é pôr os dois números lado a lado.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>Métrica</th><th class="num">Resultado</th><th>Condição</th></tr></thead>
             <tbody>
-              <tr><td>Saída C compilável</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, ligado por padrão</td></tr>
+              <tr><td>Saída C compilável</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, ligado por padrão</td></tr>
               <tr><td>F1 de recuperação de algoritmo</td><td class="num">0.056</td><td class="muted">Cego a nomes, IC 95% 0,034&ndash;0,083</td></tr>
               <tr><td>F1 de recuperação de algoritmo</td><td class="num">1.000</td><td class="muted">Com ajuda de nomes, binários com símbolos</td></tr>
-              <tr><td>Padrão <code>.c</code> recompila</td><td class="num">Não</td><td class="muted">Nem este fork nem o RetDec original</td></tr>
+              <tr><td>Padrão <code translate="no">.c</code> recompila</td><td class="num">Não</td><td class="muted">Nem este fork nem o RetDec original</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Opcional, offline e sob controle</h2>
         <p class="dim">
           O refinamento roda via llama.cpp com modelos GGUF, inteiramente offline, só quando
-          <code>RETDEC_NEURAL_REFINE=1</code> e um caminho de modelo é fornecido. Vem desligado por padrão e nunca substitui a linha de base.
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> e um caminho de modelo é fornecido. Vem desligado por padrão e nunca substitui a linha de base.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Controle de compilação.</strong> A saída refinada precisa passar por <code>gcc -fsyntax-only</code> antes de ser aceita.</li>
+          <li><strong>Controle de compilação.</strong> A saída refinada precisa passar por <code translate="no">gcc -fsyntax-only</code> antes de ser aceita.</li>
           <li><strong>Validação estrutural.</strong> O refinamento ainda precisa corresponder à estrutura elevada.</li>
           <li><strong>Linha de base determinística preservada.</strong> A saída não refinada do descompilador continua sendo o artefato auditável. Se você precisar defender um achado, é esse que você defende.</li>
           <li><strong>Sem rede.</strong> Inferência GGUF local. Nada sobre o seu binário sai da máquina.</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-16T18:37:11Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
+      <span class="mono tiny">Compilado em 2026-09-16T20:36:07Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
     </div>
   </div>
 </footer>

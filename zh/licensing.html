@@ -249,7 +249,7 @@
         <span class="eyebrow">署名</span>
         <h3>AGPL 用户必须带上的那一行</h3>
         <p class="dim small">放在你的关于框、文档或页脚里：</p>
-        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+        <pre class="code" style="margin-top:12px" translate="no">Powered by Ideas, developed by Odin Loch.
 Licensed under AGPL-3.0+.</pre>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">复制署名</button>
@@ -259,19 +259,19 @@ Licensed under AGPL-3.0+.</pre>
         <span class="eyebrow eyebrow--amber">例外</span>
         <h3>ParanoidBSD 里的上游代码没有被重新授权</h3>
         <p class="dim">
-          ParanoidBSD 内置了两棵上游代码树，并从两边移植。 <code>hbsd/</code> 仍然适用 HardenedBSD 和 FreeBSD 自己的条款； <code>kde/</code> 仍然适用 KDE 的条款。两者都不能被重新授权，Imortek 也不声称自己有这么做。位于
-          <code>pbsd/</code> 下的移植文件保留它们继承来的上游版权头，而那个版权头对该文件有效 &mdash; 它优先于按路径设定的默认值。
+          ParanoidBSD 内置了两棵上游代码树，并从两边移植。 <code translate="no">hbsd/</code> 仍然适用 HardenedBSD 和 FreeBSD 自己的条款； <code translate="no">kde/</code> 仍然适用 KDE 的条款。两者都不能被重新授权，Imortek 也不声称自己有这么做。位于
+          <code translate="no">pbsd/</code> 下的移植文件保留它们继承来的上游版权头，而那个版权头对该文件有效 &mdash; 它优先于按路径设定的默认值。
         </p>
         <p class="dim">
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
-             rel="noopener"><code>LICENSING.md</code></a> 是按路径划分的权威对照表，而
-          <code>docs/PROVENANCE.md</code> 记录了哪些模块是移植来的、哪些是新的 PBSD 工作，所以这条边界是可以核对的，而不是空口声称的。新工作 &mdash; 能力核心、工具、合成器和 Aero 主题 &mdash; 适用 Imortek 的双重许可证。
+             rel="noopener"><code translate="no">LICENSING.md</code></a> 是按路径划分的权威对照表，而
+          <code translate="no">docs/PROVENANCE.md</code> 记录了哪些模块是移植来的、哪些是新的 PBSD 工作，所以这条边界是可以核对的，而不是空口声称的。新工作 &mdash; 能力核心、工具、合成器和 Aero 主题 &mdash; 适用 Imortek 的双重许可证。
         </p>
         <div class="note note--amber" style="margin-top:16px">
           <strong>审计查出来的三处例外。</strong> 有二十二个移植文件继承了原始的四条款 BSD 许可证，其中的广告条款 AGPL 无法接受，所以它们被排除在 AGPL 授权之外，也绝不能进入 AGPL 的二进制文件。
-          <code>pbsd/zfs/</code> 源自 OpenZFS，它用的是 CDDL，和 AGPL 之间没有兼容的路径 &mdash; ZFS 保持为一个独立的、未经修改的模块。而源自 KDE 的部分只能通过&ldquo;或更高版本&rdquo;这一条款保持兼容，所以仅限 GPL-2.0 的代码绝不能进入这棵树。这三处都列在
+          <code translate="no">pbsd/zfs/</code> 源自 OpenZFS，它用的是 CDDL，和 AGPL 之间没有兼容的路径 &mdash; ZFS 保持为一个独立的、未经修改的模块。而源自 KDE 的部分只能通过&ldquo;或更高版本&rdquo;这一条款保持兼容，所以仅限 GPL-2.0 的代码绝不能进入这棵树。这三处都列在
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> 里，并由一项 CI 检查来强制执行。
+             rel="noopener"><code translate="no">NOTICES.md</code></a> 里，并由一项 CI 检查来强制执行。
         </div>
       </div>
     </div>
@@ -295,7 +295,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/zh/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/zh/cypha.html">Cypha</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为 CC BY 4.0</td></tr>
-          <tr><td><a href="/zh/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为无许可证 &middot; <code>vendor/</code> 排除在外</td></tr>
+          <tr><td><a href="/zh/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为无许可证 &middot; <code translate="no">vendor/</code> 排除在外</td></tr>
           <tr><td><a href="/zh/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为专有</td></tr>
           <tr><td><a href="/zh/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为 MIT</td></tr>
           <tr><td><a href="/zh/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为无许可证</td></tr>
@@ -421,7 +421,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

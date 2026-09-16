@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5، Emscripten سے بنایا گیا، صرف x86۔ اصل بلڈ وہی لائبریری یہاں سے جوڑتا ہے: <code>deps/capstone</code>.
+        Capstone 5، Emscripten سے بنایا گیا، صرف x86۔ اصل بلڈ وہی لائبریری یہاں سے جوڑتا ہے: <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; واپس</button>
             <button class="btn btn--sm btn--primary" id="rd-next">اگلا مرحلہ &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">رن ٹائم</span>
-        <p class="small dim" style="margin:0">STL کنٹینر اور C++ رن ٹائم کی ساختیں &mdash; مثلاً <code>std::vector</code> کی شکل، جو مختص کرنے کے نمونے سے دوبارہ ابھر آتی ہے۔</p></div>
+        <p class="small dim" style="margin:0">STL کنٹینر اور C++ رن ٹائم کی ساختیں &mdash; مثلاً <code translate="no">std::vector</code> کی شکل، جو مختص کرنے کے نمونے سے دوبارہ ابھر آتی ہے۔</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">خفیہ نگاری</span>
         <p class="small dim" style="margin:0">AES، SHA، ChaCha20، RSA اور بیضوی خم کی بنیادی اکائیاں، جو مستقل قدروں اور راؤنڈ کی ساخت سے پہچانی جاتی ہیں۔</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">ترتیب اور تلاش</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">گراف</span>
         <p class="small dim" style="margin:0">گراف الگورتھم اور BFS/DFS کے گشت کے نمونے۔</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">ہم وقتی</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>، pthreads، OpenMP، TBB اور خام atomics۔</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>، pthreads، OpenMP، TBB اور خام atomics۔</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">سیریلائزیشن</span>
         <p class="small dim" style="margin:0">Protobuf، FlatBuffers، MessagePack، JSON اور XML کی فریمنگ۔</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 بائنریاں، اور وہ عدد جو تکلیف دیتا ہے</h2>
         <p class="dim">
           آزمائشی مجموعے کی تمام 216 ELF بائنریاں قابلِ تعمیر C دیتی ہیں، اگر
-          <code>--buildable</code>دیا جائے، جو طے شدہ طور پر چالو ہے۔ الگورتھم کی بازیابی الگ کہانی ہے، اور اسے ایمان داری سے بتانے کا طریقہ یہی ہے کہ دونوں اعداد ساتھ ساتھ رکھے جائیں۔
+          <code translate="no">--buildable</code>دیا جائے، جو طے شدہ طور پر چالو ہے۔ الگورتھم کی بازیابی الگ کہانی ہے، اور اسے ایمان داری سے بتانے کا طریقہ یہی ہے کہ دونوں اعداد ساتھ ساتھ رکھے جائیں۔
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>پیمانہ</th><th class="num">نتیجہ</th><th>شرط</th></tr></thead>
             <tbody>
-              <tr><td>قابلِ تعمیر C پیداوار</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>، طے شدہ طور پر چالو</td></tr>
+              <tr><td>قابلِ تعمیر C پیداوار</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>، طے شدہ طور پر چالو</td></tr>
               <tr><td>الگورتھم بازیابی کا F1</td><td class="num">0.056</td><td class="muted">بے نام، 95% CI 0.034&ndash;0.083</td></tr>
               <tr><td>الگورتھم بازیابی کا F1</td><td class="num">1.000</td><td class="muted">بانام، علامتوں والی بائنریاں</td></tr>
-              <tr><td>طے شدہ <code>.c</code> دوبارہ کمپائل ہوتی ہے</td><td class="num">نہیں</td><td class="muted">نہ یہ فورک، نہ اصل RetDec</td></tr>
+              <tr><td>طے شدہ <code translate="no">.c</code> دوبارہ کمپائل ہوتی ہے</td><td class="num">نہیں</td><td class="muted">نہ یہ فورک، نہ اصل RetDec</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">اختیاری، آف لائن، اور پہرے میں</h2>
         <p class="dim">
           تطہیر llama.cpp کے ذریعے GGUF ماڈلوں کے ساتھ چلتی ہے، مکمل طور پر آف لائن، اور صرف تب جب
-          <code>RETDEC_NEURAL_REFINE=1</code> ہو اور ماڈل کا راستہ دیا گیا ہو۔ یہ طے شدہ طور پر بند ہے اور کبھی بنیادی پیداوار کی جگہ نہیں لیتی۔
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> ہو اور ماڈل کا راستہ دیا گیا ہو۔ یہ طے شدہ طور پر بند ہے اور کبھی بنیادی پیداوار کی جگہ نہیں لیتی۔
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>کمپائل کا پھاٹک۔</strong> تطہیر شدہ پیداوار کو قبول ہونے سے پہلے <code>gcc -fsyntax-only</code> سے گزرنا ہوگا۔</li>
+          <li><strong>کمپائل کا پھاٹک۔</strong> تطہیر شدہ پیداوار کو قبول ہونے سے پہلے <code translate="no">gcc -fsyntax-only</code> سے گزرنا ہوگا۔</li>
           <li><strong>ساختی توثیق۔</strong> تطہیر کو اب بھی اٹھائی ہوئی ساخت سے مطابقت رکھنی ہوگی۔</li>
           <li><strong>یقینی بنیاد محفوظ رہتی ہے۔</strong> بغیر تطہیر والی ڈی کمپائلر پیداوار ہی قابلِ جانچ دستاویز رہتی ہے۔ اگر آپ کو کسی نتیجے کا دفاع کرنا ہو تو آپ اسی کا دفاع کرتے ہیں۔</li>
           <li><strong>کوئی نیٹ ورک نہیں۔</strong> مقامی GGUF inference۔ آپ کی بائنری کے بارے میں کچھ بھی مشین سے باہر نہیں جاتا۔</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-16T18:37:11Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-16T20:36:07Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
     </div>
   </div>
 </footer>

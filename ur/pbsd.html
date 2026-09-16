@@ -192,7 +192,7 @@
       <div>
         <p class="dim">
           ایک روایتی Unix پر کوئی پروسیس اس فائل کو کھولنے کا حق اپنے پاس <em>رکھتا</em> نہیں:
-          <code>/etc/master.passwd</code>۔ وہ بس مانگتا ہے، اور کرنل بعد میں اس بنیاد پر فیصلہ کرتا ہے کہ پروسیس خود کو کون ظاہر کرتا ہے۔ ہر پروسیس نظام کے ہر وسیلے کا نام لے سکتا ہے۔ نام گاہ عالمی اور عمومی ہے؛ جانچ بعد میں آنے والا خیال ہے۔
+          <code translate="no">/etc/master.passwd</code>۔ وہ بس مانگتا ہے، اور کرنل بعد میں اس بنیاد پر فیصلہ کرتا ہے کہ پروسیس خود کو کون ظاہر کرتا ہے۔ ہر پروسیس نظام کے ہر وسیلے کا نام لے سکتا ہے۔ نام گاہ عالمی اور عمومی ہے؛ جانچ بعد میں آنے والا خیال ہے۔
         </p>
         <p class="dim">
           یہی وجہ ہے کہ فونٹ رینڈرر میں تجزیے کی ایک ہی خرابی پاس ورڈ کی چوری بن سکتی ہے۔ رینڈرر کو پاس ورڈ فائل کی کبھی ضرورت نہیں تھی &mdash; مگر ڈھانچے میں کوئی چیز اسے مانگنے سے نہیں روکتی تھی۔
@@ -205,7 +205,7 @@
       <div>
         <div class="card">
           <h3 style="font-size:1rem">ایک سسٹم کال کے دو جواب</h3>
-          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+          <pre class="code" style="margin-top:14px" translate="no"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
 // checks uid/gid/MAC after the fact</span>
@@ -215,7 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            فرق کی وضاحتی شکل، لفظ بہ لفظ API فہرست نہیں۔ مستند ماڈل یہاں ہے: <code>docs/</code>.
+            فرق کی وضاحتی شکل، لفظ بہ لفظ API فہرست نہیں۔ مستند ماڈل یہاں ہے: <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -293,7 +293,7 @@
       </div>
 
       <div class="panel__foot">
-        PBSD کے حفاظتی ڈیزائن کا ایک تدریسی ماڈل، اسی صفحے کے لیے لکھا گیا۔ اصل مرکزہ یہاں ہے: <code>pbsd/</code>؛ تفصیل نامہ یہاں ہے:
+        PBSD کے حفاظتی ڈیزائن کا ایک تدریسی ماڈل، اسی صفحے کے لیے لکھا گیا۔ اصل مرکزہ یہاں ہے: <code translate="no">pbsd/</code>؛ تفصیل نامہ یہاں ہے:
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -319,7 +319,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">مرحلہ 1</span>
         <h3 style="font-size:1.05rem">فہرست سازی</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> اور <code>clang_cxx23_port.py</code> ہر C فائل کو مشکل کے حساب سے نمبر دیتے ہیں اور یہ فائل لکھتے ہیں: <code>c_inventory.csv</code>۔ دائرہ کار کے بارے میں کچھ بھی اندازے پر نہیں چھوڑا جاتا۔
+          <code translate="no">tools/inventory_c_sources.py</code> اور <code translate="no">clang_cxx23_port.py</code> ہر C فائل کو مشکل کے حساب سے نمبر دیتے ہیں اور یہ فائل لکھتے ہیں: <code translate="no">c_inventory.csv</code>۔ دائرہ کار کے بارے میں کچھ بھی اندازے پر نہیں چھوڑا جاتا۔
         </p>
       </div>
       <div class="card card--hover">
@@ -327,8 +327,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">مرحلہ 2</span>
         <h3 style="font-size:1.05rem">یقینی مراحل</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> درجے 0&ndash;4 میں محفوظ مشینی بازنویسیاں لگاتا ہے۔ کوئی ماڈل شامل نہیں۔ جس چیز سے کوئی مرحلہ انکار کرے وہ درج ہو جاتی ہے
-          <code>refusals.jsonl</code> میں، زبردستی نہیں کی جاتی۔
+          <code translate="no">run_todo_passes.py</code> درجے 0&ndash;4 میں محفوظ مشینی بازنویسیاں لگاتا ہے۔ کوئی ماڈل شامل نہیں۔ جس چیز سے کوئی مرحلہ انکار کرے وہ درج ہو جاتی ہے
+          <code translate="no">refusals.jsonl</code> میں، زبردستی نہیں کی جاتی۔
         </p>
       </div>
       <div class="card card--hover">
@@ -336,7 +336,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">مرحلہ 3</span>
         <h3 style="font-size:1.05rem">ایجنٹ کا چکر</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> ادھوری اور اڑی ہوئی فائلیں DeepSeek Flash سے بھرتا ہے، جو زیادہ سے زیادہ استدلالی محنت پر Pro تک بڑھ جاتی ہے &mdash; طے شدہ طور پر 48 Flash اور 24 Pro ورکر۔
+          <code translate="no">pbsd.py</code> ادھوری اور اڑی ہوئی فائلیں DeepSeek Flash سے بھرتا ہے، جو زیادہ سے زیادہ استدلالی محنت پر Pro تک بڑھ جاتی ہے &mdash; طے شدہ طور پر 48 Flash اور 24 Pro ورکر۔
           <strong>Kickstarter اسی کے لیے رقم جمع کرتا ہے۔</strong>
         </p>
       </div>
@@ -346,7 +346,7 @@
         <h3 style="font-size:1.05rem">تصدیقی پھاٹک</h3>
         <p class="small dim" style="margin:0">
           کمپائل، ASan، UBSan، تفریقی اجرا اور IR موازنہ۔ جو فائل صرف کمپائل ہوتی ہے وہ <em>غیر تصدیق شدہ ہے</em>۔ ناکامیاں یہاں جاتی ہیں:
-          <code>agent_port_failures.jsonl</code>.
+          <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
     </div>
@@ -405,15 +405,15 @@
       </div>
     </details>
     <details class="acc reveal">
-      <summary>کرنل C++ آزاد ہے: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>کرنل C++ آزاد ہے: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        کرنل مرکزہ کسی میزبان C++ رن ٹائم پر انحصار نہیں کر سکتا۔ کرنل میں داخل ہوتے وقت نہ استثنا، نہ RTTI، نہ ایسی معیاری لائبریری کی راہیں جو ہیپ سے میموری لیں۔ حدود یہاں لکھی ہوئی ہیں: <code>docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
+        کرنل مرکزہ کسی میزبان C++ رن ٹائم پر انحصار نہیں کر سکتا۔ کرنل میں داخل ہوتے وقت نہ استثنا، نہ RTTI، نہ ایسی معیاری لائبریری کی راہیں جو ہیپ سے میموری لیں۔ حدود یہاں لکھی ہوئی ہیں: <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
       </div>
     </details>
     <details class="acc reveal">
       <summary>ہر ماڈیول کو مکمل شمار ہونے سے پہلے سلسلۂ ماخذ کا اندراج چاہیے</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> بتاتا ہے کہ ہر ماڈیول کہاں سے آیا اور کس لائسنس کے تحت آیا۔ یہی چیز نیچے دیے گئے لائسنس کے بیان کو محض خواہش کے بجائے قابلِ تصدیق بناتی ہے &mdash; آپ ماڈیول بہ ماڈیول جانچ سکتے ہیں کہ کون سا کوڈ HardenedBSD سے آیا ہے اور کون سا نیا PBSD کا کام ہے۔
+        <code translate="no">docs/PROVENANCE.md</code> بتاتا ہے کہ ہر ماڈیول کہاں سے آیا اور کس لائسنس کے تحت آیا۔ یہی چیز نیچے دیے گئے لائسنس کے بیان کو محض خواہش کے بجائے قابلِ تصدیق بناتی ہے &mdash; آپ ماڈیول بہ ماڈیول جانچ سکتے ہیں کہ کون سا کوڈ HardenedBSD سے آیا ہے اور کون سا نیا PBSD کا کام ہے۔
       </div>
     </details>
   </div>
@@ -430,7 +430,7 @@
           نیا PBSD کوڈ &mdash; مرکزہ، C++23 ماڈیول، اوزار &mdash; Imortek کی عام شرائط پر دیا جاتا ہے: AGPL-3.0+ ذاتی استعمال، خیراتی اداروں، تعلیم اور سالانہ AUD&nbsp;50,000 سے کم کمانے والے اداروں کے لیے مفت، اس سے اوپر درجہ بند تجارتی لائسنس کے ساتھ۔
         </p>
         <p class="dim">
-          HardenedBSD سے اخذ کیا گیا کوڈ اپنے اصل BSD لائسنس ہی پر رہتا ہے۔ اسے دوبارہ لائسنس نہیں کیا جا سکتا اور Imortek ایسا دعویٰ بھی نہیں کرتا۔ <code>docs/PROVENANCE.md</code> ہی وہ ریکارڈ ہے جو بتاتا ہے کہ کون سا کون سا ہے۔
+          HardenedBSD سے اخذ کیا گیا کوڈ اپنے اصل BSD لائسنس ہی پر رہتا ہے۔ اسے دوبارہ لائسنس نہیں کیا جا سکتا اور Imortek ایسا دعویٰ بھی نہیں کرتا۔ <code translate="no">docs/PROVENANCE.md</code> ہی وہ ریکارڈ ہے جو بتاتا ہے کہ کون سا کون سا ہے۔
         </p>
         <a class="btn btn--ghost" href="/ur/licensing.html">لائسنس کی مکمل شرائط &rarr;</a>
       </div>
@@ -439,12 +439,12 @@
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ اور تجارتی</span></div>
             <h4 style="margin:0 0 6px">نیا PBSD کام</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>، اختیارات کا مرکزہ، UDA، BIFROST، کمپوزیٹر اور تھیم۔</p>
+            <p class="small muted" style="margin:0"><code translate="no">pbsd/</code>, <code translate="no">tools/</code>, <code translate="no">scripts/</code>، اختیارات کا مرکزہ، UDA، BIFROST، کمپوزیٹر اور تھیم۔</p>
           </div>
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (بغیر تبدیلی)</span></div>
             <h4 style="margin:0 0 6px">HardenedBSD سے اخذ شدہ</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> اور ہر وہ منتقل شدہ فائل جس کی جڑ اسی میں ہے۔ اصل شرائط، اصل انتساب۔</p>
+            <p class="small muted" style="margin:0"><code translate="no">hbsd/</code> اور ہر وہ منتقل شدہ فائل جس کی جڑ اسی میں ہے۔ اصل شرائط، اصل انتساب۔</p>
           </div>
         </div>
       </div>
@@ -573,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-16T18:37:11Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-16T20:36:07Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔</span>
     </div>
   </div>
 </footer>

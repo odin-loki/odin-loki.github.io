@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Cryptography <span style="opacity:.5">/</span> ARIA
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="reference"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Code exists and runs. Performance not independently checked.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">ARIA Encryption Algorithm</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">ARIA Encryption Algorithm</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Cryptography</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Prototype. Explicitly not for production use.</span></div>
           </div>
@@ -164,8 +164,8 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">ARIA is an authenticated-encryption scheme built to address one specific operational vulnerability in modern AEAD standards: nonce desynchronisation under loss of state. In deployed systems this is not a theoretical concern — a device that reboots, a link that drops, a replica that forks, and the nonce discipline that guarantees security is gone.</p>
-      <p class="dim">Rather than transmit the nonce, ARIA computes it from the message and session key as <code>N(M, sk) = C(M, sk) · β_vec</code>, with a Vandermonde matrix derived from the session key. Recovery from drift is not a recovery procedure; there is nothing to resynchronise.</p>
-      <p class="dim">The construction rests on a three-layer tower: a GF(2<sup>256</sup>) base using the irreducible polynomial <code>x²⁵⁶ + x¹⁰ + x⁵ + x² + 1</code>, a degree-8 extension L₂ for mid-layer mixing, and a degree-4 extension L₃ providing roughly 8192 bits of diffusion structure.</p>
+      <p class="dim">Rather than transmit the nonce, ARIA computes it from the message and session key as <code translate="no">N(M, sk) = C(M, sk) · β_vec</code>, with a Vandermonde matrix derived from the session key. Recovery from drift is not a recovery procedure; there is nothing to resynchronise.</p>
+      <p class="dim">The construction rests on a three-layer tower: a GF(2<sup>256</sup>) base using the irreducible polynomial <code translate="no">x²⁵⁶ + x¹⁰ + x⁵ + x² + 1</code>, a degree-8 extension L₂ for mid-layer mixing, and a degree-4 extension L₃ providing roughly 8192 bits of diffusion structure.</p>
     </div>
     <div class="note note--red reveal" style="margin-top:28px">
       <strong>Do not deploy this.</strong> A cryptographic scheme with no external audit, no side-channel analysis and no unforgeability proof is a research object, not a security control. It is published so it can be attacked, which is the only way it ever becomes more than a prototype.
@@ -190,13 +190,13 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Collision-resistance bound</td><td class="mono" style="color:var(--ink)">Adv_COLL ≤ min(ε_PRF + 7Q²/2²⁵⁷, 2⁻⁸⁶)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Two bounds converging on one advantage metric</td></tr>
-          <tr><td>Classical security at Q ≤ 2⁶⁴</td><td class="mono" style="color:var(--ink)">~2⁻¹²⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Realistic query limit substituted into the bound</td></tr>
-          <tr><td>Classical ISD hardness</td><td class="mono" style="color:var(--ink)">~2⁸⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Syndrome-decoding analysis on a [2048, 256] code</td></tr>
-          <tr><td>Quantum advantage</td><td class="mono" style="color:var(--ink)">~2⁴³</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Motivates migration to GF(2⁵¹²)</td></tr>
-          <tr><td>GF(2²⁵⁶) multiplication</td><td class="mono" style="color:var(--ink)">~46.1 µs</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
-          <tr><td>Encryption throughput</td><td class="mono" style="color:var(--ink)">155–175 ops/sec</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
-          <tr><td>Full AEAD round-trip</td><td class="mono" style="color:var(--ink)">68–69 ops/sec</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
+          <tr><td>Collision-resistance bound</td><td class="mono" style="color:var(--ink)" translate="no">Adv_COLL ≤ min(ε_PRF + 7Q²/2²⁵⁷, 2⁻⁸⁶)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Two bounds converging on one advantage metric</td></tr>
+          <tr><td>Classical security at Q ≤ 2⁶⁴</td><td class="mono" style="color:var(--ink)" translate="no">~2⁻¹²⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Realistic query limit substituted into the bound</td></tr>
+          <tr><td>Classical ISD hardness</td><td class="mono" style="color:var(--ink)" translate="no">~2⁸⁶</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Syndrome-decoding analysis on a [2048, 256] code</td></tr>
+          <tr><td>Quantum advantage</td><td class="mono" style="color:var(--ink)" translate="no">~2⁴³</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Motivates migration to GF(2⁵¹²)</td></tr>
+          <tr><td>GF(2²⁵⁶) multiplication</td><td class="mono" style="color:var(--ink)" translate="no">~46.1 µs</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
+          <tr><td>Encryption throughput</td><td class="mono" style="color:var(--ink)" translate="no">155–175 ops/sec</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
+          <tr><td>Full AEAD round-trip</td><td class="mono" style="color:var(--ink)" translate="no">68–69 ops/sec</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Pure Python reference, author hardware</td></tr>
         </tbody>
       </table>
     </div>
@@ -316,7 +316,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

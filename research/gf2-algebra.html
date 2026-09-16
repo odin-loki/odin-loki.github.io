@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Mathematics <span style="opacity:.5">/</span> GF(2) Algebra
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">GF2 Algebra and Applications</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">GF2 Algebra and Applications</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Mathematics</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Seven papers, computer-verified enumeration, reference experiments.</span></div>
           </div>
@@ -164,7 +164,7 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">A seven-paper series on the binary finite field GF(2). Paper 1 establishes the GF(2) Ring Uniqueness Theorem by exhaustive enumeration: AND is the <em>only</em> nontrivial operation that forms a ring with XOR.</p>
-      <p class="dim">The cryptographic thread identifies the AES inverse <code>x⁻¹ = x²⁵⁴</code> as one of 128 permutation polynomials on GF(2⁸), verified through the Monomial Permutation Criterion: <code>xᵏ</code> permutes GF(2ⁿ) if and only if <code>gcd(k, 2ⁿ − 1) = 1</code>.</p>
+      <p class="dim">The cryptographic thread identifies the AES inverse <code translate="no">x⁻¹ = x²⁵⁴</code> as one of 128 permutation polynomials on GF(2⁸), verified through the Monomial Permutation Criterion: <code translate="no">xᵏ</code> permutes GF(2ⁿ) if and only if <code translate="no">gcd(k, 2ⁿ − 1) = 1</code>.</p>
       <p class="dim">The applied thread reports gate-count reductions — Rule 110 from 19 gates to 6, a 68% cut; full-adder sum down 78%; XOR down 80% — and a differentiable logic gate network that favoured AND in 10 of 96 slots and NOR in 11 of 96, against a uniform expectation of 6.</p>
     </div>
   </div>
@@ -187,13 +187,13 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>GF(2) Ring Uniqueness Theorem</td><td class="mono" style="color:var(--ink)">AND is the only nontrivial ring partner for XOR</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Exhaustive enumeration, computer verified</td></tr>
-          <tr><td>AES inverse classification</td><td class="mono" style="color:var(--ink)">x²⁵⁴ is 1 of 128 permutation polynomials on GF(2⁸)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Monomial Permutation Criterion</td></tr>
-          <tr><td>Monomial Permutation Criterion</td><td class="mono" style="color:var(--ink)">xᵏ permutes GF(2ⁿ) iff gcd(k, 2ⁿ−1) = 1</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Stated and verified</td></tr>
-          <tr><td>Rule 110 gate reduction</td><td class="mono" style="color:var(--ink)">19 → 6 gates (68%)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
-          <tr><td>Full-adder sum reduction</td><td class="mono" style="color:var(--ink)">78%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
-          <tr><td>XOR reduction</td><td class="mono" style="color:var(--ink)">80%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
-          <tr><td>Learned gate preference</td><td class="mono" style="color:var(--ink)">AND 10/96, NOR 11/96 vs uniform 6/96</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">2,000 steps, 6 random seeds</td></tr>
+          <tr><td>GF(2) Ring Uniqueness Theorem</td><td class="mono" style="color:var(--ink)" translate="no">AND is the only nontrivial ring partner for XOR</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Exhaustive enumeration, computer verified</td></tr>
+          <tr><td>AES inverse classification</td><td class="mono" style="color:var(--ink)" translate="no">x²⁵⁴ is 1 of 128 permutation polynomials on GF(2⁸)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Monomial Permutation Criterion</td></tr>
+          <tr><td>Monomial Permutation Criterion</td><td class="mono" style="color:var(--ink)" translate="no">xᵏ permutes GF(2ⁿ) iff gcd(k, 2ⁿ−1) = 1</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Stated and verified</td></tr>
+          <tr><td>Rule 110 gate reduction</td><td class="mono" style="color:var(--ink)" translate="no">19 → 6 gates (68%)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
+          <tr><td>Full-adder sum reduction</td><td class="mono" style="color:var(--ink)" translate="no">78%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
+          <tr><td>XOR reduction</td><td class="mono" style="color:var(--ink)" translate="no">80%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Circuit optimisation</td></tr>
+          <tr><td>Learned gate preference</td><td class="mono" style="color:var(--ink)" translate="no">AND 10/96, NOR 11/96 vs uniform 6/96</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">2,000 steps, 6 random seeds</td></tr>
         </tbody>
       </table>
     </div>
@@ -311,7 +311,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

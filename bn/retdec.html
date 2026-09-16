@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, Emscripten দিয়ে বিল্ড করা, কেবল x86। নেটিভ বিল্ড একই লাইব্রেরি লিংক করে এখান থেকে: <code>deps/capstone</code>.
+        Capstone 5, Emscripten দিয়ে বিল্ড করা, কেবল x86। নেটিভ বিল্ড একই লাইব্রেরি লিংক করে এখান থেকে: <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; পিছনে</button>
             <button class="btn btn--sm btn--primary" id="rd-next">পরের ধাপ &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">রানটাইম</span>
-        <p class="small dim" style="margin:0">STL কনটেইনার ও C++ রানটাইম গঠন &mdash; একটি <code>std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
+        <p class="small dim" style="margin:0">STL কনটেইনার ও C++ রানটাইম গঠন &mdash; একটি <code translate="no">std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">ক্রিপ্টোগ্রাফি</span>
         <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA ও উপবৃত্তীয় বক্ররেখার প্রিমিটিভ, ধ্রুবক আর রাউন্ড-গঠন দেখে শনাক্ত করা।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সর্টিং ও অনুসন্ধান</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">গ্রাফ</span>
         <p class="small dim" style="margin:0">গ্রাফ অ্যালগরিদম আর BFS/DFS পরিক্রমার ধরন।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">সমান্তরালতা</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB আর কাঁচা অ্যাটমিক।</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB আর কাঁচা অ্যাটমিক।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সিরিয়ালাইজেশন</span>
         <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON আর XML ফ্রেমিং।</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">২১৬টি বাইনারি, আর যে সংখ্যাটা গায়ে লাগে</h2>
         <p class="dim">
           পরীক্ষা-সংগ্রহের ২১৬টি ELF বাইনারিই বিল্ডযোগ্য C তৈরি করে, ব্যবহার করে
-          <code>--buildable</code>, যা পূর্বনির্ধারিতভাবেই চালু থাকে। অ্যালগরিদম উদ্ধারের গল্পটা আলাদা, আর সেটা জানানোর সৎ উপায় হলো দুটি সংখ্যাই পাশাপাশি রাখা।
+          <code translate="no">--buildable</code>, যা পূর্বনির্ধারিতভাবেই চালু থাকে। অ্যালগরিদম উদ্ধারের গল্পটা আলাদা, আর সেটা জানানোর সৎ উপায় হলো দুটি সংখ্যাই পাশাপাশি রাখা।
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>মাপকাঠি</th><th class="num">ফল</th><th>শর্ত</th></tr></thead>
             <tbody>
-              <tr><td>বিল্ডযোগ্য C আউটপুট</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, পূর্বনির্ধারিতভাবে চালু</td></tr>
+              <tr><td>বিল্ডযোগ্য C আউটপুট</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, পূর্বনির্ধারিতভাবে চালু</td></tr>
               <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">নাম ছাড়া, ৯৫% CI ০.০৩৪&ndash;০.০৮৩</td></tr>
               <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">1.000</td><td class="muted">নাম সহ, সিম্বলযুক্ত বাইনারি</td></tr>
-              <tr><td>পূর্বনির্ধারিত <code>.c</code> আবার কম্পাইল হয়</td><td class="num">না</td><td class="muted">এই ফর্কেও নয়, মূল RetDec-এও নয়</td></tr>
+              <tr><td>পূর্বনির্ধারিত <code translate="no">.c</code> আবার কম্পাইল হয়</td><td class="num">না</td><td class="muted">এই ফর্কেও নয়, মূল RetDec-এও নয়</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ঐচ্ছিক, অফলাইন, আর গেটে বাঁধা</h2>
         <p class="dim">
           পরিশোধন চলে llama.cpp দিয়ে, GGUF মডেল ব্যবহার করে, পুরোপুরি অফলাইনে, কেবল তখনই যখন
-          <code>RETDEC_NEURAL_REFINE=1</code> থাকে আর একটি মডেলের পথ দেওয়া হয়। এটি পূর্বনির্ধারিতভাবে বন্ধ, আর এটি কখনও ভিত্তি-আউটপুটের জায়গা নেয় না।
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> থাকে আর একটি মডেলের পথ দেওয়া হয়। এটি পূর্বনির্ধারিতভাবে বন্ধ, আর এটি কখনও ভিত্তি-আউটপুটের জায়গা নেয় না।
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>কম্পাইল গেট।</strong> পরিশোধিত আউটপুটকে পেরোতে হয় <code>gcc -fsyntax-only</code> গেট, তবেই সেটি গ্রহণ করা হয়।</li>
+          <li><strong>কম্পাইল গেট।</strong> পরিশোধিত আউটপুটকে পেরোতে হয় <code translate="no">gcc -fsyntax-only</code> গেট, তবেই সেটি গ্রহণ করা হয়।</li>
           <li><strong>গঠনগত যাচাই।</strong> পরিশোধনটিকে তবু তোলা গঠনের সঙ্গে মিলতে হবে।</li>
           <li><strong>নির্ধারণবাদী ভিত্তিটি অটুট রাখা হয়।</strong> পরিশোধন ছাড়া ডিকম্পাইলারের আউটপুটই নিরীক্ষাযোগ্য নিদর্শন হিসেবে থেকে যায়। কোনো ফল নিয়ে যুক্তি দিতে হলে আপনি সেটিকেই সামনে রাখবেন।</li>
           <li><strong>কোনো নেটওয়ার্ক নেই।</strong> স্থানীয় GGUF ইনফারেন্স। আপনার বাইনারির কিছুই মেশিন ছেড়ে যায় না।</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T18:37:11Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T20:36:07Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>

@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, Emscripten से बना, सिर्फ़ x86। नेटिव बिल्ड यही लाइब्रेरी यहाँ से लिंक करता है: <code>deps/capstone</code>.
+        Capstone 5, Emscripten से बना, सिर्फ़ x86। नेटिव बिल्ड यही लाइब्रेरी यहाँ से लिंक करता है: <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; पीछे</button>
             <button class="btn btn--sm btn--primary" id="rd-next">अगला चरण &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">रनटाइम</span>
-        <p class="small dim" style="margin:0">STL कंटेनर और C++ रनटाइम संरचनाएँ &mdash; आवंटन के पैटर्न से दोबारा उभरता हुआ किसी <code>std::vector</code> का आकार।</p></div>
+        <p class="small dim" style="margin:0">STL कंटेनर और C++ रनटाइम संरचनाएँ &mdash; आवंटन के पैटर्न से दोबारा उभरता हुआ किसी <code translate="no">std::vector</code> का आकार।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">क्रिप्टोग्राफ़ी</span>
         <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA और दीर्घवृत्तीय वक्र के आदिम, जिन्हें स्थिरांकों और राउंड के ढाँचे से पहचाना जाता है।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">छँटाई &amp; खोज</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">ग्राफ़</span>
         <p class="small dim" style="margin:0">ग्राफ़ एल्गोरिदम और BFS/DFS भ्रमण के पैटर्न।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">समवर्तीता</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB और कच्चे atomics।</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB और कच्चे atomics।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">क्रमबद्धीकरण</span>
         <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON और XML की फ़्रेमिंग।</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 बाइनरी, और वह आँकड़ा जो चुभता है</h2>
         <p class="dim">
           परीक्षण संग्रह की सभी 216 ELF बाइनरी बिल्ड होने लायक़ C देती हैं, साथ में
-          <code>--buildable</code>, जो तयशुदा तौर पर चालू रहता है। एल्गोरिदम वापस निकालने की कहानी अलग है, और उसे बताने का ईमानदार तरीक़ा यह है कि दोनों आँकड़े साथ-साथ रखे जाएँ।
+          <code translate="no">--buildable</code>, जो तयशुदा तौर पर चालू रहता है। एल्गोरिदम वापस निकालने की कहानी अलग है, और उसे बताने का ईमानदार तरीक़ा यह है कि दोनों आँकड़े साथ-साथ रखे जाएँ।
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>माप</th><th class="num">नतीजा</th><th>शर्त</th></tr></thead>
             <tbody>
-              <tr><td>बिल्ड होने लायक़ C आउटपुट</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, तयशुदा तौर पर चालू</td></tr>
+              <tr><td>बिल्ड होने लायक़ C आउटपुट</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, तयशुदा तौर पर चालू</td></tr>
               <tr><td>एल्गोरिदम वापस निकालने का F1</td><td class="num">0.056</td><td class="muted">नाम-रहित, 95% CI 0.034&ndash;0.083</td></tr>
               <tr><td>एल्गोरिदम वापस निकालने का F1</td><td class="num">1.000</td><td class="muted">नाम-सहित, सिंबल वाली बाइनरी</td></tr>
-              <tr><td>तयशुदा <code>.c</code> दोबारा कंपाइल होती है</td><td class="num">नहीं</td><td class="muted">न यह फ़ोर्क, न स्टॉक RetDec</td></tr>
+              <tr><td>तयशुदा <code translate="no">.c</code> दोबारा कंपाइल होती है</td><td class="num">नहीं</td><td class="muted">न यह फ़ोर्क, न स्टॉक RetDec</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">वैकल्पिक, ऑफ़लाइन, और पहरे के नीचे</h2>
         <p class="dim">
           परिष्करण llama.cpp के ज़रिए GGUF मॉडलों से चलता है, पूरी तरह ऑफ़लाइन, और सिर्फ़ तब जब
-          <code>RETDEC_NEURAL_REFINE=1</code> हो और मॉडल का पथ दिया गया हो। यह तयशुदा तौर पर बंद रहता है और बेसलाइन की जगह कभी नहीं लेता।
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> हो और मॉडल का पथ दिया गया हो। यह तयशुदा तौर पर बंद रहता है और बेसलाइन की जगह कभी नहीं लेता।
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>कंपाइल का पहरा।</strong> परिष्कृत आउटपुट को स्वीकार होने से पहले <code>gcc -fsyntax-only</code> पास करना ज़रूरी है।</li>
+          <li><strong>कंपाइल का पहरा।</strong> परिष्कृत आउटपुट को स्वीकार होने से पहले <code translate="no">gcc -fsyntax-only</code> पास करना ज़रूरी है।</li>
           <li><strong>ढाँचे की जाँच।</strong> परिष्करण को फिर भी उठाए हुए ढाँचे से मेल खाना होगा।</li>
           <li><strong>नियतात्मक बेसलाइन बचाकर रखी जाती है।</strong> बिना परिष्कार वाला डीकंपाइलर आउटपुट ही वह चीज़ रहती है जिसकी जाँच हो सकती है। अगर आपको किसी निष्कर्ष का बचाव करना है, तो आप उसी का बचाव करते हैं।</li>
           <li><strong>कोई नेटवर्क नहीं।</strong> स्थानीय GGUF इन्फ़रेंस। आपकी बाइनरी की कोई बात मशीन से बाहर नहीं जाती।</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-16T18:37:11Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T20:36:07Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
     </div>
   </div>
 </footer>

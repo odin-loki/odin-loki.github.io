@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Tracking &amp; sensors <span style="opacity:.5">/</span> ARIA-INTEL
     </p>
     <div class="split split--wide-left">
@@ -148,7 +148,7 @@
           <div class="tier-meter" data-tier="reference"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Code exists and runs. Performance not independently checked.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Asset Tracking Algorithm</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Asset Tracking Algorithm</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Tracking &amp; sensors</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Reference implementation, three research documents, synthetic scenario generators. Licensed AGPL-3.0.</span></div>
           </div>
@@ -166,7 +166,7 @@
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">ARIA-INTEL converts raw multi-source location observations into ranked intelligence. It is a single Python module of roughly 2,363 lines requiring only NumPy and SciPy, and it processes a scan in a median 28 milliseconds on one CPU core with no GPU.</p>
       <p class="dim">The tracking core is a Poisson Multi-Bernoulli Mixture random-finite-set tracker with Mixed Ornstein–Uhlenbeck motion modelling and 320-particle filtering, using Gibbs-sampled data association over 14 sweeps rather than nearest-neighbour assignment. Every track carries an explicit Bernoulli existence probability.</p>
-      <p class="dim">Downstream of tracking sit spatio-temporal pattern-of-life Gaussian mixtures, eight hot-swappable detectors (rendezvous warning with three stacked geometric methods, parallel-route surveillance, mode transition, loiter, dead drop, chokepoint, network analysis) and 8-dimensional Beta-Monte-Carlo threat integration via Dempster-Shafer fusion. Domain changes — urban HUMINT, maritime, airspace, convoy, city-camera, border, fugitive — are configuration swaps through <code>DomainProfile</code> objects, not code changes.</p>
+      <p class="dim">Downstream of tracking sit spatio-temporal pattern-of-life Gaussian mixtures, eight hot-swappable detectors (rendezvous warning with three stacked geometric methods, parallel-route surveillance, mode transition, loiter, dead drop, chokepoint, network analysis) and 8-dimensional Beta-Monte-Carlo threat integration via Dempster-Shafer fusion. Domain changes — urban HUMINT, maritime, airspace, convoy, city-camera, border, fugitive — are configuration swaps through <code translate="no">DomainProfile</code> objects, not code changes.</p>
     </div>
     <div class="note note--amber reveal" style="margin-top:28px">
       <strong>Where this would need to be much stronger.</strong> The briefing document targets law-enforcement and intelligence audiences. Software used to rank people as threats needs audit-trail logging, third-party validation and a fairness review before it goes anywhere near an operational decision — and by the author’s own list, it currently has none of the three. SENTINEL, the shipping product, was built with provenance chains for exactly this reason.
@@ -191,14 +191,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Median scan latency</td><td class="mono" style="color:var(--ink)">28 ms, single CPU core</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">No GPU</td></tr>
-          <tr><td>Throughput</td><td class="mono" style="color:var(--ink)">~20 scans/second</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same setup</td></tr>
-          <tr><td>Rendezvous warning recall</td><td class="mono" style="color:var(--ink)">100% (20/20 scenarios)</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Synthetic scenarios, 28.1-minute mean lead time</td></tr>
-          <tr><td>Mean position error</td><td class="mono" style="color:var(--ink)">21.8 m</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Synthetic scenario generators</td></tr>
-          <tr><td>Scaling</td><td class="mono" style="color:var(--ink)">Linear to 50+ tracks</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Data association</td><td class="mono" style="color:var(--ink)">Gibbs sampling, 14 sweeps</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">vs nearest-neighbour</td></tr>
-          <tr><td>Motion filtering</td><td class="mono" style="color:var(--ink)">320 particles</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Mixed Ornstein–Uhlenbeck</td></tr>
-          <tr><td>Module size</td><td class="mono" style="color:var(--ink)">~2,363 lines, NumPy + SciPy only</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Median scan latency</td><td class="mono" style="color:var(--ink)" translate="no">28 ms, single CPU core</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">No GPU</td></tr>
+          <tr><td>Throughput</td><td class="mono" style="color:var(--ink)" translate="no">~20 scans/second</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same setup</td></tr>
+          <tr><td>Rendezvous warning recall</td><td class="mono" style="color:var(--ink)" translate="no">100% (20/20 scenarios)</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Synthetic scenarios, 28.1-minute mean lead time</td></tr>
+          <tr><td>Mean position error</td><td class="mono" style="color:var(--ink)" translate="no">21.8 m</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Synthetic scenario generators</td></tr>
+          <tr><td>Scaling</td><td class="mono" style="color:var(--ink)" translate="no">Linear to 50+ tracks</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Data association</td><td class="mono" style="color:var(--ink)" translate="no">Gibbs sampling, 14 sweeps</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">vs nearest-neighbour</td></tr>
+          <tr><td>Motion filtering</td><td class="mono" style="color:var(--ink)" translate="no">320 particles</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Mixed Ornstein–Uhlenbeck</td></tr>
+          <tr><td>Module size</td><td class="mono" style="color:var(--ink)" translate="no">~2,363 lines, NumPy + SciPy only</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">&nbsp;</td></tr>
         </tbody>
       </table>
     </div>
@@ -320,7 +320,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

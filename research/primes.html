@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Mathematics <span style="opacity:.5">/</span> Prime meta-pattern
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Prime Number Generator</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Prime Number Generator</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Mathematics</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing. Full report set, reproducible benchmarks, negative result reported.</span></div>
           </div>
@@ -164,7 +164,7 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">Six multilayer perceptrons are trained at scales s = log₁₀ n ∈ {3,…,8} on a deliberately rich, redundant 105-dimensional feature set. Interpretation uses two independent routes: <strong>black-box weight analysis</strong> (singular-value spectra, Hill exponents, effective rank, integrated-gradient attribution by feature group) and <strong>knowledge distillation</strong> into decision trees and sparse L1 logistic regressions.</p>
-      <p class="dim">Both routes converge on the same function. The top features, in order and at every scale, are <code>is_6k_pm1</code>, then <code>n mod 5</code>, 7, 11, 13, 17, 19 &mdash; the small-prime trial-division sieve, restricted to the 6k±1 lattice on which all primes above 3 live. Two clean exponential scaling laws fall out: the residue-feature attribution share decays as 0.543·exp(−0.041·s) while the binary-bit share grows as 2.23·exp(0.219·s), with Hill α ≈ 3.19 constant throughout.</p>
+      <p class="dim">Both routes converge on the same function. The top features, in order and at every scale, are <code translate="no">is_6k_pm1</code>, then <code translate="no">n mod 5</code>, 7, 11, 13, 17, 19 &mdash; the small-prime trial-division sieve, restricted to the 6k±1 lattice on which all primes above 3 live. Two clean exponential scaling laws fall out: the residue-feature attribution share decays as 0.543·exp(−0.041·s) while the binary-bit share grows as 2.23·exp(0.219·s), with Hill α ≈ 3.19 constant throughout.</p>
       <p class="dim">The second paper operationalises the finding into three generators and benchmarks them head-to-head. The conventional baseline (6k±1 enumeration, small-prime pre-filter, Sorenson&ndash;Webster deterministic Miller&ndash;Rabin) is exactly correct and fastest. The NN-augmented variant is also exactly correct &mdash; the verifier guarantees it &mdash; and 30&ndash;80× slower. The pure-NN variant is not a primality test at all. The conclusion the paper draws is that the network’s value here is interpretive, not generative.</p>
     </div>
     <div class="note note--amber reveal" style="margin-top:28px">
@@ -190,15 +190,15 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Function recovered by distillation</td><td class="mono" style="color:var(--ink)">small-prime sieve on 6k±1</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same feature ordering at every scale s = 3…8</td></tr>
-          <tr><td>Residue-attribution scaling law</td><td class="mono" style="color:var(--ink)">0.543 · exp(−0.041 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Integrated-gradient attribution by feature group</td></tr>
-          <tr><td>Binary-bit attribution scaling law</td><td class="mono" style="color:var(--ink)">2.23 · exp(0.219 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same analysis, opposite direction</td></tr>
-          <tr><td>Hill tail exponent</td><td class="mono" style="color:var(--ink)">α ≈ 3.19</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Constant across all six scales</td></tr>
-          <tr><td>NN-augmented generator speed</td><td class="mono" style="color:var(--ink)">30–80× slower</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">50 random starts × 5 consecutive primes per scale</td></tr>
-          <tr><td>Pure-NN primality recall</td><td class="mono" style="color:var(--ink)">0.21–0.68</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">At τ = 0.5; skip rate 2–22%</td></tr>
-          <tr><td>Verifier exactness bound</td><td class="mono" style="color:var(--ink)">exact for n &lt; 3.317 × 10²⁴</td><td><span class="badge ">Cited</span></td><td class="muted">Sorenson–Webster deterministic Miller–Rabin</td></tr>
-          <tr><td>Probabilistic error above that bound</td><td class="mono" style="color:var(--ink)">≈9.1 × 10⁻¹³ per call</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">k = 20 rounds, 4⁻²⁰</td></tr>
-          <tr><td>Cross-study agreement</td><td class="mono" style="color:var(--ink)">every cross-checkable claim</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Against an independent non-NN baseline study</td></tr>
+          <tr><td>Function recovered by distillation</td><td class="mono" style="color:var(--ink)" translate="no">small-prime sieve on 6k±1</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same feature ordering at every scale s = 3…8</td></tr>
+          <tr><td>Residue-attribution scaling law</td><td class="mono" style="color:var(--ink)" translate="no">0.543 · exp(−0.041 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Integrated-gradient attribution by feature group</td></tr>
+          <tr><td>Binary-bit attribution scaling law</td><td class="mono" style="color:var(--ink)" translate="no">2.23 · exp(0.219 · s)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same analysis, opposite direction</td></tr>
+          <tr><td>Hill tail exponent</td><td class="mono" style="color:var(--ink)" translate="no">α ≈ 3.19</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Constant across all six scales</td></tr>
+          <tr><td>NN-augmented generator speed</td><td class="mono" style="color:var(--ink)" translate="no">30–80× slower</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">50 random starts × 5 consecutive primes per scale</td></tr>
+          <tr><td>Pure-NN primality recall</td><td class="mono" style="color:var(--ink)" translate="no">0.21–0.68</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">At τ = 0.5; skip rate 2–22%</td></tr>
+          <tr><td>Verifier exactness bound</td><td class="mono" style="color:var(--ink)" translate="no">exact for n &lt; 3.317 × 10²⁴</td><td><span class="badge ">Cited</span></td><td class="muted">Sorenson–Webster deterministic Miller–Rabin</td></tr>
+          <tr><td>Probabilistic error above that bound</td><td class="mono" style="color:var(--ink)" translate="no">≈9.1 × 10⁻¹³ per call</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">k = 20 rounds, 4⁻²⁰</td></tr>
+          <tr><td>Cross-study agreement</td><td class="mono" style="color:var(--ink)" translate="no">every cross-checkable claim</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Against an independent non-NN baseline study</td></tr>
         </tbody>
       </table>
     </div>
@@ -247,27 +247,27 @@
               <tbody>
                 <tr>
                   <td>Primes found</td>
-                  <td class="mono" id="pr-conv-found">&mdash;</td>
-                  <td class="mono" id="pr-aug-found">&mdash;</td>
-                  <td class="mono" id="pr-pure-found">&mdash;</td>
+                  <td class="mono" id="pr-conv-found" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-aug-found" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-pure-found" translate="no">&mdash;</td>
                 </tr>
                 <tr>
                   <td>Miller&ndash;Rabin calls</td>
-                  <td class="mono" id="pr-conv-mr">&mdash;</td>
-                  <td class="mono" id="pr-aug-mr">&mdash;</td>
-                  <td class="mono">0</td>
+                  <td class="mono" id="pr-conv-mr" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-aug-mr" translate="no">&mdash;</td>
+                  <td class="mono" translate="no">0</td>
                 </tr>
                 <tr>
                   <td>Primes skipped</td>
-                  <td class="mono" id="pr-conv-missed">&mdash;</td>
-                  <td class="mono" id="pr-aug-missed">&mdash;</td>
-                  <td class="mono" id="pr-pure-missed">&mdash;</td>
+                  <td class="mono" id="pr-conv-missed" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-aug-missed" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-pure-missed" translate="no">&mdash;</td>
                 </tr>
                 <tr>
                   <td>Filter cost per candidate</td>
-                  <td class="mono" id="pr-conv-us">&mdash;</td>
-                  <td class="mono" id="pr-aug-us">&mdash;</td>
-                  <td class="mono" id="pr-pure-us">&mdash;</td>
+                  <td class="mono" id="pr-conv-us" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-aug-us" translate="no">&mdash;</td>
+                  <td class="mono" id="pr-pure-us" translate="no">&mdash;</td>
                 </tr>
                 <tr>
                   <td>False positives</td>
@@ -291,19 +291,19 @@
           <div class="spec" style="border:0">
             <div class="spec__row" style="padding-inline:0">
               <span class="spec__k">Trial divisors used</span>
-              <span class="spec__v mono" id="pr-filter">&mdash;</span>
+              <span class="spec__v mono" id="pr-filter" translate="no">&mdash;</span>
             </div>
             <div class="spec__row" style="padding-inline:0">
               <span class="spec__k">Composites accepted</span>
-              <span class="spec__v mono" id="pr-pure-fp">&mdash;</span>
+              <span class="spec__v mono" id="pr-pure-fp" translate="no">&mdash;</span>
             </div>
             <div class="spec__row" style="padding-inline:0">
               <span class="spec__k">Verifier calls saved</span>
-              <span class="spec__v mono" id="pr-mrsaved">&mdash;</span>
+              <span class="spec__v mono" id="pr-mrsaved" translate="no">&mdash;</span>
             </div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0">
               <span class="spec__k">Filter cost ratio</span>
-              <span class="spec__v mono" id="pr-slowdown">&mdash;</span>
+              <span class="spec__v mono" id="pr-slowdown" translate="no">&mdash;</span>
             </div>
           </div>
           <p class="tiny muted" id="pr-verdict">&nbsp;</p>
@@ -445,7 +445,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

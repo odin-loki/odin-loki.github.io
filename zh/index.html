@@ -255,7 +255,7 @@
           <li><strong>忠实移植，而不是&ldquo;顺手改进&rdquo;。</strong> HardenedBSD 的代码树就是规格。连缺陷也照样移植，直到某项改动被单独记录下来为止。</li>
           <li><strong>没有验证，就不算做完。</strong> 能编译不等于已验证。每个文件都要过差分验证或 IR 验证这一关。</li>
           <li><strong>确定性工具优先。</strong> 安全重写流程在任何模型碰代码之前运行 &mdash; 而模型永远不为自己背书。</li>
-          <li><strong>自由站立的内核 C++。</strong> <code>-fno-exceptions -fno-rtti</code>，并附有文档化的内核 ABI。</li>
+          <li><strong>自由站立的内核 C++。</strong> <code translate="no">-fno-exceptions -fno-rtti</code>，并附有文档化的内核 ABI。</li>
         </ul>
         <div class="btn-row">
           <a class="btn btn--fund" href="/zh/kickstarter.html">众筹页面 &rarr;</a>
@@ -542,7 +542,7 @@
         <span class="badge badge--violet" style="margin-bottom:14px">04</span>
         <h3>实测胜过直觉</h3>
         <p class="dim">
-          AEGIS 是按一条规则造出来的：没有攻击模拟确认，就不算做完。开发过程中，关于流量分析的直觉一次又一次出错； <code>sim/</code> 里的模拟平台，就是规格书里每一个定量结论背后的证据台账。
+          AEGIS 是按一条规则造出来的：没有攻击模拟确认，就不算做完。开发过程中，关于流量分析的直觉一次又一次出错； <code translate="no">sim/</code> 里的模拟平台，就是规格书里每一个定量结论背后的证据台账。
         </p>
       </div>
     </div>
@@ -611,7 +611,7 @@
       <div class="reveal" data-delay=".1">
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:18px">AGPL 要求署名</span>
-          <pre class="code" style="font-size:.86rem"><span class="c-com">/* In your about box, docs, or footer: */</span>
+          <pre class="code" style="font-size:.86rem" translate="no"><span class="c-com">/* In your about box, docs, or footer: */</span>
 <span class="c-str">"Powered by Ideas, developed by Odin Loch.
  Licensed under AGPL-3.0+."</span></pre>
           <p class="small muted" style="margin-top:16px">
@@ -712,7 +712,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

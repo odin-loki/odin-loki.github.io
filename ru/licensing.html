@@ -249,7 +249,7 @@
         <span class="eyebrow">Указание авторства</span>
         <h3>Строка, которую обязаны нести пользователи AGPL</h3>
         <p class="dim small">В окне «О программе», в документации или в подвале:</p>
-        <pre class="code" style="margin-top:12px">Powered by Ideas, developed by Odin Loch.
+        <pre class="code" style="margin-top:12px" translate="no">Powered by Ideas, developed by Odin Loch.
 Licensed under AGPL-3.0+.</pre>
         <div class="btn-row" style="margin-top:14px">
           <button class="btn btn--sm" data-copy="Powered by Ideas, developed by Odin Loch. Licensed under AGPL-3.0+.">Скопировать строку авторства</button>
@@ -259,19 +259,19 @@ Licensed under AGPL-3.0+.</pre>
         <span class="eyebrow eyebrow--amber">Исключение</span>
         <h3>Апстрим-код в ParanoidBSD не перелицензируется</h3>
         <p class="dim">
-          ParanoidBSD включает в себя два апстрим-дерева и переносит из обоих. <code>hbsd/</code> остаётся на собственных условиях HardenedBSD и FreeBSD; <code>kde/</code> остаётся на условиях KDE. Ни то, ни другое перелицензировать нельзя, и Imortek этого не заявляет. Перенесённые файлы в
-          <code>pbsd/</code> сохраняют унаследованный апстрим-заголовок об авторских правах, и именно этот заголовок управляет файлом &mdash; он важнее умолчания по пути.
+          ParanoidBSD включает в себя два апстрим-дерева и переносит из обоих. <code translate="no">hbsd/</code> остаётся на собственных условиях HardenedBSD и FreeBSD; <code translate="no">kde/</code> остаётся на условиях KDE. Ни то, ни другое перелицензировать нельзя, и Imortek этого не заявляет. Перенесённые файлы в
+          <code translate="no">pbsd/</code> сохраняют унаследованный апстрим-заголовок об авторских правах, и именно этот заголовок управляет файлом &mdash; он важнее умолчания по пути.
         </p>
         <p class="dim">
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/LICENSING.md" target="_blank"
-             rel="noopener"><code>LICENSING.md</code></a> — авторитетная карта по путям, а
-          <code>docs/PROVENANCE.md</code> фиксирует, какие модули перенесены, а какие являются новой работой PBSD, так что границу можно проверить, а не принять на слово. Новая работа &mdash; ядро возможностей, инструменты, композитор и тема Aero &mdash; идёт под двойной лицензией Imortek.
+             rel="noopener"><code translate="no">LICENSING.md</code></a> — авторитетная карта по путям, а
+          <code translate="no">docs/PROVENANCE.md</code> фиксирует, какие модули перенесены, а какие являются новой работой PBSD, так что границу можно проверить, а не принять на слово. Новая работа &mdash; ядро возможностей, инструменты, композитор и тема Aero &mdash; идёт под двойной лицензией Imortek.
         </p>
         <div class="note note--amber" style="margin-top:16px">
           <strong>Три исключения, которые всплыли при аудите.</strong> Двадцать два перенесённых файла наследуют исходную четырёхпунктовую лицензию BSD, рекламный пункт которой AGPL принять не может, поэтому они исключены из предоставления прав по AGPL и не должны попадать в бинарник под AGPL.
-          <code>pbsd/zfs/</code> происходит из OpenZFS, которая под CDDL и не имеет пути совместимости с AGPL &mdash; ZFS остаётся отдельным неизменённым модулем. А работа, производная от KDE, совместима только через оговорку &ldquo;или новее&rdquo;, поэтому код строго под GPL-2.0 в дерево попадать не должен никогда. Все три перечислены в
+          <code translate="no">pbsd/zfs/</code> происходит из OpenZFS, которая под CDDL и не имеет пути совместимости с AGPL &mdash; ZFS остаётся отдельным неизменённым модулем. А работа, производная от KDE, совместима только через оговорку &ldquo;или новее&rdquo;, поэтому код строго под GPL-2.0 в дерево попадать не должен никогда. Все три перечислены в
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> и обеспечиваются проверкой в CI.
+             rel="noopener"><code translate="no">NOTICES.md</code></a> и обеспечиваются проверкой в CI.
         </div>
       </div>
     </div>
@@ -295,7 +295,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/ru/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/ru/cypha.html">Cypha</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была CC BY 4.0</td></tr>
-          <tr><td><a href="/ru/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была без лицензии &middot; <code>vendor/</code> исключено</td></tr>
+          <tr><td><a href="/ru/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была без лицензии &middot; <code translate="no">vendor/</code> исключено</td></tr>
           <tr><td><a href="/ru/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была проприетарной</td></tr>
           <tr><td><a href="/ru/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была MIT</td></tr>
           <tr><td><a href="/ru/cellai.html">Cell AI</a></td><td>AGPL-3.0+ / коммерческая</td><td><span class="badge badge--teal">Действует</span></td><td class="muted">была без лицензии</td></tr>
@@ -421,7 +421,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T18:37:11Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T20:36:07Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>

@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, собранный Emscripten, только x86. Нативная сборка линкует ту же библиотеку из <code>deps/capstone</code>.
+        Capstone 5, собранный Emscripten, только x86. Нативная сборка линкует ту же библиотеку из <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; Назад</button>
             <button class="btn btn--sm btn--primary" id="rd-next">Следующий этап &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Рантайм</span>
-        <p class="small dim" style="margin:0">Контейнеры STL и структуры рантайма C++ &mdash; форма <code>std::vector</code> снова проступает из схемы выделения памяти.</p></div>
+        <p class="small dim" style="margin:0">Контейнеры STL и структуры рантайма C++ &mdash; форма <code translate="no">std::vector</code> снова проступает из схемы выделения памяти.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Криптография</span>
         <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA и примитивы на эллиптических кривых, опознаваемые по константам и структуре раундов.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сортировка и поиск</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Графы</span>
         <p class="small dim" style="margin:0">Алгоритмы на графах и схемы обхода BFS/DFS.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Параллелизм</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB и голые атомарные операции.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB и голые атомарные операции.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сериализация</span>
         <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON и обрамление XML.</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 бинарников и цифра, от которой больно</h2>
         <p class="dim">
           Все 216 бинарников ELF в тестовом корпусе дают собираемый C с флагом
-          <code>--buildable</code>, который включён по умолчанию. С восстановлением алгоритмов история другая, и честно сообщать о ней — значит ставить обе цифры рядом.
+          <code translate="no">--buildable</code>, который включён по умолчанию. С восстановлением алгоритмов история другая, и честно сообщать о ней — значит ставить обе цифры рядом.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>Метрика</th><th class="num">Результат</th><th>Условие</th></tr></thead>
             <tbody>
-              <tr><td>Собираемый вывод на C</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, включён по умолчанию</td></tr>
+              <tr><td>Собираемый вывод на C</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, включён по умолчанию</td></tr>
               <tr><td>F1 восстановления алгоритмов</td><td class="num">0.056</td><td class="muted">Без имён, 95% ДИ 0,034&ndash;0,083</td></tr>
               <tr><td>F1 восстановления алгоритмов</td><td class="num">1.000</td><td class="muted">С подсказкой по именам, бинарники с символами</td></tr>
-              <tr><td>Стандартный <code>.c</code> перекомпилируется</td><td class="num">Нет</td><td class="muted">Ни этот форк, ни исходный RetDec</td></tr>
+              <tr><td>Стандартный <code translate="no">.c</code> перекомпилируется</td><td class="num">Нет</td><td class="muted">Ни этот форк, ни исходный RetDec</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Опционально, офлайн и под барьером</h2>
         <p class="dim">
           Уточнение идёт через llama.cpp с моделями GGUF, полностью офлайн, и только когда задан
-          <code>RETDEC_NEURAL_REFINE=1</code> и указан путь к модели. По умолчанию оно выключено и никогда не заменяет базовый вывод.
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> и указан путь к модели. По умолчанию оно выключено и никогда не заменяет базовый вывод.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Барьер компиляции.</strong> Уточнённый вывод обязан пройти <code>gcc -fsyntax-only</code> прежде чем его примут.</li>
+          <li><strong>Барьер компиляции.</strong> Уточнённый вывод обязан пройти <code translate="no">gcc -fsyntax-only</code> прежде чем его примут.</li>
           <li><strong>Проверка структуры.</strong> Уточнение всё равно должно соответствовать поднятой структуре.</li>
           <li><strong>Детерминированный базовый вывод сохраняется.</strong> Неуточнённый вывод декомпилятора остаётся тем артефактом, который можно проверить. Если нужно защищать вывод, защищают именно его.</li>
           <li><strong>Сети нет.</strong> Локальный инференс GGUF. Ничто про ваш бинарник не покидает машину.</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T18:37:11Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T20:36:07Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>

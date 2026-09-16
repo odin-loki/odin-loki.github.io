@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Software &amp; languages <span style="opacity:.5">/</span> Statistical Scheduler
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Statistical Scheduler</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Statistical Scheduler</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Software &amp; languages</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing on simulation. Open-source asynchronous Python implementation.</span></div>
           </div>
@@ -190,14 +190,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Median placement latency</td><td class="mono" style="color:var(--ink)">p50 = 0.48 ms</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">500 decisions, 16-node simulated cluster</td></tr>
-          <tr><td>Tail placement latency</td><td class="mono" style="color:var(--ink)">p99 = 1.00 ms</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same run</td></tr>
-          <tr><td>Placement rate</td><td class="mono" style="color:var(--ink)">100%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Under the representative load tested</td></tr>
-          <tr><td>Jain fairness index</td><td class="mono" style="color:var(--ink)">1.00</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Perfect on this workload; see limitations</td></tr>
-          <tr><td>LinTS regret bound</td><td class="mono" style="color:var(--ink)">O(d√T · polylog T)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Standard contextual-bandit analysis</td></tr>
-          <tr><td>Change-point detection latency</td><td class="mono" style="color:var(--ink)">3 samples at +3σ</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Page–Hinkley CUSUM, median</td></tr>
-          <tr><td>Average run length under the null</td><td class="mono" style="color:var(--ink)">ARL₀ = 3,485 steps</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">False-alarm rate of the detector</td></tr>
-          <tr><td>PID stability</td><td class="mono" style="color:var(--ink)">BIBO</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Argued, not proved for the closed loop with the bandit</td></tr>
+          <tr><td>Median placement latency</td><td class="mono" style="color:var(--ink)" translate="no">p50 = 0.48 ms</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">500 decisions, 16-node simulated cluster</td></tr>
+          <tr><td>Tail placement latency</td><td class="mono" style="color:var(--ink)" translate="no">p99 = 1.00 ms</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Same run</td></tr>
+          <tr><td>Placement rate</td><td class="mono" style="color:var(--ink)" translate="no">100%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Under the representative load tested</td></tr>
+          <tr><td>Jain fairness index</td><td class="mono" style="color:var(--ink)" translate="no">1.00</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Perfect on this workload; see limitations</td></tr>
+          <tr><td>LinTS regret bound</td><td class="mono" style="color:var(--ink)" translate="no">O(d√T · polylog T)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Standard contextual-bandit analysis</td></tr>
+          <tr><td>Change-point detection latency</td><td class="mono" style="color:var(--ink)" translate="no">3 samples at +3σ</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Page–Hinkley CUSUM, median</td></tr>
+          <tr><td>Average run length under the null</td><td class="mono" style="color:var(--ink)" translate="no">ARL₀ = 3,485 steps</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">False-alarm rate of the detector</td></tr>
+          <tr><td>PID stability</td><td class="mono" style="color:var(--ink)" translate="no">BIBO</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Argued, not proved for the closed loop with the bandit</td></tr>
         </tbody>
       </table>
     </div>
@@ -317,7 +317,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

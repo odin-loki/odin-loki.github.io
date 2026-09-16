@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Архитектура ИИ, построенная из <span class="gradient-text">первых принципов</span>, а не форк</h1>
         <p class="lede">
-          Cypha — это не обёртка вокруг трансформера и не дообученная копия чужой модели. Один публичный тип &mdash; <code>cypha::Cypha</code> &mdash; классифицирует, делает регрессию, сэмплирует скрытые состояния и порождает последовательности, а правило обучения выведено из точки пересечения четырёх формальных программ.
+          Cypha — это не обёртка вокруг трансформера и не дообученная копия чужой модели. Один публичный тип &mdash; <code translate="no">cypha::Cypha</code> &mdash; классифицирует, делает регрессию, сэмплирует скрытые состояния и порождает последовательности, а правило обучения выведено из точки пересечения четырёх формальных программ.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Обучите её в браузере</a>
@@ -186,7 +186,7 @@
       <h2>Случайные признаки — измеренные, а не описанные</h2>
       <p class="lede">
         Довод Cypha в пользу случайных признаков Фурье в том, что они позволяют линейной голове разделить то, чего линейная голова разделить не может. Это измеримое утверждение, поэтому здесь оно и измеряется &mdash; через
-        <code>cypha::rff_features</code> в сборке под WebAssembly, а не через пересказ на JavaScript.
+        <code translate="no">cypha::rff_features</code> в сборке под WebAssembly, а не через пересказ на JavaScript.
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Компиляция этого нашла баг.</strong> ORF &mdash; плотный ортогональный вариант &mdash; нормировал каждую строку до единичной длины, тогда как у Yu et al. норма строки берётся из
-            <code>chi_d</code> — и тогда ортогональная строка соответствует той гауссовой строке, которую она заменяет. Строки были короче нужного в &radic;d раз, поэтому признаки приближали не то ядро, и ошибка выходила на плато вместо сходимости. Одна строка. Теперь это лучший из трёх.
+            <code translate="no">chi_d</code> — и тогда ортогональная строка соответствует той гауссовой строке, которую она заменяет. Строки были короче нужного в &radic;d раз, поэтому признаки приближали не то ядро, и ошибка выходила на плато вместо сходимости. Одна строка. Теперь это лучший из трёх.
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Кодировщик</span>
         <h3 style="font-size:1.02rem">Подключаемый входной модуль</h3>
         <p class="small dim" style="margin:0">
-          Из сырого входа в вектор признаков. В комплекте <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (случайные признаки Фурье) и <code>ConcatEncoder</code>. Меняется без последствий для всего, что ниже по конвейеру.
+          Из сырого входа в вектор признаков. В комплекте <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (случайные признаки Фурье) и <code translate="no">ConcatEncoder</code>. Меняется без последствий для всего, что ниже по конвейеру.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Отпрофилированы, а не угаданы</h2>
         <p class="dim">Они получены из отпрофилированной оптимизации по средней сетке и поставляются как эталонная конфигурация.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Размерность признаков</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">Бюджет RFF</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Доля воспроизведения</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Окно контекста</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">LR мирового априора</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">LR классового дифференциала</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">LR кодировщика</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">Лямбда MDL</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Размерность признаков</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">Бюджет RFF</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">Доля воспроизведения</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Окно контекста</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">LR мирового априора</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">LR классового дифференциала</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">LR кодировщика</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">Лямбда MDL</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">Собрать</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Три команды</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T18:37:11Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T20:36:07Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>

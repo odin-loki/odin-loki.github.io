@@ -192,7 +192,7 @@
       <div>
         <p class="dim">
           في يونكس تقليدي، العملية لا <em>تملك</em> حقّ فتح
-          <code>/etc/master.passwd</code>. هي تطلب فحسب، والنواة تقرّر بعد ذلك، بناءً على مَن تزعم العملية أنها هي. كل عملية تستطيع تسمية كل مورد في النظام. فضاء الأسماء عام ومحيط؛ والفحص فكرة لاحقة متأخّرة.
+          <code translate="no">/etc/master.passwd</code>. هي تطلب فحسب، والنواة تقرّر بعد ذلك، بناءً على مَن تزعم العملية أنها هي. كل عملية تستطيع تسمية كل مورد في النظام. فضاء الأسماء عام ومحيط؛ والفحص فكرة لاحقة متأخّرة.
         </p>
         <p class="dim">
           ولهذا يمكن لعلّة تحليل واحدة في محرّك عرض الخطوط أن تصير سرقة بيانات اعتماد. المحرّك لم يحتج يومًا إلى ملف كلمات السر &mdash; لكن لا شيء في المعمارية منعه من أن يطلبه.
@@ -205,7 +205,7 @@
       <div>
         <div class="card">
           <h3 style="font-size:1rem">طريقتان للإجابة عن نداء نظام واحد</h3>
-          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+          <pre class="code" style="margin-top:14px" translate="no"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
 // checks uid/gid/MAC after the fact</span>
@@ -215,7 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            شكل توضيحي للفرق، لا سردًا حرفيًّا لواجهة البرمجة. النموذج المعتمَد موجود في <code>docs/</code>.
+            شكل توضيحي للفرق، لا سردًا حرفيًّا لواجهة البرمجة. النموذج المعتمَد موجود في <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -293,7 +293,7 @@
       </div>
 
       <div class="panel__foot">
-        نموذج تعليمي لتصميم أمان PBSD، كُتب لهذه الصفحة. النواة الحقيقية موجودة في <code>pbsd/</code>؛ والمواصفة في
+        نموذج تعليمي لتصميم أمان PBSD، كُتب لهذه الصفحة. النواة الحقيقية موجودة في <code translate="no">pbsd/</code>؛ والمواصفة في
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -319,7 +319,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">المرحلة 1</span>
         <h3 style="font-size:1.05rem">الجرد</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> و <code>clang_cxx23_port.py</code> يُقيّمان كل ملف C حسب الصعوبة ويكتبان <code>c_inventory.csv</code>. لا شيء يُخمَّن بشأن النطاق.
+          <code translate="no">tools/inventory_c_sources.py</code> و <code translate="no">clang_cxx23_port.py</code> يُقيّمان كل ملف C حسب الصعوبة ويكتبان <code translate="no">c_inventory.csv</code>. لا شيء يُخمَّن بشأن النطاق.
         </p>
       </div>
       <div class="card card--hover">
@@ -327,8 +327,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">المرحلة 2</span>
         <h3 style="font-size:1.05rem">مراحل حتمية</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> يطبّق إعادة كتابة ميكانيكية آمنة في المستويات 0&ndash;4. بلا أي نموذج. وكل ما ترفضه مرحلة يُسجَّل في
-          <code>refusals.jsonl</code> بدل أن يُفرَض.
+          <code translate="no">run_todo_passes.py</code> يطبّق إعادة كتابة ميكانيكية آمنة في المستويات 0&ndash;4. بلا أي نموذج. وكل ما ترفضه مرحلة يُسجَّل في
+          <code translate="no">refusals.jsonl</code> بدل أن يُفرَض.
         </p>
       </div>
       <div class="card card--hover">
@@ -336,7 +336,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">المرحلة 3</span>
         <h3 style="font-size:1.05rem">حلقة الوكلاء</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> يملأ الملفات الفارغة والمرفوضة بنموذج DeepSeek Flash مع التصعيد إلى Pro بأقصى جهد استدلالي &mdash; 48 عاملًا على Flash و24 على Pro افتراضيًّا.
+          <code translate="no">pbsd.py</code> يملأ الملفات الفارغة والمرفوضة بنموذج DeepSeek Flash مع التصعيد إلى Pro بأقصى جهد استدلالي &mdash; 48 عاملًا على Flash و24 على Pro افتراضيًّا.
           <strong>هذا ما تموّله حملة Kickstarter.</strong>
         </p>
       </div>
@@ -346,7 +346,7 @@
         <h3 style="font-size:1.05rem">بوابة التحقّق</h3>
         <p class="small dim" style="margin:0">
           الترجمة وASan وUBSan والتنفيذ التفاضلي ومقارنة التمثيل الوسيط. الملف الذي يُترجَم فقط هو ملف <em>غير متحقَّق منه</em>. والإخفاقات تُسجَّل في
-          <code>agent_port_failures.jsonl</code>.
+          <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
     </div>
@@ -405,15 +405,15 @@
       </div>
     </details>
     <details class="acc reveal">
-      <summary>C++ في النواة قائمة بذاتها: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>C++ في النواة قائمة بذاتها: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        لا يمكن لنواة النظام أن تعتمد على بيئة تشغيل C++ مستضافة. لا استثناءات، ولا RTTI، ولا مسارات في المكتبة القياسية تحجز من الكومة عند الدخول إلى النواة. والقيود مكتوبة في <code>docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
+        لا يمكن لنواة النظام أن تعتمد على بيئة تشغيل C++ مستضافة. لا استثناءات، ولا RTTI، ولا مسارات في المكتبة القياسية تحجز من الكومة عند الدخول إلى النواة. والقيود مكتوبة في <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
       </div>
     </details>
     <details class="acc reveal">
       <summary>كل وحدة تحتاج إلى مدخل منشأ قبل أن تُعدّ منجزة</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> يسجّل من أين جاءت كل وحدة وتحت أي ترخيص. وهذا ما يجعل بيان الترخيص أدناه قابلًا للتحقق بدل أن يكون أمنية &mdash; يمكنك أن تفحص، وحدةً وحدة، أي شيفرة مشتقّة من HardenedBSD وأيها عمل PBSD جديد.
+        <code translate="no">docs/PROVENANCE.md</code> يسجّل من أين جاءت كل وحدة وتحت أي ترخيص. وهذا ما يجعل بيان الترخيص أدناه قابلًا للتحقق بدل أن يكون أمنية &mdash; يمكنك أن تفحص، وحدةً وحدة، أي شيفرة مشتقّة من HardenedBSD وأيها عمل PBSD جديد.
       </div>
     </details>
   </div>
@@ -430,7 +430,7 @@
           شيفرة PBSD الجديدة &mdash; النواة، ووحدات C++23، والأدوات &mdash; تُقدَّم وفق شروط Imortek المعتادة: AGPL-3.0+ مجانًا للاستخدام الشخصي والجمعيات الخيرية والتعليم والمؤسسات التي يقل دخلها عن 50,000&nbsp;AUD سنويًّا، مع ترخيص تجاري متدرّج فوق ذلك.
         </p>
         <p class="dim">
-          الشيفرة المشتقّة من HardenedBSD تبقى تحت ترخيص BSD الأصلي. لا يمكن إعادة ترخيصها، وImortek لا يدّعي ذلك. <code>docs/PROVENANCE.md</code> هو السجلّ الذي يبيّن أي شيفرة تتبع أي ترخيص.
+          الشيفرة المشتقّة من HardenedBSD تبقى تحت ترخيص BSD الأصلي. لا يمكن إعادة ترخيصها، وImortek لا يدّعي ذلك. <code translate="no">docs/PROVENANCE.md</code> هو السجلّ الذي يبيّن أي شيفرة تتبع أي ترخيص.
         </p>
         <a class="btn btn--ghost" href="/ar/licensing.html">شروط الترخيص كاملة &rarr;</a>
       </div>
@@ -439,12 +439,12 @@
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; تجاري</span></div>
             <h4 style="margin:0 0 6px">عمل PBSD الجديد</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>، ونواة الصلاحيات، وUDA، وBIFROST، والمُركِّب، والسمة.</p>
+            <p class="small muted" style="margin:0"><code translate="no">pbsd/</code>, <code translate="no">tools/</code>, <code translate="no">scripts/</code>، ونواة الصلاحيات، وUDA، وBIFROST، والمُركِّب، والسمة.</p>
           </div>
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (بلا تغيير)</span></div>
             <h4 style="margin:0 0 6px">مشتقّ من HardenedBSD</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> وكل ملف منقول يعود إليه. الشروط الأصلية، والإسناد الأصلي.</p>
+            <p class="small muted" style="margin:0"><code translate="no">hbsd/</code> وكل ملف منقول يعود إليه. الشروط الأصلية، والإسناد الأصلي.</p>
           </div>
         </div>
       </div>
@@ -573,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T18:37:11Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T20:36:07Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>

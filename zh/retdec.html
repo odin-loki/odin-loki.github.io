@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5，用 Emscripten 构建，只支持 x86。本地构建链接的是同一个库，来自 <code>deps/capstone</code>.
+        Capstone 5，用 Emscripten 构建，只支持 x86。本地构建链接的是同一个库，来自 <code translate="no">deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
-          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
+          <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem" translate="no"></pre>
           <div class="btn-row" style="margin-top:16px">
             <button class="btn btn--sm" id="rd-prev">&larr; 上一步</button>
             <button class="btn btn--sm btn--primary" id="rd-next">下一阶段 &rarr;</button>
@@ -342,7 +342,7 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">运行时</span>
-        <p class="small dim" style="margin:0">STL 容器与 C++ 运行时结构 &mdash; 一个 <code>std::vector</code> 的形状从分配模式里重新浮现出来。</p></div>
+        <p class="small dim" style="margin:0">STL 容器与 C++ 运行时结构 &mdash; 一个 <code translate="no">std::vector</code> 的形状从分配模式里重新浮现出来。</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">密码学</span>
         <p class="small dim" style="margin:0">AES、SHA、ChaCha20、RSA 和椭圆曲线原语，靠常量和轮结构识别。</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">排序 &amp; 查找</span>
@@ -350,7 +350,7 @@
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">图</span>
         <p class="small dim" style="margin:0">图算法以及 BFS/DFS 遍历模式。</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">并发</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>、pthreads、OpenMP、TBB 和裸原子操作。</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>、pthreads、OpenMP、TBB 和裸原子操作。</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">序列化</span>
         <p class="small dim" style="margin:0">Protobuf、FlatBuffers、MessagePack、JSON 和 XML 分帧。</p></div>
     </div>
@@ -365,16 +365,16 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 个二进制文件，以及那个难看的数字</h2>
         <p class="dim">
           测试语料里全部 216 个 ELF 二进制文件，加上
-          <code>--buildable</code>之后都能产出可构建的 C 代码，而这个选项默认就是开的。算法还原是另一回事，老实的报告方式是把两个数字并排放出来。
+          <code translate="no">--buildable</code>之后都能产出可构建的 C 代码，而这个选项默认就是开的。算法还原是另一回事，老实的报告方式是把两个数字并排放出来。
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
             <thead><tr><th>指标</th><th class="num">结果</th><th>条件</th></tr></thead>
             <tbody>
-              <tr><td>可构建的 C 输出</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>，默认开启</td></tr>
+              <tr><td>可构建的 C 输出</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>，默认开启</td></tr>
               <tr><td>算法还原 F1</td><td class="num">0.056</td><td class="muted">不看符号名，95% 置信区间 0.034&ndash;0.083</td></tr>
               <tr><td>算法还原 F1</td><td class="num">1.000</td><td class="muted">借助符号名，带符号的二进制文件</td></tr>
-              <tr><td>默认的 <code>.c</code> 能重新编译</td><td class="num">否</td><td class="muted">这个 fork 和原版 RetDec 都不行</td></tr>
+              <tr><td>默认的 <code translate="no">.c</code> 能重新编译</td><td class="num">否</td><td class="muted">这个 fork 和原版 RetDec 都不行</td></tr>
             </tbody>
           </table>
         </div>
@@ -388,15 +388,15 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">可选、离线，而且要过关卡</h2>
         <p class="dim">
           精修通过 llama.cpp 用 GGUF 模型来跑，完全离线，而且只在设置了
-          <code>RETDEC_NEURAL_REFINE=1</code> 并给出模型路径时才跑。它默认关闭，也从不取代基线输出。
+          <code translate="no">RETDEC_NEURAL_REFINE=1</code> 并给出模型路径时才跑。它默认关闭，也从不取代基线输出。
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>编译关卡。</strong> 精修后的输出必须先通过 <code>gcc -fsyntax-only</code> 才会被接受。</li>
+          <li><strong>编译关卡。</strong> 精修后的输出必须先通过 <code translate="no">gcc -fsyntax-only</code> 才会被接受。</li>
           <li><strong>结构校验。</strong> 精修结果必须仍然对应抬升出来的结构。</li>
           <li><strong>确定性基线保留。</strong> 没精修过的反编译器输出仍然是那份可审计的产物。如果你要为一个结论辩护，你辩护的是那一份。</li>
           <li><strong>不联网。</strong> 本地 GGUF 推理。关于你那个二进制文件的任何信息都不会离开这台机器。</li>
         </ul>
-        <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
+        <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
 <span class="c-pr">$</span> <span class="c-cmd">retdec-decompiler --buildable ./target.elf</span></pre>
       </div>
@@ -535,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

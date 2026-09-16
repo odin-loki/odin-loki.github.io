@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Une architecture d’IA construite à partir des <span class="gradient-text">premiers principes</span>, pas un fork</h1>
         <p class="lede">
-          Cypha n’est pas un habillage de transformeur ni une copie réglée du modèle de quelqu’un d’autre. Un seul type public &mdash; <code>cypha::Cypha</code> &mdash; classe, régresse, échantillonne des latents et génère des séquences, avec une règle d’apprentissage dérivée du point où quatre programmes formels se croisent.
+          Cypha n’est pas un habillage de transformeur ni une copie réglée du modèle de quelqu’un d’autre. Un seul type public &mdash; <code translate="no">cypha::Cypha</code> &mdash; classe, régresse, échantillonne des latents et génère des séquences, avec une règle d’apprentissage dérivée du point où quatre programmes formels se croisent.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">En entraîner un dans votre navigateur</a>
@@ -186,7 +186,7 @@
       <h2>Des caractéristiques aléatoires, mesurées plutôt que décrites</h2>
       <p class="lede">
         L’argument de Cypha en faveur des caractéristiques de Fourier aléatoires, c’est qu’elles permettent à une tête linéaire de séparer ce qu’une tête linéaire ne peut pas séparer. C’est une affirmation mesurable, alors elle est mesurée ici &mdash; avec
-        <code>cypha::rff_features</code> compilé en WebAssembly, pas une transposition en JavaScript.
+        <code translate="no">cypha::rff_features</code> compilé en WebAssembly, pas une transposition en JavaScript.
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>La compiler a révélé un bug.</strong> ORF &mdash; la variante orthogonale dense &mdash; normalisait chaque ligne à une longueur unitaire, alors que Yu et al. tirent la norme de ligne de
-            <code>chi_d</code> de sorte qu’une ligne orthogonale corresponde à la ligne gaussienne qu’elle remplace. Les lignes étaient trop courtes d’un facteur &radic;d, donc les caractéristiques approchaient le mauvais noyau et l’erreur plafonnait au lieu de converger. Une ligne. C’est maintenant la meilleure des trois.
+            <code translate="no">chi_d</code> de sorte qu’une ligne orthogonale corresponde à la ligne gaussienne qu’elle remplace. Les lignes étaient trop courtes d’un facteur &radic;d, donc les caractéristiques approchaient le mauvais noyau et l’erreur plafonnait au lieu de converger. Une ligne. C’est maintenant la meilleure des trois.
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Encodeur</span>
         <h3 style="font-size:1.02rem">Étage d’entrée interchangeable</h3>
         <p class="small dim" style="margin:0">
-          De l’entrée brute au vecteur de caractéristiques. Fournit <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (caractéristiques de Fourier aléatoires) et <code>ConcatEncoder</code>. Remplacez-le sans toucher à quoi que ce soit en aval.
+          De l’entrée brute au vecteur de caractéristiques. Fournit <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (caractéristiques de Fourier aléatoires) et <code translate="no">ConcatEncoder</code>. Remplacez-le sans toucher à quoi que ce soit en aval.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Profilées, pas devinées</h2>
         <p class="dim">Elles sortent d’une optimisation profilée sur grille moyenne et sont livrées comme configuration de référence.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Dim. des caractéristiques</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">Budget RFF</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Ratio de rejeu</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Fenêtre de contexte</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">LR du prior du monde</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">LR des diff. de classe</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">LR de l’encodeur</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">Lambda MDL</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Dim. des caractéristiques</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">Budget RFF</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">Ratio de rejeu</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Fenêtre de contexte</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">LR du prior du monde</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">LR des diff. de classe</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">LR de l’encodeur</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">Lambda MDL</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">La compiler</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Trois commandes</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-16T18:37:11Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
+      <span class="mono tiny">Compilé le 2026-09-16T20:36:07Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
     </div>
   </div>
 </footer>

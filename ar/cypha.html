@@ -148,7 +148,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>بنية ذكاء اصطناعي مبنيّة من <span class="gradient-text">المبادئ الأولى</span>، لا تفريعًا لمشروع آخر</h1>
         <p class="lede">
-          Cypha ليس غلافًا حول محوّل ولا نسخة مضبوطة من نموذج شخص آخر. نوع عام واحد &mdash; <code>cypha::Cypha</code> &mdash; يصنّف، ويُجري الانحدار، ويأخذ عيّنات من الفضاء الكامن، ويولّد المتتاليات، بقاعدة تعلّم مشتقّة من تقاطع أربعة برامج نظرية.
+          Cypha ليس غلافًا حول محوّل ولا نسخة مضبوطة من نموذج شخص آخر. نوع عام واحد &mdash; <code translate="no">cypha::Cypha</code> &mdash; يصنّف، ويُجري الانحدار، ويأخذ عيّنات من الفضاء الكامن، ويولّد المتتاليات، بقاعدة تعلّم مشتقّة من تقاطع أربعة برامج نظرية.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">درّب واحدًا في متصفحك</a>
@@ -186,7 +186,7 @@
       <h2>سمات عشوائية، مقيسة لا موصوفة</h2>
       <p class="lede">
         حجّة Cypha لسمات فورييه العشوائية أنها تتيح لرأس خطّي أن يفصل ما لا يستطيع رأس خطّي فصله. وهذا ادّعاء قابل للقياس، فها هو يُقاس &mdash; باستخدام
-        <code>cypha::rff_features</code> مُترجَمة إلى WebAssembly، لا إعادة سرد بلغة JavaScript.
+        <code translate="no">cypha::rff_features</code> مُترجَمة إلى WebAssembly، لا إعادة سرد بلغة JavaScript.
       </p>
     </div>
 
@@ -227,7 +227,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ترجمة هذا كشفت علّة.</strong> ORF &mdash; الصيغة المتعامدة الكثيفة &mdash; كان يُعيّر كل صف إلى طول الوحدة، بينما يسحب Yu وزملاؤه معيار الصف من
-            <code>chi_d</code> كي يطابق الصفُّ المتعامد الصفَّ الغاوسي الذي يحلّ محلّه. كانت الصفوف أقصر بمقدار &radic;d، فقاربت السمات النواة الخطأ واستوى الخطأ عند حدّ بدل أن يتقارب. سطر واحد. وهو الآن أفضل الثلاثة.
+            <code translate="no">chi_d</code> كي يطابق الصفُّ المتعامد الصفَّ الغاوسي الذي يحلّ محلّه. كانت الصفوف أقصر بمقدار &radic;d، فقاربت السمات النواة الخطأ واستوى الخطأ عند حدّ بدل أن يتقارب. سطر واحد. وهو الآن أفضل الثلاثة.
           </div>
         </div>
       </div>
@@ -257,8 +257,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">المُرمِّز</span>
         <h3 style="font-size:1.02rem">واجهة أمامية قابلة للاستبدال</h3>
         <p class="small dim" style="margin:0">
-          من الدخل الخام إلى متجه سمات. يأتي مع <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (سمات فورييه العشوائية) و <code>ConcatEncoder</code>. بدّله دون أن تمسّ أي شيء في المراحل التالية.
+          من الدخل الخام إلى متجه سمات. يأتي مع <code translate="no">VectorEncoder</code>,
+          <code translate="no">RFFEncoder</code> (سمات فورييه العشوائية) و <code translate="no">ConcatEncoder</code>. بدّله دون أن تمسّ أي شيء في المراحل التالية.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
@@ -480,14 +480,14 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">مقيسة بالتنميط، لا مخمَّنة</h2>
         <p class="dim">هذه ناتجة عن تحسين على شبكة متوسطة مع تنميط أداء، وتُشحَن بوصفها الإعداد المرجعي.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">بُعد السمات</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">ميزانية RFF</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">نسبة الإعادة</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">نافذة السياق</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">معدّل تعلّم المسبق العالمي</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">معدّل تعلّم فارق الصنف</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">معدّل تعلّم المُرمِّز</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">لامبدا MDL</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">بُعد السمات</span><span class="spec__v mono" translate="no">128</span></div>
+          <div class="spec__row"><span class="spec__k">ميزانية RFF</span><span class="spec__v mono" translate="no">256</span></div>
+          <div class="spec__row"><span class="spec__k">نسبة الإعادة</span><span class="spec__v mono" translate="no">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">نافذة السياق</span><span class="spec__v mono" translate="no">32</span></div>
+          <div class="spec__row"><span class="spec__k">معدّل تعلّم المسبق العالمي</span><span class="spec__v mono" translate="no">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">معدّل تعلّم فارق الصنف</span><span class="spec__v mono" translate="no">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">معدّل تعلّم المُرمِّز</span><span class="spec__v mono" translate="no">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">لامبدا MDL</span><span class="spec__v mono" translate="no">0.001</span></div>
         </div>
       </div>
 
@@ -570,7 +570,7 @@
   <div class="wrap wrap-narrow">
     <span class="eyebrow">ابنِه</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ثلاثة أوامر</h2>
-    <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
 
@@ -650,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T18:37:11Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T20:36:07Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>

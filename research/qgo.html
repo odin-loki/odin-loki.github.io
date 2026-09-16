@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Mathematics <span style="opacity:.5">/</span> QGO
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="reference"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Code exists and runs. Performance not independently checked.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Quantum Graph Optimisation</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Quantum Graph Optimisation</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Mathematics</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Reference implementation with a verification suite. Python module is the canonical spec.</span></div>
           </div>
@@ -165,7 +165,7 @@
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">The graph is first compressed spectrally: rank-k truncation of the normalised Laplacian L̃ = I − D<sup>−½</sup>AD<sup>−½</sup>, recording relative-Frobenius-tail reconstruction error. A <strong>Chebyshev encoder</strong> then produces the ansatz with scale 2/λ<sub>max</sub> and error O(exp(−Jδ/λ<sub>max</sub>)), so the simulated quantum state starts biased toward the Laplacian’s leading subspace &mdash; a graph prior, before any optimisation.</p>
       <p class="dim">The simulator runs QAOA-style γ-phase and Pauli-X mixing layers on the compressed 2<sup>k</sup>-dimensional space with depolarising noise, exact below a cap of 18 qubits and mean-field above. The distinctive layer is the <strong>noise-aware ranker</strong>: shots are down-weighted by w = exp(−λ‖η‖), where η is the bit-marginal deviation between noisy and noiseless Born probabilities. Noise becomes side data instead of error.</p>
-      <p class="dim">Finally <strong>spectral lift-back</strong> returns to the original graph via z = sign(Uz<sub>k</sub>), with a verified inequality C(z) ≥ C<sub>k</sub>(z<sub>k</sub>) − ε<sub>lift</sub>|E| bounding what the compression cost. Every layer ships a named verification function &mdash; <code>verify_eckart_young</code>, <code>verify_chebyshev_convergence</code>, <code>verify_noise_weighting</code>, <code>verify_liftback_quality</code>, <code>verify_noise_side_data</code> &mdash; plus a full-pipeline demo on a Barabási&ndash;Albert graph at n = 80.</p>
+      <p class="dim">Finally <strong>spectral lift-back</strong> returns to the original graph via z = sign(Uz<sub>k</sub>), with a verified inequality C(z) ≥ C<sub>k</sub>(z<sub>k</sub>) − ε<sub>lift</sub>|E| bounding what the compression cost. Every layer ships a named verification function &mdash; <code translate="no">verify_eckart_young</code>, <code translate="no">verify_chebyshev_convergence</code>, <code translate="no">verify_noise_weighting</code>, <code translate="no">verify_liftback_quality</code>, <code translate="no">verify_noise_side_data</code> &mdash; plus a full-pipeline demo on a Barabási&ndash;Albert graph at n = 80.</p>
     </div>
     <div class="note  reveal" style="margin-top:28px">
       <strong>The honesty is the feature.</strong> A folder that says "no quantum hardware, no advantage claim, the theorem labels are doc conventions, the results are demo-level" is more useful than one that does not, because everything it <em>does</em> claim can then be taken at face value. The noise-weighted aggregation is a genuine idea and it survives being stated plainly.
@@ -190,14 +190,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Pipeline layers</td><td class="mono" style="color:var(--ink)">5, each independently verified</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Compression, encoding, simulation, ranking, lift-back</td></tr>
-          <tr><td>Compression bound</td><td class="mono" style="color:var(--ink)">Eckart–Young optimality</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Verified in code by verify_eckart_young</td></tr>
-          <tr><td>Chebyshev convergence</td><td class="mono" style="color:var(--ink)">O(exp(−Jδ/λ_max))</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">With scale 2/λ_max</td></tr>
-          <tr><td>Lift-back guarantee</td><td class="mono" style="color:var(--ink)">C(z) ≥ C_k(z_k) − ε_lift|E|</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Verified inequality, not an estimate</td></tr>
-          <tr><td>Exact simulation cap</td><td class="mono" style="color:var(--ink)">MAX_EXACT_QUBITS = 18</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Mean-field approximation above it</td></tr>
-          <tr><td>Noise penalty default</td><td class="mono" style="color:var(--ink)">λ = 3.0</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Weight w = exp(−λ‖η‖) on each shot</td></tr>
-          <tr><td>Parameter grid</td><td class="mono" style="color:var(--ink)">10 × 7 default</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">γ-phase and mixing-angle sweep</td></tr>
-          <tr><td>Demo graph</td><td class="mono" style="color:var(--ink)">Barabási–Albert, n = 80</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Cut-fraction and planted-partition comparisons</td></tr>
+          <tr><td>Pipeline layers</td><td class="mono" style="color:var(--ink)" translate="no">5, each independently verified</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Compression, encoding, simulation, ranking, lift-back</td></tr>
+          <tr><td>Compression bound</td><td class="mono" style="color:var(--ink)" translate="no">Eckart–Young optimality</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Verified in code by verify_eckart_young</td></tr>
+          <tr><td>Chebyshev convergence</td><td class="mono" style="color:var(--ink)" translate="no">O(exp(−Jδ/λ_max))</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">With scale 2/λ_max</td></tr>
+          <tr><td>Lift-back guarantee</td><td class="mono" style="color:var(--ink)" translate="no">C(z) ≥ C_k(z_k) − ε_lift|E|</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Verified inequality, not an estimate</td></tr>
+          <tr><td>Exact simulation cap</td><td class="mono" style="color:var(--ink)" translate="no">MAX_EXACT_QUBITS = 18</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Mean-field approximation above it</td></tr>
+          <tr><td>Noise penalty default</td><td class="mono" style="color:var(--ink)" translate="no">λ = 3.0</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Weight w = exp(−λ‖η‖) on each shot</td></tr>
+          <tr><td>Parameter grid</td><td class="mono" style="color:var(--ink)" translate="no">10 × 7 default</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">γ-phase and mixing-angle sweep</td></tr>
+          <tr><td>Demo graph</td><td class="mono" style="color:var(--ink)" translate="no">Barabási–Albert, n = 80</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Cut-fraction and planted-partition comparisons</td></tr>
         </tbody>
       </table>
     </div>
@@ -317,7 +317,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

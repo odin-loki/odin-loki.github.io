@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">দুটি সিদ্ধান্ত, যা সবকিছুর আকার দেয়</span>
           <ul class="flist flist--violet">
-            <li><strong>নিজস্ব BLAS/LAPACK।</strong> Eigen নেই, OpenBLAS নেই। <code>linalg</code> নিজেই রাখে LU, QR, SVD, eig, Cholesky আর LAPACK-ঘরানার কার্নেলগুলি, তাই স্থাপনা মানে একটা কম্পাইল, নির্ভরতা খোঁজার অভিযান নয়।</li>
-            <li><strong>C++-এর একটি সীমিত উপসেট।</strong> কোনো কাঁচা পয়েন্টার নয়, কোনো এক্সেপশন নয়, কোনো অনিরাপদ কাস্ট নয় &mdash; কম্পাইলের সময়েই তা বাধ্যতামূলক। উৎপাদন কোড ফেরত দেয় <code>Result&lt;T&gt;</code>, তাই ত্রুটি সামলানো নির্ধারণবাদী আর টাইপেই দৃশ্যমান।</li>
+            <li><strong>নিজস্ব BLAS/LAPACK।</strong> Eigen নেই, OpenBLAS নেই। <code translate="no">linalg</code> নিজেই রাখে LU, QR, SVD, eig, Cholesky আর LAPACK-ঘরানার কার্নেলগুলি, তাই স্থাপনা মানে একটা কম্পাইল, নির্ভরতা খোঁজার অভিযান নয়।</li>
+            <li><strong>C++-এর একটি সীমিত উপসেট।</strong> কোনো কাঁচা পয়েন্টার নয়, কোনো এক্সেপশন নয়, কোনো অনিরাপদ কাস্ট নয় &mdash; কম্পাইলের সময়েই তা বাধ্যতামূলক। উৎপাদন কোড ফেরত দেয় <code translate="no">Result&lt;T&gt;</code>, তাই ত্রুটি সামলানো নির্ধারণবাদী আর টাইপেই দৃশ্যমান।</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">x-এ রাশি</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">প্রতীকী অন্তরজ</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            সমর্থিত: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, ধ্রুবক <code>pi</code> ও <code>e</code>। আসল CAS অনেক বড়; এটি সেই একই ভাবনা, পড়ার মতো মাপে।
+            সমর্থিত: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, ধ্রুবক <code translate="no">pi</code> ও <code translate="no">e</code>। আসল CAS অনেক বড়; এটি সেই একই ভাবনা, পড়ার মতো মাপে।
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        একটি টোকেনাইজার, রিকার্সিভ-ডিসেন্ট পার্সার, প্রতীকী অন্তরকলক ও সরলীকারক, এই পাতার জন্য লেখা। C++ বাস্তবায়নটি আছে <code>symbolic</code> লাইব্রেরিতে।
+        একটি টোকেনাইজার, রিকার্সিভ-ডিসেন্ট পার্সার, প্রতীকী অন্তরকলক ও সরলীকারক, এই পাতার জন্য লেখা। C++ বাস্তবায়নটি আছে <code translate="no">symbolic</code> লাইব্রেরিতে।
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">আবার লিখে ফেলা নয়</span>
       <h2>আসল C++ লাইব্রেরিটাই, WebAssembly-তে কম্পাইল করা</h2>
       <p class="lede">
-        উপরের সবটাই এই পাতার জন্য লেখা JavaScript &mdash; সৎ, কিন্তু আসল জিনিসের একটা মডেল। নিচে আসল জিনিসটাই: <code>libms_symbolic</code> নিজেই, নেটিভ লাইব্রেরি যে সোর্স থেকে বিল্ড হয় সেই একই সোর্স থেকে কম্পাইল করা, চলছে আপনার ব্রাউজারে।
+        উপরের সবটাই এই পাতার জন্য লেখা JavaScript &mdash; সৎ, কিন্তু আসল জিনিসের একটা মডেল। নিচে আসল জিনিসটাই: <code translate="no">libms_symbolic</code> নিজেই, নেটিভ লাইব্রেরি যে সোর্স থেকে বিল্ড হয় সেই একই সোর্স থেকে কম্পাইল করা, চলছে আপনার ব্রাউজারে।
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA লাইনটি হলো লাইব্রেরির নিজের সম্পর্কে সত্যি কথা বলা।</strong> এটি ডাকে
-            <code>ms::detect_isa()</code>, নেটিভ অবস্থায় সে ঠিক এই কলটাই করে। আপনার ডেস্কটপে এর উত্তর আসে AVX2 বা AVX-512; এখানে একটিই ভেক্টর ISA আছে, আর সে সেটাই বলে।
+            <code translate="no">ms::detect_isa()</code>, নেটিভ অবস্থায় সে ঠিক এই কলটাই করে। আপনার ডেস্কটপে এর উত্তর আসে AVX2 বা AVX-512; এখানে একটিই ভেক্টর ISA আছে, আর সে সেটাই বলে।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        MathScript গাছ থেকে Emscripten দিয়ে বিল্ড করা। এতটা পৌঁছাতে তিনটি বহনযোগ্যতার ত্রুটি সারাতে হয়েছে, যেগুলির সবক'টিই Apple clang আর ARM-এ নেটিভ বিল্ডেও প্রভাব ফেলে &mdash; দেখুন <code>tools/wasm/README.md</code>.
+        MathScript গাছ থেকে Emscripten দিয়ে বিল্ড করা। এতটা পৌঁছাতে তিনটি বহনযোগ্যতার ত্রুটি সারাতে হয়েছে, যেগুলির সবক'টিই Apple clang আর ARM-এ নেটিভ বিল্ডেও প্রভাব ফেলে &mdash; দেখুন <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">কোর</span>
         <h3 style="font-size:1.02rem">কোর সিস্টেম</h3>
-        <p class="small dim" style="margin:0">ঘন ও বিরল রৈখিক বীজগণিত, সঙ্গে নিজস্ব LU, QR, SVD, আইগেন-সমাধায়ক ও Cholesky। <code>Result&lt;T&gt;</code> দিয়ে সর্বত্র ত্রুটি সামলানো।</p></div>
+        <p class="small dim" style="margin:0">ঘন ও বিরল রৈখিক বীজগণিত, সঙ্গে নিজস্ব LU, QR, SVD, আইগেন-সমাধায়ক ও Cholesky। <code translate="no">Result&lt;T&gt;</code> দিয়ে সর্বত্র ত্রুটি সামলানো।</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">সাংখ্যিক</span>
         <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">এক্সেপশন কেন নেই</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">এমন একটি সাংখ্যিক লাইব্রেরি, যা আপনার দিকে থ্রো করতে পারে না</h2>
     <p class="dim">
-      সাংখ্যিক কোড সাধারণ কারণেই ব্যর্থ হয়: একটি সিঙ্গুলার ম্যাট্রিক্স, অভিসারী না হওয়া একটি পুনরাবৃত্তি, একটি বিশেষ ফাংশনে ডোমেনের ভুল। এক্সেপশন দিয়ে সেটা জানানোর মানে, প্রতিটি কলকারীকে হয় সবকিছু মুড়ে রাখতে হবে <code>try</code> ব্লকে, নয়তো কোনো প্রেক্ষাপট ছাড়াই স্ট্যাকের মাথায় গিয়ে ব্যর্থতাটা আবিষ্কার করতে হবে। MathScript ব্যর্থতাটাকে রিটার্ন টাইপেরই অংশ করে দেয়।
+      সাংখ্যিক কোড সাধারণ কারণেই ব্যর্থ হয়: একটি সিঙ্গুলার ম্যাট্রিক্স, অভিসারী না হওয়া একটি পুনরাবৃত্তি, একটি বিশেষ ফাংশনে ডোমেনের ভুল। এক্সেপশন দিয়ে সেটা জানানোর মানে, প্রতিটি কলকারীকে হয় সবকিছু মুড়ে রাখতে হবে <code translate="no">try</code> ব্লকে, নয়তো কোনো প্রেক্ষাপট ছাড়াই স্ট্যাকের মাথায় গিয়ে ব্যর্থতাটা আবিষ্কার করতে হবে। MathScript ব্যর্থতাটাকে রিটার্ন টাইপেরই অংশ করে দেয়।
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T18:37:11Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T20:36:07Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>

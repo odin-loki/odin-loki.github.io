@@ -169,7 +169,7 @@
           </p>
           <p class="small dim" style="margin-top:14px">
             开发过程中，关于流量分析的直觉一次又一次地失灵。只有模拟框架被证明靠得住，于是它成了关卡。那套 Python 框架在
-            <code>sim/</code> 里，它是规格里每一条量化说法背后的证据台账 &mdash; 不是事后补上去给一个已经发布的设计背书的东西。
+            <code translate="no">sim/</code> 里，它是规格里每一条量化说法背后的证据台账 &mdash; 不是事后补上去给一个已经发布的设计背书的东西。
           </p>
         </div>
       </div>
@@ -394,12 +394,12 @@
           <li><strong>是实测出来的，不是证明出来的。</strong> 这些结果是在所声明的对手模型下测出来的经验界限。它们不是数学证明。</li>
           <li><strong>延迟是与生俱来的。</strong> 数秒级的延迟是这个设计的属性，不是一个日后能优化掉的调参问题。</li>
           <li><strong>两方通信用错了工具。</strong> AEGIS 适合在很多端点之间隐藏关系图。只有两方的一条链路，用链路层防御更好。</li>
-          <li><strong>还有没做完的研究。</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> 就是那份老老实实列出还没做完的事项的清单。</li>
+          <li><strong>还有没做完的研究。</strong> <code translate="no">docs/ops/RESEARCH_AGENDA.md</code> 就是那份老老实实列出还没做完的事项的清单。</li>
         </ul>
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>仓库卫生：</strong> GitHub Actions CI， <code>cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code>#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
+      <strong>仓库卫生：</strong> GitHub Actions CI， <code translate="no">cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code translate="no">#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
     </div>
   </div>
 </section>
@@ -469,7 +469,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T18:37:11Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T20:36:07Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>

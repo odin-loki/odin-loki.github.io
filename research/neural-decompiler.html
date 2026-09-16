@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> Neural Decompiler
     </p>
     <div class="split split--wide-left">
@@ -148,7 +148,7 @@
           <div class="tier-meter" data-tier="reference"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Code exists and runs. Performance not independently checked.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Neural Decompiler</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Neural Decompiler</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Reference implementation with training loop, inference harness and synthetic dataset validation.</span></div>
           </div>
@@ -166,7 +166,7 @@
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">A PyTorch research implementation that reframes binary decompilation as conditional sequence modelling. Rather than a staged compiler pipeline run in reverse, an encoder–decoder Transformer maps assembly to source directly.</p>
       <p class="dim">Three learnable mechanisms carry the design: a hierarchical memory module of learnable slots accessed by multi-head attention with gated fusion across levels; pre-norm GELU Transformer encoder and decoder layers with learned position embeddings; and a mixture of experts split into binary-focused and language-focused families.</p>
-      <p class="dim">The MoE routing is load-balanced by an auxiliary loss <code>λ‖p̄ − u‖²</code>, added to a token cross-entropy with label smoothing. The bundled synthetic corpus validates the pipeline mechanically — forward pass, shape checks, loss decrease — and nothing more.</p>
+      <p class="dim">The MoE routing is load-balanced by an auxiliary loss <code translate="no">λ‖p̄ − u‖²</code>, added to a token cross-entropy with label smoothing. The bundled synthetic corpus validates the pipeline mechanically — forward pass, shape checks, loss decrease — and nothing more.</p>
     </div>
     <div class="note note--violet reveal" style="margin-top:28px">
       <strong>Compare with the shipping decompiler.</strong> RetDec Imortek takes the opposite bet: a deterministic decompiler is the auditable baseline, and neural refinement is optional, gated by a compile check, and off by default. This folder is the research line; that product is what survived contact with the requirement to be trustworthy.
@@ -191,12 +191,12 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Architecture</td><td class="mono" style="color:var(--ink)">Encoder–decoder Transformer, pre-norm GELU</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented and runs</td></tr>
-          <tr><td>Hierarchical memory</td><td class="mono" style="color:var(--ink)">Learnable slots, multi-head access, gated fusion</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
-          <tr><td>Mixture of experts</td><td class="mono" style="color:var(--ink)">Binary-focused and language-focused families</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
-          <tr><td>MoE load balancing</td><td class="mono" style="color:var(--ink)">Auxiliary loss λ‖p̄ − u‖²</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
-          <tr><td>Pipeline validation</td><td class="mono" style="color:var(--ink)">Forward pass, shape checks, loss decrease</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">On the bundled synthetic corpus only</td></tr>
-          <tr><td>Recovery quality on real binaries</td><td class="mono" style="color:var(--ink)">Not claimed</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Explicitly out of scope at this stage</td></tr>
+          <tr><td>Architecture</td><td class="mono" style="color:var(--ink)" translate="no">Encoder–decoder Transformer, pre-norm GELU</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented and runs</td></tr>
+          <tr><td>Hierarchical memory</td><td class="mono" style="color:var(--ink)" translate="no">Learnable slots, multi-head access, gated fusion</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
+          <tr><td>Mixture of experts</td><td class="mono" style="color:var(--ink)" translate="no">Binary-focused and language-focused families</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
+          <tr><td>MoE load balancing</td><td class="mono" style="color:var(--ink)" translate="no">Auxiliary loss λ‖p̄ − u‖²</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Implemented</td></tr>
+          <tr><td>Pipeline validation</td><td class="mono" style="color:var(--ink)" translate="no">Forward pass, shape checks, loss decrease</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">On the bundled synthetic corpus only</td></tr>
+          <tr><td>Recovery quality on real binaries</td><td class="mono" style="color:var(--ink)" translate="no">Not claimed</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Explicitly out of scope at this stage</td></tr>
         </tbody>
       </table>
     </div>
@@ -316,7 +316,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

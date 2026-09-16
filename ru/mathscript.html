@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Два решения, которые определяют всё</span>
           <ul class="flist flist--violet">
-            <li><strong>BLAS/LAPACK прямо в дереве.</strong> Ни Eigen, ни OpenBLAS. <code>linalg</code> содержит LU, QR, SVD, eig, Холецкого и ядра в стиле LAPACK, так что развёртывание — это компиляция, а не охота за зависимостями.</li>
-            <li><strong>Ограниченное подмножество C++.</strong> Никаких сырых указателей, никаких исключений, никаких небезопасных приведений &mdash; проверяется на этапе компиляции. Продакшен-код возвращает <code>Result&lt;T&gt;</code>, так что обработка ошибок детерминирована и видна в типе.</li>
+            <li><strong>BLAS/LAPACK прямо в дереве.</strong> Ни Eigen, ни OpenBLAS. <code translate="no">linalg</code> содержит LU, QR, SVD, eig, Холецкого и ядра в стиле LAPACK, так что развёртывание — это компиляция, а не охота за зависимостями.</li>
+            <li><strong>Ограниченное подмножество C++.</strong> Никаких сырых указателей, никаких исключений, никаких небезопасных приведений &mdash; проверяется на этапе компиляции. Продакшен-код возвращает <code translate="no">Result&lt;T&gt;</code>, так что обработка ошибок детерминирована и видна в типе.</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">Выражение от x</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">Символьная производная</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            Поддерживается: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, константы <code>pi</code> и <code>e</code>. Настоящая CAS заметно больше; здесь та же идея в масштабе, который можно прочитать.
+            Поддерживается: <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, константы <code translate="no">pi</code> и <code translate="no">e</code>. Настоящая CAS заметно больше; здесь та же идея в масштабе, который можно прочитать.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        Токенизатор, парсер рекурсивного спуска, символьный дифференциатор и упроститель, написанные для этой страницы. Реализация на C++ — это библиотека <code>symbolic</code> в дереве MathScript.
+        Токенизатор, парсер рекурсивного спуска, символьный дифференциатор и упроститель, написанные для этой страницы. Реализация на C++ — это библиотека <code translate="no">symbolic</code> в дереве MathScript.
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">Не повторная реализация</span>
       <h2>Настоящая библиотека на C++, скомпилированная в WebAssembly</h2>
       <p class="lede">
-        Всё выше — это JavaScript, написанный для этой страницы &mdash; честно, но это модель настоящего. Ниже настоящее: <code>libms_symbolic</code> собственной персоной, скомпилированный из того же исходника, из которого собирается нативная библиотека, и работающий в вашем браузере.
+        Всё выше — это JavaScript, написанный для этой страницы &mdash; честно, но это модель настоящего. Ниже настоящее: <code translate="no">libms_symbolic</code> собственной персоной, скомпилированный из того же исходника, из которого собирается нативная библиотека, и работающий в вашем браузере.
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Строка ISA — это библиотека, говорящая о себе правду.</strong> Она спрашивает
-            <code>ms::detect_isa()</code>, тот же вызов, что она делает и нативно. На вашем десктопе он отвечает AVX2 или AVX-512; здесь векторный ISA один, и она так и говорит.
+            <code translate="no">ms::detect_isa()</code>, тот же вызов, что она делает и нативно. На вашем десктопе он отвечает AVX2 или AVX-512; здесь векторный ISA один, и она так и говорит.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Собрано Emscripten из дерева MathScript. Чтобы этого добиться, пришлось починить три дефекта переносимости, и все они также затрагивают нативные сборки на Apple clang и на ARM &mdash; см. <code>tools/wasm/README.md</code>.
+        Собрано Emscripten из дерева MathScript. Чтобы этого добиться, пришлось починить три дефекта переносимости, и все они также затрагивают нативные сборки на Apple clang и на ARM &mdash; см. <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Ядро</span>
         <h3 style="font-size:1.02rem">Базовые системы</h3>
-        <p class="small dim" style="margin:0">Плотная и разреженная линейная алгебра с LU, QR, SVD, решателями задач на собственные значения и Холецким прямо в дереве. <code>Result&lt;T&gt;</code> — обработка ошибок повсюду.</p></div>
+        <p class="small dim" style="margin:0">Плотная и разреженная линейная алгебра с LU, QR, SVD, решателями задач на собственные значения и Холецким прямо в дереве. <code translate="no">Result&lt;T&gt;</code> — обработка ошибок повсюду.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Численные</span>
         <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">Почему без исключений</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Численная библиотека, которая не может бросить в вас исключение</h2>
     <p class="dim">
-      Численный код падает обычными способами: вырожденная матрица, несходящаяся итерация, ошибка области определения в специальной функции. Сигнализировать об этом исключением означает, что каждый вызывающий либо оборачивает всё в <code>try</code> либо обнаруживает отказ на вершине стека без всякого контекста. MathScript делает отказ частью возвращаемого типа.
+      Численный код падает обычными способами: вырожденная матрица, несходящаяся итерация, ошибка области определения в специальной функции. Сигнализировать об этом исключением означает, что каждый вызывающий либо оборачивает всё в <code translate="no">try</code> либо обнаруживает отказ на вершине стека без всякого контекста. MathScript делает отказ частью возвращаемого типа.
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T18:37:11Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T20:36:07Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>

@@ -172,7 +172,7 @@
           <p class="small dim" style="margin-top:14px">
             Intuition about traffic analysis failed repeatedly during development. Only the
             simulation harness proved trustworthy, so it became the gate. The Python harness in
-            <code>sim/</code> is the evidence ledger behind every quantitative claim in the
+            <code translate="no">sim/</code> is the evidence ledger behind every quantitative claim in the
             specification &mdash; not an afterthought that validates a design already shipped.
           </p>
         </div>
@@ -413,14 +413,14 @@
           <li><strong>Empirical, not proven.</strong> Results are empirical bounds under the stated adversary model. They are not mathematical proofs.</li>
           <li><strong>Latency is inherent.</strong> Multi-second latency is a property of the design, not a tuning problem that will be optimised away.</li>
           <li><strong>Wrong tool for two parties.</strong> AEGIS suits relationship-graph hiding across many endpoints. For a two-party link, link-layer defences do better.</li>
-          <li><strong>Open research remains.</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> is the honest backlog of what is not finished.</li>
+          <li><strong>Open research remains.</strong> <code translate="no">docs/ops/RESEARCH_AGENDA.md</code> is the honest backlog of what is not finished.</li>
         </ul>
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Repository hygiene:</strong> GitHub Actions CI, <code>cargo deny</code> dependency
+      <strong>Repository hygiene:</strong> GitHub Actions CI, <code translate="no">cargo deny</code> dependency
       auditing, and a workspace-wide policy forbidding unsafe code. For a Rust network stack
-      handling adversarial input, <code>#![forbid(unsafe_code)]</code> across the workspace is the
+      handling adversarial input, <code translate="no">#![forbid(unsafe_code)]</code> across the workspace is the
       single most load-bearing line in the project.
     </div>
   </div>
@@ -491,7 +491,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Defence &amp; security <span style="opacity:.5">/</span> Police equipment
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="design"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Specified in detail; implementation partial or absent.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Weapons-Police</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Weapons-Police</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Defence &amp; security</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design prospectuses, simulation-verified. No manufacture, no field trial, no procurement.</span></div>
           </div>
@@ -165,7 +165,7 @@
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim"><strong>APES-L Mark I</strong> is a full-body armour system specified at 6.5 kg against a 20.25 kg incumbent, with 23 spec simulations behind it and a V50 cross-check against the shared portfolio physics. The lifecycle model gives panel service at ten years, ceramic tile replacement at four and soft-panel refresh at six &mdash; which is what makes the ten-year cost comparison meaningful rather than a sticker-price argument.</p>
       <p class="dim"><strong>MP-4.6P Guardian LE</strong> is a service pistol chambered in a reduced-energy 4.6 × 22 mm loading at 396 m/s and 259 J, against 501 m/s and 326 J for the military 4.6 × 30 mm on the same bolt geometry. The seven-phase lifecycle simulation covers recoil, structural safety factor, Archard bore life, parts life and a Monte Carlo mean-rounds-between-failure estimate.</p>
-      <p class="dim">Both platforms inherit the defence portfolio’s discipline: the same simulator, the same results file, the same parts-commonality matrix &mdash; the 4.6 × 22 mm appears in the shared cartridge table, and APES-L shares materials with the military APES system. Each folder ships a <code>platform_simulation.py</code> that re-runs the physics and prints pass/fail against the spec.</p>
+      <p class="dim">Both platforms inherit the defence portfolio’s discipline: the same simulator, the same results file, the same parts-commonality matrix &mdash; the 4.6 × 22 mm appears in the shared cartridge table, and APES-L shares materials with the military APES system. Each folder ships a <code translate="no">platform_simulation.py</code> that re-runs the physics and prints pass/fail against the spec.</p>
     </div>
     <div class="note note--amber reveal" style="margin-top:28px">
       <strong>Ten-year cost is where equipment arguments are actually won.</strong> A 6.5 kg armour system against a 20.25 kg one is a comfort claim until you attach service life and replacement intervals to it. Putting panel life, tile replacement and soft-panel refresh in the same model as the ballistic performance is what turns a spec sheet into a procurement case — and it is also what makes the assumptions visible enough to argue with.
@@ -190,15 +190,15 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>APES-L mass</td><td class="mono" style="color:var(--ink)">6.5 kg vs 20.25 kg incumbent</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulation-derived, 23 spec simulations</td></tr>
-          <tr><td>APES-L panel service life</td><td class="mono" style="color:var(--ink)">10 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
-          <tr><td>APES-L ceramic tile replacement</td><td class="mono" style="color:var(--ink)">4 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
-          <tr><td>APES-L soft panel refresh</td><td class="mono" style="color:var(--ink)">6 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
-          <tr><td>Injury-score improvement</td><td class="mono" style="color:var(--ink)">66.2%</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Modelled, against the incumbent system</td></tr>
-          <tr><td>Ten-year TCO saving</td><td class="mono" style="color:var(--ink)">+$1.85 M per 500 officers</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Procurement case, not an audited figure</td></tr>
-          <tr><td>Guardian LE cartridge</td><td class="mono" style="color:var(--ink)">4.6 × 22 mm DPAP, 396 m/s, 259 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Against 501 m/s / 326 J for the military 4.6 × 30 mm</td></tr>
-          <tr><td>Guardian LE chamber pressure</td><td class="mono" style="color:var(--ink)">246 MPa</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulator output</td></tr>
-          <tr><td>Guardian LE free recoil</td><td class="mono" style="color:var(--ink)">1.2 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Momentum-conservation model</td></tr>
+          <tr><td>APES-L mass</td><td class="mono" style="color:var(--ink)" translate="no">6.5 kg vs 20.25 kg incumbent</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulation-derived, 23 spec simulations</td></tr>
+          <tr><td>APES-L panel service life</td><td class="mono" style="color:var(--ink)" translate="no">10 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>APES-L ceramic tile replacement</td><td class="mono" style="color:var(--ink)" translate="no">4 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>APES-L soft panel refresh</td><td class="mono" style="color:var(--ink)" translate="no">6 years</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Lifecycle model</td></tr>
+          <tr><td>Injury-score improvement</td><td class="mono" style="color:var(--ink)" translate="no">66.2%</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Modelled, against the incumbent system</td></tr>
+          <tr><td>Ten-year TCO saving</td><td class="mono" style="color:var(--ink)" translate="no">+$1.85 M per 500 officers</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Procurement case, not an audited figure</td></tr>
+          <tr><td>Guardian LE cartridge</td><td class="mono" style="color:var(--ink)" translate="no">4.6 × 22 mm DPAP, 396 m/s, 259 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Against 501 m/s / 326 J for the military 4.6 × 30 mm</td></tr>
+          <tr><td>Guardian LE chamber pressure</td><td class="mono" style="color:var(--ink)" translate="no">246 MPa</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Simulator output</td></tr>
+          <tr><td>Guardian LE free recoil</td><td class="mono" style="color:var(--ink)" translate="no">1.2 J</td><td><span class="badge badge--amber">Synthetic</span></td><td class="muted">Momentum-conservation model</td></tr>
         </tbody>
       </table>
     </div>
@@ -318,7 +318,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

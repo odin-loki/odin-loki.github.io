@@ -165,8 +165,8 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Deux décisions qui façonnent tout</span>
           <ul class="flist flist--violet">
-            <li><strong>BLAS/LAPACK intégrés.</strong> Pas d’Eigen, pas d’OpenBLAS. <code>linalg</code> possède LU, QR, SVD, eig, Cholesky et les noyaux de style LAPACK, si bien que le déploiement est une compilation plutôt qu’une chasse aux dépendances.</li>
-            <li><strong>Un sous-ensemble restreint de C++.</strong> Pas de pointeurs bruts, pas d’exceptions, pas de conversions non sûres &mdash; imposé à la compilation. Le code de production renvoie <code>Result&lt;T&gt;</code>, si bien que la gestion des erreurs est déterministe et visible dans le type.</li>
+            <li><strong>BLAS/LAPACK intégrés.</strong> Pas d’Eigen, pas d’OpenBLAS. <code translate="no">linalg</code> possède LU, QR, SVD, eig, Cholesky et les noyaux de style LAPACK, si bien que le déploiement est une compilation plutôt qu’une chasse aux dépendances.</li>
+            <li><strong>Un sous-ensemble restreint de C++.</strong> Pas de pointeurs bruts, pas d’exceptions, pas de conversions non sûres &mdash; imposé à la compilation. Le code de production renvoie <code translate="no">Result&lt;T&gt;</code>, si bien que la gestion des erreurs est déterministe et visible dans le type.</li>
           </ul>
         </div>
       </div>
@@ -193,7 +193,7 @@
         <div class="demo__stage">
           <label class="sr-only" for="ms-input">Expression en x</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-            <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
+            <span class="mono" style="color:var(--teal);align-self:center" translate="no">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
                    style="flex:1 1 240px;font-family:var(--mono)">
           </div>
@@ -214,7 +214,7 @@
         <div class="demo__side">
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">Dérivée symbolique</h4>
-            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
+            <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap" translate="no"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -242,13 +242,13 @@
             </div>
           </div>
           <p class="tiny muted">
-            Pris en charge : <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, constantes <code>pi</code> et <code>e</code>. Le vrai CAS est considérablement plus grand ; ceci est la même idée, à l’échelle de la lecture.
+            Pris en charge : <code translate="no">+ - * / ^</code>, <code translate="no">sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>, constantes <code translate="no">pi</code> et <code translate="no">e</code>. Le vrai CAS est considérablement plus grand ; ceci est la même idée, à l’échelle de la lecture.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        Un découpeur en jetons, un analyseur à descente récursive, un dérivateur symbolique et un simplificateur écrits pour cette page. L’implémentation C++ se trouve dans la bibliothèque <code>symbolic</code> du projet.
+        Un découpeur en jetons, un analyseur à descente récursive, un dérivateur symbolique et un simplificateur écrits pour cette page. L’implémentation C++ se trouve dans la bibliothèque <code translate="no">symbolic</code> du projet.
       </div>
     </div>
   </div>
@@ -261,7 +261,7 @@
       <span class="eyebrow eyebrow--violet">Pas une réimplémentation</span>
       <h2>La vraie bibliothèque C++, compilée en WebAssembly</h2>
       <p class="lede">
-        Tout ce qui précède est du JavaScript écrit pour cette page &mdash; honnête, mais un modèle de la chose réelle. Ci-dessous, c’est la chose réelle : <code>libms_symbolic</code> lui-même, compilé à partir des mêmes sources qui produisent la bibliothèque native, en train de tourner dans votre navigateur.
+        Tout ce qui précède est du JavaScript écrit pour cette page &mdash; honnête, mais un modèle de la chose réelle. Ci-dessous, c’est la chose réelle : <code translate="no">libms_symbolic</code> lui-même, compilé à partir des mêmes sources qui produisent la bibliothèque native, en train de tourner dans votre navigateur.
       </p>
     </div>
 
@@ -318,12 +318,12 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>La ligne ISA, c’est la bibliothèque qui dit la vérité sur elle-même.</strong> Elle appelle
-            <code>ms::detect_isa()</code>, le même appel qu’elle fait en natif. Sur votre poste, cela répond AVX2 ou AVX-512 ; ici il n’y a qu’une seule ISA vectorielle, et elle le dit.
+            <code translate="no">ms::detect_isa()</code>, le même appel qu’elle fait en natif. Sur votre poste, cela répond AVX2 ou AVX-512 ; ici il n’y a qu’une seule ISA vectorielle, et elle le dit.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Compilé avec Emscripten depuis l’arbre MathScript. Trois défauts de portabilité ont dû être corrigés pour y arriver, et tous affectent aussi les compilations natives sur Apple clang et sur ARM &mdash; voir <code>tools/wasm/README.md</code>.
+        Compilé avec Emscripten depuis l’arbre MathScript. Trois défauts de portabilité ont dû être corrigés pour y arriver, et tous affectent aussi les compilations natives sur Apple clang et sur ARM &mdash; voir <code translate="no">tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Base</span>
         <h3 style="font-size:1.02rem">Systèmes de base</h3>
-        <p class="small dim" style="margin:0">Algèbre linéaire dense et creuse avec LU, QR, SVD, solveurs de valeurs propres et Cholesky intégrés. Gestion des erreurs par <code>Result&lt;T&gt;</code> partout.</p></div>
+        <p class="small dim" style="margin:0">Algèbre linéaire dense et creuse avec LU, QR, SVD, solveurs de valeurs propres et Cholesky intégrés. Gestion des erreurs par <code translate="no">Result&lt;T&gt;</code> partout.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Numérique</span>
         <h3 style="font-size:1.02rem">EDO, EDP, FEM, CFD</h3>
@@ -440,9 +440,9 @@
     <span class="eyebrow">Pourquoi pas d’exceptions</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Une bibliothèque numérique qui ne peut pas vous lever d’exception</h2>
     <p class="dim">
-      Le code numérique échoue de façons ordinaires : une matrice singulière, une itération qui ne converge pas, une erreur de domaine dans une fonction spéciale. Signaler cela par une exception veut dire que chaque appelant soit enveloppe tout dans un <code>try</code> soit découvre l’échec en haut de la pile, sans contexte. MathScript fait de l’échec une partie du type de retour.
+      Le code numérique échoue de façons ordinaires : une matrice singulière, une itération qui ne converge pas, une erreur de domaine dans une fonction spéciale. Signaler cela par une exception veut dire que chaque appelant soit enveloppe tout dans un <code translate="no">try</code> soit découvre l’échec en haut de la pile, sans contexte. MathScript fait de l’échec une partie du type de retour.
     </p>
-    <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
+    <pre class="code" style="margin-top:18px" translate="no"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
 <span class="c-key">if</span> (!lu) <span class="c-key">return</span> lu.<span class="c-fn">error</span>();          <span class="c-com">// singular — handled, not thrown</span>
 
@@ -523,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-16T18:37:11Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
+      <span class="mono tiny">Compilé le 2026-09-16T20:36:07Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
     </div>
   </div>
 </footer>

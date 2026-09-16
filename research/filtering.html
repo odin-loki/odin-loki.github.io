@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Tracking &amp; sensors <span style="opacity:.5">/</span> GH-SR-IMM
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Filtering</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Filtering</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Tracking &amp; sensors</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing across four benchmark scenarios.</span></div>
           </div>
@@ -164,7 +164,7 @@
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
       <p class="dim">The tracker combines Normal-Inverse-Gaussian measurement noise with conjugate scale updates, a three-model Interacting-Multiple-Model bank (constant velocity, constant acceleration with AR jerk, and an H∞ adversarial model), and square-root cubature Kalman filtering for numerical stability under heavy-tailed posteriors.</p>
-      <p class="dim">The central correction is in the data association step. Feeding a raw generalised-hyperbolic likelihood into joint probabilistic data association silently overweights the hypothesis that all measurements are clutter. The fix is to use the GH posterior covariance <code>R_eff</code> inside a <em>Gaussian</em> association likelihood — keeping heavy-tail robustness in estimation without letting it corrupt association.</p>
+      <p class="dim">The central correction is in the data association step. Feeding a raw generalised-hyperbolic likelihood into joint probabilistic data association silently overweights the hypothesis that all measurements are clutter. The fix is to use the GH posterior covariance <code translate="no">R_eff</code> inside a <em>Gaussian</em> association likelihood — keeping heavy-tail robustness in estimation without letting it corrupt association.</p>
       <p class="dim">The result of separating the two concerns: GH estimation applies per-model, IMM mixing handles manoeuvre adaptation, and neither is asked to compensate for the other.</p>
     </div>
   </div>
@@ -187,12 +187,12 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Multi-target GOSPA improvement</td><td class="mono" style="color:var(--ink)">51.6% average</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Across four scenarios</td></tr>
-          <tr><td>Peak GOSPA improvement</td><td class="mono" style="color:var(--ink)">72.8%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Best of the four scenarios</td></tr>
-          <tr><td>Single-target composite score</td><td class="mono" style="color:var(--ink)">1.090</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">38% better than Student-t baseline</td></tr>
-          <tr><td>vs variational-Bayes baseline</td><td class="mono" style="color:var(--ink)">69% better</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Single-target composite</td></tr>
-          <tr><td>Association correction</td><td class="mono" style="color:var(--ink)">R_eff inside a Gaussian likelihood</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">The core methodological fix</td></tr>
-          <tr><td>Filter bank</td><td class="mono" style="color:var(--ink)">3 models: CV, CA+AR jerk, H∞</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">IMM</td></tr>
+          <tr><td>Multi-target GOSPA improvement</td><td class="mono" style="color:var(--ink)" translate="no">51.6% average</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Across four scenarios</td></tr>
+          <tr><td>Peak GOSPA improvement</td><td class="mono" style="color:var(--ink)" translate="no">72.8%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Best of the four scenarios</td></tr>
+          <tr><td>Single-target composite score</td><td class="mono" style="color:var(--ink)" translate="no">1.090</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">38% better than Student-t baseline</td></tr>
+          <tr><td>vs variational-Bayes baseline</td><td class="mono" style="color:var(--ink)" translate="no">69% better</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Single-target composite</td></tr>
+          <tr><td>Association correction</td><td class="mono" style="color:var(--ink)" translate="no">R_eff inside a Gaussian likelihood</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">The core methodological fix</td></tr>
+          <tr><td>Filter bank</td><td class="mono" style="color:var(--ink)" translate="no">3 models: CV, CA+AR jerk, H∞</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">IMM</td></tr>
         </tbody>
       </table>
     </div>
@@ -397,7 +397,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

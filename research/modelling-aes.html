@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Cryptography <span style="opacity:.5">/</span> Modelling AES
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">Modelling AES</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">Modelling AES</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Cryptography</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Both papers are result-bearing and peer-research quality. The conclusion is negative.</span></div>
           </div>
@@ -190,14 +190,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>First-byte key recovery</td><td class="mono" style="color:var(--ink)">0.675% vs 0.3906% baseline</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">z = 1.84, p = 0.066 — not significant</td></tr>
-          <tr><td>Training vs test behaviour</td><td class="mono" style="color:var(--ink)">Loss 0.27 nats, test at chance</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Signature of pure memorisation</td></tr>
-          <tr><td>State-space barrier</td><td class="mono" style="color:var(--ink)">~5.90 × 10⁸ TB for 50% coverage of one key</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Combinatorial infeasibility argument</td></tr>
-          <tr><td>Best byte entropy (forward)</td><td class="mono" style="color:var(--ink)">7.983 / 8.0 bits</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">GAN-BCE at 25 epochs</td></tr>
-          <tr><td>Gzip ratio</td><td class="mono" style="color:var(--ink)">1.0005</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Matches AES</td></tr>
-          <tr><td>Chi-squared uniformity</td><td class="mono" style="color:var(--ink)">Fails at p ≈ 0</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Across all architectures tested</td></tr>
-          <tr><td>Inter-byte correlation</td><td class="mono" style="color:var(--ink)">0.433 (AES ≈ 0)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Final WGAN + sequential critic</td></tr>
-          <tr><td>Statistical tests passed</td><td class="mono" style="color:var(--ink)">2 of 4</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Final configuration</td></tr>
+          <tr><td>First-byte key recovery</td><td class="mono" style="color:var(--ink)" translate="no">0.675% vs 0.3906% baseline</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">z = 1.84, p = 0.066 — not significant</td></tr>
+          <tr><td>Training vs test behaviour</td><td class="mono" style="color:var(--ink)" translate="no">Loss 0.27 nats, test at chance</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Signature of pure memorisation</td></tr>
+          <tr><td>State-space barrier</td><td class="mono" style="color:var(--ink)" translate="no">~5.90 × 10⁸ TB for 50% coverage of one key</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Combinatorial infeasibility argument</td></tr>
+          <tr><td>Best byte entropy (forward)</td><td class="mono" style="color:var(--ink)" translate="no">7.983 / 8.0 bits</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">GAN-BCE at 25 epochs</td></tr>
+          <tr><td>Gzip ratio</td><td class="mono" style="color:var(--ink)" translate="no">1.0005</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Matches AES</td></tr>
+          <tr><td>Chi-squared uniformity</td><td class="mono" style="color:var(--ink)" translate="no">Fails at p ≈ 0</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Across all architectures tested</td></tr>
+          <tr><td>Inter-byte correlation</td><td class="mono" style="color:var(--ink)" translate="no">0.433 (AES ≈ 0)</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Final WGAN + sequential critic</td></tr>
+          <tr><td>Statistical tests passed</td><td class="mono" style="color:var(--ink)" translate="no">2 of 4</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Final configuration</td></tr>
         </tbody>
       </table>
     </div>
@@ -216,7 +216,7 @@
           <li><strong>Five experiments, variable-key protocols.</strong> Inverse direction, AES-128.</li>
           <li><strong>Six architectures compared.</strong> Shallow MLP, deep MLP, LSTM, GAN-BCE, WGAN-GP, WGAN with sequential critic and chi-squared auxiliary loss.</li>
           <li><strong>Three theoretical barriers.</strong> Entropy indistinguishability, pseudorandom collapse, combinatorial infeasibility.</li>
-          <li><strong>Honest scaffolding.</strong> The <code>Break AES with NNs/</code> directory is explicitly non-runnable and kept as documentation of the dead end.</li>
+          <li><strong>Honest scaffolding.</strong> The <code translate="no">Break AES with NNs/</code> directory is explicitly non-runnable and kept as documentation of the dead end.</li>
         </ul>
       </div>
       <div class="reveal" data-delay=".08">
@@ -316,7 +316,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

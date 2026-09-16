@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> AI &amp; machine learning <span style="opacity:.5">/</span> SGF · Algebraic Autopsy
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="result"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="on" data-l="Reference"></i><i class="on" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Experiments were run and the numbers are reported here.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">NN Shortcuts</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">NN Shortcuts</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">AI &amp; machine learning</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Result-bearing on the autopsy; framework-level on SGF. C++17/CUDA reference library exists.</span></div>
           </div>
@@ -190,14 +190,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Dense (ℝ, +, ×) content of the trained network</td><td class="mono" style="color:var(--ink)">11%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Prime-classification MLP, four-instrument autopsy</td></tr>
-          <tr><td>Dominant algebra identified</td><td class="mono" style="color:var(--ink)">low-rank Grassmannian, score 0.758</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Instrument scoring across four candidate algebras</td></tr>
-          <tr><td>Spectral exponent of the trained network</td><td class="mono" style="color:var(--ink)">α = 0.427</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Between the data prior (0.37) and a reference model (0.85)</td></tr>
-          <tr><td>Low-rank variant cost</td><td class="mono" style="color:var(--ink)">0.76× parameters, 0.75× FLOPs</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Identical accuracy; rank chosen by the autopsy, not tuned</td></tr>
-          <tr><td>Composite cost of the native variant</td><td class="mono" style="color:var(--ink)">0.57×</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Parameters × FLOPs against the dense baseline</td></tr>
-          <tr><td>Post-training exponent under rank constraint</td><td class="mono" style="color:var(--ink)">α = 1.22</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Geometric constraint acting as a spectral regulariser</td></tr>
-          <tr><td>ReLU dead-unit fraction</td><td class="mono" style="color:var(--ink)">54%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">The tropical-content signal in instrument 3</td></tr>
-          <tr><td>Newton–Schulz spectral whitening overhead</td><td class="mono" style="color:var(--ink)">&lt;1% of training compute</td><td><span class="badge ">Cited</span></td><td class="muted">5 iterations in bfloat16, LLaMA-scale, from the Muon literature</td></tr>
+          <tr><td>Dense (ℝ, +, ×) content of the trained network</td><td class="mono" style="color:var(--ink)" translate="no">11%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Prime-classification MLP, four-instrument autopsy</td></tr>
+          <tr><td>Dominant algebra identified</td><td class="mono" style="color:var(--ink)" translate="no">low-rank Grassmannian, score 0.758</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Instrument scoring across four candidate algebras</td></tr>
+          <tr><td>Spectral exponent of the trained network</td><td class="mono" style="color:var(--ink)" translate="no">α = 0.427</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Between the data prior (0.37) and a reference model (0.85)</td></tr>
+          <tr><td>Low-rank variant cost</td><td class="mono" style="color:var(--ink)" translate="no">0.76× parameters, 0.75× FLOPs</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Identical accuracy; rank chosen by the autopsy, not tuned</td></tr>
+          <tr><td>Composite cost of the native variant</td><td class="mono" style="color:var(--ink)" translate="no">0.57×</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Parameters × FLOPs against the dense baseline</td></tr>
+          <tr><td>Post-training exponent under rank constraint</td><td class="mono" style="color:var(--ink)" translate="no">α = 1.22</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">Geometric constraint acting as a spectral regulariser</td></tr>
+          <tr><td>ReLU dead-unit fraction</td><td class="mono" style="color:var(--ink)" translate="no">54%</td><td><span class="badge badge--teal">Measured</span></td><td class="muted">The tropical-content signal in instrument 3</td></tr>
+          <tr><td>Newton–Schulz spectral whitening overhead</td><td class="mono" style="color:var(--ink)" translate="no">&lt;1% of training compute</td><td><span class="badge ">Cited</span></td><td class="muted">5 iterations in bfloat16, LLaMA-scale, from the Muon literature</td></tr>
         </tbody>
       </table>
     </div>
@@ -318,7 +318,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

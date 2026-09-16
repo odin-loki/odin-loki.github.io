@@ -192,7 +192,7 @@
       <div>
         <p class="dim">
           Sur un Unix classique, un processus ne <em>détient</em> pas le droit d’ouvrir
-          <code>/etc/master.passwd</code>. Il se contente de demander, et le noyau tranche ensuite, selon l’identité que le processus revendique. Tout processus peut nommer n’importe quelle ressource du système. L’espace de noms est global et ambiant ; le contrôle n’est qu’une arrière-pensée tardive.
+          <code translate="no">/etc/master.passwd</code>. Il se contente de demander, et le noyau tranche ensuite, selon l’identité que le processus revendique. Tout processus peut nommer n’importe quelle ressource du système. L’espace de noms est global et ambiant ; le contrôle n’est qu’une arrière-pensée tardive.
         </p>
         <p class="dim">
           C’est pourquoi un seul bug d’analyse dans un moteur de rendu de polices peut devenir un vol d’identifiants. Le moteur de rendu n’a jamais eu besoin du fichier de mots de passe &mdash; mais rien dans l’architecture ne l’empêchait de le demander.
@@ -205,7 +205,7 @@
       <div>
         <div class="card">
           <h3 style="font-size:1rem">Deux façons de répondre à un même appel système</h3>
-          <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
+          <pre class="code" style="margin-top:14px" translate="no"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
 // checks uid/gid/MAC after the fact</span>
@@ -215,7 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Forme illustrative de la différence, pas une liste d’API littérale. Le modèle qui fait foi est dans <code>docs/</code>.
+            Forme illustrative de la différence, pas une liste d’API littérale. Le modèle qui fait foi est dans <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -293,7 +293,7 @@
       </div>
 
       <div class="panel__foot">
-        Un modèle pédagogique de la conception de sécurité de PBSD, écrit pour cette page. Le vrai noyau se trouve dans <code>pbsd/</code>; la spécification est dans
+        Un modèle pédagogique de la conception de sécurité de PBSD, écrit pour cette page. Le vrai noyau se trouve dans <code translate="no">pbsd/</code>; la spécification est dans
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -319,7 +319,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Étape 1</span>
         <h3 style="font-size:1.05rem">Inventaire</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> et <code>clang_cxx23_port.py</code> notent chaque fichier C par difficulté et écrivent <code>c_inventory.csv</code>. Rien n’est deviné quant au périmètre.
+          <code translate="no">tools/inventory_c_sources.py</code> et <code translate="no">clang_cxx23_port.py</code> notent chaque fichier C par difficulté et écrivent <code translate="no">c_inventory.csv</code>. Rien n’est deviné quant au périmètre.
         </p>
       </div>
       <div class="card card--hover">
@@ -327,8 +327,8 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Étape 2</span>
         <h3 style="font-size:1.05rem">Passes déterministes</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> applique des réécritures mécaniques sûres, par paliers 0&ndash;4. Aucun modèle n’intervient. Tout ce qu’une passe refuse est consigné dans
-          <code>refusals.jsonl</code> plutôt que forcé.
+          <code translate="no">run_todo_passes.py</code> applique des réécritures mécaniques sûres, par paliers 0&ndash;4. Aucun modèle n’intervient. Tout ce qu’une passe refuse est consigné dans
+          <code translate="no">refusals.jsonl</code> plutôt que forcé.
         </p>
       </div>
       <div class="card card--hover">
@@ -336,7 +336,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Étape 3</span>
         <h3 style="font-size:1.05rem">Boucle d’agent</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> remplit les fichiers ébauchés et refusés avec DeepSeek Flash, en escaladant vers Pro à effort de raisonnement maximal &mdash; 48 workers Flash et 24 Pro par défaut.
+          <code translate="no">pbsd.py</code> remplit les fichiers ébauchés et refusés avec DeepSeek Flash, en escaladant vers Pro à effort de raisonnement maximal &mdash; 48 workers Flash et 24 Pro par défaut.
           <strong>C’est ce que finance le Kickstarter.</strong>
         </p>
       </div>
@@ -346,7 +346,7 @@
         <h3 style="font-size:1.05rem">Contrôle de vérification</h3>
         <p class="small dim" style="margin:0">
           Compilation, ASan, UBSan, exécution différentielle et comparaison d’IR. Un fichier qui se contente de compiler est <em>non vérifié</em>. Les échecs atterrissent dans
-          <code>agent_port_failures.jsonl</code>.
+          <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
     </div>
@@ -405,15 +405,15 @@
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Le C++ du noyau est autonome : <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>Le C++ du noyau est autonome : <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        Le cœur du noyau ne peut pas dépendre d’un runtime C++ hébergé. Pas d’exceptions, pas de RTTI, aucun chemin de bibliothèque standard allouant sur le tas à l’entrée du noyau. Les contraintes sont écrites dans <code>docs/specs/KERNEL_CXX_ABI.md</code> pour qu’un contributeur puisse savoir ce qui est légal en contexte noyau sans avoir à deviner.
+        Le cœur du noyau ne peut pas dépendre d’un runtime C++ hébergé. Pas d’exceptions, pas de RTTI, aucun chemin de bibliothèque standard allouant sur le tas à l’entrée du noyau. Les contraintes sont écrites dans <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> pour qu’un contributeur puisse savoir ce qui est légal en contexte noyau sans avoir à deviner.
       </div>
     </details>
     <details class="acc reveal">
       <summary>Chaque module a besoin d’une entrée de provenance avant d’être compté comme fini</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> consigne d’où vient chaque module et sous quelle licence. C’est ce qui rend la déclaration de licence ci-dessous vérifiable plutôt que déclarative &mdash; vous pouvez contrôler, module par module, quel code est dérivé de HardenedBSD et lequel est du nouveau travail PBSD.
+        <code translate="no">docs/PROVENANCE.md</code> consigne d’où vient chaque module et sous quelle licence. C’est ce qui rend la déclaration de licence ci-dessous vérifiable plutôt que déclarative &mdash; vous pouvez contrôler, module par module, quel code est dérivé de HardenedBSD et lequel est du nouveau travail PBSD.
       </div>
     </details>
   </div>
@@ -430,7 +430,7 @@
           Le nouveau code PBSD &mdash; le noyau, les modules C++23, l’outillage &mdash; est proposé sous les conditions standard d’Imortek : AGPL-3.0+ gratuit pour l’usage personnel, les associations, l’enseignement et les organisations gagnant moins de 50 000&nbsp;AUD par an, avec une licence commerciale par paliers au-delà.
         </p>
         <p class="dim">
-          Le code dérivé de HardenedBSD reste sous sa licence BSD d’origine. Il ne peut pas être relicencié et Imortek ne prétend pas le faire. <code>docs/PROVENANCE.md</code> est le registre de ce qui relève de l’une ou de l’autre.
+          Le code dérivé de HardenedBSD reste sous sa licence BSD d’origine. Il ne peut pas être relicencié et Imortek ne prétend pas le faire. <code translate="no">docs/PROVENANCE.md</code> est le registre de ce qui relève de l’une ou de l’autre.
         </p>
         <a class="btn btn--ghost" href="/fr/licensing.html">Conditions de licence complètes &rarr;</a>
       </div>
@@ -439,12 +439,12 @@
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; commerciale</span></div>
             <h4 style="margin:0 0 6px">Nouveau travail PBSD</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, le noyau de capacités, UDA, BIFROST, le compositeur et le thème.</p>
+            <p class="small muted" style="margin:0"><code translate="no">pbsd/</code>, <code translate="no">tools/</code>, <code translate="no">scripts/</code>, le noyau de capacités, UDA, BIFROST, le compositeur et le thème.</p>
           </div>
           <div class="card">
             <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (inchangée)</span></div>
             <h4 style="margin:0 0 6px">Dérivé de HardenedBSD</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> et chaque fichier porté qui y remonte. Conditions d’origine, attribution d’origine.</p>
+            <p class="small muted" style="margin:0"><code translate="no">hbsd/</code> et chaque fichier porté qui y remonte. Conditions d’origine, attribution d’origine.</p>
           </div>
         </div>
       </div>
@@ -573,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-16T18:37:11Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
+      <span class="mono tiny">Compilé le 2026-09-16T20:36:07Z &middot; Aucun traceur, aucun cookie, aucune analyse d’audience.</span>
     </div>
   </div>
 </footer>

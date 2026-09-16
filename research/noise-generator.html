@@ -125,7 +125,7 @@
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
-    <p class="tiny mono muted" style="margin-bottom:18px">
+    <p class="tiny mono muted" style="margin-bottom:18px" translate="no">
       <a href="/research.html" style="color:var(--ink-mute)">Research shelf</a> <span style="opacity:.5">/</span> Electronics <span style="opacity:.5">/</span> 100 W noise generator
     </p>
     <div class="split split--wide-left">
@@ -147,7 +147,7 @@
           <div class="tier-meter" data-tier="design"><i class="on" data-l="Speculative"></i><i class="on" data-l="Design"></i><i class="" data-l="Reference"></i><i class="" data-l="Result"></i></div>
           <p class="small dim" style="margin:16px 0 0">Specified in detail; implementation partial or absent.</p>
           <div class="spec" style="border:0;margin-top:14px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem">100W Wideband Noise Generator</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Folder</span><span class="spec__v mono" style="font-size:.8rem" translate="no">100W Wideband Noise Generator</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Field</span><span class="spec__v">Electronics</span></div>
             <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Status</span><span class="spec__v">Design document in HDL form. No synthesis, no hardware, no measured RF performance.</span></div>
           </div>
@@ -163,7 +163,7 @@
       <h2>One SystemVerilog file supervising a Chua-circuit analogue core, a four-band PA chain, supply DAC, thermal ADC and a sub-microsecond hard-protection state machine.</h2>
     </div>
     <div class="reveal stack" style="font-size:1.02rem">
-      <p class="dim">The noise itself comes from a <strong>Chua chaotic oscillator</strong> &mdash; an op-amp core with switched L/C/R banks and piecewise-linear nonlinearity segment selection driven by a <code>chaos_dac</code> injection. Around it sits a four-band RF power-amplifier chain (DC&ndash;500 MHz, 500 MHz&ndash;2 GHz, 2&ndash;6 GHz, 6&ndash;14 GHz), a 12-bit programmable supply DAC, and an eight-channel thermal ADC.</p>
+      <p class="dim">The noise itself comes from a <strong>Chua chaotic oscillator</strong> &mdash; an op-amp core with switched L/C/R banks and piecewise-linear nonlinearity segment selection driven by a <code translate="no">chaos_dac</code> injection. Around it sits a four-band RF power-amplifier chain (DC&ndash;500 MHz, 500 MHz&ndash;2 GHz, 2&ndash;6 GHz, 6&ndash;14 GHz), a 12-bit programmable supply DAC, and an eight-channel thermal ADC.</p>
       <p class="dim">The protection subsystem is the part that justifies putting all of this in one supervised design: an 85 °C hard trip with a 77 °C warning, a 3:1 VSWR reference, an SCR crowbar, arc detection, and a fast-shutdown path budgeted at sub-microsecond, with a named fault taxonomy. A cycle-counted startup sequencer brings the rails up in order &mdash; auxiliary settle at 256 cycles, bias at 512, supply at 768, driver at 1,024.</p>
       <p class="dim">The folder is unusually clear about what it is not. There is no research paper; the HDL header is the primary document. Phase noise, spurious-free dynamic range and flatness across the band are set by the analogue build, which lives entirely outside the file. The Verilog specifies control intent; realised performance is hardware-dependent, and the README says so before you ask.</p>
     </div>
@@ -190,14 +190,14 @@
       <table class="data">
         <thead><tr><th>Claim</th><th>Figure</th><th>Basis</th><th>Context</th></tr></thead>
         <tbody>
-          <tr><td>Banner frequency range</td><td class="mono" style="color:var(--ink)">1 Hz – 14 GHz</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Header target; hardware-dependent</td></tr>
-          <tr><td>Banner output power</td><td class="mono" style="color:var(--ink)">100 W continuous</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Header target; hardware-dependent</td></tr>
-          <tr><td>PA bands</td><td class="mono" style="color:var(--ink)">4 (DC–500 MHz … 6–14 GHz)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Band mapping from freq_pot</td></tr>
-          <tr><td>Thermal hard trip</td><td class="mono" style="color:var(--ink)">85 °C (77 °C warning)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">MAX_TEMP in the protection state machine</td></tr>
-          <tr><td>VSWR trip reference</td><td class="mono" style="color:var(--ink)">3:1</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Protection subsystem</td></tr>
-          <tr><td>Fast-shutdown budget</td><td class="mono" style="color:var(--ink)">sub-microsecond</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Design budget in the state machine</td></tr>
-          <tr><td>Startup sequence</td><td class="mono" style="color:var(--ink)">256 / 512 / 768 / 1,024 cycles</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Aux settle, bias, supply settle, driver settle</td></tr>
-          <tr><td>Supply DAC resolution</td><td class="mono" style="color:var(--ink)">12-bit</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Programmable rail voltage</td></tr>
+          <tr><td>Banner frequency range</td><td class="mono" style="color:var(--ink)" translate="no">1 Hz – 14 GHz</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Header target; hardware-dependent</td></tr>
+          <tr><td>Banner output power</td><td class="mono" style="color:var(--ink)" translate="no">100 W continuous</td><td><span class="badge badge--amber">Projected</span></td><td class="muted">Header target; hardware-dependent</td></tr>
+          <tr><td>PA bands</td><td class="mono" style="color:var(--ink)" translate="no">4 (DC–500 MHz … 6–14 GHz)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Band mapping from freq_pot</td></tr>
+          <tr><td>Thermal hard trip</td><td class="mono" style="color:var(--ink)" translate="no">85 °C (77 °C warning)</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">MAX_TEMP in the protection state machine</td></tr>
+          <tr><td>VSWR trip reference</td><td class="mono" style="color:var(--ink)" translate="no">3:1</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Protection subsystem</td></tr>
+          <tr><td>Fast-shutdown budget</td><td class="mono" style="color:var(--ink)" translate="no">sub-microsecond</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Design budget in the state machine</td></tr>
+          <tr><td>Startup sequence</td><td class="mono" style="color:var(--ink)" translate="no">256 / 512 / 768 / 1,024 cycles</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Aux settle, bias, supply settle, driver settle</td></tr>
+          <tr><td>Supply DAC resolution</td><td class="mono" style="color:var(--ink)" translate="no">12-bit</td><td><span class="badge badge--violet">Derived</span></td><td class="muted">Programmable rail voltage</td></tr>
         </tbody>
       </table>
     </div>
@@ -317,7 +317,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T18:37:11Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T20:36:07Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>
