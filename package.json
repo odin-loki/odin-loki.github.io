@@ -5,7 +5,10 @@
   "scripts": {
     "build": "bash tools/build.sh",
     "index": "python3 tools/gen_voice_index.py",
-    "audit": "node tools/qa/responsive-audit.js"
+    "glossary": "python3 tools/gen_glossary.py",
+    "audit": "node tools/qa/responsive-audit.js",
+    "i18n:check": "python3 tools/qa/i18n-check.py",
+    "i18n:cover": "python3 tools/i18n_segments.py stat"
   },
   "devDependencies": {
     "playwright": "^1.63.0"

@@ -102,10 +102,16 @@
     return w;
   }
 
+  /* Same split as the index this is compared against — see similar.js. */
+  function toks(text) {
+    if (LOC.code !== 'en' && I18N && I18N.tokens) return I18N.tokens(text);
+    return (String(text).toLowerCase().match(/[a-z][a-z'+-]{1,}/g) || []).map(stem);
+  }
+
   function embed(text) {
     if (!index) return null;
-    var counts = {}, toks = String(text).toLowerCase().match(/[a-z][a-z'+-]{1,}/g) || [];
-    toks.forEach(function (t) { t = stem(t); counts[t] = (counts[t] || 0) + 1; });
+    var counts = {};
+    toks(text).forEach(function (t) { counts[t] = (counts[t] || 0) + 1; });
     var v = {}, any = false, w, idf, n = 0;
     for (w in counts) {
       idf = index.idf[w];

@@ -51,10 +51,18 @@
     return w;
   }
 
+  /* English splits on ASCII and stems; every other language uses the shared
+     tokeniser in i18n.js, which is what built that locale's index. Mixing the
+     two is how a Russian query came back empty. */
+  function toks(text) {
+    if (LOC.code !== 'en' && I18N && I18N.tokens) return I18N.tokens(text);
+    return (String(text).toLowerCase().match(/[a-z][a-z'+-]+/g) || []).map(stem);
+  }
+
   function vec(text) {
     if (!index) return null;
-    var counts = {}, toks = String(text).toLowerCase().match(/[a-z][a-z'+-]+/g) || [];
-    toks.forEach(function (t) { t = stem(t); counts[t] = (counts[t] || 0) + 1; });
+    var counts = {};
+    toks(text).forEach(function (t) { counts[t] = (counts[t] || 0) + 1; });
     var v = {}, any = false, w, n = 0;
     for (w in counts) {
       var idf = index.idf[w];

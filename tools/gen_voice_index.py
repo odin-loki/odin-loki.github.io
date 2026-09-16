@@ -19,7 +19,7 @@ No language model is involved and none is downloaded. The vectors come from the
 site's own words and the dictionary's glosses, so the whole thing is
 reproducible from this repository.
 """
-import json, math, os, re, sys, collections, random, html as _html
+import json, math, os, re, sys, collections, random, unicodedata, html as _html
 
 OUT   = 'assets/data/voice-index.json'
 DIM   = 64
@@ -55,14 +55,46 @@ def stem(w):
     if len(w) > 3 and w.endswith('s') and not w.endswith('ss'): return w[:-1]
     return w
 
-def tokens(s):
+def tokens_en(s):
     # Two-letter words are kept. "AI" is dropped by the usual len > 2 rule, and
     # on this site that is the single most likely thing somebody says out loud.
     return [stem(w) for w in re.findall(r"[a-z][a-z'+-]+", s.lower()) if w not in STOP]
 
+tokens = tokens_en
+
 # Scripts with no space between words. Chinese is the one here; a whitespace
 # tokeniser returns one enormous token per sentence and the index is useless.
 CJK = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]')
+
+# Where one word ends and the next begins, for a script this file knows
+# nothing else about. Everything that is a separator, punctuation mark, symbol,
+# digit or control character breaks a word; everything else continues one.
+#
+# The obvious \w+ cannot be used. Python counts a Devanagari vowel sign as a
+# non-word character, so \w+ turns "ऑपरेटिंग" into ['ऑपर', 'ट', 'ग'] — the word
+# is shredded at every mark, and the Hindi index came out with 23 usable terms
+# in it. Combining marks are part of the word. This keeps them.
+_SEP = {}
+
+def _is_sep(ch):
+    v = _SEP.get(ch)
+    if v is None:
+        v = unicodedata.category(ch)[0] in 'ZPSNC' or ch == '_'
+        _SEP[ch] = v
+    return v
+
+def word_tokens(s):
+    out, buf = [], []
+    for ch in s:
+        if _is_sep(ch):
+            if buf:
+                out.append(''.join(buf))
+                buf = []
+        else:
+            buf.append(ch)
+    if buf:
+        out.append(''.join(buf))
+    return out
 
 def tokens_i18n(s):
     """Tokens for a language that is not English.
@@ -74,13 +106,14 @@ def tokens_i18n(s):
     appears in one page and not the others is still the discriminating one —
     so TF-IDF works unchanged over raw word forms.
 
-    Latin words are lower-cased and kept whole. Han characters are indexed as
+    Words are lower-cased and kept whole, combining marks included — see
+    word_tokens above for why that needs saying. Han characters are indexed as
     overlapping bigrams, which is the standard trick for a language that does
     not write spaces and is enough to tell 操作系统 from 反编译器.
     """
     s = s.lower()
-    out = [w for w in re.findall(r"[^\W\d_]{2,}", s, re.UNICODE)
-           if not CJK.search(w) and w not in STOP]
+    out = [w for w in word_tokens(s)
+           if len(w) > 1 and not CJK.search(w) and w not in STOP]
     for run in re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]+', s):
         out.extend(run[i:i + 2] for i in range(len(run) - 1))
         if len(run) == 1:
@@ -99,8 +132,7 @@ def main(code='en'):
     """
     global tokens
     root = '' if code == 'en' else code + '/'
-    if code != 'en':
-        tokens = tokens_i18n
+    tokens = tokens_en if code == 'en' else tokens_i18n
     pages = []
     src = {}          # url path -> file on disk
     base = code if code != 'en' else '.'

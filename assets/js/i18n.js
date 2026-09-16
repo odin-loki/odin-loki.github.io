@@ -124,6 +124,44 @@
     return p;
   }
 
-  root.ImortekI18n = { t: T, locale: locale, url: url, unprefix: unprefix, en: EN };
+  /* ---------- tokenising a query ----------
+     The English search splits on /[a-z]+/ and runs a small English stemmer.
+     Point that at "операционная система" and it returns nothing at all, so the
+     search box in six of the ten languages silently matched nothing — it was
+     not finding the wrong pages, it was never forming a query.
+
+     This mirrors tokens_i18n() in tools/gen_voice_index.py, which is what
+     built the index these queries are compared against. No stemming: the
+     English stemmer turns Russian words into rubbish, and a wrong stem is
+     worse than none because it quietly merges words that are not the same.
+     Han characters become overlapping pairs, which is the standard answer for
+     a language that does not write spaces and is enough to tell 操作系统 from
+     反编译器. English keeps its own path, untouched. */
+  /* A word ends where a letter-or-mark run ends. Matching letters alone is
+     not enough: a Devanagari vowel sign is a mark, not a letter, so \p{L}+
+     cuts "ऑपरेटिंग" into three pieces and the Hindi index came out with 23
+     usable terms in it. Marks belong to the word they sit on. */
+  var NOTWORD = null;
+  try { NOTWORD = new RegExp('[^\\p{L}\\p{M}]+', 'u'); } catch (e) { NOTWORD = null; }
+  var CJK_RUN = /[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]+/g;
+  var CJK_ONE = /[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]/;
+
+  function tokens(text) {
+    var s = String(text).toLowerCase(), out = [], m, i;
+    var parts = s.split(NOTWORD || /[^a-z]+/);
+    for (i = 0; i < parts.length; i++) {
+      if (parts[i].length > 1 && !CJK_ONE.test(parts[i])) out.push(parts[i]);
+    }
+    CJK_RUN.lastIndex = 0;
+    while ((m = CJK_RUN.exec(s)) !== null) {
+      var run = m[0];
+      if (run.length === 1) { out.push(run); continue; }
+      for (i = 0; i < run.length - 1; i++) out.push(run.substr(i, 2));
+    }
+    return out;
+  }
+
+  root.ImortekI18n = { t: T, locale: locale, url: url, unprefix: unprefix,
+                       tokens: tokens, en: EN };
   root.T = T;
 }(window, document));

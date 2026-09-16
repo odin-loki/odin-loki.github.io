@@ -639,7 +639,7 @@ for lrow in "${LOC_ROWS[@]}"; do
 
     title="$(seg "$rawtitle")"
     desc="$(seg "$rawdesc")"
-    keywords="${KEYWORDS[$slug]:-}"
+    keywords="$(seg "${KEYWORDS[$slug]:-}")"
     if [[ -z "$keywords" && "$slug" == research/* ]]; then
       keywords="$(short_name "$rawtitle"), $(sub_name "$rawtitle"), Imortek research, Odin Loch"
     fi
@@ -682,7 +682,8 @@ load_locale en
 # shelf index, then the standing pages, then individual research articles.
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
-  printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+  printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+  printf '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
   for row in "${PAGES[@]}"; do
     IFS='~' read -r slug _title _desc _css _js og_type <<< "$row"
     [[ -f "$slug.html" ]] || continue
@@ -699,16 +700,41 @@ load_locale en
           loc="$slug.html" ; pri="0.7" ; freq="monthly"
         fi ;;
     esac
-    printf '  <url>\n'
-    printf '    <loc>https://imortek.com.au/%s</loc>\n' "$loc"
-    printf '    <lastmod>%s</lastmod>\n' "${BUILT%%T*}"
-    printf '    <changefreq>%s</changefreq>\n' "$freq"
-    printf '    <priority>%s</priority>\n' "$pri"
-    printf '  </url>\n'
+    # A page that exists in ten languages is ONE page with ten addresses, not
+    # ten pages. Google wants every one of them listed, and each entry has to
+    # name the whole set — including itself — or the cluster is ignored.
+    alt=""
+    if [[ "$CORE_PAGES" == *" $slug "* && "$slug" != "404" ]]; then
+      for lrow in "${LOC_ROWS[@]}"; do
+        IFS=$'\t' read -r lcode _e _d _s lhref _n _t <<< "$lrow"
+        lpre=""; [[ "$lcode" != "en" ]] && lpre="/$lcode"
+        lloc="$lpre/"
+        [[ "$slug" != "index" ]] && lloc="$lpre/$slug.html"
+        alt+="    <xhtml:link rel=\"alternate\" hreflang=\"$lhref\" href=\"$SITE_URL$lloc\"/>"$'\n' 
+      done
+      dloc="/"
+      [[ "$slug" != "index" ]] && dloc="/$slug.html"
+      alt+="    <xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"$SITE_URL$dloc\"/>"$'\n' 
+    fi
+
+    for lrow in "${LOC_ROWS[@]}"; do
+      IFS=$'\t' read -r lcode _e _d _s _h _n _t <<< "$lrow"
+      lpre=""; [[ "$lcode" != "en" ]] && lpre="${lcode}/"
+      # Only English carries the research shelf itself.
+      [[ -n "$lpre" && "$CORE_PAGES" != *" $slug "* ]] && continue
+      [[ -f "${lpre}${loc:-index.html}" ]] || continue
+      printf '  <url>\n'
+      printf '    <loc>https://imortek.com.au/%s%s</loc>\n' "$lpre" "$loc"
+      printf '    <lastmod>%s</lastmod>\n' "${BUILT%%T*}"
+      printf '    <changefreq>%s</changefreq>\n' "$freq"
+      printf '    <priority>%s</priority>\n' "$pri"
+      [[ -n "$alt" ]] && printf '%s' "$alt"
+      printf '  </url>\n'
+    done
   done
   printf '</urlset>\n'
 } > sitemap.xml
-echo "  sitemap: $(grep -c '<url>' sitemap.xml) URLs"
+echo "  sitemap: $(grep -c '<loc>' sitemap.xml) URLs, $(grep -c 'xhtml:link' sitemap.xml) alternates"
 
 # Video manifest — the site only requests clips that actually exist here.
 mkdir -p assets/video

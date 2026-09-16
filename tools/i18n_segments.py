@@ -128,15 +128,35 @@ def sub_attrs(attrs, on_attr):
     return ATTR_RE.sub(one, attrs)
 
 PAGES_ROW = re.compile(r'^"([^~"]+)~([^~]*)~([^~]*)~', re.M)
+KEYWORD_ROW = re.compile(r'^\s*\[([a-z0-9/-]+)\]="([^"]*)"', re.M)
 
 def page_meta():
-    """slug -> (title, description), read straight out of tools/build.sh so the
-    two can never disagree about what a page is called."""
+    """slug -> (title, description, keywords), read straight out of
+    tools/build.sh so the two can never disagree about what a page is called.
+
+    The keyword list travels with them. It is the one string on a page that
+    should NOT be translated word for word — somebody searching in Spanish
+    types what a Spanish speaker would type, which is rarely the literal
+    translation of the English phrase — so it goes through the same catalogue
+    and is rewritten per language rather than rendered."""
     src = open('tools/build.sh', encoding='utf-8').read()
+    kw = {}
+    inmap = False
+    for line in src.splitlines():
+        if line.startswith('declare -A KEYWORDS=('):
+            inmap = True
+            continue
+        if inmap:
+            if line.startswith(')'):
+                break
+            m = KEYWORD_ROW.match(line)
+            if m:
+                kw[m.group(1)] = m.group(2)
     out = {}
     for m in PAGES_ROW.finditer(src):
-        if m.group(1) in CORE:
-            out[m.group(1)] = (m.group(2), m.group(3))
+        slug = m.group(1)
+        if slug in CORE:
+            out[slug] = (m.group(2), m.group(3), kw.get(slug, ''))
     return out
 
 def extract():
