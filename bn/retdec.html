@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RetDec Imortek — specification-extraction decompiler | Imortek</title>
-<meta name="description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
-<meta name="keywords" content="RetDec Imortek, decompiler, reverse engineering, binary analysis, algorithm recovery, specification extraction, Qt 6">
+<title>RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek</title>
+<meta name="description" content="এমন একটি ডিকম্পাইলার যা বাইনারি থেকে অ্যালগরিদম, সমান্তরালতার ধরন ও সিরিয়ালাইজেশন ফরম্যাট উদ্ধার করে — শুধু ছদ্মকোড নয়। Qt 6 GUI, ঐচ্ছিক অফলাইন নিউরাল পরিশোধন।">
+<meta name="keywords" content="RetDec Imortek, ডিকম্পাইলার, রিভার্স ইঞ্জিনিয়ারিং, বাইনারি বিশ্লেষণ, অ্যালগরিদম পুনরুদ্ধার, স্পেসিফিকেশন নিষ্কাশন, Qt 6, ডিসঅ্যাসেম্বলার">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="bn">
 <meta name="imortek:speech" content="bn-BD">
 <meta name="imortek:prefix" content="/bn">
-<script>window.__IMORTEK_I18N={"lang.label":"ভাষা","lang.choose":"একটি ভাষা বেছে নিন","lang.suggested":"আপনার ব্রাউজার এই ভাষা পছন্দ করে","lang.close":"বন্ধ করুন","tools.label":"পৃষ্ঠার সরঞ্জাম","tools.toggle":"পৃষ্ঠার সরঞ্জাম দেখান বা লুকান","tools.readAloud":"পড়ে শোনান","tools.pause":"থামান","tools.stop":"পড়া বন্ধ করুন","tools.next":"পরের অনুচ্ছেদ","tools.voice":"কণ্ঠ নির্দেশ","tools.explain":"কঠিন শব্দ বুঝিয়ে দিন","tools.reset":"রিসেট","tools.termsOnPage":"টি শব্দ এই পৃষ্ঠায়","tools.learned":"শেখা হয়েছে","tools.preExpanded":"আগেই খোলা","tools.openMore":"আরও {n}টি খুলুন, তখন Cypha অনুমান করা শুরু করবে","tools.understood":"বোঝা গেছে","tools.corrected":"সংশোধিত","tools.off":"বন্ধ","tools.reading":"পড়া হচ্ছে","search.placeholder":"খুঁজুন — কী চান লিখে বলুন","search.aria":"এই সাইটে খুঁজুন","search.hint":"শুধু হুবহু শব্দ নয়, অর্থ মিলিয়ে খোঁজে। বন্ধ করতে Esc।","search.nothing":"কাছাকাছি কিছু নেই।","related.eyebrow":"এই সাইটে সবচেয়ে কাছের","related.title":"সম্পর্কিত পড়া","related.note":"হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।","voice.help":"আপনি বলতে পারেন: পড়ো, থামো, পরের, আগের, উপরে, হোম, অথবা কোনো পৃষ্ঠার নাম। কী চান তা বর্ণনা করলেও আমি সবচেয়ে কাছের পৃষ্ঠাটি খুঁজে দেব।","voice.notCaught":"বুঝতে পারিনি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.listening":"শুনছি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.micOff":"মাইক্রোফোন বন্ধ।","voice.micBlocked":"মাইক্রোফোন আটকে আছে। কণ্ঠ নির্দেশ ব্যবহার করতে ব্রাউজারে অনুমতি দিন।","voice.opening":"খুলছি","voice.didYouMean":"আপনি কি বলতে চেয়েছিলেন","voice.sayNumber":"একটি সংখ্যা বলুন, অথবা \"না\" বলুন।","voice.understood":"বুঝেছি। অন্যভাবে বলুন, অথবা \"সাহায্য\" বলুন।","voice.endOfPage":"পৃষ্ঠা শেষ।","voice.searchOpen":"অনুসন্ধান খোলা হয়েছে।","voice.nothingRelated":"এই পৃষ্ঠায় সম্পর্কিত কিছু নেই।","voice.related":"সম্পর্কিত","voice.goingTo":"যাচ্ছি","voice.heading":"শিরোনাম।","voice.or":"অথবা","gloss.notInDict":"অভিধানে নেই।","gloss.lookingUp":"খোঁজা হচ্ছে…","gloss.forget":"Cypha যা শিখেছে তা মুছে ফেলুন"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"ভাষা","lang.choose":"একটি ভাষা বেছে নিন","lang.suggested":"আপনার ব্রাউজার এই ভাষা পছন্দ করে","lang.close":"বন্ধ করুন","tools.label":"পৃষ্ঠার সরঞ্জাম","tools.toggle":"পৃষ্ঠার সরঞ্জাম দেখান বা লুকান","tools.readAloud":"পড়ে শোনান","tools.pause":"থামান","tools.stop":"পড়া বন্ধ করুন","tools.next":"পরের অনুচ্ছেদ","tools.voice":"কণ্ঠ নির্দেশ","tools.explain":"কঠিন শব্দ বুঝিয়ে দিন","tools.reset":"রিসেট","tools.termsOnPage":"টি শব্দ এই পৃষ্ঠায়","tools.learned":"শেখা হয়েছে","tools.preExpanded":"আগেই খোলা","tools.openMore":"আরও {n}টি খুলুন, তখন Cypha অনুমান করা শুরু করবে","tools.understood":"বোঝা গেছে","tools.corrected":"সংশোধিত","tools.off":"বন্ধ","tools.reading":"পড়া হচ্ছে","search.placeholder":"খুঁজুন — কী চান লিখে বলুন","search.aria":"এই সাইটে খুঁজুন","search.hint":"শুধু হুবহু শব্দ নয়, অর্থ মিলিয়ে খোঁজে। বন্ধ করতে Esc।","search.nothing":"কাছাকাছি কিছু নেই।","related.eyebrow":"এই সাইটে সবচেয়ে কাছের","related.title":"সম্পর্কিত পড়া","related.note":"হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।","voice.help":"আপনি বলতে পারেন: পড়ো, থামো, পরের, আগের, উপরে, হোম, অথবা কোনো পৃষ্ঠার নাম। কী চান তা বর্ণনা করলেও আমি সবচেয়ে কাছের পৃষ্ঠাটি খুঁজে দেব।","voice.notCaught":"বুঝতে পারিনি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.listening":"শুনছি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.micOff":"মাইক্রোফোন বন্ধ।","voice.micBlocked":"মাইক্রোফোন আটকে আছে। কণ্ঠ নির্দেশ ব্যবহার করতে ব্রাউজারে অনুমতি দিন।","voice.opening":"খুলছি","voice.didYouMean":"আপনি কি বলতে চেয়েছিলেন","voice.sayNumber":"একটি সংখ্যা বলুন, অথবা \"না\" বলুন।","voice.understood":"বুঝেছি। অন্যভাবে বলুন, অথবা \"সাহায্য\" বলুন।","voice.endOfPage":"পৃষ্ঠা শেষ।","voice.searchOpen":"অনুসন্ধান খোলা হয়েছে।","voice.nothingRelated":"এই পৃষ্ঠায় সম্পর্কিত কিছু নেই।","voice.related":"সম্পর্কিত","voice.goingTo":"যাচ্ছি","voice.heading":"শিরোনাম।","voice.or":"অথবা","gh.live":"api.github.com থেকে সরাসরি","gh.cached":"সংরক্ষিত অনুলিপি","gh.noDescription":"কোনো বিবরণ নেই","gloss.notInDict":"অভিধানে নেই।","gloss.lookingUp":"খোঁজা হচ্ছে…","gloss.forget":"Cypha যা শিখেছে তা মুছে ফেলুন"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta property="og:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta property="og:title" content="RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek">
+<meta property="og:description" content="এমন একটি ডিকম্পাইলার যা বাইনারি থেকে অ্যালগরিদম, সমান্তরালতার ধরন ও সিরিয়ালাইজেশন ফরম্যাট উদ্ধার করে — শুধু ছদ্মকোড নয়। Qt 6 GUI, ঐচ্ছিক অফলাইন নিউরাল পরিশোধন।">
 <meta property="og:url" content="https://imortek.com.au/bn/retdec.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta property="og:image:alt" content="RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta name="twitter:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta name="twitter:title" content="RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek">
+<meta name="twitter:description" content="এমন একটি ডিকম্পাইলার যা বাইনারি থেকে অ্যালগরিদম, সমান্তরালতার ধরন ও সিরিয়ালাইজেশন ফরম্যাট উদ্ধার করে — শুধু ছদ্মকোড নয়। Qt 6 GUI, ঐচ্ছিক অফলাইন নিউরাল পরিশোধন।">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta name="twitter:image:alt" content="RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"bn","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/bn/retdec.html#webpage","url":"https://imortek.com.au/bn/retdec.html","name":"RetDec Imortek — specification-extraction decompiler | Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","inLanguage":"bn","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/bn/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/bn/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"হোম","item":"https://imortek.com.au/bn/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/bn/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/bn/retdec.html#software","name":"RetDec Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","url":"https://imortek.com.au/bn/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"bn","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/bn/retdec.html#webpage","url":"https://imortek.com.au/bn/retdec.html","name":"RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার | Imortek","description":"এমন একটি ডিকম্পাইলার যা বাইনারি থেকে অ্যালগরিদম, সমান্তরালতার ধরন ও সিরিয়ালাইজেশন ফরম্যাট উদ্ধার করে — শুধু ছদ্মকোড নয়। Qt 6 GUI, ঐচ্ছিক অফলাইন নিউরাল পরিশোধন।","inLanguage":"bn","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/bn/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/bn/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"হোম","item":"https://imortek.com.au/bn/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/bn/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/bn/retdec.html#software","name":"RetDec Imortek","description":"এমন একটি ডিকম্পাইলার যা বাইনারি থেকে অ্যালগরিদম, সমান্তরালতার ধরন ও সিরিয়ালাইজেশন ফরম্যাট উদ্ধার করে — শুধু ছদ্মকোড নয়। Qt 6 GUI, ঐচ্ছিক অফলাইন নিউরাল পরিশোধন।","url":"https://imortek.com.au/bn/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,39 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">এই পৃষ্ঠার কিছু অংশ এখনও ইংরেজিতে। অনুবাদ লেখা হচ্ছে; কিছুই যন্ত্রে অনূদিত নয়।</p></div>
 <section class="phero" data-video="/assets/video/retdec" data-poster="/assets/img/video/retdec.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
-        <h1>A decompiler that recovers the <span class="gradient-text">algorithm</span>, not just the code</h1>
+        <h1>এমন একটি ডিকম্পাইলার যা ফিরিয়ে আনে <span class="gradient-text">অ্যালগরিদম</span>, শুধু কোড নয়</h1>
         <p class="lede">
-          Pseudocode tells you what the bytes do. It rarely tells you what they <em>mean</em>.
-          RetDec Imortek treats semantic recovery as the primary output: which cryptographic
-          primitive this is, which sort, which serialization format, which concurrency
-          mechanism &mdash; with C as a by-product.
+          ছদ্মকোড বলে দেয় বাইটগুলি কী করে। সেগুলির <em>মানে কী</em>, তা সে কদাচিৎ বলে। RetDec Imortek শব্দার্থ পুনরুদ্ধারকেই প্রধান আউটপুট ধরে: এটি কোন ক্রিপ্টোগ্রাফিক প্রিমিটিভ, কোন সর্ট, কোন সিরিয়ালাইজেশন ফরম্যাট, কোন সমান্তরালতার কৌশল &mdash; আর C আসে উপজাত হিসেবে।
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">বাইট থেকে নামসহ অ্যালগরিদমে পৌঁছান</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">রিপোজিটরি &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
-          <div class="phero__meta-item">Version<b>v2.0.21</b></div>
-          <div class="phero__meta-item">Upstream<b>RetDec v5.0</b></div>
-          <div class="phero__meta-item">Stars<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">সম্প্রতি</b></div>
+          <div class="phero__meta-item">ভাষা<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">সংস্করণ<b>v2.0.21</b></div>
+          <div class="phero__meta-item">মূল প্রকল্প<b>RetDec v5.0</b></div>
+          <div class="phero__meta-item">স্টার<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
+          <div class="phero__meta-item">সর্বশেষ পুশ<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">সম্প্রতি</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Why fork RetDec</span>
+          <span class="eyebrow" style="margin-bottom:16px">RetDec ফর্ক করা হলো কেন</span>
           <p class="small dim">
-            Upstream RetDec v5.0 has been inactive since 2022. It remains one of the few
-            open decompilers with a genuinely broad front end &mdash; and that breadth is worth
-            keeping alive.
+            মূল RetDec v5.0 ২০২২ সাল থেকে নিষ্ক্রিয়। সত্যিকারের প্রশস্ত সামনের অংশ আছে এমন হাতে গোনা উন্মুক্ত ডিকম্পাইলারের একটি এটি &mdash; আর সেই প্রশস্ততা বাঁচিয়ে রাখার মতো।
           </p>
           <div class="spec" style="border:0;margin-top:6px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Semantic library recovery</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Qt 6 interface</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Optional offline neural refinement</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Added</span><span class="spec__v">Algorithm, concurrency &amp; serialization detection</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">যোগ হয়েছে</span><span class="spec__v">শব্দার্থ-স্তরে লাইব্রেরি পুনরুদ্ধার</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">যোগ হয়েছে</span><span class="spec__v">Qt 6 ইন্টারফেস</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">যোগ হয়েছে</span><span class="spec__v">ঐচ্ছিক অফলাইন নিউরাল পরিশোধন</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">যোগ হয়েছে</span><span class="spec__v">অ্যালগরিদম, সমান্তরালতা ও সিরিয়ালাইজেশন শনাক্তকরণ</span></div>
           </div>
         </div>
       </div>
@@ -189,19 +183,17 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The bottom rung, for real</span>
-      <h2>The actual decoder, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">সবচেয়ে নিচের ধাপটি, সত্যি সত্যি</span>
+      <h2>আসল ডিকোডারটাই, WebAssembly-তে কম্পাইল করা</h2>
       <p class="lede">
-        Everything above this is a scripted walk through the abstraction ladder. This is the
-        first rung running for real: Capstone &mdash; the same disassembler the native RetDec
-        build links &mdash; decoding bytes you paste in.
+        এর উপরের সবটাই বিমূর্তনের মইয়ের ভিতর দিয়ে স্ক্রিপ্ট করা একটা হাঁটা। এটিই প্রথম ধাপ যা সত্যি সত্যি চলছে: Capstone &mdash; নেটিভ RetDec বিল্ড যে ডিসঅ্যাসেম্বলারের সঙ্গে লিংক করে সেই একই &mdash; আপনার পেস্ট করা বাইট ডিকোড করছে।
       </p>
     </div>
 
     <div class="demo reveal" id="rdw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> capstone &mdash; WebAssembly</h3>
-        <div class="seg" role="group" aria-label="Width">
+        <div class="seg" role="group" aria-label="প্রস্থ">
           <button type="button" data-bits="64" aria-pressed="true">x86-64</button>
           <button type="button" data-bits="32">x86-32</button>
         </div>
@@ -209,43 +201,38 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="ctrl">
-            <label for="rdw-input">Bytes &mdash; hex, any separators</label>
+            <label for="rdw-input">বাইট &mdash; হেক্স, যেকোনো বিভাজক</label>
             <input type="text" id="rdw-input" value="55 48 89 e5 b8 01 00 00 00 5d c3"
                    spellcheck="false" autocomplete="off" style="width:100%">
           </div>
           <div class="chips" id="rdw-examples" style="margin-top:12px"></div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">Load the decoder &mdash; 791 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Disassemble</button>
+            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">ডিকোডারটি লোড করুন &mdash; ৭৯১ KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>ডিসঅ্যাসেম্বল করুন</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 KB because a real x86 decoder carries the whole instruction set &mdash; every
-            encoding, prefix and extension. That is the honest size of the thing.
+            ৭৯১ KB, কারণ একটি সত্যিকারের x86 ডিকোডার গোটা নির্দেশ-সেট বহন করে &mdash; প্রতিটি এনকোডিং, প্রিফিক্স আর এক্সটেনশন। জিনিসটার সৎ মাপ এটাই।
           </p>
         </div>
         <div class="demo__side">
           <div class="log" id="rdw-out" style="height:260px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Decoder</div>
+              <div class="readout__k">ডিকোডার</div>
               <div class="readout__v plain" id="rdw-version" style="font-size:.82rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Instructions</div>
+              <div class="readout__k">নির্দেশ</div>
               <div class="readout__v violet" id="rdw-count" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>This is the decoder, not the decompiler.</strong> The rungs above &mdash;
-            lifting to LLVM IR, structuring control flow, naming the algorithm &mdash; are LLVM&rsquo;s
-            work, and LLVM does not fit in a web page at any size. Saying otherwise would be the
-            easiest lie on this site.
+            <strong>এটি ডিকোডার, ডিকম্পাইলার নয়।</strong> উপরের ধাপগুলি &mdash; LLVM IR-এ তোলা, নিয়ন্ত্রণ-প্রবাহ সাজানো, অ্যালগরিদমের নাম দেওয়া &mdash; LLVM-এর কাজ, আর LLVM কোনো মাপেই একটা ওয়েব পাতায় আঁটে না। এর উল্টো বলাটা এই সাইটের সবচেয়ে সহজ মিথ্যে হতো।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, built with Emscripten, x86 only. The native build links the same library
-        from <code>deps/capstone</code>.
+        Capstone 5, Emscripten দিয়ে বিল্ড করা, কেবল x86। নেটিভ বিল্ড একই লাইব্রেরি লিংক করে এখান থেকে: <code>deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -254,28 +241,28 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Front end</span>
-      <h2>Native, bytecode and emerging formats</h2>
-      <p class="lede">Output is format-dependent, because pretending everything decompiles to C helps nobody.</p>
+      <span class="eyebrow">সামনের অংশ</span>
+      <h2>নেটিভ, বাইটকোড ও নতুন ফরম্যাট</h2>
+      <p class="lede">আউটপুট ফরম্যাট অনুযায়ী বদলায়, কারণ সবকিছুই C-তে ডিকম্পাইল হয় বলে ভান করে কারও লাভ নেই।</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Native</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">নেটিভ</span>
         <h3 style="font-size:1.02rem">ELF &middot; PE &middot; Mach-O</h3>
-        <p class="small dim" style="margin:0">Produces C pseudocode, plus the semantic layer that is the point of the fork.</p>
+        <p class="small dim" style="margin:0">C ছদ্মকোড তৈরি করে, সঙ্গে সেই শব্দার্থ-স্তরটি, যার জন্যই এই ফর্ক।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".05">
         <div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Bytecode</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">বাইটকোড</span>
         <h3 style="font-size:1.02rem">Python &middot; Lua &middot; JVM &middot; DEX &middot; CIL</h3>
-        <p class="small dim" style="margin:0">Python and Lua bytecode return their own languages; managed code paths emit Java-family or C#-family output.</p>
+        <p class="small dim" style="margin:0">Python আর Lua বাইটকোড নিজেদের ভাষাতেই ফিরে আসে; ম্যানেজড কোডের পথগুলি Java-ঘরানা বা C#-ঘরানার আউটপুট দেয়।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".1">
         <div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Emerging</span>
+        <span class="badge badge--blue" style="margin-bottom:12px">নতুন</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WAT. PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly বদলে যায় WAT-এ। PTX-কে পরে-ভাবা বিষয় না ধরে প্রথম শ্রেণির ইনপুট হিসেবেই সামলানো হয়।</p>
       </div>
     </div>
   </div>
@@ -284,20 +271,18 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Watch a function climb the abstraction ladder</h2>
+      <span class="eyebrow">ইন্টারঅ্যাক্টিভ</span>
+      <h2>একটি ফাংশনকে বিমূর্তনের মই বেয়ে উঠতে দেখুন</h2>
       <p class="lede">
-        Pick a binary function and step it through the pipeline: raw bytes, disassembly,
-        lifted IR, C pseudocode, and finally the semantic verdict &mdash; the named algorithm,
-        with the evidence that identified it.
+        একটি বাইনারি ফাংশন বেছে নিন আর সেটিকে পাইপলাইনের ভিতর দিয়ে ধাপে ধাপে চালান: কাঁচা বাইট, ডিসঅ্যাসেম্বলি, তোলা IR, C ছদ্মকোড, আর শেষে শব্দার্থের রায় &mdash; নামসহ অ্যালগরিদম, সঙ্গে যে প্রমাণ তাকে শনাক্ত করেছে।
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="Five rungs of abstraction: raw bytes, disassembly, lifted IR, C pseudocode, and the named algorithm with its specification reference" loading="lazy" decoding="async"></div><span class="diagram__hint">পুরো চিত্রটি দেখতে স্ক্রল করুন &rarr;</span><figcaption><b>The last rung is the product.</b> Everything above it is what other decompilers already give you.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="বিমূর্তনের পাঁচটি ধাপ: কাঁচা বাইট, ডিসঅ্যাসেম্বলি, তোলা IR, C ছদ্মকোড, আর নামসহ অ্যালগরিদম তার স্পেসিফিকেশন-সূত্রসহ" loading="lazy" decoding="async"></div><span class="diagram__hint">পুরো চিত্রটি দেখতে স্ক্রল করুন &rarr;</span><figcaption><b>শেষ ধাপটাই পণ্য।</b> তার উপরের সবটাই অন্য ডিকম্পাইলাররা এমনিতেই আপনাকে দেয়।</figcaption></figure>
 
     <div class="demo reveal" id="rd-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; specification extraction</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; স্পেসিফিকেশন নিষ্কাশন</h3>
         <div class="chips" id="rd-samples"></div>
       </div>
       <div class="demo__split">
@@ -305,48 +290,45 @@
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
           <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm" id="rd-prev">&larr; Back</button>
-            <button class="btn btn--sm btn--primary" id="rd-next">Next stage &rarr;</button>
-            <button class="btn btn--sm btn--ghost" id="rd-auto">Auto-run</button>
+            <button class="btn btn--sm" id="rd-prev">&larr; পিছনে</button>
+            <button class="btn btn--sm btn--primary" id="rd-next">পরের ধাপ &rarr;</button>
+            <button class="btn btn--sm btn--ghost" id="rd-auto">নিজে থেকে চালান</button>
           </div>
         </div>
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Semantic verdict</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">শব্দার্থের রায়</h4>
             <div class="verdict" id="rd-verdict">
-              <div class="verdict__label">Not yet recovered</div>
-              <div class="verdict__why">Step through to the semantic stage.</div>
+              <div class="verdict__label">এখনও উদ্ধার হয়নি</div>
+              <div class="verdict__why">ধাপে ধাপে শব্দার্থের পর্যায় পর্যন্ত যান।</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Evidence</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">প্রমাণ</h4>
             <div class="log" id="rd-evidence" style="height:200px"></div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Confidence</div>
+              <div class="readout__k">আত্মবিশ্বাস</div>
               <div class="readout__v" id="rd-conf">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mode</div>
-              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">name-blind</div>
+              <div class="readout__k">ধরন</div>
+              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">নাম ছাড়া</div>
             </div>
           </div>
           <label class="switch">
             <input type="checkbox" id="rd-symbols">
             <span class="switch__track"></span>
-            <span>Binary has symbols</span>
+            <span>বাইনারিতে সিম্বল আছে</span>
           </label>
           <p class="tiny muted">
-            With symbols stripped, recovery must work from structure alone &mdash; constants,
-            round counts, control-flow shape. That is the hard case, and the one the
-            measured F1 of 0.056 refers to.
+            সিম্বল ছেঁটে ফেললে উদ্ধার কেবল গঠন থেকেই করতে হয় &mdash; ধ্রুবক, রাউন্ডের সংখ্যা, নিয়ন্ত্রণ-প্রবাহের আকার। ওটাই কঠিন পরিস্থিতি, আর মাপা F1 ০.০৫৬ ওটাকেই বোঝায়।
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A scripted walkthrough of real recovery stages, written for this page. The
-        decompiler itself is C++ and runs offline.
+        সত্যিকারের উদ্ধার-পর্যায়গুলির একটি স্ক্রিপ্ট করা প্রদর্শনী, এই পাতার জন্য লেখা। ডিকম্পাইলারটি নিজে C++-এ লেখা এবং অফলাইনে চলে।
       </div>
     </div>
   </div>
@@ -355,22 +337,22 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">What it recovers</span>
-      <h2>Six families of structure</h2>
+      <span class="eyebrow">এটি যা উদ্ধার করে</span>
+      <h2>ছয় ঘরানার গঠন</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
-        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
-        <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; including the depth-limit switch that gives introsort away.</p></div>
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
-        <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">রানটাইম</span>
+        <p class="small dim" style="margin:0">STL কনটেইনার ও C++ রানটাইম গঠন &mdash; একটি <code>std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">ক্রিপ্টোগ্রাফি</span>
+        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA ও উপবৃত্তীয় বক্ররেখার প্রিমিটিভ, ধ্রুবক আর রাউন্ড-গঠন দেখে শনাক্ত করা।</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সর্টিং ও অনুসন্ধান</span>
+        <p class="small dim" style="margin:0">ইনট্রোসর্ট, মার্জ সর্ট, বাইনারি অনুসন্ধান &mdash; সঙ্গে সেই গভীরতা-সীমার সুইচ, যেটা ইনট্রোসর্টকে ধরিয়ে দেয়।</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">গ্রাফ</span>
+        <p class="small dim" style="margin:0">গ্রাফ অ্যালগরিদম আর BFS/DFS পরিক্রমার ধরন।</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">সমান্তরালতা</span>
+        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB আর কাঁচা অ্যাটমিক।</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সিরিয়ালাইজেশন</span>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON আর XML ফ্রেমিং।</p></div>
     </div>
   </div>
 </section>
@@ -379,46 +361,40 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Measured</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binaries, and the number that hurts</h2>
+        <span class="eyebrow">মাপা হয়েছে</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">২১৬টি বাইনারি, আর যে সংখ্যাটা গায়ে লাগে</h2>
         <p class="dim">
-          All 216 ELF binaries in the test corpus produce buildable C with
-          <code>--buildable</code>, which is on by default. Algorithm recovery is a different
-          story, and the honest way to report it is both numbers side by side.
+          পরীক্ষা-সংগ্রহের ২১৬টি ELF বাইনারিই বিল্ডযোগ্য C তৈরি করে, ব্যবহার করে
+          <code>--buildable</code>, যা পূর্বনির্ধারিতভাবেই চালু থাকে। অ্যালগরিদম উদ্ধারের গল্পটা আলাদা, আর সেটা জানানোর সৎ উপায় হলো দুটি সংখ্যাই পাশাপাশি রাখা।
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
+            <thead><tr><th>মাপকাঠি</th><th class="num">ফল</th><th>শর্ত</th></tr></thead>
             <tbody>
-              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
-              <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
+              <tr><td>বিল্ডযোগ্য C আউটপুট</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, পূর্বনির্ধারিতভাবে চালু</td></tr>
+              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">নাম ছাড়া, ৯৫% CI ০.০৩৪&ndash;০.০৮৩</td></tr>
+              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">1.000</td><td class="muted">নাম সহ, সিম্বলযুক্ত বাইনারি</td></tr>
+              <tr><td>পূর্বনির্ধারিত <code>.c</code> আবার কম্পাইল হয়</td><td class="num">না</td><td class="muted">এই ফর্কেও নয়, মূল RetDec-এও নয়</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>Read those two F1 numbers together.</strong> 1.000 with symbols means the
-          detector agrees with the symbol table. 0.056 without means structural recovery on
-          stripped binaries is, today, close to the floor. Quoting only the first would be
-          marketing; quoting only the second would hide that the pipeline works when it has
-          anything to go on.
+          <strong>ওই দুটি F1 সংখ্যা একসঙ্গে পড়ুন।</strong> সিম্বল থাকলে ১.০০০ মানে শনাক্তকারী সিম্বল টেবিলের সঙ্গে একমত। সিম্বল ছাড়া ০.০৫৬ মানে, ছেঁটে ফেলা বাইনারিতে গঠন থেকে উদ্ধার আজকের দিনে প্রায় মেঝেতেই পড়ে আছে। শুধু প্রথমটা বললে সেটা হতো বিপণন; শুধু দ্বিতীয়টা বললে চাপা পড়ে যেত যে, হাতে কিছু থাকলে পাইপলাইনটা কাজ করে।
         </div>
       </div>
 
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--violet">Neural refinement</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Optional, offline, and gated</h2>
+        <span class="eyebrow eyebrow--violet">নিউরাল পরিশোধন</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ঐচ্ছিক, অফলাইন, আর গেটে বাঁধা</h2>
         <p class="dim">
-          Refinement runs through llama.cpp with GGUF models, entirely offline, only when
-          <code>RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
-          and it never replaces the baseline.
+          পরিশোধন চলে llama.cpp দিয়ে, GGUF মডেল ব্যবহার করে, পুরোপুরি অফলাইনে, কেবল তখনই যখন
+          <code>RETDEC_NEURAL_REFINE=1</code> থাকে আর একটি মডেলের পথ দেওয়া হয়। এটি পূর্বনির্ধারিতভাবে বন্ধ, আর এটি কখনও ভিত্তি-আউটপুটের জায়গা নেয় না।
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Compile gate.</strong> Refined output must pass <code>gcc -fsyntax-only</code> before it is accepted.</li>
-          <li><strong>Structural validation.</strong> The refinement must still correspond to the lifted structure.</li>
-          <li><strong>Deterministic baseline preserved.</strong> The unrefined decompiler output remains the auditable artefact. If you need to defend a finding, you defend that one.</li>
-          <li><strong>No network.</strong> Local GGUF inference. Nothing about your binary leaves the machine.</li>
+          <li><strong>কম্পাইল গেট।</strong> পরিশোধিত আউটপুটকে পেরোতে হয় <code>gcc -fsyntax-only</code> গেট, তবেই সেটি গ্রহণ করা হয়।</li>
+          <li><strong>গঠনগত যাচাই।</strong> পরিশোধনটিকে তবু তোলা গঠনের সঙ্গে মিলতে হবে।</li>
+          <li><strong>নির্ধারণবাদী ভিত্তিটি অটুট রাখা হয়।</strong> পরিশোধন ছাড়া ডিকম্পাইলারের আউটপুটই নিরীক্ষাযোগ্য নিদর্শন হিসেবে থেকে যায়। কোনো ফল নিয়ে যুক্তি দিতে হলে আপনি সেটিকেই সামনে রাখবেন।</li>
+          <li><strong>কোনো নেটওয়ার্ক নেই।</strong> স্থানীয় GGUF ইনফারেন্স। আপনার বাইনারির কিছুই মেশিন ছেড়ে যায় না।</li>
         </ul>
         <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
@@ -432,34 +408,33 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Works out what a program does when the source code is gone</h2>
-      <p class="lede">Software ships as something a machine can read and a person cannot. This takes that back apart and tells you, in plain terms, what the program is actually doing.</p>
+      <span class="eyebrow">কাদের জন্য</span>
+      <h2>সোর্স কোড হারিয়ে গেলে একটি প্রোগ্রাম কী করে তা বের করে</h2>
+      <p class="lede">সফটওয়্যার এমন চেহারায় আসে যা মেশিন পড়তে পারে, মানুষ পারে না। এটি সেটিকে আবার খুলে ফেলে আর সোজা কথায় বলে দেয় প্রোগ্রামটি আসলে কী করছে।</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Security teams pulling malware apart</h3>
-        <p class="small dim" style="margin:0">Instead of pages of unreadable code, you get the answer: this part is scrambling data, this part is how it calls home, this part is how it hides. That is the bit an analyst needs first.</p>
+        <h3 style="font-size:1.05rem">ম্যালওয়্যার খুলে দেখা নিরাপত্তা দল</h3>
+        <p class="small dim" style="margin:0">পাতার পর পাতা অপাঠ্য কোডের বদলে আপনি উত্তরটা পান: এই অংশটা ডেটা এলোমেলো করছে, এই অংশটা দিয়ে সে বাড়িতে খবর পাঠায়, এই অংশটা দিয়ে সে লুকিয়ে থাকে। একজন বিশ্লেষকের সবার আগে ওইটুকুই দরকার।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Companies with old software and no source code</h3>
-        <p class="small dim" style="margin:0">The system still runs the business, and whoever wrote it left years ago. This recovers a description of what it does, which is what you need before anyone can safely rebuild or replace it.</p>
+        <h3 style="font-size:1.05rem">পুরনো সফটওয়্যার আছে অথচ সোর্স কোড নেই এমন কোম্পানি</h3>
+        <p class="small dim" style="margin:0">সিস্টেমটা এখনও ব্যবসা চালাচ্ছে, আর যে লিখেছিল সে বছর কয়েক আগেই চলে গেছে। এটি সেটি কী করে তার একটি বিবরণ উদ্ধার করে, আর কেউ নিরাপদে নতুন করে বানানো বা বদলানোর আগে ঠিক সেটাই দরকার।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Anyone stuck with a file format nobody documented</h3>
-        <p class="small dim" style="margin:0">Old records, a machine that will only talk to its own software, a competitor's export file. This works out the structure so your own software can read it.</p>
+        <h3 style="font-size:1.05rem">কেউ নথিভুক্ত করেনি এমন ফাইল ফরম্যাটে আটকে থাকা যে কেউ</h3>
+        <p class="small dim" style="margin:0">পুরনো নথি, এমন একটা যন্ত্র যেটা কেবল নিজের সফটওয়্যারের সঙ্গেই কথা বলে, প্রতিযোগীর রপ্তানি করা ফাইল। এটি গঠনটা বের করে দেয়, যাতে আপনার নিজের সফটওয়্যার সেটি পড়তে পারে।</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/bn/beta.html">Become a beta tester &rarr;</a>
+      <strong>নিজের অবস্থাটা এখানে চিনতে পারছেন?</strong> এটি এখনই বেটা পরীক্ষার জন্য খোলা, আর যাদের জন্য এটি বানানো তাদের মতামতই একে সত্যিই বদলায়।
+      <a href="/bn/beta.html">বেটা টেস্টার হোন &rarr;</a>
     </div>
   </div>
 </section>
@@ -468,30 +443,26 @@
   <div class="wrap">
     <div class="split split--center reveal">
       <div>
-        <span class="eyebrow">Interface</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, or no GUI at all</h2>
+        <span class="eyebrow">ইন্টারফেস</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, কিংবা একেবারেই GUI নয়</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in CI.
+          C, অ্যাসেম্বলি, IR আর নিয়ন্ত্রণ-প্রবাহ গ্রাফ জুড়ে মিলিয়ে রাখা কোড-দৃশ্য, সঙ্গে ফাংশনে চলাফেরা, স্ট্রিং পরীক্ষা, একটি বাইনারি ব্রাউজার আর একটি সহায়ক প্যানেল। হেডলেস মোডে সব GUI নির্ভরতা বাদ পড়ে, তাই একই বিল্ড CI-তেও চলে।
         </p>
       </div>
       <div>
         <div class="card">
           <div class="badge-row" style="margin-bottom:14px">
-            <span class="badge badge--teal">Dual licensed</span>
+            <span class="badge badge--teal">দ্বৈত লাইসেন্স</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            AGPL-3.0+ for open-source use, or a commercial licence for proprietary deployment.
-            Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
+            ওপেন সোর্স ব্যবহারের জন্য AGPL-3.0+, নয়তো মালিকানাধীন স্থাপনার জন্য একটি বাণিজ্যিক লাইসেন্স। কপিরাইট Odin Loch, Imortek নামে ব্যবসারত, ২০২৫&ndash;২০২৬।
           </p>
           <p class="small muted" style="margin:0">
-            Shippable at v2.0.21. CI gates reflect development rather than production maturity
-            standards &mdash; stated by the project, not inferred.
+            v2.0.21-এ পাঠানোর মতো। CI গেটগুলি উৎপাদন-পর্যায়ের পরিপক্বতার মান নয়, উন্নয়নের অবস্থাই তুলে ধরে &mdash; প্রকল্প নিজেই তা বলেছে, এটি অনুমান নয়।
           </p>
           <div class="btn-row" style="margin-top:18px">
-            <a class="btn btn--sm btn--ghost" href="/bn/licensing.html">Licensing terms</a>
-            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">The research line behind it</a>
+            <a class="btn btn--sm btn--ghost" href="/bn/licensing.html">লাইসেন্সিং শর্ত</a>
+            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">এর পিছনের গবেষণার ধারা</a>
           </div>
         </div>
       </div>
@@ -564,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T11:37:49Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T12:42:38Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>
@@ -575,6 +546,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Raw bytes":"কাঁচা বাইট","Disassembly":"ডিসঅ্যাসেম্বলি","Lifted IR":"লিফট করা IR","C pseudocode":"C সিউডোকোড","Semantics":"সিম্যান্টিক্স","Cryptographic primitive":"ক্রিপ্টোগ্রাফিক প্রিমিটিভ","Sorting algorithm":"সর্টিং অ্যালগরিদম","Stream cipher":"স্ট্রিম সাইফার","Stop":"থামান"};</script>
 <script src="/assets/js/demos/retdec.js" defer></script><script src="/assets/js/demos/retdec-wasm.js" defer></script>
 </body>
 </html>

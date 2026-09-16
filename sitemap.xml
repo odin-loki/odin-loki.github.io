@@ -1,88 +1,2385 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://imortek.com.au/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/"/>
   </url>
   <url>
     <loc>https://imortek.com.au/pbsd.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/pbsd.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/pbsd.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/pbsd.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/cypha.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/cypha.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cypha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cypha.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/retdec.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/retdec.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/retdec.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/retdec.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/mathscript.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/mathscript.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/mathscript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/mathscript.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/aegis.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/aegis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/aegis.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/aegis.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/sentinel.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/sentinel.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/sentinel.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/cellai.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/cellai.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/cellai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/cellai.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/chess.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/chess.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/chess.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/chess.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/kickstarter.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/kickstarter.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/kickstarter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/kickstarter.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/beta.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/beta.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/beta.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/beta.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/research.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/research.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/research.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/research.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/research.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/research.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/research.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/research.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/research.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/research.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/licensing.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/licensing.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/licensing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/licensing.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/about.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/about.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/about.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/about.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/about.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/about.html"/>
   </url>
   <url>
     <loc>https://imortek.com.au/research/aria-aead.html</loc>

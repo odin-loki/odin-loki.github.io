@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AEGIS — metadata-hiding transport for consortiums | Imortek</title>
-<meta name="description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
-<meta name="keywords" content="AEGIS, metadata-hiding transport, traffic analysis resistance, mixnet, constant-rate shaping, anonymity, privacy engineering">
+<title>AEGIS — 面向联盟的元数据隐藏传输层 | Imortek</title>
+<meta name="description" content="抗流量分析的传输层，隐藏谁在跟谁通信、何时通信、通信量多大。恒定速率混合网络，外加一个批量通道。跑一遍在线的相关性攻击。">
+<meta name="keywords" content="AEGIS, 隐藏元数据的传输, 抗流量分析, 混合网络, 恒定速率, 匿名, 隐私, 加密, Sphinx">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="zh">
 <meta name="imortek:speech" content="zh-CN">
 <meta name="imortek:prefix" content="/zh">
-<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gh.live":"实时来自 api.github.com","gh.cached":"缓存快照","gh.noDescription":"没有说明","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
-<meta property="og:description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
+<meta property="og:title" content="AEGIS — 面向联盟的元数据隐藏传输层 | Imortek">
+<meta property="og:description" content="抗流量分析的传输层，隐藏谁在跟谁通信、何时通信、通信量多大。恒定速率混合网络，外加一个批量通道。跑一遍在线的相关性攻击。">
 <meta property="og:url" content="https://imortek.com.au/zh/aegis.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
+<meta property="og:image:alt" content="AEGIS — 面向联盟的元数据隐藏传输层 | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
-<meta name="twitter:description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
+<meta name="twitter:title" content="AEGIS — 面向联盟的元数据隐藏传输层 | Imortek">
+<meta name="twitter:description" content="抗流量分析的传输层，隐藏谁在跟谁通信、何时通信、通信量多大。恒定速率混合网络，外加一个批量通道。跑一遍在线的相关性攻击。">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
+<meta name="twitter:image:alt" content="AEGIS — 面向联盟的元数据隐藏传输层 | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/aegis.html#webpage","url":"https://imortek.com.au/zh/aegis.html","name":"AEGIS — metadata-hiding transport for consortiums | Imortek","description":"Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/aegis.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/aegis.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"AEGIS","item":"https://imortek.com.au/zh/aegis.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/aegis.html#software","name":"AEGIS","description":"Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.","url":"https://imortek.com.au/zh/aegis.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ANONYMOUS","sameAs":["https://github.com/odin-loki/ANONYMOUS"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/aegis.html#webpage","url":"https://imortek.com.au/zh/aegis.html","name":"AEGIS — 面向联盟的元数据隐藏传输层 | Imortek","description":"抗流量分析的传输层，隐藏谁在跟谁通信、何时通信、通信量多大。恒定速率混合网络，外加一个批量通道。跑一遍在线的相关性攻击。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/aegis.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/aegis.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"AEGIS","item":"https://imortek.com.au/zh/aegis.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/aegis.html#software","name":"AEGIS","description":"抗流量分析的传输层，隐藏谁在跟谁通信、何时通信、通信量多大。恒定速率混合网络，外加一个批量通道。跑一遍在线的相关性攻击。","url":"https://imortek.com.au/zh/aegis.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ANONYMOUS","sameAs":["https://github.com/odin-loki/ANONYMOUS"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,42 +139,37 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">本页部分内容仍为英文。翻译正在撰写中，没有任何内容是机器翻译的。</p></div>
 <section class="phero" data-video="/assets/video/aegis" data-poster="/assets/img/video/aegis.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">AEGIS &middot; Phase 8 complete</span>
-        <h1>Encryption hides what you said. <span class="gradient-text">This hides that you spoke.</span></h1>
+        <span class="eyebrow">AEGIS &middot; 第 8 阶段完成</span>
+        <h1>加密藏住的是你说了什么。 <span class="gradient-text">这个藏住的是你说过话。</span></h1>
         <p class="lede">
-          AEGIS is a traffic-analysis resistant transport for permissioned consortiums.
-          It assumes content encryption is a solved problem and attacks the part encryption
-          cannot touch: who talks to whom, when, and how much.
+          AEGIS 是一个面向准入制联盟的抗流量分析传输层。它假定内容加密已经是个解决了的问题，转而攻击加密碰不到的那部分：谁在跟谁通信、何时通信、通信量多大。
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Run the correlation attack</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/ANONYMOUS" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">跑一遍相关性攻击</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ANONYMOUS" target="_blank" rel="noopener">仓库 &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="ANONYMOUS" data-gh-field="language">Rust</b></div>
-          <div class="phero__meta-item">Adversary<b>Global passive</b></div>
-          <div class="phero__meta-item">Workspace tests<b>195 passing</b></div>
-          <div class="phero__meta-item">Fuzzing<b>1.17M+ execs</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="ANONYMOUS" data-gh-field="updated">不久前</b></div>
+          <div class="phero__meta-item">语言<b data-gh-repo="ANONYMOUS" data-gh-field="language">Rust</b></div>
+          <div class="phero__meta-item">对手<b>全局被动</b></div>
+          <div class="phero__meta-item">工作区测试<b>195 个通过</b></div>
+          <div class="phero__meta-item">模糊测试<b>1.17M+ 次执行</b></div>
+          <div class="phero__meta-item">最近一次推送<b data-gh-repo="ANONYMOUS" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:14px">The one rule</span>
+          <span class="eyebrow" style="margin-bottom:14px">唯一的规矩</span>
           <p class="lede" style="font-size:1.12rem;color:var(--ink)">
-            &ldquo;Nothing is done until an attack simulation confirms it.&rdquo;
+            &ldquo;在攻击模拟确认之前，什么都不算做完。&rdquo;
           </p>
           <p class="small dim" style="margin-top:14px">
-            Intuition about traffic analysis failed repeatedly during development. Only the
-            simulation harness proved trustworthy, so it became the gate. The Python harness in
-            <code>sim/</code> is the evidence ledger behind every quantitative claim in the
-            specification &mdash; not an afterthought that validates a design already shipped.
+            开发过程中，关于流量分析的直觉一次又一次地失灵。只有模拟框架被证明靠得住，于是它成了关卡。那套 Python 框架在
+            <code>sim/</code> 里，它是规格里每一条量化说法背后的证据台账 &mdash; 不是事后补上去给一个已经发布的设计背书的东西。
           </p>
         </div>
       </div>
@@ -185,44 +180,36 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">The threat</span>
-      <h2>Metadata is the part that identifies you</h2>
+      <span class="eyebrow">威胁</span>
+      <h2>能把你认出来的那部分是元数据</h2>
     </div>
     <div class="split reveal">
       <div>
         <p class="dim">
-          A global passive adversary cannot read your messages. It does not need to. It watches
-          every link at once and correlates: this endpoint transmitted 14 KB at 09:41:03, that
-          endpoint received 14 KB at 09:41:06, and the pattern repeats twice a day for eleven weeks.
+          全局被动对手读不了你的消息。它也不需要读。它同时盯着每一条链路，然后做关联：这个端点在 09:41:03 发了 14 KB，那个端点在 09:41:06 收了 14 KB，而这个模式每天出现两次，连着十一周。
         </p>
         <p class="dim">
-          Volume and timing are enough to reconstruct the relationship graph of an entire
-          organisation without breaking a single cipher. For a consortium &mdash; banks settling with
-          each other, hospitals sharing records, newsrooms with sources &mdash; the graph
-          <em>is</em> the sensitive information.
+          光靠流量和时间，就足以重建出一整个组织的关系图，一个密码都不用破。对一个联盟来说 &mdash; 互相清算的银行、共享病历的医院、有线人的编辑部 &mdash; 这张图
+          <em>就是</em> 那份敏感信息。
         </p>
         <p class="dim">
-          AEGIS makes the wire a flat, unchanging wall. Constant rate regardless of what is
-          happening underneath, so volume and timing carry no signal at all. The demonstration
-          below lets you run the attack against both configurations and see the difference.
+          AEGIS 把线路变成一堵平坦、不变的墙。不管底下在发生什么，速率恒定，所以流量和时间完全不携带信号。下面这个演示让你对两种配置各跑一次攻击，自己看差别。
         </p>
       </div>
       <div>
         <div class="grid" style="gap:14px">
           <div class="card">
-            <span class="badge badge--violet" style="margin-bottom:10px">Mode 1</span>
-            <h4 style="margin:0 0 6px">Shaped mixnet</h4>
+            <span class="badge badge--violet" style="margin-bottom:10px">模式 1</span>
+            <h4 style="margin:0 0 6px">整形过的混合网络</h4>
             <p class="small dim" style="margin:0">
-              Small and bursty data plus all control traffic. Sphinx packets emitted at a constant
-              rate, with hard-cap receiver padding so a receiver&rsquo;s inbound volume is also fixed.
+              小而突发的数据，加上全部控制流量。Sphinx 包以恒定速率发出，接收端用硬上限填充，这样接收方的入向流量也是固定的。
             </p>
           </div>
           <div class="card">
-            <span class="badge badge--teal" style="margin-bottom:10px">Mode 2</span>
-            <h4 style="margin:0 0 6px">Bulk plane</h4>
+            <span class="badge badge--teal" style="margin-bottom:10px">模式 2</span>
+            <h4 style="margin:0 0 6px">批量通道</h4>
             <p class="small dim" style="margin:0">
-              Large file transfer with a tunable security level &mdash; raw, bucketed, or uniformly
-              batched. You choose where you sit on the cost curve; nothing is hidden about the price.
+              大文件传输，安全级别可调 &mdash; 原始、分桶，或者均匀成批。你自己选在成本曲线上待在哪个位置；关于代价，没有任何隐瞒。
             </p>
           </div>
         </div>
@@ -234,24 +221,22 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Be the global passive adversary</h2>
+      <span class="eyebrow">交互演示</span>
+      <h2>你来当那个全局被动对手</h2>
       <p class="lede">
-        Five senders are each talking to exactly one of five receivers. You see only the traffic
-        volume on every link &mdash; never the contents, never the routing. Correlate the series and
-        try to recover the pairing. Then switch the constant-rate defence on and try again.
+        五个发送方各自只和五个接收方中的一个通信。你只看得到每条链路上的流量大小 &mdash; 看不到内容，也看不到路由。把这些序列关联起来，试着把配对还原出来。然后打开恒定速率防御，再试一次。
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/aegis-wire.svg" alt="Two wire profiles compared: unshaped traffic shows traceable bursts and the adversary recovers the relationship graph; constant-rate shaped traffic is flat and recovery drops to chance" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>What the adversary actually sees.</b> Run the attack yourself below &mdash; the numbers in this picture are the ones the demo produces.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/aegis-wire.svg" alt="两种线路特征对比：未整形的流量呈现出可追踪的突发，对手把关系图还原了出来；恒定速率整形过的流量是平的，还原率掉到瞎猜的水平" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>对手实际看到的是什么。</b> 下面自己跑一遍攻击 &mdash; 这张图里的数字就是那个演示产生的数字。</figcaption></figure>
 
     <div class="demo reveal" id="ae-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> traffic-analysis harness</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> 流量分析框架</h3>
         <label class="switch">
           <input type="checkbox" id="ae-cover">
           <span class="switch__track"></span>
-          <span>AEGIS constant-rate shaping</span>
+          <span>AEGIS 恒定速率整形</span>
         </label>
       </div>
 
@@ -260,18 +245,18 @@
           <canvas class="demo-canvas" id="ae-canvas" height="400"
                   aria-label="Traffic volume on each link over time, and the adversary's correlation matrix"></canvas>
           <div class="legend" style="margin-top:14px">
-            <span><i style="background:#5eead4"></i> Sender link</span>
-            <span><i style="background:#a78bfa"></i> Receiver link</span>
-            <span><i style="background:#fbbf24"></i> Correlation, high</span>
-            <span><i style="background:#1e2833"></i> Correlation, low</span>
+            <span><i style="background:#5eead4"></i> 发送方链路</span>
+            <span><i style="background:#a78bfa"></i> 接收方链路</span>
+            <span><i style="background:#fbbf24"></i> 相关性，高</span>
+            <span><i style="background:#1e2833"></i> 相关性，低</span>
           </div>
           <div class="controls" style="margin-top:20px">
             <div class="ctrl">
-              <label for="ae-time">Observation window <b id="ae-time-v">240 s</b></label>
+              <label for="ae-time">观测窗口 <b id="ae-time-v">240 s</b></label>
               <input type="range" id="ae-time" min="30" max="600" step="10" value="240">
             </div>
             <div class="ctrl">
-              <label for="ae-noise">Network jitter <b id="ae-noise-v">0.20</b></label>
+              <label for="ae-noise">网络抖动 <b id="ae-noise-v">0.20</b></label>
               <input type="range" id="ae-noise" min="0" max="1" step="0.05" value="0.2">
             </div>
           </div>
@@ -279,47 +264,43 @@
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Adversary&rsquo;s conclusion</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">对手的结论</h4>
             <div class="verdict" id="ae-verdict">
-              <div class="verdict__label">Correlating&hellip;</div>
+              <div class="verdict__label">正在关联&hellip;</div>
               <div class="verdict__why">&nbsp;</div>
             </div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Pairs recovered</div>
+              <div class="readout__k">还原出的配对</div>
               <div class="readout__v red" id="ae-recovered">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Peak correlation</div>
+              <div class="readout__k">相关性峰值</div>
               <div class="readout__v" id="ae-peak">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Cost of the defence</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">这项防御的代价</h4>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
-                <div class="readout__k">Bandwidth</div>
+                <div class="readout__k">带宽</div>
                 <div class="readout__v amber" id="ae-bw">1.0&times;</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Added latency</div>
+                <div class="readout__k">增加的延迟</div>
                 <div class="readout__v amber" id="ae-lat">0 ms</div>
               </div>
             </div>
           </div>
           <p class="tiny muted">
-            Chance is 20% &mdash; one pair in five recovered by guessing. Anything meaningfully above
-            that is the adversary winning. The cost figures are the honest other half: constant-rate
-            shaping is not free, and AEGIS does not pretend it is.
+            瞎猜的水平是 20% &mdash; 五对里猜中一对。明显高于这个数，就是对手赢了。成本那几个数字是老实的另一半：恒定速率整形不是免费的，AEGIS 也不假装它是。
           </p>
-          <button class="btn btn--sm btn--block" id="ae-reset">New pairing</button>
+          <button class="btn btn--sm btn--block" id="ae-reset">换一组配对</button>
         </div>
       </div>
       <div class="panel__foot">
-        A single-hop illustration written for this page. The real system layers Sphinx routing,
-        guard-node vetting, distributed randomness beacons and zero-knowledge reputation proofs
-        on top of the shaping shown here.
+        这是为这个页面写的单跳示意。真实系统在这里展示的整形之上，还叠了 Sphinx 路由、守卫节点审核、分布式随机信标和零知识信誉证明。
       </div>
     </div>
   </div>
@@ -328,28 +309,28 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Evidence</span>
-      <h2>Eight phases, each behind a red-team gate</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports.</p>
+      <span class="eyebrow">证据</span>
+      <h2>八个阶段，每一个后面都有一道红队关卡</h2>
+      <p class="lede">实现已经完成到第 8 阶段，也就是加固阶段。下面是仓库报告出来的数字。</p>
     </div>
     <div class="grid grid-4 reveal">
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Crypto test vectors</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="195">195</em></div><div class="stat__label">Workspace tests passing</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="1.17" data-suffix="M+">1.17M+</em></div><div class="stat__label">Fuzz executions, zero crashes</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="41" data-suffix="/41">41/41</em></div><div class="stat__label">Topology tests</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">密码测试向量</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="195">195</em></div><div class="stat__label">通过的工作区测试</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="1.17" data-suffix="M+">1.17M+</em></div><div class="stat__label">模糊测试执行次数，零崩溃</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="41" data-suffix="/41">41/41</em></div><div class="stat__label">拓扑测试</div></div></div>
     </div>
     <div class="table-scroll reveal" style="margin-top:28px">
       <table class="data">
-        <thead><tr><th>Area</th><th class="num">Result</th><th>Notes</th></tr></thead>
+        <thead><tr><th>领域</th><th class="num">结果</th><th>备注</th></tr></thead>
         <tbody>
-          <tr><td>Crypto vectors</td><td class="num">36 / 36</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Relay routing</td><td class="num">14 / 14</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Topology</td><td class="num">41 / 41</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Negotiator / bulk correlation</td><td class="num">25 / 25</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Workspace tests</td><td class="num">195</td><td class="muted">All passing</td></tr>
-          <tr><td>Security fuzzing</td><td class="num">1.17M+</td><td class="muted">libFuzzer via WSL, zero crashes</td></tr>
-          <tr><td>Testnet</td><td class="num">Real TCP</td><td class="muted">Sphinx packet routing over real sockets</td></tr>
-          <tr><td>Trace analysis</td><td class="num">Benign vs malicious</td><td class="muted">Real-trace comparison</td></tr>
+          <tr><td>密码向量</td><td class="num">36 / 36</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>中继路由</td><td class="num">14 / 14</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>拓扑</td><td class="num">41 / 41</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>协商器 / 批量相关性</td><td class="num">25 / 25</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>工作区测试</td><td class="num">195</td><td class="muted">全部通过</td></tr>
+          <tr><td>安全模糊测试</td><td class="num">1.17M+</td><td class="muted">通过 WSL 跑 libFuzzer，零崩溃</td></tr>
+          <tr><td>测试网</td><td class="num">真实 TCP</td><td class="muted">在真实套接字上做 Sphinx 包路由</td></tr>
+          <tr><td>轨迹分析</td><td class="num">良性对恶意</td><td class="muted">真实轨迹对比</td></tr>
         </tbody>
       </table>
     </div>
@@ -360,34 +341,33 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Hides who is talking, not just what was said</h2>
-      <p class="lede">Scrambling a message is a solved problem. What it does not hide is that you sent one, who to, when, and how much. That pattern alone is often enough to identify people.</p>
+      <span class="eyebrow">这是给谁用的</span>
+      <h2>藏住的是谁在说话，不只是说了什么</h2>
+      <p class="lede">把一条消息打乱，这个问题已经解决了。它藏不住的是：你发了一条，发给谁，什么时候发的，发了多少。光是这个模式，往往就足以把人认出来。</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Newsrooms and anyone protecting a source</h3>
-        <p class="small dim" style="margin:0">Nobody needs to read the message if they can see that a particular person contacted a particular journalist at two in the morning. The timing and the size are what expose people.</p>
+        <h3 style="font-size:1.05rem">编辑部，以及任何在保护线人的人</h3>
+        <p class="small dim" style="margin:0">如果能看到某个人在凌晨两点联系了某个记者，那就没人需要读那条消息了。暴露人的是时间和大小。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Rival companies that still have to share data</h3>
-        <p class="small dim" style="margin:0">Banks, insurers and industry groups exchange information while competing. Who you are suddenly talking to, and how often, gives away what you are working on.</p>
+        <h3 style="font-size:1.05rem">互为对手但仍然得共享数据的公司</h3>
+        <p class="small dim" style="margin:0">银行、保险公司和行业协会一边竞争一边交换信息。你突然开始跟谁通信、多久一次，会把你在做什么泄露出去。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Organisations swapping warnings about attacks</h3>
-        <p class="small dim" style="margin:0">Sharing threat information is useful, but being seen to share it can itself be the sensitive part. This keeps the fact of the conversation private, not just its contents.</p>
+        <h3 style="font-size:1.05rem">互相通报攻击预警的组织</h3>
+        <p class="small dim" style="margin:0">共享威胁情报是有用的，但被人看到你在共享，这件事本身可能就是敏感的。这个把对话发生过这一事实也保住，而不只是保住内容。</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/zh/beta.html">Become a beta tester &rarr;</a>
+      <strong>在这里看到你自己的情况了吗？</strong> 它现在已经开放测试，而它是为哪些人做的，那些人的反馈才是真正会改变它的。
+      <a href="/zh/beta.html">成为测试用户 &rarr;</a>
     </div>
   </div>
 </section>
@@ -396,33 +376,30 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow eyebrow--violet">Defences</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What sits on top of the shaping</h2>
+        <span class="eyebrow eyebrow--violet">防御措施</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">整形之上还有什么</h2>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Forward-secrecy handshakes.</strong> Compromise of long-term keys does not retroactively expose sessions.</li>
-          <li><strong>Reputation-aware path selection.</strong> Routes prefer relays with established behaviour.</li>
-          <li><strong>Distributed randomness beacons.</strong> No single party controls path selection entropy.</li>
-          <li><strong>Zero-knowledge reputation proofs.</strong> A relay proves it exceeds a reputation threshold without revealing its score.</li>
-          <li><strong>Guard-node vetting.</strong> Sybil resistance at the point where it matters most.</li>
+          <li><strong>前向保密握手。</strong> 长期密钥被攻破，不会回溯性地暴露此前的会话。</li>
+          <li><strong>考虑信誉的路径选择。</strong> 路由优先选行为记录已经建立起来的中继。</li>
+          <li><strong>分布式随机信标。</strong> 没有任何单一方控制路径选择的熵。</li>
+          <li><strong>零知识信誉证明。</strong> 中继可以证明自己超过了某个信誉阈值，而不透露自己的分数。</li>
+          <li><strong>守卫节点审核。</strong> 在最要紧的那个点上抵抗女巫攻击。</li>
         </ul>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Honest boundaries</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where the guarantees stop</h2>
+        <span class="eyebrow eyebrow--amber">老实划出的边界</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">保证到哪里为止</h2>
         <ul class="flist flist--amber" style="margin-top:1.4rem">
-          <li><strong>Internal traffic only.</strong> Strong guarantees apply inside the consortium. Clearnet exit is weaker and is not claimed otherwise.</li>
-          <li><strong>Empirical, not proven.</strong> Results are empirical bounds under the stated adversary model. They are not mathematical proofs.</li>
-          <li><strong>Latency is inherent.</strong> Multi-second latency is a property of the design, not a tuning problem that will be optimised away.</li>
-          <li><strong>Wrong tool for two parties.</strong> AEGIS suits relationship-graph hiding across many endpoints. For a two-party link, link-layer defences do better.</li>
-          <li><strong>Open research remains.</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> is the honest backlog of what is not finished.</li>
+          <li><strong>只管内部流量。</strong> 强保证只在联盟内部成立。明网出口更弱，也没有声称成别的样子。</li>
+          <li><strong>是实测出来的，不是证明出来的。</strong> 这些结果是在所声明的对手模型下测出来的经验界限。它们不是数学证明。</li>
+          <li><strong>延迟是与生俱来的。</strong> 数秒级的延迟是这个设计的属性，不是一个日后能优化掉的调参问题。</li>
+          <li><strong>两方通信用错了工具。</strong> AEGIS 适合在很多端点之间隐藏关系图。只有两方的一条链路，用链路层防御更好。</li>
+          <li><strong>还有没做完的研究。</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> 就是那份老老实实列出还没做完的事项的清单。</li>
         </ul>
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Repository hygiene:</strong> GitHub Actions CI, <code>cargo deny</code> dependency
-      auditing, and a workspace-wide policy forbidding unsafe code. For a Rust network stack
-      handling adversarial input, <code>#![forbid(unsafe_code)]</code> across the workspace is the
-      single most load-bearing line in the project.
+      <strong>仓库卫生：</strong> GitHub Actions CI， <code>cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code>#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
     </div>
   </div>
 </section>
@@ -492,7 +469,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T11:37:49Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T12:42:38Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>
@@ -503,6 +480,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"SENDER LINKS":"发送方链路","RECEIVER LINKS":"接收方链路"};</script>
 <script src="/assets/js/demos/aegis.js" defer></script>
 </body>
 </html>

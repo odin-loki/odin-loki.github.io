@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ParanoidBSD — a capability-secured C++23 operating system | Imortek</title>
-<meta name="description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
-<meta name="keywords" content="ParanoidBSD, PBSD, HardenedBSD, FreeBSD, C++23 modules, capability security, memory safety, secure operating system, KDE Plasma 6, kernel port, Capsicum">
+<title>ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek</title>
+<meta name="description" content="ينقل ParanoidBSD (PBSD) نظام HardenedBSD 15-STABLE إلى C++23 مع KDE Plasma 6 ونواة أمان بالصلاحيات والمقابض. استكشف نموذج الأمان التفاعلي.">
+<meta name="keywords" content="ParanoidBSD, PBSD, HardenedBSD, FreeBSD, وحدات C++23, أمان الصلاحيات, أمان الذاكرة, نظام تشغيل آمن, KDE Plasma 6, نقل النواة, Capsicum">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ar">
 <meta name="imortek:speech" content="ar-SA">
 <meta name="imortek:prefix" content="/ar">
-<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gh.live":"مباشرة من api.github.com","gh.cached":"نسخة محفوظة","gh.noDescription":"بلا وصف","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
-<meta property="og:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
+<meta property="og:title" content="ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek">
+<meta property="og:description" content="ينقل ParanoidBSD (PBSD) نظام HardenedBSD 15-STABLE إلى C++23 مع KDE Plasma 6 ونواة أمان بالصلاحيات والمقابض. استكشف نموذج الأمان التفاعلي.">
 <meta property="og:url" content="https://imortek.com.au/ar/pbsd.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
+<meta property="og:image:alt" content="ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
-<meta name="twitter:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
+<meta name="twitter:title" content="ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek">
+<meta name="twitter:description" content="ينقل ParanoidBSD (PBSD) نظام HardenedBSD 15-STABLE إلى C++23 مع KDE Plasma 6 ونواة أمان بالصلاحيات والمقابض. استكشف نموذج الأمان التفاعلي.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
-<meta name="twitter:image:alt" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
+<meta name="twitter:image:alt" content="ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/pbsd.html#webpage","url":"https://imortek.com.au/ar/pbsd.html","name":"ParanoidBSD — a capability-secured C++23 operating system | Imortek","description":"ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og-pbsd.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/pbsd.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/pbsd.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"ParanoidBSD","item":"https://imortek.com.au/ar/pbsd.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/pbsd.html#software","name":"ParanoidBSD","description":"ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.","url":"https://imortek.com.au/ar/pbsd.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ParanoidBSD","sameAs":["https://github.com/odin-loki/ParanoidBSD"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/pbsd.html#webpage","url":"https://imortek.com.au/ar/pbsd.html","name":"ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات | Imortek","description":"ينقل ParanoidBSD (PBSD) نظام HardenedBSD 15-STABLE إلى C++23 مع KDE Plasma 6 ونواة أمان بالصلاحيات والمقابض. استكشف نموذج الأمان التفاعلي.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og-pbsd.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/pbsd.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/pbsd.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"ParanoidBSD","item":"https://imortek.com.au/ar/pbsd.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/pbsd.html#software","name":"ParanoidBSD","description":"ينقل ParanoidBSD (PBSD) نظام HardenedBSD 15-STABLE إلى C++23 مع KDE Plasma 6 ونواة أمان بالصلاحيات والمقابض. استكشف نموذج الأمان التفاعلي.","url":"https://imortek.com.au/ar/pbsd.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ParanoidBSD","sameAs":["https://github.com/odin-loki/ParanoidBSD"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,41 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">أجزاء من هذه الصفحة ما زالت بالإنجليزية. الترجمة قيد الكتابة، ولا شيء هنا مترجم آليًّا.</p></div>
 <!-- ============================ HERO ============================ -->
 <section class="phero" data-video="/assets/video/pbsd" data-poster="/assets/img/video/pbsd.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--amber">Flagship &middot; ParanoidBSD</span>
-        <h1>An operating system where authority is <span class="gradient-text">held, not assumed</span></h1>
+        <span class="eyebrow eyebrow--amber">المشروع الرئيسي &middot; ParanoidBSD</span>
+        <h1>نظام تشغيل تكون فيه السلطة <span class="gradient-text">مملوكة، لا مفترضة</span></h1>
         <p class="lede">
-          ParanoidBSD ports HardenedBSD 15-STABLE to C++23 modules and adds a capability
-          and handle nucleus on top of the hardening HBSD already ships. KDE Plasma 6 sits
-          on the desk. The BSD tree is the behavioural specification &mdash; and it is ported
-          faithfully, bugs included.
+          ينقل ParanoidBSD نظام HardenedBSD 15-STABLE إلى وحدات C++23 ويضيف نواة صلاحيات ومقابض فوق التحصين الذي يشحنه HBSD أصلًا. وKDE Plasma 6 على سطح المكتب. وشجرة BSD هي المواصفة السلوكية &mdash; وتُنقل بأمانة، بما فيها العلل.
         </p>
         <div class="btn-row">
-          <a class="btn btn--fund" href="/ar/kickstarter.html">Back the Kickstarter</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Repository &rarr;</a>
-          <a class="btn btn--ghost" href="#demo">Try the security model</a>
+          <a class="btn btn--fund" href="/ar/kickstarter.html">ادعم حملة Kickstarter</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">المستودع &rarr;</a>
+          <a class="btn btn--ghost" href="#demo">جرّب نموذج الأمان</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="ParanoidBSD" data-gh-field="language">C / C++23</b></div>
-          <div class="phero__meta-item">Base<b>HardenedBSD 15-STABLE</b></div>
-          <div class="phero__meta-item">Desktop<b>KDE Plasma 6</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="ParanoidBSD" data-gh-field="updated">مؤخرًا</b></div>
-          <div class="phero__meta-item">Stars<b data-gh-repo="ParanoidBSD" data-gh-field="stars">&mdash;</b></div>
+          <div class="phero__meta-item">اللغة<b data-gh-repo="ParanoidBSD" data-gh-field="language">C / C++23</b></div>
+          <div class="phero__meta-item">أساسي<b>HardenedBSD 15-STABLE</b></div>
+          <div class="phero__meta-item">سطح المكتب<b>KDE Plasma 6</b></div>
+          <div class="phero__meta-item">آخر دفعة<b data-gh-repo="ParanoidBSD" data-gh-field="updated">مؤخرًا</b></div>
+          <div class="phero__meta-item">النجوم<b data-gh-repo="ParanoidBSD" data-gh-field="stars">&mdash;</b></div>
         </div>
       </div>
 
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Repository layout</span>
+          <span class="eyebrow" style="margin-bottom:16px">بنية المستودع</span>
           <div class="spec" style="border:0">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">pbsd/</span><span class="spec__v">C++23 modules &mdash; kernel nucleus, userland ports, UDA, BIFROST, compositor, theme</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">hbsd/</span><span class="spec__v">HardenedBSD 15-STABLE source &mdash; the original, kept as the spec</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin and frameworks for the desktop wave</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventory, deterministic rewrite passes, agent port, Clang helpers</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Specs, security model, migration status, provenance</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">pbsd/</span><span class="spec__v">وحدات C++23 &mdash; نواة النظام، ومنقولات فضاء المستخدم، وUDA، وBIFROST، والمُركِّب، والسمة</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">hbsd/</span><span class="spec__v">شيفرة HardenedBSD 15-STABLE &mdash; الأصل، محفوظًا بوصفه المواصفة</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6 وKWin وأُطر العمل لموجة سطح المكتب</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">الجرد، ومراحل إعادة الكتابة الحتمية، والنقل بالوكلاء، ومساعدات Clang</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">المواصفات، ونموذج الأمان، وحالة النقل، والمنشأ</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">محرّك WSL، ومُراقِب، ولوحة تقدّم</span></div>
           </div>
         </div>
       </div>
@@ -189,32 +185,26 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">The problem</span>
-      <h2>Ambient authority is the bug you cannot patch</h2>
+      <span class="eyebrow">المشكلة</span>
+      <h2>السلطة المحيطة هي العلّة التي لا تستطيع ترقيعها</h2>
     </div>
     <div class="split reveal">
       <div>
         <p class="dim">
-          On a conventional Unix, a process does not <em>hold</em> the right to open
-          <code>/etc/master.passwd</code>. It simply asks, and the kernel decides afterwards,
-          based on who the process claims to be. Every process can name every resource on the
-          system. The name space is global and ambient; the check is a late afterthought.
+          في يونكس تقليدي، العملية لا <em>تملك</em> حقّ فتح
+          <code>/etc/master.passwd</code>. هي تطلب فحسب، والنواة تقرّر بعد ذلك، بناءً على مَن تزعم العملية أنها هي. كل عملية تستطيع تسمية كل مورد في النظام. فضاء الأسماء عام ومحيط؛ والفحص فكرة لاحقة متأخّرة.
         </p>
         <p class="dim">
-          That is why a single parsing bug in a font renderer can become a credential theft.
-          The renderer never needed the password file &mdash; but nothing in the architecture
-          stopped it from asking.
+          ولهذا يمكن لعلّة تحليل واحدة في محرّك عرض الخطوط أن تصير سرقة بيانات اعتماد. المحرّك لم يحتج يومًا إلى ملف كلمات السر &mdash; لكن لا شيء في المعمارية منعه من أن يطلبه.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: ASLR, PaX-derived mitigations, SafeStack,
-          CFI, hardened memory allocators. PBSD keeps all of it and changes the shape of the
-          question underneath &mdash; from <em>&ldquo;is this process allowed?&rdquo;</em> to
-          <em>&ldquo;does this process hold a handle to that?&rdquo;</em>
+          HardenedBSD يقوم بعمل جادّ هنا بالفعل: ASLR، وتخفيفات مشتقّة من PaX، وSafeStack، وCFI، ومخصّصات ذاكرة مُحصَّنة. وPBSD يُبقيها كلها ويغيّر شكل السؤال الذي تحتها &mdash; من <em>&ldquo;هل يُسمح لهذه العملية؟&rdquo;</em> إلى
+          <em>&ldquo;هل تملك هذه العملية مقبضًا لذلك؟&rdquo;</em>
         </p>
       </div>
       <div>
         <div class="card">
-          <h3 style="font-size:1rem">Two ways to answer one syscall</h3>
+          <h3 style="font-size:1rem">طريقتان للإجابة عن نداء نظام واحد</h3>
           <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
@@ -225,8 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim API listing.
-            The authoritative model is in <code>docs/</code>.
+            شكل توضيحي للفرق، لا سردًا حرفيًّا لواجهة البرمجة. النموذج المعتمَد موجود في <code>docs/</code>.
           </p>
         </div>
       </div>
@@ -236,7 +225,7 @@
 
 <section class="section section--tight">
   <div class="wrap">
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-authority.svg" alt="Two authority models compared side by side: under ambient authority the process reaches sockets, exec and ptrace and is refused the password file only after asking; under the handle nucleus only the resource it holds a handle to can be named at all" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>Where the check happens.</b> On the left the request always travels and is judged afterwards. On the right, three of the four operations have no name to ask with, so there is nothing to refuse.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-authority.svg" alt="نموذجا سلطة متقابلان: في ظل السلطة المحيطة تصل العملية إلى المقابس والتنفيذ وptrace ولا تُمنع من ملف كلمات السر إلا بعد أن تطلبه؛ وفي ظل نواة المقابض لا يمكن تسمية سوى المورد الذي تملك له مقبضًا" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>أين يقع الفحص.</b> على اليسار يمضي الطلب دائمًا ثم يُحكَم عليه بعد ذلك. وعلى اليمين، ثلاث من العمليات الأربع لا تملك اسمًا تسأل به أصلًا، فلا يوجد ما يُرفض.</figcaption></figure>
   </div>
 </section>
 
@@ -244,21 +233,19 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Walk a syscall through the nucleus</h2>
+      <span class="eyebrow">تفاعلي</span>
+      <h2>تتبّع نداء نظام وهو يعبر النواة</h2>
       <p class="lede">
-        Give the process some handles, pick something for it to attempt, and switch between
-        the two authority models. The verdict and the reasoning are computed live in your
-        browser &mdash; this is a teaching model of the design, not a kernel emulator.
+        أعطِ العملية بعض المقابض، واختر شيئًا تحاوله، وبدّل بين نموذجَي السلطة. الحكم وتعليله يُحسبان مباشرة داخل متصفحك &mdash; هذا نموذج تعليمي للتصميم، لا محاكي نواة.
       </p>
     </div>
 
     <div class="demo reveal" id="cap-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> Capability nucleus &mdash; reference monitor</h3>
-        <div class="seg" role="group" aria-label="Authority model">
-          <button type="button" data-mode="ambient">Ambient authority (traditional)</button>
-          <button type="button" data-mode="capability" aria-pressed="true">Handle nucleus (PBSD)</button>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> نواة الصلاحيات &mdash; مراقب مرجعي</h3>
+        <div class="seg" role="group" aria-label="نموذج السلطة">
+          <button type="button" data-mode="ambient">سلطة محيطة (تقليدي)</button>
+          <button type="button" data-mode="capability" aria-pressed="true">نواة المقابض (PBSD)</button>
         </div>
       </div>
 
@@ -267,49 +254,46 @@
           <canvas class="demo-canvas" id="cap-canvas" height="300" aria-label="Animated diagram of a syscall traversing the reference monitor"></canvas>
 
           <div style="margin-top:20px">
-            <h4 class="panel__title" style="margin-bottom:12px">The process attempts&hellip;</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">العملية تحاول&hellip;</h4>
             <div class="chips" id="cap-ops"></div>
           </div>
 
           <div style="margin-top:20px">
-            <h4 class="panel__title" style="margin-bottom:12px">Trace</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">التتبّع</h4>
             <div class="log" id="cap-log" aria-live="polite"></div>
           </div>
         </div>
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:12px">Handles held by the process</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">المقابض التي تملكها العملية</h4>
             <div id="cap-caps" style="display:grid;gap:11px"></div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Verdict</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">الحكم</h4>
             <div id="cap-verdict" class="verdict">
-              <div class="verdict__label">Awaiting attempt</div>
-              <div class="verdict__why">Pick an operation to run it through the monitor.</div>
+              <div class="verdict__label">في انتظار محاولة</div>
+              <div class="verdict__why">اختر عملية لتمريرها عبر المراقب.</div>
             </div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Reachable</div>
+              <div class="readout__k">قابل للوصول</div>
               <div class="readout__v" id="cap-reach">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Denied</div>
+              <div class="readout__k">مرفوض</div>
               <div class="readout__v red" id="cap-denied">0</div>
             </div>
           </div>
           <p class="tiny muted">
-            &ldquo;Reachable&rdquo; counts how many of the listed operations this process could
-            perform at all under the current model. Under ambient authority, reachability is
-            decided by identity; under the nucleus, by the handles it actually holds.
+            &ldquo;قابل للوصول&rdquo; يَعُدّ كم عملية من العمليات المذكورة تستطيع هذه العملية تنفيذها أصلًا في ظل النموذج الحالي. في ظل السلطة المحيطة تحدّد الهويةُ إمكانَ الوصول؛ وفي ظل النواة تحدّده المقابض التي تملكها فعلًا.
           </p>
         </div>
       </div>
 
       <div class="panel__foot">
-        A pedagogical model of the PBSD security design, written for this page. The real
-        nucleus lives in <code>pbsd/</code>; the specification is in
+        نموذج تعليمي لتصميم أمان PBSD، كُتب لهذه الصفحة. النواة الحقيقية موجودة في <code>pbsd/</code>؛ والمواصفة في
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -320,55 +304,48 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The port</span>
-      <h2>Four stages, and a model that never certifies itself</h2>
+      <span class="eyebrow eyebrow--violet">النقل</span>
+      <h2>أربع مراحل، ونموذج لا يشهد لنفسه أبدًا</h2>
       <p class="lede">
-        Porting a BSD userland and kernel to C++23 by hand is a decade of work. Porting it
-        by asking a language model to rewrite files is a fast way to produce plausible
-        garbage. PBSD does neither.
+        نقل فضاء مستخدم ونواة BSD إلى C++23 يدويًّا عمل عقد كامل. ونقله بأن تطلب من نموذج لغوي إعادة كتابة الملفات طريق سريع لإنتاج قمامة معقولة المظهر. وPBSD لا يفعل أيًّا من الاثنين.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-pipeline.svg" alt="The ParanoidBSD port pipeline: inventory, deterministic passes, agent loop and a verification gate, with rejected files looping back" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>How a file becomes a ported file.</b> The dashed red path is the part that matters &mdash; work that fails verification goes back into the loop rather than counting as progress.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-pipeline.svg" alt="خط نقل ParanoidBSD: الجرد، والمراحل الحتمية، وحلقة الوكلاء، وبوابة تحقّق، مع عودة الملفات المرفوضة إلى الحلقة" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>كيف يصير الملف ملفًّا منقولًا.</b> المسار الأحمر المتقطّع هو الجزء المهم &mdash; العمل الذي يسقط في التحقّق يعود إلى الحلقة بدل أن يُحتسب تقدّمًا.</figcaption></figure>
 
     <div class="grid grid-4 reveal">
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Stage 1</span>
-        <h3 style="font-size:1.05rem">Inventory</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">المرحلة 1</span>
+        <h3 style="font-size:1.05rem">الجرد</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> and <code>clang_cxx23_port.py</code> score
-          every C file by difficulty and write <code>c_inventory.csv</code>. Nothing is guessed
-          about scope.
+          <code>tools/inventory_c_sources.py</code> و <code>clang_cxx23_port.py</code> يُقيّمان كل ملف C حسب الصعوبة ويكتبان <code>c_inventory.csv</code>. لا شيء يُخمَّن بشأن النطاق.
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Stage 2</span>
-        <h3 style="font-size:1.05rem">Deterministic passes</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">المرحلة 2</span>
+        <h3 style="font-size:1.05rem">مراحل حتمية</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> applies safe mechanical rewrites in tiers 0&ndash;4.
-          No model involved. Anything a pass refuses is logged to
-          <code>refusals.jsonl</code> rather than forced.
+          <code>run_todo_passes.py</code> يطبّق إعادة كتابة ميكانيكية آمنة في المستويات 0&ndash;4. بلا أي نموذج. وكل ما ترفضه مرحلة يُسجَّل في
+          <code>refusals.jsonl</code> بدل أن يُفرَض.
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Stage 3</span>
-        <h3 style="font-size:1.05rem">Agent loop</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">المرحلة 3</span>
+        <h3 style="font-size:1.05rem">حلقة الوكلاء</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> fills stubbed and refused files with DeepSeek Flash escalating
-          to Pro at maximum reasoning effort &mdash; 48 Flash and 24 Pro workers by default.
-          <strong>This is what the Kickstarter funds.</strong>
+          <code>pbsd.py</code> يملأ الملفات الفارغة والمرفوضة بنموذج DeepSeek Flash مع التصعيد إلى Pro بأقصى جهد استدلالي &mdash; 48 عاملًا على Flash و24 على Pro افتراضيًّا.
+          <strong>هذا ما تموّله حملة Kickstarter.</strong>
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--amber" style="margin-bottom:12px">Stage 4</span>
-        <h3 style="font-size:1.05rem">Verification gate</h3>
+        <span class="badge badge--amber" style="margin-bottom:12px">المرحلة 4</span>
+        <h3 style="font-size:1.05rem">بوابة التحقّق</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and IR comparison. A file that only
-          compiles is <em>unverified</em>. Failures land in
+          الترجمة وASan وUBSan والتنفيذ التفاضلي ومقارنة التمثيل الوسيط. الملف الذي يُترجَم فقط هو ملف <em>غير متحقَّق منه</em>. والإخفاقات تُسجَّل في
           <code>agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -377,36 +354,26 @@
     <div class="split split--center reveal" style="margin-top:52px">
       <figure class="figure">
         <img src="/assets/img/pbsd/port-mascot.jpg"
-             alt="The BSD daemon shown twice: on the left the original red mascot, on the right the same figure rendered as a cyan wireframe, with an equals sign between them"
+             alt="شيطان BSD مرسومًا مرّتين: على اليسار التعويذة الحمراء الأصلية، وعلى اليمين الشكل نفسه كإطار سلكي سماوي، وبينهما علامة يساوٍ"
              width="1280" height="699" loading="lazy" decoding="async">
         <figcaption>
-          The project in one picture. Same daemon, same shape, rebuilt in a different
-          representation &mdash; and the equals sign is the part that has to be earned, file by file,
-          by differential verification. BSD Daemon &copy; Marshall Kirk McKusick.
+          المشروع في صورة واحدة. الشيطان نفسه، والشكل نفسه، معاد بناؤه بتمثيل مختلف &mdash; وعلامة اليساوي هي الجزء الذي يجب استحقاقه، ملفًّا بعد ملف، بالتحقّق التفاضلي. شيطان BSD &copy; Marshall Kirk McKusick.
         </figcaption>
       </figure>
       <div>
-        <span class="eyebrow eyebrow--amber">What &ldquo;equals&rdquo; has to mean</span>
-        <h3 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">A port is a claim of equivalence</h3>
+        <span class="eyebrow eyebrow--amber">ما الذي يجب أن تعنيه &ldquo;يساوي&rdquo;</span>
+        <h3 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">النقل ادّعاء بالتكافؤ</h3>
         <p class="dim">
-          Saying a file has been ported is saying the new one behaves like the old one. That is a
-          claim, and claims need evidence. A C++23 rewrite that compiles is a plausible-looking
-          wireframe; it is not yet the same daemon.
+          أن تقول إن ملفًّا نُقل يعني أن تقول إن الجديد يسلك سلوك القديم. هذا ادّعاء، والادّعاءات تحتاج إلى دليل. وإعادة كتابة بلغة C++23 تُترجَم بنجاح ليست إلا إطارًا سلكيًّا يبدو معقولًا؛ ليست الشيطان نفسه بعد.
         </p>
         <p class="dim">
-          So the equals sign is the gate. Differential execution runs both and compares observable
-          behaviour. IR comparison checks they mean the same thing to the compiler. Until one of
-          those passes, the file stays open in the migration log and does not count toward
-          progress &mdash; however finished it looks.
+          لذلك فعلامة اليساوي هي البوابة. التنفيذ التفاضلي يشغّل الاثنين ويقارن السلوك القابل للملاحظة. ومقارنة التمثيل الوسيط تتحقّق من أنهما يعنيان الشيء نفسه للمترجم. وإلى أن يجتاز أحدهما، يبقى الملف مفتوحًا في سجل النقل ولا يُحتسب في التقدّم &mdash; مهما بدا منتهيًا.
         </p>
       </div>
     </div>
 
     <div class="note note--violet reveal" style="margin-top:32px">
-      <strong>The rule that makes this defensible:</strong> the model does not self-certify.
-      It proposes; deterministic tooling disposes. Every non-negotiable in the repository
-      exists to keep that boundary intact &mdash; which is also why the port cannot simply be
-      run faster by spending more on inference alone.
+      <strong>القاعدة التي تجعل هذا قابلًا للدفاع عنه:</strong> النموذج لا يشهد لنفسه. هو يقترح، والأدوات الحتمية تقرّر. وكل بند غير قابل للتفاوض في المستودع موجود للحفاظ على هذا الحدّ سليمًا &mdash; وهو أيضًا سبب أن النقل لا يمكن تسريعه بمجرّد إنفاق المزيد على الاستدلال وحده.
     </div>
   </div>
 </section>
@@ -415,54 +382,38 @@
 <section class="section">
   <div class="wrap wrap-narrow">
     <div class="section-head reveal">
-      <span class="eyebrow">Non-negotiables</span>
-      <h2>Rules the repository is actually held to</h2>
+      <span class="eyebrow">بنود غير قابلة للتفاوض</span>
+      <h2>قواعد يخضع لها المستودع فعلًا</h2>
     </div>
 
     <details class="acc reveal" open>
-      <summary>No file is done until differential or IR verification passes</summary>
+      <summary>لا ملف يُعدّ منجزًا قبل أن يجتاز التحقّق التفاضلي أو تحقّق التمثيل الوسيط</summary>
       <div class="acc__body">
-        Compile-only is treated as unverified. A ported file must either produce identical
-        observable behaviour to the HardenedBSD original under differential execution, or
-        match at the IR level. Files that pass neither stay open in the migration log and are
-        not counted in progress figures.
+        الترجمة وحدها تُعامَل على أنها غير متحقَّق منها. على الملف المنقول إمّا أن ينتج سلوكًا ظاهريًّا مطابقًا لسلوك أصل HardenedBSD تحت التنفيذ التفاضلي، أو أن يطابقه على مستوى التمثيل الوسيط. والملفات التي لا تجتاز أيًّا منهما تبقى مفتوحة في سجل النقل ولا تُحتسب في أرقام التقدّم.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Port faithfully &mdash; do not silently &ldquo;fix&rdquo; bugs in the original</summary>
+      <summary>انقل بأمانة &mdash; ولا &ldquo;تصلح&rdquo; علل الأصل بصمت</summary>
       <div class="acc__body">
-        The HardenedBSD tree is the behavioural specification. If the original has a defect,
-        the port reproduces it, because a differential test cannot distinguish a fix from a
-        regression. Improvements are made afterwards, logged separately, so the change is
-        visible and reviewable rather than buried inside a translation.
+        شجرة HardenedBSD هي المواصفة السلوكية. فإن كان في الأصل عيب، أعاد النقل إنتاجه، لأن الاختبار التفاضلي لا يميّز بين إصلاح وانحدار. والتحسينات تأتي بعد ذلك، وتُسجَّل على حدة، فيكون التغيير ظاهرًا وقابلًا للمراجعة بدل أن يُدفن داخل ترجمة.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Deterministic tooling first; models fill only what remains</summary>
+      <summary>الأدوات الحتمية أولًا؛ والنماذج تملأ ما يتبقّى فقط</summary>
       <div class="acc__body">
-        Mechanical rewrites are applied by scripts that behave identically every run. Models
-        are used exclusively on the residue &mdash; stubbed inventory entries and files the
-        deterministic passes refused. This keeps the majority of the port reproducible and
-        auditable, and confines model output to the parts a human would have had to write
-        by hand anyway.
+        إعادة الكتابة الميكانيكية تطبّقها سكربتات تسلك السلوك نفسه في كل تشغيل. والنماذج تُستخدم حصرًا على البقيّة &mdash; مدخلات الجرد التي بقيت هياكل فارغة والملفات التي رفضتها المراحل الحتمية. هذا يُبقي أغلب النقل قابلًا لإعادة الإنتاج وللتدقيق، ويحصر مخرجات النموذج في الأجزاء التي كان على إنسان أن يكتبها يدويًّا على أي حال.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Kernel C++ is freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>C++ في النواة قائمة بذاتها: <code>-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no RTTI,
-        no heap-allocating standard library paths on kernel entry. The constraints are
-        written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
-        can tell what is legal in kernel context without guessing.
+        لا يمكن لنواة النظام أن تعتمد على بيئة تشغيل C++ مستضافة. لا استثناءات، ولا RTTI، ولا مسارات في المكتبة القياسية تحجز من الكومة عند الدخول إلى النواة. والقيود مكتوبة في <code>docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Every module needs a provenance entry before it counts as done</summary>
+      <summary>كل وحدة تحتاج إلى مدخل منشأ قبل أن تُعدّ منجزة</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> records where each module came from and under which
-        licence. This is what makes the licensing statement below verifiable rather than
-        aspirational &mdash; you can check, module by module, which code is HardenedBSD-derived
-        and which is new PBSD work.
+        <code>docs/PROVENANCE.md</code> يسجّل من أين جاءت كل وحدة وتحت أي ترخيص. وهذا ما يجعل بيان الترخيص أدناه قابلًا للتحقق بدل أن يكون أمنية &mdash; يمكنك أن تفحص، وحدةً وحدة، أي شيفرة مشتقّة من HardenedBSD وأيها عمل PBSD جديد.
       </div>
     </details>
   </div>
@@ -474,30 +425,26 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">التراخيص</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Two licences, honestly separated</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ترخيصان، مفصولان بصدق</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: AGPL-3.0+ free for personal use, charities, education
-          and organisations under AUD&nbsp;50,000 a year, with a tiered commercial licence above that.
+          شيفرة PBSD الجديدة &mdash; النواة، ووحدات C++23، والأدوات &mdash; تُقدَّم وفق شروط Imortek المعتادة: AGPL-3.0+ مجانًا للاستخدام الشخصي والجمعيات الخيرية والتعليم والمؤسسات التي يقل دخلها عن 50,000&nbsp;AUD سنويًّا، مع ترخيص تجاري متدرّج فوق ذلك.
         </p>
         <p class="dim">
-          Code derived from HardenedBSD stays under its original BSD licence. It cannot be
-          relicensed and Imortek does not claim to. <code>docs/PROVENANCE.md</code> is the
-          record of which is which.
+          الشيفرة المشتقّة من HardenedBSD تبقى تحت ترخيص BSD الأصلي. لا يمكن إعادة ترخيصها، وImortek لا يدّعي ذلك. <code>docs/PROVENANCE.md</code> هو السجلّ الذي يبيّن أي شيفرة تتبع أي ترخيص.
         </p>
-        <a class="btn btn--ghost" href="/ar/licensing.html">Full licensing terms &rarr;</a>
+        <a class="btn btn--ghost" href="/ar/licensing.html">شروط الترخيص كاملة &rarr;</a>
       </div>
       <div>
         <div class="grid" style="gap:14px">
           <div class="card">
-            <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; commercial</span></div>
-            <h4 style="margin:0 0 6px">New PBSD work</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, the capability nucleus, UDA, BIFROST, compositor and theme.</p>
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; تجاري</span></div>
+            <h4 style="margin:0 0 6px">عمل PBSD الجديد</h4>
+            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>، ونواة الصلاحيات، وUDA، وBIFROST، والمُركِّب، والسمة.</p>
           </div>
           <div class="card">
-            <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (unchanged)</span></div>
-            <h4 style="margin:0 0 6px">HardenedBSD-derived</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> and every ported file tracing back to it. Original terms, original attribution.</p>
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (بلا تغيير)</span></div>
+            <h4 style="margin:0 0 6px">مشتقّ من HardenedBSD</h4>
+            <p class="small muted" style="margin:0"><code>hbsd/</code> وكل ملف منقول يعود إليه. الشروط الأصلية، والإسناد الأصلي.</p>
           </div>
         </div>
       </div>
@@ -510,34 +457,33 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>An operating system that is harder to break into</h2>
-      <p class="lede">Most break-ins exploit the same kind of mistake: a program reaching memory it was never meant to touch. ParanoidBSD rebuilds a trusted system in a language that makes that mistake much harder, and hands every program only the access it actually needs.</p>
+      <span class="eyebrow">لمن هو</span>
+      <h2>نظام تشغيل يصعب اقتحامه</h2>
+      <p class="lede">أغلب الاقتحامات تستغل النوع نفسه من الخطأ: برنامج يصل إلى ذاكرة لم يكن يُفترض أن يمسّها. يعيد ParanoidBSD بناء نظام موثوق بلغة تجعل هذا الخطأ أصعب بكثير، ويعطي كل برنامج ما يحتاجه فعلًا من صلاحية وصول لا أكثر.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Defence and government suppliers</h3>
-        <p class="small dim" style="margin:0">Buyers are starting to insist on software built in languages that shut out whole classes of attack. Starting again from nothing costs a decade. This moves a proven system across instead, and keeps a written record of every file it changed and how that change was checked.</p>
+        <h3 style="font-size:1.05rem">موردو الدفاع والحكومة</h3>
+        <p class="small dim" style="margin:0">بدأ المشترون يشترطون برمجيات مبنية بلغات تُغلق فئات كاملة من الهجمات. والبدء من الصفر يكلّف عقدًا. هذا ينقل نظامًا مُجرَّبًا بدلًا من ذلك، ويحتفظ بسجل مكتوب لكل ملف غيّره وكيف فُحص ذلك التغيير.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Equipment that stays in the field for years</h3>
-        <p class="small dim" style="margin:0">Factory controllers, medical machines, utility hardware. When a flaw turns up you often cannot just push an update. This limits how far an intruder gets once they are in, because no program can reach past what it was handed.</p>
+        <h3 style="font-size:1.05rem">معدّات تبقى في الميدان سنوات</h3>
+        <p class="small dim" style="margin:0">متحكّمات المصانع، والأجهزة الطبية، وعتاد المرافق. حين يظهر عيب لا تستطيع غالبًا أن تدفع تحديثًا وحسب. هذا يحدّ من المدى الذي يبلغه المتسلّل بعد دخوله، لأن أي برنامج لا يستطيع تجاوز ما سُلِّم إليه.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Universities and security researchers</h3>
-        <p class="small dim" style="margin:0">A real operating system, small enough to read end to end, with the original sitting beside it to compare against. Useful for teaching and for testing ideas on something that actually runs.</p>
+        <h3 style="font-size:1.05rem">الجامعات وباحثو الأمن</h3>
+        <p class="small dim" style="margin:0">نظام تشغيل حقيقي، صغير بما يكفي لقراءته من أوله إلى آخره، وبجانبه الأصل للمقارنة. مفيد للتدريس ولتجريب الأفكار على شيء يعمل فعلًا.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ar/beta.html">Become a beta tester &rarr;</a>
+      <strong>هل ترى حالتك هنا؟</strong> هذا مفتوح للاختبار التجريبي الآن، ومن بُني لأجلهم هم من تغيّره ملاحظاتهم فعلًا.
+      <a href="/ar/beta.html">كن مختبِرًا تجريبيًّا &rarr;</a>
     </div>
   </div>
 </section>
@@ -547,16 +493,15 @@
     <div class="cta-band reveal">
       <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
       <div class="cta-band__inner">
-        <span class="eyebrow eyebrow--amber"><span class="dot dot--pulse"></span> Kickstarter live &middot; closes 12 November 2026</span>
-        <h2 style="max-width:22ch;margin-inline:auto">The port runs on compute it does not have</h2>
+        <span class="eyebrow eyebrow--amber"><span class="dot dot--pulse"></span> حملة Kickstarter مباشرة &middot; تُغلَق في 12 نوفمبر 2026</span>
+        <h2 style="max-width:22ch;margin-inline:auto">النقل يعمل على قدرة حوسبة لا يملكها</h2>
         <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.8rem">
-          Deterministic passes are free. The agent loop that fills the residue &mdash; and the
-          verification runs that gate it &mdash; are not. That is the entire ask.
+          المراحل الحتمية مجانية. أما حلقة الوكلاء التي تملأ البقيّة &mdash; وتشغيلات التحقّق التي تقف بوابةً أمامها &mdash; فليست كذلك. هذا هو كل المطلوب.
         </p>
         <div class="btn-row" style="justify-content:center">
           <a class="btn btn--fund btn--lg" href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">ادعمها على Kickstarter <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a class="btn btn--ghost btn--lg" href="/ar/kickstarter.html">انظر أين يذهب المال</a>
-          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Read the source first</a>
+          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">اقرأ الشيفرة أولًا</a>
         </div>
       </div>
     </div>
@@ -628,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T11:37:49Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T12:42:38Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>
@@ -639,6 +584,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Read handle to its own directory":"مِقبض قراءة لدليله الخاص","Outbound TCP connect handle":"مِقبض اتصال TCP صادر","Executable-memory handle":"مِقبض ذاكرة قابلة للتنفيذ","Debug handle over another process":"مِقبض تنقيح على عملية أخرى","Handle to spawn a new program":"مِقبض لإطلاق برنامج جديد","read the shadow password file":"قراءة ملف كلمات المرور","Credential store":"مخزن بيانات الاعتماد","Denied — but only afterwards, by discretionary access control. The process was still able to name the file and ask.":"مرفوض — لكن بعد وقوع الطلب فقط، عبر التحكم التقديري في الوصول. ظلّت العملية قادرة على تسمية الملف وتقديم الطلب.","Unreachable. The process holds no handle that resolves to this file, so there is no name for it to pass. The request cannot be formed.":"يتعذّر الوصول. لا تملك العملية أي مِقبض يُحلّ إلى هذا الملف، فليس لديها اسم تمرّره. لا يمكن تكوين الطلب أصلًا.","read its own config file":"قراءة ملف إعداداتها الخاص","/var/app":"/var/app","Allowed. The path resolves and the mode bits permit it.":"مسموح. المسار يُحلّ وبتات الوضع تسمح به.","Allowed. The process holds dir:/var/app and derives a read handle from it — authority narrows, it never widens.":"مسموح. تملك العملية dir:/var/app وتشتقّ منه مِقبض قراءة — الصلاحية تضيق ولا تتّسع أبدًا.","open an outbound TCP connection":"فتح اتصال TCP صادر","Network":"الشبكة","Allowed. Any process may create a socket; nothing in the model says a font parser should not.":"مسموح. لأي عملية أن تنشئ مقبسًا؛ ولا شيء في النموذج يمنع محلّل خطوط من ذلك.","Requires net:egress/tcp. Without that handle there is no socket namespace to reach.":"يتطلّب net:egress/tcp. بدون ذلك المِقبض لا يوجد فضاء أسماء مقابس يمكن بلوغه.","map writable + executable memory":"تخصيص ذاكرة قابلة للكتابة والتنفيذ","Address space":"فضاء العناوين","Denied by HardenedBSD. PaX-derived W^X enforcement already blocks this — one of the mitigations PBSD keeps unchanged.":"مرفوض من HardenedBSD. إنفاذ W^X المشتقّ من PaX يمنع هذا أصلًا — وهو أحد التخفيفات التي يُبقيها PBSD دون تغيير.","Requires mem:exec, and W^X still applies on top. Two independent reasons this fails.":"يتطلّب mem:exec، ويظلّ W^X ساريًا فوق ذلك. سببان مستقلان لفشل هذا الطلب.","attach a debugger to a sibling process":"تصحيح عملية شقيقة","Sibling process":"عملية شقيقة","Allowed. Same user id, so the check passes — the process can read another program’s memory.":"مسموح. معرّف المستخدم نفسه، فيجتاز الفحص — وبإمكان العملية قراءة ذاكرة برنامج آخر.","Requires proc:debug over that specific process. A handle names one target, not a class of targets.":"يتطلّب proc:debug على تلك العملية بعينها. المِقبض يسمّي هدفًا واحدًا، لا فئة من الأهداف.","spawn a shell":"تشغيل صدفة أوامر","Program loader":"مُحمِّل البرامج","Allowed. This is the step that turns almost every memory-safety bug into a foothold.":"مسموح. هذه هي الخطوة التي تحوّل كل ثغرة في أمان الذاكرة تقريبًا إلى موطئ قدم.","Requires exec:program. A process that was never given one cannot become a shell, whatever is corrupted inside it.":"يتطلّب exec:program. العملية التي لم تُمنح واحدًا لا يمكن أن تصير صدفة أوامر، مهما فسد في داخلها.","no handle was required at any point":"لم يُطلب أي مقبض في أي لحظة","the request was formed, then refused":"تكوّن الطلب ثم رُفض","no handle exists for this resource":"لا يوجد مقبض لهذا المورد","PERMITTED":"مسموح","REFUSED":"مرفوض","ambient authority":"صلاحية محيطة","handle nucleus":"نواة المقابض","LATE CHECK (uid/gid/MAC)":"فحص متأخر (uid/gid/MAC)","HANDLE NUCLEUS":"نواة المقابض","process":"عملية","untrusted":"غير موثوقة","no handles held":"لا مقابض","can name every resource":"تسمّي كل مورد","Resource":"مورد","reached":"وصل","not reached":"لم يصل","idle":"خامل","Pick an operation below to send a request through the monitor":"اختر عملية أدناه لإرسال طلب عبر المراقِب","UNREACHABLE":"يتعذّر الوصول","NO HANDLE":"لا مِقبض","ALLOWED (no handle needed)":"مسموح (بلا مِقبض)","HANDLE ACCEPTED":"قُبِل المِقبض","ambient (traditional Unix)":"محيطة (يونكس التقليدي)","handle nucleus (PBSD)":"نواة المقابض (PBSD)","toggle handles on the right.":"فعّل المقابض أو عطّلها من اليمين."};</script>
 <script src="/assets/js/demos/capability.js" defer></script>
 </body>
 </html>

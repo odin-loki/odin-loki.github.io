@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cell AI — a reaction-diffusion sequence model | Imortek</title>
-<meta name="description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
-<meta name="keywords" content="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture">
+<title>Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek</title>
+<meta name="description" content="بنية غير محوّلة عن قصد: ديناميكا أقسام، ومرونة هيبية/BCM داخل المرور الأمامي، ومعادلة تفاضلية جزئية طيفية. سجلّ بحث صادق. شغّل المحاكاة الحيّة.">
+<meta name="keywords" content="Cell AI, تفاعل وانتشار, غراي-سكوت, نموذج تسلسلات, مرونة هيبية, قاعدة BCM, بنية غير محوّلة, ذكاء اصطناعي تجريبي">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ar">
 <meta name="imortek:speech" content="ar-SA">
 <meta name="imortek:prefix" content="/ar">
-<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gh.live":"مباشرة من api.github.com","gh.cached":"نسخة محفوظة","gh.noDescription":"بلا وصف","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta property="og:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta property="og:title" content="Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek">
+<meta property="og:description" content="بنية غير محوّلة عن قصد: ديناميكا أقسام، ومرونة هيبية/BCM داخل المرور الأمامي، ومعادلة تفاضلية جزئية طيفية. سجلّ بحث صادق. شغّل المحاكاة الحيّة.">
 <meta property="og:url" content="https://imortek.com.au/ar/cellai.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta property="og:image:alt" content="Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta name="twitter:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta name="twitter:title" content="Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek">
+<meta name="twitter:description" content="بنية غير محوّلة عن قصد: ديناميكا أقسام، ومرونة هيبية/BCM داخل المرور الأمامي، ومعادلة تفاضلية جزئية طيفية. سجلّ بحث صادق. شغّل المحاكاة الحيّة.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta name="twitter:image:alt" content="Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/cellai.html#webpage","url":"https://imortek.com.au/ar/cellai.html","name":"Cell AI — a reaction-diffusion sequence model | Imortek","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/ar/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/cellai.html#software","name":"Cell AI","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","url":"https://imortek.com.au/ar/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/cellai.html#webpage","url":"https://imortek.com.au/ar/cellai.html","name":"Cell AI — نموذج تسلسلات بالتفاعل والانتشار | Imortek","description":"بنية غير محوّلة عن قصد: ديناميكا أقسام، ومرونة هيبية/BCM داخل المرور الأمامي، ومعادلة تفاضلية جزئية طيفية. سجلّ بحث صادق. شغّل المحاكاة الحيّة.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/ar/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/cellai.html#software","name":"Cell AI","description":"بنية غير محوّلة عن قصد: ديناميكا أقسام، ومرونة هيبية/BCM داخل المرور الأمامي، ومعادلة تفاضلية جزئية طيفية. سجلّ بحث صادق. شغّل المحاكاة الحيّة.","url":"https://imortek.com.au/ar/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,36 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">أجزاء من هذه الصفحة ما زالت بالإنجليزية. الترجمة قيد الكتابة، ولا شيء هنا مترجم آليًّا.</p></div>
 <section class="phero" data-video="/assets/video/cellai" data-poster="/assets/img/video/cellai.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
-        <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
+        <span class="eyebrow eyebrow--violet">Cell AI &middot; سجلّ بحث</span>
+        <h1>نموذج تسلسلات <span class="gradient-text">أسوأ بصراحة</span></h1>
         <p class="lede">
-          Cell AI replaces self-attention with reaction-diffusion partition dynamics and
-          Hebbian/BCM plasticity that runs <em>أثناء</em> the forward pass. It does not approach
-          transformer performance and its README says so on the first screen. It is published as
-          a research log: what a fully different sequence model looks like at full scale, and
-          exactly where it breaks.
+          يستبدل Cell AI بالانتباه الذاتي ديناميكا أقسام قائمة على التفاعل والانتشار ومرونة هيبية/BCM تعمل <em>أثناء</em> المرور الأمامي. وهو لا يقارب أداء المحوّلات، وملف README الخاص به يقول ذلك في أول شاشة. ويُنشَر بوصفه سجلّ بحث: كيف يبدو نموذج تسلسلات مختلف تمامًا على نطاق كامل، وأين ينكسر بالضبط.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">شغّل حقل التفاعل والانتشار</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">المستودع &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
-          <div class="phero__meta-item">v1 parameters<b>125.8M</b></div>
-          <div class="phero__meta-item">Training PPL<b>450k&ndash;1.18M</b></div>
-          <div class="phero__meta-item">GPT-2 baseline<b>~20</b></div>
-          <div class="phero__meta-item">Experiments<b>E0&ndash;E26</b></div>
+          <div class="phero__meta-item">اللغة<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
+          <div class="phero__meta-item">معاملات v1<b>125.8M</b></div>
+          <div class="phero__meta-item">PPL التدريب<b>450k&ndash;1.18M</b></div>
+          <div class="phero__meta-item">خط أساس GPT-2<b>~20</b></div>
+          <div class="phero__meta-item">التجارب<b>E0&ndash;E26</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Why publish this</span>
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">لماذا يُنشَر هذا</span>
           <p class="small dim" style="margin:0 0 12px">
-            Training perplexity of 450,000 against GPT-2&rsquo;s 20 is not a near miss. It is four
-            orders of magnitude, and no amount of framing changes that.
+            حيرة تدريب تبلغ 450,000 في مقابل 20 لـGPT-2 ليست إخفاقًا قريبًا. إنها أربع مراتب عشرية، ولا يغيّر ذلك أي قدر من التأطير.
           </p>
           <p class="small dim" style="margin:0">
-            The value is the E0&ndash;E26 experiment ladder with its failures annotated: which
-            architectural ideas collapsed, how, and what the diagnostics said. A negative result
-            with a documented cause is a contribution. A negative result quietly deleted is a
-            waste of the work.
+            القيمة هي سلّم التجارب E0&ndash;E26 وإخفاقاته موثّقة بالتعليق: أي الأفكار المعمارية انهارت، وكيف، وماذا قالت التشخيصات. النتيجة السلبية بسبب موثّق مساهمة. أما النتيجة السلبية التي تُحذَف بصمت فهدر للعمل.
           </p>
         </div>
       </div>
@@ -188,20 +179,16 @@
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>The dynamics underneath the architecture</h2>
+      <span class="eyebrow">تفاعلي</span>
+      <h2>الديناميكا التي تحت المعمارية</h2>
       <p class="lede">
-        This is a Gray&ndash;Scott reaction-diffusion system &mdash; the same class of dynamics the
-        CellularPDE core is built on. Two chemicals diffuse at different rates and react; feed
-        and kill rates decide whether you get spots, stripes, dividing cells or nothing at all.
-        The architecture&rsquo;s bet is that this kind of self-organising field can carry
-        computation. Watch it and judge the plausibility for yourself.
+        هذا نظام تفاعل وانتشار من طراز Gray&ndash;Scott &mdash; صنف الديناميكا نفسه الذي تقوم عليه نواة CellularPDE. مادتان كيميائيتان تنتشران بمعدّلين مختلفين وتتفاعلان؛ ومعدّلا التغذية والقتل يقرّران هل تحصل على بقع أم خطوط أم خلايا تنقسم أم لا شيء إطلاقًا. ورهان المعمارية أن حقلًا ذاتي التنظيم كهذا يستطيع حمل الحوسبة. راقبه واحكم على معقولية ذلك بنفسك.
       </p>
     </div>
 
     <div class="demo reveal" id="ca-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; reaction-diffusion core</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; نواة التفاعل والانتشار</h3>
         <div class="chips" id="ca-presets"></div>
       </div>
       <div class="demo__split">
@@ -210,19 +197,19 @@
                   aria-label="Live Gray-Scott reaction-diffusion simulation"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click or drag on the field to inject chemical B and perturb the pattern.
+            انقر أو اسحب على الحقل لحقن المادة B وإرباك النمط.
           </p>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="ca-feed">Feed rate F <b id="ca-feed-v">0.0545</b></label>
+              <label for="ca-feed">معدّل التغذية F <b id="ca-feed-v">0.0545</b></label>
               <input type="range" id="ca-feed" min="0.01" max="0.09" step="0.0005" value="0.0545">
             </div>
             <div class="ctrl">
-              <label for="ca-kill">Kill rate k <b id="ca-kill-v">0.0620</b></label>
+              <label for="ca-kill">معدّل القتل k <b id="ca-kill-v">0.0620</b></label>
               <input type="range" id="ca-kill" min="0.04" max="0.075" step="0.0005" value="0.0620">
             </div>
             <div class="ctrl">
-              <label for="ca-speed">Steps per frame <b id="ca-speed-v">8</b></label>
+              <label for="ca-speed">خطوات لكل إطار <b id="ca-speed-v">8</b></label>
               <input type="range" id="ca-speed" min="1" max="20" step="1" value="8">
             </div>
           </div>
@@ -230,44 +217,41 @@
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Steps</div>
+              <div class="readout__k">الخطوات</div>
               <div class="readout__v plain" id="ca-steps">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mean B</div>
+              <div class="readout__k">متوسط B</div>
               <div class="readout__v" id="ca-meanb">0.000</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Activity</div>
+              <div class="readout__k">النشاط</div>
               <div class="readout__v violet" id="ca-activity">0.000</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Regime</div>
+              <div class="readout__k">الطور</div>
               <div class="readout__v amber" id="ca-regime" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Partition state</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">حالة الأقسام</h4>
             <canvas id="ca-partitions" height="90" style="width:100%;background:#04060a;border-radius:var(--r-sm);display:block"></canvas>
             <p class="tiny muted" style="margin-top:8px">
-              N = 4 partitions of the field, as in the CellularPDE core. Height is each
-              partition&rsquo;s mean activation; leakage &lambda; = 0.01 couples them.
+              N = 4 أقسام للحقل، كما في نواة CellularPDE. والارتفاع هو متوسط تنشيط كل قسم؛ والتسريب &lambda; = 0.01 يربطها ببعضها.
             </p>
           </div>
           <div class="btn-row">
-            <button class="btn btn--sm" id="ca-pause">Pause</button>
-            <button class="btn btn--sm btn--ghost" id="ca-reset">Reset field</button>
+            <button class="btn btn--sm" id="ca-pause">إيقاف مؤقّت</button>
+            <button class="btn btn--sm btn--ghost" id="ca-reset">أعد ضبط الحقل</button>
           </div>
           <p class="tiny muted">
-            Gray&ndash;Scott with D<sub>a</sub>=1.0, D<sub>b</sub>=0.5, nine-point Laplacian,
-            explicit Euler. This is the dynamical substrate, not the trained model &mdash; the
-            trained model is 125.8M parameters and does not fit in a browser tab.
+            Gray&ndash;Scott بـD<sub>a</sub>=1.0, D<sub>b</sub>=0.5، لابلاسي بتسع نقاط، وأويلر صريح. هذه هي الركيزة الديناميكية، لا النموذج المدرَّب &mdash; فالنموذج المدرَّب 125.8M معامل ولا يتّسع له تبويب متصفح.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A live Gray&ndash;Scott solver written for this page, illustrating the class of dynamics
-        <code>CellularPDE</code> is built from. The architecture itself is PyTorch.
+        حلّال Gray&ndash;Scott حيّ كُتب لهذه الصفحة، يوضّح صنف الديناميكا الذي بُني منه
+        <code>CellularPDE</code> . أما المعمارية نفسها فبلغة PyTorch.
       </div>
     </div>
   </div>
@@ -276,42 +260,35 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Architecture</span>
-      <h2>What replaces attention</h2>
+      <span class="eyebrow">المعمارية</span>
+      <h2>ما الذي يحلّ محلّ الانتباه</h2>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="The Cell AI signal path from token embedding through the reaction-diffusion core, in-forward plasticity, resonance and lattice stages to output logits, with the perplexity gap against GPT-2 stated underneath" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>The scoreboard is part of the diagram.</b> A picture of this architecture that left out the four-orders-of-magnitude gap would be advertising, not documentation.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="مسار الإشارة في Cell AI من تضمين الرموز مرورًا بنواة التفاعل والانتشار، والمرونة داخل المرور الأمامي، ومرحلتَي الرنين والشبكة البلورية، وصولًا إلى اللوغيتات، مع ذكر فجوة الحيرة في مقابل GPT-2 أسفله" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>لوحة النتائج جزء من الرسم.</b> صورة لهذه المعمارية تُسقط فجوة المراتب العشرية الأربع ستكون إعلانًا، لا توثيقًا.</figcaption></figure>
 
     <div class="grid grid-2">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Core</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">أساسي</span>
         <h3 style="font-size:1.05rem">CellularPDE</h3>
         <p class="small dim" style="margin:0">
-          N = 4 partitions of D = 256-dimensional state, leakage &lambda; = 0.01, sigmoid reaction
-          terms &mdash; a discrete reaction-diffusion system standing where self-attention would be.
+          N = 4 أقسام من حالة بأبعاد D = 256، وتسريب &lambda; = 0.01، وحدود تفاعل سينية &mdash; نظام تفاعل وانتشار متقطّع يقف حيث كان سيقف الانتباه الذاتي.
         </p></div>
       <div class="card card--hover reveal" data-delay=".05"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Plasticity</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">المرونة</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          BCM-style Hebbian learning with &alpha; = 0.1, &beta; = 0.01, applied <em>أثناء</em> the
-          forward pass rather than after it. This is the boldest idea in the architecture and the
-          source of its documented gradient-starvation problem.
+          تعلّم هيبي على طراز BCM بـ&alpha; = 0.1 و&beta; = 0.01، يُطبَّق <em>أثناء</em> المرور الأمامي لا بعده. وهذه أجرأ فكرة في المعمارية، ومصدر مشكلة تجويع التدرّج الموثّقة فيها.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">v3 optimisation</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">تحسين v3</span>
         <h3 style="font-size:1.05rem">SpectralPDE &amp; SparseHebbian</h3>
         <p class="small dim" style="margin:0">
-          SpectralPDE cuts complexity from O(D²) to O(D log D). SparseHebbian compresses updates
-          from 65,536 weights to 1,024. MultiScalePartitions run fast and slow streams;
-          AnnealedRouter uses Gumbel-Softmax scheduling.
+          يخفض SpectralPDE التعقيد من O(D²) إلى O(D log D). ويضغط SparseHebbian التحديثات من 65,536 وزنًا إلى 1,024. وتشغّل MultiScalePartitions تيّارين سريعًا وبطيئًا؛ ويستخدم AnnealedRouter جدولة Gumbel-Softmax.
         </p></div>
       <div class="card card--hover reveal" data-delay=".15"><div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Signal path</span>
-        <h3 style="font-size:1.05rem">The full stack</h3>
+        <span class="badge badge--blue" style="margin-bottom:12px">مسار الإشارة</span>
+        <h3 style="font-size:1.05rem">الحزمة الكاملة</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem (FFT phase coupling) &rarr; CrystalLattice (K = 3) &rarr; optional
-          Kuramoto coupling &rarr; MultiModalModel routing &rarr; logits.
+          تضمين cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem (اقتران طور بتحويل فورييه السريع) &rarr; CrystalLattice (K = 3) &rarr; اقتران Kuramoto اختياري &rarr; توجيه MultiModalModel &rarr; لوغيتات.
         </p></div>
     </div>
   </div>
@@ -321,51 +298,48 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow eyebrow--amber">The ladder</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">E0 to E26, failures annotated</h2>
+        <span class="eyebrow eyebrow--amber">السلّم</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">من E0 إلى E26، والإخفاقات موثّقة بالتعليق</h2>
         <p class="dim">
-          The architecture-search programme is the actual artefact here. Twenty-seven experiments,
-          each with what was tried and what went wrong, including the ones that went backwards.
+          برنامج البحث المعماري هو الأثر الحقيقي هنا. سبع وعشرون تجربة، كل واحدة بما جُرِّب فيها وما أخفق، بما فيها تلك التي تراجعت إلى الوراء.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Finding</th><th>Outcome</th></tr></thead>
+            <thead><tr><th>الملاحظة</th><th>الحصيلة</th></tr></thead>
             <tbody>
-              <tr><td>PerFreqResonance</td><td class="muted">Documented issues, did not deliver</td></tr>
-              <tr><td>Routing</td><td class="muted">Collapsed to class degeneracy in some configurations</td></tr>
-              <tr><td>E26 vs E25</td><td class="muted">Regression — the later experiment was worse</td></tr>
-              <tr><td>ResonanceSystem</td><td class="muted">Minimal gradient contribution</td></tr>
-              <tr><td>Generation (v1)</td><td class="muted">Lacks proper autoregressive sampling</td></tr>
-              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">Speculative, unintegrated</td></tr>
+              <tr><td>PerFreqResonance</td><td class="muted">مشكلات موثّقة، ولم يفِ بالغرض</td></tr>
+              <tr><td>التوجيه</td><td class="muted">انهار إلى انحلال في الأصناف في بعض الإعدادات</td></tr>
+              <tr><td>E26 vs E25</td><td class="muted">انحدار — كانت التجربة الأحدث أسوأ</td></tr>
+              <tr><td>ResonanceSystem</td><td class="muted">مساهمة تدرّج ضئيلة</td></tr>
+              <tr><td>التوليد (v1)</td><td class="muted">يفتقر إلى أخذ عيّنات انحداري ذاتي سليم</td></tr>
+              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">تأمّلي، غير مدمج</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow">Numbers</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">The gap, stated plainly</h2>
+        <span class="eyebrow">الأرقام</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">الفجوة، بصراحة</h2>
         <div class="grid grid-2" style="gap:14px;margin-top:20px">
           <div class="card">
             <div class="stat"><div class="stat__num" style="color:var(--red)">450k&ndash;1.18M</div>
-            <div class="stat__label">Cell AI v1 training perplexity band</div></div>
+            <div class="stat__label">نطاق حيرة التدريب لـCell AI v1</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>~20</em></div>
-            <div class="stat__label">GPT-2 baseline perplexity</div></div>
+            <div class="stat__label">حيرة خط أساس GPT-2</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num">125.8M</div>
-            <div class="stat__label">v1 parameters</div></div>
+            <div class="stat__label">معاملات v1</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>O(D log D)</em></div>
-            <div class="stat__label">SpectralPDE, down from O(D²)</div></div>
+            <div class="stat__label">SpectralPDE، نزولًا من O(D²)</div></div>
           </div>
         </div>
         <div class="note note--red" style="margin-top:22px">
-          <strong>The question the repository asks itself:</strong> &ldquo;what fails, what works,
-          and can we close the gap honestly?&rdquo; The answer so far is that the gap has not
-          closed. That is written in the README rather than in a footnote.
+          <strong>السؤال الذي يطرحه المستودع على نفسه:</strong> &ldquo;ما الذي يفشل، وما الذي ينجح، وهل نستطيع سدّ الفجوة بصدق؟&rdquo; الجواب حتى الآن أن الفجوة لم تُسدّ. وهذا مكتوب في ملف README لا في حاشية.
         </div>
       </div>
     </div>
@@ -376,50 +350,48 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>An experiment in building AI a completely different way</h2>
-      <p class="lede">Almost every AI today is built on the same underlying idea. Cell AI is a full-scale attempt at a different one, borrowed from how patterns form in nature — published with its failures intact.</p>
+      <span class="eyebrow">لمن هو</span>
+      <h2>تجربة في بناء ذكاء اصطناعي بطريقة مختلفة تمامًا</h2>
+      <p class="lede">كل ذكاء اصطناعي تقريبًا اليوم مبني على الفكرة الأساسية نفسها. وCell AI محاولة بحجم كامل لفكرة أخرى، مستعارة من كيفية تشكّل الأنماط في الطبيعة — منشورة بإخفاقاتها كما هي.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Researchers looking past the current approach</h3>
-        <p class="small dim" style="margin:0">Progress needs someone to try the road not taken and write down what happened. This is that attempt, at full size, with the dead ends recorded rather than quietly dropped.</p>
+        <h3 style="font-size:1.05rem">باحثون ينظرون إلى ما بعد المقاربة الحالية</h3>
+        <p class="small dim" style="margin:0">التقدّم يحتاج إلى من يجرّب الطريق الذي لم يُسلَك ويكتب ما حدث. وهذه هي تلك المحاولة، بالحجم الكامل، والطرق المسدودة مسجَّلة لا مُسقَطة بصمت.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Scientists modelling living systems</h3>
-        <p class="small dim" style="margin:0">The mechanism underneath is the one that produces stripes on animals and patterns in chemistry. If that is the world you work in, the model speaks your language.</p>
+        <h3 style="font-size:1.05rem">علماء ينمذجون الأنظمة الحيّة</h3>
+        <p class="small dim" style="margin:0">الآلية التي تحته هي نفسها التي تنتج الخطوط على الحيوانات والأنماط في الكيمياء. فإن كان هذا هو عالمك، فالنموذج يتكلّم لغتك.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Teachers who want an honest failure</h3>
-        <p class="small dim" style="margin:0">Published research is overwhelmingly about things that worked. This is a careful account of something that did not, which is far more useful for learning than another success story.</p>
+        <h3 style="font-size:1.05rem">مدرّسون يريدون إخفاقًا صادقًا</h3>
+        <p class="small dim" style="margin:0">البحث المنشور في أغلبه الساحق عن أشياء نجحت. وهذا سرد دقيق لشيء لم ينجح، وهو أنفع للتعلّم بكثير من قصة نجاح أخرى.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ar/beta.html">Become a beta tester &rarr;</a>
+      <strong>هل ترى حالتك هنا؟</strong> هذا مفتوح للاختبار التجريبي الآن، ومن بُني لأجلهم هم من تغيّره ملاحظاتهم فعلًا.
+      <a href="/ar/beta.html">كن مختبِرًا تجريبيًّا &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="wrap wrap-narrow center">
-    <span class="eyebrow" style="justify-content:center">Sister projects</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where these ideas went instead</h2>
+    <span class="eyebrow" style="justify-content:center">مشاريع شقيقة</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">إلى أين ذهبت هذه الأفكار بدلًا من ذلك</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became UHPM.
+      Cell AI هو خط البحث الذي لم يتقارب. أما أشقّاؤه فكانوا أفضل حالًا: صار Cypha بنية عاملة من المبادئ الأولى، وصار عمل ذاكرة السياق الطويل UHPM.
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/ar/cypha.html">Cypha &rarr;</a>
-      <a class="btn btn--ghost" href="/research/uhpm.html">UHPM long-context memory &rarr;</a>
-      <a class="btn btn--ghost" href="/research/fungal.html">Fungal Network Algorithm &rarr;</a>
+      <a class="btn btn--ghost" href="/research/uhpm.html">ذاكرة السياق الطويل UHPM &rarr;</a>
+      <a class="btn btn--ghost" href="/research/fungal.html">خوارزمية الشبكة الفطرية &rarr;</a>
     </div>
   </div>
 </section>
@@ -489,7 +461,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T11:37:49Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T12:42:38Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>
@@ -500,6 +472,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Coral":"مرجان","Fingerprint":"بصمة","Spots":"بقع","Maze":"متاهة","Solitons":"سوليتونات","Chaos":"فوضى","Pause":"إيقاف مؤقت","Resume":"استئناف"};</script>
 <script src="/assets/js/demos/cellai.js" defer></script>
 </body>
 </html>

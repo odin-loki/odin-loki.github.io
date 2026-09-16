@@ -96,7 +96,24 @@ shelf says so in the reader's language, and no `hreflang` promises otherwise.
 Everything else keeps working per language: the selector (top right, server-rendered as plain
 links so it works with JavaScript off and a crawler can follow it), the search index, the
 spoken command vocabulary in `assets/data/say.<code>.json`, speech synthesis and recognition
-on the locale's own BCP-47 tag, and the glossary.
+on the locale's own BCP-47 tag, the glossary, and the demos.
+
+The demos need saying separately, because half of what a visitor reads on a product page is
+never in the HTML — it is written by the demo as they use it. 151 strings across eight demos
+go through `D()`, keyed by the English string itself:
+
+```bash
+python3 tools/i18n_demos.py extract              # re-scan the JS for D('...')
+python3 tools/i18n_demos.py dump  <demo> <code>
+python3 tools/i18n_demos.py merge <demo> <code>  # English<TAB>translation
+```
+
+That catalogue is inlined by the builder, not fetched, because a demo writes its first status
+line while it starts up and a fetch would land after the reader had already seen English. Only
+the demos a page loads are inlined, so the licence chooser's forty-eight strings never ride
+along with the chess board. Canvas draws no wrapping and no shrinking of its own, so labels
+there shrink to fit, then break across two lines — "Credential store" is "Armazenamento de
+credenciais" in Portuguese and used to run clean off the panel.
 
 Two rules learnt the hard way, both in `assets/js/i18n.js`:
 
@@ -116,6 +133,13 @@ person with no background can read once and understand. Click *Explain the jargo
 toolbar and the first occurrence of each is marked; the layer averages 39 marked terms a page.
 Double-click any other word and it falls through to a 144,440-word WordNet dictionary, loaded
 one shard at a time.
+
+All 199 are written in all ten languages, with the local spelling of each term added as a
+matcher so the layer lights up on a page that says *núcleo* rather than *kernel*. Arabic
+attaches its article to the front of a word and Russian, Hindi and Bengali inflect the end, so
+outside English an alias of five characters or more may carry a short prefix or suffix — five
+rather than four, because at four the Hindi for "fixed" matched inside the Hindi for
+"deterministic".
 
 ```bash
 python3 tools/gen_glossary.py                 # English — refuses to build if it gets clever

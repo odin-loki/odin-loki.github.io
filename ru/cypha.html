@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cypha — a first-principles AI architecture | Imortek</title>
-<meta name="description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
-<meta name="keywords" content="Cypha, AI architecture, online classifier, latent sampling, information bottleneck, active inference, AIXI, minimum description length, random Fourier features">
+<title>Cypha — архитектура ИИ из первых принципов | Imortek</title>
+<meta name="description" content="Cypha объединяет классификацию, регрессию, сэмплирование скрытых состояний и генерацию в одном типе. Построена на AIXI/MDL, информационной геометрии, активном выводе и информационном бутылочном горлышке. Попробуйте живой классификатор.">
+<meta name="keywords" content="Cypha, архитектура ИИ, онлайн-классификатор, сэмплирование скрытых состояний, информационное бутылочное горлышко, активный вывод, AIXI, минимальная длина описания, онлайн-обучение">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ru">
 <meta name="imortek:speech" content="ru-RU">
 <meta name="imortek:prefix" content="/ru">
-<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gh.live":"напрямую из api.github.com","gh.cached":"сохранённый снимок","gh.noDescription":"Без описания","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Cypha — a first-principles AI architecture | Imortek">
-<meta property="og:description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
+<meta property="og:title" content="Cypha — архитектура ИИ из первых принципов | Imortek">
+<meta property="og:description" content="Cypha объединяет классификацию, регрессию, сэмплирование скрытых состояний и генерацию в одном типе. Построена на AIXI/MDL, информационной геометрии, активном выводе и информационном бутылочном горлышке. Попробуйте живой классификатор.">
 <meta property="og:url" content="https://imortek.com.au/ru/cypha.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cypha — a first-principles AI architecture | Imortek">
+<meta property="og:image:alt" content="Cypha — архитектура ИИ из первых принципов | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cypha — a first-principles AI architecture | Imortek">
-<meta name="twitter:description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
+<meta name="twitter:title" content="Cypha — архитектура ИИ из первых принципов | Imortek">
+<meta name="twitter:description" content="Cypha объединяет классификацию, регрессию, сэмплирование скрытых состояний и генерацию в одном типе. Построена на AIXI/MDL, информационной геометрии, активном выводе и информационном бутылочном горлышке. Попробуйте живой классификатор.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Cypha — a first-principles AI architecture | Imortek">
+<meta name="twitter:image:alt" content="Cypha — архитектура ИИ из первых принципов | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/cypha.html#webpage","url":"https://imortek.com.au/ru/cypha.html","name":"Cypha — a first-principles AI architecture | Imortek","description":"Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/cypha.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/cypha.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"Cypha","item":"https://imortek.com.au/ru/cypha.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/cypha.html#software","name":"Cypha","description":"Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.","url":"https://imortek.com.au/ru/cypha.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/cypha.html#webpage","url":"https://imortek.com.au/ru/cypha.html","name":"Cypha — архитектура ИИ из первых принципов | Imortek","description":"Cypha объединяет классификацию, регрессию, сэмплирование скрытых состояний и генерацию в одном типе. Построена на AIXI/MDL, информационной геометрии, активном выводе и информационном бутылочном горлышке. Попробуйте живой классификатор.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/cypha.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/cypha.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"Cypha","item":"https://imortek.com.au/ru/cypha.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/cypha.html#software","name":"Cypha","description":"Cypha объединяет классификацию, регрессию, сэмплирование скрытых состояний и генерацию в одном типе. Построена на AIXI/MDL, информационной геометрии, активном выводе и информационном бутылочном горлышке. Попробуйте живой классификатор.","url":"https://imortek.com.au/ru/cypha.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,7 +139,6 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Часть этой страницы пока на английском. Перевод пишется; машинного перевода здесь нет.</p></div>
 <!-- ============================ HERO ============================ -->
 <section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
   <div class="gridlines" aria-hidden="true"></div>
@@ -147,34 +146,31 @@
     <div class="split split--wide-left split--center">
       <div>
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
-        <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
+        <h1>Архитектура ИИ, построенная из <span class="gradient-text">первых принципов</span>, а не форк</h1>
         <p class="lede">
-          Cypha is not a transformer wrapper and not a tuned copy of somebody else&rsquo;s model.
-          One public type &mdash; <code>cypha::Cypha</code> &mdash; classifies, regresses, samples
-          latents and generates sequences, with a learning rule derived from where four
-          formal programmes intersect.
+          Cypha — это не обёртка вокруг трансформера и не дообученная копия чужой модели. Один публичный тип &mdash; <code>cypha::Cypha</code> &mdash; классифицирует, делает регрессию, сэмплирует скрытые состояния и порождает последовательности, а правило обучения выведено из точки пересечения четырёх формальных программ.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Train one in your browser</a>
-          <a class="btn btn--fund" href="/ru/chess.html">Play chess against it</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">Обучите её в браузере</a>
+          <a class="btn btn--fund" href="/ru/chess.html">Сыграйте с ней в шахматы</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">Репозиторий &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
-          <div class="phero__meta-item">Release<b>v2.4.0</b></div>
+          <div class="phero__meta-item">Язык<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">Релиз<b>v2.4.0</b></div>
           <div class="phero__meta-item">WikiText-2<b>2,664 BPC</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="Cypha" data-gh-field="updated">недавно</b></div>
+          <div class="phero__meta-item">Последняя отправка<b data-gh-repo="Cypha" data-gh-field="updated">недавно</b></div>
         </div>
       </div>
 
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Four programmes, one learning rule</span>
+          <span class="eyebrow" style="margin-bottom:16px">Четыре программы, одно правило обучения</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; minimum-description-length priors decide what the model is allowed to believe cheaply.</li>
-            <li><strong>Информационная геометрия</strong> &mdash; updates follow the natural gradient, so learning respects the curvature of the parameter space.</li>
-            <li><strong>Active inference / free energy</strong> &mdash; gives the structural decomposition into prior, differential and context.</li>
-            <li><strong>Information bottleneck</strong> &mdash; sets the encoder objective: keep what predicts, discard the rest.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; априорные распределения по минимальной длине описания решают, во что модели дёшево позволено верить.</li>
+            <li><strong>Информационная геометрия</strong> &mdash; обновления идут по естественному градиенту, так что обучение считается с кривизной пространства параметров.</li>
+            <li><strong>Активный вывод / свободная энергия</strong> &mdash; даёт структурное разложение на априор, дифференциал и контекст.</li>
+            <li><strong>Информационное бутылочное горлышко</strong> &mdash; задаёт целевую функцию кодировщика: оставить то, что предсказывает, остальное выбросить.</li>
           </ul>
         </div>
       </div>
@@ -186,41 +182,38 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The library itself</span>
-      <h2>Random features, measured rather than described</h2>
+      <span class="eyebrow eyebrow--violet">Сама библиотека</span>
+      <h2>Случайные признаки — измеренные, а не описанные</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features is that they let a linear head separate
-        what a linear head cannot. That is a measurable claim, so this measures it &mdash; with
-        <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
+        Довод Cypha в пользу случайных признаков Фурье в том, что они позволяют линейной голове разделить то, чего линейная голова разделить не может. Это измеримое утверждение, поэтому здесь оно и измеряется &mdash; через
+        <code>cypha::rff_features</code> в сборке под WebAssembly, а не через пересказ на JavaScript.
       </p>
     </div>
 
     <div class="demo reveal" id="cyw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> cypha::rff_features &mdash; WebAssembly</h3>
-        <span class="badge badge--violet" id="cyw-state">not loaded</span>
+        <span class="badge badge--violet" id="cyw-state">не загружено</span>
       </div>
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact RBF kernel over <b>n</b> sampled points gives a matrix <b>K</b>. Random
-            features reconstruct an approximation <b>K&#770;</b>. What is plotted is
-            <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> as the number of features grows:
-            more features, closer approximation.
+            Точное ядро RBF на <b>n</b> выбранных точках даёт матрицу <b>K</b>. Случайные признаки восстанавливают приближение <b>K&#770;</b>. На графике —
+            <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> по мере роста числа признаков: больше признаков — ближе приближение.
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
             <div class="ctrl">
-              <label for="cyw-dim">Input dimension <b id="cyw-dim-v">4</b></label>
+              <label for="cyw-dim">Размерность входа <b id="cyw-dim-v">4</b></label>
               <input type="range" id="cyw-dim" min="2" max="16" step="1" value="4">
             </div>
             <div class="ctrl">
-              <label for="cyw-gamma">RBF bandwidth &gamma; <b id="cyw-gamma-v">0.50</b></label>
+              <label for="cyw-gamma">Ширина RBF &gamma; <b id="cyw-gamma-v">0.50</b></label>
               <input type="range" id="cyw-gamma" min="0.1" max="2" step="0.1" value="0.5">
             </div>
           </div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="cyw-load">Load the library &mdash; 40 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="cyw-run" disabled>Re-measure</button>
+            <button type="button" class="btn btn--primary btn--sm" id="cyw-load">Загрузить библиотеку &mdash; 40 КБ</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cyw-run" disabled>Измерить заново</button>
           </div>
           <canvas class="demo-canvas" id="cyw-canvas" height="300" style="margin-top:18px"></canvas>
         </div>
@@ -228,22 +221,18 @@
           <div id="cyw-table" class="log" style="height:260px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr">
             <div class="readout__item">
-              <div class="readout__k">Library</div>
+              <div class="readout__k">Библиотека</div>
               <div class="readout__v plain" id="cyw-version" style="font-size:.82rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Compiling this found a bug.</strong> ORF &mdash; the dense orthogonal variant
-            &mdash; was normalising every row to unit length, when Yu et al. draw the row norm from
-            <code>chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
-            &radic;d too short, so the features approximated the wrong kernel and the error
-            plateaued instead of converging. One line. It is now the best of the three.
+            <strong>Компиляция этого нашла баг.</strong> ORF &mdash; плотный ортогональный вариант &mdash; нормировал каждую строку до единичной длины, тогда как у Yu et al. норма строки берётся из
+            <code>chi_d</code> — и тогда ортогональная строка соответствует той гауссовой строке, которую она заменяет. Строки были короче нужного в &radic;d раз, поэтому признаки приближали не то ядро, и ошибка выходила на плато вместо сходимости. Одна строка. Теперь это лучший из трёх.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        COOP/COEP headers GitHub Pages cannot send.
+        Однопоточно намеренно: многопоточному WebAssembly нужен SharedArrayBuffer, которому нужны заголовки COOP/COEP, а GitHub Pages их не отдаёт.
       </div>
     </div>
   </div>
@@ -253,34 +242,31 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Architecture</span>
-      <h2>Seven layers, each doing one job</h2>
+      <span class="eyebrow eyebrow--violet">Архитектура</span>
+      <h2>Семь слоёв, каждый делает одну работу</h2>
       <p class="lede">
-        Every component below exists because one of the four programmes demands it &mdash;
-        not because it appeared in a paper that quarter.
+        Каждый компонент ниже существует потому, что его требует одна из четырёх программ &mdash; а не потому, что он появился в статье в том квартале.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cypha-stack.svg" alt="The Cypha pipeline in order: encoder, projection, world prior, class differentials, memory and tiered context, producing a class with confidence, anomaly score and an out-of-distribution flag" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>One type, four jobs.</b> The demo further down this page is this exact pipeline in two dimensions &mdash; the world prior is the dashed ellipse, the differentials are the bars.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cypha-stack.svg" alt="Конвейер Cypha по порядку: кодировщик, проекция, мировой априор, классовые дифференциалы, память и многоуровневый контекст — на выходе класс с уверенностью, оценкой аномальности и флагом выхода за пределы распределения" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>Один тип, четыре работы.</b> Демонстрация ниже на этой странице — ровно этот конвейер в двух измерениях &mdash; мировой априор это пунктирный эллипс, дифференциалы это столбики.</figcaption></figure>
 
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Encoder</span>
-        <h3 style="font-size:1.02rem">Pluggable front end</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Кодировщик</span>
+        <h3 style="font-size:1.02rem">Подключаемый входной модуль</h3>
         <p class="small dim" style="margin:0">
-          Raw input to feature vector. Ships <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (random Fourier features) and <code>ConcatEncoder</code>.
-          Swap it without touching anything downstream.
+          Из сырого входа в вектор признаков. В комплекте <code>VectorEncoder</code>,
+          <code>RFFEncoder</code> (случайные признаки Фурье) и <code>ConcatEncoder</code>. Меняется без последствий для всего, что ниже по конвейеру.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Projection</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Проекция</span>
         <h3 style="font-size:1.02rem">EncoderProjection</h3>
         <p class="small dim" style="margin:0">
-          Features into latent space via Fisher&ndash;Rao contrastive updates, with
-          Frobenius-norm capping so a single outlier cannot blow the geometry apart.
+          Признаки в скрытое пространство через контрастные обновления Фишера&ndash;Рао, с ограничением нормы Фробениуса, чтобы один выброс не разнёс геометрию.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08">
@@ -288,9 +274,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford/EMA. This is the
-          &ldquo;infinite context&rdquo; that never forgets &mdash; and whose movement is the
-          drift signal.
+          Общее диагональное гауссово распределение, подгоняемое онлайн по Уэлфорду/EMA. Это и есть &ldquo;бесконечный контекст&rdquo;, который ничего не забывает &mdash; и чьё движение служит сигналом дрейфа.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -298,37 +282,29 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&Delta;&#8342;</span>
         <h3 style="font-size:1.02rem">ClassDifferential</h3>
         <p class="small dim" style="margin:0">
-          Per-class natural-parameter offsets, attracted toward observations and pulled
-          back by MDL decay. A class is a <em>displacement from the world</em>, not a
-          separate model.
+          Сдвиги естественных параметров по каждому классу: их притягивает к наблюдениям и оттягивает назад затухание MDL. Класс — это <em>смещение относительно мира</em>, а не отдельная модель.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Memory</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Память</span>
         <h3 style="font-size:1.02rem">DIFMemory</h3>
         <p class="small dim" style="margin:0">
-          Computes log-likelihood ratios under generalised-hyperbolic posteriors, with
-          Bessel-ratio lookup tables so the heavy tails do not cost a transcendental
-          per sample.
+          Считает отношения логарифмических правдоподобий при обобщённо-гиперболических апостериорах, с таблицами отношений Бесселя, чтобы тяжёлые хвосты не стоили по трансцендентной функции на образец.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Context</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Контекст</span>
         <h3 style="font-size:1.02rem">TieredContextBuffer</h3>
         <p class="small dim" style="margin:0">
-          Short, mid and long tiers weighted by NIGField confidence, so recent evidence
-          can dominate without erasing what the long tier established.
+          Короткий, средний и длинный уровни, взвешенные по уверенности NIGField, так что свежие свидетельства могут перевешивать, не стирая того, что установил длинный уровень.
         </p>
       </div>
     </div>
 
     <div class="note reveal" style="margin-top:28px">
-      <strong>Classification, end to end:</strong> encode &rarr; project &rarr; score each class&rsquo;s
-      log-likelihood ratio against the world prior &rarr; return the argmax, together with a
-      confidence, an anomaly score and an out-of-distribution flag. The demo below is that
-      exact pipeline, in miniature.
+      <strong>Классификация от начала до конца:</strong> кодирование &rarr; проекция &rarr; оценка отношения логарифмических правдоподобий каждого класса против мирового априора &rarr; возврат argmax вместе с уверенностью, оценкой аномальности и флагом выхода за пределы распределения. Демонстрация ниже — ровно этот конвейер, в миниатюре.
     </div>
   </div>
 </section>
@@ -337,28 +313,26 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Train a classifier by clicking</h2>
+      <span class="eyebrow">Интерактив</span>
+      <h2>Обучите классификатор кликами</h2>
       <p class="lede">
-        A faithful 2-D miniature of the Cypha pipeline: a world prior fitted online, per-class
-        differentials attracted toward what you place, and classification by log-likelihood
-        ratio. It learns from every single click &mdash; there is no batch, no epoch, no restart.
+        Точная двумерная миниатюра конвейера Cypha: мировой априор, подгоняемый онлайн, классовые дифференциалы, притягиваемые к тому, что вы ставите, и классификация по отношению логарифмических правдоподобий. Она учится с каждого клика &mdash; никаких батчей, никаких эпох, никаких перезапусков.
       </p>
     </div>
 
     <div class="demo reveal" id="cypha-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; online classifier</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; онлайн-классификатор</h3>
         <div class="controls">
           <label class="switch">
             <input type="checkbox" id="cy-rff">
             <span class="switch__track"></span>
-            <span>Latent RFF encoder</span>
+            <span>Скрытый кодировщик RFF</span>
           </label>
           <label class="switch">
             <input type="checkbox" id="cy-surface" checked>
             <span class="switch__track"></span>
-            <span>Decision surface</span>
+            <span>Поверхность решения</span>
           </label>
         </div>
       </div>
@@ -369,21 +343,21 @@
                   aria-label="Click to place labelled training samples and watch the decision surface form"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click the canvas to add a sample of the selected class. Drag to paint a cluster.
+            Кликните по холсту, чтобы добавить образец выбранного класса. Тяните мышью, чтобы нарисовать кластер.
           </p>
 
           <div style="margin-top:18px">
-            <h4 class="panel__title" style="margin-bottom:10px">Class to place</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Какой класс ставить</h4>
             <div class="chips" id="cy-classes"></div>
           </div>
 
           <div style="margin-top:18px">
-            <h4 class="panel__title" style="margin-bottom:10px">Load a dataset</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Загрузить набор данных</h4>
             <div class="chips">
-              <button type="button" class="chip" data-set="blobs">Three separable blobs</button>
-              <button type="button" class="chip" data-set="rings">Concentric rings</button>
+              <button type="button" class="chip" data-set="blobs">Три разделимых пятна</button>
+              <button type="button" class="chip" data-set="rings">Концентрические кольца</button>
               <button type="button" class="chip" data-set="xor">XOR</button>
-              <button type="button" class="chip" data-set="clear">Clear</button>
+              <button type="button" class="chip" data-set="clear">Очистить</button>
             </div>
           </div>
         </div>
@@ -391,43 +365,43 @@
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Samples</div>
+              <div class="readout__k">Образцов</div>
               <div class="readout__v plain" id="cy-n">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Accuracy</div>
+              <div class="readout__k">Точность</div>
               <div class="readout__v" id="cy-acc">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Max LLR</div>
+              <div class="readout__k">Макс. LLR</div>
               <div class="readout__v violet" id="cy-llr">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Prior drift</div>
+              <div class="readout__k">Дрейф априора</div>
               <div class="readout__v amber" id="cy-drift">0.00</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Last inference</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Последний вывод</h4>
             <div class="verdict" id="cy-verdict">
-              <div class="verdict__label">Idle</div>
-              <div class="verdict__why">Hover the canvas to classify a point without training on it.</div>
+              <div class="verdict__label">Простой</div>
+              <div class="verdict__why">Наведите курсор на холст, чтобы классифицировать точку, не обучаясь на ней.</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Class differentials &Delta;&#8342;</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Классовые дифференциалы &Delta;&#8342;</h4>
             <div id="cy-deltas" style="display:grid;gap:9px"></div>
           </div>
 
           <div>
             <div class="ctrl">
-              <label for="cy-lr">&Delta;&#8342; learning rate <b id="cy-lr-v">0.050</b></label>
+              <label for="cy-lr">Скорость обучения &Delta;&#8342; <b id="cy-lr-v">0.050</b></label>
               <input type="range" id="cy-lr" min="0.005" max="0.30" step="0.005" value="0.05">
             </div>
             <div class="ctrl">
-              <label for="cy-mdl">MDL decay &lambda; <b id="cy-mdl-v">0.0010</b></label>
+              <label for="cy-mdl">Затухание MDL &lambda; <b id="cy-mdl-v">0.0010</b></label>
               <input type="range" id="cy-mdl" min="0" max="0.02" step="0.0005" value="0.001">
             </div>
           </div>
@@ -435,17 +409,13 @@
       </div>
 
       <div class="panel__foot" id="cy-foot">
-        A 2-D teaching implementation written for this page &mdash; same structure as the real
-        pipeline, none of its scale. The C++ implementation is in
+        Двумерная учебная реализация, написанная для этой страницы &mdash; та же структура, что у настоящего конвейера, но без его масштаба. Реализация на C++ лежит в
         <a href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">native/</a>.
       </div>
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try XOR with the RFF encoder off.</strong> Accuracy collapses toward chance, and
-      that is not a bug in this demo &mdash; it is the documented limitation of a linear
-      log-likelihood ratio, stated plainly in the Cypha README. Switch the latent RFF encoder
-      on and watch it recover. Publishing the failure mode next to the fix is the whole point.
+      <strong>Попробуйте XOR с выключенным кодировщиком RFF.</strong> Точность падает до уровня случайного угадывания, и это не баг демонстрации &mdash; это задокументированное ограничение линейного отношения логарифмических правдоподобий, прямо названное в README Cypha. Включите скрытый кодировщик RFF и посмотрите, как она восстанавливается. Публиковать режим отказа рядом с исправлением — в этом весь смысл.
     </div>
   </div>
 </section>
@@ -454,53 +424,47 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Measured</span>
-      <h2>Results, with the comparison that matters</h2>
+      <span class="eyebrow">Измерено</span>
+      <h2>Результаты и сравнение, которое имеет значение</h2>
       <p class="lede">
-        Figures from the repository&rsquo;s own benchmark runs after the diagnostic fix.
-        Correctness is proved by a CTest matrix matching committed fixture goldens &mdash; not
-        by a leaderboard position.
+        Цифры из собственных прогонов бенчмарков репозитория после исправления, найденного диагностикой. Корректность доказывается матрицей CTest, совпадающей с зафиксированными эталонами, &mdash; а не местом в рейтинге.
       </p>
     </div>
 
     <div class="table-scroll reveal">
       <table class="data">
         <thead>
-          <tr><th>Dataset</th><th>Task</th><th class="num">Cypha</th><th class="num">Online SGD</th><th>Note</th></tr>
+          <tr><th>Набор данных</th><th>Задача</th><th class="num">Cypha</th><th class="num">Онлайн-SGD</th><th>Примечание</th></tr>
         </thead>
         <tbody>
-          <tr><td>Linearly separable</td><td>2-class</td><td class="num">0.783</td><td class="num">0.644</td><td class="muted">Same online budget</td></tr>
-          <tr><td>Iris</td><td>3-class</td><td class="num">0.900</td><td class="num">&mdash;</td><td class="muted">Classical baseline set</td></tr>
-          <tr><td>Wine</td><td>3-class</td><td class="num">0.969</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Digits</td><td>10-class</td><td class="num">0.922</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Breast cancer</td><td>2-class</td><td class="num">0.957</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>WikiText-2</td><td>Sequence, 300k tokens</td><td class="num">2,664 BPC</td><td class="num">&mdash;</td><td class="muted">Hybrid GRIA+LSTM L2+Wave2 BPTT</td></tr>
-          <tr><td>XOR</td><td>2-class, latent RFF</td><td class="num">~0.763</td><td class="num">&mdash;</td><td class="muted">Linear LLR alone caps near chance</td></tr>
+          <tr><td>Линейно разделимые</td><td>2 класса</td><td class="num">0.783</td><td class="num">0.644</td><td class="muted">Тот же онлайн-бюджет</td></tr>
+          <tr><td>Iris</td><td>3 класса</td><td class="num">0.900</td><td class="num">&mdash;</td><td class="muted">Классический эталонный набор</td></tr>
+          <tr><td>Wine</td><td>3 класса</td><td class="num">0.969</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Digits</td><td>10 классов</td><td class="num">0.922</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Breast cancer</td><td>2 класса</td><td class="num">0.957</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>WikiText-2</td><td>Последовательность, 300 тыс. токенов</td><td class="num">2,664 BPC</td><td class="num">&mdash;</td><td class="muted">Hybrid GRIA+LSTM L2+Wave2 BPTT</td></tr>
+          <tr><td>XOR</td><td>2 класса, скрытый RFF</td><td class="num">~0.763</td><td class="num">&mdash;</td><td class="muted">Один линейный LLR упирается в уровень случайного угадывания</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="grid grid-3" style="margin-top:32px">
       <div class="card reveal">
-        <span class="eyebrow" style="margin-bottom:12px">Generation</span>
+        <span class="eyebrow" style="margin-bottom:12px">Генерация</span>
         <p class="small dim" style="margin:0">
-          Temperature-scaled, field-conditioned, latent-boundary interpolation, adversarial
-          (entropy-maximising), OOD sampling, MDL-constrained, ancestral, and KDE sampling
-          from the replay buffer.
+          С температурным масштабированием, с обусловливанием полем, интерполяция по границам скрытого пространства, состязательная (максимизация энтропии), сэмплирование OOD, с ограничением MDL, предковое и сэмплирование KDE из буфера воспроизведения.
         </p>
       </div>
       <div class="card reveal" data-delay=".05">
-        <span class="eyebrow" style="margin-bottom:12px">Anomaly &amp; active learning</span>
+        <span class="eyebrow" style="margin-bottom:12px">Аномалии и активное обучение</span>
         <p class="small dim" style="margin:0">
-          Anomaly scores from gate values, active-query scores as entropy &times; boundary
-          proximity, and drift detection read directly off world-prior movement.
+          Оценки аномальности из значений гейтов, оценки активного запроса как энтропия &times; близость к границе, и выявление дрейфа прямо по движению мирового априора.
         </p>
       </div>
       <div class="card reveal" data-delay=".1">
-        <span class="eyebrow" style="margin-bottom:12px">Replay</span>
+        <span class="eyebrow" style="margin-bottom:12px">Воспроизведение</span>
         <p class="small dim" style="margin:0">
-          A 10,000-capacity priority buffer weighted by recency and surprise, replayed at a
-          0.30 ratio &mdash; so the rare, informative sample is not drowned by the common one.
+          Приоритетный буфер на 10 000 элементов, взвешенный по свежести и неожиданности, воспроизводимый с долей 0,30 &mdash; чтобы редкий информативный образец не тонул среди частых.
         </p>
       </div>
     </div>
@@ -512,33 +476,33 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Reference defaults</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Profiled, not guessed</h2>
-        <p class="dim">These come out of a profiled medium-grid optimisation and ship as the reference configuration.</p>
+        <span class="eyebrow">Эталонные значения по умолчанию</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Отпрофилированы, а не угаданы</h2>
+        <p class="dim">Они получены из отпрофилированной оптимизации по средней сетке и поставляются как эталонная конфигурация.</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Feature dim</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF budget</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Replay ratio</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Context window</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">World prior LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">Class diff LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">Encoder LR</span><span class="spec__v mono">0.002</span></div>
-          <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
+          <div class="spec__row"><span class="spec__k">Размерность признаков</span><span class="spec__v mono">128</span></div>
+          <div class="spec__row"><span class="spec__k">Бюджет RFF</span><span class="spec__v mono">256</span></div>
+          <div class="spec__row"><span class="spec__k">Доля воспроизведения</span><span class="spec__v mono">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">Окно контекста</span><span class="spec__v mono">32</span></div>
+          <div class="spec__row"><span class="spec__k">LR мирового априора</span><span class="spec__v mono">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">LR классового дифференциала</span><span class="spec__v mono">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">LR кодировщика</span><span class="spec__v mono">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">Лямбда MDL</span><span class="spec__v mono">0.001</span></div>
         </div>
       </div>
 
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Honest framing</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What Cypha is not</h2>
+        <span class="eyebrow eyebrow--amber">Без прикрас</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Чем Cypha не является</h2>
         <ul class="flist flist--amber">
-          <li><strong>Not a wrapper.</strong> Bespoke from first principles &mdash; which also means it does not inherit anyone else&rsquo;s tuning.</li>
-          <li><strong>Linear LLR has a ceiling.</strong> XOR sits near chance without the latent RFF encoder, which lifts it to roughly 76.3%.</li>
-          <li><strong>Validation is parity-based.</strong> CTest against committed fixture goldens. No leaderboard claims are made.</li>
-          <li><strong>CUDA is inference-only.</strong> Training stays on CPU, because on this architecture CPU is faster.</li>
-          <li><strong>Theory lives elsewhere.</strong> Harmonic-spectrum and NMP work is a separate compression-algorithms paper; Cypha is the implementation layer.</li>
+          <li><strong>Не обёртка.</strong> Сделана с нуля из первых принципов &mdash; а значит, и чужой настройки она не наследует.</li>
+          <li><strong>У линейного LLR есть потолок.</strong> На XOR без скрытого кодировщика RFF результат держится около случайного, с ним поднимается примерно до 76,3%.</li>
+          <li><strong>Валидация строится на совпадении.</strong> CTest против зафиксированных эталонов. Никаких заявлений о местах в рейтингах.</li>
+          <li><strong>CUDA только для инференса.</strong> Обучение остаётся на CPU, потому что на этой архитектуре CPU быстрее.</li>
+          <li><strong>Теория живёт в другом месте.</strong> Работа по гармоническому спектру и NMP — это отдельная статья про алгоритмы сжатия; Cypha — слой реализации.</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha/releases" target="_blank" rel="noopener">Prebuilt v2.4.0 releases &rarr;</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha/releases" target="_blank" rel="noopener">Готовые сборки v2.4.0 &rarr;</a>
         </div>
       </div>
     </div>
@@ -551,18 +515,15 @@
     <div class="cta-band reveal">
       <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
       <div class="cta-band__inner">
-        <span class="eyebrow">Product demo</span>
-        <h2 style="max-width:24ch;margin-inline:auto">Cypha, distilled from a real chess engine</h2>
+        <span class="eyebrow">Демонстрация продукта</span>
+        <h2 style="max-width:24ch;margin-inline:auto">Cypha, дистиллированная из настоящего шахматного движка</h2>
         <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.4rem">
-          26,568 positions labelled with a conventional alpha-beta engine&rsquo;s own search
-          evaluations, fitted with the same WorldPrior whitening and natural-gradient updates
-          used everywhere else in the architecture. It reproduces the teacher&rsquo;s evaluation at
-          <strong>R&sup2; 0.866</strong> on held-out positions, and scores 5W&ndash;19L&ndash;6D
-          against that teacher at equal search depth.
+          26 568 позиций, размеченных собственными оценками поиска обычного альфа-бета движка, подогнаны тем же отбеливанием WorldPrior и обновлениями по естественному градиенту, что применяются везде в этой архитектуре. Она воспроизводит оценку учителя с
+          <strong>R&sup2; 0,866</strong> на отложенных позициях и показывает 5 побед&ndash;19 поражений&ndash;6 ничьих против этого учителя при равной глубине поиска.
         </p>
         <div class="btn-row" style="justify-content:center">
-          <a class="btn btn--primary btn--lg" href="/ru/chess.html">Play a game</a>
-          <a class="btn btn--ghost btn--lg" href="/ru/chess.html#how">How it was distilled</a>
+          <a class="btn btn--primary btn--lg" href="/ru/chess.html">Сыграть партию</a>
+          <a class="btn btn--ghost btn--lg" href="/ru/chess.html#how">Как её дистиллировали</a>
         </div>
       </div>
     </div>
@@ -574,42 +535,41 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>A small AI that keeps learning</h2>
-      <p class="lede">Most AI is trained once in a data centre and shipped frozen. Cypha is small enough to run on ordinary hardware and carries on learning from each new example it sees.</p>
+      <span class="eyebrow">Кому это нужно</span>
+      <h2>Небольшой ИИ, который продолжает учиться</h2>
+      <p class="lede">Большинство ИИ обучают один раз в дата-центре и отгружают замороженным. Cypha достаточно мала, чтобы работать на обычном железе, и продолжает учиться на каждом новом примере, который видит.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Devices too small for big AI</h3>
-        <p class="small dim" style="margin:0">Sensors, cameras, controllers and other hardware with no room for a data centre behind it. Cypha is small enough to run on the device itself, so nothing has to leave the building.</p>
+        <h3 style="font-size:1.05rem">Устройства, слишком маленькие для большого ИИ</h3>
+        <p class="small dim" style="margin:0">Датчики, камеры, контроллеры и прочее железо, за которым нет места для дата-центра. Cypha достаточно мала, чтобы работать прямо на устройстве, так что ничего не обязано покидать здание.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Anything that has to keep up with change</h3>
-        <p class="small dim" style="margin:0">Fraud patterns, equipment faults, shifting customer behaviour. A model trained last year is already out of date. This one updates as it goes, without being pulled offline and retrained.</p>
+        <h3 style="font-size:1.05rem">Всё, что должно поспевать за изменениями</h3>
+        <p class="small dim" style="margin:0">Схемы мошенничества, отказы оборудования, меняющееся поведение клиентов. Модель, обученная в прошлом году, уже устарела. Эта обновляется на ходу, её не надо снимать с линии и переобучать.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Work that has to be explained afterwards</h3>
-        <p class="small dim" style="margin:0">Banks, insurers and health services often have to justify a decision. Cypha is small enough to inspect, and it publishes what it is bad at rather than hiding it.</p>
+        <h3 style="font-size:1.05rem">Работа, которую потом надо объяснять</h3>
+        <p class="small dim" style="margin:0">Банкам, страховщикам и медицинским службам часто приходится обосновывать решение. Cypha достаточно мала, чтобы её осмотреть, и она публикует то, что делает плохо, а не прячет это.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ru/beta.html">Become a beta tester &rarr;</a>
+      <strong>Узнаёте здесь свою ситуацию?</strong> Сейчас всё это открыто для бета-тестирования, и отзывы тех, для кого это делается, действительно меняют систему.
+      <a href="/ru/beta.html">Стать бета-тестировщиком &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight section--alt">
   <div class="wrap wrap-narrow">
-    <span class="eyebrow">Build it</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Three commands</h2>
+    <span class="eyebrow">Собрать</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Три команды</h2>
     <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
@@ -619,8 +579,8 @@
 <span class="c-com"># Qt shell (build with -DCYPHA_BUILD_QT=ON)</span>
 <span class="c-pr">$</span> <span class="c-cmd">cypha_qt_shell</span></pre>
     <div class="btn-row" style="margin-top:22px">
-      <button class="btn btn--sm" data-copy="cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja">Copy build command</button>
-      <a class="btn btn--sm btn--ghost" href="/ru/licensing.html">Licensing terms</a>
+      <button class="btn btn--sm" data-copy="cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja">Скопировать команду сборки</button>
+      <a class="btn btn--sm btn--ghost" href="/ru/licensing.html">Условия лицензирования</a>
     </div>
   </div>
 </section>
@@ -690,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T11:37:49Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T12:42:38Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>
@@ -701,6 +661,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Class A":"Класс A","Class B":"Класс B","Class C":"Класс C","Click to place samples, or load a dataset below":"Щёлкайте, чтобы расставить образцы, или загрузите набор данных ниже","Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.":"Ниже мирового априора — эта точка вероятнее при θ₀, чем при любом из классов. Помечена как вне распределения.","Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.":"Аргмаксимум логарифмического отношения правдоподобия к мировому априору; ближайший конкурент отстаёт на {n} ната.","Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.":"Аргмаксимум логарифмического отношения правдоподобия к мировому априору; ближайший конкурент ещё не обучен.","XOR with the identity encoder.":"XOR с тождественным кодировщиком.","A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.":"Линейное логарифмическое отношение правдоподобия не может разделить эти квадранты — точность держится у уровня случайного угадывания, ровно как и сказано в README Cypha. Включите выше латентный кодировщик RFF.","XOR with random Fourier features.":"XOR со случайными признаками Фурье.","The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.":"Кодировщик поднимает задачу в пространство, где линейное отношение её действительно разделяет. Этот двумерный пример разделяется чисто; то же решение доводит настоящий тест XOR примерно до 76%.","Concentric rings.":"Концентрические кольца.","Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.":"У обоих классов общий центр, поэтому позиционная половина Δk не различает их совсем. Они разделяются только по масштабу — именно поэтому классовый дифференциал смещает естественные параметры, а не одно лишь среднее."};</script>
 <script src="/assets/js/demos/cypha.js" defer></script><script src="/assets/js/demos/cypha-wasm.js" defer></script>
 </body>
 </html>

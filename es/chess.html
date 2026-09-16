@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Play chess against Cypha | Imortek</title>
-<meta name="description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
-<meta name="keywords" content="Cypha chess, chess engine, distilled model, browser chess, alpha-beta search, machine learning chess, 0x88 engine">
+<title>Juega al ajedrez contra Cypha | Imortek</title>
+<meta name="description" content="Cypha destilado de un motor de ajedrez real: 26.568 posiciones etiquetadas con las evaluaciones de búsqueda del propio motor. R2 0,866 en datos reservados. Juega en tu navegador.">
+<meta name="keywords" content="Cypha ajedrez, motor de ajedrez, modelo destilado, ajedrez en el navegador, búsqueda alfa-beta, aprendizaje automático ajedrez, jugar al ajedrez contra una IA">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="es">
 <meta name="imortek:speech" content="es-ES">
 <meta name="imortek:prefix" content="/es">
-<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Elegir idioma","lang.suggested":"Tu navegador prefiere este idioma","lang.close":"Cerrar","tools.label":"Herramientas de página","tools.toggle":"Mostrar u ocultar las herramientas","tools.readAloud":"Leer en voz alta","tools.pause":"Pausar","tools.stop":"Detener la lectura","tools.next":"Párrafo siguiente","tools.voice":"Comandos de voz","tools.explain":"Explicar la jerga","tools.reset":"reiniciar","tools.termsOnPage":"términos en esta página","tools.learned":"aprendidos","tools.preExpanded":"ya explicados","tools.openMore":"Abre {n} más y Cypha empezará a predecir","tools.understood":"entendidos","tools.corrected":"corregidos","tools.off":"apagado","tools.reading":"leyendo","search.placeholder":"Buscar — describe lo que quieres","search.aria":"Buscar en este sitio","search.hint":"Coincide por significado, no solo por palabras exactas. Esc para cerrar.","search.nothing":"Nada parecido.","related.eyebrow":"Lo más cercano en este sitio","related.title":"Lectura relacionada","related.note":"Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.","voice.help":"Puedes decir: leer, parar, siguiente, atrás, arriba, inicio, o el nombre de una página. También puedes describir lo que buscas y encontraré la página más cercana.","voice.notCaught":"No te he entendido. Di \"ayuda\" para saber qué puedes decir.","voice.listening":"Escuchando. Di \"ayuda\" para saber qué puedes decir.","voice.micOff":"Micrófono apagado.","voice.micBlocked":"Micrófono bloqueado. Permítelo en tu navegador para usar los comandos de voz.","voice.opening":"Abriendo","voice.didYouMean":"¿Querías decir","voice.sayNumber":"Di un número, o di no.","voice.understood":"Entendido. Dilo de otra manera, o di ayuda.","voice.endOfPage":"Fin de la página.","voice.searchOpen":"Búsqueda abierta.","voice.nothingRelated":"No hay nada relacionado en esta página.","voice.related":"Relacionado","voice.goingTo":"Yendo a","voice.heading":"Encabezado.","voice.or":"O","gloss.notInDict":"No está en el diccionario.","gloss.lookingUp":"buscando…","gloss.forget":"Olvidar lo que Cypha aprendió"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Elegir idioma","lang.suggested":"Tu navegador prefiere este idioma","lang.close":"Cerrar","tools.label":"Herramientas de página","tools.toggle":"Mostrar u ocultar las herramientas","tools.readAloud":"Leer en voz alta","tools.pause":"Pausar","tools.stop":"Detener la lectura","tools.next":"Párrafo siguiente","tools.voice":"Comandos de voz","tools.explain":"Explicar la jerga","tools.reset":"reiniciar","tools.termsOnPage":"términos en esta página","tools.learned":"aprendidos","tools.preExpanded":"ya explicados","tools.openMore":"Abre {n} más y Cypha empezará a predecir","tools.understood":"entendidos","tools.corrected":"corregidos","tools.off":"apagado","tools.reading":"leyendo","search.placeholder":"Buscar — describe lo que quieres","search.aria":"Buscar en este sitio","search.hint":"Coincide por significado, no solo por palabras exactas. Esc para cerrar.","search.nothing":"Nada parecido.","related.eyebrow":"Lo más cercano en este sitio","related.title":"Lectura relacionada","related.note":"Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.","voice.help":"Puedes decir: leer, parar, siguiente, atrás, arriba, inicio, o el nombre de una página. También puedes describir lo que buscas y encontraré la página más cercana.","voice.notCaught":"No te he entendido. Di \"ayuda\" para saber qué puedes decir.","voice.listening":"Escuchando. Di \"ayuda\" para saber qué puedes decir.","voice.micOff":"Micrófono apagado.","voice.micBlocked":"Micrófono bloqueado. Permítelo en tu navegador para usar los comandos de voz.","voice.opening":"Abriendo","voice.didYouMean":"¿Querías decir","voice.sayNumber":"Di un número, o di no.","voice.understood":"Entendido. Dilo de otra manera, o di ayuda.","voice.endOfPage":"Fin de la página.","voice.searchOpen":"Búsqueda abierta.","voice.nothingRelated":"No hay nada relacionado en esta página.","voice.related":"Relacionado","voice.goingTo":"Yendo a","voice.heading":"Encabezado.","voice.or":"O","gh.live":"en directo desde api.github.com","gh.cached":"copia guardada","gh.noDescription":"Sin descripción","gloss.notInDict":"No está en el diccionario.","gloss.lookingUp":"buscando…","gloss.forget":"Olvidar lo que Cypha aprendió"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Play chess against Cypha | Imortek">
-<meta property="og:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta property="og:title" content="Juega al ajedrez contra Cypha | Imortek">
+<meta property="og:description" content="Cypha destilado de un motor de ajedrez real: 26.568 posiciones etiquetadas con las evaluaciones de búsqueda del propio motor. R2 0,866 en datos reservados. Juega en tu navegador.">
 <meta property="og:url" content="https://imortek.com.au/es/chess.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Play chess against Cypha | Imortek">
+<meta property="og:image:alt" content="Juega al ajedrez contra Cypha | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Play chess against Cypha | Imortek">
-<meta name="twitter:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta name="twitter:title" content="Juega al ajedrez contra Cypha | Imortek">
+<meta name="twitter:description" content="Cypha destilado de un motor de ajedrez real: 26.568 posiciones etiquetadas con las evaluaciones de búsqueda del propio motor. R2 0,866 en datos reservados. Juega en tu navegador.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Play chess against Cypha | Imortek">
+<meta name="twitter:image:alt" content="Juega al ajedrez contra Cypha | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"es","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/es/chess.html#webpage","url":"https://imortek.com.au/es/chess.html","name":"Play chess against Cypha | Imortek","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","inLanguage":"es","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/es/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/es/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://imortek.com.au/es/"},{"@type":"ListItem","position":2,"name":"Play chess against Cypha","item":"https://imortek.com.au/es/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/es/chess.html#software","name":"Play chess against Cypha","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","url":"https://imortek.com.au/es/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"es","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/es/chess.html#webpage","url":"https://imortek.com.au/es/chess.html","name":"Juega al ajedrez contra Cypha | Imortek","description":"Cypha destilado de un motor de ajedrez real: 26.568 posiciones etiquetadas con las evaluaciones de búsqueda del propio motor. R2 0,866 en datos reservados. Juega en tu navegador.","inLanguage":"es","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/es/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/es/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://imortek.com.au/es/"},{"@type":"ListItem","position":2,"name":"Juega al ajedrez contra Cypha","item":"https://imortek.com.au/es/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/es/chess.html#software","name":"Juega al ajedrez contra Cypha","description":"Cypha destilado de un motor de ajedrez real: 26.568 posiciones etiquetadas con las evaluaciones de búsqueda del propio motor. R2 0,866 en datos reservados. Juega en tu navegador.","url":"https://imortek.com.au/es/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,40 +139,34 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Partes de esta página siguen en inglés. La traducción se está escribiendo; nada está traducido por máquina.</p></div>
 <section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px">
       <a href="/es/cypha.html" style="color:var(--ink-mute)">Cypha</a>
-      <span style="opacity:.5">/</span> Chess
+      <span style="opacity:.5">/</span> Ajedrez
     </p>
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">Product demo</span>
-        <h1>Play chess against <span class="gradient-text">Cypha</span></h1>
+        <span class="eyebrow">Demostración del producto</span>
+        <h1>Juega al ajedrez contra <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha did not learn chess from games. It learned it from an engine &mdash; the Imortek
-          reference engine, a conventional alpha-beta searcher with piece-square evaluation and
-          quiescence. Tens of thousands of positions were labelled with that engine&rsquo;s own
-          search evaluations, and Cypha&rsquo;s regression head was fitted to reproduce them.
+          Cypha no aprendió ajedrez de partidas. Lo aprendió de un motor &mdash; el motor de referencia de Imortek, un buscador alfa-beta convencional con evaluación pieza-casilla y búsqueda de quiescencia. Se etiquetaron decenas de miles de posiciones con las evaluaciones de búsqueda de ese motor, y la cabeza de regresión de Cypha se ajustó para reproducirlas.
         </p>
         <p class="lede">
-          What you play against below is that fitted head, running in your browser, inside a
-          shallow search. Every number on this page was measured by the training run that
-          produced it.
+          Contra lo que juegas aquí abajo es esa cabeza ajustada, corriendo en tu navegador, dentro de una búsqueda poco profunda. Cada número de esta página lo midió la ejecución de entrenamiento que lo produjo.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#board">Play a game</a>
-          <a class="btn btn--ghost" href="#how">How it was distilled</a>
+          <a class="btn btn--primary" href="#board">Juega una partida</a>
+          <a class="btn btn--ghost" href="#how">Cómo se destiló</a>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Measured, not claimed</span>
+          <span class="eyebrow" style="margin-bottom:16px">Medido, no afirmado</span>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Held-out R&sup2;</div>
+              <div class="readout__k">R&sup2; en datos reservados</div>
               <div class="readout__v" id="cx-r2">&mdash;</div>
             </div>
             <div class="readout__item">
@@ -180,43 +174,29 @@
               <div class="readout__v plain" id="cx-rmse">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Positions</div>
+              <div class="readout__k">Posiciones</div>
               <div class="readout__v plain" id="cx-positions" style="font-size:1.05rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">vs teacher</div>
+              <div class="readout__k">frente al maestro</div>
               <div class="readout__v amber" id="cx-match" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
           <p class="small muted" style="margin-top:16px">
-            R&sup2; is against held-out positions the model never saw during fitting. The match
-            line is Cypha at search depth 2 against the teacher engine at the same depth, with
-            randomised openings and colours alternated. All four numbers describe the model
-            <em>as distilled</em> &mdash; they are fixed, and they are not measurements of your copy.
+            El R&sup2; es contra posiciones reservadas que el modelo nunca vio durante el ajuste. La línea del enfrentamiento es Cypha a profundidad de búsqueda 2 contra el motor maestro a la misma profundidad, con aperturas aleatorizadas y colores alternados. Los cuatro números describen el modelo
+            <em>tal como se destiló</em> &mdash; son fijos, y no son mediciones de tu copia.
           </p>
 
           <div class="note note--violet" style="margin-top:20px">
-            <strong>Your copy is still learning.</strong> Cypha is an online learner, so the head
-            does not stop fitting when the download finishes. Every move it plays against you is
-            one more training pair, and the panel below the board shows how far your copy has
-            moved away from the one that shipped.
+            <strong>Tu copia sigue aprendiendo.</strong> Cypha aprende en línea, así que la cabeza no deja de ajustarse cuando termina la descarga. Cada jugada que hace contra ti es un par de entrenamiento más, y el panel debajo del tablero muestra cuánto se ha alejado tu copia de la que se distribuyó.
           </div>
 
           <div class="note note--amber" style="margin-top:16px">
-            <strong>And it does not yet make it play better. Measured, not assumed.</strong>
-            Over 12 self-play games the correction reduces the head&rsquo;s error against its own
-            search from <b>0.76</b> to <b>0.67</b> pawns &mdash; and where the frozen head drifts
-            <b>4.6%</b> worse across a session, the learning one gets <b>5.2%</b> better. So the
-            fitting is real. But a copy trained on 1,119 positions then played against the shipped
-            copy, 24 games at depth 2 with colours alternated, finishes <b>6W&ndash;7L&ndash;11D</b>:
-            a dead heat.
+            <strong>Y todavía no hace que juegue mejor. Medido, no supuesto.</strong>
+            A lo largo de 12 partidas de autojuego la corrección reduce el error de la cabeza frente a su propia búsqueda de <b>0.76</b> a <b>0.67</b> peones &mdash; y donde la cabeza congelada se desvía un
+            <b>4.6%</b> a peor a lo largo de una sesión, la que aprende se mueve un <b>5.2%</b> a mejor. Así que el ajuste es real. Pero una copia entrenada con 1.119 posiciones, jugada después contra la copia distribuida, 24 partidas a profundidad 2 con los colores alternados, termina <b>6 victorias&ndash;7 derrotas&ndash;11 tablas</b>: un empate técnico.
             <br><br>
-            That is the expected result and it is worth stating rather than hiding. The signal is
-            the model&rsquo;s own depth-2 search, which is barely deeper than the static head&rsquo;s
-            own view &mdash; learning to agree with yourself is not the same as getting stronger.
-            A thousand positions against the 26,568 it was distilled on is also nothing. The
-            honest claim is that the online learner works and is doing what it says; the claim
-            that it will beat the shipped model has not been earned.
+            Ese es el resultado esperado y merece la pena decirlo en vez de esconderlo. La señal es la propia búsqueda a profundidad 2 del modelo, que apenas es más profunda que la vista de la cabeza estática &mdash; aprender a estar de acuerdo contigo mismo no es lo mismo que hacerse más fuerte. Mil posiciones frente a las 26.568 con las que se destiló tampoco son nada. La afirmación honesta es que el aprendiz en línea funciona y hace lo que dice; la afirmación de que va a ganar al modelo distribuido no está ganada.
           </div>
         </div>
       </div>
@@ -228,17 +208,17 @@
   <div class="wrap">
     <div class="demo reveal" id="cx-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head <span class="badge badge--violet" style="margin-left:8px">learning</span></h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; cabeza de ajedrez <span class="badge badge--violet" style="margin-left:8px">aprendiendo</span></h3>
         <div class="controls">
-          <div class="seg" role="group" aria-label="Strength">
-            <button type="button" data-depth="1">Casual</button>
-            <button type="button" data-depth="2" aria-pressed="true">Standard</button>
-            <button type="button" data-depth="3">Careful</button>
+          <div class="seg" role="group" aria-label="Fuerza">
+            <button type="button" data-depth="1">Informal</button>
+            <button type="button" data-depth="2" aria-pressed="true">Estándar</button>
+            <button type="button" data-depth="3">Cuidadoso</button>
           </div>
           <label class="switch">
             <input type="checkbox" id="cx-flip">
             <span class="switch__track"></span>
-            <span>Play as black</span>
+            <span>Jugar con negras</span>
           </label>
         </div>
       </div>
@@ -247,118 +227,101 @@
         <div class="demo__stage">
           <div class="chess-wrap">
             <div class="chess-evalbar" aria-hidden="true"><div class="chess-evalbar__fill" id="cx-evalfill"></div></div>
-            <div class="chess-board" id="cx-board" role="grid" aria-label="Chess board"></div>
+            <div class="chess-board" id="cx-board" role="grid" aria-label="Tablero de ajedrez"></div>
           </div>
           <p class="demo__hint" style="margin-top:14px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click a piece, then click where it goes. Legal destinations are marked.
+            Haz clic en una pieza y luego en la casilla a la que va. Los destinos legales están marcados.
           </p>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm btn--primary" id="cx-new">New game</button>
-            <button class="btn btn--sm" id="cx-undo">Take back</button>
-            <button class="btn btn--sm btn--ghost" id="cx-hint">What would Cypha play?</button>
+            <button class="btn btn--sm btn--primary" id="cx-new">Nueva partida</button>
+            <button class="btn btn--sm" id="cx-undo">Deshacer jugada</button>
+            <button class="btn btn--sm btn--ghost" id="cx-hint">¿Qué jugaría Cypha?</button>
           </div>
         </div>
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Position</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Posición</h4>
             <div class="verdict" id="cx-status">
-              <div class="verdict__label">Loading model&hellip;</div>
-              <div class="verdict__why">Fetching the distilled weights.</div>
+              <div class="verdict__label">Cargando el modelo&hellip;</div>
+              <div class="verdict__why">Descargando los pesos destilados.</div>
             </div>
           </div>
 
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Cypha eval</div>
+              <div class="readout__k">Evaluación de Cypha</div>
               <div class="readout__v" id="cx-eval">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Nodes</div>
+              <div class="readout__k">Nodos</div>
               <div class="readout__v plain" id="cx-nodes" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">What Cypha considered</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Lo que Cypha consideró</h4>
             <div id="cx-candidates" style="display:grid;gap:8px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Moves</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Jugadas</h4>
             <div class="log" id="cx-moves" style="height:130px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Learning from you</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Aprendiendo de ti</h4>
             <div class="readout" style="grid-template-columns:1fr 1fr;margin-bottom:10px">
               <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-                <div class="readout__k">Rating at this depth</div>
+                <div class="readout__k">Puntuación a esta profundidad</div>
                 <div class="readout__v violet" id="cx-rating" style="font-size:1rem">&mdash;</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Model in use</div>
-                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">depth 2</div>
+                <div class="readout__k">Modelo en uso</div>
+                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">profundidad 2</div>
               </div>
             </div>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
-                <div class="readout__k">Positions learned</div>
+                <div class="readout__k">Posiciones aprendidas</div>
                 <div class="readout__v plain" id="cx-learn-pos" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Games finished</div>
+                <div class="readout__k">Partidas terminadas</div>
                 <div class="readout__v plain" id="cx-learn-games" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Drift from shipped</div>
+                <div class="readout__k">Deriva respecto a la distribuida</div>
                 <div class="readout__v violet" id="cx-learn-drift" style="font-size:1rem">0.00%</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Last correction</div>
+                <div class="readout__k">Última corrección</div>
                 <div class="readout__v plain" id="cx-learn-res" style="font-size:1rem">&mdash;</div>
               </div>
             </div>
             <div class="btn-row" style="margin-top:12px">
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">Learning on</button>
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">Reset to shipped</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">Aprendizaje activado</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">Volver a la distribuida</button>
             </div>
             <p class="tiny muted" style="margin-top:10px">
-              <strong>Drift</strong> is the size of the change to the weight vector, relative to the
-              distilled one. <strong>Last correction</strong> is how wrong the static head was about
-              the position it just moved from, in pawns, measured against its own deeper search.
+              <strong>Deriva</strong> es el tamaño del cambio en el vector de pesos, respecto al destilado. <strong>Última corrección</strong> es cuánto se equivocó la cabeza estática sobre la posición desde la que acaba de mover, en peones, medido contra su propia búsqueda más profunda.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>Rating</strong> is on an internal ladder, not FIDE &mdash; there is no honest way
-              to put a FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>Puntuación</strong> está en una escala interna, no FIDE &mdash; no hay forma honesta de ponerle un número FIDE a algo que nunca ha jugado contra un humano con Elo. El motor de referencia a profundidad 1 está anclado en 1000 y todo lo demás se ajusta a partir de 210 partidas por máxima verosimilitud de Bradley-Terry, así que no depende del orden en que se jugaron. La escala medida: referencia 1000 / 1171 / 1245 a profundidades 1&ndash;3, Cypha 798 / 1010 / 1161. Cypha va alrededor de una profundidad de búsqueda por detrás del motor del que se destiló, y las barras de error son de aproximadamente &plusmn;50, que es lo que te dan 210 partidas.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              Each strength setting keeps <strong>its own model</strong>. A head playing at depth 1
-              is corrected toward a depth-1 search; at depth 3 the target is a different, better
-              one. Training both into one weight vector would just have them argue. Switch
-              strength and the counters change with it.
+              Cada ajuste de fuerza mantiene <strong>su propio modelo</strong>. Una cabeza que juega a profundidad 1 se corrige hacia una búsqueda de profundidad 1; a profundidad 3 el objetivo es otro, mejor. Entrenar los dos en un solo vector de pesos solo haría que discutieran entre sí. Cambia la fuerza y los contadores cambian con ella.
             </p>
           </div>
 
           <div class="note" style="font-size:.79rem;padding:12px 14px">
-            The evaluation is a <strong>linear</strong> function of 388 features. It has no search
-            depth of its own, no opening book and no endgame knowledge. Beating it is expected;
-            the interesting part is that a single whitened linear head reproduces an engine&rsquo;s
-            search evaluation at all &mdash; and then keeps correcting itself while you play.
+            La evaluación es una función <strong>lineal</strong> de 388 características. No tiene profundidad de búsqueda propia, ni libro de aperturas, ni conocimiento de finales. Ganarle es lo esperable; lo interesante es que una sola cabeza lineal blanqueada llegue siquiera a reproducir la evaluación de búsqueda de un motor &mdash; y que luego siga corrigiéndose mientras juegas.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Engine, features, distilled weights and player all run locally. Nothing is sent anywhere,
-        and no model is downloaded beyond a few kilobytes of coefficients. What your copy learns
-        is kept in your browser, belongs to you, and is never uploaded &mdash; so nobody else&rsquo;s
-        games can move your model, and yours cannot move theirs.
+        El motor, las características, los pesos destilados y el jugador funcionan todos en local. No se envía nada a ninguna parte, y no se descarga ningún modelo más allá de unos pocos kilobytes de coeficientes. Lo que aprende tu copia se guarda en tu navegador, es tuyo y nunca se sube &mdash; así que las partidas de otros no pueden mover tu modelo, ni el tuyo el de ellos.
       </div>
     </div>
   </div>
@@ -367,90 +330,72 @@
 <section class="section section--alt" id="how">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Method</span>
-      <h2>How an engine becomes a Cypha model</h2>
+      <span class="eyebrow eyebrow--violet">Método</span>
+      <h2>Cómo un motor se convierte en un modelo de Cypha</h2>
       <p class="lede">
-        This is knowledge distillation, done with the same components as every other Cypha
-        application. Nothing chess-specific was added to the architecture &mdash; only the features.
+        Esto es destilación de conocimiento, hecha con los mismos componentes que cualquier otra aplicación de Cypha. No se añadió nada específico del ajedrez a la arquitectura &mdash; solo las características.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="The distillation chain: a perft-verified reference engine labels 26,568 positions, which become 388 features, fitted into a Cypha head of 9.4 kilobytes achieving held-out R squared of 0.866" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>Distillation, not discovery.</b> Every number in the last box was measured by the training run that produced the weights this page loads.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="La cadena de destilación: un motor de referencia verificado con perft etiqueta 26.568 posiciones, que se convierten en 388 características, ajustadas en una cabeza de Cypha de 9,4 kilobytes que alcanza un R cuadrado de 0,866 en datos reservados" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>Destilación, no descubrimiento.</b> Cada número del último recuadro lo midió la ejecución de entrenamiento que produjo los pesos que carga esta página.</figcaption></figure>
 
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 1</span>
-        <h3 style="font-size:1.02rem">The teacher</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Paso 1</span>
+        <h3 style="font-size:1.02rem">El maestro</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          MVV-LVA ordering and quiescence search. Verified against five standard perft positions
-          including kiwipete, so the rules are provably right before anything is learned from it.
+          Un motor 0x88 con generación completa de jugadas legales, evaluación por material y pieza-casilla, ordenación MVV-LVA y búsqueda de quiescencia. Verificado contra cinco posiciones perft estándar, incluida kiwipete, así que las reglas son demostrablemente correctas antes de aprender nada de él.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 2</span>
-        <h3 style="font-size:1.02rem">The data</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Paso 2</span>
+        <h3 style="font-size:1.02rem">Los datos</h3>
         <p class="small dim" style="margin:0">
-          Positions drawn from self-play with randomised openings and deliberate noise, so the
-          set spans real games rather than one narrow line. Each is labelled with the teacher&rsquo;s
-          own search score, clipped to &plusmn;12 pawns to keep mate scores from dominating.
+          Posiciones sacadas de autojuego con aperturas aleatorizadas y ruido deliberado, para que el conjunto abarque partidas reales y no una sola línea estrecha. Cada una va etiquetada con la puntuación de búsqueda del propio maestro, recortada a &plusmn;12 peones para que las puntuaciones de mate no dominen.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 3</span>
-        <h3 style="font-size:1.02rem">The features</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">Paso 3</span>
+        <h3 style="font-size:1.02rem">Las características</h3>
         <p class="small dim" style="margin:0">
-          388 dimensions: a 384-wide piece-square occupancy difference (6 types &times; 64 squares)
-          plus bishop pair, doubled pawns, mobility and game phase. Always from the side to move&rsquo;s
-          perspective, so one weight vector serves both colours.
+          388 dimensiones: una diferencia de ocupación pieza-casilla de 384 de ancho (6 tipos &times; 64 casillas) más pareja de alfiles, peones doblados, movilidad y fase de la partida. Siempre desde la perspectiva del bando que mueve, así que un solo vector de pesos sirve para los dos colores.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 4</span>
-        <h3 style="font-size:1.02rem">The fit</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">Paso 4</span>
+        <h3 style="font-size:1.02rem">El ajuste</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised-LMS weight updates, MDL decay pulling weights back toward the prior,
-          and a surprise-weighted replay buffer at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; ajustado en línea por Welford, blanqueo como métrica del gradiente natural, actualizaciones de pesos por LMS normalizado, decaimiento MDL que tira de los pesos de vuelta hacia el prior, y un búfer de repetición ponderado por sorpresa con la proporción de referencia de 0,30 de Cypha.
         </p>
       </div>
     </div>
 
     <div class="split" style="margin-top:48px">
       <div class="reveal">
-        <span class="eyebrow">Why this is a fair demonstration</span>
-        <h3>The architecture did the work, not the domain</h3>
+        <span class="eyebrow">Por qué esta es una demostración justa</span>
+        <h3>El trabajo lo hizo la arquitectura, no el dominio</h3>
         <p class="dim">
-          Every component in step 4 is a real Cypha component doing its real job. The WorldPrior
-          is the same online Gaussian that gives the 2-D classifier on the
-          <a href="/es/cypha.html#demo">Cypha page</a> its decision surface. The whitening is the
-          information-geometry claim made concrete: updates follow the natural gradient rather
-          than the raw one. MDL decay is the Solomonoff prior expressed as a shrinkage term.
+          Cada componente del paso 4 es un componente real de Cypha haciendo su trabajo real. El WorldPrior es la misma gaussiana en línea que le da al clasificador 2-D de la
+          <a href="/es/cypha.html#demo">página de Cypha</a> su superficie de decisión. El blanqueo es la afirmación de la geometría de la información hecha concreta: las actualizaciones siguen el gradiente natural y no el crudo. El decaimiento MDL es el prior de Solomonoff expresado como término de contracción.
         </p>
         <p class="dim">
-          What changed for chess is the feature map and the head &mdash; regression instead of
-          classification. That is the argument the Cypha README makes about being one type that
-          does several jobs, tested on a domain where the answer is unambiguous: either it plays
-          legal, reasonable chess or it does not.
+          Lo que cambió para el ajedrez es el mapa de características y la cabeza &mdash; regresión en lugar de clasificación. Ese es el argumento que hace el README de Cypha sobre ser un solo tipo que hace varios trabajos, puesto a prueba en un dominio donde la respuesta no es ambigua: o juega un ajedrez legal y razonable o no lo hace.
         </p>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">What this does not show</span>
-        <h3>The honest limits</h3>
+        <span class="eyebrow eyebrow--amber">Lo que esto no demuestra</span>
+        <h3>Los límites honestos</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>It is linear.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for XOR.</li>
-          <li><strong>The teacher is modest.</strong> The reference engine is a competent classical searcher, not Stockfish. Distilling it well means matching a modest evaluator well.</li>
-          <li><strong>No search depth of its own.</strong> Strength here comes mostly from the alpha-beta wrapper, exactly as it does for the teacher.</li>
-          <li><strong>Distillation is not discovery.</strong> Cypha reproduced an evaluation function it was shown. It did not learn chess from scratch, and nothing on this page claims it did.</li>
+          <li><strong>Es lineal.</strong> Una función lineal de características pieza-casilla no puede representar la seguridad del rey, las interacciones de la estructura de peones ni nada que requiera el producto de dos características. Tiene el mismo techo que el README de Cypha describe para XOR.</li>
+          <li><strong>El maestro es modesto.</strong> El motor de referencia es un buscador clásico competente, no Stockfish. Destilarlo bien significa igualar bien a un evaluador modesto.</li>
+          <li><strong>Sin profundidad de búsqueda propia.</strong> Aquí la fuerza viene sobre todo del envoltorio alfa-beta, exactamente igual que en el maestro.</li>
+          <li><strong>Destilar no es descubrir.</strong> Cypha reprodujo una función de evaluación que se le mostró. No aprendió ajedrez desde cero, y nada en esta página afirma que lo hiciera.</li>
         </ul>
       </div>
     </div>
 
     <div class="note note--violet reveal" style="margin-top:32px">
-      <strong>Reproduce it:</strong> <code>node tools/chess/perft.js</code> verifies the engine
-      against the standard test positions, and <code>node tools/chess/train.js</code> regenerates
-      the model from scratch with a fixed seed. The numbers at the top of this page are read
-      directly out of the file that run produces.
+      <strong>Reprodúcelo:</strong> <code>node tools/chess/perft.js</code> verifica el motor contra las posiciones de prueba estándar, y <code>node tools/chess/train.js</code> regenera el modelo desde cero con una semilla fija. Los números de la parte superior de esta página se leen directamente del archivo que produce esa ejecución.
     </div>
   </div>
 </section>
@@ -520,7 +465,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-16T11:37:49Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
+      <span class="mono tiny">Compilado 2026-09-16T12:42:38Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
     </div>
   </div>
 </footer>
@@ -531,6 +476,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Class A":"Clase A","Class B":"Clase B","Class C":"Clase C","Click to place samples, or load a dataset below":"Haz clic para colocar muestras, o carga abajo un conjunto de datos","Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.":"Por debajo del prior del mundo — este punto es más probable bajo θ₀ que bajo cualquier clase. Marcado como fuera de distribución.","Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.":"Argmax de la razón de log-verosimilitud frente al prior del mundo, con el segundo clasificado {n} nats por detrás.","Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.":"Argmax de la razón de log-verosimilitud frente al prior del mundo, con el segundo clasificado todavía sin ajustar.","XOR with the identity encoder.":"XOR con el codificador identidad.","A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.":"Una razón de log-verosimilitud lineal no puede separar estos cuadrantes — la precisión se queda cerca del azar, exactamente como dice el README de Cypha. Activa arriba el codificador latente RFF.","XOR with random Fourier features.":"XOR con características aleatorias de Fourier.","The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.":"El codificador eleva el problema a un espacio donde una razón lineal sí lo separa. Este juguete en 2-D se separa limpiamente; el mismo arreglo lleva el benchmark XOR real a alrededor del 76%.","Concentric rings.":"Anillos concéntricos.","Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.":"Ambas clases comparten un centro, así que la mitad de localización de Δk no las distingue en absoluto. Se separan solo por escala — por eso el diferencial de clase desplaza los parámetros naturales, no solo la media.","YOU WIN":"HAS GANADO","CYPHA WINS":"GANA CYPHA","Checkmate in {n} moves.":"Jaque mate en {n} jugadas.","DRAW":"TABLAS","Stalemate — no legal move, and not in check.":"Rey ahogado — sin jugada legal y sin estar en jaque.","Fifty-move rule.":"Regla de las cincuenta jugadas.","Insufficient material.":"Material insuficiente.","CYPHA IS THINKING":"CYPHA ESTÁ PENSANDO","YOUR MOVE":"TU TURNO","CYPHA TO MOVE":"TURNO DE CYPHA","Check.":"Jaque.","Click a piece to see where it can go.":"Haz clic en una pieza para ver adónde puede ir.","Searching to depth {n} with the distilled evaluation.":"Buscando a profundidad {n} con la evaluación destilada.","Learning on":"Aprendizaje activado","Learning off":"Aprendizaje desactivado"};</script>
 <script src="/assets/js/chess/engine.js" defer></script><script src="/assets/js/chess/features.js" defer></script><script src="/assets/js/chess/cypha.js" defer></script><script src="/assets/js/demos/chess.js" defer></script>
 </body>
 </html>

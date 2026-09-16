@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Play chess against Cypha | Imortek</title>
-<meta name="description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
-<meta name="keywords" content="Cypha chess, chess engine, distilled model, browser chess, alpha-beta search, machine learning chess, 0x88 engine">
+<title>Cypha-র সঙ্গে দাবা খেলুন | Imortek</title>
+<meta name="description" content="Cypha একটি সত্যিকারের দাবা ইঞ্জিন থেকে ডিস্টিল করা: ২৬,৫৬৮টি অবস্থানে ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া। আলাদা রাখা অংশে R2 ০.৮৬৬। ব্রাউজারেই খেলে দেখুন।">
+<meta name="keywords" content="Cypha দাবা, দাবা ইঞ্জিন, ডিস্টিল করা মডেল, ব্রাউজারে দাবা, আলফা-বিটা অনুসন্ধান, মেশিন লার্নিং দাবা, AI-এর সঙ্গে দাবা খেলুন">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="bn">
 <meta name="imortek:speech" content="bn-BD">
 <meta name="imortek:prefix" content="/bn">
-<script>window.__IMORTEK_I18N={"lang.label":"ভাষা","lang.choose":"একটি ভাষা বেছে নিন","lang.suggested":"আপনার ব্রাউজার এই ভাষা পছন্দ করে","lang.close":"বন্ধ করুন","tools.label":"পৃষ্ঠার সরঞ্জাম","tools.toggle":"পৃষ্ঠার সরঞ্জাম দেখান বা লুকান","tools.readAloud":"পড়ে শোনান","tools.pause":"থামান","tools.stop":"পড়া বন্ধ করুন","tools.next":"পরের অনুচ্ছেদ","tools.voice":"কণ্ঠ নির্দেশ","tools.explain":"কঠিন শব্দ বুঝিয়ে দিন","tools.reset":"রিসেট","tools.termsOnPage":"টি শব্দ এই পৃষ্ঠায়","tools.learned":"শেখা হয়েছে","tools.preExpanded":"আগেই খোলা","tools.openMore":"আরও {n}টি খুলুন, তখন Cypha অনুমান করা শুরু করবে","tools.understood":"বোঝা গেছে","tools.corrected":"সংশোধিত","tools.off":"বন্ধ","tools.reading":"পড়া হচ্ছে","search.placeholder":"খুঁজুন — কী চান লিখে বলুন","search.aria":"এই সাইটে খুঁজুন","search.hint":"শুধু হুবহু শব্দ নয়, অর্থ মিলিয়ে খোঁজে। বন্ধ করতে Esc।","search.nothing":"কাছাকাছি কিছু নেই।","related.eyebrow":"এই সাইটে সবচেয়ে কাছের","related.title":"সম্পর্কিত পড়া","related.note":"হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।","voice.help":"আপনি বলতে পারেন: পড়ো, থামো, পরের, আগের, উপরে, হোম, অথবা কোনো পৃষ্ঠার নাম। কী চান তা বর্ণনা করলেও আমি সবচেয়ে কাছের পৃষ্ঠাটি খুঁজে দেব।","voice.notCaught":"বুঝতে পারিনি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.listening":"শুনছি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.micOff":"মাইক্রোফোন বন্ধ।","voice.micBlocked":"মাইক্রোফোন আটকে আছে। কণ্ঠ নির্দেশ ব্যবহার করতে ব্রাউজারে অনুমতি দিন।","voice.opening":"খুলছি","voice.didYouMean":"আপনি কি বলতে চেয়েছিলেন","voice.sayNumber":"একটি সংখ্যা বলুন, অথবা \"না\" বলুন।","voice.understood":"বুঝেছি। অন্যভাবে বলুন, অথবা \"সাহায্য\" বলুন।","voice.endOfPage":"পৃষ্ঠা শেষ।","voice.searchOpen":"অনুসন্ধান খোলা হয়েছে।","voice.nothingRelated":"এই পৃষ্ঠায় সম্পর্কিত কিছু নেই।","voice.related":"সম্পর্কিত","voice.goingTo":"যাচ্ছি","voice.heading":"শিরোনাম।","voice.or":"অথবা","gloss.notInDict":"অভিধানে নেই।","gloss.lookingUp":"খোঁজা হচ্ছে…","gloss.forget":"Cypha যা শিখেছে তা মুছে ফেলুন"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"ভাষা","lang.choose":"একটি ভাষা বেছে নিন","lang.suggested":"আপনার ব্রাউজার এই ভাষা পছন্দ করে","lang.close":"বন্ধ করুন","tools.label":"পৃষ্ঠার সরঞ্জাম","tools.toggle":"পৃষ্ঠার সরঞ্জাম দেখান বা লুকান","tools.readAloud":"পড়ে শোনান","tools.pause":"থামান","tools.stop":"পড়া বন্ধ করুন","tools.next":"পরের অনুচ্ছেদ","tools.voice":"কণ্ঠ নির্দেশ","tools.explain":"কঠিন শব্দ বুঝিয়ে দিন","tools.reset":"রিসেট","tools.termsOnPage":"টি শব্দ এই পৃষ্ঠায়","tools.learned":"শেখা হয়েছে","tools.preExpanded":"আগেই খোলা","tools.openMore":"আরও {n}টি খুলুন, তখন Cypha অনুমান করা শুরু করবে","tools.understood":"বোঝা গেছে","tools.corrected":"সংশোধিত","tools.off":"বন্ধ","tools.reading":"পড়া হচ্ছে","search.placeholder":"খুঁজুন — কী চান লিখে বলুন","search.aria":"এই সাইটে খুঁজুন","search.hint":"শুধু হুবহু শব্দ নয়, অর্থ মিলিয়ে খোঁজে। বন্ধ করতে Esc।","search.nothing":"কাছাকাছি কিছু নেই।","related.eyebrow":"এই সাইটে সবচেয়ে কাছের","related.title":"সম্পর্কিত পড়া","related.note":"হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।","voice.help":"আপনি বলতে পারেন: পড়ো, থামো, পরের, আগের, উপরে, হোম, অথবা কোনো পৃষ্ঠার নাম। কী চান তা বর্ণনা করলেও আমি সবচেয়ে কাছের পৃষ্ঠাটি খুঁজে দেব।","voice.notCaught":"বুঝতে পারিনি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.listening":"শুনছি। কী কী বলা যায় জানতে \"সাহায্য\" বলুন।","voice.micOff":"মাইক্রোফোন বন্ধ।","voice.micBlocked":"মাইক্রোফোন আটকে আছে। কণ্ঠ নির্দেশ ব্যবহার করতে ব্রাউজারে অনুমতি দিন।","voice.opening":"খুলছি","voice.didYouMean":"আপনি কি বলতে চেয়েছিলেন","voice.sayNumber":"একটি সংখ্যা বলুন, অথবা \"না\" বলুন।","voice.understood":"বুঝেছি। অন্যভাবে বলুন, অথবা \"সাহায্য\" বলুন।","voice.endOfPage":"পৃষ্ঠা শেষ।","voice.searchOpen":"অনুসন্ধান খোলা হয়েছে।","voice.nothingRelated":"এই পৃষ্ঠায় সম্পর্কিত কিছু নেই।","voice.related":"সম্পর্কিত","voice.goingTo":"যাচ্ছি","voice.heading":"শিরোনাম।","voice.or":"অথবা","gh.live":"api.github.com থেকে সরাসরি","gh.cached":"সংরক্ষিত অনুলিপি","gh.noDescription":"কোনো বিবরণ নেই","gloss.notInDict":"অভিধানে নেই।","gloss.lookingUp":"খোঁজা হচ্ছে…","gloss.forget":"Cypha যা শিখেছে তা মুছে ফেলুন"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Play chess against Cypha | Imortek">
-<meta property="og:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta property="og:title" content="Cypha-র সঙ্গে দাবা খেলুন | Imortek">
+<meta property="og:description" content="Cypha একটি সত্যিকারের দাবা ইঞ্জিন থেকে ডিস্টিল করা: ২৬,৫৬৮টি অবস্থানে ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া। আলাদা রাখা অংশে R2 ০.৮৬৬। ব্রাউজারেই খেলে দেখুন।">
 <meta property="og:url" content="https://imortek.com.au/bn/chess.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Play chess against Cypha | Imortek">
+<meta property="og:image:alt" content="Cypha-র সঙ্গে দাবা খেলুন | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Play chess against Cypha | Imortek">
-<meta name="twitter:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta name="twitter:title" content="Cypha-র সঙ্গে দাবা খেলুন | Imortek">
+<meta name="twitter:description" content="Cypha একটি সত্যিকারের দাবা ইঞ্জিন থেকে ডিস্টিল করা: ২৬,৫৬৮টি অবস্থানে ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া। আলাদা রাখা অংশে R2 ০.৮৬৬। ব্রাউজারেই খেলে দেখুন।">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Play chess against Cypha | Imortek">
+<meta name="twitter:image:alt" content="Cypha-র সঙ্গে দাবা খেলুন | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"bn","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/bn/chess.html#webpage","url":"https://imortek.com.au/bn/chess.html","name":"Play chess against Cypha | Imortek","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","inLanguage":"bn","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/bn/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/bn/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"হোম","item":"https://imortek.com.au/bn/"},{"@type":"ListItem","position":2,"name":"Play chess against Cypha","item":"https://imortek.com.au/bn/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/bn/chess.html#software","name":"Play chess against Cypha","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","url":"https://imortek.com.au/bn/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"bn","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/bn/chess.html#webpage","url":"https://imortek.com.au/bn/chess.html","name":"Cypha-র সঙ্গে দাবা খেলুন | Imortek","description":"Cypha একটি সত্যিকারের দাবা ইঞ্জিন থেকে ডিস্টিল করা: ২৬,৫৬৮টি অবস্থানে ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া। আলাদা রাখা অংশে R2 ০.৮৬৬। ব্রাউজারেই খেলে দেখুন।","inLanguage":"bn","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/bn/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/bn/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"হোম","item":"https://imortek.com.au/bn/"},{"@type":"ListItem","position":2,"name":"Cypha-র সঙ্গে দাবা খেলুন","item":"https://imortek.com.au/bn/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/bn/chess.html#software","name":"Cypha-র সঙ্গে দাবা খেলুন","description":"Cypha একটি সত্যিকারের দাবা ইঞ্জিন থেকে ডিস্টিল করা: ২৬,৫৬৮টি অবস্থানে ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া। আলাদা রাখা অংশে R2 ০.৮৬৬। ব্রাউজারেই খেলে দেখুন।","url":"https://imortek.com.au/bn/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,40 +139,34 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">এই পৃষ্ঠার কিছু অংশ এখনও ইংরেজিতে। অনুবাদ লেখা হচ্ছে; কিছুই যন্ত্রে অনূদিত নয়।</p></div>
 <section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px">
       <a href="/bn/cypha.html" style="color:var(--ink-mute)">Cypha</a>
-      <span style="opacity:.5">/</span> Chess
+      <span style="opacity:.5">/</span> দাবা
     </p>
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">Product demo</span>
-        <h1>Play chess against <span class="gradient-text">Cypha</span></h1>
+        <span class="eyebrow">পণ্যের প্রদর্শনী</span>
+        <h1>দাবা খেলুন, প্রতিপক্ষ <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha did not learn chess from games. It learned it from an engine &mdash; the Imortek
-          reference engine, a conventional alpha-beta searcher with piece-square evaluation and
-          quiescence. Tens of thousands of positions were labelled with that engine&rsquo;s own
-          search evaluations, and Cypha&rsquo;s regression head was fitted to reproduce them.
+          Cypha দাবা শিখেছে খেলা দেখে নয়। শিখেছে একটি ইঞ্জিনের কাছ থেকে &mdash; Imortek রেফারেন্স ইঞ্জিন, ঘুঁটি-ঘর মূল্যায়ন ও কোয়াইসেন্সসহ একটি প্রচলিত আলফা-বিটা অনুসন্ধানকারী। কয়েক দশ হাজার অবস্থানে ওই ইঞ্জিনের নিজের অনুসন্ধান-মূল্যায়ন দিয়ে লেবেল দেওয়া হয়েছে, আর Cypha-র রিগ্রেশন হেডকে সেগুলি ফিরিয়ে আনার জন্য বসানো হয়েছে।
         </p>
         <p class="lede">
-          What you play against below is that fitted head, running in your browser, inside a
-          shallow search. Every number on this page was measured by the training run that
-          produced it.
+          নিচে আপনি যার বিরুদ্ধে খেলছেন সেটি ওই বসানো হেডটাই, আপনার ব্রাউজারে চলছে, একটি অগভীর অনুসন্ধানের ভিতরে। এই পাতার প্রতিটি সংখ্যা মাপা হয়েছে সেই প্রশিক্ষণ-চালনায়, যা সেটি তৈরি করেছে।
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#board">Play a game</a>
-          <a class="btn btn--ghost" href="#how">How it was distilled</a>
+          <a class="btn btn--primary" href="#board">একটা খেলা খেলুন</a>
+          <a class="btn btn--ghost" href="#how">কীভাবে ডিস্টিল করা হলো</a>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Measured, not claimed</span>
+          <span class="eyebrow" style="margin-bottom:16px">মাপা, দাবি করা নয়</span>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Held-out R&sup2;</div>
+              <div class="readout__k">আলাদা রাখা অংশে R&sup2;</div>
               <div class="readout__v" id="cx-r2">&mdash;</div>
             </div>
             <div class="readout__item">
@@ -180,43 +174,29 @@
               <div class="readout__v plain" id="cx-rmse">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Positions</div>
+              <div class="readout__k">অবস্থান</div>
               <div class="readout__v plain" id="cx-positions" style="font-size:1.05rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">vs teacher</div>
+              <div class="readout__k">শিক্ষকের বিপরীতে</div>
               <div class="readout__v amber" id="cx-match" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
           <p class="small muted" style="margin-top:16px">
-            R&sup2; is against held-out positions the model never saw during fitting. The match
-            line is Cypha at search depth 2 against the teacher engine at the same depth, with
-            randomised openings and colours alternated. All four numbers describe the model
-            <em>as distilled</em> &mdash; they are fixed, and they are not measurements of your copy.
+            R&sup2; মাপা হয়েছে আলাদা করে রাখা এমন অবস্থানের বিপরীতে, যা ফিটিংয়ের সময় মডেল কখনও দেখেনি। ম্যাচের লাইনটি হলো গভীরতা ২-এ Cypha বনাম একই গভীরতায় শিক্ষক ইঞ্জিন, এলোমেলো ওপেনিং আর রং বদলে বদলে। চারটি সংখ্যাই বর্ণনা করে সেই মডেলকে
+            <em>যেমনটি ডিস্টিল করা হয়েছিল</em> &mdash; এগুলি স্থির, আর এগুলি আপনার কপির মাপজোক নয়।
           </p>
 
           <div class="note note--violet" style="margin-top:20px">
-            <strong>Your copy is still learning.</strong> Cypha is an online learner, so the head
-            does not stop fitting when the download finishes. Every move it plays against you is
-            one more training pair, and the panel below the board shows how far your copy has
-            moved away from the one that shipped.
+            <strong>আপনার কপিটি এখনও শিখছে।</strong> Cypha একটি অনলাইন শিক্ষার্থী, তাই ডাউনলোড শেষ হলেই হেডের বসা থেমে যায় না। আপনার বিরুদ্ধে দেওয়া প্রতিটি চালই আরও একটি প্রশিক্ষণ জোড়া, আর বোর্ডের নিচের প্যানেলটি দেখায় আপনার কপিটি পাঠানো কপি থেকে কতদূর সরে এসেছে।
           </div>
 
           <div class="note note--amber" style="margin-top:16px">
-            <strong>And it does not yet make it play better. Measured, not assumed.</strong>
-            Over 12 self-play games the correction reduces the head&rsquo;s error against its own
-            search from <b>0.76</b> to <b>0.67</b> pawns &mdash; and where the frozen head drifts
-            <b>4.6%</b> worse across a session, the learning one gets <b>5.2%</b> better. So the
-            fitting is real. But a copy trained on 1,119 positions then played against the shipped
-            copy, 24 games at depth 2 with colours alternated, finishes <b>6W&ndash;7L&ndash;11D</b>:
-            a dead heat.
+            <strong>আর এতে এখনও সে ভালো খেলে না। মাপা, ধরে নেওয়া নয়।</strong>
+            ১২টি স্ব-খেলায় এই সংশোধন নিজের অনুসন্ধানের বিপরীতে হেডের ভুল কমায় <b>0.76</b> থেকে <b>0.67</b> পনে &mdash; আর একটি সেশনে জমে থাকা হেড যেখানে
+            <b>4.6%</b> খারাপ হয়, সেখানে শেখা হেডটি হয় <b>5.2%</b> ভালো। কাজেই ফিটিংটা সত্যি। কিন্তু ১,১১৯টি অবস্থানে প্রশিক্ষণ পাওয়া একটি কপিকে পাঠানো কপির বিপরীতে খেলালে, রং বদলে বদলে গভীরতা ২-এ ২৪টি খেলায়, ফল দাঁড়ায় <b>৬ জয়&ndash;৭ হার&ndash;১১ ড্র</b>: হাড্ডাহাড্ডি।
             <br><br>
-            That is the expected result and it is worth stating rather than hiding. The signal is
-            the model&rsquo;s own depth-2 search, which is barely deeper than the static head&rsquo;s
-            own view &mdash; learning to agree with yourself is not the same as getting stronger.
-            A thousand positions against the 26,568 it was distilled on is also nothing. The
-            honest claim is that the online learner works and is doing what it says; the claim
-            that it will beat the shipped model has not been earned.
+            এটাই প্রত্যাশিত ফল, আর লুকিয়ে রাখার চেয়ে বলে দেওয়াই ভালো। সংকেতটা আসে মডেলের নিজের গভীরতা-২ অনুসন্ধান থেকে, যা জমে থাকা হেডের নিজের দৃষ্টির চেয়ে সামান্যই গভীর &mdash; নিজের সঙ্গে একমত হতে শেখা আর শক্তিশালী হওয়া এক কথা নয়। যে ২৬,৫৬৮টি অবস্থানের উপর একে ডিস্টিল করা হয়েছিল, তার পাশে হাজারখানেক অবস্থান কিছুই নয়। সৎ দাবিটা হলো, অনলাইন শিক্ষার্থীটি কাজ করে এবং যা বলে তা-ই করছে; পাঠানো মডেলকে সে হারাবে, এই দাবিটা অর্জিত হয়নি।
           </div>
         </div>
       </div>
@@ -228,17 +208,17 @@
   <div class="wrap">
     <div class="demo reveal" id="cx-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head <span class="badge badge--violet" style="margin-left:8px">learning</span></h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; দাবার হেড <span class="badge badge--violet" style="margin-left:8px">শিখছে</span></h3>
         <div class="controls">
-          <div class="seg" role="group" aria-label="Strength">
-            <button type="button" data-depth="1">Casual</button>
-            <button type="button" data-depth="2" aria-pressed="true">Standard</button>
-            <button type="button" data-depth="3">Careful</button>
+          <div class="seg" role="group" aria-label="শক্তি">
+            <button type="button" data-depth="1">হালকা</button>
+            <button type="button" data-depth="2" aria-pressed="true">সাধারণ</button>
+            <button type="button" data-depth="3">সতর্ক</button>
           </div>
           <label class="switch">
             <input type="checkbox" id="cx-flip">
             <span class="switch__track"></span>
-            <span>Play as black</span>
+            <span>কালো নিয়ে খেলুন</span>
           </label>
         </div>
       </div>
@@ -247,118 +227,101 @@
         <div class="demo__stage">
           <div class="chess-wrap">
             <div class="chess-evalbar" aria-hidden="true"><div class="chess-evalbar__fill" id="cx-evalfill"></div></div>
-            <div class="chess-board" id="cx-board" role="grid" aria-label="Chess board"></div>
+            <div class="chess-board" id="cx-board" role="grid" aria-label="দাবার বোর্ড"></div>
           </div>
           <p class="demo__hint" style="margin-top:14px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click a piece, then click where it goes. Legal destinations are marked.
+            একটি ঘুঁটিতে ক্লিক করুন, তারপর যেখানে যাবে সেখানে ক্লিক করুন। বৈধ ঘরগুলি চিহ্নিত।
           </p>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm btn--primary" id="cx-new">New game</button>
-            <button class="btn btn--sm" id="cx-undo">Take back</button>
-            <button class="btn btn--sm btn--ghost" id="cx-hint">What would Cypha play?</button>
+            <button class="btn btn--sm btn--primary" id="cx-new">নতুন খেলা</button>
+            <button class="btn btn--sm" id="cx-undo">চাল ফিরিয়ে নিন</button>
+            <button class="btn btn--sm btn--ghost" id="cx-hint">Cypha কী চাল দিত?</button>
           </div>
         </div>
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Position</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">অবস্থান</h4>
             <div class="verdict" id="cx-status">
-              <div class="verdict__label">Loading model&hellip;</div>
-              <div class="verdict__why">Fetching the distilled weights.</div>
+              <div class="verdict__label">মডেল লোড হচ্ছে&hellip;</div>
+              <div class="verdict__why">ডিস্টিল করা ওজনগুলি আনা হচ্ছে।</div>
             </div>
           </div>
 
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Cypha eval</div>
+              <div class="readout__k">Cypha-র মূল্যায়ন</div>
               <div class="readout__v" id="cx-eval">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Nodes</div>
+              <div class="readout__k">নোড</div>
               <div class="readout__v plain" id="cx-nodes" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">What Cypha considered</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Cypha কী কী ভেবেছিল</h4>
             <div id="cx-candidates" style="display:grid;gap:8px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Moves</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">চাল</h4>
             <div class="log" id="cx-moves" style="height:130px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Learning from you</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">আপনার কাছ থেকে শেখা</h4>
             <div class="readout" style="grid-template-columns:1fr 1fr;margin-bottom:10px">
               <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-                <div class="readout__k">Rating at this depth</div>
+                <div class="readout__k">এই গভীরতায় রেটিং</div>
                 <div class="readout__v violet" id="cx-rating" style="font-size:1rem">&mdash;</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Model in use</div>
-                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">depth 2</div>
+                <div class="readout__k">ব্যবহৃত মডেল</div>
+                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">গভীরতা ২</div>
               </div>
             </div>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
-                <div class="readout__k">Positions learned</div>
+                <div class="readout__k">শেখা অবস্থান</div>
                 <div class="readout__v plain" id="cx-learn-pos" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Games finished</div>
+                <div class="readout__k">শেষ হওয়া খেলা</div>
                 <div class="readout__v plain" id="cx-learn-games" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Drift from shipped</div>
+                <div class="readout__k">পাঠানো মডেল থেকে ড্রিফট</div>
                 <div class="readout__v violet" id="cx-learn-drift" style="font-size:1rem">0.00%</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Last correction</div>
+                <div class="readout__k">শেষ সংশোধন</div>
                 <div class="readout__v plain" id="cx-learn-res" style="font-size:1rem">&mdash;</div>
               </div>
             </div>
             <div class="btn-row" style="margin-top:12px">
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">Learning on</button>
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">Reset to shipped</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">শেখা চালু</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">পাঠানো মডেলে ফিরুন</button>
             </div>
             <p class="tiny muted" style="margin-top:10px">
-              <strong>Drift</strong> is the size of the change to the weight vector, relative to the
-              distilled one. <strong>Last correction</strong> is how wrong the static head was about
-              the position it just moved from, in pawns, measured against its own deeper search.
+              <strong>ড্রিফট</strong> মানে ওজন-ভেক্টরে হওয়া পরিবর্তনের মাপ, ডিস্টিল করাটির তুলনায়। <strong>শেষ সংশোধন</strong> মানে, এইমাত্র যে অবস্থান থেকে চাল দেওয়া হলো তা নিয়ে জমে থাকা হেডটি কতটা ভুল ছিল, পনে মাপা, তার নিজের আরও গভীর অনুসন্ধানের বিপরীতে।
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>Rating</strong> is on an internal ladder, not FIDE &mdash; there is no honest way
-              to put a FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>রেটিং</strong> দেওয়া হয়েছে একটি অভ্যন্তরীণ মইয়ে, FIDE-তে নয় &mdash; যে জিনিস কখনও কোনো রেটিংপ্রাপ্ত মানুষের সঙ্গে খেলেনি, তার গায়ে FIDE সংখ্যা বসানোর সৎ কোনো উপায় নেই। গভীরতা ১-এ রেফারেন্স ইঞ্জিনকে ১০০০-এ বাঁধা হয়েছে, আর বাকি সবটা ২১০টি খেলা থেকে Bradley-Terry সর্বোচ্চ সম্ভাবনায় বসানো, তাই খেলাগুলি কোন ক্রমে হয়েছিল তার উপর এটি নির্ভর করে না। মাপা মইটি: গভীরতা ১&ndash;৩ এ রেফারেন্স ১০০০ / ১১৭১ / ১২৪৫, Cypha ৭৯৮ / ১০১০ / ১১৬১। যে ইঞ্জিন থেকে Cypha ডিস্টিল করা, তার চেয়ে সে প্রায় এক ধাপ অনুসন্ধান-গভীরতা পিছিয়ে চলে, আর ত্রুটির সীমা মোটামুটি &plusmn;৫০, ২১০টি খেলায় এটুকুই পাওয়া যায়।
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              Each strength setting keeps <strong>its own model</strong>. A head playing at depth 1
-              is corrected toward a depth-1 search; at depth 3 the target is a different, better
-              one. Training both into one weight vector would just have them argue. Switch
-              strength and the counters change with it.
+              প্রতিটি শক্তি-সেটিং রাখে <strong>নিজের আলাদা মডেল</strong>। গভীরতা ১-এ খেলা একটি হেডকে গভীরতা ১-এর অনুসন্ধানের দিকে শোধরানো হয়; গভীরতা ৩-এ লক্ষ্যটা অন্য, আরও ভালো একটা। দুটোকে একই ওজন-ভেক্টরে প্রশিক্ষণ দিলে তারা কেবল নিজেদের মধ্যে ঝগড়া করবে। শক্তি বদলান, সঙ্গে গোনাগুনতিও বদলাবে।
             </p>
           </div>
 
           <div class="note" style="font-size:.79rem;padding:12px 14px">
-            The evaluation is a <strong>linear</strong> function of 388 features. It has no search
-            depth of its own, no opening book and no endgame knowledge. Beating it is expected;
-            the interesting part is that a single whitened linear head reproduces an engine&rsquo;s
-            search evaluation at all &mdash; and then keeps correcting itself while you play.
+            মূল্যায়নটি ৩৮৮টি ফিচারের একটি <strong>রৈখিক</strong> ফাংশন। এর নিজের কোনো অনুসন্ধান গভীরতা নেই, কোনো ওপেনিং বই নেই, শেষ-খেলার কোনো জ্ঞান নেই। একে হারানো প্রত্যাশিত; মজার ব্যাপারটা হলো, একটিমাত্র হোয়াইটেন করা রৈখিক হেড একটি ইঞ্জিনের অনুসন্ধান-মূল্যায়ন আদৌ ফিরিয়ে আনতে পারছে &mdash; আর তারপর আপনি খেলতে খেলতেই নিজেকে শুধরে নিচ্ছে।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Engine, features, distilled weights and player all run locally. Nothing is sent anywhere,
-        and no model is downloaded beyond a few kilobytes of coefficients. What your copy learns
-        is kept in your browser, belongs to you, and is never uploaded &mdash; so nobody else&rsquo;s
-        games can move your model, and yours cannot move theirs.
+        ইঞ্জিন, ফিচার, ডিস্টিল করা ওজন আর খেলোয়াড় সবই স্থানীয়ভাবে চলে। কোথাও কিছু পাঠানো হয় না, আর কয়েক কিলোবাইট সহগ ছাড়া কোনো মডেল ডাউনলোড হয় না। আপনার কপি যা শেখে তা আপনার ব্রাউজারেই থাকে, আপনারই, আর কখনও আপলোড হয় না &mdash; তাই অন্য কারও খেলা আপনার মডেলকে নাড়াতে পারে না, আর আপনারটাও তাদেরটাকে নয়।
       </div>
     </div>
   </div>
@@ -367,90 +330,72 @@
 <section class="section section--alt" id="how">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Method</span>
-      <h2>How an engine becomes a Cypha model</h2>
+      <span class="eyebrow eyebrow--violet">পদ্ধতি</span>
+      <h2>একটি ইঞ্জিন কীভাবে Cypha মডেল হয়ে ওঠে</h2>
       <p class="lede">
-        This is knowledge distillation, done with the same components as every other Cypha
-        application. Nothing chess-specific was added to the architecture &mdash; only the features.
+        এটি নলেজ ডিস্টিলেশন, আর করা হয়েছে অন্য প্রতিটি Cypha প্রয়োগের মতো একই অংশ দিয়ে। স্থাপত্যে দাবা-নির্দিষ্ট কিছুই যোগ করা হয়নি &mdash; শুধু ফিচারগুলি ছাড়া।
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="The distillation chain: a perft-verified reference engine labels 26,568 positions, which become 388 features, fitted into a Cypha head of 9.4 kilobytes achieving held-out R squared of 0.866" loading="lazy" decoding="async"></div><span class="diagram__hint">পুরো চিত্রটি দেখতে স্ক্রল করুন &rarr;</span><figcaption><b>Distillation, not discovery.</b> Every number in the last box was measured by the training run that produced the weights this page loads.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="ডিস্টিলেশনের শৃঙ্খল: perft দিয়ে যাচাই করা একটি রেফারেন্স ইঞ্জিন ২৬,৫৬৮টি অবস্থানে লেবেল দেয়, সেগুলি হয়ে ওঠে ৩৮৮টি ফিচার, আর ৯.৪ কিলোবাইটের একটি Cypha হেডে বসে গিয়ে আলাদা রাখা অংশে R স্কয়ার ০.৮৬৬ অর্জন করে" loading="lazy" decoding="async"></div><span class="diagram__hint">পুরো চিত্রটি দেখতে স্ক্রল করুন &rarr;</span><figcaption><b>ডিস্টিলেশন, আবিষ্কার নয়।</b> শেষ বাক্সের প্রতিটি সংখ্যা মাপা হয়েছে সেই প্রশিক্ষণ-চালনায়, যা এই পাতার লোড করা ওজনগুলি তৈরি করেছে।</figcaption></figure>
 
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 1</span>
-        <h3 style="font-size:1.02rem">The teacher</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">ধাপ ১</span>
+        <h3 style="font-size:1.02rem">শিক্ষক</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          MVV-LVA ordering and quiescence search. Verified against five standard perft positions
-          including kiwipete, so the rules are provably right before anything is learned from it.
+          একটি 0x88 ইঞ্জিন, সম্পূর্ণ বৈধ চাল তৈরি, বস্তু ও ঘুঁটি-ঘর মূল্যায়ন, MVV-LVA ক্রম এবং কোয়াইসেন্স অনুসন্ধানসহ। kiwipete সহ পাঁচটি আদর্শ perft অবস্থানের বিপরীতে যাচাই করা, তাই এর কাছ থেকে কিছু শেখার আগেই নিয়মগুলি যে ঠিক তা প্রমাণ করা যায়।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 2</span>
-        <h3 style="font-size:1.02rem">The data</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">ধাপ ২</span>
+        <h3 style="font-size:1.02rem">ডেটা</h3>
         <p class="small dim" style="margin:0">
-          Positions drawn from self-play with randomised openings and deliberate noise, so the
-          set spans real games rather than one narrow line. Each is labelled with the teacher&rsquo;s
-          own search score, clipped to &plusmn;12 pawns to keep mate scores from dominating.
+          এলোমেলো ওপেনিং আর ইচ্ছাকৃত গোলমালসহ স্ব-খেলা থেকে নেওয়া অবস্থান, যাতে সেটটি একটি সরু ধারার বদলে সত্যিকারের খেলার বিস্তার ধরে। প্রতিটিতে লেবেল দেওয়া হয়েছে শিক্ষকের নিজের অনুসন্ধান স্কোর দিয়ে, &plusmn;১২ পনে কেটে রাখা, যাতে মেটের স্কোর সব দখল করে না নেয়।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 3</span>
-        <h3 style="font-size:1.02rem">The features</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">ধাপ ৩</span>
+        <h3 style="font-size:1.02rem">ফিচারগুলি</h3>
         <p class="small dim" style="margin:0">
-          388 dimensions: a 384-wide piece-square occupancy difference (6 types &times; 64 squares)
-          plus bishop pair, doubled pawns, mobility and game phase. Always from the side to move&rsquo;s
-          perspective, so one weight vector serves both colours.
+          ৩৮৮টি মাত্রা: ৩৮৪-প্রশস্ত একটি ঘুঁটি-ঘর দখলের পার্থক্য (৬ ধরন &times; ৬৪ ঘর), সঙ্গে বিশপ জোড়া, দ্বৈত পন, চলাচলের স্বাধীনতা ও খেলার পর্যায়। সবসময় যার চাল তার দিক থেকে দেখা, তাই একটিমাত্র ওজন-ভেক্টর দুই রঙেরই কাজ চালায়।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 4</span>
-        <h3 style="font-size:1.02rem">The fit</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">ধাপ ৪</span>
+        <h3 style="font-size:1.02rem">বসানো</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised-LMS weight updates, MDL decay pulling weights back toward the prior,
-          and a surprise-weighted replay buffer at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; Welford দিয়ে অনলাইনে বসানো, প্রাকৃতিক-গ্রেডিয়েন্ট মেট্রিক হিসেবে হোয়াইটেনিং, স্বাভাবিকীকৃত-LMS ওজন হালনাগাদ, ওজনকে পূর্বধারণার দিকে ফিরিয়ে আনা MDL ক্ষয়, আর Cypha-র রেফারেন্স ০.৩০ অনুপাতে একটি বিস্ময়-ভারিত রিপ্লে বাফার।
         </p>
       </div>
     </div>
 
     <div class="split" style="margin-top:48px">
       <div class="reveal">
-        <span class="eyebrow">Why this is a fair demonstration</span>
-        <h3>The architecture did the work, not the domain</h3>
+        <span class="eyebrow">এটি কেন একটি ন্যায্য প্রদর্শনী</span>
+        <h3>কাজটা করেছে স্থাপত্য, বিষয়ক্ষেত্র নয়</h3>
         <p class="dim">
-          Every component in step 4 is a real Cypha component doing its real job. The WorldPrior
-          is the same online Gaussian that gives the 2-D classifier on the
-          <a href="/bn/cypha.html#demo">Cypha page</a> its decision surface. The whitening is the
-          information-geometry claim made concrete: updates follow the natural gradient rather
-          than the raw one. MDL decay is the Solomonoff prior expressed as a shrinkage term.
+          ৪ নম্বর ধাপের প্রতিটি অংশ একটি সত্যিকারের Cypha অংশ, নিজের সত্যিকারের কাজটাই করছে। WorldPrior সেই একই অনলাইন গাউসীয় বণ্টন, যা
+          <a href="/bn/cypha.html#demo">Cypha পাতার</a> দ্বিমাত্রিক ক্লাসিফায়ারকে তার সিদ্ধান্তের পৃষ্ঠ দেয়। হোয়াইটেনিং হলো তথ্য-জ্যামিতির দাবিটিকে মূর্ত করা: হালনাগাদ কাঁচা গ্রেডিয়েন্ট নয়, প্রাকৃতিক গ্রেডিয়েন্ট ধরে চলে। MDL ক্ষয় হলো Solomonoff পূর্বধারণা, যা সংকোচন-পদ হিসেবে প্রকাশিত।
         </p>
         <p class="dim">
-          What changed for chess is the feature map and the head &mdash; regression instead of
-          classification. That is the argument the Cypha README makes about being one type that
-          does several jobs, tested on a domain where the answer is unambiguous: either it plays
-          legal, reasonable chess or it does not.
+          দাবার জন্য যা বদলেছে তা হলো ফিচার-মানচিত্র আর হেড &mdash; শ্রেণিবিভাগের বদলে রিগ্রেশন। Cypha README একটিই টাইপ কয়েকটি কাজ করে বলে যে যুক্তিটি দেয়, এটি ঠিক সেটাই, পরখ করা হয়েছে এমন একটি ক্ষেত্রে যেখানে উত্তরটি দ্ব্যর্থহীন: হয় সে বৈধ, যুক্তিসঙ্গত দাবা খেলে, নয়তো খেলে না।
         </p>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">What this does not show</span>
-        <h3>The honest limits</h3>
+        <span class="eyebrow eyebrow--amber">এটি যা দেখায় না</span>
+        <h3>সৎ সীমা</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>It is linear.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for XOR.</li>
-          <li><strong>The teacher is modest.</strong> The reference engine is a competent classical searcher, not Stockfish. Distilling it well means matching a modest evaluator well.</li>
-          <li><strong>No search depth of its own.</strong> Strength here comes mostly from the alpha-beta wrapper, exactly as it does for the teacher.</li>
-          <li><strong>Distillation is not discovery.</strong> Cypha reproduced an evaluation function it was shown. It did not learn chess from scratch, and nothing on this page claims it did.</li>
+          <li><strong>এটি রৈখিক।</strong> ঘুঁটি-ঘর ফিচারের একটি রৈখিক ফাংশন রাজার নিরাপত্তা, পনের গঠনের পারস্পরিক ক্রিয়া, বা দুটি ফিচারের গুণফল লাগে এমন কিছুই প্রকাশ করতে পারে না। XOR-এর জন্য Cypha README যে ছাদের কথা বলে, এরও সেই একই ছাদ।</li>
+          <li><strong>শিক্ষকটি সাধারণ মানের।</strong> রেফারেন্স ইঞ্জিনটি একজন দক্ষ চিরায়ত অনুসন্ধানকারী, Stockfish নয়। একে ভালোভাবে ডিস্টিল করার মানে একটি সাধারণ মানের মূল্যায়নকারীকে ভালোভাবে মেলানো।</li>
+          <li><strong>নিজের কোনো অনুসন্ধান গভীরতা নেই।</strong> এখানে শক্তির বেশিরভাগটাই আসে আলফা-বিটা মোড়ক থেকে, শিক্ষকের ক্ষেত্রে যেমন আসে ঠিক তেমনই।</li>
+          <li><strong>ডিস্টিলেশন আবিষ্কার নয়।</strong> Cypha তাকে দেখানো একটি মূল্যায়ন ফাংশন ফিরিয়ে এনেছে। সে শূন্য থেকে দাবা শেখেনি, আর এই পাতায় কোথাও তেমন দাবিও করা হয়নি।</li>
         </ul>
       </div>
     </div>
 
     <div class="note note--violet reveal" style="margin-top:32px">
-      <strong>Reproduce it:</strong> <code>node tools/chess/perft.js</code> verifies the engine
-      against the standard test positions, and <code>node tools/chess/train.js</code> regenerates
-      the model from scratch with a fixed seed. The numbers at the top of this page are read
-      directly out of the file that run produces.
+      <strong>নিজে করে দেখুন:</strong> <code>node tools/chess/perft.js</code> ইঞ্জিনটিকে আদর্শ পরীক্ষা-অবস্থানগুলির বিপরীতে যাচাই করে, আর <code>node tools/chess/train.js</code> একটি নির্দিষ্ট সিড দিয়ে মডেলটি গোড়া থেকে আবার তৈরি করে। এই পাতার উপরের সংখ্যাগুলি ওই চালনায় তৈরি হওয়া ফাইল থেকে সরাসরি পড়া।
     </div>
   </div>
 </section>
@@ -520,7 +465,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-16T11:37:49Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
+      <span class="mono tiny">তৈরি 2026-09-16T12:42:38Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই।</span>
     </div>
   </div>
 </footer>
@@ -531,6 +476,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Class A":"শ্রেণি A","Class B":"শ্রেণি B","Class C":"শ্রেণি C","Click to place samples, or load a dataset below":"নমুনা বসাতে ক্লিক করুন, বা নিচে একটি ডেটাসেট লোড করুন","Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.":"world prior-এর নিচে — এই বিন্দুটি যেকোনো শ্রেণির চেয়ে θ₀-এর অধীনে বেশি সম্ভাব্য। distribution-এর বাইরে বলে চিহ্নিত।","Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.":"world prior-এর সাপেক্ষে argmax log-likelihood ratio, দ্বিতীয় স্থানাধিকারী {n} nats পিছনে।","Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.":"world prior-এর সাপেক্ষে argmax log-likelihood ratio, দ্বিতীয় স্থানাধিকারী এখনও fit করা হয়নি।","XOR with the identity encoder.":"identity এনকোডার সহ XOR।","A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.":"একটি রৈখিক log-likelihood ratio এই কোয়াড্রেন্টগুলি আলাদা করতে পারে না — নির্ভুলতা দৈব সম্ভাবনার কাছাকাছি থাকে, ঠিক যেমনটা Cypha README-তে বলা আছে। উপরে latent RFF এনকোডার চালু করুন।","XOR with random Fourier features.":"random Fourier features সহ XOR।","The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.":"এনকোডারটি সমস্যাটিকে এমন একটি স্পেসে তুলে নেয় যেখানে একটি রৈখিক ratio সত্যিই তা আলাদা করতে পারে। এই 2-D খেলনা উদাহরণটি পরিষ্কারভাবে আলাদা হয়; একই সমাধান আসল XOR বেঞ্চমার্ককে প্রায় 76%-এ নিয়ে যায়।","Concentric rings.":"সমকেন্দ্রিক বলয়।","Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.":"দুটি শ্রেণিরই কেন্দ্র এক, তাই Δk-এর location অংশ এদের মোটেই আলাদা করতে পারে না। এরা কেবল scale-এর ভিত্তিতেই আলাদা হয় — এই কারণেই class differential কেবল গড়কে নয়, natural parameter-গুলিকে offset করে।","YOU WIN":"আপনি জয়ী","CYPHA WINS":"Cypha জয়ী","Checkmate in {n} moves.":"{n} চালে চেকমেট।","DRAW":"ড্র","Stalemate — no legal move, and not in check.":"স্টেলমেট — কোনো বৈধ চাল নেই, এবং চেকেও নয়।","Fifty-move rule.":"পঞ্চাশ-চালের নিয়ম।","Insufficient material.":"অপর্যাপ্ত ঘুঁটি।","CYPHA IS THINKING":"Cypha ভাবছে","YOUR MOVE":"আপনার চাল","CYPHA TO MOVE":"Cypha-র চাল","Check.":"চেক।","Click a piece to see where it can go.":"কোথায় যেতে পারে দেখতে একটি ঘুঁটিতে ক্লিক করুন।","Searching to depth {n} with the distilled evaluation.":"ডিস্টিল করা মূল্যায়ন দিয়ে {n} গভীরতা পর্যন্ত খোঁজা হচ্ছে।","Learning on":"লার্নিং চালু","Learning off":"লার্নিং বন্ধ"};</script>
 <script src="/assets/js/chess/engine.js" defer></script><script src="/assets/js/chess/features.js" defer></script><script src="/assets/js/chess/cypha.js" defer></script><script src="/assets/js/demos/chess.js" defer></script>
 </body>
 </html>

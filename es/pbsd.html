@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ParanoidBSD — a capability-secured C++23 operating system | Imortek</title>
-<meta name="description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
-<meta name="keywords" content="ParanoidBSD, PBSD, HardenedBSD, FreeBSD, C++23 modules, capability security, memory safety, secure operating system, KDE Plasma 6, kernel port, Capsicum">
+<title>ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek</title>
+<meta name="description" content="ParanoidBSD (PBSD) porta HardenedBSD 15-STABLE a C++23 con KDE Plasma 6 y un núcleo de seguridad por capacidades y descriptores. Explora el modelo de seguridad interactivo.">
+<meta name="keywords" content="ParanoidBSD, PBSD, HardenedBSD, FreeBSD, módulos C++23, seguridad por capacidades, seguridad de memoria, sistema operativo seguro, KDE Plasma 6, port del kernel, Capsicum">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="es">
 <meta name="imortek:speech" content="es-ES">
 <meta name="imortek:prefix" content="/es">
-<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Elegir idioma","lang.suggested":"Tu navegador prefiere este idioma","lang.close":"Cerrar","tools.label":"Herramientas de página","tools.toggle":"Mostrar u ocultar las herramientas","tools.readAloud":"Leer en voz alta","tools.pause":"Pausar","tools.stop":"Detener la lectura","tools.next":"Párrafo siguiente","tools.voice":"Comandos de voz","tools.explain":"Explicar la jerga","tools.reset":"reiniciar","tools.termsOnPage":"términos en esta página","tools.learned":"aprendidos","tools.preExpanded":"ya explicados","tools.openMore":"Abre {n} más y Cypha empezará a predecir","tools.understood":"entendidos","tools.corrected":"corregidos","tools.off":"apagado","tools.reading":"leyendo","search.placeholder":"Buscar — describe lo que quieres","search.aria":"Buscar en este sitio","search.hint":"Coincide por significado, no solo por palabras exactas. Esc para cerrar.","search.nothing":"Nada parecido.","related.eyebrow":"Lo más cercano en este sitio","related.title":"Lectura relacionada","related.note":"Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.","voice.help":"Puedes decir: leer, parar, siguiente, atrás, arriba, inicio, o el nombre de una página. También puedes describir lo que buscas y encontraré la página más cercana.","voice.notCaught":"No te he entendido. Di \"ayuda\" para saber qué puedes decir.","voice.listening":"Escuchando. Di \"ayuda\" para saber qué puedes decir.","voice.micOff":"Micrófono apagado.","voice.micBlocked":"Micrófono bloqueado. Permítelo en tu navegador para usar los comandos de voz.","voice.opening":"Abriendo","voice.didYouMean":"¿Querías decir","voice.sayNumber":"Di un número, o di no.","voice.understood":"Entendido. Dilo de otra manera, o di ayuda.","voice.endOfPage":"Fin de la página.","voice.searchOpen":"Búsqueda abierta.","voice.nothingRelated":"No hay nada relacionado en esta página.","voice.related":"Relacionado","voice.goingTo":"Yendo a","voice.heading":"Encabezado.","voice.or":"O","gloss.notInDict":"No está en el diccionario.","gloss.lookingUp":"buscando…","gloss.forget":"Olvidar lo que Cypha aprendió"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Elegir idioma","lang.suggested":"Tu navegador prefiere este idioma","lang.close":"Cerrar","tools.label":"Herramientas de página","tools.toggle":"Mostrar u ocultar las herramientas","tools.readAloud":"Leer en voz alta","tools.pause":"Pausar","tools.stop":"Detener la lectura","tools.next":"Párrafo siguiente","tools.voice":"Comandos de voz","tools.explain":"Explicar la jerga","tools.reset":"reiniciar","tools.termsOnPage":"términos en esta página","tools.learned":"aprendidos","tools.preExpanded":"ya explicados","tools.openMore":"Abre {n} más y Cypha empezará a predecir","tools.understood":"entendidos","tools.corrected":"corregidos","tools.off":"apagado","tools.reading":"leyendo","search.placeholder":"Buscar — describe lo que quieres","search.aria":"Buscar en este sitio","search.hint":"Coincide por significado, no solo por palabras exactas. Esc para cerrar.","search.nothing":"Nada parecido.","related.eyebrow":"Lo más cercano en este sitio","related.title":"Lectura relacionada","related.note":"Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.","voice.help":"Puedes decir: leer, parar, siguiente, atrás, arriba, inicio, o el nombre de una página. También puedes describir lo que buscas y encontraré la página más cercana.","voice.notCaught":"No te he entendido. Di \"ayuda\" para saber qué puedes decir.","voice.listening":"Escuchando. Di \"ayuda\" para saber qué puedes decir.","voice.micOff":"Micrófono apagado.","voice.micBlocked":"Micrófono bloqueado. Permítelo en tu navegador para usar los comandos de voz.","voice.opening":"Abriendo","voice.didYouMean":"¿Querías decir","voice.sayNumber":"Di un número, o di no.","voice.understood":"Entendido. Dilo de otra manera, o di ayuda.","voice.endOfPage":"Fin de la página.","voice.searchOpen":"Búsqueda abierta.","voice.nothingRelated":"No hay nada relacionado en esta página.","voice.related":"Relacionado","voice.goingTo":"Yendo a","voice.heading":"Encabezado.","voice.or":"O","gh.live":"en directo desde api.github.com","gh.cached":"copia guardada","gh.noDescription":"Sin descripción","gloss.notInDict":"No está en el diccionario.","gloss.lookingUp":"buscando…","gloss.forget":"Olvidar lo que Cypha aprendió"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
-<meta property="og:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
+<meta property="og:title" content="ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek">
+<meta property="og:description" content="ParanoidBSD (PBSD) porta HardenedBSD 15-STABLE a C++23 con KDE Plasma 6 y un núcleo de seguridad por capacidades y descriptores. Explora el modelo de seguridad interactivo.">
 <meta property="og:url" content="https://imortek.com.au/es/pbsd.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
+<meta property="og:image:alt" content="ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
-<meta name="twitter:description" content="ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.">
+<meta name="twitter:title" content="ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek">
+<meta name="twitter:description" content="ParanoidBSD (PBSD) porta HardenedBSD 15-STABLE a C++23 con KDE Plasma 6 y un núcleo de seguridad por capacidades y descriptores. Explora el modelo de seguridad interactivo.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og-pbsd.jpg">
-<meta name="twitter:image:alt" content="ParanoidBSD — a capability-secured C++23 operating system | Imortek">
+<meta name="twitter:image:alt" content="ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"es","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/es/pbsd.html#webpage","url":"https://imortek.com.au/es/pbsd.html","name":"ParanoidBSD — a capability-secured C++23 operating system | Imortek","description":"ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.","inLanguage":"es","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og-pbsd.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/es/pbsd.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/es/pbsd.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://imortek.com.au/es/"},{"@type":"ListItem","position":2,"name":"ParanoidBSD","item":"https://imortek.com.au/es/pbsd.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/es/pbsd.html#software","name":"ParanoidBSD","description":"ParanoidBSD (PBSD) ports HardenedBSD 15-STABLE to C++23 with KDE Plasma 6 and a capability/handle security nucleus. Explore the interactive security model.","url":"https://imortek.com.au/es/pbsd.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ParanoidBSD","sameAs":["https://github.com/odin-loki/ParanoidBSD"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"es","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/es/pbsd.html#webpage","url":"https://imortek.com.au/es/pbsd.html","name":"ParanoidBSD — un sistema operativo en C++23 protegido por capacidades | Imortek","description":"ParanoidBSD (PBSD) porta HardenedBSD 15-STABLE a C++23 con KDE Plasma 6 y un núcleo de seguridad por capacidades y descriptores. Explora el modelo de seguridad interactivo.","inLanguage":"es","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og-pbsd.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/es/pbsd.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/es/pbsd.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://imortek.com.au/es/"},{"@type":"ListItem","position":2,"name":"ParanoidBSD","item":"https://imortek.com.au/es/pbsd.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/es/pbsd.html#software","name":"ParanoidBSD","description":"ParanoidBSD (PBSD) porta HardenedBSD 15-STABLE a C++23 con KDE Plasma 6 y un núcleo de seguridad por capacidades y descriptores. Explora el modelo de seguridad interactivo.","url":"https://imortek.com.au/es/pbsd.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ParanoidBSD","sameAs":["https://github.com/odin-loki/ParanoidBSD"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,41 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Partes de esta página siguen en inglés. La traducción se está escribiendo; nada está traducido por máquina.</p></div>
 <!-- ============================ HERO ============================ -->
 <section class="phero" data-video="/assets/video/pbsd" data-poster="/assets/img/video/pbsd.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--amber">Flagship &middot; ParanoidBSD</span>
-        <h1>An operating system where authority is <span class="gradient-text">held, not assumed</span></h1>
+        <span class="eyebrow eyebrow--amber">Proyecto principal &middot; ParanoidBSD</span>
+        <h1>Un sistema operativo donde la autoridad <span class="gradient-text">se tiene, no se presupone</span></h1>
         <p class="lede">
-          ParanoidBSD ports HardenedBSD 15-STABLE to C++23 modules and adds a capability
-          and handle nucleus on top of the hardening HBSD already ships. KDE Plasma 6 sits
-          on the desk. The BSD tree is the behavioural specification &mdash; and it is ported
-          faithfully, bugs included.
+          ParanoidBSD porta HardenedBSD 15-STABLE a módulos de C++23 y añade un núcleo de capacidades y descriptores encima del endurecimiento que HBSD ya trae. KDE Plasma 6 va en el escritorio. El árbol de BSD es la especificación de comportamiento &mdash; y se porta con fidelidad, fallos incluidos.
         </p>
         <div class="btn-row">
-          <a class="btn btn--fund" href="/es/kickstarter.html">Back the Kickstarter</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Repository &rarr;</a>
-          <a class="btn btn--ghost" href="#demo">Try the security model</a>
+          <a class="btn btn--fund" href="/es/kickstarter.html">Apoya el Kickstarter</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Repositorio &rarr;</a>
+          <a class="btn btn--ghost" href="#demo">Prueba el modelo de seguridad</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="ParanoidBSD" data-gh-field="language">C / C++23</b></div>
+          <div class="phero__meta-item">Lenguaje<b data-gh-repo="ParanoidBSD" data-gh-field="language">C / C++23</b></div>
           <div class="phero__meta-item">Base<b>HardenedBSD 15-STABLE</b></div>
-          <div class="phero__meta-item">Desktop<b>KDE Plasma 6</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="ParanoidBSD" data-gh-field="updated">hace poco</b></div>
-          <div class="phero__meta-item">Stars<b data-gh-repo="ParanoidBSD" data-gh-field="stars">&mdash;</b></div>
+          <div class="phero__meta-item">Escritorio<b>KDE Plasma 6</b></div>
+          <div class="phero__meta-item">Último envío<b data-gh-repo="ParanoidBSD" data-gh-field="updated">hace poco</b></div>
+          <div class="phero__meta-item">Estrellas<b data-gh-repo="ParanoidBSD" data-gh-field="stars">&mdash;</b></div>
         </div>
       </div>
 
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Repository layout</span>
+          <span class="eyebrow" style="margin-bottom:16px">Estructura del repositorio</span>
           <div class="spec" style="border:0">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">pbsd/</span><span class="spec__v">C++23 modules &mdash; kernel nucleus, userland ports, UDA, BIFROST, compositor, theme</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">hbsd/</span><span class="spec__v">HardenedBSD 15-STABLE source &mdash; the original, kept as the spec</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin and frameworks for the desktop wave</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventory, deterministic rewrite passes, agent port, Clang helpers</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Specs, security model, migration status, provenance</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">pbsd/</span><span class="spec__v">Módulos de C++23 &mdash; núcleo del kernel, ports del espacio de usuario, UDA, BIFROST, compositor, tema</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">hbsd/</span><span class="spec__v">Código fuente de HardenedBSD 15-STABLE &mdash; el original, conservado como especificación</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin y frameworks para la fase de escritorio</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventario, pasadas deterministas de reescritura, port con agentes, utilidades de Clang</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Especificaciones, modelo de seguridad, estado de la migración, procedencia</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Motor para WSL, watchdog, consola de progreso</span></div>
           </div>
         </div>
       </div>
@@ -189,32 +185,26 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">The problem</span>
-      <h2>Ambient authority is the bug you cannot patch</h2>
+      <span class="eyebrow">El problema</span>
+      <h2>La autoridad ambiental es el fallo que no se puede parchear</h2>
     </div>
     <div class="split reveal">
       <div>
         <p class="dim">
-          On a conventional Unix, a process does not <em>hold</em> the right to open
-          <code>/etc/master.passwd</code>. It simply asks, and the kernel decides afterwards,
-          based on who the process claims to be. Every process can name every resource on the
-          system. The name space is global and ambient; the check is a late afterthought.
+          En un Unix convencional, un proceso no <em>posee</em> el derecho a abrir
+          <code>/etc/master.passwd</code>. Simplemente lo pide, y el kernel decide después, según quién dice ser el proceso. Todo proceso puede nombrar todos los recursos del sistema. El espacio de nombres es global y ambiental; la comprobación es un añadido tardío.
         </p>
         <p class="dim">
-          That is why a single parsing bug in a font renderer can become a credential theft.
-          The renderer never needed the password file &mdash; but nothing in the architecture
-          stopped it from asking.
+          Por eso un solo fallo de análisis en un renderizador de fuentes puede convertirse en un robo de credenciales. El renderizador nunca necesitó el archivo de contraseñas &mdash; pero nada en la arquitectura le impedía pedirlo.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: ASLR, PaX-derived mitigations, SafeStack,
-          CFI, hardened memory allocators. PBSD keeps all of it and changes the shape of the
-          question underneath &mdash; from <em>&ldquo;is this process allowed?&rdquo;</em> to
-          <em>&ldquo;does this process hold a handle to that?&rdquo;</em>
+          HardenedBSD ya hace un trabajo serio aquí: ASLR, mitigaciones derivadas de PaX, SafeStack, CFI, asignadores de memoria endurecidos. PBSD conserva todo eso y cambia la forma de la pregunta que hay debajo &mdash; de <em>&ldquo;¿este proceso tiene permiso?&rdquo;</em> a
+          <em>&ldquo;¿este proceso posee un descriptor para eso?&rdquo;</em>
         </p>
       </div>
       <div>
         <div class="card">
-          <h3 style="font-size:1rem">Two ways to answer one syscall</h3>
+          <h3 style="font-size:1rem">Dos maneras de responder a una misma llamada al sistema</h3>
           <pre class="code" style="margin-top:14px"><span class="c-com">// Ambient authority — the traditional path</span>
 <span class="c-key">int</span> fd = <span class="c-fn">open</span>(<span class="c-str">"/etc/master.passwd"</span>, O_RDONLY);
 <span class="c-com">// kernel walks a global namespace, then
@@ -225,8 +215,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim API listing.
-            The authoritative model is in <code>docs/</code>.
+            Forma ilustrativa de la diferencia, no un listado literal de la API. El modelo de referencia está en <code>docs/</code>.
           </p>
         </div>
       </div>
@@ -236,7 +225,7 @@
 
 <section class="section section--tight">
   <div class="wrap">
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-authority.svg" alt="Two authority models compared side by side: under ambient authority the process reaches sockets, exec and ptrace and is refused the password file only after asking; under the handle nucleus only the resource it holds a handle to can be named at all" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>Where the check happens.</b> On the left the request always travels and is judged afterwards. On the right, three of the four operations have no name to ask with, so there is nothing to refuse.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-authority.svg" alt="Dos modelos de autoridad comparados lado a lado: con autoridad ambiental el proceso alcanza sockets, exec y ptrace y solo se le niega el archivo de contraseñas después de pedirlo; con el núcleo de descriptores solo puede nombrarse el recurso para el que posee un descriptor" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>Dónde ocurre la comprobación.</b> A la izquierda la petición siempre viaja y se juzga después. A la derecha, tres de las cuatro operaciones no tienen nombre con el que pedir, así que no hay nada que negar.</figcaption></figure>
   </div>
 </section>
 
@@ -245,20 +234,18 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Interactivo</span>
-      <h2>Walk a syscall through the nucleus</h2>
+      <h2>Sigue una llamada al sistema a través del núcleo</h2>
       <p class="lede">
-        Give the process some handles, pick something for it to attempt, and switch between
-        the two authority models. The verdict and the reasoning are computed live in your
-        browser &mdash; this is a teaching model of the design, not a kernel emulator.
+        Dale al proceso algunos descriptores, elige algo que intente hacer y cambia entre los dos modelos de autoridad. El veredicto y el razonamiento se calculan en vivo en tu navegador &mdash; esto es un modelo didáctico del diseño, no un emulador de kernel.
       </p>
     </div>
 
     <div class="demo reveal" id="cap-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> Capability nucleus &mdash; reference monitor</h3>
-        <div class="seg" role="group" aria-label="Authority model">
-          <button type="button" data-mode="ambient">Ambient authority (traditional)</button>
-          <button type="button" data-mode="capability" aria-pressed="true">Handle nucleus (PBSD)</button>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> Núcleo de capacidades &mdash; monitor de referencia</h3>
+        <div class="seg" role="group" aria-label="Modelo de autoridad">
+          <button type="button" data-mode="ambient">Autoridad ambiental (tradicional)</button>
+          <button type="button" data-mode="capability" aria-pressed="true">Núcleo de descriptores (PBSD)</button>
         </div>
       </div>
 
@@ -267,49 +254,46 @@
           <canvas class="demo-canvas" id="cap-canvas" height="300" aria-label="Animated diagram of a syscall traversing the reference monitor"></canvas>
 
           <div style="margin-top:20px">
-            <h4 class="panel__title" style="margin-bottom:12px">The process attempts&hellip;</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">El proceso intenta&hellip;</h4>
             <div class="chips" id="cap-ops"></div>
           </div>
 
           <div style="margin-top:20px">
-            <h4 class="panel__title" style="margin-bottom:12px">Trace</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">Traza</h4>
             <div class="log" id="cap-log" aria-live="polite"></div>
           </div>
         </div>
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:12px">Handles held by the process</h4>
+            <h4 class="panel__title" style="margin-bottom:12px">Descriptores que posee el proceso</h4>
             <div id="cap-caps" style="display:grid;gap:11px"></div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Verdict</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Veredicto</h4>
             <div id="cap-verdict" class="verdict">
-              <div class="verdict__label">Awaiting attempt</div>
-              <div class="verdict__why">Pick an operation to run it through the monitor.</div>
+              <div class="verdict__label">A la espera de un intento</div>
+              <div class="verdict__why">Elige una operación para pasarla por el monitor.</div>
             </div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Reachable</div>
+              <div class="readout__k">Alcanzable</div>
               <div class="readout__v" id="cap-reach">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Denied</div>
+              <div class="readout__k">Denegado</div>
               <div class="readout__v red" id="cap-denied">0</div>
             </div>
           </div>
           <p class="tiny muted">
-            &ldquo;Reachable&rdquo; counts how many of the listed operations this process could
-            perform at all under the current model. Under ambient authority, reachability is
-            decided by identity; under the nucleus, by the handles it actually holds.
+            &ldquo;Alcanzable&rdquo; cuenta cuántas de las operaciones listadas podría llegar a hacer este proceso bajo el modelo actual. Con autoridad ambiental, la alcanzabilidad la decide la identidad; con el núcleo, los descriptores que realmente posee.
           </p>
         </div>
       </div>
 
       <div class="panel__foot">
-        A pedagogical model of the PBSD security design, written for this page. The real
-        nucleus lives in <code>pbsd/</code>; the specification is in
+        Un modelo pedagógico del diseño de seguridad de PBSD, escrito para esta página. El núcleo real está en <code>pbsd/</code>; la especificación está en
         <a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">docs/specs/</a>.
       </div>
     </div>
@@ -320,55 +304,48 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The port</span>
-      <h2>Four stages, and a model that never certifies itself</h2>
+      <span class="eyebrow eyebrow--violet">El port</span>
+      <h2>Cuatro etapas, y un modelo que nunca se certifica a sí mismo</h2>
       <p class="lede">
-        Porting a BSD userland and kernel to C++23 by hand is a decade of work. Porting it
-        by asking a language model to rewrite files is a fast way to produce plausible
-        garbage. PBSD does neither.
+        Portar a mano un espacio de usuario y un kernel BSD a C++23 es una década de trabajo. Portarlo pidiéndole a un modelo de lenguaje que reescriba archivos es una forma rápida de producir basura verosímil. PBSD no hace ninguna de las dos cosas.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-pipeline.svg" alt="The ParanoidBSD port pipeline: inventory, deterministic passes, agent loop and a verification gate, with rejected files looping back" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>How a file becomes a ported file.</b> The dashed red path is the part that matters &mdash; work that fails verification goes back into the loop rather than counting as progress.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/pbsd-pipeline.svg" alt="La cadena de port de ParanoidBSD: inventario, pasadas deterministas, bucle con agentes y un control de verificación, con los archivos rechazados volviendo al bucle" loading="lazy" decoding="async"></div><span class="diagram__hint">desplaza para ver el diagrama completo &rarr;</span><figcaption><b>Cómo un archivo pasa a ser un archivo portado.</b> El camino rojo discontinuo es la parte que importa &mdash; el trabajo que no pasa la verificación vuelve al bucle en lugar de contar como progreso.</figcaption></figure>
 
     <div class="grid grid-4 reveal">
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Stage 1</span>
-        <h3 style="font-size:1.05rem">Inventory</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Etapa 1</span>
+        <h3 style="font-size:1.05rem">Inventario</h3>
         <p class="small dim" style="margin:0">
-          <code>tools/inventory_c_sources.py</code> y <code>clang_cxx23_port.py</code> score
-          every C file by difficulty and write <code>c_inventory.csv</code>. Nothing is guessed
-          about scope.
+          <code>tools/inventory_c_sources.py</code> y <code>clang_cxx23_port.py</code> puntúan cada archivo C por dificultad y escriben <code>c_inventory.csv</code>. Nada se da por supuesto sobre el alcance.
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Stage 2</span>
-        <h3 style="font-size:1.05rem">Deterministic passes</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Etapa 2</span>
+        <h3 style="font-size:1.05rem">Pasadas deterministas</h3>
         <p class="small dim" style="margin:0">
-          <code>run_todo_passes.py</code> applies safe mechanical rewrites in tiers 0&ndash;4.
-          No model involved. Anything a pass refuses is logged to
-          <code>refusals.jsonl</code> rather than forced.
+          <code>run_todo_passes.py</code> aplica reescrituras mecánicas seguras en los niveles 0&ndash;4. Sin modelo de por medio. Lo que una pasada rechaza se registra en
+          <code>refusals.jsonl</code> en lugar de forzarlo.
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Stage 3</span>
-        <h3 style="font-size:1.05rem">Agent loop</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">Etapa 3</span>
+        <h3 style="font-size:1.05rem">Bucle con agentes</h3>
         <p class="small dim" style="margin:0">
-          <code>pbsd.py</code> fills stubbed and refused files with DeepSeek Flash escalating
-          to Pro at maximum reasoning effort &mdash; 48 Flash and 24 Pro workers by default.
-          <strong>This is what the Kickstarter funds.</strong>
+          <code>pbsd.py</code> rellena los archivos sin resolver y los rechazados con DeepSeek Flash, escalando a Pro con el máximo esfuerzo de razonamiento &mdash; 48 workers Flash y 24 Pro por defecto.
+          <strong>Esto es lo que financia el Kickstarter.</strong>
         </p>
       </div>
       <div class="card card--hover">
         <div class="card__glow"></div>
-        <span class="badge badge--amber" style="margin-bottom:12px">Stage 4</span>
-        <h3 style="font-size:1.05rem">Verification gate</h3>
+        <span class="badge badge--amber" style="margin-bottom:12px">Etapa 4</span>
+        <h3 style="font-size:1.05rem">Control de verificación</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and IR comparison. A file that only
-          compiles is <em>unverified</em>. Failures land in
+          Compilación, ASan, UBSan, ejecución diferencial y comparación de IR. Un archivo que solo compila está <em>sin verificar</em>. Los fallos van a parar a
           <code>agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -377,36 +354,26 @@
     <div class="split split--center reveal" style="margin-top:52px">
       <figure class="figure">
         <img src="/assets/img/pbsd/port-mascot.jpg"
-             alt="The BSD daemon shown twice: on the left the original red mascot, on the right the same figure rendered as a cyan wireframe, with an equals sign between them"
+             alt="El demonio de BSD mostrado dos veces: a la izquierda la mascota roja original, a la derecha la misma figura dibujada como estructura de alambre cian, con un signo de igualdad entre ambas"
              width="1280" height="699" loading="lazy" decoding="async">
         <figcaption>
-          The project in one picture. Same daemon, same shape, rebuilt in a different
-          representation &mdash; and the equals sign is the part that has to be earned, file by file,
-          by differential verification. BSD Daemon &copy; Marshall Kirk McKusick.
+          El proyecto en una imagen. El mismo demonio, la misma forma, reconstruido en otra representación &mdash; y el signo de igualdad es la parte que hay que ganarse, archivo por archivo, mediante verificación diferencial. BSD Daemon &copy; Marshall Kirk McKusick.
         </figcaption>
       </figure>
       <div>
-        <span class="eyebrow eyebrow--amber">What &ldquo;equals&rdquo; has to mean</span>
-        <h3 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">A port is a claim of equivalence</h3>
+        <span class="eyebrow eyebrow--amber">Lo que tiene que significar &ldquo;igual&rdquo;</span>
+        <h3 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Un port es una afirmación de equivalencia</h3>
         <p class="dim">
-          Saying a file has been ported is saying the new one behaves like the old one. That is a
-          claim, and claims need evidence. A C++23 rewrite that compiles is a plausible-looking
-          wireframe; it is not yet the same daemon.
+          Decir que un archivo está portado es decir que el nuevo se comporta como el viejo. Eso es una afirmación, y las afirmaciones necesitan pruebas. Una reescritura en C++23 que compila es una estructura de alambre de aspecto verosímil; todavía no es el mismo demonio.
         </p>
         <p class="dim">
-          So the equals sign is the gate. Differential execution runs both and compares observable
-          behaviour. IR comparison checks they mean the same thing to the compiler. Until one of
-          those passes, the file stays open in the migration log and does not count toward
-          progress &mdash; however finished it looks.
+          Así que el signo de igualdad es el control. La ejecución diferencial ejecuta los dos y compara el comportamiento observable. La comparación de IR comprueba que signifiquen lo mismo para el compilador. Hasta que una de las dos pasa, el archivo sigue abierto en el registro de migración y no cuenta como progreso &mdash; por acabado que parezca.
         </p>
       </div>
     </div>
 
     <div class="note note--violet reveal" style="margin-top:32px">
-      <strong>The rule that makes this defensible:</strong> the model does not self-certify.
-      It proposes; deterministic tooling disposes. Every non-negotiable in the repository
-      exists to keep that boundary intact &mdash; which is also why the port cannot simply be
-      run faster by spending more on inference alone.
+      <strong>La regla que hace esto defendible:</strong> el modelo no se certifica a sí mismo. Él propone; las herramientas deterministas disponen. Todos los innegociables del repositorio existen para mantener intacta esa frontera &mdash; que es también la razón por la que el port no se puede acelerar solo gastando más en inferencia.
     </div>
   </div>
 </section>
@@ -415,54 +382,38 @@
 <section class="section">
   <div class="wrap wrap-narrow">
     <div class="section-head reveal">
-      <span class="eyebrow">Non-negotiables</span>
-      <h2>Rules the repository is actually held to</h2>
+      <span class="eyebrow">Innegociables</span>
+      <h2>Reglas que el repositorio cumple de verdad</h2>
     </div>
 
     <details class="acc reveal" open>
-      <summary>No file is done until differential or IR verification passes</summary>
+      <summary>Ningún archivo está hecho hasta que pasa la verificación diferencial o de IR</summary>
       <div class="acc__body">
-        Compile-only is treated as unverified. A ported file must either produce identical
-        observable behaviour to the HardenedBSD original under differential execution, or
-        match at the IR level. Files that pass neither stay open in the migration log and are
-        not counted in progress figures.
+        Que solo compile se trata como no verificado. Un archivo portado tiene que producir un comportamiento observable idéntico al original de HardenedBSD bajo ejecución diferencial, o coincidir a nivel de IR. Los archivos que no pasan ninguna de las dos siguen abiertos en el registro de migración y no se cuentan en las cifras de progreso.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Port faithfully &mdash; do not silently &ldquo;fix&rdquo; bugs in the original</summary>
+      <summary>Portar con fidelidad &mdash; no &ldquo;arreglar&rdquo; en silencio los fallos del original</summary>
       <div class="acc__body">
-        The HardenedBSD tree is the behavioural specification. If the original has a defect,
-        the port reproduces it, because a differential test cannot distinguish a fix from a
-        regression. Improvements are made afterwards, logged separately, so the change is
-        visible and reviewable rather than buried inside a translation.
+        El árbol de HardenedBSD es la especificación de comportamiento. Si el original tiene un defecto, el port lo reproduce, porque una prueba diferencial no puede distinguir un arreglo de una regresión. Las mejoras se hacen después y se registran aparte, para que el cambio quede visible y revisable en lugar de enterrado dentro de una traducción.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Deterministic tooling first; models fill only what remains</summary>
+      <summary>Primero las herramientas deterministas; los modelos rellenan solo lo que queda</summary>
       <div class="acc__body">
-        Mechanical rewrites are applied by scripts that behave identically every run. Models
-        are used exclusively on the residue &mdash; stubbed inventory entries and files the
-        deterministic passes refused. This keeps the majority of the port reproducible and
-        auditable, and confines model output to the parts a human would have had to write
-        by hand anyway.
+        Las reescrituras mecánicas las aplican scripts que se comportan igual en cada ejecución. Los modelos se usan exclusivamente sobre el residuo &mdash; entradas de inventario sin resolver y archivos que las pasadas deterministas rechazaron. Esto mantiene reproducible y auditable la mayor parte del port, y confina la salida del modelo a las partes que un humano habría tenido que escribir a mano de todos modos.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Kernel C++ is freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
+      <summary>El C++ del kernel es independiente: <code>-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no RTTI,
-        no heap-allocating standard library paths on kernel entry. The constraints are
-        written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
-        can tell what is legal in kernel context without guessing.
+        El núcleo del kernel no puede depender de un runtime de C++ alojado. Sin excepciones, sin RTTI, sin rutas de la biblioteca estándar que reserven memoria dinámica en la entrada al kernel. Las restricciones están escritas en <code>docs/specs/KERNEL_CXX_ABI.md</code> para que quien colabore pueda saber qué es legal en contexto de kernel sin adivinar.
       </div>
     </details>
     <details class="acc reveal">
-      <summary>Every module needs a provenance entry before it counts as done</summary>
+      <summary>Cada módulo necesita una entrada de procedencia antes de contar como hecho</summary>
       <div class="acc__body">
-        <code>docs/PROVENANCE.md</code> records where each module came from and under which
-        licence. This is what makes the licensing statement below verifiable rather than
-        aspirational &mdash; you can check, module by module, which code is HardenedBSD-derived
-        and which is new PBSD work.
+        <code>docs/PROVENANCE.md</code> registra de dónde salió cada módulo y bajo qué licencia. Esto es lo que hace que la declaración de licencias de abajo sea verificable y no un deseo &mdash; puedes comprobar, módulo a módulo, qué código deriva de HardenedBSD y cuál es trabajo nuevo de PBSD.
       </div>
     </details>
   </div>
@@ -474,30 +425,26 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">Licencias</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Two licences, honestly separated</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Dos licencias, separadas con honestidad</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: AGPL-3.0+ free for personal use, charities, education
-          and organisations under AUD&nbsp;50,000 a year, with a tiered commercial licence above that.
+          El código nuevo de PBSD &mdash; el núcleo, los módulos de C++23, las herramientas &mdash; se ofrece bajo los términos estándar de Imortek: AGPL-3.0+ gratis para uso personal, entidades benéficas, educación y organizaciones por debajo de 50.000&nbsp;AUD al año, con una licencia comercial por tramos por encima de esa cifra.
         </p>
         <p class="dim">
-          Code derived from HardenedBSD stays under its original BSD licence. It cannot be
-          relicensed and Imortek does not claim to. <code>docs/PROVENANCE.md</code> is the
-          record of which is which.
+          El código derivado de HardenedBSD se queda bajo su licencia BSD original. No se puede relicenciar, e Imortek no pretende hacerlo. <code>docs/PROVENANCE.md</code> es el registro de qué es qué.
         </p>
-        <a class="btn btn--ghost" href="/es/licensing.html">Full licensing terms &rarr;</a>
+        <a class="btn btn--ghost" href="/es/licensing.html">Términos completos de licencia &rarr;</a>
       </div>
       <div>
         <div class="grid" style="gap:14px">
           <div class="card">
-            <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ &amp; commercial</span></div>
-            <h4 style="margin:0 0 6px">New PBSD work</h4>
-            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, the capability nucleus, UDA, BIFROST, compositor and theme.</p>
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge badge--teal">AGPL-3.0+ y comercial</span></div>
+            <h4 style="margin:0 0 6px">Trabajo nuevo de PBSD</h4>
+            <p class="small muted" style="margin:0"><code>pbsd/</code>, <code>tools/</code>, <code>scripts/</code>, el núcleo de capacidades, UDA, BIFROST, el compositor y el tema.</p>
           </div>
           <div class="card">
-            <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (unchanged)</span></div>
-            <h4 style="margin:0 0 6px">HardenedBSD-derived</h4>
-            <p class="small muted" style="margin:0"><code>hbsd/</code> and every ported file tracing back to it. Original terms, original attribution.</p>
+            <div class="badge-row" style="margin-bottom:10px"><span class="badge">BSD (sin cambios)</span></div>
+            <h4 style="margin:0 0 6px">Derivado de HardenedBSD</h4>
+            <p class="small muted" style="margin:0"><code>hbsd/</code> y todo archivo portado que se remonte a él. Términos originales, atribución original.</p>
           </div>
         </div>
       </div>
@@ -510,34 +457,33 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>An operating system that is harder to break into</h2>
-      <p class="lede">Most break-ins exploit the same kind of mistake: a program reaching memory it was never meant to touch. ParanoidBSD rebuilds a trusted system in a language that makes that mistake much harder, and hands every program only the access it actually needs.</p>
+      <span class="eyebrow">Para quién es</span>
+      <h2>Un sistema operativo en el que es más difícil entrar</h2>
+      <p class="lede">La mayoría de las intrusiones aprovechan el mismo tipo de error: un programa que llega a memoria que nunca debió tocar. ParanoidBSD reconstruye un sistema de confianza en un lenguaje que hace ese error mucho más difícil, y le da a cada programa solo el acceso que realmente necesita.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Defence and government suppliers</h3>
-        <p class="small dim" style="margin:0">Buyers are starting to insist on software built in languages that shut out whole classes of attack. Starting again from nothing costs a decade. This moves a proven system across instead, and keeps a written record of every file it changed and how that change was checked.</p>
+        <h3 style="font-size:1.05rem">Proveedores de defensa y de la administración pública</h3>
+        <p class="small dim" style="margin:0">Los compradores empiezan a exigir software construido en lenguajes que cierran clases enteras de ataque. Empezar otra vez desde cero cuesta una década. Esto, en cambio, traslada un sistema ya probado, y guarda un registro escrito de cada archivo que cambió y de cómo se comprobó ese cambio.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Equipment that stays in the field for years</h3>
-        <p class="small dim" style="margin:0">Factory controllers, medical machines, utility hardware. When a flaw turns up you often cannot just push an update. This limits how far an intruder gets once they are in, because no program can reach past what it was handed.</p>
+        <h3 style="font-size:1.05rem">Equipos que pasan años desplegados</h3>
+        <p class="small dim" style="margin:0">Controladores de fábrica, máquinas médicas, equipos de servicios públicos. Cuando aparece un fallo, muchas veces no se puede sencillamente enviar una actualización. Esto limita hasta dónde llega un intruso una vez está dentro, porque ningún programa puede alcanzar nada más allá de lo que se le entregó.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Universities and security researchers</h3>
-        <p class="small dim" style="margin:0">A real operating system, small enough to read end to end, with the original sitting beside it to compare against. Useful for teaching and for testing ideas on something that actually runs.</p>
+        <h3 style="font-size:1.05rem">Universidades e investigadores de seguridad</h3>
+        <p class="small dim" style="margin:0">Un sistema operativo real, lo bastante pequeño para leerlo de principio a fin, con el original al lado para comparar. Útil para enseñar y para probar ideas sobre algo que de verdad funciona.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/es/beta.html">Become a beta tester &rarr;</a>
+      <strong>¿Reconoces aquí tu situación?</strong> Esto está abierto a pruebas beta ahora, y las personas para las que está hecho son aquellas cuyos comentarios de verdad lo cambian.
+      <a href="/es/beta.html">Hazte probador beta &rarr;</a>
     </div>
   </div>
 </section>
@@ -547,16 +493,15 @@
     <div class="cta-band reveal">
       <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
       <div class="cta-band__inner">
-        <span class="eyebrow eyebrow--amber"><span class="dot dot--pulse"></span> Kickstarter live &middot; closes 12 November 2026</span>
-        <h2 style="max-width:22ch;margin-inline:auto">The port runs on compute it does not have</h2>
+        <span class="eyebrow eyebrow--amber"><span class="dot dot--pulse"></span> Kickstarter en marcha &middot; cierra el 12 de noviembre de 2026</span>
+        <h2 style="max-width:22ch;margin-inline:auto">El port depende de un cómputo del que no dispone</h2>
         <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.8rem">
-          Deterministic passes are free. The agent loop that fills the residue &mdash; and the
-          verification runs that gate it &mdash; are not. That is the entire ask.
+          Las pasadas deterministas son gratis. El bucle con agentes que rellena el residuo &mdash; y las ejecuciones de verificación que lo controlan &mdash; no lo son. Eso es todo lo que se pide.
         </p>
         <div class="btn-row" style="justify-content:center">
           <a class="btn btn--fund btn--lg" href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Apóyalo en Kickstarter <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a class="btn btn--ghost btn--lg" href="/es/kickstarter.html">Mira a dónde va el dinero</a>
-          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Read the source first</a>
+          <a class="btn btn--ghost btn--lg" href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Lee primero el código fuente</a>
         </div>
       </div>
     </div>
@@ -628,7 +573,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-16T11:37:49Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
+      <span class="mono tiny">Compilado 2026-09-16T12:42:38Z &middot; Sin rastreadores, sin cookies, sin analíticas.</span>
     </div>
   </div>
 </footer>
@@ -639,6 +584,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Read handle to its own directory":"Handle de lectura sobre su propio directorio","Outbound TCP connect handle":"Handle de conexión TCP saliente","Executable-memory handle":"Handle de memoria ejecutable","Debug handle over another process":"Handle de depuración sobre otro proceso","Handle to spawn a new program":"Handle para lanzar un programa nuevo","read the shadow password file":"leer el archivo de contraseñas","Credential store":"Almacén de credenciales","Denied — but only afterwards, by discretionary access control. The process was still able to name the file and ask.":"Denegado — pero solo a posteriori, por el control de acceso discrecional. El proceso sí pudo nombrar el archivo y pedirlo.","Unreachable. The process holds no handle that resolves to this file, so there is no name for it to pass. The request cannot be formed.":"Inalcanzable. El proceso no posee ningún handle que resuelva a este archivo, así que no hay ningún nombre que pueda pasar. La petición no se puede formular.","read its own config file":"leer su propio archivo de configuración","/var/app":"/var/app","Allowed. The path resolves and the mode bits permit it.":"Permitido. La ruta resuelve y los bits de modo lo permiten.","Allowed. The process holds dir:/var/app and derives a read handle from it — authority narrows, it never widens.":"Permitido. El proceso posee dir:/var/app y deriva de él un handle de lectura — la autoridad se estrecha, nunca se amplía.","open an outbound TCP connection":"abrir una conexión TCP saliente","Network":"Red","Allowed. Any process may create a socket; nothing in the model says a font parser should not.":"Permitido. Cualquier proceso puede crear un socket; nada en el modelo dice que un analizador de fuentes no deba hacerlo.","Requires net:egress/tcp. Without that handle there is no socket namespace to reach.":"Requiere net:egress/tcp. Sin ese handle no hay espacio de nombres de sockets al que llegar.","map writable + executable memory":"mapear memoria escribible y ejecutable","Address space":"Espacio de direcciones","Denied by HardenedBSD. PaX-derived W^X enforcement already blocks this — one of the mitigations PBSD keeps unchanged.":"Denegado por HardenedBSD. La aplicación de W^X derivada de PaX ya lo bloquea — una de las mitigaciones que PBSD mantiene sin cambios.","Requires mem:exec, and W^X still applies on top. Two independent reasons this fails.":"Requiere mem:exec, y además W^X sigue aplicándose por encima. Dos razones independientes por las que esto falla.","attach a debugger to a sibling process":"depurar otro proceso del mismo usuario","Sibling process":"Proceso hermano","Allowed. Same user id, so the check passes — the process can read another program’s memory.":"Permitido. Mismo id de usuario, así que la comprobación pasa — el proceso puede leer la memoria de otro programa.","Requires proc:debug over that specific process. A handle names one target, not a class of targets.":"Requiere proc:debug sobre ese proceso concreto. Un handle nombra un objetivo, no una clase de objetivos.","spawn a shell":"lanzar un intérprete de órdenes","Program loader":"Cargador de programas","Allowed. This is the step that turns almost every memory-safety bug into a foothold.":"Permitido. Este es el paso que convierte casi cualquier fallo de seguridad de memoria en un punto de apoyo.","Requires exec:program. A process that was never given one cannot become a shell, whatever is corrupted inside it.":"Requiere exec:program. Un proceso al que nunca se le dio uno no puede convertirse en una shell, por mucho que se corrompa en su interior.","no handle was required at any point":"en ningún momento hizo falta un descriptor","the request was formed, then refused":"la petición se formó y luego se rechazó","no handle exists for this resource":"no existe descriptor para este recurso","PERMITTED":"PERMITIDO","REFUSED":"RECHAZADO","ambient authority":"autoridad ambiental","handle nucleus":"núcleo de descriptores","LATE CHECK (uid/gid/MAC)":"CONTROL TARDÍO (uid/gid/MAC)","HANDLE NUCLEUS":"NÚCLEO DE HANDLES","process":"proceso","untrusted":"no fiable","no handles held":"sin descriptores","can name every resource":"puede nombrar todo","Resource":"Recurso","reached":"alcanzado","not reached":"no alcanzado","idle":"inactivo","Pick an operation below to send a request through the monitor":"Elige una operación abajo para enviar una petición a través del monitor","UNREACHABLE":"INALCANZABLE","NO HANDLE":"SIN HANDLE","ALLOWED (no handle needed)":"PERMITIDO (sin handle)","HANDLE ACCEPTED":"HANDLE ACEPTADO","ambient (traditional Unix)":"ambiental (Unix tradicional)","handle nucleus (PBSD)":"núcleo de descriptores (PBSD)","toggle handles on the right.":"activa o desactiva los descriptores a la derecha."};</script>
 <script src="/assets/js/demos/capability.js" defer></script>
 </body>
 </html>

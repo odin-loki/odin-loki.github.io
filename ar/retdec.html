@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RetDec Imortek — specification-extraction decompiler | Imortek</title>
-<meta name="description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
-<meta name="keywords" content="RetDec Imortek, decompiler, reverse engineering, binary analysis, algorithm recovery, specification extraction, Qt 6">
+<title>RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek</title>
+<meta name="description" content="مُفكِّك برمجيات يستعيد الخوارزميات وأنماط التزامن وصيغ التسلسل من الملفات الثنائية — لا الشيفرة الوهمية وحدها. واجهة Qt 6، وتنقيح عصبي اختياري دون اتصال.">
+<meta name="keywords" content="RetDec Imortek, مُفكِّك برمجيات, هندسة عكسية, تحليل ملفات ثنائية, استعادة الخوارزميات, استخراج المواصفات, Qt 6, مفكك تجميع">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ar">
 <meta name="imortek:speech" content="ar-SA">
 <meta name="imortek:prefix" content="/ar">
-<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gh.live":"مباشرة من api.github.com","gh.cached":"نسخة محفوظة","gh.noDescription":"بلا وصف","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta property="og:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta property="og:title" content="RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek">
+<meta property="og:description" content="مُفكِّك برمجيات يستعيد الخوارزميات وأنماط التزامن وصيغ التسلسل من الملفات الثنائية — لا الشيفرة الوهمية وحدها. واجهة Qt 6، وتنقيح عصبي اختياري دون اتصال.">
 <meta property="og:url" content="https://imortek.com.au/ar/retdec.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta property="og:image:alt" content="RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta name="twitter:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta name="twitter:title" content="RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek">
+<meta name="twitter:description" content="مُفكِّك برمجيات يستعيد الخوارزميات وأنماط التزامن وصيغ التسلسل من الملفات الثنائية — لا الشيفرة الوهمية وحدها. واجهة Qt 6، وتنقيح عصبي اختياري دون اتصال.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta name="twitter:image:alt" content="RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/retdec.html#webpage","url":"https://imortek.com.au/ar/retdec.html","name":"RetDec Imortek — specification-extraction decompiler | Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/ar/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/retdec.html#software","name":"RetDec Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","url":"https://imortek.com.au/ar/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/retdec.html#webpage","url":"https://imortek.com.au/ar/retdec.html","name":"RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة | Imortek","description":"مُفكِّك برمجيات يستعيد الخوارزميات وأنماط التزامن وصيغ التسلسل من الملفات الثنائية — لا الشيفرة الوهمية وحدها. واجهة Qt 6، وتنقيح عصبي اختياري دون اتصال.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/ar/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/retdec.html#software","name":"RetDec Imortek","description":"مُفكِّك برمجيات يستعيد الخوارزميات وأنماط التزامن وصيغ التسلسل من الملفات الثنائية — لا الشيفرة الوهمية وحدها. واجهة Qt 6، وتنقيح عصبي اختياري دون اتصال.","url":"https://imortek.com.au/ar/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,39 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">أجزاء من هذه الصفحة ما زالت بالإنجليزية. الترجمة قيد الكتابة، ولا شيء هنا مترجم آليًّا.</p></div>
 <section class="phero" data-video="/assets/video/retdec" data-poster="/assets/img/video/retdec.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
-        <h1>A decompiler that recovers the <span class="gradient-text">algorithm</span>, not just the code</h1>
+        <h1>مُفكِّك برمجيات يستعيد <span class="gradient-text">الخوارزمية</span>، لا الشيفرة وحدها</h1>
         <p class="lede">
-          Pseudocode tells you what the bytes do. It rarely tells you what they <em>mean</em>.
-          RetDec Imortek treats semantic recovery as the primary output: which cryptographic
-          primitive this is, which sort, which serialization format, which concurrency
-          mechanism &mdash; with C as a by-product.
+          الشيفرة الوهمية تخبرك بما تفعله البايتات. ونادرًا ما تخبرك بما <em>تعنيه</em>. يعامل RetDec Imortek الاستعادة الدلالية بوصفها المخرَج الأساسي: أي أوليّة تعمية هذه، وأي فرز، وأي صيغة تسلسل، وأي آلية تزامن &mdash; وشيفرة C ناتج ثانوي.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">انتقل من البايتات إلى خوارزمية لها اسم</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">المستودع &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
-          <div class="phero__meta-item">Version<b>v2.0.21</b></div>
-          <div class="phero__meta-item">Upstream<b>RetDec v5.0</b></div>
-          <div class="phero__meta-item">Stars<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">مؤخرًا</b></div>
+          <div class="phero__meta-item">اللغة<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">النسخة<b>v2.0.21</b></div>
+          <div class="phero__meta-item">المنبع<b>RetDec v5.0</b></div>
+          <div class="phero__meta-item">النجوم<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
+          <div class="phero__meta-item">آخر دفعة<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">مؤخرًا</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Why fork RetDec</span>
+          <span class="eyebrow" style="margin-bottom:16px">لماذا تفريع RetDec</span>
           <p class="small dim">
-            Upstream RetDec v5.0 has been inactive since 2022. It remains one of the few
-            open decompilers with a genuinely broad front end &mdash; and that breadth is worth
-            keeping alive.
+            المشروع المنبع RetDec v5.0 خامل منذ 2022. ويظل واحدًا من المفكِّكات المفتوحة القليلة ذات واجهة أمامية عريضة فعلًا &mdash; وهذا الاتساع يستحق أن يبقى حيًّا.
           </p>
           <div class="spec" style="border:0;margin-top:6px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Semantic library recovery</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Qt 6 interface</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Optional offline neural refinement</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Added</span><span class="spec__v">Algorithm, concurrency &amp; serialization detection</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">المُضاف</span><span class="spec__v">استعادة المكتبات دلاليًّا</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">المُضاف</span><span class="spec__v">واجهة Qt 6</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">المُضاف</span><span class="spec__v">تنقيح عصبي اختياري دون اتصال</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">المُضاف</span><span class="spec__v">كشف الخوارزميات والتزامن &amp; التسلسل</span></div>
           </div>
         </div>
       </div>
@@ -189,19 +183,17 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The bottom rung, for real</span>
-      <h2>The actual decoder, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">الدرجة الدنيا، حقيقةً</span>
+      <h2>فاكّ الترميز الفعلي، مُترجَمًا إلى WebAssembly</h2>
       <p class="lede">
-        Everything above this is a scripted walk through the abstraction ladder. This is the
-        first rung running for real: Capstone &mdash; the same disassembler the native RetDec
-        build links &mdash; decoding bytes you paste in.
+        كل ما فوق هذا جولة مكتوبة سلفًا في سلّم التجريد. وهذه هي الدرجة الأولى تعمل حقيقةً: Capstone &mdash; مُفكِّك التجميع نفسه الذي يربطه بناء RetDec الأصلي &mdash; يفكّ ترميز بايتات تلصقها أنت.
       </p>
     </div>
 
     <div class="demo reveal" id="rdw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> capstone &mdash; WebAssembly</h3>
-        <div class="seg" role="group" aria-label="Width">
+        <div class="seg" role="group" aria-label="العرض">
           <button type="button" data-bits="64" aria-pressed="true">x86-64</button>
           <button type="button" data-bits="32">x86-32</button>
         </div>
@@ -209,43 +201,38 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="ctrl">
-            <label for="rdw-input">Bytes &mdash; hex, any separators</label>
+            <label for="rdw-input">البايتات &mdash; ست عشري، بأي فواصل</label>
             <input type="text" id="rdw-input" value="55 48 89 e5 b8 01 00 00 00 5d c3"
                    spellcheck="false" autocomplete="off" style="width:100%">
           </div>
           <div class="chips" id="rdw-examples" style="margin-top:12px"></div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">Load the decoder &mdash; 791 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Disassemble</button>
+            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">حمّل فاكّ الترميز &mdash; 791 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>فكّ التجميع</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 KB because a real x86 decoder carries the whole instruction set &mdash; every
-            encoding, prefix and extension. That is the honest size of the thing.
+            791 KB لأن فاكّ ترميز x86 حقيقيًّا يحمل مجموعة التعليمات كاملة &mdash; كل ترميز وبادئة وامتداد. هذا هو الحجم الصادق للشيء.
           </p>
         </div>
         <div class="demo__side">
           <div class="log" id="rdw-out" style="height:260px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Decoder</div>
+              <div class="readout__k">فاكّ الترميز</div>
               <div class="readout__v plain" id="rdw-version" style="font-size:.82rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Instructions</div>
+              <div class="readout__k">التعليمات</div>
               <div class="readout__v violet" id="rdw-count" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>This is the decoder, not the decompiler.</strong> The rungs above &mdash;
-            lifting to LLVM IR, structuring control flow, naming the algorithm &mdash; are LLVM&rsquo;s
-            work, and LLVM does not fit in a web page at any size. Saying otherwise would be the
-            easiest lie on this site.
+            <strong>هذا فاكّ الترميز، لا المُفكِّك.</strong> الدرجات الأعلى &mdash; الرفع إلى تمثيل LLVM الوسيط، وهيكلة تدفّق التحكّم، وتسمية الخوارزمية &mdash; هي عمل LLVM، وLLVM لا تتّسع له صفحة ويب بأي حجم. وادّعاء غير ذلك سيكون أسهل كذبة في هذا الموقع.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, built with Emscripten, x86 only. The native build links the same library
-        from <code>deps/capstone</code>.
+        Capstone 5، مبني بـEmscripten، لمعمارية x86 فقط. والبناء الأصلي يربط المكتبة نفسها من <code>deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -254,28 +241,28 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Front end</span>
-      <h2>Native, bytecode and emerging formats</h2>
-      <p class="lede">Output is format-dependent, because pretending everything decompiles to C helps nobody.</p>
+      <span class="eyebrow">الواجهة الأمامية</span>
+      <h2>صيغ أصلية وشيفرة بايت وصيغ ناشئة</h2>
+      <p class="lede">المخرَج يتبع الصيغة، لأن التظاهر بأن كل شيء يُفكَّك إلى C لا ينفع أحدًا.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Native</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">أصلي</span>
         <h3 style="font-size:1.02rem">ELF &middot; PE &middot; Mach-O</h3>
-        <p class="small dim" style="margin:0">Produces C pseudocode, plus the semantic layer that is the point of the fork.</p>
+        <p class="small dim" style="margin:0">ينتج شيفرة C وهمية، إضافة إلى الطبقة الدلالية التي هي سبب التفريع.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".05">
         <div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Bytecode</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">شيفرة البايت</span>
         <h3 style="font-size:1.02rem">Python &middot; Lua &middot; JVM &middot; DEX &middot; CIL</h3>
-        <p class="small dim" style="margin:0">Python and Lua bytecode return their own languages; managed code paths emit Java-family or C#-family output.</p>
+        <p class="small dim" style="margin:0">شيفرة بايت Python وLua تعود بلغتيهما؛ ومسارات الشيفرة المُدارة تُخرِج ناتجًا من عائلة Java أو عائلة C#.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".1">
         <div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Emerging</span>
+        <span class="badge badge--blue" style="margin-bottom:12px">ناشئ</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WAT. PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly يُحوَّل إلى WAT. وPTX يُعامَل كمدخل من الدرجة الأولى لا كفكرة لاحقة.</p>
       </div>
     </div>
   </div>
@@ -284,20 +271,18 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Watch a function climb the abstraction ladder</h2>
+      <span class="eyebrow">تفاعلي</span>
+      <h2>شاهد دالّة تصعد سلّم التجريد</h2>
       <p class="lede">
-        Pick a binary function and step it through the pipeline: raw bytes, disassembly,
-        lifted IR, C pseudocode, and finally the semantic verdict &mdash; the named algorithm,
-        with the evidence that identified it.
+        اختر دالّة ثنائية ومرّرها خطوة خطوة في الخط: بايتات خام، ثم فكّ تجميع، ثم تمثيل وسيط مرفوع، ثم شيفرة C وهمية، وأخيرًا الحكم الدلالي &mdash; الخوارزمية باسمها، مع الدليل الذي حدّدها.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="Five rungs of abstraction: raw bytes, disassembly, lifted IR, C pseudocode, and the named algorithm with its specification reference" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>The last rung is the product.</b> Everything above it is what other decompilers already give you.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="خمس درجات من التجريد: بايتات خام، وفكّ تجميع، وتمثيل وسيط مرفوع، وشيفرة C وهمية، والخوارزمية باسمها مع مرجع مواصفتها" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>الدرجة الأخيرة هي المنتج.</b> وكل ما فوقها هو ما تعطيه لك المفكِّكات الأخرى أصلًا.</figcaption></figure>
 
     <div class="demo reveal" id="rd-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; specification extraction</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; استخراج المواصفة</h3>
         <div class="chips" id="rd-samples"></div>
       </div>
       <div class="demo__split">
@@ -305,48 +290,45 @@
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
           <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm" id="rd-prev">&larr; Back</button>
-            <button class="btn btn--sm btn--primary" id="rd-next">Next stage &rarr;</button>
-            <button class="btn btn--sm btn--ghost" id="rd-auto">Auto-run</button>
+            <button class="btn btn--sm" id="rd-prev">&larr; رجوع</button>
+            <button class="btn btn--sm btn--primary" id="rd-next">المرحلة التالية &rarr;</button>
+            <button class="btn btn--sm btn--ghost" id="rd-auto">تشغيل تلقائي</button>
           </div>
         </div>
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Semantic verdict</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">الحكم الدلالي</h4>
             <div class="verdict" id="rd-verdict">
-              <div class="verdict__label">Not yet recovered</div>
-              <div class="verdict__why">Step through to the semantic stage.</div>
+              <div class="verdict__label">لم تُستعَد بعد</div>
+              <div class="verdict__why">تقدّم بالخطوات حتى المرحلة الدلالية.</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Evidence</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">الدليل</h4>
             <div class="log" id="rd-evidence" style="height:200px"></div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Confidence</div>
+              <div class="readout__k">الثقة</div>
               <div class="readout__v" id="rd-conf">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mode</div>
-              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">name-blind</div>
+              <div class="readout__k">الوضع</div>
+              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">أعمى عن الأسماء</div>
             </div>
           </div>
           <label class="switch">
             <input type="checkbox" id="rd-symbols">
             <span class="switch__track"></span>
-            <span>Binary has symbols</span>
+            <span>الملف الثنائي يحوي رموزًا</span>
           </label>
           <p class="tiny muted">
-            With symbols stripped, recovery must work from structure alone &mdash; constants,
-            round counts, control-flow shape. That is the hard case, and the one the
-            measured F1 of 0.056 refers to.
+            مع تجريد الرموز، على الاستعادة أن تعمل من البنية وحدها &mdash; الثوابت، وعدد الجولات، وشكل تدفّق التحكّم. هذه هي الحالة الصعبة، وهي التي يشير إليها مقياس F1 المقيس البالغ 0.056.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A scripted walkthrough of real recovery stages, written for this page. The
-        decompiler itself is C++ and runs offline.
+        جولة مكتوبة سلفًا في مراحل استعادة حقيقية، كُتبت لهذه الصفحة. أما المُفكِّك نفسه فمكتوب بـC++ ويعمل دون اتصال.
       </div>
     </div>
   </div>
@@ -355,22 +337,22 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">What it recovers</span>
-      <h2>Six families of structure</h2>
+      <span class="eyebrow">ما الذي يستعيده</span>
+      <h2>ست عائلات من البِنى</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
-        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
-        <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; including the depth-limit switch that gives introsort away.</p></div>
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
-        <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">بيئة التشغيل</span>
+        <p class="small dim" style="margin:0">حاويات STL وبِنى بيئة تشغيل C++ &mdash; شكل <code>std::vector</code> يعاود الظهور من نمط الحجز.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التعمية</span>
+        <p class="small dim" style="margin:0">أوليّات AES وSHA وChaCha20 وRSA والمنحنيات الإهليلجية، تُحدَّد بالثوابت وبنية الجولات.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">الفرز &amp; البحث</span>
+        <p class="small dim" style="margin:0">introsort، والفرز بالدمج، والبحث الثنائي &mdash; بما في ذلك تبديل حدّ العمق الذي يفضح introsort.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">الرسوم البيانية</span>
+        <p class="small dim" style="margin:0">خوارزميات الرسوم البيانية وأنماط الاجتياز BFS/DFS.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التزامن</span>
+        <p class="small dim" style="margin:0"><code>std::thread</code>، وpthreads، وOpenMP، وTBB، والذرّيات الخام.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">التسلسل</span>
+        <p class="small dim" style="margin:0">تأطير Protobuf وFlatBuffers وMessagePack وJSON وXML.</p></div>
     </div>
   </div>
 </section>
@@ -379,46 +361,40 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Measured</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binaries, and the number that hurts</h2>
+        <span class="eyebrow">مقيس</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 ملفًّا ثنائيًّا، والرقم المؤلم</h2>
         <p class="dim">
-          All 216 ELF binaries in the test corpus produce buildable C with
-          <code>--buildable</code>, which is on by default. Algorithm recovery is a different
-          story, and the honest way to report it is both numbers side by side.
+          كل الملفات الثنائية ELF الـ216 في مجموعة الاختبار تنتج شيفرة C قابلة للبناء مع
+          <code>--buildable</code>، وهو مفعَّل افتراضيًّا. أما استعادة الخوارزميات فقصة أخرى، والطريقة الصادقة للإبلاغ عنها هي وضع الرقمين جنبًا إلى جنب.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
+            <thead><tr><th>المقياس</th><th class="num">النتيجة</th><th>الشرط</th></tr></thead>
             <tbody>
-              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
-              <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
+              <tr><td>مخرَج C قابل للبناء</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>، مفعَّل افتراضيًّا</td></tr>
+              <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">0.056</td><td class="muted">أعمى عن الأسماء، فاصل ثقة 95% 0.034&ndash;0.083</td></tr>
+              <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">1.000</td><td class="muted">بمساعدة الأسماء، ملفات ثنائية ذات رموز</td></tr>
+              <tr><td>إعادة ترجمة ملف <code>.c</code> الافتراضي</td><td class="num">لا</td><td class="muted">لا هذا التفريع ولا RetDec الأصلي</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>Read those two F1 numbers together.</strong> 1.000 with symbols means the
-          detector agrees with the symbol table. 0.056 without means structural recovery on
-          stripped binaries is, today, close to the floor. Quoting only the first would be
-          marketing; quoting only the second would hide that the pipeline works when it has
-          anything to go on.
+          <strong>اقرأ رقمَي F1 معًا.</strong> 1.000 مع الرموز يعني أن الكاشف يتفق مع جدول الرموز. و0.056 بدونها يعني أن الاستعادة البنيوية على ملفات مجرَّدة من الرموز قريبة اليوم من الحضيض. وذكر الأول وحده تسويق؛ وذكر الثاني وحده يخفي أن الخط يعمل حين يجد ما يستند إليه.
         </div>
       </div>
 
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--violet">Neural refinement</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Optional, offline, and gated</h2>
+        <span class="eyebrow eyebrow--violet">تنقيح عصبي</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">اختياري، دون اتصال، وخلف بوابة</h2>
         <p class="dim">
-          Refinement runs through llama.cpp with GGUF models, entirely offline, only when
-          <code>RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
-          and it never replaces the baseline.
+          يجري التنقيح عبر llama.cpp بنماذج GGUF، دون اتصال تمامًا، فقط حين يكون
+          <code>RETDEC_NEURAL_REFINE=1</code> ويُعطى مسار نموذج. وهو مُطفأ افتراضيًّا ولا يحلّ محلّ الخط الأساس أبدًا.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Compile gate.</strong> Refined output must pass <code>gcc -fsyntax-only</code> before it is accepted.</li>
-          <li><strong>Structural validation.</strong> The refinement must still correspond to the lifted structure.</li>
-          <li><strong>Deterministic baseline preserved.</strong> The unrefined decompiler output remains the auditable artefact. If you need to defend a finding, you defend that one.</li>
-          <li><strong>No network.</strong> Local GGUF inference. Nothing about your binary leaves the machine.</li>
+          <li><strong>بوابة ترجمة.</strong> على المخرَج المنقَّح أن يجتاز <code>gcc -fsyntax-only</code> قبل أن يُقبل.</li>
+          <li><strong>تحقّق بنيوي.</strong> يجب أن يظل التنقيح مطابقًا للبنية المرفوعة.</li>
+          <li><strong>الخط الأساس الحتمي محفوظ.</strong> يبقى مخرَج المُفكِّك غير المنقَّح هو الأثر القابل للتدقيق. وإن احتجت إلى الدفاع عن نتيجة، فعنه تدافع.</li>
+          <li><strong>لا شبكة.</strong> استدلال GGUF محلي. لا يغادر الجهازَ أي شيء عن ملفك الثنائي.</li>
         </ul>
         <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
@@ -432,34 +408,33 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Works out what a program does when the source code is gone</h2>
-      <p class="lede">Software ships as something a machine can read and a person cannot. This takes that back apart and tells you, in plain terms, what the program is actually doing.</p>
+      <span class="eyebrow">لمن هو</span>
+      <h2>يكتشف ما يفعله البرنامج حين تختفي الشيفرة المصدرية</h2>
+      <p class="lede">تُشحَن البرمجيات في صورة تقرؤها الآلة ولا يقرؤها الإنسان. وهذا يفكّكها مجدّدًا ويخبرك، بكلام واضح، بما يفعله البرنامج فعلًا.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Security teams pulling malware apart</h3>
-        <p class="small dim" style="margin:0">Instead of pages of unreadable code, you get the answer: this part is scrambling data, this part is how it calls home, this part is how it hides. That is the bit an analyst needs first.</p>
+        <h3 style="font-size:1.05rem">فرق الأمن التي تفكّك البرمجيات الخبيثة</h3>
+        <p class="small dim" style="margin:0">بدل صفحات من شيفرة غير مقروءة، تحصل على الجواب: هذا الجزء يشوّش البيانات، وهذا هو كيف يتّصل بخادمه، وهذا هو كيف يختبئ. وهذا ما يحتاجه المحلّل أولًا.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Companies with old software and no source code</h3>
-        <p class="small dim" style="margin:0">The system still runs the business, and whoever wrote it left years ago. This recovers a description of what it does, which is what you need before anyone can safely rebuild or replace it.</p>
+        <h3 style="font-size:1.05rem">شركات لديها برمجيات قديمة بلا شيفرة مصدرية</h3>
+        <p class="small dim" style="margin:0">النظام ما زال يدير العمل، ومن كتبه رحل منذ سنوات. وهذا يستعيد وصفًا لما يفعله، وهو ما تحتاجه قبل أن يستطيع أحد إعادة بنائه أو استبداله بأمان.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Anyone stuck with a file format nobody documented</h3>
-        <p class="small dim" style="margin:0">Old records, a machine that will only talk to its own software, a competitor's export file. This works out the structure so your own software can read it.</p>
+        <h3 style="font-size:1.05rem">كل من علق مع صيغة ملف لم يوثّقها أحد</h3>
+        <p class="small dim" style="margin:0">سجلات قديمة، أو آلة لا تكلّم إلا برمجياتها، أو ملف تصدير من منافس. وهذا يستنتج البنية كي تستطيع برمجياتك أنت قراءته.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ar/beta.html">Become a beta tester &rarr;</a>
+      <strong>هل ترى حالتك هنا؟</strong> هذا مفتوح للاختبار التجريبي الآن، ومن بُني لأجلهم هم من تغيّره ملاحظاتهم فعلًا.
+      <a href="/ar/beta.html">كن مختبِرًا تجريبيًّا &rarr;</a>
     </div>
   </div>
 </section>
@@ -468,30 +443,26 @@
   <div class="wrap">
     <div class="split split--center reveal">
       <div>
-        <span class="eyebrow">Interface</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, or no GUI at all</h2>
+        <span class="eyebrow">الواجهة</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">واجهة Qt 6 رسومية، أو بلا واجهة رسومية إطلاقًا</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in CI.
+          عروض شيفرة متزامنة عبر C ولغة التجميع والتمثيل الوسيط ورسوم تدفّق التحكّم، مع تنقّل بين الدوال، وفحص للسلاسل النصية، ومتصفّح للملف الثنائي، ولوحة مساعد. ووضع بلا رأس يُسقط كل اعتماديات الواجهة الرسومية فيعمل البناء نفسه في التكامل المستمر.
         </p>
       </div>
       <div>
         <div class="card">
           <div class="badge-row" style="margin-bottom:14px">
-            <span class="badge badge--teal">Dual licensed</span>
+            <span class="badge badge--teal">ترخيص مزدوج</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            AGPL-3.0+ for open-source use, or a commercial licence for proprietary deployment.
-            Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
+            AGPL-3.0+ للاستخدام مفتوح المصدر، أو ترخيص تجاري للنشر الاحتكاري. حقوق النشر Odin Loch، باسم Imortek التجاري، 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
-            Shippable at v2.0.21. CI gates reflect development rather than production maturity
-            standards &mdash; stated by the project, not inferred.
+            قابل للشحن عند v2.0.21. وبوابات التكامل المستمر تعكس معايير التطوير لا معايير نضج الإنتاج &mdash; هذا ما يقوله المشروع نفسه، لا استنتاجًا.
           </p>
           <div class="btn-row" style="margin-top:18px">
-            <a class="btn btn--sm btn--ghost" href="/ar/licensing.html">Licensing terms</a>
-            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">The research line behind it</a>
+            <a class="btn btn--sm btn--ghost" href="/ar/licensing.html">شروط الترخيص</a>
+            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">خط البحث وراءه</a>
           </div>
         </div>
       </div>
@@ -564,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T11:37:49Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T12:42:38Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>
@@ -575,6 +546,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Raw bytes":"بايتات خام","Disassembly":"تفكيك التجميع","Lifted IR":"تمثيل وسيط مرفوع","C pseudocode":"شِبه شفرة C","Semantics":"دلالات","Cryptographic primitive":"أولية تشفيرية","Sorting algorithm":"خوارزمية فرز","Stream cipher":"شيفرة انسيابية","Stop":"إيقاف"};</script>
 <script src="/assets/js/demos/retdec.js" defer></script><script src="/assets/js/demos/retdec-wasm.js" defer></script>
 </body>
 </html>

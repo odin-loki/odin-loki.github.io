@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Research shelf — cryptography, AI, physics, materials | Imortek</title>
-<meta name="description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
-<meta name="keywords" content="Imortek research, Odin Loch, cryptography research, AI research, physics, materials science, mathematics, policy, design documents">
+<title>رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek</title>
+<meta name="description" content="رفّ البحث والتطوير لدى Odin Loch: وثائق تصميم وإثباتات مفهوم في التعمية والذكاء الاصطناعي والتتبّع والرياضيات والفيزياء والمواد والسياسات. مُعنوَنة بصدق.">
+<meta name="keywords" content="أبحاث Imortek, Odin Loch, التعمية, أبحاث الذكاء الاصطناعي, الفيزياء, علم المواد, الرياضيات, السياسات العامة, وثائق التصميم">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ar">
 <meta name="imortek:speech" content="ar-SA">
 <meta name="imortek:prefix" content="/ar">
-<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gh.live":"مباشرة من api.github.com","gh.cached":"نسخة محفوظة","gh.noDescription":"بلا وصف","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="website">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Research shelf — cryptography, AI, physics, materials | Imortek">
-<meta property="og:description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
+<meta property="og:title" content="رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek">
+<meta property="og:description" content="رفّ البحث والتطوير لدى Odin Loch: وثائق تصميم وإثباتات مفهوم في التعمية والذكاء الاصطناعي والتتبّع والرياضيات والفيزياء والمواد والسياسات. مُعنوَنة بصدق.">
 <meta property="og:url" content="https://imortek.com.au/ar/research.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Research shelf — cryptography, AI, physics, materials | Imortek">
+<meta property="og:image:alt" content="رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Research shelf — cryptography, AI, physics, materials | Imortek">
-<meta name="twitter:description" content="Odin Loch's R&amp;D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.">
+<meta name="twitter:title" content="رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek">
+<meta name="twitter:description" content="رفّ البحث والتطوير لدى Odin Loch: وثائق تصميم وإثباتات مفهوم في التعمية والذكاء الاصطناعي والتتبّع والرياضيات والفيزياء والمواد والسياسات. مُعنوَنة بصدق.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Research shelf — cryptography, AI, physics, materials | Imortek">
+<meta name="twitter:image:alt" content="رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"CollectionPage","@id":"https://imortek.com.au/ar/research.html#webpage","url":"https://imortek.com.au/ar/research.html","name":"Research shelf — cryptography, AI, physics, materials | Imortek","description":"Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/research.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/research.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"Research shelf","item":"https://imortek.com.au/ar/research.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"CollectionPage","@id":"https://imortek.com.au/ar/research.html#webpage","url":"https://imortek.com.au/ar/research.html","name":"رفّ الأبحاث — التعمية والذكاء الاصطناعي والفيزياء والمواد | Imortek","description":"رفّ البحث والتطوير لدى Odin Loch: وثائق تصميم وإثباتات مفهوم في التعمية والذكاء الاصطناعي والتتبّع والرياضيات والفيزياء والمواد والسياسات. مُعنوَنة بصدق.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/research.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/research.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"رفّ الأبحاث","item":"https://imortek.com.au/ar/research.html"}]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,514 +139,506 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">أجزاء من هذه الصفحة ما زالت بالإنجليزية. الترجمة قيد الكتابة، ولا شيء هنا مترجم آليًّا.</p></div><div class="wrap"><p class="i18n-note" role="note">هذه الصفحة البحثية منشورة بالإنجليزية فقط. الصفحات التقنية مترجَمة، أما سجلّات الادعاءات فلا، لأن الادعاء المترجَم خطأً يصبح ادعاءً كاذبًا.</p></div>
+<div class="wrap"><p class="i18n-note" role="note">هذه الصفحة البحثية منشورة بالإنجليزية فقط. الصفحات التقنية مترجَمة، أما سجلّات الادعاءات فلا، لأن الادعاء المترجَم خطأً يصبح ادعاءً كاذبًا.</p></div>
 <section class="phero">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <span class="eyebrow">رفّ الأبحاث</span>
-    <h1>Forty-six folders of <span class="gradient-text">work in progress</span></h1>
+    <h1>ستة وأربعون مجلدًا من <span class="gradient-text">العمل الجاري</span></h1>
     <p class="lede">
-      This is a shelf, not a product catalogue. Some of it is result-bearing research with
-      experiments and numbers. Some of it is a design document. Some of it is speculative and
-      says so in its own README. Every folder now has a full write-up, drawn from the source
-      papers rather than the folder READMEs, with every claim listed next to the evidence
-      behind it &mdash; including the ones that report a negative result.
+      هذا رفّ، لا كتالوج منتجات. بعضه بحث يحمل نتائج، بتجارب وأرقام. وبعضه وثيقة تصميم. وبعضه تأمّلي ويقول ذلك في ملف README الخاص به. ولكل مجلد الآن كتابة كاملة، مستخرجة من الأوراق الأصلية لا من ملفات README في المجلدات، وكل ادّعاء مذكور بجوار الدليل الذي يسنده &mdash; بما في ذلك تلك التي تبلّغ عن نتيجة سلبية.
     </p>
     <div class="badge-row" style="margin-top:24px">
-      <span class="badge badge--teal">46 full write-ups</span>
-      <span class="badge">46 folders total</span>
-      <span class="badge">14 fields</span>
-      <span class="badge">AGPL-3.0+ / commercial</span>
+      <span class="badge badge--teal">46 كتابة كاملة</span>
+      <span class="badge">46 مجلدًا إجمالًا</span>
+      <span class="badge">14 مجالًا</span>
+      <span class="badge">AGPL-3.0+ / تجاري</span>
     </div>
   </div>
 </section>
 <section class="section section--alt">
   <div class="wrap">
     <div class="note note--amber reveal" style="margin-bottom:36px">
-      <strong>Read this first.</strong> Defence-register language appears in several folders as a
-      stylistic choice. It does not indicate real classification, fielded materiel, or any
-      government relationship. Many systems here remain unbuilt or unvalidated, and speculative
-      items carry explicit labels in their own README files. Nothing on this shelf has been
-      independently verified.
+      <strong>اقرأ هذا أولًا.</strong> تظهر لغة السجلّ الدفاعي في عدّة مجلدات بوصفها خيارًا أسلوبيًّا. وهي لا تدلّ على تصنيف سرّي حقيقي، ولا على عتاد في الميدان، ولا على أي علاقة حكومية. وكثير من الأنظمة هنا لم يُبنَ أو لم يُتحقَّق منه، والعناصر التأمّلية تحمل تسميات صريحة في ملفات README الخاصة بها. ولا شيء على هذا الرفّ خضع لتحقّق مستقل.
     </div>
     <div class="section-head reveal">
-      <span class="eyebrow">Browse</span>
-      <h2>Filter the shelf</h2>
+      <span class="eyebrow">تصفّح</span>
+      <h2>رشّح الرفّ</h2>
     </div>
     <div class="chips reveal" id="r-filters" style="margin-bottom:12px">
-      <button type="button" class="chip" data-field="all" aria-pressed="true">Everything<span class="chip__n">46</span></button>
-      <button type="button" class="chip" data-field="AI &amp; machine learning" aria-pressed="false">AI &amp; machine learning<span class="chip__n">9</span></button>
-      <button type="button" class="chip" data-field="Biology &amp; medicine" aria-pressed="false">Biology &amp; medicine<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Chemistry &amp; products" aria-pressed="false">Chemistry &amp; products<span class="chip__n">3</span></button>
-      <button type="button" class="chip" data-field="Computer architecture" aria-pressed="false">Computer architecture<span class="chip__n">1</span></button>
-      <button type="button" class="chip" data-field="Cryptography" aria-pressed="false">Cryptography<span class="chip__n">3</span></button>
-      <button type="button" class="chip" data-field="Defence &amp; security" aria-pressed="false">Defence &amp; security<span class="chip__n">4</span></button>
-      <button type="button" class="chip" data-field="Electronics" aria-pressed="false">Electronics<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Information theory" aria-pressed="false">Information theory<span class="chip__n">2</span></button>
-      <button type="button" class="chip" data-field="Materials &amp; engineering" aria-pressed="false">Materials &amp; engineering<span class="chip__n">5</span></button>
-      <button type="button" class="chip" data-field="Mathematics" aria-pressed="false">Mathematics<span class="chip__n">6</span></button>
-      <button type="button" class="chip" data-field="Physics" aria-pressed="false">Physics<span class="chip__n">1</span></button>
-      <button type="button" class="chip" data-field="Policy &amp; economics" aria-pressed="false">Policy &amp; economics<span class="chip__n">3</span></button>
-      <button type="button" class="chip" data-field="Software &amp; languages" aria-pressed="false">Software &amp; languages<span class="chip__n">3</span></button>
-      <button type="button" class="chip" data-field="Tracking &amp; sensors" aria-pressed="false">Tracking &amp; sensors<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="all" aria-pressed="true">كل شيء<span class="chip__n">46</span></button>
+      <button type="button" class="chip" data-field="AI &amp; machine learning" aria-pressed="false">الذكاء الاصطناعي &amp; تعلّم الآلة<span class="chip__n">9</span></button>
+      <button type="button" class="chip" data-field="Biology &amp; medicine" aria-pressed="false">الأحياء &amp; الطب<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="Chemistry &amp; products" aria-pressed="false">الكيمياء &amp; المنتجات<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Computer architecture" aria-pressed="false">معمارية الحاسوب<span class="chip__n">1</span></button>
+      <button type="button" class="chip" data-field="Cryptography" aria-pressed="false">التعمية<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Defence &amp; security" aria-pressed="false">الدفاع &amp; الأمن<span class="chip__n">4</span></button>
+      <button type="button" class="chip" data-field="Electronics" aria-pressed="false">الإلكترونيات<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="Information theory" aria-pressed="false">نظرية المعلومات<span class="chip__n">2</span></button>
+      <button type="button" class="chip" data-field="Materials &amp; engineering" aria-pressed="false">المواد &amp; الهندسة<span class="chip__n">5</span></button>
+      <button type="button" class="chip" data-field="Mathematics" aria-pressed="false">الرياضيات<span class="chip__n">6</span></button>
+      <button type="button" class="chip" data-field="Physics" aria-pressed="false">الفيزياء<span class="chip__n">1</span></button>
+      <button type="button" class="chip" data-field="Policy &amp; economics" aria-pressed="false">السياسات &amp; الاقتصاد<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Software &amp; languages" aria-pressed="false">البرمجيات &amp; اللغات<span class="chip__n">3</span></button>
+      <button type="button" class="chip" data-field="Tracking &amp; sensors" aria-pressed="false">التتبّع &amp; الحسّاسات<span class="chip__n">2</span></button>
     </div>
-    <p class="rcount reveal" style="margin-bottom:24px"><span id="r-count">46</span> of 46 shown</p>
+    <p class="rcount reveal" style="margin-bottom:24px"><span id="r-count">46</span> من 46 معروضة</p>
     <div class="rgrid" id="r-grid">
       <a class="rcard rcard--linked" href="/research/noise-generator.html" data-field="Electronics" data-written="true">
         <div class="rcard__head">
-          <h3>100 W noise generator</h3>
-          <span class="badge badge--amber">Design document</span>
+          <h3>مولّد ضوضاء 100 W</h3>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Electronics</span>
-        <p style="margin-top:10px">One SystemVerilog file supervising a Chua-circuit analogue core, a four-band PA chain, supply DAC, thermal ADC and a sub-microsecond hard-protection state machine.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الإلكترونيات</span>
+        <p style="margin-top:10px">ملف SystemVerilog واحد يشرف على نواة تناظرية بدائرة تشوا، وسلسلة مضخّمات قدرة رباعية النطاقات، ومحوّل رقمي-تناظري للتغذية، ومحوّل تناظري-رقمي حراري، وآلة حالات حماية صلبة دون الميكروثانية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/boolean-dimensions.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
           <h3>Boolean n = 3…8</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">A dimension-by-dimension census of Boolean function space from three to eight variables, tracking the fraction of genuinely irreducible functions from roughly a quarter to a virtual ceiling.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">إحصاء بُعدًا بُعدًا لفضاء الدوال البوليانية من ثلاثة متغيّرات إلى ثمانية، يتتبّع نسبة الدوال غير القابلة للاختزال فعلًا من نحو الربع إلى سقف شبه تام.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/aria-aead.html" data-field="Cryptography" data-written="true">
         <div class="rcard__head">
           <h3>ARIA</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Cryptography</span>
-        <p style="margin-top:10px">Authenticated encryption that derives the nonce from the message and session key instead of transmitting it, making sender/receiver drift structurally impossible.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">التعمية</span>
+        <p style="margin-top:10px">تعمية موثَّقة تشتقّ الـnonce من الرسالة ومفتاح الجلسة بدل إرساله، فيصير انجراف المرسِل/المستقبِل مستحيلًا بنيويًّا.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/ashby.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>Ashby Optimiser</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">N isolated search units at geometrically spaced radii, round-robin scheduled, with homeostatic restarts on stagnation — benchmarked honestly against random search and a (1+1)-ES.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">N وحدة بحث معزولة على أنصاف أقطار متباعدة هندسيًّا، مجدولة بالتناوب الدوري، مع إعادة تشغيل اتّزانية عند الركود — مقيسة بصدق في مقابل البحث العشوائي وخوارزمية (1+1)-ES.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/asset-tracking.html" data-field="Tracking &amp; sensors" data-written="true">
         <div class="rcard__head">
           <h3>ARIA-INTEL</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Tracking &amp; sensors</span>
-        <p style="margin-top:10px">A PMBM random-finite-set tracker with pattern-of-life modelling, eight tradecraft detectors and Bayesian threat scoring — 2,363 lines, NumPy and SciPy only, 28 ms per scan.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">التتبّع &amp; الحسّاسات</span>
+        <p style="margin-top:10px">متعقّب PMBM بمجموعات منتهية عشوائية، مع نمذجة لنمط الحياة، وثمانية كواشف لأساليب العمل، وتقييم تهديد بايزي — 2,363 سطرًا، وNumPy وSciPy فقط، و28 ms لكل مسح.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/battle-sim.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
           <h3>Battle Sim</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Defence &amp; security</span>
-        <p style="margin-top:10px">A short survey of modern mathematical combat models — Hughes-style discrete salvos, extended Lanchester formulations, Markov-state battle models — with their equations and their caveats.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الدفاع &amp; الأمن</span>
+        <p style="margin-top:10px">مسح قصير لنماذج القتال الرياضية الحديثة — رشقات منفصلة على طريقة Hughes، وصيغ Lanchester الموسّعة، ونماذج معارك بحالات ماركوف — بمعادلاتها وتحفّظاتها.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/hemp-harmony.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
           <h3>Hemp Harmony</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Chemistry &amp; products</span>
-        <p style="margin-top:10px">A three-phase botanical cosmeceutical with every ingredient class substantiated from peer-reviewed clinical, in-vitro and ethnobotanical evidence rather than asserted.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الكيمياء &amp; المنتجات</span>
+        <p style="margin-top:10px">مستحضر تجميلي نباتي من ثلاث مراحل، كل صنف مكوّنات فيه مسنَد بأدلّة سريرية ومخبرية وإثنونباتية محكَّمة لا بمجرّد الادّعاء.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/cpu.html" data-field="Computer architecture" data-written="true">
         <div class="rcard__head">
           <h3>CPU</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Computer architecture</span>
-        <p style="margin-top:10px">A heterogeneous many-core architecture discussion paired with a SystemVerilog sketch that moves operating-system primitives — context switch, syscall dispatch, page-fault handling — into hardware.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">معمارية الحاسوب</span>
+        <p style="margin-top:10px">نقاش في معمارية متعدّدة النوى غير متجانسة، مقرونًا برسم SystemVerilog ينقل أوليّات نظام التشغيل — تبديل السياق، وتوزيع نداءات النظام، ومعالجة أخطاء الصفحات — إلى العتاد.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/cocktails.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
-          <h3>Bar operations</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <h3>تشغيل البار</h3>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Chemistry &amp; products</span>
-        <p style="margin-top:10px">Four native-botanical bases driving every infusion, syrup and bitters on the menu, with explicit timings, batch ratios, QC checkpoints and shift rhythms.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الكيمياء &amp; المنتجات</span>
+        <p style="margin-top:10px">أربع قواعد نباتية محلية تقوم عليها كل نقاعة وشراب ومُرّ في القائمة، بأوقات صريحة، ونسب دفعات، ونقاط فحص جودة، وإيقاعات ورديات.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/compression.html" data-field="Information theory" data-written="true">
         <div class="rcard__head">
           <h3>Izaac · GRIA · NMP</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Information theory</span>
-        <p style="margin-top:10px">Shared-PRF coordination, graded reversibility, and neural networks treated as measurable compression operators — unified under one information-theoretic vocabulary.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">نظرية المعلومات</span>
+        <p style="margin-top:10px">تنسيق بدالّة عشوائية زائفة مشتركة، وانعكاسية متدرّجة، وشبكات عصبية تُعامَل بوصفها مؤثّرات ضغط قابلة للقياس — موحَّدة تحت مفردات نظرية المعلومات نفسها.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/diamond-battery.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
-          <h3>Diamond batteries</h3>
-          <span class="badge badge--red">Speculative</span>
+          <h3>بطاريات الألماس</h3>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Materials &amp; engineering</span>
-        <p style="margin-top:10px">Four design series extrapolating the 2024 Bristol/UKAEA carbon-14 diamond cell toward utility scale, with the 400,000-tonne spent-fuel inventory as the feedstock argument.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">المواد &amp; الهندسة</span>
+        <p style="margin-top:10px">أربع سلاسل تصميم تستقرئ خلية الألماس بالكربون-14 من Bristol/UKAEA لعام 2024 نحو حجم المرافق، مع مخزون الوقود المستهلك البالغ 400,000 طن بوصفه حجّة التغذية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/ucdw.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
           <h3>UCDW</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Materials &amp; engineering</span>
-        <p style="margin-top:10px">Electrochemical ion migration, thermal diffusion and ultrasonic assistance combined in an ionic-liquid substrate, spanning 77% to 99% of parent-metal strength across five operating regimes.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">المواد &amp; الهندسة</span>
+        <p style="margin-top:10px">هجرة أيونية كهروكيميائية، وانتشار حراري، ومساعدة فوق صوتية، مجتمعة في ركيزة سائل أيوني، تغطي من 77% إلى 99% من متانة المعدن الأمّ عبر خمسة أوضاع تشغيل.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/pharma.html" data-field="Chemistry &amp; products" data-written="true">
         <div class="rcard__head">
-          <h3>Depot delivery</h3>
-          <span class="badge badge--red">Speculative</span>
+          <h3>إيصال دوائي مستودَعي</h3>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Chemistry &amp; products</span>
-        <p style="margin-top:10px">A genuine pharmaceutics playbook — PLGA tuning bands, phase-inversion gels, Higuchi release kinetics, ICH Q8 framing — paired with invented compounds that the folder banner-flags as fiction on every page.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الكيمياء &amp; المنتجات</span>
+        <p style="margin-top:10px">دليل صيدلاني حقيقي — نطاقات ضبط PLGA، وهلاميات انقلاب الطور، وحركية التحرّر بمعادلة Higuchi، وإطار ICH Q8 — مقرونًا بمركّبات مُختلَقة يعلّمها المجلد بلافتة خيال في كل صفحة.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/economics.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
           <h3>EREM · SPX</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Policy &amp; economics</span>
-        <p style="margin-top:10px">Two lines: recasting national wealth into physical energy units to break the circular dependency on monetary institutions, and five models converging on a 2028–2029 window for a gamma unwind.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">السياسات &amp; الاقتصاد</span>
+        <p style="margin-top:10px">خطّان: إعادة صياغة الثروة الوطنية بوحدات طاقة فيزيائية لكسر الاعتماد الدائري على المؤسسات النقدية، وخمسة نماذج تتقارب على نافذة 2028–2029 لتفكيك مراكز غاما.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/electromechanical.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
           <h3>Babbage · Antikythera · TDC</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Software &amp; languages</span>
-        <p style="margin-top:10px">Babbage’s difference engine, the Antikythera mechanism’s epicyclic gearing, and the WWII Torpedo Data Computer — each reconstructed as a benchmarked algorithm rather than a museum piece.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">البرمجيات &amp; اللغات</span>
+        <p style="margin-top:10px">آلة الفروق عند Babbage، والتروس الفلكية في آلية Antikythera، وحاسوب بيانات الطوربيد في الحرب العالمية الثانية — كل منها معاد بناؤه خوارزميةً مقيسة لا قطعةً متحفية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/filtering.html" data-field="Tracking &amp; sensors" data-written="true">
         <div class="rcard__head">
           <h3>GH-SR-IMM</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Tracking &amp; sensors</span>
-        <p style="margin-top:10px">A heavy-tailed multi-target tracker that decouples outlier robustness from manoeuvre handling, reporting a 51.6% average GOSPA improvement.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">التتبّع &amp; الحسّاسات</span>
+        <p style="margin-top:10px">متعقّب متعدّد الأهداف بذيول ثقيلة يفصل متانة القيم الشاذّة عن معالجة المناورة، ويبلّغ عن تحسّن متوسط في GOSPA بنسبة 51.6%.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/fungal.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>Fungal Network Algorithm</h3>
-          <span class="badge badge--amber">Design document</span>
+          <h3>خوارزمية الشبكة الفطرية</h3>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">A bio-inspired self-organising network where edges and weights are the consequence of input history rather than the storage medium, growing and pruning by purely local rules.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">شبكة ذاتية التنظيم مستوحاة من الأحياء، فيها الحواف والأوزان نتيجةٌ لتاريخ الدخل لا وسيطَ تخزين، تنمو وتُقلَّم بقواعد محلية خالصة.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/future-cpp.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
           <h3>Future C++</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Software &amp; languages</span>
-        <p style="margin-top:10px">A long design conversation about a compiled language with C++ syntax and modern guarantees — which opens by arguing modern C++ already covers most of the wishlist, then works out what is left.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">البرمجيات &amp; اللغات</span>
+        <p style="margin-top:10px">حوار تصميمي طويل حول لغة مُترجَمة بصياغة C++ وضمانات حديثة — يبدأ بالحجّة أن C++ الحديثة تغطّي أصلًا أغلب قائمة الأمنيات، ثم يستخرج ما تبقّى.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/gf2-algebra.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>GF(2) Algebra</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <h3>جبر GF(2)</h3>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">From an exhaustive enumeration of all 16 binary operations to permutation polynomials, circuit optimisation and differentiable logic gates — including a uniqueness theorem for AND.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">من تعداد شامل لكل العمليات الثنائية الستّ عشرة إلى كثيرات حدود التبديل، وتحسين الدارات، وبوابات منطقية قابلة للاشتقاق — بما في ذلك مبرهنة وحدانية للبوابة AND.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/hsa.html" data-field="Biology &amp; medicine" data-written="true">
         <div class="rcard__head">
           <h3>HSA</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Biology &amp; medicine</span>
-        <p style="margin-top:10px">A three-phase genetic-modification programme written as engineering speculation, with tiered evidentiary disclaimers, a cumulative adverse-event table, and an opening banner declaring it theoretical and worldbuilding only.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الأحياء &amp; الطب</span>
+        <p style="margin-top:10px">برنامج تعديل جيني من ثلاث مراحل مكتوب بوصفه تأمّلًا هندسيًّا، مع إخلاءات مسؤولية متدرّجة بحسب الأدلّة، وجدول تراكمي للأحداث الضارّة، ولافتة افتتاحية تعلن أنه نظري ولبناء عوالم خيالية فقط.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/lcrp.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
           <h3>LCRP</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">A survey-and-framework paper arguing that a small set of mechanisms — divide and conquer, tree representation, information-theoretic limits — accounts for most quadratic-to-log-linear reductions across seven fields.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">ورقة مسح وإطار تحاجّ بأن مجموعة صغيرة من الآليات — فرّق تسُد، والتمثيل الشجري، وحدود نظرية المعلومات — تفسّر أغلب الاختزالات من التربيعي إلى اللوغاريتمي الخطّي عبر سبعة مجالات.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/izaac-protocols.html" data-field="Information theory" data-written="true">
         <div class="rcard__head">
-          <h3>Izaac protocols</h3>
-          <span class="badge badge--amber">Design document</span>
+          <h3>بروتوكولات Izaac</h3>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Information theory</span>
-        <p style="margin-top:10px">A compact shared cryptographic state σ acts as a free broadcast channel — and twelve concrete protocols, from Byzantine consensus to coordinated differential privacy, are derived from that one observation.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">نظرية المعلومات</span>
+        <p style="margin-top:10px">حالة تعمية مشتركة مضغوطة σ تعمل قناة بثّ مجانية — ومنها وحدها تُشتقّ اثنا عشر بروتوكولًا ملموسًا، من الإجماع البيزنطي إلى الخصوصية التفاضلية المنسّقة.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/uhpm.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>UHPM</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">Locality-sensitive-hash memory and hierarchical predictive coding unified under a single free-energy functional, reporting a 289× query-latency speedup over full attention at 100K tokens.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">ذاكرة بتجزئة حسّاسة للموضع وترميز تنبّئي هرمي، موحَّدان تحت دالّة طاقة حرّة واحدة، مع تسريع في زمن الاستعلام يبلغ 289× مقارنةً بالانتباه الكامل عند 100K رمز.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/math-survey.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>Math survey</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <h3>مسح رياضي</h3>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">A research-grade survey of number theory through financial mathematics — foundational theory, landmark results of the past decade, open problems, and the cross-domain connections between them.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">مسح بمستوى بحثي من نظرية الأعداد إلى الرياضيات المالية — النظرية التأسيسية، والنتائج البارزة في العقد الماضي، والمسائل المفتوحة، والصلات بين المجالات.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/modelling-aes.html" data-field="Cryptography" data-written="true">
         <div class="rcard__head">
-          <h3>Modelling AES</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <h3>نمذجة AES</h3>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Cryptography</span>
-        <p style="margin-top:10px">A paired study attacking AES-128 from both directions with neural networks, reporting that neither works — and quantifying exactly how far short each falls.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">التعمية</span>
+        <p style="margin-top:10px">دراسة مزدوجة تهاجم AES-128 من الاتجاهين بشبكات عصبية، وتبلّغ بأن أيًّا منهما لا ينجح — وتقيس بالضبط كم يقصّر كل منهما.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/nn-shortcuts.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>SGF · Algebraic Autopsy</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">Every efficient deep-learning technique reduced to one primitive — an online sufficient statistic on a curved manifold — plus a post-hoc diagnostic that reads a trained network’s implicit algebra off its weights.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">كل تقنية تعلّم عميق كفؤة مردودة إلى أوليّة واحدة — إحصاءة كافية تُحدَّث مباشرةً على متعدّد شُعب منحنٍ — إضافة إلى تشخيص لاحق يقرأ الجبر الضمني لشبكة مدرَّبة من أوزانها.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/neural-decompiler.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>Neural Decompiler</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <h3>مُفكِّك عصبي</h3>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">An encoder–decoder Transformer with hierarchical memory and a load-balanced mixture of experts, reframing assembly-to-source recovery as a sequence modelling problem.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">محوّل بمُرمِّز ومُفكِّك ترميز، بذاكرة هرمية وخليط خبراء موزون الحمل، يعيد صياغة استعادة المصدر من لغة التجميع مسألةَ نمذجة متتاليات.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/nqd.html" data-field="Biology &amp; medicine" data-written="true">
         <div class="rcard__head">
           <h3>NQD</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Biology &amp; medicine</span>
-        <p style="margin-top:10px">Quantum nanodiamond sensors at single-neuron proximity, read optically by ultrasound-powered CMOS motes that backscatter to a wearable array — no wires through the skull.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الأحياء &amp; الطب</span>
+        <p style="margin-top:10px">حسّاسات ألماس نانوي كمّية على مقربة من العصبون الواحد، تُقرأ ضوئيًّا بذرّات CMOS مُغذّاة بالموجات فوق الصوتية ترتدّ إلى مصفوفة يرتديها المستخدم — بلا أسلاك تخترق الجمجمة.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/hybrid-components.html" data-field="Electronics" data-written="true">
         <div class="rcard__head">
-          <h3>Hybrid components</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <h3>مكوّنات هجينة</h3>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Electronics</span>
-        <p style="margin-top:10px">Memristors, Josephson junctions, GMR and phase-change elements simulated across six phases — with a self-audit that found and published seven bugs in its own framework.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الإلكترونيات</span>
+        <p style="margin-top:10px">مقاومات ذاكرية، ووصلات Josephson، وعناصر GMR وتغيّر الطور، محاكاة عبر ست مراحل — مع تدقيق ذاتي وجد سبع علل في إطاره نفسه ونشرها.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/physics.html" data-field="Physics" data-written="true">
         <div class="rcard__head">
           <h3>NLFGN-UFT</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Physics</span>
-        <p style="margin-top:10px">A variational non-local gravity programme keeping causal messaging at speeds ≤ c, plus an essay arguing superluminal recession is an interpretational split, not a failure of ΛCDM.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الفيزياء</span>
+        <p style="margin-top:10px">برنامج جاذبية غير موضعية تغايري يُبقي التراسل السببي عند سرعات ≤ c، إضافة إلى مقالة تحاجّ بأن التباعد الأسرع من الضوء انقسام في التفسير لا إخفاق لـΛCDM.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/ausdike.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
           <h3>AusDike™</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Materials &amp; engineering</span>
-        <p style="margin-top:10px">An open-bottom self-ballasting levee panel taken from concept to tooling quote — 28 simulations, a buckling-governed wall, and one adverse finding the programme did not bury.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">المواد &amp; الهندسة</span>
+        <p style="margin-top:10px">لوح سدّ مفتوح القاع ذاتي الترصين، مأخوذ من الفكرة إلى عرض سعر العُدد — 28 محاكاة، وجدار يحكمه الانبعاج، ونتيجة سلبية واحدة لم يدفنها البرنامج.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/primes.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
-          <h3>Prime meta-pattern</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <h3>النمط الفوقي للأعداد الأولية</h3>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Six MLPs trained to classify primes across five orders of magnitude, interpreted from weights alone — they rediscover trial division on the 6k±1 lattice, and then lose to it by 30–80×.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">ست شبكات إدراك متعدّدة الطبقات دُرِّبت لتصنيف الأعداد الأولية عبر خمس مراتب عشرية، مفسَّرة من الأوزان وحدها — تعيد اكتشاف القسمة التجريبية على شبكة 6k±1، ثم تخسر أمامها بفارق 30–80×.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/qdmp.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
           <h3>QDMP</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Materials &amp; engineering</span>
-        <p style="margin-top:10px">Engineered NV-centre arrays in a metamaterial diamond lattice, proposed as a structured thought experiment — with seven named scientific barriers assessed against the current literature.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">المواد &amp; الهندسة</span>
+        <p style="margin-top:10px">مصفوفات مراكز NV مهندسة في شبكة ألماس فوق-مادية، مطروحة بوصفها تجربة فكرية منظَّمة — مع سبعة حواجز علمية مسمّاة مُقيَّمة في مقابل الأدبيات الحالية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/qgo.html" data-field="Mathematics" data-written="true">
         <div class="rcard__head">
           <h3>QGO</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">Mathematics</span>
-        <p style="margin-top:10px">Five auditable layers — spectral compression, Chebyshev encoding, simulated QAOA, noise-weighted ranking, spectral lift-back — each with a named verification function and an explicit error term.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الرياضيات</span>
+        <p style="margin-top:10px">خمس طبقات قابلة للتدقيق — ضغط طيفي، وترميز Chebyshev، وQAOA محاكاة، وترتيب موزون بالضوضاء، ورفع طيفي عكسي — لكل منها دالّة تحقّق مسمّاة وحدّ خطأ صريح.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/rngs.html" data-field="Cryptography" data-written="true">
         <div class="rcard__head">
-          <h3>RNG portfolio</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <h3>حافظة مولّدات الأعداد العشوائية</h3>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Cryptography</span>
-        <p style="margin-top:10px">Transcendental-constant DAG, Boolean LCG, dual-attractor chaos and counter-rotating turbulence — four generators with genuinely different failure modes, benchmarked separately.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">التعمية</span>
+        <p style="margin-top:10px">رسم موجّه لا دوري بثوابت متسامية، ومولّد تطابقي خطّي بوليَاني، وفوضى بجاذبين، واضطراب بدورانين متعاكسين — أربعة مولّدات بأنماط إخفاق مختلفة فعلًا، مقيسة كل على حدة.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/carbide.html" data-field="Materials &amp; engineering" data-written="true">
         <div class="rcard__head">
           <h3>HX-70 GradePlex</h3>
-          <span class="badge badge--amber">Design document</span>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Materials &amp; engineering</span>
-        <p style="margin-top:10px">A functionally-graded carbide substrate, a five-layer coating stack, and a forge-to-machine supply chain — targeting the gap between where conventional inserts fail and where CBN geometries exist.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">المواد &amp; الهندسة</span>
+        <p style="margin-top:10px">ركيزة كربيدية متدرّجة وظيفيًّا، وحزمة طلاء من خمس طبقات، وسلسلة توريد من السباكة إلى التشغيل — تستهدف الفجوة بين حيث تفشل اللقم التقليدية وحيث توجد هندسات CBN.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/usg.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>USG</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">Generators shown to form a mathematical category under composition, with hash-based context compression that breaks the state-explosion ceiling that capped n-gram and HMM methods at three to five tokens.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">مولّدات يُبيَّن أنها تشكّل فئة رياضية تحت التركيب، مع ضغط للسياق قائم على التجزئة يكسر سقف انفجار الحالات الذي حدّ طرائق n-gram وHMM عند ثلاثة إلى خمسة رموز.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/scheduler.html" data-field="Software &amp; languages" data-written="true">
         <div class="rcard__head">
-          <h3>Statistical Scheduler</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <h3>مجدول إحصائي</h3>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">Software &amp; languages</span>
-        <p style="margin-top:10px">Fairness from a statistical CFS variant, placement quality from a contextual bandit, load balance from a PID loop — with formal guarantees for each and sub-millisecond measured placement latency.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">البرمجيات &amp; اللغات</span>
+        <p style="margin-top:10px">الإنصاف من صيغة CFS إحصائية، وجودة التوزيع من خوارزمية bandit سياقية، وتوازن الحمل من حلقة PID — مع ضمانات صورية لكل منها وزمن توزيع مقيس دون الميلي ثانية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/threat-assessments.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Threat assessments</h3>
-          <span class="badge badge--red">Speculative</span>
+          <h3>تقييمات تهديد</h3>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Defence &amp; security</span>
-        <p style="margin-top:10px">Hypothetical intelligence briefs on identity-replacement tradecraft, neurological interference and an explosive mixture — written from open sources in the register such documents actually use.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الدفاع &amp; الأمن</span>
+        <p style="margin-top:10px">إحاطات استخباراتية افتراضية عن أساليب استبدال الهوية، والتشويش العصبي، وخليط متفجّر — مكتوبة من مصادر مفتوحة بالأسلوب الذي تُكتب به مثل هذه الوثائق فعلًا.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/ucn-ais.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
-          <h3>UCN AIs</h3>
-          <span class="badge badge--red">Speculative</span>
+          <h3>أنظمة ذكاء UCN</h3>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">Any Purpose Networks, General Purpose Networks, Signal AI and two learning primitives — worldbuilding artefacts written in the register of a mathematical-foundations paper.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">شبكات لأي غرض، وشبكات لغرض عام، وSignal AI، وأوليّتان للتعلّم — آثار بناء عوالم مكتوبة بأسلوب ورقة في الأسس الرياضية.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/ucn.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
           <h3>UCN</h3>
-          <span class="badge badge--red">Speculative</span>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Policy &amp; economics</span>
-        <p style="margin-top:10px">Eight numbered papers covering constitution, economy, defence, IP, drug policy and foreign relations — every claim sourced, every incompatibility with current law acknowledged in the roadmap.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">السياسات &amp; الاقتصاد</span>
+        <p style="margin-top:10px">ثماني أوراق مرقّمة تغطّي الدستور والاقتصاد والدفاع والملكية الفكرية وسياسة المخدّرات والعلاقات الخارجية — كل ادّعاء موثّق المصدر، وكل تعارض مع القانون الحالي معترَف به في خارطة الطريق.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/un-reform.html" data-field="Policy &amp; economics" data-written="true">
         <div class="rcard__head">
-          <h3>UN reform</h3>
-          <span class="badge badge--red">Speculative</span>
+          <h3>إصلاح الأمم المتحدة</h3>
+          <span class="badge badge--red">تأمّلي</span>
         </div>
-        <span class="rcard__field">Policy &amp; economics</span>
-        <p style="margin-top:10px">A standing UN Defence Force under an elected Security Commissioner, argued from Charter articles and treaty law, with a closing section on why it probably will not be adopted.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">السياسات &amp; الاقتصاد</span>
+        <p style="margin-top:10px">قوة دفاع دائمة للأمم المتحدة تحت مفوّض أمن منتخَب، مُحاجَج لها من مواد الميثاق وقانون المعاهدات، مع قسم ختامي عن سبب أنها على الأرجح لن تُعتمَد.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/vdj.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>VDJ</h3>
-          <span class="badge badge--teal">Result-bearing</span>
+          <span class="badge badge--teal">يحمل نتائج</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">V(D)J recombination abstracted into five modules for one-shot learning and combinatorial generation, profiled to the millisecond and the kilobyte for embedded deployment.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">إعادة تركيب V(D)J مجرَّدة في خمس وحدات للتعلّم من مثال واحد وللتوليد التوافقي، مُنمَّطة حتى الميلي ثانية والكيلوبايت للنشر المضمَّن.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/veritas.html" data-field="AI &amp; machine learning" data-written="true">
         <div class="rcard__head">
           <h3>VERITAS</h3>
-          <span class="badge badge--blue">Reference implementation</span>
+          <span class="badge badge--blue">تنفيذ مرجعي</span>
         </div>
-        <span class="rcard__field">AI &amp; machine learning</span>
-        <p style="margin-top:10px">Nine theorems over binary pattern spaces, with PAC and ALT guarantees checked at runtime rather than argued offline — and a composition result showing the guarantees add.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الذكاء الاصطناعي &amp; تعلّم الآلة</span>
+        <p style="margin-top:10px">تسع مبرهنات على فضاءات أنماط ثنائية، مع ضمانات PAC وALT تُفحص أثناء التشغيل لا يُحاجَج لها خارجه — ونتيجة تركيب تُظهر أن الضمانات تتراكم.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/weapons-defence.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Defence portfolio</h3>
-          <span class="badge badge--amber">Design document</span>
+          <h3>حافظة الدفاع</h3>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Defence &amp; security</span>
-        <p style="margin-top:10px">Thirty-plus platform folders in defence-engineering register, with the unusual discipline that every ballistic, thermal and lifecycle figure is generated by a single shared physics engine and cited back to it.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الدفاع &amp; الأمن</span>
+        <p style="margin-top:10px">أكثر من ثلاثين مجلد منصّة بأسلوب الهندسة الدفاعية، مع انضباط غير معتاد: كل رقم بالستي وحراري ودورة حياة يولّده محرّك فيزياء مشترك واحد ويُنسَب إليه.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
       <a class="rcard rcard--linked" href="/research/weapons-police.html" data-field="Defence &amp; security" data-written="true">
         <div class="rcard__head">
-          <h3>Police equipment</h3>
-          <span class="badge badge--amber">Design document</span>
+          <h3>معدّات الشرطة</h3>
+          <span class="badge badge--amber">وثيقة تصميم</span>
         </div>
-        <span class="rcard__field">Defence &amp; security</span>
-        <p style="margin-top:10px">Body armour at a third the mass of the incumbent and a reduced-energy service pistol, both run through the same shared physics engine as the defence portfolio and both costed as procurement cases.</p>
-        <span class="rcard__more">Full write-up &rarr;</span>
+        <span class="rcard__field">الدفاع &amp; الأمن</span>
+        <p style="margin-top:10px">درع جسم بثلث كتلة الدرع المستخدَم حاليًّا، ومسدّس خدمة بطاقة مخفّضة، كلاهما مُمرَّر على محرّك الفيزياء المشترك نفسه الذي في حافظة الدفاع، وكلاهما مُسعَّر بوصفه حالة شراء.</p>
+        <span class="rcard__more">الكتابة الكاملة &rarr;</span>
       </a>
     </div>
   </div>
 </section>
 <section class="section">
   <div class="wrap wrap-narrow">
-    <span class="eyebrow eyebrow--violet">How to read this shelf</span>
-    <h2>Four evidence levels, used consistently</h2>
+    <span class="eyebrow eyebrow--violet">كيف تقرأ هذا الرفّ</span>
+    <h2>أربعة مستويات أدلّة، تُستخدم باتساق</h2>
     <figure class="diagram reveal" style="margin:24px 0 30px">
       <div class="diagram__scroll">
-        <img src="/assets/img/diagrams/evidence-tiers.svg" alt="The four evidence levels used across the research shelf, from speculative through design document and reference implementation to result-bearing" loading="lazy" decoding="async">
+        <img src="/assets/img/diagrams/evidence-tiers.svg" alt="مستويات الأدلّة الأربعة المستخدَمة عبر رفّ الأبحاث، من التأمّلي مرورًا بوثيقة التصميم والتنفيذ المرجعي وصولًا إلى ما يحمل نتائج" loading="lazy" decoding="async">
       </div>
       <span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span>
-      <figcaption><b>Nothing reaches a fifth level.</b> There is no “validated” tier in use, because nothing here has been independently replicated or externally audited.</figcaption>
+      <figcaption><b>لا شيء يبلغ مستوى خامسًا.</b> لا يوجد مستوى “متحقَّق منه” قيد الاستخدام، لأن لا شيء هنا كُرِّر باستقلال أو دُقِّق خارجيًّا.</figcaption>
     </figure>
-    <p class="lede" style="margin-bottom:2rem">Every write-up carries one of these, and a claims ledger that marks each individual number as measured, synthetic, derived, projected or cited.</p>
+    <p class="lede" style="margin-bottom:2rem">كل كتابة تحمل واحدًا من هذه، وسجلّ ادّعاءات يصنّف كل رقم على حدة: مقيس، أو اصطناعي، أو مشتقّ، أو متوقَّع، أو منقول.</p>
     <div class="card reveal" style="margin-bottom:12px">
       <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap">
-        <span class="badge badge--red">Speculative</span>
-        <p class="small dim" style="margin:0;flex:1;min-width:220px">Theory or design only. No in-house measurement.</p>
+        <span class="badge badge--red">تأمّلي</span>
+        <p class="small dim" style="margin:0;flex:1;min-width:220px">نظرية أو تصميم فقط. بلا قياس داخلي.</p>
       </div>
     </div>
     <div class="card reveal" style="margin-bottom:12px">
       <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap">
-        <span class="badge badge--amber">Design document</span>
-        <p class="small dim" style="margin:0;flex:1;min-width:220px">Specified in detail; implementation partial or absent.</p>
+        <span class="badge badge--amber">وثيقة تصميم</span>
+        <p class="small dim" style="margin:0;flex:1;min-width:220px">محدَّد بالتفصيل؛ والتنفيذ جزئي أو غائب.</p>
       </div>
     </div>
     <div class="card reveal" style="margin-bottom:12px">
       <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap">
-        <span class="badge badge--blue">Reference implementation</span>
-        <p class="small dim" style="margin:0;flex:1;min-width:220px">Code exists and runs. Performance not independently checked.</p>
+        <span class="badge badge--blue">تنفيذ مرجعي</span>
+        <p class="small dim" style="margin:0;flex:1;min-width:220px">الشيفرة موجودة وتعمل. والأداء غير مفحوص باستقلال.</p>
       </div>
     </div>
     <div class="card reveal" style="margin-bottom:12px">
       <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap">
-        <span class="badge badge--teal">Result-bearing</span>
-        <p class="small dim" style="margin:0;flex:1;min-width:220px">Experiments were run and the numbers are reported here.</p>
+        <span class="badge badge--teal">يحمل نتائج</span>
+        <p class="small dim" style="margin:0;flex:1;min-width:220px">أُجريت تجارب، والأرقام مذكورة هنا.</p>
       </div>
     </div>
     <div class="note note--violet" style="margin-top:24px">
-      <strong>Nothing reaches a fifth level.</strong> There is no &ldquo;validated&rdquo; tier in use, because no item on this shelf has been independently replicated or externally audited. When one is, it will say so and name who did it.
+      <strong>لا شيء يبلغ مستوى خامسًا.</strong> لا يوجد مستوى &ldquo;متحقَّق منه&rdquo; قيد الاستخدام، لأن لا عنصر على هذا الرفّ كُرِّر باستقلال أو دُقِّق خارجيًّا. وحين يحدث ذلك، سيُذكَر ويُسمّى من فعله.
     </div>
   </div>
 </section>
@@ -716,7 +708,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T11:37:49Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T12:42:38Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>
@@ -727,6 +719,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+
 <script src="/assets/js/demos/research.js" defer></script>
 </body>
 </html>

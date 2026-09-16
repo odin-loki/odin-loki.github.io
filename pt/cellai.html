@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cell AI — a reaction-diffusion sequence model | Imortek</title>
-<meta name="description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
-<meta name="keywords" content="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture">
+<title>Cell AI — um modelo de sequência por reação-difusão | Imortek</title>
+<meta name="description" content="Uma arquitetura deliberadamente não-transformer: dinâmica de partições, plasticidade Hebbiana/BCM dentro da passagem para frente, PDE espectral. Um diário de pesquisa honesto. Rode a simulação ao vivo.">
+<meta name="keywords" content="Cell AI, reação-difusão, Gray-Scott, modelo de sequências, plasticidade hebbiana, regra BCM, arquitetura não transformer, IA experimental">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="pt">
 <meta name="imortek:speech" content="pt-BR">
 <meta name="imortek:prefix" content="/pt">
-<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Escolher idioma","lang.suggested":"Seu navegador prefere este idioma","lang.close":"Fechar","tools.label":"Ferramentas da página","tools.toggle":"Mostrar ou ocultar as ferramentas","tools.readAloud":"Ler em voz alta","tools.pause":"Pausar","tools.stop":"Parar a leitura","tools.next":"Próximo parágrafo","tools.voice":"Comandos de voz","tools.explain":"Explicar o jargão","tools.reset":"redefinir","tools.termsOnPage":"termos nesta página","tools.learned":"aprendidos","tools.preExpanded":"já explicados","tools.openMore":"Abra mais {n} e o Cypha começa a prever","tools.understood":"compreendidos","tools.corrected":"corrigidos","tools.off":"desligado","tools.reading":"lendo","search.placeholder":"Buscar — descreva o que você quer","search.aria":"Buscar neste site","search.hint":"Combina por significado, não apenas por palavras exatas. Esc para fechar.","search.nothing":"Nada parecido.","related.eyebrow":"O mais próximo neste site","related.title":"Leitura relacionada","related.note":"Escolhido pela sobreposição de termos com esta página, não à mão — portanto é honesto sobre o que de fato está próximo, inclusive quando não há nada óbvio.","voice.help":"Você pode dizer: ler, parar, próximo, voltar, topo, início, ou o nome de uma página. Também pode descrever o que quer e eu encontro a página mais próxima.","voice.notCaught":"Não entendi. Diga \"ajuda\" para saber o que dizer.","voice.listening":"Ouvindo. Diga \"ajuda\" para saber o que dizer.","voice.micOff":"Microfone desligado.","voice.micBlocked":"Microfone bloqueado. Permita no seu navegador para usar comandos de voz.","voice.opening":"Abrindo","voice.didYouMean":"Você quis dizer","voice.sayNumber":"Diga um número, ou diga não.","voice.understood":"Entendido. Diga de outro jeito, ou diga ajuda.","voice.endOfPage":"Fim da página.","voice.searchOpen":"Busca aberta.","voice.nothingRelated":"Nada relacionado nesta página.","voice.related":"Relacionado","voice.goingTo":"Indo para","voice.heading":"Título.","voice.or":"Ou","gloss.notInDict":"Não está no dicionário.","gloss.lookingUp":"procurando…","gloss.forget":"Esquecer o que a Cypha aprendeu"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Escolher idioma","lang.suggested":"Seu navegador prefere este idioma","lang.close":"Fechar","tools.label":"Ferramentas da página","tools.toggle":"Mostrar ou ocultar as ferramentas","tools.readAloud":"Ler em voz alta","tools.pause":"Pausar","tools.stop":"Parar a leitura","tools.next":"Próximo parágrafo","tools.voice":"Comandos de voz","tools.explain":"Explicar o jargão","tools.reset":"redefinir","tools.termsOnPage":"termos nesta página","tools.learned":"aprendidos","tools.preExpanded":"já explicados","tools.openMore":"Abra mais {n} e o Cypha começa a prever","tools.understood":"compreendidos","tools.corrected":"corrigidos","tools.off":"desligado","tools.reading":"lendo","search.placeholder":"Buscar — descreva o que você quer","search.aria":"Buscar neste site","search.hint":"Combina por significado, não apenas por palavras exatas. Esc para fechar.","search.nothing":"Nada parecido.","related.eyebrow":"O mais próximo neste site","related.title":"Leitura relacionada","related.note":"Escolhido pela sobreposição de termos com esta página, não à mão — portanto é honesto sobre o que de fato está próximo, inclusive quando não há nada óbvio.","voice.help":"Você pode dizer: ler, parar, próximo, voltar, topo, início, ou o nome de uma página. Também pode descrever o que quer e eu encontro a página mais próxima.","voice.notCaught":"Não entendi. Diga \"ajuda\" para saber o que dizer.","voice.listening":"Ouvindo. Diga \"ajuda\" para saber o que dizer.","voice.micOff":"Microfone desligado.","voice.micBlocked":"Microfone bloqueado. Permita no seu navegador para usar comandos de voz.","voice.opening":"Abrindo","voice.didYouMean":"Você quis dizer","voice.sayNumber":"Diga um número, ou diga não.","voice.understood":"Entendido. Diga de outro jeito, ou diga ajuda.","voice.endOfPage":"Fim da página.","voice.searchOpen":"Busca aberta.","voice.nothingRelated":"Nada relacionado nesta página.","voice.related":"Relacionado","voice.goingTo":"Indo para","voice.heading":"Título.","voice.or":"Ou","gh.live":"ao vivo de api.github.com","gh.cached":"cópia salva","gh.noDescription":"Sem descrição","gloss.notInDict":"Não está no dicionário.","gloss.lookingUp":"procurando…","gloss.forget":"Esquecer o que a Cypha aprendeu"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta property="og:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta property="og:title" content="Cell AI — um modelo de sequência por reação-difusão | Imortek">
+<meta property="og:description" content="Uma arquitetura deliberadamente não-transformer: dinâmica de partições, plasticidade Hebbiana/BCM dentro da passagem para frente, PDE espectral. Um diário de pesquisa honesto. Rode a simulação ao vivo.">
 <meta property="og:url" content="https://imortek.com.au/pt/cellai.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta property="og:image:alt" content="Cell AI — um modelo de sequência por reação-difusão | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta name="twitter:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta name="twitter:title" content="Cell AI — um modelo de sequência por reação-difusão | Imortek">
+<meta name="twitter:description" content="Uma arquitetura deliberadamente não-transformer: dinâmica de partições, plasticidade Hebbiana/BCM dentro da passagem para frente, PDE espectral. Um diário de pesquisa honesto. Rode a simulação ao vivo.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta name="twitter:image:alt" content="Cell AI — um modelo de sequência por reação-difusão | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"pt","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/pt/cellai.html#webpage","url":"https://imortek.com.au/pt/cellai.html","name":"Cell AI — a reaction-diffusion sequence model | Imortek","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","inLanguage":"pt","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/pt/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/pt/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://imortek.com.au/pt/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/pt/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/pt/cellai.html#software","name":"Cell AI","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","url":"https://imortek.com.au/pt/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"pt","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/pt/cellai.html#webpage","url":"https://imortek.com.au/pt/cellai.html","name":"Cell AI — um modelo de sequência por reação-difusão | Imortek","description":"Uma arquitetura deliberadamente não-transformer: dinâmica de partições, plasticidade Hebbiana/BCM dentro da passagem para frente, PDE espectral. Um diário de pesquisa honesto. Rode a simulação ao vivo.","inLanguage":"pt","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/pt/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/pt/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://imortek.com.au/pt/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/pt/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/pt/cellai.html#software","name":"Cell AI","description":"Uma arquitetura deliberadamente não-transformer: dinâmica de partições, plasticidade Hebbiana/BCM dentro da passagem para frente, PDE espectral. Um diário de pesquisa honesto. Rode a simulação ao vivo.","url":"https://imortek.com.au/pt/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,36 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Partes desta página ainda estão em inglês. A tradução está sendo escrita; nada é traduzido por máquina.</p></div>
 <section class="phero" data-video="/assets/video/cellai" data-poster="/assets/img/video/cellai.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
-        <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
+        <span class="eyebrow eyebrow--violet">Cell AI &middot; diário de pesquisa</span>
+        <h1>Um modelo de sequência que é <span class="gradient-text">honestamente pior</span></h1>
         <p class="lede">
-          Cell AI replaces self-attention with reaction-diffusion partition dynamics and
-          Hebbian/BCM plasticity that runs <em>durante</em> the forward pass. It does not approach
-          transformer performance and its README says so on the first screen. It is published as
-          a research log: what a fully different sequence model looks like at full scale, and
-          exactly where it breaks.
+          O Cell AI substitui a auto-atenção por dinâmica de partições de reação-difusão e plasticidade Hebbiana/BCM que roda <em>durante</em> a passagem para frente. Ele não chega perto do desempenho de um transformer, e o README dele diz isso já na primeira tela. É publicado como diário de pesquisa: como é um modelo de sequência totalmente diferente em escala plena, e exatamente onde ele quebra.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">Rode o campo de reação-difusão</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">Repositório &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
-          <div class="phero__meta-item">v1 parameters<b>125.8M</b></div>
-          <div class="phero__meta-item">Training PPL<b>450k&ndash;1.18M</b></div>
-          <div class="phero__meta-item">GPT-2 baseline<b>~20</b></div>
-          <div class="phero__meta-item">Experiments<b>E0&ndash;E26</b></div>
+          <div class="phero__meta-item">Linguagem<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
+          <div class="phero__meta-item">Parâmetros da v1<b>125.8M</b></div>
+          <div class="phero__meta-item">PPL de treino<b>450 mil&ndash;1,18 mi</b></div>
+          <div class="phero__meta-item">Referência GPT-2<b>~20</b></div>
+          <div class="phero__meta-item">Experimentos<b>E0&ndash;E26</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Why publish this</span>
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Por que publicar isto</span>
           <p class="small dim" style="margin:0 0 12px">
-            Training perplexity of 450,000 against GPT-2&rsquo;s 20 is not a near miss. It is four
-            orders of magnitude, and no amount of framing changes that.
+            Perplexidade de treino de 450.000 contra os 20 do GPT-2 não é chegar perto. São quatro ordens de grandeza, e nenhum enquadramento muda isso.
           </p>
           <p class="small dim" style="margin:0">
-            The value is the E0&ndash;E26 experiment ladder with its failures annotated: which
-            architectural ideas collapsed, how, and what the diagnostics said. A negative result
-            with a documented cause is a contribution. A negative result quietly deleted is a
-            waste of the work.
+            O valor está na escada de experimentos E0&ndash;E26 com as falhas anotadas: quais ideias de arquitetura desabaram, como, e o que os diagnósticos disseram. Um resultado negativo com causa documentada é uma contribuição. Um resultado negativo apagado em silêncio é trabalho jogado fora.
           </p>
         </div>
       </div>
@@ -189,19 +180,15 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Interativo</span>
-      <h2>The dynamics underneath the architecture</h2>
+      <h2>A dinâmica por baixo da arquitetura</h2>
       <p class="lede">
-        This is a Gray&ndash;Scott reaction-diffusion system &mdash; the same class of dynamics the
-        CellularPDE core is built on. Two chemicals diffuse at different rates and react; feed
-        and kill rates decide whether you get spots, stripes, dividing cells or nothing at all.
-        The architecture&rsquo;s bet is that this kind of self-organising field can carry
-        computation. Watch it and judge the plausibility for yourself.
+        Este é um sistema de reação-difusão de Gray&ndash;Scott &mdash; a mesma classe de dinâmica sobre a qual o núcleo CellularPDE é construído. Dois químicos se difundem a taxas diferentes e reagem; as taxas de alimentação e de remoção decidem se você obtém manchas, listras, células se dividindo ou nada. A aposta da arquitetura é que um campo auto-organizado desse tipo consegue carregar computação. Observe e julgue a plausibilidade você mesmo.
       </p>
     </div>
 
     <div class="demo reveal" id="ca-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; reaction-diffusion core</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; núcleo de reação-difusão</h3>
         <div class="chips" id="ca-presets"></div>
       </div>
       <div class="demo__split">
@@ -210,19 +197,19 @@
                   aria-label="Live Gray-Scott reaction-diffusion simulation"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click or drag on the field to inject chemical B and perturb the pattern.
+            Clique ou arraste no campo para injetar o químico B e perturbar o padrão.
           </p>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="ca-feed">Feed rate F <b id="ca-feed-v">0.0545</b></label>
+              <label for="ca-feed">Taxa de alimentação F <b id="ca-feed-v">0.0545</b></label>
               <input type="range" id="ca-feed" min="0.01" max="0.09" step="0.0005" value="0.0545">
             </div>
             <div class="ctrl">
-              <label for="ca-kill">Kill rate k <b id="ca-kill-v">0.0620</b></label>
+              <label for="ca-kill">Taxa de remoção k <b id="ca-kill-v">0.0620</b></label>
               <input type="range" id="ca-kill" min="0.04" max="0.075" step="0.0005" value="0.0620">
             </div>
             <div class="ctrl">
-              <label for="ca-speed">Steps per frame <b id="ca-speed-v">8</b></label>
+              <label for="ca-speed">Passos por quadro <b id="ca-speed-v">8</b></label>
               <input type="range" id="ca-speed" min="1" max="20" step="1" value="8">
             </div>
           </div>
@@ -230,15 +217,15 @@
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Steps</div>
+              <div class="readout__k">Passos</div>
               <div class="readout__v plain" id="ca-steps">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mean B</div>
+              <div class="readout__k">Média de B</div>
               <div class="readout__v" id="ca-meanb">0.000</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Activity</div>
+              <div class="readout__k">Atividade</div>
               <div class="readout__v violet" id="ca-activity">0.000</div>
             </div>
             <div class="readout__item">
@@ -247,27 +234,24 @@
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Partition state</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Estado das partições</h4>
             <canvas id="ca-partitions" height="90" style="width:100%;background:#04060a;border-radius:var(--r-sm);display:block"></canvas>
             <p class="tiny muted" style="margin-top:8px">
-              N = 4 partitions of the field, as in the CellularPDE core. Height is each
-              partition&rsquo;s mean activation; leakage &lambda; = 0.01 couples them.
+              N = 4 partições do campo, como no núcleo CellularPDE. A altura é a ativação média de cada partição; o vazamento &lambda; = 0,01 as acopla.
             </p>
           </div>
           <div class="btn-row">
-            <button class="btn btn--sm" id="ca-pause">Pause</button>
-            <button class="btn btn--sm btn--ghost" id="ca-reset">Reset field</button>
+            <button class="btn btn--sm" id="ca-pause">Pausar</button>
+            <button class="btn btn--sm btn--ghost" id="ca-reset">Reiniciar o campo</button>
           </div>
           <p class="tiny muted">
-            Gray&ndash;Scott with D<sub>a</sub>=1.0, D<sub>b</sub>=0.5, nine-point Laplacian,
-            explicit Euler. This is the dynamical substrate, not the trained model &mdash; the
-            trained model is 125.8M parameters and does not fit in a browser tab.
+            Gray&ndash;Scott com D<sub>a</sub>=1.0, D<sub>b</sub>=0,5, laplaciano de nove pontos, Euler explícito. Este é o substrato dinâmico, não o modelo treinado &mdash; o modelo treinado tem 125,8 mi de parâmetros e não cabe numa aba de navegador.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A live Gray&ndash;Scott solver written for this page, illustrating the class of dynamics
-        <code>CellularPDE</code> is built from. The architecture itself is PyTorch.
+        Um solucionador de Gray&ndash;Scott ao vivo escrito para esta página, ilustrando a classe de dinâmica de que o
+        <code>CellularPDE</code> é feito. A arquitetura em si é PyTorch.
       </div>
     </div>
   </div>
@@ -276,42 +260,35 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Architecture</span>
-      <h2>What replaces attention</h2>
+      <span class="eyebrow">Arquitetura</span>
+      <h2>O que substitui a atenção</h2>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="The Cell AI signal path from token embedding through the reaction-diffusion core, in-forward plasticity, resonance and lattice stages to output logits, with the perplexity gap against GPT-2 stated underneath" loading="lazy" decoding="async"></div><span class="diagram__hint">role para ver o diagrama inteiro &rarr;</span><figcaption><b>The scoreboard is part of the diagram.</b> A picture of this architecture that left out the four-orders-of-magnitude gap would be advertising, not documentation.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="O caminho do sinal no Cell AI, do embedding de tokens passando pelo núcleo de reação-difusão, plasticidade dentro da passagem para frente, estágios de ressonância e de retículo, até os logits de saída, com a diferença de perplexidade em relação ao GPT-2 declarada embaixo" loading="lazy" decoding="async"></div><span class="diagram__hint">role para ver o diagrama inteiro &rarr;</span><figcaption><b>O placar faz parte do diagrama.</b> Uma figura desta arquitetura que deixasse de fora a diferença de quatro ordens de grandeza seria propaganda, não documentação.</figcaption></figure>
 
     <div class="grid grid-2">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Core</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">Núcleo</span>
         <h3 style="font-size:1.05rem">CellularPDE</h3>
         <p class="small dim" style="margin:0">
-          N = 4 partitions of D = 256-dimensional state, leakage &lambda; = 0.01, sigmoid reaction
-          terms &mdash; a discrete reaction-diffusion system standing where self-attention would be.
+          N = 4 partições de um estado de dimensão D = 256, vazamento &lambda; = 0,01, termos de reação sigmoide &mdash; um sistema de reação-difusão discreto no lugar onde estaria a auto-atenção.
         </p></div>
       <div class="card card--hover reveal" data-delay=".05"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Plasticity</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">Plasticidade</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          BCM-style Hebbian learning with &alpha; = 0.1, &beta; = 0.01, applied <em>durante</em> the
-          forward pass rather than after it. This is the boldest idea in the architecture and the
-          source of its documented gradient-starvation problem.
+          Aprendizado Hebbiano no estilo BCM com &alpha; = 0,1, &beta; = 0,01, aplicado <em>durante</em> a passagem para frente, e não depois dela. Esta é a ideia mais ousada da arquitetura e a origem do seu problema documentado de fome de gradiente.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">v3 optimisation</span>
-        <h3 style="font-size:1.05rem">SpectralPDE &amp; SparseHebbian</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">Otimização da v3</span>
+        <h3 style="font-size:1.05rem">SpectralPDE e SparseHebbian</h3>
         <p class="small dim" style="margin:0">
-          SpectralPDE cuts complexity from O(D²) to O(D log D). SparseHebbian compresses updates
-          from 65,536 weights to 1,024. MultiScalePartitions run fast and slow streams;
-          AnnealedRouter uses Gumbel-Softmax scheduling.
+          O SpectralPDE corta a complexidade de O(D²) para O(D log D). O SparseHebbian comprime as atualizações de 65.536 pesos para 1.024. O MultiScalePartitions roda fluxos rápido e lento; o AnnealedRouter usa agendamento Gumbel-Softmax.
         </p></div>
       <div class="card card--hover reveal" data-delay=".15"><div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Signal path</span>
-        <h3 style="font-size:1.05rem">The full stack</h3>
+        <span class="badge badge--blue" style="margin-bottom:12px">Caminho do sinal</span>
+        <h3 style="font-size:1.05rem">A pilha completa</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem (FFT phase coupling) &rarr; CrystalLattice (K = 3) &rarr; optional
-          Kuramoto coupling &rarr; MultiModalModel routing &rarr; logits.
+          embedding cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem (acoplamento de fase por FFT) &rarr; CrystalLattice (K = 3) &rarr; acoplamento Kuramoto opcional &rarr; roteamento MultiModalModel &rarr; logits.
         </p></div>
     </div>
   </div>
@@ -321,51 +298,48 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow eyebrow--amber">The ladder</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">E0 to E26, failures annotated</h2>
+        <span class="eyebrow eyebrow--amber">A escada</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">De E0 a E26, com as falhas anotadas</h2>
         <p class="dim">
-          The architecture-search programme is the actual artefact here. Twenty-seven experiments,
-          each with what was tried and what went wrong, including the ones that went backwards.
+          O programa de busca de arquitetura é o artefato de verdade aqui. Vinte e sete experimentos, cada um com o que foi tentado e o que deu errado, incluindo os que andaram para trás.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Finding</th><th>Outcome</th></tr></thead>
+            <thead><tr><th>Achado</th><th>Desfecho</th></tr></thead>
             <tbody>
-              <tr><td>PerFreqResonance</td><td class="muted">Documented issues, did not deliver</td></tr>
-              <tr><td>Routing</td><td class="muted">Collapsed to class degeneracy in some configurations</td></tr>
-              <tr><td>E26 vs E25</td><td class="muted">Regression — the later experiment was worse</td></tr>
-              <tr><td>ResonanceSystem</td><td class="muted">Minimal gradient contribution</td></tr>
-              <tr><td>Generation (v1)</td><td class="muted">Lacks proper autoregressive sampling</td></tr>
-              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">Speculative, unintegrated</td></tr>
+              <tr><td>PerFreqResonance</td><td class="muted">Problemas documentados, não entregou</td></tr>
+              <tr><td>Roteamento</td><td class="muted">Desabou em degenerescência de classes em algumas configurações</td></tr>
+              <tr><td>E26 vs. E25</td><td class="muted">Regressão — o experimento mais recente foi pior</td></tr>
+              <tr><td>ResonanceSystem</td><td class="muted">Contribuição mínima de gradiente</td></tr>
+              <tr><td>Geração (v1)</td><td class="muted">Falta amostragem autorregressiva de verdade</td></tr>
+              <tr><td>Cell-Fungal Harmonic da v3</td><td class="muted">Especulativo, não integrado</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow">Numbers</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">The gap, stated plainly</h2>
+        <span class="eyebrow">Números</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">A diferença, dita sem rodeios</h2>
         <div class="grid grid-2" style="gap:14px;margin-top:20px">
           <div class="card">
-            <div class="stat"><div class="stat__num" style="color:var(--red)">450k&ndash;1.18M</div>
-            <div class="stat__label">Cell AI v1 training perplexity band</div></div>
+            <div class="stat"><div class="stat__num" style="color:var(--red)">450 mil&ndash;1,18 mi</div>
+            <div class="stat__label">Faixa de perplexidade de treino do Cell AI v1</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>~20</em></div>
-            <div class="stat__label">GPT-2 baseline perplexity</div></div>
+            <div class="stat__label">Perplexidade de referência do GPT-2</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num">125.8M</div>
-            <div class="stat__label">v1 parameters</div></div>
+            <div class="stat__label">Parâmetros da v1</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>O(D log D)</em></div>
-            <div class="stat__label">SpectralPDE, down from O(D²)</div></div>
+            <div class="stat__label">SpectralPDE, caindo de O(D²)</div></div>
           </div>
         </div>
         <div class="note note--red" style="margin-top:22px">
-          <strong>The question the repository asks itself:</strong> &ldquo;what fails, what works,
-          and can we close the gap honestly?&rdquo; The answer so far is that the gap has not
-          closed. That is written in the README rather than in a footnote.
+          <strong>A pergunta que o repositório faz a si mesmo:</strong> &ldquo;o que falha, o que funciona, e dá para fechar a diferença honestamente?&rdquo; A resposta até agora é que a diferença não fechou. Isso está escrito no README, e não em uma nota de rodapé.
         </div>
       </div>
     </div>
@@ -376,49 +350,47 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>An experiment in building AI a completely different way</h2>
-      <p class="lede">Almost every AI today is built on the same underlying idea. Cell AI is a full-scale attempt at a different one, borrowed from how patterns form in nature — published with its failures intact.</p>
+      <span class="eyebrow">Para quem é</span>
+      <h2>Um experimento de construir IA de um jeito completamente diferente</h2>
+      <p class="lede">Quase toda IA hoje é construída sobre a mesma ideia de base. O Cell AI é uma tentativa em escala plena de outra ideia, emprestada de como os padrões se formam na natureza — publicada com as falhas intactas.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Researchers looking past the current approach</h3>
-        <p class="small dim" style="margin:0">Progress needs someone to try the road not taken and write down what happened. This is that attempt, at full size, with the dead ends recorded rather than quietly dropped.</p>
+        <h3 style="font-size:1.05rem">Pesquisadores olhando além da abordagem atual</h3>
+        <p class="small dim" style="margin:0">O progresso precisa de alguém que tente o caminho não tomado e escreva o que aconteceu. Esta é essa tentativa, em tamanho real, com os becos sem saída registrados em vez de descartados em silêncio.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Scientists modelling living systems</h3>
-        <p class="small dim" style="margin:0">The mechanism underneath is the one that produces stripes on animals and patterns in chemistry. If that is the world you work in, the model speaks your language.</p>
+        <h3 style="font-size:1.05rem">Cientistas que modelam sistemas vivos</h3>
+        <p class="small dim" style="margin:0">O mecanismo por baixo é o mesmo que produz listras em animais e padrões na química. Se esse é o mundo em que você trabalha, o modelo fala a sua língua.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Teachers who want an honest failure</h3>
-        <p class="small dim" style="margin:0">Published research is overwhelmingly about things that worked. This is a careful account of something that did not, which is far more useful for learning than another success story.</p>
+        <h3 style="font-size:1.05rem">Professores que querem um fracasso honesto</h3>
+        <p class="small dim" style="margin:0">A pesquisa publicada é esmagadoramente sobre coisas que deram certo. Este é um relato cuidadoso de algo que não deu, o que é muito mais útil para aprender do que mais um caso de sucesso.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/pt/beta.html">Become a beta tester &rarr;</a>
+      <strong>Reconhece a sua situação aqui?</strong> Isto está aberto para teste beta agora, e as pessoas para quem ele é construído são aquelas cujo retorno de fato o muda.
+      <a href="/pt/beta.html">Seja um testador beta &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="wrap wrap-narrow center">
-    <span class="eyebrow" style="justify-content:center">Sister projects</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where these ideas went instead</h2>
+    <span class="eyebrow" style="justify-content:center">Projetos irmãos</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Para onde essas ideias foram em vez disso</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became UHPM.
+      O Cell AI é a linha de pesquisa que não convergiu. Os irmãos dele se saíram melhor: o Cypha virou uma arquitetura de princípios básicos que funciona, e o trabalho de memória de contexto longo virou o UHPM.
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/pt/cypha.html">Cypha &rarr;</a>
-      <a class="btn btn--ghost" href="/research/uhpm.html">UHPM long-context memory &rarr;</a>
+      <a class="btn btn--ghost" href="/research/uhpm.html">Memória de contexto longo UHPM &rarr;</a>
       <a class="btn btn--ghost" href="/research/fungal.html">Fungal Network Algorithm &rarr;</a>
     </div>
   </div>
@@ -489,7 +461,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-16T11:37:49Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
+      <span class="mono tiny">Compilado em 2026-09-16T12:42:38Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
     </div>
   </div>
 </footer>
@@ -500,6 +472,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Coral":"Coral","Fingerprint":"Impressão digital","Spots":"Manchas","Maze":"Labirinto","Solitons":"Sólitons","Chaos":"Caos","Pause":"Pausar","Resume":"Retomar"};</script>
 <script src="/assets/js/demos/cellai.js" defer></script>
 </body>
 </html>

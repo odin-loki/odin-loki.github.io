@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SENTINEL — crime analytics and investigative leads | Imortek</title>
-<meta name="description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
-<meta name="keywords" content="SENTINEL, crime analytics, Hawkes process, DBSCAN, KDE hotspots, Rossmo geographic profiling, investigative leads, Qt 6">
+<title>SENTINEL — 犯罪数据分析与侦查线索 | Imortek</title>
+<meta name="description" content="一个 C++23 / Qt 6 的分析工具：泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点和 Rossmo 地理画像，全程可追溯来源。来试试在线的热点模型。">
+<meta name="keywords" content="SENTINEL, 犯罪分析, 霍克斯过程, DBSCAN, 犯罪热点, Rossmo 地理画像, 侦查线索, Qt 6">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="zh">
 <meta name="imortek:speech" content="zh-CN">
 <meta name="imortek:prefix" content="/zh">
-<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gh.live":"实时来自 api.github.com","gh.cached":"缓存快照","gh.noDescription":"没有说明","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="SENTINEL — crime analytics and investigative leads | Imortek">
-<meta property="og:description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
+<meta property="og:title" content="SENTINEL — 犯罪数据分析与侦查线索 | Imortek">
+<meta property="og:description" content="一个 C++23 / Qt 6 的分析工具：泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点和 Rossmo 地理画像，全程可追溯来源。来试试在线的热点模型。">
 <meta property="og:url" content="https://imortek.com.au/zh/sentinel.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SENTINEL — crime analytics and investigative leads | Imortek">
+<meta property="og:image:alt" content="SENTINEL — 犯罪数据分析与侦查线索 | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SENTINEL — crime analytics and investigative leads | Imortek">
-<meta name="twitter:description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
+<meta name="twitter:title" content="SENTINEL — 犯罪数据分析与侦查线索 | Imortek">
+<meta name="twitter:description" content="一个 C++23 / Qt 6 的分析工具：泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点和 Rossmo 地理画像，全程可追溯来源。来试试在线的热点模型。">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="SENTINEL — crime analytics and investigative leads | Imortek">
+<meta name="twitter:image:alt" content="SENTINEL — 犯罪数据分析与侦查线索 | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/sentinel.html#webpage","url":"https://imortek.com.au/zh/sentinel.html","name":"SENTINEL — crime analytics and investigative leads | Imortek","description":"A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/sentinel.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/sentinel.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"SENTINEL","item":"https://imortek.com.au/zh/sentinel.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/sentinel.html#software","name":"SENTINEL","description":"A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.","url":"https://imortek.com.au/zh/sentinel.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/SENTINEL","sameAs":["https://github.com/odin-loki/SENTINEL"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/sentinel.html#webpage","url":"https://imortek.com.au/zh/sentinel.html","name":"SENTINEL — 犯罪数据分析与侦查线索 | Imortek","description":"一个 C++23 / Qt 6 的分析工具：泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点和 Rossmo 地理画像，全程可追溯来源。来试试在线的热点模型。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/sentinel.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/sentinel.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"SENTINEL","item":"https://imortek.com.au/zh/sentinel.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/sentinel.html#software","name":"SENTINEL","description":"一个 C++23 / Qt 6 的分析工具：泊松与霍克斯模型、DBSCAN 系列案件识别、KDE 热点和 Rossmo 地理画像，全程可追溯来源。来试试在线的热点模型。","url":"https://imortek.com.au/zh/sentinel.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/SENTINEL","sameAs":["https://github.com/odin-loki/SENTINEL"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,36 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">本页部分内容仍为英文。翻译正在撰写中，没有任何内容是机器翻译的。</p></div>
 <section class="phero" data-video="/assets/video/sentinel" data-poster="/assets/img/video/sentinel.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">SENTINEL &middot; Phases 1&ndash;2 complete</span>
-        <h1>Investigative leads that can be <span class="gradient-text">traced back</span></h1>
+        <span class="eyebrow">SENTINEL &middot; 第 1&ndash;2 阶段完成</span>
+        <h1>侦查线索，每一条都能 <span class="gradient-text">追溯回源头</span></h1>
         <p class="lede">
-          A C++23 and Qt 6 desktop tool that ingests public crime data, runs statistical models,
-          and produces ranked leads &mdash; where every output traces to its source record, its model,
-          and its parameters. If an analyst cannot show why a lead ranked where it did, it should
-          not be a lead.
+          一个 C++23 加 Qt 6 的桌面工具，摄入公开的犯罪数据，跑统计模型，产出排好序的线索 &mdash; 而每一项输出都能追回到它的原始记录、它用的模型和它的参数。如果分析人员说不出一条线索为什么排在那个位置，那它就不该是一条线索。
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Build a hotspot model</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/SENTINEL" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">构建一个热点模型</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/SENTINEL" target="_blank" rel="noopener">仓库 &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">UI<b>Qt 6, 9-page dashboard</b></div>
-          <div class="phero__meta-item">Tests<b>495 automated</b></div>
-          <div class="phero__meta-item">Storage<b>SQLite</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="SENTINEL" data-gh-field="updated">不久前</b></div>
+          <div class="phero__meta-item">语言<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">界面<b>Qt 6，9 页仪表盘</b></div>
+          <div class="phero__meta-item">测试<b>495 个自动化</b></div>
+          <div class="phero__meta-item">存储<b>SQLite</b></div>
+          <div class="phero__meta-item">最近一次推送<b data-gh-repo="SENTINEL" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Stated up front</span>
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">先把话说在前面</span>
           <p class="small dim" style="margin:0 0 12px">
-            This is analytical software that ranks locations and associations from public crime
-            data. It is a tool for directing an analyst&rsquo;s attention, not a system that decides
-            anything about a person.
+            这是一个分析软件，从公开的犯罪数据里给地点和关联排序。它是用来引导分析人员注意力的工具，不是一个对某个人做出任何决定的系统。
           </p>
           <p class="small dim" style="margin:0">
-            The calibration and fairness pages exist because a model that is well ranked and badly
-            calibrated is more dangerous than no model. Phase 3&ndash;5 planning is explicitly
-            fairness-first, and published benchmarks are a stated deliverable rather than a
-            marketing claim.
+            校准页和公平性页之所以存在，是因为一个排序不错但校准很差的模型，比没有模型更危险。第 3&ndash;5 阶段的规划明确以公平性优先，而公开发布基准结果是写明的交付物，不是一句营销话术。
           </p>
         </div>
       </div>
@@ -189,56 +180,49 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The models themselves</span>
-      <h2>Two of the real models, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">模型本身</span>
+      <h2>两个真正的模型，编译成了 WebAssembly</h2>
       <p class="lede">
-        <code>models/KDEHotspot</code> and <code>models/HawkesProcess</code> &mdash; the same
-        C++ an analyst runs on the desktop, compiled with Qt for WebAssembly and fed points you
-        place yourself. Click the map to add incidents.
+        <code>models/KDEHotspot</code> 与 <code>models/HawkesProcess</code> &mdash; 和分析人员在桌面上跑的是同一份 C++，用 Qt for WebAssembly 编译，喂给它的是你自己放下的点。点地图就能添加案件。
       </p>
     </div>
 
     <div class="demo reveal" id="snw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> KDEHotspot + HawkesProcess &mdash; WebAssembly</h3>
-        <span class="badge badge--violet" id="snw-state">not loaded</span>
+        <span class="badge badge--violet" id="snw-state">未加载</span>
       </div>
       <div class="demo__split">
         <div class="demo__stage">
           <canvas class="demo-canvas" id="snw-canvas" height="340" style="cursor:crosshair"></canvas>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="snw-load">Load the models &mdash; 2.4 MB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="snw-seed">Two clusters</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">Clear</button>
+            <button type="button" class="btn btn--primary btn--sm" id="snw-load">加载这些模型 &mdash; 2.4 MB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-seed">两个聚类</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">清空</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            2.4 MB because Qt6Core comes with it. That is the honest cost of running the real
-            model rather than a lookalike, and nothing downloads until you ask.
+            2.4 MB，是因为 Qt6Core 一起带上了。这就是跑真模型而不是跑一个像模像样的替身所要付的老实代价，而且在你开口之前什么都不会下载。
           </p>
         </div>
         <div class="demo__side">
           <div class="log" id="snw-out" style="height:200px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Incidents</div>
+              <div class="readout__k">案件数</div>
               <div class="readout__v plain" id="snw-n" style="font-size:.95rem">0</div>
             </div>
             <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-              <div class="readout__k">Branching ratio</div>
+              <div class="readout__k">分支比</div>
               <div class="readout__v violet" id="snw-alpha" style="font-size:.95rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Branching ratio</strong> is what the Hawkes model learned: the expected number
-            of follow-on incidents each incident triggers. Near zero means the points carry no
-            self-excitation &mdash; scatter them evenly and it should say so.
+            <strong>分支比</strong> 是霍克斯模型学到的东西：每起案件预期会触发多少起后续案件。接近零意味着这些点没有自激发 &mdash; 把它们均匀撒开，它就应该这么说。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        The models only. Ingest, the database, provenance and the dashboard are the application,
-        and the application is not here &mdash; SENTINEL&rsquo;s own build needs Qt6::Test, which needs
-        Qt6::Concurrent, which a single-threaded WebAssembly Qt does not have.
+        这里只有模型。摄入、数据库、来源追踪和仪表盘属于应用程序，而应用程序不在这里 &mdash; SENTINEL 自己的构建需要 Qt6::Test，它又需要 Qt6::Concurrent，而单线程的 WebAssembly 版 Qt 没有这个。
       </div>
     </div>
   </div>
@@ -247,25 +231,25 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Pipeline</span>
-      <h2>Ingest &rarr; NLP &rarr; features &rarr; models &rarr; inference</h2>
-      <p class="lede">Each stage writes what it did into the provenance chain, so a lead at the end carries the record of how it got there.</p>
+      <span class="eyebrow">流水线</span>
+      <h2>摄入 &rarr; NLP &rarr; 特征 &rarr; 模型 &rarr; 推理</h2>
+      <p class="lede">每一个阶段都把自己做了什么写进来源链，所以末端的一条线索，带着它一路是怎么来的记录。</p>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="The SENTINEL pipeline from ingest through rule-based NLP, statistical models and inference to ranked leads, with a provenance rail connected to every stage" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>The rail underneath is the product.</b> Every stage writes what it did into the provenance chain, so a lead arrives with the record of how it got there.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="SENTINEL 流水线，从摄入经过基于规则的 NLP、统计模型和推理，一直到排好序的线索，还有一条来源轨道连着每一个阶段" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>底下那条轨道才是产品。</b> 每一个阶段都把自己做了什么写进来源链，所以一条线索送到你面前时，它一路怎么来的记录也跟着来了。</figcaption></figure>
 
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Ingest</span>
-        <p class="small dim" style="margin:0">UK Police API and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">摄入</span>
+        <p class="small dim" style="margin:0">英国警方 API 和历史数据源，CSV 导入并自动识别英国 / 美国城市 / 通用三种布局，通过 Open-Meteo 取天气，以及带隔离阈值的数据质量评分。</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
-        <p class="small dim" style="margin:0">Classical, rule-based modus-operandi extraction and crime classification. No language model in the loop &mdash; deliberately, because the output has to be explainable.</p></div>
+        <p class="small dim" style="margin:0">经典的、基于规则的作案手法提取与犯罪分类。回路里没有语言模型 &mdash; 这是故意的，因为输出必须解释得清楚。</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Models</span>
-        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, DBSCAN series detection, KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">模型</span>
+        <p class="small dim" style="margin:0">泊松计数、霍克斯自激过程、DBSCAN 系列案件识别、KDE 热点、高斯过程回归，以及贝叶斯层和集成层。</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Inference</span>
-        <p class="small dim" style="margin:0">Rossmo geographic profiling, MO analysis, evidence scoring, anomaly detection, co-offending PageRank and community detection, and the hint engine.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">推理</span>
+        <p class="small dim" style="margin:0">Rossmo 地理画像、作案手法分析、证据评分、异常检测、共同作案的 PageRank 与社区发现，还有提示引擎。</p></div>
     </div>
   </div>
 </section>
@@ -273,23 +257,21 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Two models over the same incidents</h2>
+      <span class="eyebrow">交互演示</span>
+      <h2>同一批案件上的两个模型</h2>
       <p class="lede">
-        Place incidents on the map. <strong>KDE</strong> asks where crime is dense.
-        <strong>Rossmo&rsquo;s formula</strong> asks something different and more interesting: given
-        that offenders avoid a buffer zone around home, where does the offender most likely live?
-        Both run live, over the same points you place.
+        在地图上放下案件。 <strong>KDE</strong> 问的是犯罪在哪里密集。
+        <strong>Rossmo 公式</strong> 问的是另一个更有意思的问题：既然作案者会避开自己家周围的一圈缓冲区，那作案者最可能住在哪里？两个都是实时跑的，用的是你放下的同一批点。
       </p>
     </div>
 
     <div class="demo reveal" id="sn-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> sentinel &mdash; spatial inference</h3>
-        <div class="seg" role="group" aria-label="Model">
-          <button type="button" data-model="kde" aria-pressed="true">KDE hotspots</button>
-          <button type="button" data-model="rossmo">Rossmo profile</button>
-          <button type="button" data-model="both">Both</button>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> sentinel &mdash; 空间推理</h3>
+        <div class="seg" role="group" aria-label="模型">
+          <button type="button" data-model="kde" aria-pressed="true">KDE 热点</button>
+          <button type="button" data-model="rossmo">Rossmo 画像</button>
+          <button type="button" data-model="both">两个都要</button>
         </div>
       </div>
       <div class="demo__split">
@@ -298,61 +280,57 @@
                   aria-label="Incident map with kernel density and geographic profiling surfaces"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click to add an incident. The surfaces recompute on every point.
+            点一下加一起案件。每加一个点，这些曲面都会重算。
           </p>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="sn-bw">KDE bandwidth <b id="sn-bw-v">0.09</b></label>
+              <label for="sn-bw">KDE 带宽 <b id="sn-bw-v">0.09</b></label>
               <input type="range" id="sn-bw" min="0.03" max="0.25" step="0.01" value="0.09">
             </div>
             <div class="ctrl">
-              <label for="sn-buffer">Rossmo buffer B <b id="sn-buffer-v">0.10</b></label>
+              <label for="sn-buffer">Rossmo 缓冲区 B <b id="sn-buffer-v">0.10</b></label>
               <input type="range" id="sn-buffer" min="0.02" max="0.30" step="0.01" value="0.10">
             </div>
             <div class="ctrl">
-              <label for="sn-f">Decay f <b id="sn-f-v">1.2</b></label>
+              <label for="sn-f">衰减 f <b id="sn-f-v">1.2</b></label>
               <input type="range" id="sn-f" min="0.4" max="2.5" step="0.1" value="1.2">
             </div>
           </div>
           <div class="chips" style="margin-top:16px">
-            <button type="button" class="chip" data-scenario="series">Load a series</button>
-            <button type="button" class="chip" data-scenario="dispersed">Dispersed offences</button>
-            <button type="button" class="chip" data-scenario="clear">Clear</button>
+            <button type="button" class="chip" data-scenario="series">载入一组系列案件</button>
+            <button type="button" class="chip" data-scenario="dispersed">分散的案件</button>
+            <button type="button" class="chip" data-scenario="clear">清空</button>
           </div>
         </div>
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Incidents</div>
+              <div class="readout__k">案件数</div>
               <div class="readout__v plain" id="sn-n">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Peak density</div>
+              <div class="readout__k">密度峰值</div>
               <div class="readout__v" id="sn-peak">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Top-ranked lead</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">排名第一的线索</h4>
             <div class="verdict" id="sn-lead">
-              <div class="verdict__label">No leads</div>
-              <div class="verdict__why">Place at least three incidents.</div>
+              <div class="verdict__label">没有线索</div>
+              <div class="verdict__why">至少放下三起案件。</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Provenance chain</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">来源链</h4>
             <div class="log" id="sn-prov" style="height:180px"></div>
           </div>
           <div class="note note--amber" style="font-size:.78rem;padding:12px 14px">
-            <strong>Rossmo is contested.</strong> Geographic profiling performs well on series by
-            a single offender with a stable anchor point, and poorly when those assumptions break.
-            Treating its peak as evidence about a person would be a misuse of it.
+            <strong>Rossmo 是有争议的。</strong> 地理画像在单一作案者、锚点稳定的系列案件上表现不错，一旦这些假设不成立就很差。把它的峰值当成关于某个人的证据，是在滥用它。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Live implementations of Gaussian KDE and Rossmo&rsquo;s criminal geographic targeting formula,
-        written for this page. The shipping tool adds Hawkes processes, DBSCAN series detection
-        and Gaussian process regression over real ingested data.
+        为这个页面写的高斯 KDE 和 Rossmo 犯罪地理定位公式的实时实现。发布出来的那个工具，在真正摄入的数据上还加了霍克斯过程、DBSCAN 系列案件识别和高斯过程回归。
       </div>
     </div>
   </div>
@@ -362,31 +340,30 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Complete</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What works today</h2>
+        <span class="eyebrow">已完成</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">今天能用的东西</h2>
         <ul class="checks" style="margin-top:1.4rem">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>End-to-end pipeline from ingest to ranked leads</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 automated tests</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-data validation on UK and US datasets</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows and Linux packaging</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only REST API</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nine-page dashboard: events, map, calibration, cases, co-offending graph, leads, audit log, settings, debug</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>从摄入到排好序线索的端到端流水线</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 个自动化测试</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>在英国和美国数据集上做的真实数据验证</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows 与 Linux 打包</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>本地只读的 REST API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>九页仪表盘：事件、地图、校准、案件、共同作案图、线索、审计日志、设置、调试</span></li>
         </ul>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Limitations</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What does not</h2>
+        <span class="eyebrow eyebrow--amber">局限</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">不能用的东西</h2>
         <ul class="flist flist--amber" style="margin-top:1.4rem">
-          <li><strong>Rule-based NLP only.</strong> Modus-operandi extraction is classical, with the recall limits that implies.</li>
-          <li><strong>Single-machine desktop.</strong> No multi-user deployment, no shared case state across analysts.</li>
-          <li><strong>Limited live connectors.</strong> Few real-time data sources are wired up.</li>
-          <li><strong>Basic map.</strong> Custom-rendered, not a GIS. Optional GIS integration is a Phase 3&ndash;5 item.</li>
+          <li><strong>只有基于规则的 NLP。</strong> 作案手法提取是经典方法，也就带着这意味着的召回率上限。</li>
+          <li><strong>单机桌面。</strong> 没有多用户部署，分析人员之间也没有共享的案件状态。</li>
+          <li><strong>实时连接器有限。</strong> 接上的实时数据源不多。</li>
+          <li><strong>地图很基础。</strong> 是自己画的，不是 GIS。可选的 GIS 集成属于第 3&ndash;5 阶段的事项。</li>
         </ul>
-        <h3 style="margin-top:2rem;font-size:1.05rem">Phases 3&ndash;5, planned</h3>
+        <h3 style="margin-top:2rem;font-size:1.05rem">第 3&ndash;5 阶段，计划中</h3>
         <p class="small dim">
-          Multi-jurisdiction support, optional GIS integration, published benchmarks,
-          fairness-first deployment, and a possible managed service. The backlog is in
-          <code>REMAINING.md</code> rather than in a roadmap deck.
+          多辖区支持、可选的 GIS 集成、公开发布的基准结果、公平性优先的部署，以及一项可能的托管服务。待办清单在
+          <code>REMAINING.md</code> 里，不在一份路线图幻灯片里。
         </p>
       </div>
     </div>
@@ -397,51 +374,47 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Finds patterns in crime data, and shows its working</h2>
-      <p class="lede">Analysts drown in incident records. This looks for the patterns across them and ranks what is worth a closer look, while keeping a trail back to the evidence behind every suggestion.</p>
+      <span class="eyebrow">这是给谁用的</span>
+      <h2>在犯罪数据里找出规律，并把过程摊开给你看</h2>
+      <p class="lede">分析人员被案件记录淹没。这个工具在这些记录之间找规律，把值得细看的排出先后，同时为每一条建议留下一条通回证据的线索。</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Smaller and regional police forces</h3>
-        <p class="small dim" style="margin:0">The large analytics contracts are out of reach on most budgets. This runs on one ordinary desktop computer and is meant for a single analyst rather than a department.</p>
+        <h3 style="font-size:1.05rem">规模较小的和地方性的警队</h3>
+        <p class="small dim" style="margin:0">大型分析合同对大多数预算来说都够不着。这个在一台普通台式机上就能跑，面向的是一个分析人员，而不是一个部门。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Fraud and repeat-offender investigators</h3>
-        <p class="small dim" style="margin:0">Insurance fraud and organised retail theft look like unrelated incidents until someone lines them up. This does the lining up, and points at where the next one is likely to be.</p>
+        <h3 style="font-size:1.05rem">查欺诈和惯犯的调查人员</h3>
+        <p class="small dim" style="margin:0">保险欺诈和有组织的零售盗窃，在有人把它们排到一起之前，看起来就是一堆互不相干的案件。这个工具负责排，并且指出下一起大概会在哪里。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Researchers studying crime and policing</h3>
-        <p class="small dim" style="margin:0">Every result can be traced back to the exact records and settings that produced it, so another researcher can check the work rather than take it on trust.</p>
+        <h3 style="font-size:1.05rem">研究犯罪与警务的研究者</h3>
+        <p class="small dim" style="margin:0">每一个结果都能追回到产生它的那些具体记录和设置，所以另一个研究者可以去核查这份工作，而不是凭信任接受。</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/zh/beta.html">Become a beta tester &rarr;</a>
+      <strong>在这里看到你自己的情况了吗？</strong> 它现在已经开放测试，而它是为哪些人做的，那些人的反馈才是真正会改变它的。
+      <a href="/zh/beta.html">成为测试用户 &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="wrap wrap-narrow center">
-    <span class="eyebrow" style="justify-content:center">Provenance</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Every lead carries its own receipt</h2>
+    <span class="eyebrow" style="justify-content:center">来源追踪</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">每一条线索都自带票据</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Source record, model, parameters, and the transformation at every stage. An audit log
-      viewer is one of the nine dashboard pages, not a feature request. For software that ranks
-      where police attention goes, that is the minimum bar &mdash; and it is the reason the research
-      prototype behind it, ARIA-INTEL, is labelled as not ready for the same use.
+      原始记录、模型、参数，以及每个阶段做的变换。审计日志查看器是九个仪表盘页面之一，不是一条功能需求。对一个决定警力注意力往哪儿去的软件来说，这是最低门槛 &mdash; 也正是因为这一点，它背后那个研究原型 ARIA-INTEL 被标注为还不能用于同样的用途。
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
-      <a class="btn btn--ghost" href="/research/asset-tracking.html">The research prototype &rarr;</a>
-      <a class="btn btn--ghost" href="/zh/licensing.html">Licensing terms</a>
+      <a class="btn btn--ghost" href="/research/asset-tracking.html">那个研究原型 &rarr;</a>
+      <a class="btn btn--ghost" href="/zh/licensing.html">许可条款</a>
     </div>
   </div>
 </section>
@@ -511,7 +484,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T11:37:49Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T12:42:38Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>
@@ -522,6 +495,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Click to place incidents":"点击放置案发点","KDE needs 1 · Rossmo needs 3":"KDE 需要 1 个 · Rossmo 需要 3 个"};</script>
 <script src="/assets/js/demos/sentinel.js" defer></script><script src="/assets/js/demos/sentinel-wasm.js" defer></script>
 </body>
 </html>

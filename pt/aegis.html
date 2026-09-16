@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AEGIS — metadata-hiding transport for consortiums | Imortek</title>
-<meta name="description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
-<meta name="keywords" content="AEGIS, metadata-hiding transport, traffic analysis resistance, mixnet, constant-rate shaping, anonymity, privacy engineering">
+<title>AEGIS — transporte que esconde metadados para consórcios | Imortek</title>
+<meta name="description" content="Transporte resistente a análise de tráfego que esconde quem fala com quem, quando e quanto. Mixnet a taxa constante mais um plano de volume. Rode o ataque de correlação ao vivo.">
+<meta name="keywords" content="AEGIS, transporte que oculta metadados, resistência à análise de tráfego, mixnet, taxa constante, anonimato, privacidade, criptografia, Sphinx">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="pt">
 <meta name="imortek:speech" content="pt-BR">
 <meta name="imortek:prefix" content="/pt">
-<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Escolher idioma","lang.suggested":"Seu navegador prefere este idioma","lang.close":"Fechar","tools.label":"Ferramentas da página","tools.toggle":"Mostrar ou ocultar as ferramentas","tools.readAloud":"Ler em voz alta","tools.pause":"Pausar","tools.stop":"Parar a leitura","tools.next":"Próximo parágrafo","tools.voice":"Comandos de voz","tools.explain":"Explicar o jargão","tools.reset":"redefinir","tools.termsOnPage":"termos nesta página","tools.learned":"aprendidos","tools.preExpanded":"já explicados","tools.openMore":"Abra mais {n} e o Cypha começa a prever","tools.understood":"compreendidos","tools.corrected":"corrigidos","tools.off":"desligado","tools.reading":"lendo","search.placeholder":"Buscar — descreva o que você quer","search.aria":"Buscar neste site","search.hint":"Combina por significado, não apenas por palavras exatas. Esc para fechar.","search.nothing":"Nada parecido.","related.eyebrow":"O mais próximo neste site","related.title":"Leitura relacionada","related.note":"Escolhido pela sobreposição de termos com esta página, não à mão — portanto é honesto sobre o que de fato está próximo, inclusive quando não há nada óbvio.","voice.help":"Você pode dizer: ler, parar, próximo, voltar, topo, início, ou o nome de uma página. Também pode descrever o que quer e eu encontro a página mais próxima.","voice.notCaught":"Não entendi. Diga \"ajuda\" para saber o que dizer.","voice.listening":"Ouvindo. Diga \"ajuda\" para saber o que dizer.","voice.micOff":"Microfone desligado.","voice.micBlocked":"Microfone bloqueado. Permita no seu navegador para usar comandos de voz.","voice.opening":"Abrindo","voice.didYouMean":"Você quis dizer","voice.sayNumber":"Diga um número, ou diga não.","voice.understood":"Entendido. Diga de outro jeito, ou diga ajuda.","voice.endOfPage":"Fim da página.","voice.searchOpen":"Busca aberta.","voice.nothingRelated":"Nada relacionado nesta página.","voice.related":"Relacionado","voice.goingTo":"Indo para","voice.heading":"Título.","voice.or":"Ou","gloss.notInDict":"Não está no dicionário.","gloss.lookingUp":"procurando…","gloss.forget":"Esquecer o que a Cypha aprendeu"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Idioma","lang.choose":"Escolher idioma","lang.suggested":"Seu navegador prefere este idioma","lang.close":"Fechar","tools.label":"Ferramentas da página","tools.toggle":"Mostrar ou ocultar as ferramentas","tools.readAloud":"Ler em voz alta","tools.pause":"Pausar","tools.stop":"Parar a leitura","tools.next":"Próximo parágrafo","tools.voice":"Comandos de voz","tools.explain":"Explicar o jargão","tools.reset":"redefinir","tools.termsOnPage":"termos nesta página","tools.learned":"aprendidos","tools.preExpanded":"já explicados","tools.openMore":"Abra mais {n} e o Cypha começa a prever","tools.understood":"compreendidos","tools.corrected":"corrigidos","tools.off":"desligado","tools.reading":"lendo","search.placeholder":"Buscar — descreva o que você quer","search.aria":"Buscar neste site","search.hint":"Combina por significado, não apenas por palavras exatas. Esc para fechar.","search.nothing":"Nada parecido.","related.eyebrow":"O mais próximo neste site","related.title":"Leitura relacionada","related.note":"Escolhido pela sobreposição de termos com esta página, não à mão — portanto é honesto sobre o que de fato está próximo, inclusive quando não há nada óbvio.","voice.help":"Você pode dizer: ler, parar, próximo, voltar, topo, início, ou o nome de uma página. Também pode descrever o que quer e eu encontro a página mais próxima.","voice.notCaught":"Não entendi. Diga \"ajuda\" para saber o que dizer.","voice.listening":"Ouvindo. Diga \"ajuda\" para saber o que dizer.","voice.micOff":"Microfone desligado.","voice.micBlocked":"Microfone bloqueado. Permita no seu navegador para usar comandos de voz.","voice.opening":"Abrindo","voice.didYouMean":"Você quis dizer","voice.sayNumber":"Diga um número, ou diga não.","voice.understood":"Entendido. Diga de outro jeito, ou diga ajuda.","voice.endOfPage":"Fim da página.","voice.searchOpen":"Busca aberta.","voice.nothingRelated":"Nada relacionado nesta página.","voice.related":"Relacionado","voice.goingTo":"Indo para","voice.heading":"Título.","voice.or":"Ou","gh.live":"ao vivo de api.github.com","gh.cached":"cópia salva","gh.noDescription":"Sem descrição","gloss.notInDict":"Não está no dicionário.","gloss.lookingUp":"procurando…","gloss.forget":"Esquecer o que a Cypha aprendeu"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
-<meta property="og:description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
+<meta property="og:title" content="AEGIS — transporte que esconde metadados para consórcios | Imortek">
+<meta property="og:description" content="Transporte resistente a análise de tráfego que esconde quem fala com quem, quando e quanto. Mixnet a taxa constante mais um plano de volume. Rode o ataque de correlação ao vivo.">
 <meta property="og:url" content="https://imortek.com.au/pt/aegis.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
+<meta property="og:image:alt" content="AEGIS — transporte que esconde metadados para consórcios | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
-<meta name="twitter:description" content="Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.">
+<meta name="twitter:title" content="AEGIS — transporte que esconde metadados para consórcios | Imortek">
+<meta name="twitter:description" content="Transporte resistente a análise de tráfego que esconde quem fala com quem, quando e quanto. Mixnet a taxa constante mais um plano de volume. Rode o ataque de correlação ao vivo.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="AEGIS — metadata-hiding transport for consortiums | Imortek">
+<meta name="twitter:image:alt" content="AEGIS — transporte que esconde metadados para consórcios | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"pt","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/pt/aegis.html#webpage","url":"https://imortek.com.au/pt/aegis.html","name":"AEGIS — metadata-hiding transport for consortiums | Imortek","description":"Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.","inLanguage":"pt","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/pt/aegis.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/pt/aegis.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://imortek.com.au/pt/"},{"@type":"ListItem","position":2,"name":"AEGIS","item":"https://imortek.com.au/pt/aegis.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/pt/aegis.html#software","name":"AEGIS","description":"Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.","url":"https://imortek.com.au/pt/aegis.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ANONYMOUS","sameAs":["https://github.com/odin-loki/ANONYMOUS"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"pt","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/pt/aegis.html#webpage","url":"https://imortek.com.au/pt/aegis.html","name":"AEGIS — transporte que esconde metadados para consórcios | Imortek","description":"Transporte resistente a análise de tráfego que esconde quem fala com quem, quando e quanto. Mixnet a taxa constante mais um plano de volume. Rode o ataque de correlação ao vivo.","inLanguage":"pt","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/pt/aegis.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/pt/aegis.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://imortek.com.au/pt/"},{"@type":"ListItem","position":2,"name":"AEGIS","item":"https://imortek.com.au/pt/aegis.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/pt/aegis.html#software","name":"AEGIS","description":"Transporte resistente a análise de tráfego que esconde quem fala com quem, quando e quanto. Mixnet a taxa constante mais um plano de volume. Rode o ataque de correlação ao vivo.","url":"https://imortek.com.au/pt/aegis.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/ANONYMOUS","sameAs":["https://github.com/odin-loki/ANONYMOUS"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,42 +139,37 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Partes desta página ainda estão em inglês. A tradução está sendo escrita; nada é traduzido por máquina.</p></div>
 <section class="phero" data-video="/assets/video/aegis" data-poster="/assets/img/video/aegis.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">AEGIS &middot; Phase 8 complete</span>
-        <h1>Encryption hides what you said. <span class="gradient-text">This hides that you spoke.</span></h1>
+        <span class="eyebrow">AEGIS &middot; Fase 8 concluída</span>
+        <h1>A criptografia esconde o que você disse. <span class="gradient-text">Isto esconde que você falou.</span></h1>
         <p class="lede">
-          AEGIS is a traffic-analysis resistant transport for permissioned consortiums.
-          It assumes content encryption is a solved problem and attacks the part encryption
-          cannot touch: who talks to whom, when, and how much.
+          AEGIS é um transporte resistente a análise de tráfego para consórcios com permissão. Ele parte do princípio de que criptografar conteúdo é um problema resolvido e ataca a parte que a criptografia não alcança: quem fala com quem, quando e quanto.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Run the correlation attack</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/ANONYMOUS" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">Rode o ataque de correlação</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/ANONYMOUS" target="_blank" rel="noopener">Repositório &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="ANONYMOUS" data-gh-field="language">Rust</b></div>
-          <div class="phero__meta-item">Adversary<b>Global passive</b></div>
-          <div class="phero__meta-item">Workspace tests<b>195 passing</b></div>
-          <div class="phero__meta-item">Fuzzing<b>1.17M+ execs</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="ANONYMOUS" data-gh-field="updated">há pouco</b></div>
+          <div class="phero__meta-item">Linguagem<b data-gh-repo="ANONYMOUS" data-gh-field="language">Rust</b></div>
+          <div class="phero__meta-item">Adversário<b>Passivo global</b></div>
+          <div class="phero__meta-item">Testes do workspace<b>195 passando</b></div>
+          <div class="phero__meta-item">Fuzzing<b>1,17 mi+ execuções</b></div>
+          <div class="phero__meta-item">Último envio<b data-gh-repo="ANONYMOUS" data-gh-field="updated">há pouco</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:14px">The one rule</span>
+          <span class="eyebrow" style="margin-bottom:14px">A única regra</span>
           <p class="lede" style="font-size:1.12rem;color:var(--ink)">
-            &ldquo;Nothing is done until an attack simulation confirms it.&rdquo;
+            &ldquo;Nada está pronto até uma simulação de ataque confirmar.&rdquo;
           </p>
           <p class="small dim" style="margin-top:14px">
-            Intuition about traffic analysis failed repeatedly during development. Only the
-            simulation harness proved trustworthy, so it became the gate. The Python harness in
-            <code>sim/</code> is the evidence ledger behind every quantitative claim in the
-            specification &mdash; not an afterthought that validates a design already shipped.
+            A intuição sobre análise de tráfego falhou repetidas vezes durante o desenvolvimento. Só a bancada de simulação se mostrou confiável, então ela virou o controle. A bancada em Python em
+            <code>sim/</code> é o livro-razão de evidências por trás de cada afirmação quantitativa da especificação &mdash; não um acréscimo tardio que valida um projeto já entregue.
           </p>
         </div>
       </div>
@@ -185,44 +180,36 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">The threat</span>
-      <h2>Metadata is the part that identifies you</h2>
+      <span class="eyebrow">A ameaça</span>
+      <h2>Os metadados são a parte que identifica você</h2>
     </div>
     <div class="split reveal">
       <div>
         <p class="dim">
-          A global passive adversary cannot read your messages. It does not need to. It watches
-          every link at once and correlates: this endpoint transmitted 14 KB at 09:41:03, that
-          endpoint received 14 KB at 09:41:06, and the pattern repeats twice a day for eleven weeks.
+          Um adversário passivo global não consegue ler as suas mensagens. Nem precisa. Ele observa todos os enlaces ao mesmo tempo e correlaciona: este ponto transmitiu 14 KB às 09:41:03, aquele ponto recebeu 14 KB às 09:41:06, e o padrão se repete duas vezes por dia durante onze semanas.
         </p>
         <p class="dim">
-          Volume and timing are enough to reconstruct the relationship graph of an entire
-          organisation without breaking a single cipher. For a consortium &mdash; banks settling with
-          each other, hospitals sharing records, newsrooms with sources &mdash; the graph
-          <em>is</em> the sensitive information.
+          Volume e temporização bastam para reconstruir o grafo de relacionamentos de uma organização inteira sem quebrar uma única cifra. Para um consórcio &mdash; bancos liquidando entre si, hospitais compartilhando prontuários, redações com fontes &mdash; o grafo
+          <em>é</em> a informação sensível.
         </p>
         <p class="dim">
-          AEGIS makes the wire a flat, unchanging wall. Constant rate regardless of what is
-          happening underneath, so volume and timing carry no signal at all. The demonstration
-          below lets you run the attack against both configurations and see the difference.
+          O AEGIS transforma o fio em uma parede plana e imutável. Taxa constante independentemente do que está acontecendo por baixo, então volume e temporização não carregam sinal nenhum. A demonstração abaixo deixa você rodar o ataque contra as duas configurações e ver a diferença.
         </p>
       </div>
       <div>
         <div class="grid" style="gap:14px">
           <div class="card">
-            <span class="badge badge--violet" style="margin-bottom:10px">Mode 1</span>
-            <h4 style="margin:0 0 6px">Shaped mixnet</h4>
+            <span class="badge badge--violet" style="margin-bottom:10px">Modo 1</span>
+            <h4 style="margin:0 0 6px">Mixnet moldada</h4>
             <p class="small dim" style="margin:0">
-              Small and bursty data plus all control traffic. Sphinx packets emitted at a constant
-              rate, with hard-cap receiver padding so a receiver&rsquo;s inbound volume is also fixed.
+              Dados pequenos e em rajadas, mais todo o tráfego de controle. Pacotes Sphinx emitidos a taxa constante, com enchimento de teto rígido no receptor para que o volume de entrada de um receptor também fique fixo.
             </p>
           </div>
           <div class="card">
-            <span class="badge badge--teal" style="margin-bottom:10px">Mode 2</span>
-            <h4 style="margin:0 0 6px">Bulk plane</h4>
+            <span class="badge badge--teal" style="margin-bottom:10px">Modo 2</span>
+            <h4 style="margin:0 0 6px">Plano de volume</h4>
             <p class="small dim" style="margin:0">
-              Large file transfer with a tunable security level &mdash; raw, bucketed, or uniformly
-              batched. You choose where you sit on the cost curve; nothing is hidden about the price.
+              Transferência de arquivos grandes com nível de segurança ajustável &mdash; cru, em baldes ou em lotes uniformes. Você escolhe onde fica na curva de custo; nada sobre o preço é escondido.
             </p>
           </div>
         </div>
@@ -235,23 +222,21 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Interativo</span>
-      <h2>Be the global passive adversary</h2>
+      <h2>Seja o adversário passivo global</h2>
       <p class="lede">
-        Five senders are each talking to exactly one of five receivers. You see only the traffic
-        volume on every link &mdash; never the contents, never the routing. Correlate the series and
-        try to recover the pairing. Then switch the constant-rate defence on and try again.
+        Cinco remetentes falam, cada um, com exatamente um de cinco destinatários. Você vê apenas o volume de tráfego em cada enlace &mdash; nunca o conteúdo, nunca o roteamento. Correlacione as séries e tente recuperar o pareamento. Depois ligue a defesa de taxa constante e tente de novo.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/aegis-wire.svg" alt="Two wire profiles compared: unshaped traffic shows traceable bursts and the adversary recovers the relationship graph; constant-rate shaped traffic is flat and recovery drops to chance" loading="lazy" decoding="async"></div><span class="diagram__hint">role para ver o diagrama inteiro &rarr;</span><figcaption><b>What the adversary actually sees.</b> Run the attack yourself below &mdash; the numbers in this picture are the ones the demo produces.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/aegis-wire.svg" alt="Dois perfis de fio comparados: o tráfego sem moldagem mostra rajadas rastreáveis e o adversário recupera o grafo de relacionamentos; o tráfego moldado a taxa constante é plano e a recuperação cai ao nível do acaso" loading="lazy" decoding="async"></div><span class="diagram__hint">role para ver o diagrama inteiro &rarr;</span><figcaption><b>O que o adversário de fato vê.</b> Rode o ataque você mesmo abaixo &mdash; os números desta figura são os que a demonstração produz.</figcaption></figure>
 
     <div class="demo reveal" id="ae-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> traffic-analysis harness</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> bancada de análise de tráfego</h3>
         <label class="switch">
           <input type="checkbox" id="ae-cover">
           <span class="switch__track"></span>
-          <span>AEGIS constant-rate shaping</span>
+          <span>Moldagem a taxa constante do AEGIS</span>
         </label>
       </div>
 
@@ -260,18 +245,18 @@
           <canvas class="demo-canvas" id="ae-canvas" height="400"
                   aria-label="Traffic volume on each link over time, and the adversary's correlation matrix"></canvas>
           <div class="legend" style="margin-top:14px">
-            <span><i style="background:#5eead4"></i> Sender link</span>
-            <span><i style="background:#a78bfa"></i> Receiver link</span>
-            <span><i style="background:#fbbf24"></i> Correlation, high</span>
-            <span><i style="background:#1e2833"></i> Correlation, low</span>
+            <span><i style="background:#5eead4"></i> Enlace do remetente</span>
+            <span><i style="background:#a78bfa"></i> Enlace do destinatário</span>
+            <span><i style="background:#fbbf24"></i> Correlação alta</span>
+            <span><i style="background:#1e2833"></i> Correlação baixa</span>
           </div>
           <div class="controls" style="margin-top:20px">
             <div class="ctrl">
-              <label for="ae-time">Observation window <b id="ae-time-v">240 s</b></label>
+              <label for="ae-time">Janela de observação <b id="ae-time-v">240 s</b></label>
               <input type="range" id="ae-time" min="30" max="600" step="10" value="240">
             </div>
             <div class="ctrl">
-              <label for="ae-noise">Network jitter <b id="ae-noise-v">0.20</b></label>
+              <label for="ae-noise">Jitter da rede <b id="ae-noise-v">0.20</b></label>
               <input type="range" id="ae-noise" min="0" max="1" step="0.05" value="0.2">
             </div>
           </div>
@@ -279,47 +264,43 @@
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Adversary&rsquo;s conclusion</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Conclusão do adversário</h4>
             <div class="verdict" id="ae-verdict">
-              <div class="verdict__label">Correlating&hellip;</div>
+              <div class="verdict__label">Correlacionando&hellip;</div>
               <div class="verdict__why">&nbsp;</div>
             </div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Pairs recovered</div>
+              <div class="readout__k">Pares recuperados</div>
               <div class="readout__v red" id="ae-recovered">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Peak correlation</div>
+              <div class="readout__k">Correlação de pico</div>
               <div class="readout__v" id="ae-peak">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Cost of the defence</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Custo da defesa</h4>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
-                <div class="readout__k">Bandwidth</div>
-                <div class="readout__v amber" id="ae-bw">1.0&times;</div>
+                <div class="readout__k">Banda</div>
+                <div class="readout__v amber" id="ae-bw">1,0&times;</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Added latency</div>
+                <div class="readout__k">Latência adicionada</div>
                 <div class="readout__v amber" id="ae-lat">0 ms</div>
               </div>
             </div>
           </div>
           <p class="tiny muted">
-            Chance is 20% &mdash; one pair in five recovered by guessing. Anything meaningfully above
-            that is the adversary winning. The cost figures are the honest other half: constant-rate
-            shaping is not free, and AEGIS does not pretend it is.
+            O acaso é 20% &mdash; um par em cinco recuperado no chute. Qualquer coisa significativamente acima disso é o adversário vencendo. Os números de custo são a outra metade honesta: moldar a taxa constante não sai de graça, e o AEGIS não finge que sai.
           </p>
-          <button class="btn btn--sm btn--block" id="ae-reset">New pairing</button>
+          <button class="btn btn--sm btn--block" id="ae-reset">Novo pareamento</button>
         </div>
       </div>
       <div class="panel__foot">
-        A single-hop illustration written for this page. The real system layers Sphinx routing,
-        guard-node vetting, distributed randomness beacons and zero-knowledge reputation proofs
-        on top of the shaping shown here.
+        Uma ilustração de salto único escrita para esta página. O sistema real empilha roteamento Sphinx, triagem de nós-guarda, faróis de aleatoriedade distribuída e provas de reputação de conhecimento zero sobre a moldagem mostrada aqui.
       </div>
     </div>
   </div>
@@ -328,28 +309,28 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Evidence</span>
-      <h2>Eight phases, each behind a red-team gate</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports.</p>
+      <span class="eyebrow">Evidência</span>
+      <h2>Oito fases, cada uma atrás de um controle de red team</h2>
+      <p class="lede">A implementação está completa até a Fase 8, endurecimento. Estes são os números que o repositório reporta.</p>
     </div>
     <div class="grid grid-4 reveal">
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Crypto test vectors</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="195">195</em></div><div class="stat__label">Workspace tests passing</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="1.17" data-suffix="M+">1.17M+</em></div><div class="stat__label">Fuzz executions, zero crashes</div></div></div>
-      <div class="card"><div class="stat"><div class="stat__num"><em data-count="41" data-suffix="/41">41/41</em></div><div class="stat__label">Topology tests</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Vetores de teste de cripto</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="195">195</em></div><div class="stat__label">Testes do workspace passando</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="1.17" data-suffix="M+">1.17M+</em></div><div class="stat__label">Execuções de fuzzing, zero crashes</div></div></div>
+      <div class="card"><div class="stat"><div class="stat__num"><em data-count="41" data-suffix="/41">41/41</em></div><div class="stat__label">Testes de topologia</div></div></div>
     </div>
     <div class="table-scroll reveal" style="margin-top:28px">
       <table class="data">
-        <thead><tr><th>Area</th><th class="num">Result</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Área</th><th class="num">Resultado</th><th>Observações</th></tr></thead>
         <tbody>
-          <tr><td>Crypto vectors</td><td class="num">36 / 36</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Relay routing</td><td class="num">14 / 14</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Topology</td><td class="num">41 / 41</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Negotiator / bulk correlation</td><td class="num">25 / 25</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Workspace tests</td><td class="num">195</td><td class="muted">All passing</td></tr>
-          <tr><td>Security fuzzing</td><td class="num">1.17M+</td><td class="muted">libFuzzer via WSL, zero crashes</td></tr>
-          <tr><td>Testnet</td><td class="num">Real TCP</td><td class="muted">Sphinx packet routing over real sockets</td></tr>
-          <tr><td>Trace analysis</td><td class="num">Benign vs malicious</td><td class="muted">Real-trace comparison</td></tr>
+          <tr><td>Vetores de cripto</td><td class="num">36 / 36</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Roteamento de relays</td><td class="num">14 / 14</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Topologia</td><td class="num">41 / 41</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Negociador / correlação de volume</td><td class="num">25 / 25</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Testes do workspace</td><td class="num">195</td><td class="muted">Todos passando</td></tr>
+          <tr><td>Fuzzing de segurança</td><td class="num">1.17M+</td><td class="muted">libFuzzer via WSL, zero crashes</td></tr>
+          <tr><td>Testnet</td><td class="num">TCP real</td><td class="muted">Roteamento de pacotes Sphinx sobre sockets reais</td></tr>
+          <tr><td>Análise de traços</td><td class="num">Benigno vs. malicioso</td><td class="muted">Comparação com traços reais</td></tr>
         </tbody>
       </table>
     </div>
@@ -360,34 +341,33 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Hides who is talking, not just what was said</h2>
-      <p class="lede">Scrambling a message is a solved problem. What it does not hide is that you sent one, who to, when, and how much. That pattern alone is often enough to identify people.</p>
+      <span class="eyebrow">Para quem é</span>
+      <h2>Esconde quem está falando, não só o que foi dito</h2>
+      <p class="lede">Embaralhar uma mensagem é um problema resolvido. O que isso não esconde é que você mandou uma, para quem, quando e quanto. Só esse padrão muitas vezes basta para identificar as pessoas.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Newsrooms and anyone protecting a source</h3>
-        <p class="small dim" style="margin:0">Nobody needs to read the message if they can see that a particular person contacted a particular journalist at two in the morning. The timing and the size are what expose people.</p>
+        <h3 style="font-size:1.05rem">Redações e quem estiver protegendo uma fonte</h3>
+        <p class="small dim" style="margin:0">Ninguém precisa ler a mensagem se consegue ver que uma certa pessoa procurou um certo jornalista às duas da manhã. É o horário e o tamanho que expõem as pessoas.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Rival companies that still have to share data</h3>
-        <p class="small dim" style="margin:0">Banks, insurers and industry groups exchange information while competing. Who you are suddenly talking to, and how often, gives away what you are working on.</p>
+        <h3 style="font-size:1.05rem">Empresas rivais que mesmo assim precisam compartilhar dados</h3>
+        <p class="small dim" style="margin:0">Bancos, seguradoras e associações do setor trocam informações enquanto competem. Com quem você passou a falar de repente, e com que frequência, entrega no que você está trabalhando.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Organisations swapping warnings about attacks</h3>
-        <p class="small dim" style="margin:0">Sharing threat information is useful, but being seen to share it can itself be the sensitive part. This keeps the fact of the conversation private, not just its contents.</p>
+        <h3 style="font-size:1.05rem">Organizações trocando alertas sobre ataques</h3>
+        <p class="small dim" style="margin:0">Compartilhar informação sobre ameaças é útil, mas ser visto compartilhando pode ser justamente a parte sensível. Isto mantém privado o fato da conversa, não só o conteúdo dela.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/pt/beta.html">Become a beta tester &rarr;</a>
+      <strong>Reconhece a sua situação aqui?</strong> Isto está aberto para teste beta agora, e as pessoas para quem ele é construído são aquelas cujo retorno de fato o muda.
+      <a href="/pt/beta.html">Seja um testador beta &rarr;</a>
     </div>
   </div>
 </section>
@@ -396,33 +376,30 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow eyebrow--violet">Defences</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What sits on top of the shaping</h2>
+        <span class="eyebrow eyebrow--violet">Defesas</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">O que fica em cima da moldagem</h2>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Forward-secrecy handshakes.</strong> Compromise of long-term keys does not retroactively expose sessions.</li>
-          <li><strong>Reputation-aware path selection.</strong> Routes prefer relays with established behaviour.</li>
-          <li><strong>Distributed randomness beacons.</strong> No single party controls path selection entropy.</li>
-          <li><strong>Zero-knowledge reputation proofs.</strong> A relay proves it exceeds a reputation threshold without revealing its score.</li>
-          <li><strong>Guard-node vetting.</strong> Sybil resistance at the point where it matters most.</li>
+          <li><strong>Handshakes com sigilo futuro.</strong> O comprometimento de chaves de longo prazo não expõe sessões retroativamente.</li>
+          <li><strong>Seleção de caminho ciente de reputação.</strong> As rotas preferem relays com comportamento já estabelecido.</li>
+          <li><strong>Faróis de aleatoriedade distribuída.</strong> Nenhuma parte sozinha controla a entropia da seleção de caminho.</li>
+          <li><strong>Provas de reputação de conhecimento zero.</strong> Um relay prova que passa de um limiar de reputação sem revelar a sua pontuação.</li>
+          <li><strong>Triagem de nós-guarda.</strong> Resistência a Sybil no ponto em que ela mais importa.</li>
         </ul>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Honest boundaries</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where the guarantees stop</h2>
+        <span class="eyebrow eyebrow--amber">Limites honestos</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Onde as garantias param</h2>
         <ul class="flist flist--amber" style="margin-top:1.4rem">
-          <li><strong>Internal traffic only.</strong> Strong guarantees apply inside the consortium. Clearnet exit is weaker and is not claimed otherwise.</li>
-          <li><strong>Empirical, not proven.</strong> Results are empirical bounds under the stated adversary model. They are not mathematical proofs.</li>
-          <li><strong>Latency is inherent.</strong> Multi-second latency is a property of the design, not a tuning problem that will be optimised away.</li>
-          <li><strong>Wrong tool for two parties.</strong> AEGIS suits relationship-graph hiding across many endpoints. For a two-party link, link-layer defences do better.</li>
-          <li><strong>Open research remains.</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> is the honest backlog of what is not finished.</li>
+          <li><strong>Só tráfego interno.</strong> As garantias fortes valem dentro do consórcio. A saída para a clearnet é mais fraca, e não se afirma o contrário.</li>
+          <li><strong>Empírico, não provado.</strong> Os resultados são limites empíricos sob o modelo de adversário declarado. Não são provas matemáticas.</li>
+          <li><strong>A latência é inerente.</strong> Latência de vários segundos é uma propriedade do projeto, não um problema de ajuste que será otimizado até sumir.</li>
+          <li><strong>Ferramenta errada para duas partes.</strong> O AEGIS serve para esconder o grafo de relacionamentos entre muitos pontos. Para um enlace de duas partes, as defesas de camada de enlace se saem melhor.</li>
+          <li><strong>Ainda há pesquisa em aberto.</strong> <code>docs/ops/RESEARCH_AGENDA.md</code> é a lista honesta do que não está terminado.</li>
         </ul>
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Repository hygiene:</strong> GitHub Actions CI, <code>cargo deny</code> dependency
-      auditing, and a workspace-wide policy forbidding unsafe code. For a Rust network stack
-      handling adversarial input, <code>#![forbid(unsafe_code)]</code> across the workspace is the
-      single most load-bearing line in the project.
+      <strong>Higiene do repositório:</strong> CI no GitHub Actions, <code>cargo deny</code> auditoria de dependências e uma política de todo o workspace proibindo código unsafe. Para uma pilha de rede em Rust que trata entrada adversária, <code>#![forbid(unsafe_code)]</code> em todo o workspace é a linha que mais sustenta o projeto.
     </div>
   </div>
 </section>
@@ -492,7 +469,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-16T11:37:49Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
+      <span class="mono tiny">Compilado em 2026-09-16T12:42:38Z &middot; Sem rastreadores, sem cookies, sem analytics.</span>
     </div>
   </div>
 </footer>
@@ -503,6 +480,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"SENDER LINKS":"LINKS DO EMISSOR","RECEIVER LINKS":"LINKS DO RECEPTOR"};</script>
 <script src="/assets/js/demos/aegis.js" defer></script>
 </body>
 </html>

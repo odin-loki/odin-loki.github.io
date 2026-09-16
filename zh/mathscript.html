@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MathScript — C++23 computer algebra and numerics | Imortek</title>
-<meta name="description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
-<meta name="keywords" content="MathScript, C++23, computer algebra, CAS, linear algebra, BLAS, LAPACK, ODE, PDE, FEM, numerical methods">
+<title>MathScript — C++23 计算机代数与数值计算 | Imortek</title>
+<meta name="description" content="稠密与稀疏线性代数、ODE/PDE/FEM、统计、最优化和一个符号计算 CAS，都在一个自带树内 BLAS/LAPACK 的 C++23 库里。来试试在线绘图。">
+<meta name="keywords" content="MathScript, C++23, 计算机代数, CAS, 线性代数, BLAS, LAPACK, 常微分方程, 偏微分方程, 有限元, 数值方法, 数学库">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="zh">
 <meta name="imortek:speech" content="zh-CN">
 <meta name="imortek:prefix" content="/zh">
-<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gh.live":"实时来自 api.github.com","gh.cached":"缓存快照","gh.noDescription":"没有说明","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="MathScript — C++23 computer algebra and numerics | Imortek">
-<meta property="og:description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
+<meta property="og:title" content="MathScript — C++23 计算机代数与数值计算 | Imortek">
+<meta property="og:description" content="稠密与稀疏线性代数、ODE/PDE/FEM、统计、最优化和一个符号计算 CAS，都在一个自带树内 BLAS/LAPACK 的 C++23 库里。来试试在线绘图。">
 <meta property="og:url" content="https://imortek.com.au/zh/mathscript.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="MathScript — C++23 computer algebra and numerics | Imortek">
+<meta property="og:image:alt" content="MathScript — C++23 计算机代数与数值计算 | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MathScript — C++23 computer algebra and numerics | Imortek">
-<meta name="twitter:description" content="Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.">
+<meta name="twitter:title" content="MathScript — C++23 计算机代数与数值计算 | Imortek">
+<meta name="twitter:description" content="稠密与稀疏线性代数、ODE/PDE/FEM、统计、最优化和一个符号计算 CAS，都在一个自带树内 BLAS/LAPACK 的 C++23 库里。来试试在线绘图。">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="MathScript — C++23 computer algebra and numerics | Imortek">
+<meta name="twitter:image:alt" content="MathScript — C++23 计算机代数与数值计算 | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/mathscript.html#webpage","url":"https://imortek.com.au/zh/mathscript.html","name":"MathScript — C++23 computer algebra and numerics | Imortek","description":"Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/mathscript.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/mathscript.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"MathScript","item":"https://imortek.com.au/zh/mathscript.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/mathscript.html#software","name":"MathScript","description":"Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.","url":"https://imortek.com.au/zh/mathscript.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/MathScript","sameAs":["https://github.com/odin-loki/MathScript"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/mathscript.html#webpage","url":"https://imortek.com.au/zh/mathscript.html","name":"MathScript — C++23 计算机代数与数值计算 | Imortek","description":"稠密与稀疏线性代数、ODE/PDE/FEM、统计、最优化和一个符号计算 CAS，都在一个自带树内 BLAS/LAPACK 的 C++23 库里。来试试在线绘图。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/mathscript.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/mathscript.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"MathScript","item":"https://imortek.com.au/zh/mathscript.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/mathscript.html#software","name":"MathScript","description":"稠密与稀疏线性代数、ODE/PDE/FEM、统计、最优化和一个符号计算 CAS，都在一个自带树内 BLAS/LAPACK 的 C++23 库里。来试试在线绘图。","url":"https://imortek.com.au/zh/mathscript.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/MathScript","sameAs":["https://github.com/odin-loki/MathScript"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,38 +139,34 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">本页部分内容仍为英文。翻译正在撰写中，没有任何内容是机器翻译的。</p></div>
 <section class="phero" data-video="/assets/video/mathscript" data-poster="/assets/img/video/mathscript.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 pre-release</span>
-        <h1>One C++23 library, from <span class="gradient-text">LU to CFD</span></h1>
+        <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 预发布</span>
+        <h1>一个 C++23 库，从 <span class="gradient-text">LU 到 CFD</span></h1>
         <p class="lede">
-          Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
-          optimisation, signal and image processing, number theory, graphs, geometry, topology,
-          quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
-          LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+          稠密与稀疏线性代数、特殊函数、统计、ODE/PDE/FEM/CFD、最优化、信号与图像处理、数论、图、几何、拓扑、量子原语、控制、金融、压缩 &mdash; 再加一个符号计算 CAS。LU、QR、SVD、特征值求解器和 Cholesky 都写在树内。
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Plot and differentiate live</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">现场作图并求导</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">仓库 &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="MathScript" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">Test suites<b>816 CTest</b></div>
-          <div class="phero__meta-item">Coverage gate<b>90%</b></div>
-          <div class="phero__meta-item">Static libraries<b>35</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="MathScript" data-gh-field="updated">不久前</b></div>
+          <div class="phero__meta-item">语言<b data-gh-repo="MathScript" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">测试套件<b>816 个 CTest</b></div>
+          <div class="phero__meta-item">覆盖率关卡<b>90%</b></div>
+          <div class="phero__meta-item">静态库<b>35</b></div>
+          <div class="phero__meta-item">最近一次推送<b data-gh-repo="MathScript" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Two decisions that shape everything</span>
+          <span class="eyebrow" style="margin-bottom:16px">两个决定了一切的决策</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
-            <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code>Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
+            <li><strong>树内的 BLAS/LAPACK。</strong> 不用 Eigen，不用 OpenBLAS。 <code>linalg</code> 自己拥有 LU、QR、SVD、eig、Cholesky 以及 LAPACK 风格的核心例程，所以部署就是一次编译，而不是一场找依赖的苦役。</li>
+            <li><strong>一个受限的 C++ 子集。</strong> 不用裸指针，不用异常，不用不安全的类型转换 &mdash; 编译期强制。生产代码返回 <code>Result&lt;T&gt;</code>，所以错误处理是确定性的，而且在类型里看得见。</li>
           </ul>
         </div>
       </div>
@@ -181,12 +177,10 @@
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>A symbolic CAS, running in your browser</h2>
+      <span class="eyebrow">交互演示</span>
+      <h2>一个符号计算 CAS，在你的浏览器里跑</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an AST, differentiated symbolically,
-        simplified, then evaluated numerically for the plot &mdash; alongside a Simpson-rule
-        integral and bisection root-finding over the visible interval.
+        输入一个表达式。它会被分词、解析成 AST、做符号求导、化简，然后为了作图做数值求值 &mdash; 同时在可见区间上用辛普森法则求积分、用二分法找根。
       </p>
     </div>
 
@@ -197,7 +191,7 @@
       </div>
       <div class="demo__split">
         <div class="demo__stage">
-          <label class="sr-only" for="ms-input">Expression in x</label>
+          <label class="sr-only" for="ms-input">关于 x 的表达式</label>
           <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
             <span class="mono" style="color:var(--teal);align-self:center">f(x) =</span>
             <input type="text" id="ms-input" value="sin(x^2)/(1+x^2)" spellcheck="false"
@@ -207,36 +201,36 @@
                   aria-label="Plot of the entered function and its symbolic derivative"></canvas>
           <div class="legend" style="margin-top:12px">
             <span><i style="background:#5eead4"></i> f(x)</span>
-            <span><i style="background:#a78bfa"></i> f&prime;(x), symbolic</span>
-            <span><i style="background:#fbbf24"></i> roots of f</span>
+            <span><i style="background:#a78bfa"></i> f&prime;(x)，符号形式</span>
+            <span><i style="background:#fbbf24"></i> f 的根</span>
           </div>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="ms-range">Domain <b id="ms-range-v">&plusmn;6.0</b></label>
+              <label for="ms-range">定义域 <b id="ms-range-v">&plusmn;6.0</b></label>
               <input type="range" id="ms-range" min="1" max="20" step="0.5" value="6">
             </div>
           </div>
         </div>
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Symbolic derivative</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">符号导数</h4>
             <pre class="code" id="ms-deriv" style="font-size:.76rem;white-space:pre-wrap"></pre>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">&int; over domain</div>
+              <div class="readout__k">定义域上的 &int;</div>
               <div class="readout__v" id="ms-int">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Roots found</div>
+              <div class="readout__k">找到的根</div>
               <div class="readout__v violet" id="ms-roots">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">AST nodes</div>
+              <div class="readout__k">AST 节点数</div>
               <div class="readout__v plain" id="ms-nodes">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Parse</div>
+              <div class="readout__k">解析</div>
               <div class="readout__v plain" id="ms-parse" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
@@ -244,19 +238,17 @@
             <h4 class="panel__title" style="margin-bottom:10px">Result&lt;T&gt;</h4>
             <div class="verdict" id="ms-result">
               <div class="verdict__label">Ok</div>
-              <div class="verdict__why">Parsed and differentiated without error.</div>
+              <div class="verdict__why">解析和求导都没有出错。</div>
             </div>
           </div>
           <p class="tiny muted">
-            Supported: <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
-            asin acos atan</code>, constants <code>pi</code> and <code>e</code>. The real CAS is
-            considerably larger; this is the same idea at reading scale.
+            支持： <code>+ - * / ^</code>, <code>sin cos tan exp log sqrt abs sinh cosh tanh
+            asin acos atan</code>，常量 <code>pi</code> 与 <code>e</code>。真正的 CAS 要大得多；这里是同一个想法，缩到读得下的规模。
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A tokeniser, recursive-descent parser, symbolic differentiator and simplifier written for
-        this page. The C++ implementation lives in the <code>symbolic</code> library.
+        为这个页面写的分词器、递归下降解析器、符号求导器和化简器。C++ 实现在 <code>symbolic</code> 库里。
       </div>
     </div>
   </div>
@@ -266,79 +258,72 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Not a reimplementation</span>
-      <h2>The actual C++ library, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">不是重新实现一遍</span>
+      <h2>真正的那个 C++ 库，编译成了 WebAssembly</h2>
       <p class="lede">
-        Everything above is JavaScript written for this page &mdash; honest, but a model of the
-        real thing. Below is the real thing: <code>libms_symbolic</code> itself, compiled from
-        the same source that builds the native library, running in your browser.
+        上面的一切都是为这个页面写的 JavaScript &mdash; 它是老实的，但只是真东西的一个模型。下面才是真东西： <code>libms_symbolic</code> 本身，由构建本地库的同一份源码编译而来，在你的浏览器里运行。
       </p>
     </div>
 
     <div class="demo reveal" id="msw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> ms::sym_diff &mdash; WebAssembly</h3>
-        <span class="badge badge--violet" id="msw-state">not loaded</span>
+        <span class="badge badge--violet" id="msw-state">未加载</span>
       </div>
       <div class="demo__split">
         <div class="demo__stage">
           <div class="ctrl">
-            <label for="msw-input">Expression</label>
+            <label for="msw-input">表达式</label>
             <input type="text" id="msw-input" value="sin(x)*x^2" spellcheck="false"
                    autocomplete="off" style="width:100%">
           </div>
           <div class="ctrl">
-            <label for="msw-var">Variable</label>
+            <label for="msw-var">变量</label>
             <input type="text" id="msw-var" value="x" spellcheck="false" autocomplete="off"
                    style="width:6rem">
           </div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="msw-load">Load the library &mdash; 113 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="msw-run" disabled>Run</button>
+            <button type="button" class="btn btn--primary btn--sm" id="msw-load">加载这个库 &mdash; 113 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="msw-run" disabled>运行</button>
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 KB of WebAssembly and 10 KB of loader &mdash; the full library build is 4.9 MB,
-            so this links only what these four calls reach.
+            在你按下加载之前什么都不会下载，按了之后也只取一次。这个模块是 113 KB 的 WebAssembly 加 10 KB 的加载器 &mdash; 完整的库构建是 4.9 MB，所以这里只链接了这四个调用能触及的部分。
           </p>
         </div>
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr">
             <div class="readout__item">
-              <div class="readout__k">Simplified</div>
+              <div class="readout__k">化简后</div>
               <div class="readout__v plain" id="msw-parse" style="font-size:.9rem">&mdash;</div>
             </div>
             <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-              <div class="readout__k">Derivative</div>
+              <div class="readout__k">导数</div>
               <div class="readout__v violet" id="msw-deriv" style="font-size:.9rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Integral</div>
+              <div class="readout__k">积分</div>
               <div class="readout__v plain" id="msw-integ" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Library</div>
+              <div class="readout__k">库</div>
               <div class="readout__v plain" id="msw-version" style="font-size:.85rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Vector ISA</div>
+              <div class="readout__k">向量指令集</div>
               <div class="readout__v plain" id="msw-isa" style="font-size:.85rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>The ISA line is the library telling the truth about itself.</strong> It asks
-            <code>ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers AVX2 or AVX-512; here there is one vector ISA and it says so.
+            <strong>指令集那一行是这个库在如实报告自己。</strong> 它调用的是
+            <code>ms::detect_isa()</code>，和它在本地运行时调用的是同一个。在你的台式机上它会回答 AVX2 或 AVX-512；在这里只有一种向量指令集，它也就照实说。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Built with Emscripten from the MathScript tree. Three portability defects had to be
-        fixed to get there, all of which also affect native builds on Apple clang and on ARM
-        &mdash; see <code>tools/wasm/README.md</code>.
+        用 Emscripten 从 MathScript 代码树构建。为此不得不修掉三个可移植性缺陷，这三个也都影响 Apple clang 和 ARM 上的本地构建 &mdash; 见 <code>tools/wasm/README.md</code>.
       </div>
     </div>
   </div>
@@ -347,70 +332,68 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Scope</span>
-      <h2>Thirty-five static libraries, six domains</h2>
+      <span class="eyebrow">范围</span>
+      <h2>三十五个静态库，六个领域</h2>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Six library domains — core systems, numerical, statistics and machine learning, applied, symbolic and specialised — over a Result<T> base rail with no exceptions or raw pointers" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>Thirty-five libraries, one error convention.</b> The rail underneath is the point: failure is in the return type, not in an exception you find at the top of the stack.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="六个库领域 — 核心系统、数值、统计与机器学习、应用、符号和专门领域 — 都建立在一条 Result<T> 基础轨道上，不用异常，也不用裸指针" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>三十五个库，一套错误约定。</b> 底下那条轨道才是关键：失败在返回类型里，而不是在你到栈顶才发现的那个异常里。</figcaption></figure>
 
     <div class="grid grid-3">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Core</span>
-        <h3 style="font-size:1.02rem">Core systems</h3>
-        <p class="small dim" style="margin:0">Dense and sparse linear algebra with in-tree LU, QR, SVD, eigensolvers and Cholesky. <code>Result&lt;T&gt;</code> error handling throughout.</p></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">核心</span>
+        <h3 style="font-size:1.02rem">核心系统</h3>
+        <p class="small dim" style="margin:0">稠密与稀疏线性代数，LU、QR、SVD、特征值求解器和 Cholesky 都在树内。 <code>Result&lt;T&gt;</code> 错误处理贯穿始终。</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Numerical</span>
-        <h3 style="font-size:1.02rem">ODE, PDE, FEM, CFD</h3>
-        <p class="small dim" style="margin:0">Time integration, finite elements and computational fluid dynamics, plus special functions and quadrature.</p></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">数值</span>
+        <h3 style="font-size:1.02rem">ODE、PDE、FEM、CFD</h3>
+        <p class="small dim" style="margin:0">时间积分、有限元和计算流体力学，外加特殊函数与数值积分。</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Statistics</span>
-        <h3 style="font-size:1.02rem">Statistics &amp; ML</h3>
-        <p class="small dim" style="margin:0">Distributions, inference, regression and the optimisation machinery underneath them.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">统计</span>
+        <h3 style="font-size:1.02rem">统计 &amp; 机器学习</h3>
+        <p class="small dim" style="margin:0">分布、推断、回归，以及它们底下那套最优化机制。</p></div>
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Applied</span>
-        <h3 style="font-size:1.02rem">Signal, image, control, finance</h3>
-        <p class="small dim" style="margin:0">Transforms, filtering, image processing, control theory and quantitative finance primitives.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">应用</span>
+        <h3 style="font-size:1.02rem">信号、图像、控制、金融</h3>
+        <p class="small dim" style="margin:0">变换、滤波、图像处理、控制理论和量化金融原语。</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Symbolic</span>
-        <h3 style="font-size:1.02rem">Computer algebra</h3>
-        <p class="small dim" style="margin:0">A small symbolic CAS sitting alongside the numerics rather than bolted on top of them.</p></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">符号</span>
+        <h3 style="font-size:1.02rem">计算机代数</h3>
+        <p class="small dim" style="margin:0">一个小的符号计算 CAS，和数值部分并排放着，而不是拴在它们上面。</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Specialised</span>
-        <h3 style="font-size:1.02rem">Graphs, geometry, topology, quantum</h3>
-        <p class="small dim" style="margin:0">Number theory, graph algorithms, computational geometry, topology and quantum primitives.</p></div>
+        <span class="badge badge--blue" style="margin-bottom:12px">专门领域</span>
+        <h3 style="font-size:1.02rem">图、几何、拓扑、量子</h3>
+        <p class="small dim" style="margin:0">数论、图算法、计算几何、拓扑和量子原语。</p></div>
     </div>
 
     <div class="split" style="margin-top:48px">
       <div class="reveal">
-        <span class="eyebrow">Shipping surface</span>
-        <h3>Three executables, optional everything else</h3>
+        <span class="eyebrow">对外暴露的东西</span>
+        <h3>三个可执行文件，其余一切都可选</h3>
         <div class="spec" style="margin-top:16px">
-          <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Compiler / batch driver</span></div>
-          <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">Interactive session</span></div>
-          <div class="spec__row"><span class="spec__k">mathscript-server</span><span class="spec__v">Service mode</span></div>
-          <div class="spec__row"><span class="spec__k">Optional</span><span class="spec__v">Qt GUI, CUDA, MPI, LLVM ORC JIT</span></div>
+          <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">编译器 / 批处理驱动</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">交互式会话</span></div>
+          <div class="spec__row"><span class="spec__k">mathscript-server</span><span class="spec__v">服务模式</span></div>
+          <div class="spec__row"><span class="spec__k">可选</span><span class="spec__v">Qt 图形界面、CUDA、MPI、LLVM ORC JIT</span></div>
         </div>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow">Verification</span>
-        <h3>What 816 suites buy you</h3>
+        <span class="eyebrow">验证</span>
+        <h3>816 个套件能买到什么</h3>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
-            <thead><tr><th>Gate</th><th class="num">Setting</th></tr></thead>
+            <thead><tr><th>关卡</th><th class="num">设定</th></tr></thead>
             <tbody>
-              <tr><td>CTest suites</td><td class="num">816, 100% passed</td></tr>
-              <tr><td>Platform</td><td class="num">Windows MSVC Release</td></tr>
-              <tr><td>CI matrix</td><td class="num">MSVC + Linux GCC 13</td></tr>
-              <tr><td>Coverage gate</td><td class="num">90%</td></tr>
-              <tr><td>Sanitizers</td><td class="num">Enabled</td></tr>
-              <tr><td>Fuzzing</td><td class="num">Enabled</td></tr>
-              <tr><td>Benchmark regressions</td><td class="num">28, 10% tolerance</td></tr>
+              <tr><td>CTest 套件</td><td class="num">816 个，100% 通过</td></tr>
+              <tr><td>平台</td><td class="num">Windows MSVC Release</td></tr>
+              <tr><td>CI 矩阵</td><td class="num">MSVC + Linux GCC 13</td></tr>
+              <tr><td>覆盖率关卡</td><td class="num">90%</td></tr>
+              <tr><td>消毒器</td><td class="num">已启用</td></tr>
+              <tr><td>模糊测试</td><td class="num">已启用</td></tr>
+              <tr><td>基准回归</td><td class="num">28 个，容差 10%</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:18px">
-          <strong>Pre-release means pre-release.</strong> v1.0.0 has not shipped. The 816-suite
-          figure is from Windows MSVC Release; the Linux GCC 13 leg runs in CI but the headline
-          number is the one measured on Windows.
+          <strong>预发布就是预发布。</strong> v1.0.0 还没有发布。816 个套件这个数字来自 Windows MSVC Release；Linux GCC 13 那一路也在 CI 里跑，但拿出来当主数字的是 Windows 上测到的那个。
         </div>
       </div>
     </div>
@@ -421,47 +404,43 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>A complete maths toolkit for programmers, in one piece</h2>
-      <p class="lede">Serious calculation work usually means bolting together a dozen separate pieces of software and hoping they agree. This is one library that covers the lot.</p>
+      <span class="eyebrow">这是给谁用的</span>
+      <h2>给程序员的一整套数学工具，就一件东西</h2>
+      <p class="lede">正经的计算工作通常意味着把十几个各自独立的软件拼在一起，然后指望它们说法一致。这是一个把这些全都覆盖到的库。</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Teams that are not allowed to download anything</h3>
-        <p class="small dim" style="margin:0">Defence, medical, aerospace and banking build systems are often sealed off from the internet. Everything here is included, so there is nothing to fetch and nothing to get approved.</p>
+        <h3 style="font-size:1.05rem">不被允许下载任何东西的团队</h3>
+        <p class="small dim" style="margin:0">国防、医疗、航空航天和银行的构建系统常常与互联网隔离。这里的东西全部自带，所以没有要下载的，也没有要报批的。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Teams tired of bolting Python onto a product</h3>
-        <p class="small dim" style="margin:0">A lot of software does its real work in one language and its maths in another, which means two sets of problems. This keeps the maths in the same language as the product.</p>
+        <h3 style="font-size:1.05rem">厌倦了把 Python 拴在产品上的团队</h3>
+        <p class="small dim" style="margin:0">很多软件用一种语言干正事，用另一种语言算数学，于是有了两套麻烦。这个让数学和产品待在同一种语言里。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Teaching and learning</h3>
-        <p class="small dim" style="margin:0">The methods are written out in full and can be read, rather than hidden inside a supplier's sealed component. Students can follow what is actually happening.</p>
+        <h3 style="font-size:1.05rem">教学与学习</h3>
+        <p class="small dim" style="margin:0">方法是完整写出来、可以读的，而不是藏在某个供应商封好的组件里。学生能跟上实际发生的事。</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/zh/beta.html">Become a beta tester &rarr;</a>
+      <strong>在这里看到你自己的情况了吗？</strong> 它现在已经开放测试，而它是为哪些人做的，那些人的反馈才是真正会改变它的。
+      <a href="/zh/beta.html">成为测试用户 &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight section--alt">
   <div class="wrap wrap-narrow">
-    <span class="eyebrow">Why no exceptions</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">A numerical library that cannot throw at you</h2>
+    <span class="eyebrow">为什么不用异常</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">一个不会朝你扔异常的数值库</h2>
     <p class="dim">
-      Numerical code fails in ordinary ways: a singular matrix, a non-convergent iteration, a
-      domain error in a special function. Signalling that with an exception means every caller
-      either wraps everything in <code>try</code> or discovers the failure at the top of the stack
-      with no context. MathScript makes the failure part of the return type.
+      数值代码失败的方式都很平常：矩阵奇异、迭代不收敛、特殊函数里的定义域错误。用异常来发这个信号，意味着每个调用方要么把所有东西都包进 <code>try</code> ，要么在栈顶发现失败，却没有任何上下文。MathScript 把失败做成返回类型的一部分。
     </p>
     <pre class="code" style="margin-top:18px"><span class="c-com">// Every production entry point returns Result&lt;T&gt;.</span>
 <span class="c-key">auto</span> lu = linalg::<span class="c-fn">lu_factor</span>(A);
@@ -473,8 +452,8 @@
 <span class="c-com">// No raw pointers, no unsafe casts, no exceptions:
 // the restricted subset is enforced at compile time.</span></pre>
     <div class="btn-row" style="margin-top:22px">
-      <a class="btn btn--sm btn--ghost" href="/zh/licensing.html">Licensing terms</a>
-      <a class="btn btn--sm btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">Browse the source</a>
+      <a class="btn btn--sm btn--ghost" href="/zh/licensing.html">许可条款</a>
+      <a class="btn btn--sm btn--ghost" href="https://github.com/odin-loki/MathScript" target="_blank" rel="noopener">浏览源码</a>
     </div>
   </div>
 </section>
@@ -544,7 +523,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T11:37:49Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T12:42:38Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>
@@ -555,6 +534,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+
 <script src="/assets/js/demos/mathscript.js" defer></script><script src="/assets/js/demos/mathscript-wasm.js" defer></script>
 </body>
 </html>

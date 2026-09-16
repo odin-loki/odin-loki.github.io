@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cell AI — a reaction-diffusion sequence model | Imortek</title>
-<meta name="description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
-<meta name="keywords" content="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture">
+<title>Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek</title>
+<meta name="description" content="जान-बूझकर ग़ैर-ट्रांसफ़ॉर्मर संरचना: विभाजन गतिकी, फ़ॉरवर्ड-के-भीतर Hebbian/BCM सुघट्यता, स्पेक्ट्रल PDE। एक ईमानदार अनुसंधान लॉग। जीवित सिमुलेशन चलाइए।">
+<meta name="keywords" content="Cell AI, अभिक्रिया-विसरण, ग्रे-स्कॉट, अनुक्रम मॉडल, हेबियन सुघट्यता, BCM नियम, ग़ैर-ट्रांसफ़ॉर्मर संरचना, प्रयोगात्मक AI">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="hi">
 <meta name="imortek:speech" content="hi-IN">
 <meta name="imortek:prefix" content="/hi">
-<script>window.__IMORTEK_I18N={"lang.label":"भाषा","lang.choose":"भाषा चुनें","lang.suggested":"आपका ब्राउज़र यह भाषा पसंद करता है","lang.close":"बंद करें","tools.label":"पृष्ठ उपकरण","tools.toggle":"पृष्ठ उपकरण दिखाएँ या छिपाएँ","tools.readAloud":"पढ़कर सुनाएँ","tools.pause":"रोकें","tools.stop":"पढ़ना बंद करें","tools.next":"अगला अनुच्छेद","tools.voice":"आवाज़ से आदेश","tools.explain":"कठिन शब्द समझाएँ","tools.reset":"रीसेट","tools.termsOnPage":"शब्द इस पृष्ठ पर","tools.learned":"सीखे गए","tools.preExpanded":"पहले से खुले","tools.openMore":"{n} और खोलें, फिर Cypha अनुमान लगाना शुरू कर देगा","tools.understood":"समझा गया","tools.corrected":"सुधारा गया","tools.off":"बंद","tools.reading":"पढ़ा जा रहा है","search.placeholder":"खोजें — बताइए आपको क्या चाहिए","search.aria":"इस साइट पर खोजें","search.hint":"अर्थ के आधार पर मिलान करता है, सिर्फ़ शब्दों से नहीं। बंद करने के लिए Esc।","search.nothing":"कुछ भी मिलता-जुलता नहीं मिला।","related.eyebrow":"इस साइट पर सबसे निकट","related.title":"संबंधित पठन","related.note":"इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।","voice.help":"आप कह सकते हैं: पढ़ो, रुको, अगला, पीछे, ऊपर, होम, या किसी पृष्ठ का नाम। आप यह भी बता सकते हैं कि आपको क्या चाहिए और मैं सबसे निकट का पृष्ठ ढूँढ दूँगा।","voice.notCaught":"मैं समझ नहीं पाया। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.listening":"सुन रहा हूँ। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.micOff":"माइक्रोफ़ोन बंद है।","voice.micBlocked":"माइक्रोफ़ोन अवरुद्ध है। आवाज़ से आदेश देने के लिए इसे ब्राउज़र में अनुमति दें।","voice.opening":"खोल रहा हूँ","voice.didYouMean":"क्या आपका मतलब था","voice.sayNumber":"कोई संख्या बोलिए, या \"नहीं\" कहिए।","voice.understood":"समझ गया। दूसरे तरीक़े से कहिए, या \"मदद\" कहिए।","voice.endOfPage":"पृष्ठ समाप्त।","voice.searchOpen":"खोज खुल गई।","voice.nothingRelated":"इस पृष्ठ पर कुछ भी संबंधित नहीं है।","voice.related":"संबंधित","voice.goingTo":"जा रहा हूँ","voice.heading":"शीर्षक।","voice.or":"या","gloss.notInDict":"शब्दकोश में नहीं है।","gloss.lookingUp":"खोजा जा रहा है…","gloss.forget":"Cypha ने जो सीखा उसे भुला दें"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"भाषा","lang.choose":"भाषा चुनें","lang.suggested":"आपका ब्राउज़र यह भाषा पसंद करता है","lang.close":"बंद करें","tools.label":"पृष्ठ उपकरण","tools.toggle":"पृष्ठ उपकरण दिखाएँ या छिपाएँ","tools.readAloud":"पढ़कर सुनाएँ","tools.pause":"रोकें","tools.stop":"पढ़ना बंद करें","tools.next":"अगला अनुच्छेद","tools.voice":"आवाज़ से आदेश","tools.explain":"कठिन शब्द समझाएँ","tools.reset":"रीसेट","tools.termsOnPage":"शब्द इस पृष्ठ पर","tools.learned":"सीखे गए","tools.preExpanded":"पहले से खुले","tools.openMore":"{n} और खोलें, फिर Cypha अनुमान लगाना शुरू कर देगा","tools.understood":"समझा गया","tools.corrected":"सुधारा गया","tools.off":"बंद","tools.reading":"पढ़ा जा रहा है","search.placeholder":"खोजें — बताइए आपको क्या चाहिए","search.aria":"इस साइट पर खोजें","search.hint":"अर्थ के आधार पर मिलान करता है, सिर्फ़ शब्दों से नहीं। बंद करने के लिए Esc।","search.nothing":"कुछ भी मिलता-जुलता नहीं मिला।","related.eyebrow":"इस साइट पर सबसे निकट","related.title":"संबंधित पठन","related.note":"इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।","voice.help":"आप कह सकते हैं: पढ़ो, रुको, अगला, पीछे, ऊपर, होम, या किसी पृष्ठ का नाम। आप यह भी बता सकते हैं कि आपको क्या चाहिए और मैं सबसे निकट का पृष्ठ ढूँढ दूँगा।","voice.notCaught":"मैं समझ नहीं पाया। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.listening":"सुन रहा हूँ। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.micOff":"माइक्रोफ़ोन बंद है।","voice.micBlocked":"माइक्रोफ़ोन अवरुद्ध है। आवाज़ से आदेश देने के लिए इसे ब्राउज़र में अनुमति दें।","voice.opening":"खोल रहा हूँ","voice.didYouMean":"क्या आपका मतलब था","voice.sayNumber":"कोई संख्या बोलिए, या \"नहीं\" कहिए।","voice.understood":"समझ गया। दूसरे तरीक़े से कहिए, या \"मदद\" कहिए।","voice.endOfPage":"पृष्ठ समाप्त।","voice.searchOpen":"खोज खुल गई।","voice.nothingRelated":"इस पृष्ठ पर कुछ भी संबंधित नहीं है।","voice.related":"संबंधित","voice.goingTo":"जा रहा हूँ","voice.heading":"शीर्षक।","voice.or":"या","gh.live":"api.github.com से सीधे","gh.cached":"सहेजी गई प्रति","gh.noDescription":"कोई विवरण नहीं","gloss.notInDict":"शब्दकोश में नहीं है।","gloss.lookingUp":"खोजा जा रहा है…","gloss.forget":"Cypha ने जो सीखा उसे भुला दें"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta property="og:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta property="og:title" content="Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek">
+<meta property="og:description" content="जान-बूझकर ग़ैर-ट्रांसफ़ॉर्मर संरचना: विभाजन गतिकी, फ़ॉरवर्ड-के-भीतर Hebbian/BCM सुघट्यता, स्पेक्ट्रल PDE। एक ईमानदार अनुसंधान लॉग। जीवित सिमुलेशन चलाइए।">
 <meta property="og:url" content="https://imortek.com.au/hi/cellai.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta property="og:image:alt" content="Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cell AI — a reaction-diffusion sequence model | Imortek">
-<meta name="twitter:description" content="A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.">
+<meta name="twitter:title" content="Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek">
+<meta name="twitter:description" content="जान-बूझकर ग़ैर-ट्रांसफ़ॉर्मर संरचना: विभाजन गतिकी, फ़ॉरवर्ड-के-भीतर Hebbian/BCM सुघट्यता, स्पेक्ट्रल PDE। एक ईमानदार अनुसंधान लॉग। जीवित सिमुलेशन चलाइए।">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Cell AI — a reaction-diffusion sequence model | Imortek">
+<meta name="twitter:image:alt" content="Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"hi","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/hi/cellai.html#webpage","url":"https://imortek.com.au/hi/cellai.html","name":"Cell AI — a reaction-diffusion sequence model | Imortek","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","inLanguage":"hi","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/hi/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/hi/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://imortek.com.au/hi/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/hi/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/hi/cellai.html#software","name":"Cell AI","description":"A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.","url":"https://imortek.com.au/hi/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"hi","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/hi/cellai.html#webpage","url":"https://imortek.com.au/hi/cellai.html","name":"Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल | Imortek","description":"जान-बूझकर ग़ैर-ट्रांसफ़ॉर्मर संरचना: विभाजन गतिकी, फ़ॉरवर्ड-के-भीतर Hebbian/BCM सुघट्यता, स्पेक्ट्रल PDE। एक ईमानदार अनुसंधान लॉग। जीवित सिमुलेशन चलाइए।","inLanguage":"hi","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/hi/cellai.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/hi/cellai.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://imortek.com.au/hi/"},{"@type":"ListItem","position":2,"name":"Cell AI","item":"https://imortek.com.au/hi/cellai.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/hi/cellai.html#software","name":"Cell AI","description":"जान-बूझकर ग़ैर-ट्रांसफ़ॉर्मर संरचना: विभाजन गतिकी, फ़ॉरवर्ड-के-भीतर Hebbian/BCM सुघट्यता, स्पेक्ट्रल PDE। एक ईमानदार अनुसंधान लॉग। जीवित सिमुलेशन चलाइए।","url":"https://imortek.com.au/hi/cellai.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/CellAI","sameAs":["https://github.com/odin-loki/CellAI"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,36 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">इस पृष्ठ के कुछ हिस्से अब भी अंग्रेज़ी में हैं। अनुवाद लिखा जा रहा है; कुछ भी मशीन से अनूदित नहीं है।</p></div>
 <section class="phero" data-video="/assets/video/cellai" data-poster="/assets/img/video/cellai.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
-        <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
+        <span class="eyebrow eyebrow--violet">Cell AI &middot; अनुसंधान लॉग</span>
+        <h1>एक अनुक्रम मॉडल, जो <span class="gradient-text">ईमानदारी से कहें तो ख़राब है</span></h1>
         <p class="lede">
-          Cell AI replaces self-attention with reaction-diffusion partition dynamics and
-          Hebbian/BCM plasticity that runs <em>के दौरान</em> the forward pass. It does not approach
-          transformer performance and its README says so on the first screen. It is published as
-          a research log: what a fully different sequence model looks like at full scale, and
-          exactly where it breaks.
+          Cell AI, सेल्फ़-अटेंशन की जगह अभिक्रिया-विसरण विभाजन गतिकी और Hebbian/BCM सुघट्यता रखता है, जो फ़ॉरवर्ड पास <em>के दौरान</em> चलती है। यह ट्रांसफ़ॉर्मर के प्रदर्शन के पास भी नहीं पहुँचता और इसका README पहली ही स्क्रीन पर यह कहता है। इसे एक अनुसंधान लॉग के रूप में प्रकाशित किया गया है: पूरे पैमाने पर एक बिलकुल अलग अनुक्रम मॉडल कैसा दिखता है, और ठीक कहाँ टूटता है।
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">अभिक्रिया-विसरण क्षेत्र चलाइए</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/CellAI" target="_blank" rel="noopener">रिपॉज़िटरी &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
-          <div class="phero__meta-item">v1 parameters<b>125.8M</b></div>
-          <div class="phero__meta-item">Training PPL<b>450k&ndash;1.18M</b></div>
-          <div class="phero__meta-item">GPT-2 baseline<b>~20</b></div>
-          <div class="phero__meta-item">Experiments<b>E0&ndash;E26</b></div>
+          <div class="phero__meta-item">भाषा<b data-gh-repo="CellAI" data-gh-field="language">Python</b></div>
+          <div class="phero__meta-item">v1 पैरामीटर<b>125.8M</b></div>
+          <div class="phero__meta-item">प्रशिक्षण PPL<b>450k&ndash;1.18M</b></div>
+          <div class="phero__meta-item">GPT-2 बेसलाइन<b>~20</b></div>
+          <div class="phero__meta-item">प्रयोग<b>E0&ndash;E26</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Why publish this</span>
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">इसे प्रकाशित क्यों करें</span>
           <p class="small dim" style="margin:0 0 12px">
-            Training perplexity of 450,000 against GPT-2&rsquo;s 20 is not a near miss. It is four
-            orders of magnitude, and no amount of framing changes that.
+            GPT-2 के 20 के मुक़ाबले 4,50,000 की प्रशिक्षण पर्प्लेक्सिटी कोई मामूली चूक नहीं है। यह परिमाण के चार क्रम का फ़र्क़ है, और उसे कैसे भी पेश किया जाए, वह बदलता नहीं।
           </p>
           <p class="small dim" style="margin:0">
-            The value is the E0&ndash;E26 experiment ladder with its failures annotated: which
-            architectural ideas collapsed, how, and what the diagnostics said. A negative result
-            with a documented cause is a contribution. A negative result quietly deleted is a
-            waste of the work.
+            असली क़ीमत E0&ndash;E26 की प्रयोग-सीढ़ी की है, जिसकी नाकामियाँ लिखी हुई हैं: कौन-से संरचनात्मक विचार ढह गए, कैसे, और निदान ने क्या कहा। जिस नकारात्मक नतीजे की वजह दर्ज हो, वह एक योगदान है। जो नकारात्मक नतीजा चुपचाप मिटा दिया जाए, वह की गई मेहनत की बर्बादी है।
           </p>
         </div>
       </div>
@@ -188,20 +179,16 @@
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>The dynamics underneath the architecture</h2>
+      <span class="eyebrow">इंटरैक्टिव</span>
+      <h2>संरचना के नीचे की गतिकी</h2>
       <p class="lede">
-        This is a Gray&ndash;Scott reaction-diffusion system &mdash; the same class of dynamics the
-        CellularPDE core is built on. Two chemicals diffuse at different rates and react; feed
-        and kill rates decide whether you get spots, stripes, dividing cells or nothing at all.
-        The architecture&rsquo;s bet is that this kind of self-organising field can carry
-        computation. Watch it and judge the plausibility for yourself.
+        यह एक Gray&ndash;Scott अभिक्रिया-विसरण तंत्र है &mdash; उसी वर्ग की गतिकी, जिस पर CellularPDE का मूल बना है। दो रसायन अलग-अलग दरों से फैलते हैं और आपस में अभिक्रिया करते हैं; फ़ीड और किल की दरें तय करती हैं कि आपको धब्बे मिलेंगे, धारियाँ, बँटती हुई कोशिकाएँ, या कुछ भी नहीं। इस संरचना का दाँव यह है कि इस तरह का स्वयं-संगठित क्षेत्र गणना ढो सकता है। इसे चलते देखिए और ख़ुद तय कीजिए कि यह कितना मुमकिन लगता है।
       </p>
     </div>
 
     <div class="demo reveal" id="ca-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; reaction-diffusion core</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> CellularPDE &mdash; अभिक्रिया-विसरण मूल</h3>
         <div class="chips" id="ca-presets"></div>
       </div>
       <div class="demo__split">
@@ -210,19 +197,19 @@
                   aria-label="Live Gray-Scott reaction-diffusion simulation"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click or drag on the field to inject chemical B and perturb the pattern.
+            रसायन B डालने और पैटर्न को छेड़ने के लिए क्षेत्र पर क्लिक कीजिए या घसीटिए।
           </p>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="ca-feed">Feed rate F <b id="ca-feed-v">0.0545</b></label>
+              <label for="ca-feed">फ़ीड दर F <b id="ca-feed-v">0.0545</b></label>
               <input type="range" id="ca-feed" min="0.01" max="0.09" step="0.0005" value="0.0545">
             </div>
             <div class="ctrl">
-              <label for="ca-kill">Kill rate k <b id="ca-kill-v">0.0620</b></label>
+              <label for="ca-kill">किल दर k <b id="ca-kill-v">0.0620</b></label>
               <input type="range" id="ca-kill" min="0.04" max="0.075" step="0.0005" value="0.0620">
             </div>
             <div class="ctrl">
-              <label for="ca-speed">Steps per frame <b id="ca-speed-v">8</b></label>
+              <label for="ca-speed">प्रति फ़्रेम क़दम <b id="ca-speed-v">8</b></label>
               <input type="range" id="ca-speed" min="1" max="20" step="1" value="8">
             </div>
           </div>
@@ -230,44 +217,41 @@
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Steps</div>
+              <div class="readout__k">क़दम</div>
               <div class="readout__v plain" id="ca-steps">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mean B</div>
+              <div class="readout__k">औसत B</div>
               <div class="readout__v" id="ca-meanb">0.000</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Activity</div>
+              <div class="readout__k">सक्रियता</div>
               <div class="readout__v violet" id="ca-activity">0.000</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Regime</div>
+              <div class="readout__k">व्यवस्था</div>
               <div class="readout__v amber" id="ca-regime" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Partition state</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">विभाजन की अवस्था</h4>
             <canvas id="ca-partitions" height="90" style="width:100%;background:#04060a;border-radius:var(--r-sm);display:block"></canvas>
             <p class="tiny muted" style="margin-top:8px">
-              N = 4 partitions of the field, as in the CellularPDE core. Height is each
-              partition&rsquo;s mean activation; leakage &lambda; = 0.01 couples them.
+              क्षेत्र के N = 4 विभाजन, ठीक जैसे CellularPDE के मूल में हैं। ऊँचाई हर विभाजन का औसत सक्रियण है; रिसाव &lambda; = 0.01 उन्हें आपस में जोड़ता है।
             </p>
           </div>
           <div class="btn-row">
-            <button class="btn btn--sm" id="ca-pause">Pause</button>
-            <button class="btn btn--sm btn--ghost" id="ca-reset">Reset field</button>
+            <button class="btn btn--sm" id="ca-pause">रोकें</button>
+            <button class="btn btn--sm btn--ghost" id="ca-reset">क्षेत्र रीसेट करें</button>
           </div>
           <p class="tiny muted">
-            Gray&ndash;Scott with D<sub>a</sub>=1.0, D<sub>b</sub>=0.5, nine-point Laplacian,
-            explicit Euler. This is the dynamical substrate, not the trained model &mdash; the
-            trained model is 125.8M parameters and does not fit in a browser tab.
+            Gray&ndash;Scott, जिसमें D<sub>a</sub>=1.0, D<sub>b</sub>=0.5, नौ-बिंदु लाप्लासियन, स्पष्ट Euler। यह गतिकीय आधार है, प्रशिक्षित मॉडल नहीं &mdash; प्रशिक्षित मॉडल 125.8M पैरामीटर का है और किसी ब्राउज़र टैब में नहीं समाता।
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A live Gray&ndash;Scott solver written for this page, illustrating the class of dynamics
-        <code>CellularPDE</code> is built from. The architecture itself is PyTorch.
+        इस पृष्ठ के लिए लिखा गया एक जीवित Gray&ndash;Scott सॉल्वर, जो उस तरह की गतिकी दिखाता है जिससे
+        <code>CellularPDE</code> बना है। संरचना ख़ुद PyTorch में है।
       </div>
     </div>
   </div>
@@ -276,42 +260,35 @@
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Architecture</span>
-      <h2>What replaces attention</h2>
+      <span class="eyebrow">संरचना</span>
+      <h2>अटेंशन की जगह क्या आता है</h2>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="The Cell AI signal path from token embedding through the reaction-diffusion core, in-forward plasticity, resonance and lattice stages to output logits, with the perplexity gap against GPT-2 stated underneath" loading="lazy" decoding="async"></div><span class="diagram__hint">पूरा आरेख देखने के लिए स्क्रॉल करें &rarr;</span><figcaption><b>The scoreboard is part of the diagram.</b> A picture of this architecture that left out the four-orders-of-magnitude gap would be advertising, not documentation.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cellai-path.svg" alt="Cell AI का सिग्नल रास्ता: टोकन एम्बेडिंग से होकर अभिक्रिया-विसरण मूल, फ़ॉरवर्ड-के-भीतर सुघट्यता, अनुनाद और जालक चरणों से गुज़रकर आउटपुट लॉजिट तक, और नीचे GPT-2 के मुक़ाबले पर्प्लेक्सिटी का फ़ासला लिखा हुआ" loading="lazy" decoding="async"></div><span class="diagram__hint">पूरा आरेख देखने के लिए स्क्रॉल करें &rarr;</span><figcaption><b>स्कोरबोर्ड भी आरेख का हिस्सा है।</b> इस संरचना की ऐसी तस्वीर जिसमें परिमाण के चार क्रम का फ़ासला छोड़ दिया जाता, वह प्रलेख नहीं, विज्ञापन होती।</figcaption></figure>
 
     <div class="grid grid-2">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Core</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">मूल</span>
         <h3 style="font-size:1.05rem">CellularPDE</h3>
         <p class="small dim" style="margin:0">
-          N = 4 partitions of D = 256-dimensional state, leakage &lambda; = 0.01, sigmoid reaction
-          terms &mdash; a discrete reaction-diffusion system standing where self-attention would be.
+          D = 256-विमीय अवस्था के N = 4 विभाजन, रिसाव &lambda; = 0.01, सिग्मॉइड अभिक्रिया पद &mdash; यानी एक विविक्त अभिक्रिया-विसरण तंत्र, वहीं खड़ा जहाँ सेल्फ़-अटेंशन होता।
         </p></div>
       <div class="card card--hover reveal" data-delay=".05"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Plasticity</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">सुघट्यता</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          BCM-style Hebbian learning with &alpha; = 0.1, &beta; = 0.01, applied <em>के दौरान</em> the
-          forward pass rather than after it. This is the boldest idea in the architecture and the
-          source of its documented gradient-starvation problem.
+          BCM-शैली का Hebbian अधिगम, &alpha; = 0.1, &beta; = 0.01 के साथ, जो फ़ॉरवर्ड पास <em>के दौरान</em> लगाया जाता है, उसके बाद नहीं। यह इस संरचना का सबसे साहसी विचार है और उसकी दर्ज ग्रेडिएंट-भुखमरी वाली समस्या की जड़ भी।
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">v3 optimisation</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">v3 अनुकूलन</span>
         <h3 style="font-size:1.05rem">SpectralPDE &amp; SparseHebbian</h3>
         <p class="small dim" style="margin:0">
-          SpectralPDE cuts complexity from O(D²) to O(D log D). SparseHebbian compresses updates
-          from 65,536 weights to 1,024. MultiScalePartitions run fast and slow streams;
-          AnnealedRouter uses Gumbel-Softmax scheduling.
+          SpectralPDE जटिलता को O(D²) से घटाकर O(D log D) कर देता है। SparseHebbian अद्यतन को 65,536 वेट से घटाकर 1,024 कर देता है। MultiScalePartitions तेज़ और धीमी धाराएँ चलाता है; AnnealedRouter Gumbel-Softmax शेड्यूलिंग इस्तेमाल करता है।
         </p></div>
       <div class="card card--hover reveal" data-delay=".15"><div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Signal path</span>
-        <h3 style="font-size:1.05rem">The full stack</h3>
+        <span class="badge badge--blue" style="margin-bottom:12px">सिग्नल का रास्ता</span>
+        <h3 style="font-size:1.05rem">पूरा स्टैक</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem (FFT phase coupling) &rarr; CrystalLattice (K = 3) &rarr; optional
-          Kuramoto coupling &rarr; MultiModalModel routing &rarr; logits.
+          cl100k_base एम्बेडिंग &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem (FFT फ़ेज़ कपलिंग) &rarr; CrystalLattice (K = 3) &rarr; वैकल्पिक Kuramoto कपलिंग &rarr; MultiModalModel रूटिंग &rarr; लॉजिट।
         </p></div>
     </div>
   </div>
@@ -321,51 +298,48 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow eyebrow--amber">The ladder</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">E0 to E26, failures annotated</h2>
+        <span class="eyebrow eyebrow--amber">सीढ़ी</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">E0 से E26 तक, नाकामियाँ लिखी हुई</h2>
         <p class="dim">
-          The architecture-search programme is the actual artefact here. Twenty-seven experiments,
-          each with what was tried and what went wrong, including the ones that went backwards.
+          असली चीज़ यहाँ संरचना-खोज का कार्यक्रम है। सत्ताईस प्रयोग, हर एक के साथ यह दर्ज कि क्या आज़माया गया और क्या ग़लत हुआ, उन प्रयोगों समेत जो उलटे पड़ गए।
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Finding</th><th>Outcome</th></tr></thead>
+            <thead><tr><th>निष्कर्ष</th><th>नतीजा</th></tr></thead>
             <tbody>
-              <tr><td>PerFreqResonance</td><td class="muted">Documented issues, did not deliver</td></tr>
-              <tr><td>Routing</td><td class="muted">Collapsed to class degeneracy in some configurations</td></tr>
-              <tr><td>E26 vs E25</td><td class="muted">Regression — the later experiment was worse</td></tr>
-              <tr><td>ResonanceSystem</td><td class="muted">Minimal gradient contribution</td></tr>
-              <tr><td>Generation (v1)</td><td class="muted">Lacks proper autoregressive sampling</td></tr>
-              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">Speculative, unintegrated</td></tr>
+              <tr><td>PerFreqResonance</td><td class="muted">दर्ज दिक़्क़तें, नतीजा नहीं दिया</td></tr>
+              <tr><td>रूटिंग</td><td class="muted">कुछ विन्यासों में ढहकर क्लास डीजेनरेसी में बदल गया</td></tr>
+              <tr><td>E26 बनाम E25</td><td class="muted">पीछे खिसका — बाद वाला प्रयोग ज़्यादा ख़राब था</td></tr>
+              <tr><td>ResonanceSystem</td><td class="muted">ग्रेडिएंट में बेहद कम योगदान</td></tr>
+              <tr><td>जनरेशन (v1)</td><td class="muted">ढंग का स्वप्रतिगामी नमूनाकरण नहीं है</td></tr>
+              <tr><td>v3 Cell-Fungal Harmonic</td><td class="muted">अटकल भर, जोड़ा नहीं गया</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow">Numbers</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">The gap, stated plainly</h2>
+        <span class="eyebrow">आँकड़े</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">फ़ासला, साफ़-साफ़</h2>
         <div class="grid grid-2" style="gap:14px;margin-top:20px">
           <div class="card">
             <div class="stat"><div class="stat__num" style="color:var(--red)">450k&ndash;1.18M</div>
-            <div class="stat__label">Cell AI v1 training perplexity band</div></div>
+            <div class="stat__label">Cell AI v1 की प्रशिक्षण पर्प्लेक्सिटी की पट्टी</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>~20</em></div>
-            <div class="stat__label">GPT-2 baseline perplexity</div></div>
+            <div class="stat__label">GPT-2 बेसलाइन की पर्प्लेक्सिटी</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num">125.8M</div>
-            <div class="stat__label">v1 parameters</div></div>
+            <div class="stat__label">v1 पैरामीटर</div></div>
           </div>
           <div class="card">
             <div class="stat"><div class="stat__num"><em>O(D log D)</em></div>
-            <div class="stat__label">SpectralPDE, down from O(D²)</div></div>
+            <div class="stat__label">SpectralPDE, O(D²) से घटकर</div></div>
           </div>
         </div>
         <div class="note note--red" style="margin-top:22px">
-          <strong>The question the repository asks itself:</strong> &ldquo;what fails, what works,
-          and can we close the gap honestly?&rdquo; The answer so far is that the gap has not
-          closed. That is written in the README rather than in a footnote.
+          <strong>रिपॉज़िटरी ख़ुद से जो सवाल पूछती है:</strong> &ldquo;क्या नाकाम होता है, क्या काम करता है, और क्या हम इस फ़ासले को ईमानदारी से पाट सकते हैं?&rdquo; अब तक का जवाब यह है कि फ़ासला पटा नहीं है। यह बात किसी फ़ुटनोट में नहीं, README में लिखी है।
         </div>
       </div>
     </div>
@@ -376,49 +350,47 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>An experiment in building AI a completely different way</h2>
-      <p class="lede">Almost every AI today is built on the same underlying idea. Cell AI is a full-scale attempt at a different one, borrowed from how patterns form in nature — published with its failures intact.</p>
+      <span class="eyebrow">यह किसके लिए है</span>
+      <h2>AI को बिलकुल अलग तरीक़े से बनाने का एक प्रयोग</h2>
+      <p class="lede">आज लगभग हर AI एक ही बुनियादी विचार पर बना है। Cell AI एक दूसरे विचार को पूरे पैमाने पर आज़माने की कोशिश है, जो इस बात से उधार लिया गया है कि प्रकृति में पैटर्न कैसे बनते हैं — और उसे उसकी नाकामियों समेत प्रकाशित किया गया है।</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Researchers looking past the current approach</h3>
-        <p class="small dim" style="margin:0">Progress needs someone to try the road not taken and write down what happened. This is that attempt, at full size, with the dead ends recorded rather than quietly dropped.</p>
+        <h3 style="font-size:1.05rem">मौजूदा तरीक़े से आगे देखने वाले शोधकर्ता</h3>
+        <p class="small dim" style="margin:0">आगे बढ़ने के लिए किसी को वह रास्ता आज़माना होता है जो नहीं लिया गया, और फिर लिखना होता है कि क्या हुआ। यह वही कोशिश है, पूरे आकार में, और इसमें बंद गलियाँ चुपचाप छोड़ी नहीं, दर्ज की गई हैं।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Scientists modelling living systems</h3>
-        <p class="small dim" style="margin:0">The mechanism underneath is the one that produces stripes on animals and patterns in chemistry. If that is the world you work in, the model speaks your language.</p>
+        <h3 style="font-size:1.05rem">जीवित तंत्रों का मॉडल बनाने वाले वैज्ञानिक</h3>
+        <p class="small dim" style="margin:0">नीचे का तंत्र वही है जो जानवरों पर धारियाँ और रसायन शास्त्र में पैटर्न बनाता है। अगर आपकी दुनिया यही है, तो यह मॉडल आपकी भाषा बोलता है।</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Teachers who want an honest failure</h3>
-        <p class="small dim" style="margin:0">Published research is overwhelmingly about things that worked. This is a careful account of something that did not, which is far more useful for learning than another success story.</p>
+        <h3 style="font-size:1.05rem">वे शिक्षक जिन्हें एक ईमानदार नाकामी चाहिए</h3>
+        <p class="small dim" style="margin:0">प्रकाशित शोध का बड़ा हिस्सा उन्हीं चीज़ों के बारे में होता है जो काम कर गईं। यह उस चीज़ का सावधान ब्यौरा है जो काम नहीं आई, और सीखने के लिए यह एक और कामयाबी की कहानी से कहीं ज़्यादा काम का है।</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/hi/beta.html">Become a beta tester &rarr;</a>
+      <strong>क्या यहाँ आपको अपनी स्थिति दिख रही है?</strong> यह अभी बीटा परीक्षण के लिए खुला है, और जिनके लिए यह बना है, उन्हीं की राय इसे सचमुच बदलती है।
+      <a href="/hi/beta.html">बीटा टेस्टर बनें &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="wrap wrap-narrow center">
-    <span class="eyebrow" style="justify-content:center">Sister projects</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where these ideas went instead</h2>
+    <span class="eyebrow" style="justify-content:center">बहन परियोजनाएँ</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ये विचार इसके बजाय कहाँ गए</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became UHPM.
+      Cell AI वह अनुसंधान धारा है जो अभिसरित नहीं हुई। उसके भाई-बहनों ने बेहतर किया: Cypha मूल सिद्धांतों से बनी एक चलती हुई संरचना बन गई, और लंबे-संदर्भ की स्मृति वाला काम UHPM बन गया।
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/hi/cypha.html">Cypha &rarr;</a>
-      <a class="btn btn--ghost" href="/research/uhpm.html">UHPM long-context memory &rarr;</a>
+      <a class="btn btn--ghost" href="/research/uhpm.html">UHPM लंबे-संदर्भ की स्मृति &rarr;</a>
       <a class="btn btn--ghost" href="/research/fungal.html">Fungal Network Algorithm &rarr;</a>
     </div>
   </div>
@@ -489,7 +461,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-16T11:37:49Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
+      <span class="mono tiny">निर्मित 2026-09-16T12:42:38Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं।</span>
     </div>
   </div>
 </footer>
@@ -500,6 +472,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Coral":"मूँगा","Fingerprint":"फ़िंगरप्रिंट","Spots":"धब्बे","Maze":"भूलभुलैया","Solitons":"सॉलिटॉन","Chaos":"अराजकता","Pause":"रोकें","Resume":"जारी रखें"};</script>
 <script src="/assets/js/demos/cellai.js" defer></script>
 </body>
 </html>

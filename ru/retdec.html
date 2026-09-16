@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RetDec Imortek — specification-extraction decompiler | Imortek</title>
-<meta name="description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
-<meta name="keywords" content="RetDec Imortek, decompiler, reverse engineering, binary analysis, algorithm recovery, specification extraction, Qt 6">
+<title>RetDec Imortek — декомпилятор с извлечением спецификации | Imortek</title>
+<meta name="description" content="Декомпилятор, который восстанавливает из бинарников алгоритмы, схемы параллелизма и форматы сериализации — а не только псевдокод. GUI на Qt 6, опциональное офлайн-уточнение нейросетью.">
+<meta name="keywords" content="RetDec Imortek, декомпилятор, обратная разработка, анализ бинарных файлов, восстановление алгоритмов, извлечение спецификации, Qt 6, дизассемблер">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ru">
 <meta name="imortek:speech" content="ru-RU">
 <meta name="imortek:prefix" content="/ru">
-<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gh.live":"напрямую из api.github.com","gh.cached":"сохранённый снимок","gh.noDescription":"Без описания","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta property="og:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta property="og:title" content="RetDec Imortek — декомпилятор с извлечением спецификации | Imortek">
+<meta property="og:description" content="Декомпилятор, который восстанавливает из бинарников алгоритмы, схемы параллелизма и форматы сериализации — а не только псевдокод. GUI на Qt 6, опциональное офлайн-уточнение нейросетью.">
 <meta property="og:url" content="https://imortek.com.au/ru/retdec.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta property="og:image:alt" content="RetDec Imortek — декомпилятор с извлечением спецификации | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RetDec Imortek — specification-extraction decompiler | Imortek">
-<meta name="twitter:description" content="A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.">
+<meta name="twitter:title" content="RetDec Imortek — декомпилятор с извлечением спецификации | Imortek">
+<meta name="twitter:description" content="Декомпилятор, который восстанавливает из бинарников алгоритмы, схемы параллелизма и форматы сериализации — а не только псевдокод. GUI на Qt 6, опциональное офлайн-уточнение нейросетью.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="RetDec Imortek — specification-extraction decompiler | Imortek">
+<meta name="twitter:image:alt" content="RetDec Imortek — декомпилятор с извлечением спецификации | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/retdec.html#webpage","url":"https://imortek.com.au/ru/retdec.html","name":"RetDec Imortek — specification-extraction decompiler | Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/ru/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/retdec.html#software","name":"RetDec Imortek","description":"A decompiler that recovers algorithms, concurrency patterns and serialization formats from binaries — not just pseudocode. Qt 6 GUI, optional offline neural refinement.","url":"https://imortek.com.au/ru/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/retdec.html#webpage","url":"https://imortek.com.au/ru/retdec.html","name":"RetDec Imortek — декомпилятор с извлечением спецификации | Imortek","description":"Декомпилятор, который восстанавливает из бинарников алгоритмы, схемы параллелизма и форматы сериализации — а не только псевдокод. GUI на Qt 6, опциональное офлайн-уточнение нейросетью.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/retdec.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/retdec.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"RetDec Imortek","item":"https://imortek.com.au/ru/retdec.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/retdec.html#software","name":"RetDec Imortek","description":"Декомпилятор, который восстанавливает из бинарников алгоритмы, схемы параллелизма и форматы сериализации — а не только псевдокод. GUI на Qt 6, опциональное офлайн-уточнение нейросетью.","url":"https://imortek.com.au/ru/retdec.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/RetDec-Decompiler","sameAs":["https://github.com/odin-loki/RetDec-Decompiler"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,39 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Часть этой страницы пока на английском. Перевод пишется; машинного перевода здесь нет.</p></div>
 <section class="phero" data-video="/assets/video/retdec" data-poster="/assets/img/video/retdec.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
-        <h1>A decompiler that recovers the <span class="gradient-text">algorithm</span>, not just the code</h1>
+        <h1>Декомпилятор, который восстанавливает <span class="gradient-text">алгоритм</span>, а не только код</h1>
         <p class="lede">
-          Pseudocode tells you what the bytes do. It rarely tells you what they <em>mean</em>.
-          RetDec Imortek treats semantic recovery as the primary output: which cryptographic
-          primitive this is, which sort, which serialization format, which concurrency
-          mechanism &mdash; with C as a by-product.
+          Псевдокод говорит, что делают байты. Он редко говорит, что они <em>значат</em>. RetDec Imortek считает главным выходом именно семантическое восстановление: какой это криптографический примитив, какая сортировка, какой формат сериализации, какой механизм параллелизма &mdash; а C идёт побочным продуктом.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">Поднять байты до названного алгоритма</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/RetDec-Decompiler" target="_blank" rel="noopener">Репозиторий &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
-          <div class="phero__meta-item">Version<b>v2.0.21</b></div>
-          <div class="phero__meta-item">Upstream<b>RetDec v5.0</b></div>
-          <div class="phero__meta-item">Stars<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">недавно</b></div>
+          <div class="phero__meta-item">Язык<b data-gh-repo="RetDec-Decompiler" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">Версия<b>v2.0.21</b></div>
+          <div class="phero__meta-item">Апстрим<b>RetDec v5.0</b></div>
+          <div class="phero__meta-item">Звёзды<b data-gh-repo="RetDec-Decompiler" data-gh-field="stars">2</b></div>
+          <div class="phero__meta-item">Последняя отправка<b data-gh-repo="RetDec-Decompiler" data-gh-field="updated">недавно</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Why fork RetDec</span>
+          <span class="eyebrow" style="margin-bottom:16px">Зачем форкать RetDec</span>
           <p class="small dim">
-            Upstream RetDec v5.0 has been inactive since 2022. It remains one of the few
-            open decompilers with a genuinely broad front end &mdash; and that breadth is worth
-            keeping alive.
+            Апстрим RetDec v5.0 не развивается с 2022 года. Это по-прежнему один из немногих открытых декомпиляторов с действительно широким фронтендом &mdash; и эту широту стоит сохранить живой.
           </p>
           <div class="spec" style="border:0;margin-top:6px">
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Semantic library recovery</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Qt 6 interface</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Added</span><span class="spec__v">Optional offline neural refinement</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Added</span><span class="spec__v">Algorithm, concurrency &amp; serialization detection</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Добавлено</span><span class="spec__v">Семантическое восстановление библиотек</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Добавлено</span><span class="spec__v">Интерфейс на Qt 6</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Добавлено</span><span class="spec__v">Опциональное офлайн-уточнение нейросетью</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Добавлено</span><span class="spec__v">Определение алгоритмов, параллелизма и сериализации</span></div>
           </div>
         </div>
       </div>
@@ -189,19 +183,17 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The bottom rung, for real</span>
-      <h2>The actual decoder, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">Нижняя ступенька, по-настоящему</span>
+      <h2>Настоящий декодер, скомпилированный в WebAssembly</h2>
       <p class="lede">
-        Everything above this is a scripted walk through the abstraction ladder. This is the
-        first rung running for real: Capstone &mdash; the same disassembler the native RetDec
-        build links &mdash; decoding bytes you paste in.
+        Всё, что выше, — это сценарная прогулка по лестнице абстракций. А это первая ступенька, работающая по-настоящему: Capstone &mdash; тот же дизассемблер, который линкует нативная сборка RetDec &mdash; декодирует байты, которые вы вставите.
       </p>
     </div>
 
     <div class="demo reveal" id="rdw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> capstone &mdash; WebAssembly</h3>
-        <div class="seg" role="group" aria-label="Width">
+        <div class="seg" role="group" aria-label="Разрядность">
           <button type="button" data-bits="64" aria-pressed="true">x86-64</button>
           <button type="button" data-bits="32">x86-32</button>
         </div>
@@ -209,43 +201,38 @@
       <div class="demo__split">
         <div class="demo__stage">
           <div class="ctrl">
-            <label for="rdw-input">Bytes &mdash; hex, any separators</label>
+            <label for="rdw-input">Байты &mdash; hex, любые разделители</label>
             <input type="text" id="rdw-input" value="55 48 89 e5 b8 01 00 00 00 5d c3"
                    spellcheck="false" autocomplete="off" style="width:100%">
           </div>
           <div class="chips" id="rdw-examples" style="margin-top:12px"></div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">Load the decoder &mdash; 791 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Disassemble</button>
+            <button type="button" class="btn btn--primary btn--sm" id="rdw-load">Загрузить декодер &mdash; 791 КБ</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Дизассемблировать</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 KB because a real x86 decoder carries the whole instruction set &mdash; every
-            encoding, prefix and extension. That is the honest size of the thing.
+            791 КБ, потому что настоящий декодер x86 несёт в себе весь набор инструкций &mdash; каждую кодировку, префикс и расширение. Это честный размер этой штуки.
           </p>
         </div>
         <div class="demo__side">
           <div class="log" id="rdw-out" style="height:260px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Decoder</div>
+              <div class="readout__k">Декодер</div>
               <div class="readout__v plain" id="rdw-version" style="font-size:.82rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Instructions</div>
+              <div class="readout__k">Инструкций</div>
               <div class="readout__v violet" id="rdw-count" style="font-size:.9rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>This is the decoder, not the decompiler.</strong> The rungs above &mdash;
-            lifting to LLVM IR, structuring control flow, naming the algorithm &mdash; are LLVM&rsquo;s
-            work, and LLVM does not fit in a web page at any size. Saying otherwise would be the
-            easiest lie on this site.
+            <strong>Это декодер, а не декомпилятор.</strong> Ступеньки выше &mdash; подъём в LLVM IR, структурирование потока управления, называние алгоритма &mdash; это работа LLVM, а LLVM не влезет в веб-страницу ни в каком размере. Утверждать обратное было бы самой лёгкой ложью на этом сайте.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Capstone 5, built with Emscripten, x86 only. The native build links the same library
-        from <code>deps/capstone</code>.
+        Capstone 5, собранный Emscripten, только x86. Нативная сборка линкует ту же библиотеку из <code>deps/capstone</code>.
       </div>
     </div>
   </div>
@@ -254,28 +241,28 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Front end</span>
-      <h2>Native, bytecode and emerging formats</h2>
-      <p class="lede">Output is format-dependent, because pretending everything decompiles to C helps nobody.</p>
+      <span class="eyebrow">Фронтенд</span>
+      <h2>Нативные форматы, байт-код и новые форматы</h2>
+      <p class="lede">Выход зависит от формата, потому что притворяться, будто всё декомпилируется в C, никому не помогает.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Native</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Нативные</span>
         <h3 style="font-size:1.02rem">ELF &middot; PE &middot; Mach-O</h3>
-        <p class="small dim" style="margin:0">Produces C pseudocode, plus the semantic layer that is the point of the fork.</p>
+        <p class="small dim" style="margin:0">Даёт псевдокод на C плюс тот семантический слой, ради которого форк и делался.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".05">
         <div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Bytecode</span>
+        <span class="badge badge--violet" style="margin-bottom:12px">Байт-код</span>
         <h3 style="font-size:1.02rem">Python &middot; Lua &middot; JVM &middot; DEX &middot; CIL</h3>
-        <p class="small dim" style="margin:0">Python and Lua bytecode return their own languages; managed code paths emit Java-family or C#-family output.</p>
+        <p class="small dim" style="margin:0">Байт-код Python и Lua возвращается на своих же языках; управляемый код выдаёт вывод семейства Java или семейства C#.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".1">
         <div class="card__glow"></div>
-        <span class="badge badge--blue" style="margin-bottom:12px">Emerging</span>
+        <span class="badge badge--blue" style="margin-bottom:12px">Новые</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WAT. PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly переводится в WAT. PTX обрабатывается как полноценный вход, а не как что-то приделанное потом.</p>
       </div>
     </div>
   </div>
@@ -284,20 +271,18 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Watch a function climb the abstraction ladder</h2>
+      <span class="eyebrow">Интерактив</span>
+      <h2>Посмотрите, как функция поднимается по лестнице абстракций</h2>
       <p class="lede">
-        Pick a binary function and step it through the pipeline: raw bytes, disassembly,
-        lifted IR, C pseudocode, and finally the semantic verdict &mdash; the named algorithm,
-        with the evidence that identified it.
+        Выберите функцию в бинарнике и прогоните её по конвейеру шаг за шагом: сырые байты, дизассемблирование, поднятый IR, псевдокод на C и, наконец, семантический вердикт &mdash; названный алгоритм вместе с признаками, по которым он опознан.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="Five rungs of abstraction: raw bytes, disassembly, lifted IR, C pseudocode, and the named algorithm with its specification reference" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>The last rung is the product.</b> Everything above it is what other decompilers already give you.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/retdec-ladder.svg" alt="Пять ступеней абстракции: сырые байты, дизассемблирование, поднятый IR, псевдокод на C и названный алгоритм со ссылкой на спецификацию" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>Последняя ступенька и есть продукт.</b> Всё, что выше неё, другие декомпиляторы и так дают.</figcaption></figure>
 
     <div class="demo reveal" id="rd-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; specification extraction</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> retdec &mdash; извлечение спецификации</h3>
         <div class="chips" id="rd-samples"></div>
       </div>
       <div class="demo__split">
@@ -305,48 +290,45 @@
           <div class="steps" id="rd-steps" style="margin-bottom:18px"></div>
           <pre class="code" id="rd-view" style="min-height:280px;font-size:.78rem"></pre>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm" id="rd-prev">&larr; Back</button>
-            <button class="btn btn--sm btn--primary" id="rd-next">Next stage &rarr;</button>
-            <button class="btn btn--sm btn--ghost" id="rd-auto">Auto-run</button>
+            <button class="btn btn--sm" id="rd-prev">&larr; Назад</button>
+            <button class="btn btn--sm btn--primary" id="rd-next">Следующий этап &rarr;</button>
+            <button class="btn btn--sm btn--ghost" id="rd-auto">Автопрогон</button>
           </div>
         </div>
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Semantic verdict</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Семантический вердикт</h4>
             <div class="verdict" id="rd-verdict">
-              <div class="verdict__label">Not yet recovered</div>
-              <div class="verdict__why">Step through to the semantic stage.</div>
+              <div class="verdict__label">Пока не восстановлено</div>
+              <div class="verdict__why">Дойдите по шагам до семантического этапа.</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Evidence</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Признаки</h4>
             <div class="log" id="rd-evidence" style="height:200px"></div>
           </div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Confidence</div>
+              <div class="readout__k">Уверенность</div>
               <div class="readout__v" id="rd-conf">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Mode</div>
-              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">name-blind</div>
+              <div class="readout__k">Режим</div>
+              <div class="readout__v plain" id="rd-mode" style="font-size:.9rem">без имён</div>
             </div>
           </div>
           <label class="switch">
             <input type="checkbox" id="rd-symbols">
             <span class="switch__track"></span>
-            <span>Binary has symbols</span>
+            <span>В бинарнике есть символы</span>
           </label>
           <p class="tiny muted">
-            With symbols stripped, recovery must work from structure alone &mdash; constants,
-            round counts, control-flow shape. That is the hard case, and the one the
-            measured F1 of 0.056 refers to.
+            Со снятыми символами восстановление вынуждено работать только по структуре &mdash; константы, число раундов, форма потока управления. Это тяжёлый случай, и именно к нему относится измеренный F1 в 0,056.
           </p>
         </div>
       </div>
       <div class="panel__foot">
-        A scripted walkthrough of real recovery stages, written for this page. The
-        decompiler itself is C++ and runs offline.
+        Сценарная прогулка по настоящим этапам восстановления, написанная для этой страницы. Сам декомпилятор написан на C++ и работает офлайн.
       </div>
     </div>
   </div>
@@ -355,22 +337,22 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">What it recovers</span>
-      <h2>Six families of structure</h2>
+      <span class="eyebrow">Что оно восстанавливает</span>
+      <h2>Шесть семейств структур</h2>
     </div>
     <div class="grid grid-3">
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
-        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
-        <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; including the depth-limit switch that gives introsort away.</p></div>
-      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
-        <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
-      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
-        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
-      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Рантайм</span>
+        <p class="small dim" style="margin:0">Контейнеры STL и структуры рантайма C++ &mdash; форма <code>std::vector</code> снова проступает из схемы выделения памяти.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Криптография</span>
+        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA и примитивы на эллиптических кривых, опознаваемые по константам и структуре раундов.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сортировка и поиск</span>
+        <p class="small dim" style="margin:0">Introsort, сортировка слиянием, двоичный поиск &mdash; включая переключение по пределу глубины, которое выдаёт introsort.</p></div>
+      <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Графы</span>
+        <p class="small dim" style="margin:0">Алгоритмы на графах и схемы обхода BFS/DFS.</p></div>
+      <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Параллелизм</span>
+        <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB и голые атомарные операции.</p></div>
+      <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сериализация</span>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON и обрамление XML.</p></div>
     </div>
   </div>
 </section>
@@ -379,46 +361,40 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Measured</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 binaries, and the number that hurts</h2>
+        <span class="eyebrow">Измерено</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">216 бинарников и цифра, от которой больно</h2>
         <p class="dim">
-          All 216 ELF binaries in the test corpus produce buildable C with
-          <code>--buildable</code>, which is on by default. Algorithm recovery is a different
-          story, and the honest way to report it is both numbers side by side.
+          Все 216 бинарников ELF в тестовом корпусе дают собираемый C с флагом
+          <code>--buildable</code>, который включён по умолчанию. С восстановлением алгоритмов история другая, и честно сообщать о ней — значит ставить обе цифры рядом.
         </p>
         <div class="table-scroll" style="margin-top:20px">
           <table class="data">
-            <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
+            <thead><tr><th>Метрика</th><th class="num">Результат</th><th>Условие</th></tr></thead>
             <tbody>
-              <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
-              <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
+              <tr><td>Собираемый вывод на C</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, включён по умолчанию</td></tr>
+              <tr><td>F1 восстановления алгоритмов</td><td class="num">0.056</td><td class="muted">Без имён, 95% ДИ 0,034&ndash;0,083</td></tr>
+              <tr><td>F1 восстановления алгоритмов</td><td class="num">1.000</td><td class="muted">С подсказкой по именам, бинарники с символами</td></tr>
+              <tr><td>Стандартный <code>.c</code> перекомпилируется</td><td class="num">Нет</td><td class="muted">Ни этот форк, ни исходный RetDec</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>Read those two F1 numbers together.</strong> 1.000 with symbols means the
-          detector agrees with the symbol table. 0.056 without means structural recovery on
-          stripped binaries is, today, close to the floor. Quoting only the first would be
-          marketing; quoting only the second would hide that the pipeline works when it has
-          anything to go on.
+          <strong>Читайте эти два числа F1 вместе.</strong> 1,000 с символами означает, что детектор согласен с таблицей символов. 0,056 без них означает, что структурное восстановление на очищенных бинарниках сегодня близко к полу. Приводить только первое было бы маркетингом; приводить только второе значило бы скрыть, что конвейер работает, когда ему есть от чего оттолкнуться.
         </div>
       </div>
 
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--violet">Neural refinement</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Optional, offline, and gated</h2>
+        <span class="eyebrow eyebrow--violet">Уточнение нейросетью</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Опционально, офлайн и под барьером</h2>
         <p class="dim">
-          Refinement runs through llama.cpp with GGUF models, entirely offline, only when
-          <code>RETDEC_NEURAL_REFINE=1</code> and a model path is supplied. It is off by default
-          and it never replaces the baseline.
+          Уточнение идёт через llama.cpp с моделями GGUF, полностью офлайн, и только когда задан
+          <code>RETDEC_NEURAL_REFINE=1</code> и указан путь к модели. По умолчанию оно выключено и никогда не заменяет базовый вывод.
         </p>
         <ul class="flist flist--violet" style="margin-top:1.4rem">
-          <li><strong>Compile gate.</strong> Refined output must pass <code>gcc -fsyntax-only</code> before it is accepted.</li>
-          <li><strong>Structural validation.</strong> The refinement must still correspond to the lifted structure.</li>
-          <li><strong>Deterministic baseline preserved.</strong> The unrefined decompiler output remains the auditable artefact. If you need to defend a finding, you defend that one.</li>
-          <li><strong>No network.</strong> Local GGUF inference. Nothing about your binary leaves the machine.</li>
+          <li><strong>Барьер компиляции.</strong> Уточнённый вывод обязан пройти <code>gcc -fsyntax-only</code> прежде чем его примут.</li>
+          <li><strong>Проверка структуры.</strong> Уточнение всё равно должно соответствовать поднятой структуре.</li>
+          <li><strong>Детерминированный базовый вывод сохраняется.</strong> Неуточнённый вывод декомпилятора остаётся тем артефактом, который можно проверить. Если нужно защищать вывод, защищают именно его.</li>
+          <li><strong>Сети нет.</strong> Локальный инференс GGUF. Ничто про ваш бинарник не покидает машину.</li>
         </ul>
         <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_REFINE=1</span>
 <span class="c-pr">$</span> <span class="c-cmd">export RETDEC_NEURAL_MODEL=/models/qwen-coder.gguf</span>
@@ -432,34 +408,33 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Works out what a program does when the source code is gone</h2>
-      <p class="lede">Software ships as something a machine can read and a person cannot. This takes that back apart and tells you, in plain terms, what the program is actually doing.</p>
+      <span class="eyebrow">Кому это нужно</span>
+      <h2>Выясняет, что делает программа, когда исходников больше нет</h2>
+      <p class="lede">Софт поставляется в виде, который читает машина, а человек нет. Это разбирает его обратно и объясняет простыми словами, что программа на самом деле делает.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Security teams pulling malware apart</h3>
-        <p class="small dim" style="margin:0">Instead of pages of unreadable code, you get the answer: this part is scrambling data, this part is how it calls home, this part is how it hides. That is the bit an analyst needs first.</p>
+        <h3 style="font-size:1.05rem">Команды безопасности, разбирающие зловреды</h3>
+        <p class="small dim" style="margin:0">Вместо страниц нечитаемого кода вы получаете ответ: вот здесь шифруются данные, вот так оно звонит домой, вот так прячется. Это то, что аналитику нужно в первую очередь.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Companies with old software and no source code</h3>
-        <p class="small dim" style="margin:0">The system still runs the business, and whoever wrote it left years ago. This recovers a description of what it does, which is what you need before anyone can safely rebuild or replace it.</p>
+        <h3 style="font-size:1.05rem">Компании со старым софтом и без исходников</h3>
+        <p class="small dim" style="margin:0">Система до сих пор держит бизнес, а тот, кто её писал, ушёл много лет назад. Это восстанавливает описание того, что она делает, — а без такого описания никто не сможет безопасно её переписать или заменить.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Anyone stuck with a file format nobody documented</h3>
-        <p class="small dim" style="margin:0">Old records, a machine that will only talk to its own software, a competitor's export file. This works out the structure so your own software can read it.</p>
+        <h3 style="font-size:1.05rem">Всем, кто застрял с форматом файла, который никто не документировал</h3>
+        <p class="small dim" style="margin:0">Старые записи, станок, который говорит только со своим софтом, экспортный файл конкурента. Это выясняет структуру, чтобы ваш собственный софт смог её прочитать.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ru/beta.html">Become a beta tester &rarr;</a>
+      <strong>Узнаёте здесь свою ситуацию?</strong> Сейчас всё это открыто для бета-тестирования, и отзывы тех, для кого это делается, действительно меняют систему.
+      <a href="/ru/beta.html">Стать бета-тестировщиком &rarr;</a>
     </div>
   </div>
 </section>
@@ -468,30 +443,26 @@
   <div class="wrap">
     <div class="split split--center reveal">
       <div>
-        <span class="eyebrow">Interface</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, or no GUI at all</h2>
+        <span class="eyebrow">Интерфейс</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">GUI на Qt 6 или вообще без GUI</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in CI.
+          Синхронизированные виды кода по C, ассемблеру, IR и графам потока управления, с навигацией по функциям, просмотром строк, обозревателем бинарника и панелью помощника. Безголовый режим выбрасывает все зависимости GUI, так что та же сборка работает в CI.
         </p>
       </div>
       <div>
         <div class="card">
           <div class="badge-row" style="margin-bottom:14px">
-            <span class="badge badge--teal">Dual licensed</span>
+            <span class="badge badge--teal">Двойное лицензирование</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            AGPL-3.0+ for open-source use, or a commercial licence for proprietary deployment.
-            Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
+            AGPL-3.0+ для открытого использования или коммерческая лицензия для проприетарного развёртывания. Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
-            Shippable at v2.0.21. CI gates reflect development rather than production maturity
-            standards &mdash; stated by the project, not inferred.
+            Готово к поставке на v2.0.21. Барьеры CI отражают стандарты разработки, а не промышленной зрелости &mdash; это заявлено самим проектом, а не выведено со стороны.
           </p>
           <div class="btn-row" style="margin-top:18px">
-            <a class="btn btn--sm btn--ghost" href="/ru/licensing.html">Licensing terms</a>
-            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">The research line behind it</a>
+            <a class="btn btn--sm btn--ghost" href="/ru/licensing.html">Условия лицензирования</a>
+            <a class="btn btn--sm btn--ghost" href="/research/neural-decompiler.html">Исследовательская линия за этим</a>
           </div>
         </div>
       </div>
@@ -564,7 +535,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T11:37:49Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T12:42:38Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>
@@ -575,6 +546,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Raw bytes":"Сырые байты","Disassembly":"Дизассемблер","Lifted IR":"Подъём в IR","C pseudocode":"Псевдокод на C","Semantics":"Семантика","Cryptographic primitive":"Криптографический примитив","Sorting algorithm":"Алгоритм сортировки","Stream cipher":"Потоковый шифр","Stop":"Стоп"};</script>
 <script src="/assets/js/demos/retdec.js" defer></script><script src="/assets/js/demos/retdec-wasm.js" defer></script>
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SENTINEL — crime analytics and investigative leads | Imortek</title>
-<meta name="description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
-<meta name="keywords" content="SENTINEL, crime analytics, Hawkes process, DBSCAN, KDE hotspots, Rossmo geographic profiling, investigative leads, Qt 6">
+<title>SENTINEL — криминальная аналитика и следственные зацепки | Imortek</title>
+<meta name="description" content="Инструмент аналитика на C++23 / Qt 6: модели Пуассона и Хоукса, выявление серий через DBSCAN, очаги по KDE и географическое профилирование Россмо, с полной прослеживаемостью. Попробуйте живую модель очагов.">
+<meta name="keywords" content="SENTINEL, криминальная аналитика, процесс Хоукса, DBSCAN, очаги преступности, географическое профилирование Россмо, следственные зацепки, Qt 6">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ru">
 <meta name="imortek:speech" content="ru-RU">
 <meta name="imortek:prefix" content="/ru">
-<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"Язык","lang.choose":"Выберите язык","lang.suggested":"Ваш браузер предпочитает этот язык","lang.close":"Закрыть","tools.label":"Инструменты страницы","tools.toggle":"Показать или скрыть инструменты страницы","tools.readAloud":"Читать вслух","tools.pause":"Пауза","tools.stop":"Остановить чтение","tools.next":"Следующий абзац","tools.voice":"Голосовые команды","tools.explain":"Объяснить термины","tools.reset":"сбросить","tools.termsOnPage":"терминов на этой странице","tools.learned":"изучено","tools.preExpanded":"раскрыто заранее","tools.openMore":"Откройте ещё {n}, и Cypha начнёт предсказывать","tools.understood":"понято","tools.corrected":"исправлено","tools.off":"выкл.","tools.reading":"чтение","search.placeholder":"Поиск — опишите, что вам нужно","search.aria":"Искать по сайту","search.hint":"Ищет по смыслу, а не только по точным словам. Esc — закрыть.","search.nothing":"Ничего близкого.","related.eyebrow":"Самое близкое на сайте","related.title":"Смежное чтение","related.note":"Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.","voice.help":"Можно сказать: читать, стоп, дальше, назад, наверх, домой — или название страницы. Ещё можно описать, что вам нужно, и я найду ближайшую страницу.","voice.notCaught":"Я не разобрал. Скажите «помощь», чтобы узнать команды.","voice.listening":"Слушаю. Скажите «помощь», чтобы узнать команды.","voice.micOff":"Микрофон выключен.","voice.micBlocked":"Микрофон заблокирован. Разрешите доступ в браузере, чтобы пользоваться голосовыми командами.","voice.opening":"Открываю","voice.didYouMean":"Вы имели в виду","voice.sayNumber":"Назовите номер или скажите «нет».","voice.understood":"Понял. Скажите иначе или скажите «помощь».","voice.endOfPage":"Конец страницы.","voice.searchOpen":"Поиск открыт.","voice.nothingRelated":"На этой странице нет ничего смежного.","voice.related":"Смежное","voice.goingTo":"Перехожу к","voice.heading":"Заголовок.","voice.or":"Или","gh.live":"напрямую из api.github.com","gh.cached":"сохранённый снимок","gh.noDescription":"Без описания","gloss.notInDict":"Нет в словаре.","gloss.lookingUp":"ищу…","gloss.forget":"Забыть то, чему научилась Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="bn_BD">
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="SENTINEL — crime analytics and investigative leads | Imortek">
-<meta property="og:description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
+<meta property="og:title" content="SENTINEL — криминальная аналитика и следственные зацепки | Imortek">
+<meta property="og:description" content="Инструмент аналитика на C++23 / Qt 6: модели Пуассона и Хоукса, выявление серий через DBSCAN, очаги по KDE и географическое профилирование Россмо, с полной прослеживаемостью. Попробуйте живую модель очагов.">
 <meta property="og:url" content="https://imortek.com.au/ru/sentinel.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SENTINEL — crime analytics and investigative leads | Imortek">
+<meta property="og:image:alt" content="SENTINEL — криминальная аналитика и следственные зацепки | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SENTINEL — crime analytics and investigative leads | Imortek">
-<meta name="twitter:description" content="A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.">
+<meta name="twitter:title" content="SENTINEL — криминальная аналитика и следственные зацепки | Imortek">
+<meta name="twitter:description" content="Инструмент аналитика на C++23 / Qt 6: модели Пуассона и Хоукса, выявление серий через DBSCAN, очаги по KDE и географическое профилирование Россмо, с полной прослеживаемостью. Попробуйте живую модель очагов.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="SENTINEL — crime analytics and investigative leads | Imortek">
+<meta name="twitter:image:alt" content="SENTINEL — криминальная аналитика и следственные зацепки | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/sentinel.html#webpage","url":"https://imortek.com.au/ru/sentinel.html","name":"SENTINEL — crime analytics and investigative leads | Imortek","description":"A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/sentinel.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/sentinel.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"SENTINEL","item":"https://imortek.com.au/ru/sentinel.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/sentinel.html#software","name":"SENTINEL","description":"A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.","url":"https://imortek.com.au/ru/sentinel.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/SENTINEL","sameAs":["https://github.com/odin-loki/SENTINEL"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ru","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ru/sentinel.html#webpage","url":"https://imortek.com.au/ru/sentinel.html","name":"SENTINEL — криминальная аналитика и следственные зацепки | Imortek","description":"Инструмент аналитика на C++23 / Qt 6: модели Пуассона и Хоукса, выявление серий через DBSCAN, очаги по KDE и географическое профилирование Россмо, с полной прослеживаемостью. Попробуйте живую модель очагов.","inLanguage":"ru","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ru/sentinel.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ru/sentinel.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://imortek.com.au/ru/"},{"@type":"ListItem","position":2,"name":"SENTINEL","item":"https://imortek.com.au/ru/sentinel.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ru/sentinel.html#software","name":"SENTINEL","description":"Инструмент аналитика на C++23 / Qt 6: модели Пуассона и Хоукса, выявление серий через DBSCAN, очаги по KDE и географическое профилирование Россмо, с полной прослеживаемостью. Попробуйте живую модель очагов.","url":"https://imortek.com.au/ru/sentinel.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/SENTINEL","sameAs":["https://github.com/odin-loki/SENTINEL"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,45 +139,36 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">Часть этой страницы пока на английском. Перевод пишется; машинного перевода здесь нет.</p></div>
 <section class="phero" data-video="/assets/video/sentinel" data-poster="/assets/img/video/sentinel.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">SENTINEL &middot; Phases 1&ndash;2 complete</span>
-        <h1>Investigative leads that can be <span class="gradient-text">traced back</span></h1>
+        <span class="eyebrow">SENTINEL &middot; Фазы 1&ndash;2 завершены</span>
+        <h1>Следственные зацепки, которые можно <span class="gradient-text">проследить до истока</span></h1>
         <p class="lede">
-          A C++23 and Qt 6 desktop tool that ingests public crime data, runs statistical models,
-          and produces ranked leads &mdash; where every output traces to its source record, its model,
-          and its parameters. If an analyst cannot show why a lead ranked where it did, it should
-          not be a lead.
+          Настольный инструмент на C++23 и Qt 6, который загружает открытые данные о преступности, гоняет статистические модели и выдаёт ранжированные зацепки &mdash; причём каждый вывод прослеживается до исходной записи, до модели и до её параметров. Если аналитик не может показать, почему зацепка оказалась именно на этом месте, это не зацепка.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Build a hotspot model</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/SENTINEL" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">Построить модель очагов</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/SENTINEL" target="_blank" rel="noopener">Репозиторий &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">UI<b>Qt 6, 9-page dashboard</b></div>
-          <div class="phero__meta-item">Tests<b>495 automated</b></div>
-          <div class="phero__meta-item">Storage<b>SQLite</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="SENTINEL" data-gh-field="updated">недавно</b></div>
+          <div class="phero__meta-item">Язык<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">Интерфейс<b>Qt 6, панель из 9 страниц</b></div>
+          <div class="phero__meta-item">Тесты<b>495 автоматических</b></div>
+          <div class="phero__meta-item">Хранилище<b>SQLite</b></div>
+          <div class="phero__meta-item">Последняя отправка<b data-gh-repo="SENTINEL" data-gh-field="updated">недавно</b></div>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Stated up front</span>
+          <span class="eyebrow eyebrow--amber" style="margin-bottom:14px">Сказано сразу</span>
           <p class="small dim" style="margin:0 0 12px">
-            This is analytical software that ranks locations and associations from public crime
-            data. It is a tool for directing an analyst&rsquo;s attention, not a system that decides
-            anything about a person.
+            Это аналитический софт, который ранжирует места и связи по открытым данным о преступности. Это инструмент, направляющий внимание аналитика, а не система, которая что-то решает о человеке.
           </p>
           <p class="small dim" style="margin:0">
-            The calibration and fairness pages exist because a model that is well ranked and badly
-            calibrated is more dangerous than no model. Phase 3&ndash;5 planning is explicitly
-            fairness-first, and published benchmarks are a stated deliverable rather than a
-            marketing claim.
+            Страницы калибровки и справедливости существуют потому, что модель с хорошим ранжированием и плохой калибровкой опаснее, чем отсутствие модели. Планирование фаз 3&ndash;5 явно ставит справедливость на первое место, а публикация бенчмарков заявлена как результат, который надо сдать, а не как маркетинговое обещание.
           </p>
         </div>
       </div>
@@ -189,56 +180,49 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The models themselves</span>
-      <h2>Two of the real models, compiled to WebAssembly</h2>
+      <span class="eyebrow eyebrow--violet">Сами модели</span>
+      <h2>Две настоящие модели, скомпилированные в WebAssembly</h2>
       <p class="lede">
-        <code>models/KDEHotspot</code> and <code>models/HawkesProcess</code> &mdash; the same
-        C++ an analyst runs on the desktop, compiled with Qt for WebAssembly and fed points you
-        place yourself. Click the map to add incidents.
+        <code>models/KDEHotspot</code> и <code>models/HawkesProcess</code> &mdash; тот же C++, который аналитик запускает на рабочем столе, собранный с Qt для WebAssembly и накормленный точками, которые вы ставите сами. Кликайте по карте, чтобы добавлять происшествия.
       </p>
     </div>
 
     <div class="demo reveal" id="snw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> KDEHotspot + HawkesProcess &mdash; WebAssembly</h3>
-        <span class="badge badge--violet" id="snw-state">not loaded</span>
+        <span class="badge badge--violet" id="snw-state">не загружено</span>
       </div>
       <div class="demo__split">
         <div class="demo__stage">
           <canvas class="demo-canvas" id="snw-canvas" height="340" style="cursor:crosshair"></canvas>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="snw-load">Load the models &mdash; 2.4 MB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="snw-seed">Two clusters</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">Clear</button>
+            <button type="button" class="btn btn--primary btn--sm" id="snw-load">Загрузить модели &mdash; 2,4 МБ</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-seed">Два кластера</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">Очистить</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            2.4 MB because Qt6Core comes with it. That is the honest cost of running the real
-            model rather than a lookalike, and nothing downloads until you ask.
+            2,4 МБ, потому что вместе с ними идёт Qt6Core. Это честная цена за то, чтобы гонять настоящую модель, а не похожую на неё подделку, и ничего не скачивается, пока вы не попросите.
           </p>
         </div>
         <div class="demo__side">
           <div class="log" id="snw-out" style="height:200px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Incidents</div>
+              <div class="readout__k">Происшествий</div>
               <div class="readout__v plain" id="snw-n" style="font-size:.95rem">0</div>
             </div>
             <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-              <div class="readout__k">Branching ratio</div>
+              <div class="readout__k">Коэффициент ветвления</div>
               <div class="readout__v violet" id="snw-alpha" style="font-size:.95rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Branching ratio</strong> is what the Hawkes model learned: the expected number
-            of follow-on incidents each incident triggers. Near zero means the points carry no
-            self-excitation &mdash; scatter them evenly and it should say so.
+            <strong>Коэффициент ветвления</strong> — это то, что выучила модель Хоукса: ожидаемое число последующих происшествий, которые порождает каждое происшествие. Значение около нуля означает, что в точках нет самовозбуждения &mdash; рассыпьте их равномерно, и он должен это показать.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        The models only. Ingest, the database, provenance and the dashboard are the application,
-        and the application is not here &mdash; SENTINEL&rsquo;s own build needs Qt6::Test, which needs
-        Qt6::Concurrent, which a single-threaded WebAssembly Qt does not have.
+        Только модели. Загрузка данных, база, прослеживаемость и панель — это приложение, а приложения здесь нет &mdash; собственная сборка SENTINEL требует Qt6::Test, которому нужен Qt6::Concurrent, которого у однопоточного Qt под WebAssembly нет.
       </div>
     </div>
   </div>
@@ -247,25 +231,25 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Pipeline</span>
-      <h2>Ingest &rarr; NLP &rarr; features &rarr; models &rarr; inference</h2>
-      <p class="lede">Each stage writes what it did into the provenance chain, so a lead at the end carries the record of how it got there.</p>
+      <span class="eyebrow">Конвейер</span>
+      <h2>Загрузка &rarr; NLP &rarr; признаки &rarr; модели &rarr; вывод</h2>
+      <p class="lede">Каждый этап записывает, что он сделал, в цепочку прослеживаемости, так что зацепка на выходе несёт с собой запись о том, как она туда попала.</p>
     </div>
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="The SENTINEL pipeline from ingest through rule-based NLP, statistical models and inference to ranked leads, with a provenance rail connected to every stage" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>The rail underneath is the product.</b> Every stage writes what it did into the provenance chain, so a lead arrives with the record of how it got there.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="Конвейер SENTINEL от загрузки данных через NLP на правилах, статистические модели и вывод к ранжированным зацепкам, с шиной прослеживаемости, подключённой к каждому этапу" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>Продукт — это шина снизу.</b> Каждый этап записывает, что он сделал, в цепочку прослеживаемости, так что зацепка приходит вместе с записью о том, как она туда попала.</figcaption></figure>
 
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Ingest</span>
-        <p class="small dim" style="margin:0">UK Police API and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">Загрузка данных</span>
+        <p class="small dim" style="margin:0">API британской полиции и исторические ленты, импорт CSV с автоопределением британской, американской городской и общей раскладок, погода через Open-Meteo и оценка качества данных с порогами карантина.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
-        <p class="small dim" style="margin:0">Classical, rule-based modus-operandi extraction and crime classification. No language model in the loop &mdash; deliberately, because the output has to be explainable.</p></div>
+        <p class="small dim" style="margin:0">Классическое извлечение почерка преступления на правилах и классификация преступлений. Языковой модели в контуре нет &mdash; намеренно, потому что вывод должен поддаваться объяснению.</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Models</span>
-        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, DBSCAN series detection, KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Модели</span>
+        <p class="small dim" style="margin:0">Счётчики Пуассона, самовозбуждающиеся процессы Хоукса, выявление серий через DBSCAN, очаги по KDE, регрессия на гауссовых процессах, байесовский и ансамблевый слои.</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Inference</span>
-        <p class="small dim" style="margin:0">Rossmo geographic profiling, MO analysis, evidence scoring, anomaly detection, co-offending PageRank and community detection, and the hint engine.</p></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Инференс</span>
+        <p class="small dim" style="margin:0">Географическое профилирование Россмо, анализ почерка, оценка улик, выявление аномалий, PageRank по соучастию и выделение сообществ, а также движок подсказок.</p></div>
     </div>
   </div>
 </section>
@@ -273,23 +257,21 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Two models over the same incidents</h2>
+      <span class="eyebrow">Интерактив</span>
+      <h2>Две модели на одних и тех же происшествиях</h2>
       <p class="lede">
-        Place incidents on the map. <strong>KDE</strong> asks where crime is dense.
-        <strong>Rossmo&rsquo;s formula</strong> asks something different and more interesting: given
-        that offenders avoid a buffer zone around home, where does the offender most likely live?
-        Both run live, over the same points you place.
+        Расставьте происшествия на карте. <strong>KDE</strong> спрашивает, где преступность плотнее.
+        <strong>Формула Россмо</strong> спрашивает другое и более интересное: если преступники избегают буферной зоны вокруг дома, то где вероятнее всего живёт преступник? Обе считаются вживую на одних и тех же точках, которые вы ставите.
       </p>
     </div>
 
     <div class="demo reveal" id="sn-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> sentinel &mdash; spatial inference</h3>
-        <div class="seg" role="group" aria-label="Model">
-          <button type="button" data-model="kde" aria-pressed="true">KDE hotspots</button>
-          <button type="button" data-model="rossmo">Rossmo profile</button>
-          <button type="button" data-model="both">Both</button>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> sentinel &mdash; пространственный вывод</h3>
+        <div class="seg" role="group" aria-label="Модель">
+          <button type="button" data-model="kde" aria-pressed="true">Очаги по KDE</button>
+          <button type="button" data-model="rossmo">Профиль Россмо</button>
+          <button type="button" data-model="both">Обе</button>
         </div>
       </div>
       <div class="demo__split">
@@ -298,61 +280,57 @@
                   aria-label="Incident map with kernel density and geographic profiling surfaces"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click to add an incident. The surfaces recompute on every point.
+            Кликните, чтобы добавить происшествие. Поверхности пересчитываются на каждой точке.
           </p>
           <div class="controls" style="margin-top:18px">
             <div class="ctrl">
-              <label for="sn-bw">KDE bandwidth <b id="sn-bw-v">0.09</b></label>
+              <label for="sn-bw">Ширина окна KDE <b id="sn-bw-v">0.09</b></label>
               <input type="range" id="sn-bw" min="0.03" max="0.25" step="0.01" value="0.09">
             </div>
             <div class="ctrl">
-              <label for="sn-buffer">Rossmo buffer B <b id="sn-buffer-v">0.10</b></label>
+              <label for="sn-buffer">Буфер Россмо B <b id="sn-buffer-v">0.10</b></label>
               <input type="range" id="sn-buffer" min="0.02" max="0.30" step="0.01" value="0.10">
             </div>
             <div class="ctrl">
-              <label for="sn-f">Decay f <b id="sn-f-v">1.2</b></label>
+              <label for="sn-f">Затухание f <b id="sn-f-v">1.2</b></label>
               <input type="range" id="sn-f" min="0.4" max="2.5" step="0.1" value="1.2">
             </div>
           </div>
           <div class="chips" style="margin-top:16px">
-            <button type="button" class="chip" data-scenario="series">Load a series</button>
-            <button type="button" class="chip" data-scenario="dispersed">Dispersed offences</button>
-            <button type="button" class="chip" data-scenario="clear">Clear</button>
+            <button type="button" class="chip" data-scenario="series">Загрузить серию</button>
+            <button type="button" class="chip" data-scenario="dispersed">Рассеянные преступления</button>
+            <button type="button" class="chip" data-scenario="clear">Очистить</button>
           </div>
         </div>
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Incidents</div>
+              <div class="readout__k">Происшествий</div>
               <div class="readout__v plain" id="sn-n">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Peak density</div>
+              <div class="readout__k">Пиковая плотность</div>
               <div class="readout__v" id="sn-peak">&mdash;</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Top-ranked lead</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Зацепка на первом месте</h4>
             <div class="verdict" id="sn-lead">
-              <div class="verdict__label">No leads</div>
-              <div class="verdict__why">Place at least three incidents.</div>
+              <div class="verdict__label">Зацепок нет</div>
+              <div class="verdict__why">Поставьте хотя бы три происшествия.</div>
             </div>
           </div>
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Provenance chain</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">Цепочка прослеживаемости</h4>
             <div class="log" id="sn-prov" style="height:180px"></div>
           </div>
           <div class="note note--amber" style="font-size:.78rem;padding:12px 14px">
-            <strong>Rossmo is contested.</strong> Geographic profiling performs well on series by
-            a single offender with a stable anchor point, and poorly when those assumptions break.
-            Treating its peak as evidence about a person would be a misuse of it.
+            <strong>Метод Россмо оспаривается.</strong> Географическое профилирование хорошо работает на сериях одного преступника с устойчивой точкой привязки и плохо — когда эти допущения не выполняются. Считать его пик уликой против человека — значит применять его не по назначению.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Live implementations of Gaussian KDE and Rossmo&rsquo;s criminal geographic targeting formula,
-        written for this page. The shipping tool adds Hawkes processes, DBSCAN series detection
-        and Gaussian process regression over real ingested data.
+        Живые реализации гауссова KDE и формулы криминального географического наведения Россмо, написанные для этой страницы. Поставляемый инструмент добавляет процессы Хоукса, выявление серий через DBSCAN и регрессию на гауссовых процессах поверх реально загруженных данных.
       </div>
     </div>
   </div>
@@ -362,31 +340,30 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Complete</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What works today</h2>
+        <span class="eyebrow">Готово</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Что работает сегодня</h2>
         <ul class="checks" style="margin-top:1.4rem">
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>End-to-end pipeline from ingest to ranked leads</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 automated tests</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-data validation on UK and US datasets</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows and Linux packaging</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only REST API</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nine-page dashboard: events, map, calibration, cases, co-offending graph, leads, audit log, settings, debug</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Сквозной конвейер от загрузки данных до ранжированных зацепок</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 автоматических тестов</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Проверка на настоящих данных британских и американских наборов</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Сборка пакетов для Windows и Linux</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Локальный REST API только на чтение</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Панель из девяти страниц: события, карта, калибровка, дела, граф соучастия, зацепки, журнал аудита, настройки, отладка</span></li>
         </ul>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Limitations</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What does not</h2>
+        <span class="eyebrow eyebrow--amber">Ограничения</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Что не работает</h2>
         <ul class="flist flist--amber" style="margin-top:1.4rem">
-          <li><strong>Rule-based NLP only.</strong> Modus-operandi extraction is classical, with the recall limits that implies.</li>
-          <li><strong>Single-machine desktop.</strong> No multi-user deployment, no shared case state across analysts.</li>
-          <li><strong>Limited live connectors.</strong> Few real-time data sources are wired up.</li>
-          <li><strong>Basic map.</strong> Custom-rendered, not a GIS. Optional GIS integration is a Phase 3&ndash;5 item.</li>
+          <li><strong>NLP только на правилах.</strong> Извлечение почерка преступления классическое, со всеми вытекающими ограничениями по полноте.</li>
+          <li><strong>Одна настольная машина.</strong> Ни многопользовательского развёртывания, ни общего состояния дел между аналитиками.</li>
+          <li><strong>Живых коннекторов мало.</strong> Подключено немного источников данных реального времени.</li>
+          <li><strong>Карта простая.</strong> Своя отрисовка, а не ГИС. Опциональная интеграция с ГИС — это пункт фаз 3&ndash;5.</li>
         </ul>
-        <h3 style="margin-top:2rem;font-size:1.05rem">Phases 3&ndash;5, planned</h3>
+        <h3 style="margin-top:2rem;font-size:1.05rem">Фазы 3&ndash;5, план</h3>
         <p class="small dim">
-          Multi-jurisdiction support, optional GIS integration, published benchmarks,
-          fairness-first deployment, and a possible managed service. The backlog is in
-          <code>REMAINING.md</code> rather than in a roadmap deck.
+          Поддержка нескольких юрисдикций, опциональная интеграция с ГИС, публикация бенчмарков, развёртывание с приоритетом справедливости и, возможно, управляемый сервис. Список задач лежит в
+          <code>REMAINING.md</code> а не в презентации дорожной карты.
         </p>
       </div>
     </div>
@@ -397,51 +374,47 @@
 <section class="section" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>Finds patterns in crime data, and shows its working</h2>
-      <p class="lede">Analysts drown in incident records. This looks for the patterns across them and ranks what is worth a closer look, while keeping a trail back to the evidence behind every suggestion.</p>
+      <span class="eyebrow">Кому это нужно</span>
+      <h2>Находит закономерности в данных о преступности и показывает ход рассуждений</h2>
+      <p class="lede">Аналитики тонут в записях о происшествиях. Это ищет закономерности поперёк них и ранжирует то, что стоит рассмотреть внимательнее, сохраняя дорожку назад к данным, на которых основано каждое предложение.</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Smaller and regional police forces</h3>
-        <p class="small dim" style="margin:0">The large analytics contracts are out of reach on most budgets. This runs on one ordinary desktop computer and is meant for a single analyst rather than a department.</p>
+        <h3 style="font-size:1.05rem">Небольшие и региональные полицейские службы</h3>
+        <p class="small dim" style="margin:0">Большие контракты на аналитику при обычном бюджете недоступны. Это работает на одном обычном настольном компьютере и рассчитано на одного аналитика, а не на отдел.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Fraud and repeat-offender investigators</h3>
-        <p class="small dim" style="margin:0">Insurance fraud and organised retail theft look like unrelated incidents until someone lines them up. This does the lining up, and points at where the next one is likely to be.</p>
+        <h3 style="font-size:1.05rem">Следователи по мошенничеству и рецидивистам</h3>
+        <p class="small dim" style="margin:0">Страховое мошенничество и организованные кражи в рознице выглядят как не связанные между собой случаи, пока кто-нибудь не выстроит их в ряд. Это выстраивает их в ряд и показывает, где вероятнее всего будет следующий.</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Researchers studying crime and policing</h3>
-        <p class="small dim" style="margin:0">Every result can be traced back to the exact records and settings that produced it, so another researcher can check the work rather than take it on trust.</p>
+        <h3 style="font-size:1.05rem">Исследователи преступности и работы полиции</h3>
+        <p class="small dim" style="margin:0">Любой результат прослеживается назад до точных записей и настроек, которые его породили, так что другой исследователь может проверить работу, а не принимать её на веру.</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/ru/beta.html">Become a beta tester &rarr;</a>
+      <strong>Узнаёте здесь свою ситуацию?</strong> Сейчас всё это открыто для бета-тестирования, и отзывы тех, для кого это делается, действительно меняют систему.
+      <a href="/ru/beta.html">Стать бета-тестировщиком &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="wrap wrap-narrow center">
-    <span class="eyebrow" style="justify-content:center">Provenance</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Every lead carries its own receipt</h2>
+    <span class="eyebrow" style="justify-content:center">Прослеживаемость</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">У каждой зацепки есть своя квитанция</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Source record, model, parameters, and the transformation at every stage. An audit log
-      viewer is one of the nine dashboard pages, not a feature request. For software that ranks
-      where police attention goes, that is the minimum bar &mdash; and it is the reason the research
-      prototype behind it, ARIA-INTEL, is labelled as not ready for the same use.
+      Исходная запись, модель, параметры и преобразование на каждом этапе. Просмотр журнала аудита — одна из девяти страниц панели, а не заявка на доработку. Для софта, который ранжирует, куда пойдёт внимание полиции, это минимальная планка &mdash; и по той же причине исследовательский прототип за ним, ARIA-INTEL, помечен как не готовый к такому же применению.
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
-      <a class="btn btn--ghost" href="/research/asset-tracking.html">The research prototype &rarr;</a>
-      <a class="btn btn--ghost" href="/ru/licensing.html">Licensing terms</a>
+      <a class="btn btn--ghost" href="/research/asset-tracking.html">Исследовательский прототип &rarr;</a>
+      <a class="btn btn--ghost" href="/ru/licensing.html">Условия лицензирования</a>
     </div>
   </div>
 </section>
@@ -511,7 +484,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-16T11:37:49Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
+      <span class="mono tiny">Собрано 2026-09-16T12:42:38Z &middot; Ни трекеров, ни куки, ни аналитики.</span>
     </div>
   </div>
 </footer>
@@ -522,6 +495,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Click to place incidents":"Нажмите, чтобы разместить инциденты","KDE needs 1 · Rossmo needs 3":"KDE: нужен 1 · Rossmo: нужно 3"};</script>
 <script src="/assets/js/demos/sentinel.js" defer></script><script src="/assets/js/demos/sentinel-wasm.js" defer></script>
 </body>
 </html>

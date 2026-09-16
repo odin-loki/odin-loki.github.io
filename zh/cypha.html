@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cypha — a first-principles AI architecture | Imortek</title>
-<meta name="description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
-<meta name="keywords" content="Cypha, AI architecture, online classifier, latent sampling, information bottleneck, active inference, AIXI, minimum description length, random Fourier features">
+<title>Cypha — 一套从第一性原理出发的 AI 架构 | Imortek</title>
+<meta name="description" content="Cypha 把分类、回归、隐变量采样和生成统一在一个类型里。由 AIXI/MDL、信息几何、主动推断和信息瓶颈构建而来。来试试在线的分类器。">
+<meta name="keywords" content="Cypha, AI 架构, 在线分类器, 隐变量采样, 信息瓶颈, 主动推断, AIXI, 最小描述长度, 在线学习, 自研人工智能">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="zh">
 <meta name="imortek:speech" content="zh-CN">
 <meta name="imortek:prefix" content="/zh">
-<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gh.live":"实时来自 api.github.com","gh.cached":"缓存快照","gh.noDescription":"没有说明","gloss.notInDict":"词典中没有这个词。","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Cypha — a first-principles AI architecture | Imortek">
-<meta property="og:description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
+<meta property="og:title" content="Cypha — 一套从第一性原理出发的 AI 架构 | Imortek">
+<meta property="og:description" content="Cypha 把分类、回归、隐变量采样和生成统一在一个类型里。由 AIXI/MDL、信息几何、主动推断和信息瓶颈构建而来。来试试在线的分类器。">
 <meta property="og:url" content="https://imortek.com.au/zh/cypha.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Cypha — a first-principles AI architecture | Imortek">
+<meta property="og:image:alt" content="Cypha — 一套从第一性原理出发的 AI 架构 | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cypha — a first-principles AI architecture | Imortek">
-<meta name="twitter:description" content="Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.">
+<meta name="twitter:title" content="Cypha — 一套从第一性原理出发的 AI 架构 | Imortek">
+<meta name="twitter:description" content="Cypha 把分类、回归、隐变量采样和生成统一在一个类型里。由 AIXI/MDL、信息几何、主动推断和信息瓶颈构建而来。来试试在线的分类器。">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Cypha — a first-principles AI architecture | Imortek">
+<meta name="twitter:image:alt" content="Cypha — 一套从第一性原理出发的 AI 架构 | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/cypha.html#webpage","url":"https://imortek.com.au/zh/cypha.html","name":"Cypha — a first-principles AI architecture | Imortek","description":"Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/cypha.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/cypha.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"Cypha","item":"https://imortek.com.au/zh/cypha.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/cypha.html#software","name":"Cypha","description":"Cypha unifies classification, regression, latent sampling and generation in one type. Built from AIXI/MDL, information geometry, active inference and the information bottleneck. Try the live classifier.","url":"https://imortek.com.au/zh/cypha.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/cypha.html#webpage","url":"https://imortek.com.au/zh/cypha.html","name":"Cypha — 一套从第一性原理出发的 AI 架构 | Imortek","description":"Cypha 把分类、回归、隐变量采样和生成统一在一个类型里。由 AIXI/MDL、信息几何、主动推断和信息瓶颈构建而来。来试试在线的分类器。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/zh/cypha.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/cypha.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"Cypha","item":"https://imortek.com.au/zh/cypha.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/cypha.html#software","name":"Cypha","description":"Cypha 把分类、回归、隐变量采样和生成统一在一个类型里。由 AIXI/MDL、信息几何、主动推断和信息瓶颈构建而来。来试试在线的分类器。","url":"https://imortek.com.au/zh/cypha.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,7 +139,6 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">本页部分内容仍为英文。翻译正在撰写中，没有任何内容是机器翻译的。</p></div>
 <!-- ============================ HERO ============================ -->
 <section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
   <div class="gridlines" aria-hidden="true"></div>
@@ -147,34 +146,31 @@
     <div class="split split--wide-left split--center">
       <div>
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
-        <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
+        <h1>一套从 <span class="gradient-text">第一性原理</span>出发构建的 AI 架构，不是 fork 来的</h1>
         <p class="lede">
-          Cypha is not a transformer wrapper and not a tuned copy of somebody else&rsquo;s model.
-          One public type &mdash; <code>cypha::Cypha</code> &mdash; classifies, regresses, samples
-          latents and generates sequences, with a learning rule derived from where four
-          formal programmes intersect.
+          Cypha 不是 transformer 的包装层，也不是别人模型调过参的副本。一个公开类型 &mdash; <code>cypha::Cypha</code> &mdash; 做分类、回归、隐变量采样和序列生成，学习规则由四条形式化研究纲领的交汇处推导而来。
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#demo">Train one in your browser</a>
-          <a class="btn btn--fund" href="/zh/chess.html">Play chess against it</a>
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">Repository &rarr;</a>
+          <a class="btn btn--primary" href="#demo">在你的浏览器里训练一个</a>
+          <a class="btn btn--fund" href="/zh/chess.html">和它下一盘棋</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">仓库 &rarr;</a>
         </div>
         <div class="phero__meta">
-          <div class="phero__meta-item">Language<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
-          <div class="phero__meta-item">Release<b>v2.4.0</b></div>
+          <div class="phero__meta-item">语言<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
+          <div class="phero__meta-item">版本<b>v2.4.0</b></div>
           <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
-          <div class="phero__meta-item">Last push<b data-gh-repo="Cypha" data-gh-field="updated">不久前</b></div>
+          <div class="phero__meta-item">最近一次推送<b data-gh-repo="Cypha" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
 
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Four programmes, one learning rule</span>
+          <span class="eyebrow" style="margin-bottom:16px">四条纲领，一条学习规则</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; minimum-description-length priors decide what the model is allowed to believe cheaply.</li>
-            <li><strong>信息几何</strong> &mdash; updates follow the natural gradient, so learning respects the curvature of the parameter space.</li>
-            <li><strong>Active inference / free energy</strong> &mdash; gives the structural decomposition into prior, differential and context.</li>
-            <li><strong>Information bottleneck</strong> &mdash; sets the encoder objective: keep what predicts, discard the rest.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; 最小描述长度先验决定模型可以廉价地相信什么。</li>
+            <li><strong>信息几何</strong> &mdash; 更新沿着自然梯度走，所以学习尊重参数空间的曲率。</li>
+            <li><strong>主动推断 / 自由能</strong> &mdash; 给出先验、差分与上下文这套结构分解。</li>
+            <li><strong>信息瓶颈</strong> &mdash; 定下编码器的目标：留下能预测的，其余丢掉。</li>
           </ul>
         </div>
       </div>
@@ -186,41 +182,38 @@
 <section class="section" id="wasm">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">The library itself</span>
-      <h2>Random features, measured rather than described</h2>
+      <span class="eyebrow eyebrow--violet">库本身</span>
+      <h2>随机特征，测出来的，不是说出来的</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features is that they let a linear head separate
-        what a linear head cannot. That is a measurable claim, so this measures it &mdash; with
-        <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
+        Cypha 用随机傅里叶特征的理由是：它们能让一个线性头分开线性头本来分不开的东西。这是一个可测量的主张，所以这里就把它测一遍 &mdash; 用的是
+        <code>cypha::rff_features</code> 编译成的 WebAssembly，不是用 JavaScript 复述一遍。
       </p>
     </div>
 
     <div class="demo reveal" id="cyw-demo">
       <div class="demo__head">
         <h3 class="demo__label"><span class="dot"></span> cypha::rff_features &mdash; WebAssembly</h3>
-        <span class="badge badge--violet" id="cyw-state">not loaded</span>
+        <span class="badge badge--violet" id="cyw-state">未加载</span>
       </div>
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact RBF kernel over <b>n</b> sampled points gives a matrix <b>K</b>. Random
-            features reconstruct an approximation <b>K&#770;</b>. What is plotted is
-            <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> as the number of features grows:
-            more features, closer approximation.
+            在 <b>n</b> 个采样点上的精确 RBF 核给出一个矩阵 <b>K</b>。随机特征重建出一个近似 <b>K&#770;</b>。画出来的是
+            <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> 随特征数增长的变化：特征越多，近似越接近。
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
             <div class="ctrl">
-              <label for="cyw-dim">Input dimension <b id="cyw-dim-v">4</b></label>
+              <label for="cyw-dim">输入维度 <b id="cyw-dim-v">4</b></label>
               <input type="range" id="cyw-dim" min="2" max="16" step="1" value="4">
             </div>
             <div class="ctrl">
-              <label for="cyw-gamma">RBF bandwidth &gamma; <b id="cyw-gamma-v">0.50</b></label>
+              <label for="cyw-gamma">RBF 带宽 &gamma; <b id="cyw-gamma-v">0.50</b></label>
               <input type="range" id="cyw-gamma" min="0.1" max="2" step="0.1" value="0.5">
             </div>
           </div>
           <div class="btn-row" style="margin-top:14px">
-            <button type="button" class="btn btn--primary btn--sm" id="cyw-load">Load the library &mdash; 40 KB</button>
-            <button type="button" class="btn btn--ghost btn--sm" id="cyw-run" disabled>Re-measure</button>
+            <button type="button" class="btn btn--primary btn--sm" id="cyw-load">加载这个库 &mdash; 40 KB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="cyw-run" disabled>重新测量</button>
           </div>
           <canvas class="demo-canvas" id="cyw-canvas" height="300" style="margin-top:18px"></canvas>
         </div>
@@ -228,22 +221,18 @@
           <div id="cyw-table" class="log" style="height:260px;font-size:.76rem"></div>
           <div class="readout" style="grid-template-columns:1fr">
             <div class="readout__item">
-              <div class="readout__k">Library</div>
+              <div class="readout__k">库</div>
               <div class="readout__v plain" id="cyw-version" style="font-size:.82rem">&mdash;</div>
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Compiling this found a bug.</strong> ORF &mdash; the dense orthogonal variant
-            &mdash; was normalising every row to unit length, when Yu et al. draw the row norm from
-            <code>chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
-            &radic;d too short, so the features approximated the wrong kernel and the error
-            plateaued instead of converging. One line. It is now the best of the three.
+            <strong>编译这段代码时发现了一个 bug。</strong> ORF &mdash; 稠密正交变体 &mdash; 把每一行都归一化成了单位长度，而 Yu 等人是从
+            <code>chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        COOP/COEP headers GitHub Pages cannot send.
+        单线程是故意的：多线程 WebAssembly 需要 SharedArrayBuffer，而它需要 GitHub Pages 发不出来的 COOP/COEP 响应头。
       </div>
     </div>
   </div>
@@ -253,34 +242,31 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Architecture</span>
-      <h2>Seven layers, each doing one job</h2>
+      <span class="eyebrow eyebrow--violet">架构</span>
+      <h2>七层，每一层只做一件事</h2>
       <p class="lede">
-        Every component below exists because one of the four programmes demands it &mdash;
-        not because it appeared in a paper that quarter.
+        下面每一个组件之所以存在，都是因为那四条纲领里有一条要求它 &mdash; 而不是因为它那个季度出现在某篇论文里。
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cypha-stack.svg" alt="The Cypha pipeline in order: encoder, projection, world prior, class differentials, memory and tiered context, producing a class with confidence, anomaly score and an out-of-distribution flag" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>One type, four jobs.</b> The demo further down this page is this exact pipeline in two dimensions &mdash; the world prior is the dashed ellipse, the differentials are the bars.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/cypha-stack.svg" alt="Cypha 流水线按顺序排列：编码器、投影、世界先验、类差分、记忆与分层上下文，输出一个类别，附带置信度、异常分数和分布外标记" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>一个类型，四件工作。</b> 本页往下那个演示就是这条流水线的二维版本 &mdash; 世界先验是那个虚线椭圆，差分是那些条形。</figcaption></figure>
 
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Encoder</span>
-        <h3 style="font-size:1.02rem">Pluggable front end</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">编码器</span>
+        <h3 style="font-size:1.02rem">可插拔的前端</h3>
         <p class="small dim" style="margin:0">
-          Raw input to feature vector. Ships <code>VectorEncoder</code>,
-          <code>RFFEncoder</code> (random Fourier features) and <code>ConcatEncoder</code>.
-          Swap it without touching anything downstream.
+          从原始输入到特征向量。自带 <code>VectorEncoder</code>,
+          <code>RFFEncoder</code> （随机傅里叶特征）与 <code>ConcatEncoder</code>。换掉它不用动下游的任何东西。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Projection</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">投影</span>
         <h3 style="font-size:1.02rem">EncoderProjection</h3>
         <p class="small dim" style="margin:0">
-          Features into latent space via Fisher&ndash;Rao contrastive updates, with
-          Frobenius-norm capping so a single outlier cannot blow the geometry apart.
+          通过 Fisher&ndash;Rao 对比更新把特征送进隐空间，并给 Frobenius 范数设上限，这样单个离群点没法把几何结构炸开。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08">
@@ -288,9 +274,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford/EMA. This is the
-          &ldquo;infinite context&rdquo; that never forgets &mdash; and whose movement is the
-          drift signal.
+          一个共享的对角高斯分布，用 Welford／EMA 在线拟合。这就是那个从不遗忘的&ldquo;无限上下文&rdquo; &mdash; 而它的移动就是漂移信号。
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -298,37 +282,29 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&Delta;&#8342;</span>
         <h3 style="font-size:1.02rem">ClassDifferential</h3>
         <p class="small dim" style="margin:0">
-          Per-class natural-parameter offsets, attracted toward observations and pulled
-          back by MDL decay. A class is a <em>displacement from the world</em>, not a
-          separate model.
+          每个类一组自然参数偏移，被观测拉过去，又被 MDL 衰减拽回来。一个类是 <em>相对于世界的位移</em>，不是一个单独的模型。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Memory</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">记忆</span>
         <h3 style="font-size:1.02rem">DIFMemory</h3>
         <p class="small dim" style="margin:0">
-          Computes log-likelihood ratios under generalised-hyperbolic posteriors, with
-          Bessel-ratio lookup tables so the heavy tails do not cost a transcendental
-          per sample.
+          在广义双曲后验下计算对数似然比，配上贝塞尔比值查找表，这样重尾不会让每个样本都付出一次超越函数的代价。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Context</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">上下文</span>
         <h3 style="font-size:1.02rem">TieredContextBuffer</h3>
         <p class="small dim" style="margin:0">
-          Short, mid and long tiers weighted by NIGField confidence, so recent evidence
-          can dominate without erasing what the long tier established.
+          短、中、长三层按 NIGField 的置信度加权，这样近期的证据可以占主导，又不会抹掉长期那层已经确立的东西。
         </p>
       </div>
     </div>
 
     <div class="note reveal" style="margin-top:28px">
-      <strong>Classification, end to end:</strong> encode &rarr; project &rarr; score each class&rsquo;s
-      log-likelihood ratio against the world prior &rarr; return the argmax, together with a
-      confidence, an anomaly score and an out-of-distribution flag. The demo below is that
-      exact pipeline, in miniature.
+      <strong>分类，从头到尾：</strong> 编码 &rarr; 投影 &rarr; 对着世界先验给每个类的对数似然比打分 &rarr; 返回 argmax，连同一个置信度、一个异常分数和一个分布外标记。下面那个演示就是这条流水线的缩微版。
     </div>
   </div>
 </section>
@@ -337,28 +313,26 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Interactive</span>
-      <h2>Train a classifier by clicking</h2>
+      <span class="eyebrow">交互演示</span>
+      <h2>点几下训练一个分类器</h2>
       <p class="lede">
-        A faithful 2-D miniature of the Cypha pipeline: a world prior fitted online, per-class
-        differentials attracted toward what you place, and classification by log-likelihood
-        ratio. It learns from every single click &mdash; there is no batch, no epoch, no restart.
+        Cypha 流水线忠实的二维缩微版：在线拟合的世界先验、被你放下的点吸引过去的各类差分，以及按对数似然比做的分类。它从你的每一次点击里学习 &mdash; 没有批次，没有轮次，也不重启。
       </p>
     </div>
 
     <div class="demo reveal" id="cypha-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; online classifier</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; 在线分类器</h3>
         <div class="controls">
           <label class="switch">
             <input type="checkbox" id="cy-rff">
             <span class="switch__track"></span>
-            <span>Latent RFF encoder</span>
+            <span>隐空间 RFF 编码器</span>
           </label>
           <label class="switch">
             <input type="checkbox" id="cy-surface" checked>
             <span class="switch__track"></span>
-            <span>Decision surface</span>
+            <span>决策面</span>
           </label>
         </div>
       </div>
@@ -369,21 +343,21 @@
                   aria-label="Click to place labelled training samples and watch the decision surface form"></canvas>
           <p class="demo__hint" style="margin-top:12px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click the canvas to add a sample of the selected class. Drag to paint a cluster.
+            点击画布，加入一个所选类别的样本。拖动可以刷出一团。
           </p>
 
           <div style="margin-top:18px">
-            <h4 class="panel__title" style="margin-bottom:10px">Class to place</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">要放置的类别</h4>
             <div class="chips" id="cy-classes"></div>
           </div>
 
           <div style="margin-top:18px">
-            <h4 class="panel__title" style="margin-bottom:10px">Load a dataset</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">载入一个数据集</h4>
             <div class="chips">
-              <button type="button" class="chip" data-set="blobs">Three separable blobs</button>
-              <button type="button" class="chip" data-set="rings">Concentric rings</button>
+              <button type="button" class="chip" data-set="blobs">三团可分的点</button>
+              <button type="button" class="chip" data-set="rings">同心圆环</button>
               <button type="button" class="chip" data-set="xor">XOR</button>
-              <button type="button" class="chip" data-set="clear">Clear</button>
+              <button type="button" class="chip" data-set="clear">清空</button>
             </div>
           </div>
         </div>
@@ -391,43 +365,43 @@
         <div class="demo__side">
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Samples</div>
+              <div class="readout__k">样本数</div>
               <div class="readout__v plain" id="cy-n">0</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Accuracy</div>
+              <div class="readout__k">准确率</div>
               <div class="readout__v" id="cy-acc">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Max LLR</div>
+              <div class="readout__k">最大 LLR</div>
               <div class="readout__v violet" id="cy-llr">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Prior drift</div>
+              <div class="readout__k">先验漂移</div>
               <div class="readout__v amber" id="cy-drift">0.00</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Last inference</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">上次推理</h4>
             <div class="verdict" id="cy-verdict">
-              <div class="verdict__label">Idle</div>
-              <div class="verdict__why">Hover the canvas to classify a point without training on it.</div>
+              <div class="verdict__label">空闲</div>
+              <div class="verdict__why">把鼠标停在画布上，可以对一个点做分类而不拿它训练。</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Class differentials &Delta;&#8342;</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">类差分 &Delta;&#8342;</h4>
             <div id="cy-deltas" style="display:grid;gap:9px"></div>
           </div>
 
           <div>
             <div class="ctrl">
-              <label for="cy-lr">&Delta;&#8342; learning rate <b id="cy-lr-v">0.050</b></label>
+              <label for="cy-lr">&Delta;&#8342; 学习率 <b id="cy-lr-v">0.050</b></label>
               <input type="range" id="cy-lr" min="0.005" max="0.30" step="0.005" value="0.05">
             </div>
             <div class="ctrl">
-              <label for="cy-mdl">MDL decay &lambda; <b id="cy-mdl-v">0.0010</b></label>
+              <label for="cy-mdl">MDL 衰减 &lambda; <b id="cy-mdl-v">0.0010</b></label>
               <input type="range" id="cy-mdl" min="0" max="0.02" step="0.0005" value="0.001">
             </div>
           </div>
@@ -435,17 +409,13 @@
       </div>
 
       <div class="panel__foot" id="cy-foot">
-        A 2-D teaching implementation written for this page &mdash; same structure as the real
-        pipeline, none of its scale. The C++ implementation is in
+        为这个页面写的二维教学实现 &mdash; 结构和真实流水线一样，规模一点都没有。C++ 实现在
         <a href="https://github.com/odin-loki/Cypha" target="_blank" rel="noopener">native/</a>.
       </div>
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try XOR with the RFF encoder off.</strong> Accuracy collapses toward chance, and
-      that is not a bug in this demo &mdash; it is the documented limitation of a linear
-      log-likelihood ratio, stated plainly in the Cypha README. Switch the latent RFF encoder
-      on and watch it recover. Publishing the failure mode next to the fix is the whole point.
+      <strong>把 RFF 编码器关掉，试试 XOR。</strong> 准确率会塌到接近瞎猜，而这不是这个演示里的 bug &mdash; 这是线性对数似然比被记录在案的局限，Cypha 的 README 里就直说了。把隐空间 RFF 编码器打开，看着它恢复。把失效模式和修复办法摆在一起发布，这才是重点。
     </div>
   </div>
 </section>
@@ -454,53 +424,47 @@
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Measured</span>
-      <h2>Results, with the comparison that matters</h2>
+      <span class="eyebrow">实测</span>
+      <h2>结果，以及真正要紧的那组对比</h2>
       <p class="lede">
-        Figures from the repository&rsquo;s own benchmark runs after the diagnostic fix.
-        Correctness is proved by a CTest matrix matching committed fixture goldens &mdash; not
-        by a leaderboard position.
+        数字来自仓库自己在诊断修复之后跑的基准测试。正确性由一套 CTest 矩阵对上已提交的夹具基准值来证明 &mdash; 不是靠排行榜上的名次。
       </p>
     </div>
 
     <div class="table-scroll reveal">
       <table class="data">
         <thead>
-          <tr><th>Dataset</th><th>Task</th><th class="num">Cypha</th><th class="num">Online SGD</th><th>Note</th></tr>
+          <tr><th>数据集</th><th>任务</th><th class="num">Cypha</th><th class="num">在线 SGD</th><th>备注</th></tr>
         </thead>
         <tbody>
-          <tr><td>Linearly separable</td><td>2-class</td><td class="num">0.783</td><td class="num">0.644</td><td class="muted">Same online budget</td></tr>
-          <tr><td>Iris</td><td>3-class</td><td class="num">0.900</td><td class="num">&mdash;</td><td class="muted">Classical baseline set</td></tr>
-          <tr><td>Wine</td><td>3-class</td><td class="num">0.969</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Digits</td><td>10-class</td><td class="num">0.922</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>Breast cancer</td><td>2-class</td><td class="num">0.957</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
-          <tr><td>WikiText-2</td><td>Sequence, 300k tokens</td><td class="num">2.664 BPC</td><td class="num">&mdash;</td><td class="muted">Hybrid GRIA+LSTM L2+Wave2 BPTT</td></tr>
-          <tr><td>XOR</td><td>2-class, latent RFF</td><td class="num">~0.763</td><td class="num">&mdash;</td><td class="muted">Linear LLR alone caps near chance</td></tr>
+          <tr><td>线性可分</td><td>2 类</td><td class="num">0.783</td><td class="num">0.644</td><td class="muted">同样的在线预算</td></tr>
+          <tr><td>Iris</td><td>3 类</td><td class="num">0.900</td><td class="num">&mdash;</td><td class="muted">经典基准数据集</td></tr>
+          <tr><td>Wine</td><td>3 类</td><td class="num">0.969</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Digits</td><td>10 类</td><td class="num">0.922</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>Breast cancer</td><td>2 类</td><td class="num">0.957</td><td class="num">&mdash;</td><td class="muted">&nbsp;</td></tr>
+          <tr><td>WikiText-2</td><td>序列，30 万 token</td><td class="num">2.664 BPC</td><td class="num">&mdash;</td><td class="muted">混合 GRIA+LSTM L2+Wave2 BPTT</td></tr>
+          <tr><td>XOR</td><td>2 类，隐空间 RFF</td><td class="num">~0.763</td><td class="num">&mdash;</td><td class="muted">只用线性 LLR 时上限接近瞎猜</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="grid grid-3" style="margin-top:32px">
       <div class="card reveal">
-        <span class="eyebrow" style="margin-bottom:12px">Generation</span>
+        <span class="eyebrow" style="margin-bottom:12px">生成</span>
         <p class="small dim" style="margin:0">
-          Temperature-scaled, field-conditioned, latent-boundary interpolation, adversarial
-          (entropy-maximising), OOD sampling, MDL-constrained, ancestral, and KDE sampling
-          from the replay buffer.
+          温度缩放、场条件、隐空间边界插值、对抗式（最大化熵）、OOD 采样、MDL 约束、祖先采样，以及从回放缓冲区做 KDE 采样。
         </p>
       </div>
       <div class="card reveal" data-delay=".05">
-        <span class="eyebrow" style="margin-bottom:12px">Anomaly &amp; active learning</span>
+        <span class="eyebrow" style="margin-bottom:12px">异常检测 &amp; 主动学习</span>
         <p class="small dim" style="margin:0">
-          Anomaly scores from gate values, active-query scores as entropy &times; boundary
-          proximity, and drift detection read directly off world-prior movement.
+          异常分数来自门控值，主动查询分数是熵 &times; 到边界的接近程度，漂移检测直接从世界先验的移动上读出来。
         </p>
       </div>
       <div class="card reveal" data-delay=".1">
-        <span class="eyebrow" style="margin-bottom:12px">Replay</span>
+        <span class="eyebrow" style="margin-bottom:12px">回放</span>
         <p class="small dim" style="margin:0">
-          A 10,000-capacity priority buffer weighted by recency and surprise, replayed at a
-          0.30 ratio &mdash; so the rare, informative sample is not drowned by the common one.
+          一个容量 10,000 的优先级缓冲区，按新近程度和意外程度加权，以 0.30 的比例回放 &mdash; 这样稀有而有信息量的样本不会被常见的那些淹掉。
         </p>
       </div>
     </div>
@@ -512,33 +476,33 @@
   <div class="wrap">
     <div class="split">
       <div class="reveal">
-        <span class="eyebrow">Reference defaults</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Profiled, not guessed</h2>
-        <p class="dim">These come out of a profiled medium-grid optimisation and ship as the reference configuration.</p>
+        <span class="eyebrow">参考默认值</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">跑过性能剖析的，不是猜的</h2>
+        <p class="dim">这些是从一次带性能剖析的中等网格优化里得出来的，作为参考配置发布。</p>
         <div class="spec" style="margin-top:20px">
-          <div class="spec__row"><span class="spec__k">Feature dim</span><span class="spec__v mono">128</span></div>
-          <div class="spec__row"><span class="spec__k">RFF budget</span><span class="spec__v mono">256</span></div>
-          <div class="spec__row"><span class="spec__k">Replay ratio</span><span class="spec__v mono">0.30</span></div>
-          <div class="spec__row"><span class="spec__k">Context window</span><span class="spec__v mono">32</span></div>
-          <div class="spec__row"><span class="spec__k">World prior LR</span><span class="spec__v mono">0.008</span></div>
-          <div class="spec__row"><span class="spec__k">Class diff LR</span><span class="spec__v mono">0.05</span></div>
-          <div class="spec__row"><span class="spec__k">Encoder LR</span><span class="spec__v mono">0.002</span></div>
+          <div class="spec__row"><span class="spec__k">特征维度</span><span class="spec__v mono">128</span></div>
+          <div class="spec__row"><span class="spec__k">RFF 预算</span><span class="spec__v mono">256</span></div>
+          <div class="spec__row"><span class="spec__k">回放比例</span><span class="spec__v mono">0.30</span></div>
+          <div class="spec__row"><span class="spec__k">上下文窗口</span><span class="spec__v mono">32</span></div>
+          <div class="spec__row"><span class="spec__k">世界先验学习率</span><span class="spec__v mono">0.008</span></div>
+          <div class="spec__row"><span class="spec__k">类差分学习率</span><span class="spec__v mono">0.05</span></div>
+          <div class="spec__row"><span class="spec__k">编码器学习率</span><span class="spec__v mono">0.002</span></div>
           <div class="spec__row"><span class="spec__k">MDL lambda</span><span class="spec__v mono">0.001</span></div>
         </div>
       </div>
 
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">Honest framing</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">What Cypha is not</h2>
+        <span class="eyebrow eyebrow--amber">老实说明</span>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Cypha 不是什么</h2>
         <ul class="flist flist--amber">
-          <li><strong>Not a wrapper.</strong> Bespoke from first principles &mdash; which also means it does not inherit anyone else&rsquo;s tuning.</li>
-          <li><strong>Linear LLR has a ceiling.</strong> XOR sits near chance without the latent RFF encoder, which lifts it to roughly 76.3%.</li>
-          <li><strong>Validation is parity-based.</strong> CTest against committed fixture goldens. No leaderboard claims are made.</li>
-          <li><strong>CUDA is inference-only.</strong> Training stays on CPU, because on this architecture CPU is faster.</li>
-          <li><strong>Theory lives elsewhere.</strong> Harmonic-spectrum and NMP work is a separate compression-algorithms paper; Cypha is the implementation layer.</li>
+          <li><strong>不是包装层。</strong> 从第一性原理定制而来 &mdash; 这也意味着它继承不到别人调好的参数。</li>
+          <li><strong>线性 LLR 有天花板。</strong> 没有隐空间 RFF 编码器时，XOR 停在接近瞎猜的水平，加上它之后大约提到 76.3%。</li>
+          <li><strong>验证是基于一致性的。</strong> 用 CTest 对已提交的夹具基准值。不做任何排行榜上的声称。</li>
+          <li><strong>CUDA 只用于推理。</strong> 训练留在 CPU 上，因为在这个架构上 CPU 更快。</li>
+          <li><strong>理论在别处。</strong> 谐波谱和 NMP 的工作是另一篇讲压缩算法的论文；Cypha 是实现层。</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
-          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha/releases" target="_blank" rel="noopener">Prebuilt v2.4.0 releases &rarr;</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/Cypha/releases" target="_blank" rel="noopener">预编译的 v2.4.0 发布包 &rarr;</a>
         </div>
       </div>
     </div>
@@ -551,18 +515,15 @@
     <div class="cta-band reveal">
       <div class="gridlines" aria-hidden="true" style="opacity:.6"></div>
       <div class="cta-band__inner">
-        <span class="eyebrow">Product demo</span>
-        <h2 style="max-width:24ch;margin-inline:auto">Cypha, distilled from a real chess engine</h2>
+        <span class="eyebrow">产品演示</span>
+        <h2 style="max-width:24ch;margin-inline:auto">Cypha，从一个真实的国际象棋引擎里蒸馏出来</h2>
         <p class="lede" style="margin-inline:auto;text-align:center;margin-bottom:1.4rem">
-          26,568 positions labelled with a conventional alpha-beta engine&rsquo;s own search
-          evaluations, fitted with the same WorldPrior whitening and natural-gradient updates
-          used everywhere else in the architecture. It reproduces the teacher&rsquo;s evaluation at
-          <strong>R&sup2; 0.866</strong> on held-out positions, and scores 5W&ndash;19L&ndash;6D
-          against that teacher at equal search depth.
+          26,568 个局面，标注用的是一个常规 alpha-beta 引擎自己的搜索评估值，拟合时用的是这套架构里其他地方都在用的同一套 WorldPrior 白化与自然梯度更新。它在留出局面上复现教师的评估，达到
+          <strong>R&sup2; 0.866</strong> ，并且在同等搜索深度下对那个教师取得 5 胜&ndash;19 负&ndash;6 和。
         </p>
         <div class="btn-row" style="justify-content:center">
-          <a class="btn btn--primary btn--lg" href="/zh/chess.html">Play a game</a>
-          <a class="btn btn--ghost btn--lg" href="/zh/chess.html#how">How it was distilled</a>
+          <a class="btn btn--primary btn--lg" href="/zh/chess.html">下一盘</a>
+          <a class="btn btn--ghost btn--lg" href="/zh/chess.html#how">它是怎么蒸馏出来的</a>
         </div>
       </div>
     </div>
@@ -574,42 +535,41 @@
 <section class="section section--alt" id="who">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Who it is for</span>
-      <h2>A small AI that keeps learning</h2>
-      <p class="lede">Most AI is trained once in a data centre and shipped frozen. Cypha is small enough to run on ordinary hardware and carries on learning from each new example it sees.</p>
+      <span class="eyebrow">这是给谁用的</span>
+      <h2>一个会一直学下去的小型 AI</h2>
+      <p class="lede">大多数 AI 在数据中心里训练一次，然后冻住发出去。Cypha 小到可以在普通硬件上跑，而且会从它见到的每一个新样本继续学。</p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">01</span>
-        <h3 style="font-size:1.05rem">Devices too small for big AI</h3>
-        <p class="small dim" style="margin:0">Sensors, cameras, controllers and other hardware with no room for a data centre behind it. Cypha is small enough to run on the device itself, so nothing has to leave the building.</p>
+        <h3 style="font-size:1.05rem">小到装不下大 AI 的设备</h3>
+        <p class="small dim" style="margin:0">传感器、摄像头、控制器，以及其他后面塞不下一个数据中心的硬件。Cypha 小到可以直接在设备上跑，所以没有任何东西必须离开这栋楼。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">02</span>
-        <h3 style="font-size:1.05rem">Anything that has to keep up with change</h3>
-        <p class="small dim" style="margin:0">Fraud patterns, equipment faults, shifting customer behaviour. A model trained last year is already out of date. This one updates as it goes, without being pulled offline and retrained.</p>
+        <h3 style="font-size:1.05rem">任何必须跟上变化的场合</h3>
+        <p class="small dim" style="margin:0">欺诈模式、设备故障、变动中的客户行为。去年训练的模型现在已经过时了。这一个边跑边更新，不用下线重训。</p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">03</span>
-        <h3 style="font-size:1.05rem">Work that has to be explained afterwards</h3>
-        <p class="small dim" style="margin:0">Banks, insurers and health services often have to justify a decision. Cypha is small enough to inspect, and it publishes what it is bad at rather than hiding it.</p>
+        <h3 style="font-size:1.05rem">事后必须解释清楚的工作</h3>
+        <p class="small dim" style="margin:0">银行、保险公司和医疗机构常常得为一个决定给出理由。Cypha 小到可以逐一检查，而且它把自己不擅长的地方公布出来，而不是藏起来。</p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Recognise your situation here?</strong> This is open for beta testing now, and the
-      people it is built for are the ones whose feedback actually changes it.
-      <a href="/zh/beta.html">Become a beta tester &rarr;</a>
+      <strong>在这里看到你自己的情况了吗？</strong> 它现在已经开放测试，而它是为哪些人做的，那些人的反馈才是真正会改变它的。
+      <a href="/zh/beta.html">成为测试用户 &rarr;</a>
     </div>
   </div>
 </section>
 
 <section class="section section--tight section--alt">
   <div class="wrap wrap-narrow">
-    <span class="eyebrow">Build it</span>
-    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Three commands</h2>
+    <span class="eyebrow">自己构建</span>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">三条命令</h2>
     <pre class="code" style="margin-top:18px"><span class="c-pr">$</span> <span class="c-cmd">cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja</span>
 <span class="c-pr">$</span> <span class="c-cmd">cmake --build /tmp/cypha_build --parallel</span>
 <span class="c-pr">$</span> <span class="c-cmd">ctest --test-dir /tmp/cypha_build -R native_ --output-on-failure</span>
@@ -619,8 +579,8 @@
 <span class="c-com"># Qt shell (build with -DCYPHA_BUILD_QT=ON)</span>
 <span class="c-pr">$</span> <span class="c-cmd">cypha_qt_shell</span></pre>
     <div class="btn-row" style="margin-top:22px">
-      <button class="btn btn--sm" data-copy="cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja">Copy build command</button>
-      <a class="btn btn--sm btn--ghost" href="/zh/licensing.html">Licensing terms</a>
+      <button class="btn btn--sm" data-copy="cmake -S native -B /tmp/cypha_build -DCMAKE_BUILD_TYPE=Release -G Ninja">复制构建命令</button>
+      <a class="btn btn--sm btn--ghost" href="/zh/licensing.html">许可条款</a>
     </div>
   </div>
 </section>
@@ -690,7 +650,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-16T11:37:49Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
+      <span class="mono tiny">构建于 2026-09-16T12:42:38Z &middot; 没有追踪器，没有 Cookie，没有统计分析。</span>
     </div>
   </div>
 </footer>
@@ -701,6 +661,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Class A":"A 类","Class B":"B 类","Class C":"C 类","Click to place samples, or load a dataset below":"点击放置样本，或在下方加载数据集","Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.":"低于世界先验——这个点在 θ₀ 下比在任何类别下都更可能出现。已标记为分布外。","Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.":"相对世界先验的对数似然比取最大值，第二名落后 {n} 奈特。","Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.":"相对世界先验的对数似然比取最大值，第二名尚未拟合。","XOR with the identity encoder.":"使用恒等编码器的 XOR。","A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.":"线性对数似然比无法分开这些象限——准确率接近随机水平，正如 Cypha README 所述。请在上方启用潜在 RFF 编码器。","XOR with random Fourier features.":"使用随机傅里叶特征的 XOR。","The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.":"编码器把这个问题提升到一个线性比值确实能分开它的空间。这个二维玩具例子分得很干净；同样的办法让真实的 XOR 基准达到约 76%。","Concentric rings.":"同心圆环。","Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.":"两个类别共用同一个中心，因此 Δk 中表示位置的那一半完全无法区分它们。它们仅靠尺度分开——这正是类别差分要偏移自然参数、而不只是偏移均值的原因。"};</script>
 <script src="/assets/js/demos/cypha.js" defer></script><script src="/assets/js/demos/cypha-wasm.js" defer></script>
 </body>
 </html>

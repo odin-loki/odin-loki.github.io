@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Play chess against Cypha | Imortek</title>
-<meta name="description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
-<meta name="keywords" content="Cypha chess, chess engine, distilled model, browser chess, alpha-beta search, machine learning chess, 0x88 engine">
+<title>العب الشطرنج ضد Cypha | Imortek</title>
+<meta name="description" content="Cypha مُقطَّر من محرّك شطرنج حقيقي: 26,568 وضعية مُعنوَنة بتقييمات البحث الخاصة بالمحرّك. R2 على المحجوز 0.866. العبه في متصفحك.">
+<meta name="keywords" content="Cypha شطرنج, محرك شطرنج, نموذج مُقطَّر, شطرنج في المتصفح, بحث ألفا-بيتا, تعلّم آلي شطرنج, العب الشطرنج ضد الذكاء الاصطناعي">
 <meta name="author" content="Odin Loch — Imortek">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#06080b">
@@ -26,7 +26,7 @@
 <meta name="imortek:locale" content="ar">
 <meta name="imortek:speech" content="ar-SA">
 <meta name="imortek:prefix" content="/ar">
-<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
+<script>window.__IMORTEK_I18N={"lang.label":"اللغة","lang.choose":"اختر لغة","lang.suggested":"متصفحك يفضّل هذه اللغة","lang.close":"إغلاق","tools.label":"أدوات الصفحة","tools.toggle":"إظهار أدوات الصفحة أو إخفاؤها","tools.readAloud":"اقرأ بصوت عالٍ","tools.pause":"إيقاف مؤقت","tools.stop":"أوقف القراءة","tools.next":"الفقرة التالية","tools.voice":"الأوامر الصوتية","tools.explain":"اشرح المصطلحات","tools.reset":"إعادة تعيين","tools.termsOnPage":"مصطلحًا في هذه الصفحة","tools.learned":"مُتعلَّم","tools.preExpanded":"مفتوح مسبقًا","tools.openMore":"افتح {n} أخرى ليبدأ Cypha بالتنبؤ","tools.understood":"مفهوم","tools.corrected":"مُصحَّح","tools.off":"مُعطَّل","tools.reading":"جارٍ القراءة","search.placeholder":"ابحث — صِف ما تريد","search.aria":"ابحث في هذا الموقع","search.hint":"يطابق حسب المعنى، لا حسب الكلمات الحرفية وحدها. اضغط Esc للإغلاق.","search.nothing":"لا شيء قريب.","related.eyebrow":"الأقرب في هذا الموقع","related.title":"قراءات ذات صلة","related.note":"اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.","voice.help":"يمكنك أن تقول: اقرأ، توقف، التالي، رجوع، أعلى، الرئيسية، أو اسم صفحة. ويمكنك أيضًا وصف ما تريد فأجد لك أقرب صفحة.","voice.notCaught":"لم أسمع ذلك جيدًا. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.listening":"أستمع الآن. قل \"مساعدة\" لمعرفة ما يمكنك قوله.","voice.micOff":"الميكروفون مُعطَّل.","voice.micBlocked":"الميكروفون محظور. اسمح به في المتصفح لاستخدام الأوامر الصوتية.","voice.opening":"جارٍ فتح","voice.didYouMean":"هل تقصد","voice.sayNumber":"قل رقمًا، أو قل \"لا\".","voice.understood":"فهمت. قلها بطريقة أخرى، أو قل \"مساعدة\".","voice.endOfPage":"نهاية الصفحة.","voice.searchOpen":"فُتح البحث.","voice.nothingRelated":"لا يوجد شيء ذو صلة في هذه الصفحة.","voice.related":"ذو صلة","voice.goingTo":"الانتقال إلى","voice.heading":"عنوان.","voice.or":"أو","gh.live":"مباشرة من api.github.com","gh.cached":"نسخة محفوظة","gh.noDescription":"بلا وصف","gloss.notInDict":"غير موجود في القاموس.","gloss.lookingUp":"جارٍ البحث عنه…","gloss.forget":"نسيان ما تعلّمه Cypha"};</script>
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="product">
@@ -40,21 +40,21 @@
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:locale:alternate" content="ru_RU">
 <meta property="og:locale:alternate" content="ur_PK">
-<meta property="og:title" content="Play chess against Cypha | Imortek">
-<meta property="og:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta property="og:title" content="العب الشطرنج ضد Cypha | Imortek">
+<meta property="og:description" content="Cypha مُقطَّر من محرّك شطرنج حقيقي: 26,568 وضعية مُعنوَنة بتقييمات البحث الخاصة بالمحرّك. R2 على المحجوز 0.866. العبه في متصفحك.">
 <meta property="og:url" content="https://imortek.com.au/ar/chess.html">
 <meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Play chess against Cypha | Imortek">
+<meta property="og:image:alt" content="العب الشطرنج ضد Cypha | Imortek">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Play chess against Cypha | Imortek">
-<meta name="twitter:description" content="Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.">
+<meta name="twitter:title" content="العب الشطرنج ضد Cypha | Imortek">
+<meta name="twitter:description" content="Cypha مُقطَّر من محرّك شطرنج حقيقي: 26,568 وضعية مُعنوَنة بتقييمات البحث الخاصة بالمحرّك. R2 على المحجوز 0.866. العبه في متصفحك.">
 <meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
-<meta name="twitter:image:alt" content="Play chess against Cypha | Imortek">
+<meta name="twitter:image:alt" content="العب الشطرنج ضد Cypha | Imortek">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/chess.html#webpage","url":"https://imortek.com.au/ar/chess.html","name":"Play chess against Cypha | Imortek","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"Play chess against Cypha","item":"https://imortek.com.au/ar/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/chess.html#software","name":"Play chess against Cypha","description":"Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.","url":"https://imortek.com.au/ar/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"ar","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/ar/chess.html#webpage","url":"https://imortek.com.au/ar/chess.html","name":"العب الشطرنج ضد Cypha | Imortek","description":"Cypha مُقطَّر من محرّك شطرنج حقيقي: 26,568 وضعية مُعنوَنة بتقييمات البحث الخاصة بالمحرّك. R2 على المحجوز 0.866. العبه في متصفحك.","inLanguage":"ar","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"breadcrumb":{"@id":"https://imortek.com.au/ar/chess.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/ar/chess.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://imortek.com.au/ar/"},{"@type":"ListItem","position":2,"name":"العب الشطرنج ضد Cypha","item":"https://imortek.com.au/ar/chess.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/ar/chess.html#software","name":"العب الشطرنج ضد Cypha","description":"Cypha مُقطَّر من محرّك شطرنج حقيقي: 26,568 وضعية مُعنوَنة بتقييمات البحث الخاصة بالمحرّك. R2 على المحجوز 0.866. العبه في متصفحك.","url":"https://imortek.com.au/ar/chess.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/Cypha","sameAs":["https://github.com/odin-loki/Cypha"]}]}</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -139,40 +139,34 @@
 </header>
 
 <main id="main">
-<div class="wrap"><p class="i18n-note" role="note">أجزاء من هذه الصفحة ما زالت بالإنجليزية. الترجمة قيد الكتابة، ولا شيء هنا مترجم آليًّا.</p></div>
 <section class="phero" data-video="/assets/video/cypha" data-poster="/assets/img/video/cypha.jpg">
   <div class="gridlines" aria-hidden="true"></div>
   <div class="wrap phero__inner">
     <p class="tiny mono muted" style="margin-bottom:18px">
       <a href="/ar/cypha.html" style="color:var(--ink-mute)">Cypha</a>
-      <span style="opacity:.5">/</span> Chess
+      <span style="opacity:.5">/</span> الشطرنج
     </p>
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow">Product demo</span>
-        <h1>Play chess against <span class="gradient-text">Cypha</span></h1>
+        <span class="eyebrow">عرض المنتج</span>
+        <h1>العب الشطرنج ضد <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha did not learn chess from games. It learned it from an engine &mdash; the Imortek
-          reference engine, a conventional alpha-beta searcher with piece-square evaluation and
-          quiescence. Tens of thousands of positions were labelled with that engine&rsquo;s own
-          search evaluations, and Cypha&rsquo;s regression head was fitted to reproduce them.
+          لم يتعلّم Cypha الشطرنج من المباريات. تعلّمه من محرّك &mdash; محرّك Imortek المرجعي، وهو باحث alpha-beta تقليدي بتقييم قطعة-مربّع وبحث سكون. عُنوِنت عشرات الآلاف من الوضعيات بتقييمات البحث الخاصة بذلك المحرّك، ولُوئم رأس الانحدار في Cypha ليعيد إنتاجها.
         </p>
         <p class="lede">
-          What you play against below is that fitted head, running in your browser, inside a
-          shallow search. Every number on this page was measured by the training run that
-          produced it.
+          ما تلعب ضدّه أدناه هو ذلك الرأس المُلائَم، يعمل في متصفحك داخل بحث ضحل. وكل رقم في هذه الصفحة قاسه التشغيل التدريبي الذي أنتجه.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#board">Play a game</a>
-          <a class="btn btn--ghost" href="#how">How it was distilled</a>
+          <a class="btn btn--primary" href="#board">العب مباراة</a>
+          <a class="btn btn--ghost" href="#how">كيف جرى التقطير</a>
         </div>
       </div>
       <div>
         <div class="card card--pad-lg">
-          <span class="eyebrow" style="margin-bottom:16px">Measured, not claimed</span>
+          <span class="eyebrow" style="margin-bottom:16px">مقيس، لا مُدَّعى</span>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Held-out R&sup2;</div>
+              <div class="readout__k">R&sup2; على المحجوز</div>
               <div class="readout__v" id="cx-r2">&mdash;</div>
             </div>
             <div class="readout__item">
@@ -180,43 +174,29 @@
               <div class="readout__v plain" id="cx-rmse">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Positions</div>
+              <div class="readout__k">الوضعيات</div>
               <div class="readout__v plain" id="cx-positions" style="font-size:1.05rem">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">vs teacher</div>
+              <div class="readout__k">أمام المعلّم</div>
               <div class="readout__v amber" id="cx-match" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
           <p class="small muted" style="margin-top:16px">
-            R&sup2; is against held-out positions the model never saw during fitting. The match
-            line is Cypha at search depth 2 against the teacher engine at the same depth, with
-            randomised openings and colours alternated. All four numbers describe the model
-            <em>as distilled</em> &mdash; they are fixed, and they are not measurements of your copy.
+            R&sup2; محسوب على وضعيات محجوزة لم يرَها النموذج أثناء الملاءمة. وسطر المباريات هو Cypha بعمق بحث 2 أمام محرّك المعلّم بالعمق نفسه، بافتتاحيات عشوائية وألوان متبادلة. والأرقام الأربعة كلها تصف النموذج
+            <em>كما قُطِّر</em> &mdash; وهي ثابتة، وليست قياسات لنسختك.
           </p>
 
           <div class="note note--violet" style="margin-top:20px">
-            <strong>Your copy is still learning.</strong> Cypha is an online learner, so the head
-            does not stop fitting when the download finishes. Every move it plays against you is
-            one more training pair, and the panel below the board shows how far your copy has
-            moved away from the one that shipped.
+            <strong>نسختك ما زالت تتعلّم.</strong> Cypha متعلّم مباشر، فالرأس لا يتوقّف عن الملاءمة عند انتهاء التنزيل. كل نقلة يلعبها ضدّك زوج تدريب إضافي، واللوحة أسفل الرقعة تُظهر كم ابتعدت نسختك عن النسخة المشحونة.
           </div>
 
           <div class="note note--amber" style="margin-top:16px">
-            <strong>And it does not yet make it play better. Measured, not assumed.</strong>
-            Over 12 self-play games the correction reduces the head&rsquo;s error against its own
-            search from <b>0.76</b> to <b>0.67</b> pawns &mdash; and where the frozen head drifts
-            <b>4.6%</b> worse across a session, the learning one gets <b>5.2%</b> better. So the
-            fitting is real. But a copy trained on 1,119 positions then played against the shipped
-            copy, 24 games at depth 2 with colours alternated, finishes <b>6W&ndash;7L&ndash;11D</b>:
-            a dead heat.
+            <strong>ولا يجعله ذلك يلعب أفضل بعد. مقيس، لا مفترض.</strong>
+            على مدى 12 مباراة ذاتية يخفض التصحيح خطأ الرأس في مقابل بحثه هو من <b>0.76</b> إلى <b>0.67</b> بيدق &mdash; وحيث ينجرف الرأس المجمَّد
+            <b>4.6%</b> نحو الأسوأ خلال جلسة، يتحسّن الرأس المتعلّم بنسبة <b>5.2%</b> . إذن الملاءمة حقيقية. لكن نسخة دُرِّبت على 1,119 وضعية ثم لُعبت ضد النسخة المشحونة، 24 مباراة بعمق 2 مع تبديل الألوان، تنتهي <b>6 فوز&ndash;7 خسارة&ndash;11 تعادل</b>: تعادل تام.
             <br><br>
-            That is the expected result and it is worth stating rather than hiding. The signal is
-            the model&rsquo;s own depth-2 search, which is barely deeper than the static head&rsquo;s
-            own view &mdash; learning to agree with yourself is not the same as getting stronger.
-            A thousand positions against the 26,568 it was distilled on is also nothing. The
-            honest claim is that the online learner works and is doing what it says; the claim
-            that it will beat the shipped model has not been earned.
+            هذه هي النتيجة المتوقَّعة، وذِكرها أولى من إخفائها. فالإشارة هي بحث النموذج نفسه بعمق 2، وهو بالكاد أعمق من رؤية الرأس الساكن &mdash; وتعلُّم الاتفاق مع نفسك ليس كالاشتداد. وألف وضعية في مقابل 26,568 قُطِّر عليها لا شيء أيضًا. الادّعاء الصادق هو أن المتعلّم المباشر يعمل ويفعل ما يقوله؛ أما الادّعاء بأنه سيتغلّب على النسخة المشحونة فلم يُستحقّ بعد.
           </div>
         </div>
       </div>
@@ -228,17 +208,17 @@
   <div class="wrap">
     <div class="demo reveal" id="cx-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head <span class="badge badge--violet" style="margin-left:8px">learning</span></h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; رأس الشطرنج <span class="badge badge--violet" style="margin-left:8px">يتعلّم</span></h3>
         <div class="controls">
-          <div class="seg" role="group" aria-label="Strength">
-            <button type="button" data-depth="1">Casual</button>
-            <button type="button" data-depth="2" aria-pressed="true">Standard</button>
-            <button type="button" data-depth="3">Careful</button>
+          <div class="seg" role="group" aria-label="القوة">
+            <button type="button" data-depth="1">عابر</button>
+            <button type="button" data-depth="2" aria-pressed="true">قياسي</button>
+            <button type="button" data-depth="3">متأنٍّ</button>
           </div>
           <label class="switch">
             <input type="checkbox" id="cx-flip">
             <span class="switch__track"></span>
-            <span>Play as black</span>
+            <span>العب بالأسود</span>
           </label>
         </div>
       </div>
@@ -247,118 +227,101 @@
         <div class="demo__stage">
           <div class="chess-wrap">
             <div class="chess-evalbar" aria-hidden="true"><div class="chess-evalbar__fill" id="cx-evalfill"></div></div>
-            <div class="chess-board" id="cx-board" role="grid" aria-label="Chess board"></div>
+            <div class="chess-board" id="cx-board" role="grid" aria-label="رقعة شطرنج"></div>
           </div>
           <p class="demo__hint" style="margin-top:14px">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Click a piece, then click where it goes. Legal destinations are marked.
+            انقر قطعة، ثم انقر حيث تذهب. الوجهات القانونية مُعلَّمة.
           </p>
           <div class="btn-row" style="margin-top:16px">
-            <button class="btn btn--sm btn--primary" id="cx-new">New game</button>
-            <button class="btn btn--sm" id="cx-undo">Take back</button>
-            <button class="btn btn--sm btn--ghost" id="cx-hint">What would Cypha play?</button>
+            <button class="btn btn--sm btn--primary" id="cx-new">مباراة جديدة</button>
+            <button class="btn btn--sm" id="cx-undo">تراجع عن النقلة</button>
+            <button class="btn btn--sm btn--ghost" id="cx-hint">ماذا سيلعب Cypha؟</button>
           </div>
         </div>
 
         <div class="demo__side">
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Position</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">الوضعية</h4>
             <div class="verdict" id="cx-status">
-              <div class="verdict__label">Loading model&hellip;</div>
-              <div class="verdict__why">Fetching the distilled weights.</div>
+              <div class="verdict__label">جارٍ تحميل النموذج&hellip;</div>
+              <div class="verdict__why">جلب الأوزان المُقطَّرة.</div>
             </div>
           </div>
 
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
-              <div class="readout__k">Cypha eval</div>
+              <div class="readout__k">تقييم Cypha</div>
               <div class="readout__v" id="cx-eval">&mdash;</div>
             </div>
             <div class="readout__item">
-              <div class="readout__k">Nodes</div>
+              <div class="readout__k">العقد</div>
               <div class="readout__v plain" id="cx-nodes" style="font-size:1.05rem">&mdash;</div>
             </div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">What Cypha considered</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">ما نظر فيه Cypha</h4>
             <div id="cx-candidates" style="display:grid;gap:8px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Moves</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">النقلات</h4>
             <div class="log" id="cx-moves" style="height:130px"></div>
           </div>
 
           <div>
-            <h4 class="panel__title" style="margin-bottom:10px">Learning from you</h4>
+            <h4 class="panel__title" style="margin-bottom:10px">التعلّم منك</h4>
             <div class="readout" style="grid-template-columns:1fr 1fr;margin-bottom:10px">
               <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
-                <div class="readout__k">Rating at this depth</div>
+                <div class="readout__k">التصنيف عند هذا العمق</div>
                 <div class="readout__v violet" id="cx-rating" style="font-size:1rem">&mdash;</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Model in use</div>
-                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">depth 2</div>
+                <div class="readout__k">النموذج المستخدم</div>
+                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">عمق 2</div>
               </div>
             </div>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
-                <div class="readout__k">Positions learned</div>
+                <div class="readout__k">الوضعيات المتعلَّمة</div>
                 <div class="readout__v plain" id="cx-learn-pos" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Games finished</div>
+                <div class="readout__k">المباريات المنتهية</div>
                 <div class="readout__v plain" id="cx-learn-games" style="font-size:1rem">0</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Drift from shipped</div>
+                <div class="readout__k">الانجراف عن المشحون</div>
                 <div class="readout__v violet" id="cx-learn-drift" style="font-size:1rem">0.00%</div>
               </div>
               <div class="readout__item">
-                <div class="readout__k">Last correction</div>
+                <div class="readout__k">آخر تصحيح</div>
                 <div class="readout__v plain" id="cx-learn-res" style="font-size:1rem">&mdash;</div>
               </div>
             </div>
             <div class="btn-row" style="margin-top:12px">
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">Learning on</button>
-              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">Reset to shipped</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">التعلّم مفعّل</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">أعد الضبط إلى المشحون</button>
             </div>
             <p class="tiny muted" style="margin-top:10px">
-              <strong>Drift</strong> is the size of the change to the weight vector, relative to the
-              distilled one. <strong>Last correction</strong> is how wrong the static head was about
-              the position it just moved from, in pawns, measured against its own deeper search.
+              <strong>الانجراف</strong> هو حجم التغيّر في متجه الأوزان، نسبةً إلى المتجه المُقطَّر. <strong>آخر تصحيح</strong> هو مقدار خطأ الرأس الساكن في الوضعية التي تحرّك منها للتوّ، بالبيادق، مقيسًا في مقابل بحثه الأعمق.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>Rating</strong> is on an internal ladder, not FIDE &mdash; there is no honest way
-              to put a FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>التصنيف</strong> محسوب على سلّم داخلي، لا FIDE &mdash; إذ لا سبيل صادقًا لوضع رقم FIDE على شيء لم يلعب قط أمام إنسان مصنَّف. المحرّك المرجعي عند العمق 1 مثبَّت عند 1000، وكل شيء مُلائَم من 210 مباريات بطريقة Bradley-Terry بأقصى إمكان، فلا يعتمد على ترتيب لعبها. السلّم المقيس: المرجع 1000 / 1171 / 1245 عند الأعماق 1&ndash;3، وCypha 798 / 1010 / 1161. يعمل Cypha بما يقارب عمق بحث واحد خلف المحرّك الذي قُطِّر منه، وحدود الخطأ نحو &plusmn;50، وهذا ما تشتريه 210 مباريات.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              Each strength setting keeps <strong>its own model</strong>. A head playing at depth 1
-              is corrected toward a depth-1 search; at depth 3 the target is a different, better
-              one. Training both into one weight vector would just have them argue. Switch
-              strength and the counters change with it.
+              كل إعداد قوة يحتفظ <strong>بنموذجه الخاص</strong>. الرأس الذي يلعب بعمق 1 يُصحَّح نحو بحث بعمق 1؛ وعند العمق 3 يكون الهدف مختلفًا وأفضل. وتدريب الاثنين في متجه أوزان واحد سيجعلهما يتنازعان فقط. بدّل القوة فتتبدّل العدّادات معها.
             </p>
           </div>
 
           <div class="note" style="font-size:.79rem;padding:12px 14px">
-            The evaluation is a <strong>linear</strong> function of 388 features. It has no search
-            depth of its own, no opening book and no endgame knowledge. Beating it is expected;
-            the interesting part is that a single whitened linear head reproduces an engine&rsquo;s
-            search evaluation at all &mdash; and then keeps correcting itself while you play.
+            التقييم دالّة <strong>خطّية</strong> في 388 سمة. ليس له عمق بحث خاص به، ولا كتاب افتتاحيات، ولا معرفة بالنهايات. التغلّب عليه متوقَّع؛ والمثير أن رأسًا خطّيًّا واحدًا مُبيَّضًا يعيد إنتاج تقييم بحث محرّك أصلًا &mdash; ثم يواصل تصحيح نفسه وأنت تلعب.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Engine, features, distilled weights and player all run locally. Nothing is sent anywhere,
-        and no model is downloaded beyond a few kilobytes of coefficients. What your copy learns
-        is kept in your browser, belongs to you, and is never uploaded &mdash; so nobody else&rsquo;s
-        games can move your model, and yours cannot move theirs.
+        المحرّك والسمات والأوزان المُقطَّرة واللاعب كلها تعمل محليًّا. لا يُرسَل أي شيء إلى أي جهة، ولا يُنزَّل أي نموذج أبعد من بضعة كيلوبايتات من المعاملات. وما تتعلّمه نسختك يبقى في متصفحك، وهو ملكك، ولا يُرفَع أبدًا &mdash; فلا مباريات أحد آخر تستطيع تحريك نموذجك، ولا مبارياتك تستطيع تحريك نموذجه.
       </div>
     </div>
   </div>
@@ -367,90 +330,72 @@
 <section class="section section--alt" id="how">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow eyebrow--violet">Method</span>
-      <h2>How an engine becomes a Cypha model</h2>
+      <span class="eyebrow eyebrow--violet">الطريقة</span>
+      <h2>كيف يصير المحرّك نموذج Cypha</h2>
       <p class="lede">
-        This is knowledge distillation, done with the same components as every other Cypha
-        application. Nothing chess-specific was added to the architecture &mdash; only the features.
+        هذا تقطير معرفة، بالمكوّنات نفسها التي في كل تطبيق Cypha آخر. لم يُضَف إلى المعمارية أي شيء خاص بالشطرنج &mdash; السمات فقط.
       </p>
     </div>
 
-    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="The distillation chain: a perft-verified reference engine labels 26,568 positions, which become 388 features, fitted into a Cypha head of 9.4 kilobytes achieving held-out R squared of 0.866" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>Distillation, not discovery.</b> Every number in the last box was measured by the training run that produced the weights this page loads.</figcaption></figure>
+    <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/chess-distill.svg" alt="سلسلة التقطير: محرّك مرجعي متحقَّق منه بـperft يُعنوِن 26,568 وضعية، تصير 388 سمة، تُلائَم في رأس Cypha بحجم 9.4 كيلوبايت يبلغ R تربيع 0.866 على المحجوز" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>تقطير، لا اكتشاف.</b> كل رقم في الصندوق الأخير قاسه التشغيل التدريبي الذي أنتج الأوزان التي تحمّلها هذه الصفحة.</figcaption></figure>
 
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 1</span>
-        <h3 style="font-size:1.02rem">The teacher</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">الخطوة 1</span>
+        <h3 style="font-size:1.02rem">المعلّم</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          MVV-LVA ordering and quiescence search. Verified against five standard perft positions
-          including kiwipete, so the rules are provably right before anything is learned from it.
+          محرّك 0x88 بتوليد كامل للنقلات القانونية، وتقييم للمادة وقطعة-مربّع، وترتيب MVV-LVA، وبحث سكون. متحقَّق منه في مقابل خمس وضعيات perft معيارية منها kiwipete، فتكون القواعد صحيحة بالبرهان قبل أن يُتعلَّم منه أي شيء.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">Step 2</span>
-        <h3 style="font-size:1.02rem">The data</h3>
+        <span class="badge badge--teal" style="margin-bottom:12px">الخطوة 2</span>
+        <h3 style="font-size:1.02rem">البيانات</h3>
         <p class="small dim" style="margin:0">
-          Positions drawn from self-play with randomised openings and deliberate noise, so the
-          set spans real games rather than one narrow line. Each is labelled with the teacher&rsquo;s
-          own search score, clipped to &plusmn;12 pawns to keep mate scores from dominating.
+          وضعيات مأخوذة من لعب ذاتي بافتتاحيات عشوائية وضوضاء متعمَّدة، فتغطي المجموعة مباريات حقيقية بدل خط ضيّق واحد. وكل وضعية مُعنوَنة بدرجة البحث الخاصة بالمعلّم، مقصوصة عند &plusmn;12 بيدقًا كي لا تهيمن درجات الكِش مات.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 3</span>
-        <h3 style="font-size:1.02rem">The features</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">الخطوة 3</span>
+        <h3 style="font-size:1.02rem">السمات</h3>
         <p class="small dim" style="margin:0">
-          388 dimensions: a 384-wide piece-square occupancy difference (6 types &times; 64 squares)
-          plus bishop pair, doubled pawns, mobility and game phase. Always from the side to move&rsquo;s
-          perspective, so one weight vector serves both colours.
+          388 بُعدًا: فرق إشغال قطعة-مربّع بعرض 384 (6 أنواع &times; 64 مربّعًا) إضافة إلى زوج الفيلة، والبيادق المضاعفة، والحركية، وطور المباراة. دائمًا من منظور الطرف صاحب الدور، فيخدم متجه أوزان واحد اللونين معًا.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
-        <span class="badge badge--violet" style="margin-bottom:12px">Step 4</span>
-        <h3 style="font-size:1.02rem">The fit</h3>
+        <span class="badge badge--violet" style="margin-bottom:12px">الخطوة 4</span>
+        <h3 style="font-size:1.02rem">الملاءمة</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised-LMS weight updates, MDL decay pulling weights back toward the prior,
-          and a surprise-weighted replay buffer at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; مُلائَم مباشرةً بطريقة Welford، والتبييض بوصفه مقياس التدرّج الطبيعي، وتحديثات أوزان بـLMS معيَّرة، واضمحلال MDL يشدّ الأوزان نحو المسبق، وذاكرة إعادة موزونة بالمفاجأة عند نسبة Cypha المرجعية 0.30.
         </p>
       </div>
     </div>
 
     <div class="split" style="margin-top:48px">
       <div class="reveal">
-        <span class="eyebrow">Why this is a fair demonstration</span>
-        <h3>The architecture did the work, not the domain</h3>
+        <span class="eyebrow">لماذا هذا عرض منصف</span>
+        <h3>المعمارية هي التي قامت بالعمل، لا المجال</h3>
         <p class="dim">
-          Every component in step 4 is a real Cypha component doing its real job. The WorldPrior
-          is the same online Gaussian that gives the 2-D classifier on the
-          <a href="/ar/cypha.html#demo">Cypha page</a> its decision surface. The whitening is the
-          information-geometry claim made concrete: updates follow the natural gradient rather
-          than the raw one. MDL decay is the Solomonoff prior expressed as a shrinkage term.
+          كل مكوّن في الخطوة 4 مكوّن Cypha حقيقي يؤدي عمله الحقيقي. وWorldPrior هو التوزيع الغاوسي المباشر نفسه الذي يمنح المصنّف ثنائي الأبعاد في
+          <a href="/ar/cypha.html#demo">صفحة Cypha</a> سطحَ قراره. والتبييض هو ادّعاء الهندسة المعلوماتية مجسَّدًا: التحديثات تتبع التدرّج الطبيعي بدل الخام. واضمحلال MDL هو مسبق Solomonoff معبَّرًا عنه بحدّ انكماشي.
         </p>
         <p class="dim">
-          What changed for chess is the feature map and the head &mdash; regression instead of
-          classification. That is the argument the Cypha README makes about being one type that
-          does several jobs, tested on a domain where the answer is unambiguous: either it plays
-          legal, reasonable chess or it does not.
+          ما تغيّر من أجل الشطرنج هو خريطة السمات والرأس &mdash; انحدار بدل تصنيف. وهذه هي الحجّة التي يسوقها ملف README الخاص بـCypha عن كونه نوعًا واحدًا يؤدي عدة أعمال، مختبَرةً على مجال جوابه لا يحتمل اللبس: إمّا أن يلعب شطرنجًا قانونيًّا معقولًا أو لا.
         </p>
       </div>
       <div class="reveal" data-delay=".08">
-        <span class="eyebrow eyebrow--amber">What this does not show</span>
-        <h3>The honest limits</h3>
+        <span class="eyebrow eyebrow--amber">ما لا يُظهره هذا</span>
+        <h3>الحدود بصراحة</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>It is linear.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for XOR.</li>
-          <li><strong>The teacher is modest.</strong> The reference engine is a competent classical searcher, not Stockfish. Distilling it well means matching a modest evaluator well.</li>
-          <li><strong>No search depth of its own.</strong> Strength here comes mostly from the alpha-beta wrapper, exactly as it does for the teacher.</li>
-          <li><strong>Distillation is not discovery.</strong> Cypha reproduced an evaluation function it was shown. It did not learn chess from scratch, and nothing on this page claims it did.</li>
+          <li><strong>هو خطّي.</strong> دالّة خطّية في سمات قطعة-مربّع لا تستطيع تمثيل أمان الملك، ولا تفاعلات بنية البيادق، ولا أي شيء يتطلّب جداء سمتين. وله السقف نفسه الذي يصفه ملف README الخاص بـCypha لمسألة XOR.</li>
+          <li><strong>المعلّم متواضع.</strong> المحرّك المرجعي باحث كلاسيكي كفء، لا Stockfish. وتقطيره جيّدًا يعني مطابقة مقيِّم متواضع مطابقةً جيّدة.</li>
+          <li><strong>لا عمق بحث خاص به.</strong> القوة هنا تأتي في معظمها من غلاف alpha-beta، تمامًا كما هي للمعلّم.</li>
+          <li><strong>التقطير ليس اكتشافًا.</strong> أعاد Cypha إنتاج دالّة تقييم عُرضت عليه. لم يتعلّم الشطرنج من الصفر، ولا شيء في هذه الصفحة يدّعي أنه فعل.</li>
         </ul>
       </div>
     </div>
 
     <div class="note note--violet reveal" style="margin-top:32px">
-      <strong>Reproduce it:</strong> <code>node tools/chess/perft.js</code> verifies the engine
-      against the standard test positions, and <code>node tools/chess/train.js</code> regenerates
-      the model from scratch with a fixed seed. The numbers at the top of this page are read
-      directly out of the file that run produces.
+      <strong>أعد إنتاجه:</strong> <code>node tools/chess/perft.js</code> يتحقّق من المحرّك في مقابل وضعيات الاختبار المعيارية، و <code>node tools/chess/train.js</code> يعيد توليد النموذج من الصفر ببذرة ثابتة. والأرقام في أعلى هذه الصفحة تُقرأ مباشرة من الملف الذي ينتجه ذلك التشغيل.
     </div>
   </div>
 </section>
@@ -520,7 +465,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-16T11:37:49Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
+      <span class="mono tiny">بُني في 2026-09-16T12:42:38Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات.</span>
     </div>
   </div>
 </footer>
@@ -531,6 +476,7 @@
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"Class A":"الفئة A","Class B":"الفئة B","Class C":"الفئة C","Click to place samples, or load a dataset below":"انقر لوضع عيّنات، أو حمّل مجموعة بيانات أدناه","Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.":"دون الاحتمال القَبْلي للعالم — هذه النقطة أرجح تحت θ₀ منها تحت أي فئة. مُعلَّمة خارج التوزيع.","Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.":"أقصى نسبة لوغاريتم أرجحية مقابل الاحتمال القَبْلي للعالم، والمرشّح الثاني متأخّر بمقدار {n} نات.","Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.":"أقصى نسبة لوغاريتم أرجحية مقابل الاحتمال القَبْلي للعالم، والمرشّح الثاني لم يُلائَم بعد.","XOR with the identity encoder.":"XOR مع مُرمِّز الهوية.","A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.":"نسبة لوغاريتم أرجحية خطية لا يمكنها فصل هذه الأرباع — تبقى الدقّة قرب مستوى الصدفة، تمامًا كما يذكر ملف Cypha README. فعّل مُرمِّز RFF الكامن أعلاه.","XOR with random Fourier features.":"XOR مع سمات فورييه العشوائية.","The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.":"يرفع المُرمِّز المسألة إلى فضاء تفصلها فيه نسبة خطية فعلًا. هذا المثال ثنائي الأبعاد يُفصل بنظافة؛ والإصلاح نفسه يرفع معيار XOR الحقيقي إلى نحو 76%.","Concentric rings.":"حلقات متحدة المركز.","Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.":"تشترك الفئتان في المركز نفسه، فلا يميّز بينهما شطر الموقع من Δk إطلاقًا. تنفصلان بالمقياس وحده — ولهذا يُزيح الفارق الفئوي المعاملات الطبيعية، لا المتوسط فقط.","YOU WIN":"فُزت","CYPHA WINS":"فوز Cypha","Checkmate in {n} moves.":"كِش مات خلال {n} من النقلات.","DRAW":"تعادل","Stalemate — no legal move, and not in check.":"جمود — لا توجد نقلة قانونية، والملك ليس تحت كِش.","Fifty-move rule.":"قاعدة الخمسين نقلة.","Insufficient material.":"عدم كفاية القطع.","CYPHA IS THINKING":"Cypha تفكّر","YOUR MOVE":"دورك","CYPHA TO MOVE":"دور Cypha","Check.":"كِش.","Click a piece to see where it can go.":"انقر قطعة لترى إلى أين يمكنها الانتقال.","Searching to depth {n} with the distilled evaluation.":"بحث حتى العمق {n} بالتقييم المُقطَّر.","Learning on":"التعلّم مُفعَّل","Learning off":"التعلّم مُعطَّل"};</script>
 <script src="/assets/js/chess/engine.js" defer></script><script src="/assets/js/chess/features.js" defer></script><script src="/assets/js/chess/cypha.js" defer></script><script src="/assets/js/demos/chess.js" defer></script>
 </body>
 </html>
