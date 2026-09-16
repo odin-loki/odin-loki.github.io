@@ -187,6 +187,91 @@
     });
   }
 
+  /* ---------- did you mean ----------
+     A miss is more useful with a near word beside it than with an
+     apology. Two sources, in this order:
+
+       1. edit distance 1 — one deletion, transposition, substitution
+          or insertion — tested against the trie, which makes exact
+          membership a walk of length n and nothing else;
+       2. prefix completions of the typed word, which is what catches
+          a truncation rather than a typo.
+
+     The cost rule is that a miss must not buy a second round of
+     fetches. lookup() has already pulled the word's own shard and
+     possibly a neighbour's; only those, and anything else resident
+     from an earlier lookup, are consulted. A candidate whose shard is
+     not loaded is dropped rather than fetched, so the suggestions are
+     the ones that were free. That makes the answer depend on what the
+     reader has looked up before, which is a real limitation and the
+     honest trade: a suggestion is a courtesy, and a courtesy that
+     costs 150KB is not one.
+
+     Ranking is by edit position — a typo late in a word leaves a
+     longer correct prefix, and a candidate sharing more of the
+     opening is more likely to be the word meant. */
+  var ALPHA = 'abcdefghijklmnopqrstuvwxyz';
+
+  function edits1(w) {
+    var out = [], i, j, c;
+    for (i = 0; i < w.length; i++) out.push(w.slice(0, i) + w.slice(i + 1));
+    for (i = 0; i < w.length - 1; i++)
+      out.push(w.slice(0, i) + w.charAt(i + 1) + w.charAt(i) + w.slice(i + 2));
+    for (i = 0; i < w.length; i++)
+      for (j = 0; j < 26; j++) {
+        c = ALPHA.charAt(j);
+        if (c !== w.charAt(i)) out.push(w.slice(0, i) + c + w.slice(i + 1));
+      }
+    for (i = 0; i <= w.length; i++)
+      for (j = 0; j < 26; j++) out.push(w.slice(0, i) + ALPHA.charAt(j) + w.slice(i));
+    return out;
+  }
+
+  /* How much of the opening two words share. */
+  function shared(a, b) {
+    var i = 0, n = Math.min(a.length, b.length);
+    while (i < n && a.charAt(i) === b.charAt(i)) i++;
+    return i;
+  }
+
+  function suggest(raw, limit) {
+    var w = String(raw || '').toLowerCase().trim();
+    limit = limit || 3;
+    if (w.length < 3) return Promise.resolve([]);
+    return loadManifest().then(function () {
+      var own = shardFor(w);
+      // Resident shards plus this word's own, which lookup() fetched.
+      return (own && !shards[own] ? loadShard(own) : Promise.resolve())
+        .then(function () {
+          var seen = {}, hits = [];
+          seen[w] = 1;
+          edits1(w).forEach(function (c) {
+            if (c.length < 3 || seen[c]) return;
+            seen[c] = 1;
+            var name = shardFor(c);
+            if (!name || !shards[name]) return;   // not resident: not free
+            var node = walk(shards[name].trie, c);
+            if (node && node.i >= 0) hits.push({ word: c, rank: shared(w, c) });
+          });
+          hits.sort(function (a, b) {
+            return b.rank - a.rank || (a.word < b.word ? -1 : 1);
+          });
+          var out = hits.slice(0, limit).map(function (h) { return h.word; });
+          if (out.length >= limit) return out;
+          // Room left: fill it with completions of what was typed.
+          // prefix() resolves shardFor(w), which is `own' above and is
+          // therefore already resident -- still no second fetch.
+          return prefix(w, limit).then(function (pre) {
+            pre.forEach(function (word) {
+              if (out.length < limit && word !== w && out.indexOf(word) < 0)
+                out.push(word);
+            });
+            return out;
+          }, function () { return out; });
+        });
+    });
+  }
+
   function stats() {
     var names = Object.keys(shards), words = 0;
     names.forEach(function (n) { words += shards[n].words.length; });
@@ -196,5 +281,6 @@
              wordsTotal: manifest ? manifest.words : 0 };
   }
 
-  root.ImortekDict = { lookup: lookup, prefix: prefix, stats: stats, ready: loadManifest };
+  root.ImortekDict = { lookup: lookup, prefix: prefix, suggest: suggest,
+                       stats: stats, ready: loadManifest };
 }(typeof self !== 'undefined' ? self : this));

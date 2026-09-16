@@ -1183,6 +1183,13 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
   display: block; margin-top: 6px; font-family: var(--mono);
   font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
 }
+/* Did you mean — the near words offered when a lookup misses. */
+.gloss__near { display: block; margin-top: 6px; color: var(--ink-mute); }
+.gloss__near-btn {
+  background: none; border: 0; padding: 0; font: inherit; cursor: pointer;
+  color: var(--violet); border-bottom: 1px dotted currentColor;
+}
+.gloss__near-btn:hover, .gloss__near-btn:focus-visible { color: var(--ink); }
 
 /* ============================================================
    Voice — read aloud, and speak to navigate.
