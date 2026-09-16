@@ -138,6 +138,38 @@
   /* ---------- wrap the first mention of each term ---------- */
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
+  /* Matching a term against the page.
+
+     English is easy: the word appears as written. Arabic attaches the article
+     and its conjunctions to the front of the word — النواة, وللنواة — and
+     Russian, Hindi and Bengali inflect the end, so an exact match finds the
+     term in the heading and misses the eight times the sentence actually uses
+     it. On a translated page that halved the number of terms explained.
+
+     So an alias may carry a short prefix in the scripts that prefix, and a
+     short suffix in the ones that inflect. Only for aliases of four
+     characters or more, only two or three letters either side, and never for
+     English — which keeps "core" from swallowing "corexyz" and keeps the
+     English behaviour exactly as it was. Five characters, not four: at four,
+     the Hindi for "fixed" matched inside the Hindi for "deterministic". */
+  var ARABIC = /[\u0600-\u06ff]/;
+  var CYRILLIC = /[\u0400-\u04ff]/;
+  var INDIC = /[\u0900-\u097f\u0980-\u09ff]/;
+
+  function pattern(s) {
+    var body = esc(s);
+    if (LOC.code === 'en' || s.length < 5) return body;
+    if (ARABIC.test(s)) {
+      // و ف ب ك ل and the article ال, alone or combined.
+      return '(?:[\u0648\u0641\u0628\u0643\u0644]?\u0627\u0644|[\u0648\u0641\u0628\u0643\u0644])?' + body +
+             '[\u0627-\u064a]{0,2}';
+    }
+    if (CYRILLIC.test(s)) return body + '[\u0430-\u044f]{0,3}';
+    // U+0964 and U+0965 are the danda — sentence punctuation, not a suffix.
+    if (INDIC.test(s)) return body + '[\u0900-\u0963\u0966-\u097f\u0980-\u09ff]{0,3}';
+    return body;
+  }
+
   function markUp() {
     var strings = [];
     terms.forEach(function (t) {
@@ -149,7 +181,7 @@
     strings.forEach(function (pair) {
       var s = pair[0], t = pair[1];
       if (seen[t.t]) return;
-      var re = new RegExp('(^|[^\\w-])(' + esc(s) + ')(?![\\w-])', 'i');
+      var re = new RegExp('(^|[^\\w-])(' + pattern(s) + ')(?![\\w-])', 'i');
       var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;
