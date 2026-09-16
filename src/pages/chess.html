@@ -150,6 +150,16 @@
 
           <div>
             <h4 class="panel__title" style="margin-bottom:10px">Learning from you</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr;margin-bottom:10px">
+              <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
+                <div class="readout__k">Rating at this depth</div>
+                <div class="readout__v violet" id="cx-rating" style="font-size:1rem">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Model in use</div>
+                <div class="readout__v plain" id="cx-learn-profile" style="font-size:1rem">depth 2</div>
+              </div>
+            </div>
             <div class="readout" style="grid-template-columns:1fr 1fr">
               <div class="readout__item">
                 <div class="readout__k">Positions learned</div>
@@ -176,6 +186,12 @@
               <strong>Drift</strong> is the size of the change to the weight vector, relative to the
               distilled one. <strong>Last correction</strong> is how wrong the static head was about
               the position it just moved from, in pawns, measured against its own deeper search.
+            </p>
+            <p class="tiny muted" style="margin-top:8px">
+              Each strength setting keeps <strong>its own model</strong>. A head playing at depth 1
+              is corrected toward a depth-1 search; at depth 3 the target is a different, better
+              one. Training both into one weight vector would just have them argue. Switch
+              strength and the counters change with it.
             </p>
           </div>
 

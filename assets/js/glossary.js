@@ -21,7 +21,7 @@
       about the terms you skipped. Nothing is downloaded and nothing is
       sent anywhere; what it learns lives in your browser only.
    ============================================================= */
-(function () {
+(function (root) {
   'use strict';
 
   var main = document.getElementById('main');
@@ -187,6 +187,28 @@
     if (viaClick) learn(rec);
   }
 
+  /* Any word can be looked up, not just the curated ones. The hand-written
+     gloss always wins where there is one — WordNet defines "capability" as a
+     general noun, which is not what it means on this site. */
+  function lookupWord(word, host) {
+    if (!root.ImortekDict) return;
+    var pop = document.createElement('span');
+    pop.className = 'gloss__pop is-dict';
+    pop.setAttribute('role', 'note');
+    pop.innerHTML = '<b>' + word + '</b><span class="dim">looking it up\u2026</span>';
+    host.insertAdjacentElement('afterend', pop);
+    close();
+    popped = { el: host, pop: pop };
+    root.ImortekDict.lookup(word).then(function (hit) {
+      if (!popped || popped.pop !== pop) return;
+      pop.innerHTML = hit
+        ? '<b>' + hit.word + (hit.pos ? ' <span class="gloss__pos">' + POS[hit.pos] + '</span>' : '') +
+          '</b>' + hit.gloss + '<span class="gloss__src">WordNet</span>'
+        : '<b>' + word + '</b><span class="dim">Not in the dictionary.</span>';
+    });
+  }
+  var POS = { n: 'noun', v: 'verb', a: 'adjective', r: 'adverb' };
+
   function learn(rec) {
     if (model.opened.indexOf(rec.term.t) >= 0) return;
     model.opened.push(rec.term.t);
@@ -296,5 +318,17 @@
       open(rec, true);
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+    // Double-click any word on the page and it gets looked up. This is what the
+    // 144,440-word dictionary is for: the curated list covers this site's own
+    // jargon, and everything else falls through to WordNet.
+    main.addEventListener('dblclick', function (e) {
+      var sel = (window.getSelection ? String(window.getSelection()) : '').trim();
+      if (!sel || /\s/.test(sel) || sel.length < 3 || sel.length > 32) return;
+      if (e.target.closest('code, pre, .gloss')) return;
+      var host = e.target.closest('p, li, td, h2, h3, h4, figcaption, .note');
+      if (!host) return;
+      lookupWord(sel.toLowerCase().replace(/[^a-z'-]/gi, ''), host);
+    });
   }).catch(function () { /* no glossary, no layer — the page is unchanged */ });
-}());
+}(typeof self !== 'undefined' ? self : this));

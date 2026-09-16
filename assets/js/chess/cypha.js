@@ -56,7 +56,24 @@
     this.b0 = params.b;
     this.seen = 0;      // positions learned from
     this.games = 0;
+
+    // One learned displacement per search depth. A head that plays at depth 1
+    // is corrected toward a depth-1 search; at depth 3 it is corrected toward a
+    // depth-3 search. Those are different targets, so they get different
+    // models rather than fighting over one set of weights.
+    this.profiles = {};
+    this.profile = null;
   }
+
+  /* Switch to the model for a given search depth, stashing the current one. */
+  CyphaEval.prototype.useProfile = function (key) {
+    key = String(key);
+    if (this.profile === key) return;
+    if (this.profile !== null) this.profiles[this.profile] = this.save();
+    this.profile = key;
+    var p = this.profiles[key];
+    if (p) { this.restore(p); } else { this.w.set(this.w0); this.b = this.b0; this.seen = 0; this.games = 0; }
+  };
 
   /* Whitened features for a position: z = (phi - mu) / sigma. */
   CyphaEval.prototype._whiten = function (pos) {
@@ -98,8 +115,26 @@
     return n0 > 0 ? Math.sqrt(d / n0) : 0;
   };
 
-  CyphaEval.prototype.reset = function () {
+  CyphaEval.prototype.reset = function (allProfiles) {
     this.w.set(this.w0); this.b = this.b0; this.seen = 0; this.games = 0;
+    if (allProfiles) this.profiles = {};
+    else if (this.profile !== null) delete this.profiles[this.profile];
+  };
+
+  /* Every profile, for localStorage. */
+  CyphaEval.prototype.saveAll = function () {
+    var all = {}, k;
+    for (k in this.profiles) if (this.profiles.hasOwnProperty(k)) all[k] = this.profiles[k];
+    if (this.profile !== null) all[this.profile] = this.save();
+    return { v: 2, profile: this.profile, profiles: all };
+  };
+  CyphaEval.prototype.restoreAll = function (o) {
+    if (!o || o.v !== 2 || !o.profiles) return false;
+    this.profiles = o.profiles;
+    var want = this.profile;
+    this.profile = null;
+    this.useProfile(want === null ? (o.profile || '2') : want);
+    return true;
   };
 
   /* Persist only the displacement, rounded — the distilled weights are

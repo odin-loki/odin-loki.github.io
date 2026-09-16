@@ -42,7 +42,8 @@
      end of a game the last few of those positions are corrected again toward
      the result that actually happened.
      The learned displacement lives in this browser and goes nowhere else. */
-  var LKEY = 'imortek.chess.cypha.v1';
+  var LKEY = 'imortek.chess.cypha.v2';
+  var ranking = null;
   var learning = true;
   var gameFens = [];        // positions Cypha moved from, this game
   var lastResidual = null;
@@ -51,14 +52,16 @@
 
   function loadLearned() {
     if (!evaluator) return;
+    evaluator.useProfile(depth);
     try {
       var raw = localStorage.getItem(LKEY);
-      if (raw) evaluator.restore(JSON.parse(raw));
+      if (raw) { evaluator.profile = null; evaluator.restoreAll(JSON.parse(raw)); }
     } catch (e) {}
+    evaluator.useProfile(depth);
   }
   function saveLearned() {
     if (!evaluator) return;
-    try { localStorage.setItem(LKEY, JSON.stringify(evaluator.save())); } catch (e) {}
+    try { localStorage.setItem(LKEY, JSON.stringify(evaluator.saveAll())); } catch (e) {}
   }
 
   /* ---------- Load the distilled model ---------- */
@@ -348,7 +351,18 @@
     set('cx-learn-drift', (evaluator.drift() * 100).toFixed(2) + '%');
     set('cx-learn-res', lastResidual === null ? '—'
         : (lastResidual >= 0 ? '+' : '') + (lastResidual / 100).toFixed(2));
+    set('cx-learn-profile', 'depth ' + depth);
+    if (ranking && ranking.players) {
+      var me = ranking.players['cypha d' + depth];
+      set('cx-rating', me ? me.rating + ' \u00b1' + me.se : '—');
+    }
   }
+
+  /* The measured ladder, if it has been generated. */
+  fetch('/assets/data/cypha-chess-rank.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) { ranking = d; updateLearning(); } })
+    .catch(function () {});
 
   function newGame() {
     pos = new C.Position().setFen(C.START_FEN);
@@ -385,7 +399,7 @@
   if (learnReset) {
     learnReset.addEventListener('click', function () {
       if (!evaluator) return;
-      evaluator.reset();
+      evaluator.reset(false);
       lastResidual = null;
       gameFens = [];
       try { localStorage.removeItem(LKEY); } catch (e) {}
@@ -422,6 +436,14 @@
       root.querySelectorAll('[data-depth]').forEach(function (o) {
         o.setAttribute('aria-pressed', String(o === b));
       });
+      // Each depth keeps its own learned model: a head that plays at depth 1 is
+      // corrected toward a depth-1 search, which is not the same target as a
+      // depth-3 one.
+      if (evaluator) { evaluator.useProfile(depth); saveLearned(); }
+      gameFens = [];
+      lastResidual = null;
+      updateLearning();
+      updateEval();
       updateStatus();
     });
   });

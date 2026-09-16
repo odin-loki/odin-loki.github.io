@@ -1189,3 +1189,9 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 }
 @media (max-height: 560px) { .gloss-ctl { display: none; } }
 @media print { .gloss-ctl { display: none; } .gloss { border-bottom: 0; } }
+.gloss__pop.is-dict { border-left-color: var(--violet); }
+.gloss__pos { font-weight: 400; color: var(--ink-mute); font-size: .92em; }
+.gloss__src {
+  display: block; margin-top: 6px; font-family: var(--mono);
+  font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute);
+}
