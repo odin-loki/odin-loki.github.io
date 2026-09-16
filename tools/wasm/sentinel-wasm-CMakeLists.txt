@@ -1,0 +1,33 @@
+# Minimal WebAssembly target for SENTINEL's statistical models.
+#
+# SENTINEL's own CMakeLists requires Qt6::Test, which pulls in Qt6::Concurrent,
+# which does not exist in a single-threaded WebAssembly Qt — and a multi-threaded
+# one would need SharedArrayBuffer, so COOP/COEP headers, which GitHub Pages
+# cannot send. The models themselves need none of that: they use Qt value types
+# only, with no Q_OBJECT anywhere, so this builds them against Qt6::Core alone.
+cmake_minimum_required(VERSION 3.21)
+project(SentinelWasm LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Core)
+
+set(SN "${SENTINEL_SRC}")
+
+add_executable(sentinel
+    ${SN}/src/models/HawkesProcess.cpp
+    ${SN}/src/models/KDEHotspot.cpp
+    ${SN}/src/models/PoissonBaseline.cpp
+    ${SN}/src/core/SentinelLogger.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sentinel_web.cpp
+)
+target_include_directories(sentinel PRIVATE ${SN}/src)
+target_link_libraries(sentinel PRIVATE Qt6::Core)
+target_link_options(sentinel PRIVATE
+    -lembind   # Qt6Core wasm uses emval for locale and clipboard interop
+    -sMODULARIZE=1 -sEXPORT_NAME=Sentinel -sENVIRONMENT=web
+    -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=32MB
+    -sEXPORTED_RUNTIME_METHODS=cwrap,ccall
+    -sEXPORTED_FUNCTIONS=_sn_web_kde,_sn_web_hawkes,_sn_web_version,_malloc,_free
+)

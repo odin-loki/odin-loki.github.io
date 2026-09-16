@@ -124,11 +124,47 @@ naming the algorithm are LLVM's work, and LLVM does not fit in a web page at any
 
 ---
 
+---
+
+# SENTINEL's models in the browser
+
+`/sentinel.html` gains `models/KDEHotspot` and `models/HawkesProcess` — **2.4 MB**, because
+Qt6Core comes with them — running on points you click onto a map.
+
+Two obstacles, both real, both worked around rather than wished away.
+
+**Qt6::Test pulls in Qt6::Concurrent.** SENTINEL's `find_package(Qt6 REQUIRED COMPONENTS Core
+Widgets Network Charts Sql Test)` fails against a single-threaded WebAssembly Qt, which has no
+Concurrent — Concurrent needs threads. The multi-threaded Qt WASM build has it, but that needs
+`SharedArrayBuffer`, so COOP/COEP headers, which GitHub Pages cannot send.
+
+The models do not need any of that. They use Qt *value* types only — QVector, QString,
+QDateTime, QMap, QPair, QSet — with **no `Q_OBJECT` anywhere**, so no moc either. So the build
+here is a separate minimal target (`sentinel-wasm-CMakeLists.txt`) compiling three model
+sources plus the logger against `Qt6::Core` alone. SENTINEL's own CMakeLists is untouched.
+
+**Qt6Core's WASM build uses embind.** Linking fails with a wall of `_emval_decref` undefined
+until `-lembind` is added; Qt uses emval for locale and clipboard interop.
+
+```bash
+python3 -m aqt install-qt all_os wasm 6.8.0 wasm_singlethread -m qtcharts -O /tmp/qt
+python3 -m aqt install-qt linux desktop 6.8.0 linux_gcc_64 -O /tmp/qt
+cd /tmp/emsdk && ./emsdk install 3.1.56 && ./emsdk activate 3.1.56   # Qt 6.8 pins this exactly
+/tmp/qt/6.8.0/wasm_singlethread/bin/qt-cmake -S tools/wasm -B build -G Ninja \
+  -DQT_HOST_PATH=/tmp/qt/6.8.0/gcc_64 -DSENTINEL_SRC=/path/to/SENTINEL
+```
+
+Verified: two synthetic clusters of 14 and 10 incidents, and KDE ranks them 1 and 2 with the
+right counts and centroids. Hawkes fits and reports a branching ratio near zero on evenly
+spaced events, which is correct — evenly spaced events carry no self-excitation.
+
+What is **not** here is the application: ingest, the database, provenance, the nine-page
+dashboard. This is the maths, not the tool, and the page says so.
+
+---
+
 ## What is not here, and why
 
-- **SENTINEL** — `sentinel_core` links `Qt6::Core/Network/Sql/Charts/Widgets`, so the
-  analytics are not separable from the GUI toolkit. Qt for WebAssembly exists, needs
-  its own SDK, and its Charts/Sql/HttpServer support is partial.
 - **RetDec** — `deps/` is LLVM, Capstone, Keystone, OpenSSL, Eigen and llama.cpp.
   Compiling LLVM to WebAssembly is a multi-hour, multi-gigabyte job and the artifact
   would be far too large to serve.

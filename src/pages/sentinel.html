@@ -43,6 +43,65 @@
   </div>
 </section>
 
+<!-- ======================= MODELS IN WASM ======================= -->
+<section class="section" id="wasm">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The models themselves</span>
+      <h2>Two of the real models, compiled to WebAssembly</h2>
+      <p class="lede">
+        <code>models/KDEHotspot</code> and <code>models/HawkesProcess</code> &mdash; the same
+        C++ an analyst runs on the desktop, compiled with Qt for WebAssembly and fed points you
+        place yourself. Click the map to add incidents.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="snw-demo">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot"></span> KDEHotspot + HawkesProcess &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="snw-state">not loaded</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="snw-canvas" height="340" style="cursor:crosshair"></canvas>
+          <div class="btn-row" style="margin-top:14px">
+            <button type="button" class="btn btn--primary btn--sm" id="snw-load">Load the models &mdash; 2.4 MB</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-seed">Two clusters</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">Clear</button>
+          </div>
+          <p class="tiny muted" style="margin-top:12px">
+            2.4 MB because Qt6Core comes with it. That is the honest cost of running the real
+            model rather than a lookalike, and nothing downloads until you ask.
+          </p>
+        </div>
+        <div class="demo__side">
+          <div class="log" id="snw-out" style="height:200px;font-size:.76rem"></div>
+          <div class="readout" style="grid-template-columns:1fr 1fr">
+            <div class="readout__item">
+              <div class="readout__k">Incidents</div>
+              <div class="readout__v plain" id="snw-n" style="font-size:.95rem">0</div>
+            </div>
+            <div class="readout__item" style="background:rgba(167,139,250,.06);border-color:rgba(167,139,250,.3)">
+              <div class="readout__k">Branching ratio</div>
+              <div class="readout__v violet" id="snw-alpha" style="font-size:.95rem">&mdash;</div>
+            </div>
+          </div>
+          <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
+            <strong>Branching ratio</strong> is what the Hawkes model learned: the expected number
+            of follow-on incidents each incident triggers. Near zero means the points carry no
+            self-excitation &mdash; scatter them evenly and it should say so.
+          </div>
+        </div>
+      </div>
+      <div class="panel__foot">
+        The models only. Ingest, the database, provenance and the dashboard are the application,
+        and the application is not here &mdash; SENTINEL&rsquo;s own build needs Qt6::Test, which needs
+        Qt6::Concurrent, which a single-threaded WebAssembly Qt does not have.
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
