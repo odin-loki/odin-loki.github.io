@@ -229,9 +229,9 @@
       ctx.fillStyle = '#6b7b8d';
       ctx.font = '400 13px system-ui, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Click to place incidents', W / 2, H / 2 - 6);
+      ctx.fillText(D('Click to place incidents'), W / 2, H / 2 - 6);
       ctx.font = '400 11px ui-monospace, monospace';
-      ctx.fillText('KDE needs 1 · Rossmo needs 3', W / 2, H / 2 + 16);
+      ctx.fillText(D('KDE needs 1 · Rossmo needs 3'), W / 2, H / 2 + 16);
       ctx.textAlign = 'left';
     }
   }

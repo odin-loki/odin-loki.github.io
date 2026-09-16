@@ -26,11 +26,11 @@
   /* ---------- Model ---------- */
 
   var CAPS = [
-    { id: 'dir',   label: 'dir:/var/app',    desc: 'Read handle to its own directory', on: true  },
-    { id: 'net',   label: 'net:egress/tcp',  desc: 'Outbound TCP connect handle',      on: false },
-    { id: 'exec',  label: 'mem:exec',        desc: 'Executable-memory handle',         on: false },
-    { id: 'debug', label: 'proc:debug',      desc: 'Debug handle over another process',on: false },
-    { id: 'shell', label: 'exec:program',    desc: 'Handle to spawn a new program',    on: false }
+    { id: 'dir',   label: 'dir:/var/app',    desc: D('Read handle to its own directory'), on: true  },
+    { id: 'net',   label: 'net:egress/tcp',  desc: D('Outbound TCP connect handle'),      on: false },
+    { id: 'exec',  label: 'mem:exec',        desc: D('Executable-memory handle'),         on: false },
+    { id: 'debug', label: 'proc:debug',      desc: D('Debug handle over another process'),on: false },
+    { id: 'shell', label: 'exec:program',    desc: D('Handle to spawn a new program'),    on: false }
   ];
 
   var OPS = [
@@ -38,63 +38,63 @@
       id: 'passwd',
       label: 'read the shadow password file',
       call: 'open("/etc/master.passwd", O_RDONLY)',
-      target: 'Credential store',
+      target: D('Credential store'),
       needs: null,                       // no handle exists for this at all
       ambient: {
         allow: false,
-        why: 'Denied — but only afterwards, by discretionary access control. The process was still able to name the file and ask.'
+        why: D('Denied — but only afterwards, by discretionary access control. The process was still able to name the file and ask.')
       },
       cap: {
-        why: 'Unreachable. The process holds no handle that resolves to this file, so there is no name for it to pass. The request cannot be formed.'
+        why: D('Unreachable. The process holds no handle that resolves to this file, so there is no name for it to pass. The request cannot be formed.')
       }
     },
     {
       id: 'config',
       label: 'read its own config file',
       call: 'dir.open("config.toml", Rights::Read)',
-      target: '/var/app',
+      target: D('/var/app'),
       needs: 'dir',
-      ambient: { allow: true, why: 'Allowed. The path resolves and the mode bits permit it.' },
-      cap:     { why: 'Allowed. The process holds dir:/var/app and derives a read handle from it — authority narrows, it never widens.' }
+      ambient: { allow: true, why: D('Allowed. The path resolves and the mode bits permit it.') },
+      cap:     { why: D('Allowed. The process holds dir:/var/app and derives a read handle from it — authority narrows, it never widens.') }
     },
     {
       id: 'socket',
       label: 'open an outbound TCP connection',
       call: 'socket(AF_INET, SOCK_STREAM, 0)',
-      target: 'Network',
+      target: D('Network'),
       needs: 'net',
-      ambient: { allow: true, why: 'Allowed. Any process may create a socket; nothing in the model says a font parser should not.' },
-      cap:     { why: 'Requires net:egress/tcp. Without that handle there is no socket namespace to reach.' }
+      ambient: { allow: true, why: D('Allowed. Any process may create a socket; nothing in the model says a font parser should not.') },
+      cap:     { why: D('Requires net:egress/tcp. Without that handle there is no socket namespace to reach.') }
     },
     {
       id: 'mmap',
       label: 'map writable + executable memory',
       call: 'mmap(..., PROT_WRITE|PROT_EXEC, ...)',
-      target: 'Address space',
+      target: D('Address space'),
       needs: 'exec',
       ambient: {
         allow: false,
-        why: 'Denied by HardenedBSD. PaX-derived W^X enforcement already blocks this — one of the mitigations PBSD keeps unchanged.'
+        why: D('Denied by HardenedBSD. PaX-derived W^X enforcement already blocks this — one of the mitigations PBSD keeps unchanged.')
       },
-      cap:     { why: 'Requires mem:exec, and W^X still applies on top. Two independent reasons this fails.' }
+      cap:     { why: D('Requires mem:exec, and W^X still applies on top. Two independent reasons this fails.') }
     },
     {
       id: 'ptrace',
       label: 'attach a debugger to a sibling process',
       call: 'ptrace(PT_ATTACH, pid, 0, 0)',
-      target: 'Sibling process',
+      target: D('Sibling process'),
       needs: 'debug',
-      ambient: { allow: true, why: 'Allowed. Same user id, so the check passes — the process can read another program’s memory.' },
-      cap:     { why: 'Requires proc:debug over that specific process. A handle names one target, not a class of targets.' }
+      ambient: { allow: true, why: D('Allowed. Same user id, so the check passes — the process can read another program’s memory.') },
+      cap:     { why: D('Requires proc:debug over that specific process. A handle names one target, not a class of targets.') }
     },
     {
       id: 'exec',
       label: 'spawn a shell',
       call: 'execve("/bin/sh", argv, envp)',
-      target: 'Program loader',
+      target: D('Program loader'),
       needs: 'shell',
-      ambient: { allow: true, why: 'Allowed. This is the step that turns almost every memory-safety bug into a foothold.' },
-      cap:     { why: 'Requires exec:program. A process that was never given one cannot become a shell, whatever is corrupted inside it.' }
+      ambient: { allow: true, why: D('Allowed. This is the step that turns almost every memory-safety bug into a foothold.') },
+      cap:     { why: D('Requires exec:program. A process that was never given one cannot become a shell, whatever is corrupted inside it.') }
     }
   ];
 
@@ -198,7 +198,7 @@
     var cls = res.allow ? 'is-allow' : 'is-deny';
     verdictEl.className = 'verdict ' + cls;
     verdictEl.innerHTML =
-      '<div class="verdict__label">' + (res.allow ? 'PERMITTED' : 'REFUSED') + '</div>' +
+      '<div class="verdict__label">' + (res.allow ? D('PERMITTED') : D('REFUSED')) + '</div>' +
       '<div class="verdict__op mono">' + esc(op.call) + '</div>' +
       '<div class="verdict__why">' + esc(res.why) + '</div>';
   }
@@ -223,7 +223,7 @@
       log('$ ' + op.call, 'hl');
       log('  model    ' + (mode === 'ambient' ? 'ambient authority' : 'handle nucleus'), 'vi');
       log('  monitor  ' + res.note);
-      log('  result   ' + (res.allow ? 'PERMITTED' : 'REFUSED'), res.allow ? 'ok' : 'err');
+      log('  result   ' + (res.allow ? D('PERMITTED') : D('REFUSED')), res.allow ? 'ok' : 'err');
     }
 
     startAnim(op, res);
@@ -317,7 +317,7 @@
     ctx.font = '500 10px ui-monospace, monospace';
     ctx.textAlign = 'center';
     ctx.fillStyle = mode === 'ambient' ? 'rgba(163,177,192,.75)' : 'rgba(94,234,212,.9)';
-    ctx.fillText(mode === 'ambient' ? 'LATE CHECK (uid/gid/MAC)' : 'HANDLE NUCLEUS', 0, 0);
+    ctx.fillText(mode === 'ambient' ? D('LATE CHECK (uid/gid/MAC)') : D('HANDLE NUCLEUS'), 0, 0);
     ctx.restore();
 
     // --- process box
@@ -368,7 +368,7 @@
     }
 
     // --- resource box
-    var rTitle = op ? op.target : 'Resource';
+    var rTitle = op ? op.target : D('Resource');
     var rCol = !res ? 'rgba(40,54,69,1)' : res.allow ? 'rgba(94,234,212,.7)' : 'rgba(40,54,69,1)';
     ctx.fillStyle = 'rgba(15,21,28,.9)';
     ctx.strokeStyle = rCol;
@@ -387,7 +387,7 @@
       ctx.fillStyle = '#6b7b8d';
       ctx.font = '400 11px system-ui, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Pick an operation below to send a request through the monitor',
+      ctx.fillText(D('Pick an operation below to send a request through the monitor'),
                    W / 2, H - 14);
       ctx.textAlign = 'left';
       return;
@@ -430,16 +430,16 @@
       ctx.font = '600 11px ui-monospace, monospace';
       ctx.fillStyle = '#f87171';
       ctx.textAlign = 'center';
-      ctx.fillText(res.stage === 'unreachable' ? 'UNREACHABLE'
-                 : res.stage === 'nohandle'    ? 'NO HANDLE'
-                 : 'REFUSED', gateX, midY + 40);
+      ctx.fillText(res.stage === 'unreachable' ? D('UNREACHABLE')
+                 : res.stage === 'nohandle'    ? D('NO HANDLE')
+                 : D('REFUSED'), gateX, midY + 40);
       ctx.textAlign = 'left';
     }
     if (res.allow && state.t >= 1) {
       ctx.font = '600 11px ui-monospace, monospace';
       ctx.fillStyle = '#5eead4';
       ctx.textAlign = 'center';
-      ctx.fillText(mode === 'ambient' ? 'ALLOWED (no handle needed)' : 'HANDLE ACCEPTED', gateX, midY + 40);
+      ctx.fillText(mode === 'ambient' ? D('ALLOWED (no handle needed)') : D('HANDLE ACCEPTED'), gateX, midY + 40);
       ctx.textAlign = 'left';
     }
 

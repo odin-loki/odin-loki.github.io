@@ -26,12 +26,12 @@
 
   // Every preset below was checked to actually pattern at Dₐ=1.0, D_b=0.5, dt=1.0.
   var PRESETS = [
-    { name: 'Coral',       f: 0.0545, k: 0.0620 },
-    { name: 'Fingerprint', f: 0.0370, k: 0.0600 },
-    { name: 'Spots',       f: 0.0300, k: 0.0620 },
-    { name: 'Maze',        f: 0.0290, k: 0.0570 },
-    { name: 'Solitons',    f: 0.0300, k: 0.0560 },
-    { name: 'Chaos',       f: 0.0260, k: 0.0510 }
+    { name: D('Coral'),       f: 0.0545, k: 0.0620 },
+    { name: D('Fingerprint'), f: 0.0370, k: 0.0600 },
+    { name: D('Spots'),       f: 0.0300, k: 0.0620 },
+    { name: D('Maze'),        f: 0.0290, k: 0.0570 },
+    { name: D('Solitons'),    f: 0.0300, k: 0.0560 },
+    { name: D('Chaos'),       f: 0.0260, k: 0.0510 }
   ];
 
   function alloc() {
@@ -248,7 +248,7 @@
   });
   document.getElementById('ca-pause').addEventListener('click', function () {
     running = !running;
-    this.textContent = running ? 'Pause' : 'Resume';
+    this.textContent = running ? D('Pause') : D('Resume');
   });
   document.getElementById('ca-reset').addEventListener('click', seed);
 

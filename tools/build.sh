@@ -438,6 +438,22 @@ HEAD
 
 emit_foot() {
   local extra_js="$1"
+
+  # What this page's demos say, in this language. Inlined rather than fetched:
+  # a demo writes its first status line while it starts up, so a fetch would
+  # arrive after the reader had already seen English. Only the demos this page
+  # loads are included, so the licence chooser's forty-eight strings never ride
+  # along with the chess board.
+  local demo_i18n="" demo_names
+  # Most pages carry no demo at all, and grep says so by exiting 1 — which
+  # under set -e ends the build. || true is the whole fix.
+  demo_names="$(printf '%s' "$extra_js" \
+    | grep -oE '/assets/js/(demos|chess)/[a-z0-9-]+\.js' \
+    | sed -e 's|.*/||' -e 's|\.js$||' | tr '\n' ' ' || true)"
+  if [[ -n "$LC_PREFIX" && -n "$demo_names" ]]; then
+    demo_i18n="$(python3 tools/i18n_demos.py blob "$LC_CODE" $demo_names)"
+  fi
+
   cat <<FOOT
 </main>
 
@@ -516,6 +532,7 @@ emit_foot() {
 <script src="/assets/js/similar.js" defer></script>
 <script src="/assets/js/voice.js" defer></script>
 <script src="/assets/js/glossary.js" defer></script>
+$demo_i18n
 $extra_js
 </body>
 </html>

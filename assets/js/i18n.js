@@ -165,7 +165,22 @@
     return out;
   }
 
-  root.ImortekI18n = { t: T, locale: locale, url: url, unprefix: unprefix,
+  /* ---------- what the demos say ----------
+     Half of what a visitor reads on a product page is written by the demo,
+     not by the HTML: the verdict of the licence chooser, the commentary on a
+     syscall walk, what Cypha makes of the position on the board. Translating
+     the page and leaving those alone gives you a Spanish page that turns back
+     into English the moment somebody clicks something.
+
+     The key is the English string itself, so there is no key to invent or
+     mistype and the demo source still reads as prose. The catalogue is inlined
+     by the builder — only for the demos that page loads — because a demo
+     writes its first line during start-up and a fetch would arrive too late. */
+  var DEMO = root.__IMORTEK_DEMO || {};
+  function D(s) { return (s in DEMO) ? DEMO[s] : s; }
+
+  root.ImortekI18n = { t: T, d: D, locale: locale, url: url, unprefix: unprefix,
                        tokens: tokens, en: EN };
   root.T = T;
+  root.D = D;
 }(window, document));

@@ -8,14 +8,14 @@
   if (!root) return;
 
   var STAGES = ['bytes', 'disasm', 'ir', 'pseudo', 'semantic'];
-  var STAGE_LABEL = { bytes: 'Raw bytes', disasm: 'Disassembly', ir: 'Lifted IR',
-                      pseudo: 'C pseudocode', semantic: 'Semantics' };
+  var STAGE_LABEL = { bytes: D('Raw bytes'), disasm: D('Disassembly'), ir: D('Lifted IR'),
+                      pseudo: D('C pseudocode'), semantic: D('Semantics') };
 
   var SAMPLES = {
     aes: {
       name: 'AES-128 key schedule',
       verdict: 'AES-128 · key expansion',
-      family: 'Cryptographic primitive',
+      family: D('Cryptographic primitive'),
       conf: { blind: 0.91, named: 0.99 },
       evidence: [
         ['ok',   'rcon table  01 02 04 08 10 20 40 80 1b 36'],
@@ -93,7 +93,7 @@
     sort: {
       name: 'std::sort (introsort)',
       verdict: 'Introsort · libstdc++ std::sort',
-      family: 'Sorting algorithm',
+      family: D('Sorting algorithm'),
       conf: { blind: 0.74, named: 0.98 },
       evidence: [
         ['ok',   'depth limit = 2·⌊log2(n)⌋ — introsort signature'],
@@ -162,7 +162,7 @@
     chacha: {
       name: 'ChaCha20 block function',
       verdict: 'ChaCha20 · block function',
-      family: 'Stream cipher',
+      family: D('Stream cipher'),
       conf: { blind: 0.88, named: 0.99 },
       evidence: [
         ['ok',   'constant "expand 32-byte k" — 61707865 3320646e 79622d32 6b206574'],
@@ -355,7 +355,7 @@
   });
   document.getElementById('rd-auto').addEventListener('click', function () {
     if (timer) { stop(); return; }
-    this.textContent = 'Stop';
+    this.textContent = D('Stop');
     stage = 0; render();
     timer = setInterval(function () {
       if (stage >= STAGES.length - 1) { stop(); return; }

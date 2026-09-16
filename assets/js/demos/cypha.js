@@ -19,9 +19,9 @@
   var ctx = canvas.getContext('2d');
 
   var CLASSES = [
-    { id: 0, name: 'Class A', col: '#5eead4', rgb: [94, 234, 212] },
-    { id: 1, name: 'Class B', col: '#a78bfa', rgb: [167, 139, 250] },
-    { id: 2, name: 'Class C', col: '#fbbf24', rgb: [251, 191, 36] }
+    { id: 0, name: D('Class A'), col: '#5eead4', rgb: [94, 234, 212] },
+    { id: 1, name: D('Class B'), col: '#a78bfa', rgb: [167, 139, 250] },
+    { id: 2, name: D('Class C'), col: '#fbbf24', rgb: [251, 191, 36] }
   ];
 
   var W = 0, H_PREF = 380, H = H_PREF, dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -305,7 +305,7 @@
       ctx.fillStyle = '#6b7b8d';
       ctx.font = '400 13px system-ui, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Click to place samples, or load a dataset below', W / 2, H / 2 - 8);
+      ctx.fillText(D('Click to place samples, or load a dataset below'), W / 2, H / 2 - 8);
       ctx.font = '400 11px ui-monospace, monospace';
       ctx.fillText('the model learns from every click — there is no training run', W / 2, H / 2 + 14);
       ctx.textAlign = 'left';
@@ -358,9 +358,11 @@
         '  conf=' + (r.conf * 100).toFixed(0) + '%</div>' +
       '<div class="verdict__why">' +
         (r.ood
-          ? 'Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.'
-          : 'Argmax log-likelihood ratio against the world prior, with the runner-up ' +
-            (isFinite(r.margin) ? r.margin.toFixed(2) + ' nats behind.' : 'not yet fitted.')) +
+          ? D('Below the world prior — this point is more likely under θ₀ than under any class. Flagged out of distribution.')
+          : (isFinite(r.margin)
+              ? D('Argmax log-likelihood ratio against the world prior, with the runner-up {n} nats behind.')
+                  .replace('{n}', r.margin.toFixed(2))
+              : D('Argmax log-likelihood ratio against the world prior, with the runner-up not yet fitted.'))) +
       '</div>';
   }
 
@@ -451,18 +453,14 @@
   var footDefault = foot.innerHTML;
   function footNote(name) {
     if (name === 'xor' && !useRFF) {
-      foot.innerHTML = '<strong style="color:var(--amber)">XOR with the identity encoder.</strong> ' +
-        'A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, ' +
-        'exactly as the Cypha README states. Switch on the latent RFF encoder above.';
+      foot.innerHTML = '<strong style="color:var(--amber)">' + D('XOR with the identity encoder.') + '</strong> ' +
+        D('A linear log-likelihood ratio cannot separate these quadrants — accuracy sits near chance, exactly as the Cypha README states. Switch on the latent RFF encoder above.');
     } else if (name === 'xor') {
-      foot.innerHTML = '<strong style="color:var(--teal)">XOR with random Fourier features.</strong> ' +
-        'The encoder lifts the problem into a space where a linear ratio does separate it. ' +
-        'This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.';
+      foot.innerHTML = '<strong style="color:var(--teal)">' + D('XOR with random Fourier features.') + '</strong> ' +
+        D('The encoder lifts the problem into a space where a linear ratio does separate it. This 2-D toy separates cleanly; the same fix takes the real XOR benchmark to about 76%.');
     } else if (name === 'rings') {
-      foot.innerHTML = '<strong style="color:var(--teal)">Concentric rings.</strong> ' +
-        'Both classes share a centre, so the location half of Δk tells them apart not at all. ' +
-        'They separate on scale alone — which is why the class differential offsets the natural ' +
-        'parameters, not just the mean.';
+      foot.innerHTML = '<strong style="color:var(--teal)">' + D('Concentric rings.') + '</strong> ' +
+        D('Both classes share a centre, so the location half of Δk tells them apart not at all. They separate on scale alone — which is why the class differential offsets the natural parameters, not just the mean.');
     } else {
       foot.innerHTML = footDefault;
     }

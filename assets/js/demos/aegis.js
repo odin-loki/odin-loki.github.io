@@ -203,8 +203,8 @@
 
     ctx.fillStyle = '#a3b1c0';
     ctx.font = '500 10px ui-monospace, monospace';
-    ctx.fillText('SENDER LINKS', gap, 16);
-    ctx.fillText('RECEIVER LINKS', gap * 2 + stripW, 16);
+    ctx.fillText(D('SENDER LINKS'), gap, 16);
+    ctx.fillText(D('RECEIVER LINKS'), gap * 2 + stripW, 16);
     ctx.fillText('CORRELATION', gap * 3 + stripW * 2, 16);
 
     for (var i = 0; i < N; i++) {

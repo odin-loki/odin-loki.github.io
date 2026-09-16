@@ -318,28 +318,29 @@
       learnFromResult(st, humanWon);
       statusEl.className = 'verdict ' + (humanWon ? 'is-allow' : 'is-deny');
       statusEl.innerHTML = '<div class="verdict__label">' +
-        (humanWon ? 'YOU WIN' : 'CYPHA WINS') + '</div>' +
-        '<div class="verdict__why">Checkmate in ' + Math.ceil(sanHistory.length / 2) + ' moves.</div>';
+        (humanWon ? D('YOU WIN') : D('CYPHA WINS')) + '</div>' +
+        '<div class="verdict__why">' +
+        D('Checkmate in {n} moves.').replace('{n}', Math.ceil(sanHistory.length / 2)) + '</div>';
       return;
     }
     if (st === 'stalemate' || st === 'draw-50' || st === 'draw-material') {
       learnFromResult(st, false);
       statusEl.className = 'verdict';
-      statusEl.innerHTML = '<div class="verdict__label">DRAW</div>' +
+      statusEl.innerHTML = '<div class="verdict__label">' + D('DRAW') + '</div>' +
         '<div class="verdict__why">' +
-        (st === 'stalemate' ? 'Stalemate — no legal move, and not in check.'
-         : st === 'draw-50' ? 'Fifty-move rule.'
-         : 'Insufficient material.') + '</div>';
+        (st === 'stalemate' ? D('Stalemate — no legal move, and not in check.')
+         : st === 'draw-50' ? D('Fifty-move rule.')
+         : D('Insufficient material.')) + '</div>';
       return;
     }
     var check = pos.inCheck(pos.turn);
     statusEl.className = 'verdict' + (check ? ' is-deny' : '');
     statusEl.innerHTML = '<div class="verdict__label">' +
-      (thinking ? 'CYPHA IS THINKING' : mine ? 'YOUR MOVE' : 'CYPHA TO MOVE') + '</div>' +
+      (thinking ? D('CYPHA IS THINKING') : mine ? D('YOUR MOVE') : D('CYPHA TO MOVE')) + '</div>' +
       '<div class="verdict__why">' +
-      (check ? '<strong>Check.</strong> ' : '') +
-      (mine ? 'Click a piece to see where it can go.'
-            : 'Searching to depth ' + depth + ' with the distilled evaluation.') +
+      (check ? '<strong>' + D('Check.') + '</strong> ' : '') +
+      (mine ? D('Click a piece to see where it can go.')
+            : D('Searching to depth {n} with the distilled evaluation.').replace('{n}', depth)) +
       '</div>';
   }
 
@@ -392,7 +393,7 @@
     learnToggle.addEventListener('click', function () {
       learning = !learning;
       learnToggle.setAttribute('aria-pressed', String(learning));
-      learnToggle.textContent = learning ? 'Learning on' : 'Learning off';
+      learnToggle.textContent = learning ? D('Learning on') : D('Learning off');
     });
   }
   var learnReset = document.getElementById('cx-learn-reset');
