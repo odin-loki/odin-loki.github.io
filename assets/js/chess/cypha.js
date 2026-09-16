@@ -8,8 +8,26 @@
      linear head     ŷ = w·z + b       — evaluation in centipawns
 
    The weights were distilled offline from the Imortek reference
-   engine's own search evaluations. Nothing is trained in the browser;
-   this file only runs the fitted model inside an alpha-beta search.
+   engine's own search evaluations. They are the starting point, not
+   the end of it: Cypha is an online learner, so the head keeps
+   fitting while you play.
+
+   The training signal is the same one the offline distillation used —
+   a search evaluation. After each of its moves the head is corrected
+   toward the value its own alpha-beta search returned from that
+   position, which is a strictly better estimate than the static eval
+   it produced. At the end of a game the final positions are corrected
+   again toward the actual result.
+
+   The update is normalised LMS on the whitened features, and every
+   step is followed by MDL decay back toward the distilled weights, so
+   what the model learns is a *displacement* from what shipped and can
+   never run away from it. The WorldPrior (mu, sigma) is left exactly
+   as distilled: it was fitted on 26,568 positions and a few live games
+   have no business moving it.
+
+   All of it runs in the viewer's browser. The learned displacement is
+   theirs, stays in their localStorage, and is never sent anywhere.
    ============================================================= */
 (function (root, factory) {
   var api = factory(typeof require === 'function' ? require('./engine.js') : root.ImortekChess,
@@ -19,6 +37,11 @@
 }(typeof self !== 'undefined' ? self : this, function (C, F) {
   'use strict';
 
+  var LR      = 0.06;    // normalised LMS step on whitened features
+  var MDL     = 0.0015;  // decay back toward the distilled weights, per update
+  var CLIP    = 1200;    // centipawns — the clip the offline training used
+  var MATEISH = 30000;   // mate scores are not evaluation targets
+
   function CyphaEval(params) {
     this.mu = Float32Array.from(params.mu);
     this.sigma = Float32Array.from(params.sigma);
@@ -26,7 +49,74 @@
     this.b = params.b;
     this.scale = params.scale || 100;
     this._buf = new Float32Array(F.DIM);
+    this._z = new Float32Array(F.DIM);
+
+    // What shipped. Everything learned is measured as a displacement from this.
+    this.w0 = Float32Array.from(params.w);
+    this.b0 = params.b;
+    this.seen = 0;      // positions learned from
+    this.games = 0;
   }
+
+  /* Whitened features for a position: z = (phi - mu) / sigma. */
+  CyphaEval.prototype._whiten = function (pos) {
+    var f = F.extract(pos, this._buf), z = this._z, i;
+    for (i = 0; i < f.length; i++) z[i] = (f[i] - this.mu[i]) / this.sigma[i];
+    return z;
+  };
+
+  /* One online correction toward a better estimate of this position.
+     `target` is in centipawns, from the side to move — the same units and
+     the same sign convention as evaluate(). */
+  CyphaEval.prototype.observe = function (pos, target) {
+    if (!isFinite(target) || Math.abs(target) >= MATEISH) return 0;
+    if (target > CLIP) target = CLIP; else if (target < -CLIP) target = -CLIP;
+
+    var z = this._whiten(pos), w = this.w, i;
+    var pred = this.b, zz = 0;
+    for (i = 0; i < z.length; i++) { pred += w[i] * z[i]; zz += z[i] * z[i]; }
+
+    var err = (target / this.scale) - pred;
+    var step = LR * err / (1 + zz);          // normalised LMS — cannot blow up
+    for (i = 0; i < z.length; i++) {
+      w[i] += step * z[i];
+      w[i] = this.w0[i] + (w[i] - this.w0[i]) * (1 - MDL);   // MDL decay
+    }
+    this.b += step;
+    this.b = this.b0 + (this.b - this.b0) * (1 - MDL);
+    this.seen++;
+    return err * this.scale;                 // residual in centipawns, for the UI
+  };
+
+  /* How far the head has moved from what shipped, in units of the
+     distilled weight vector's own norm. */
+  CyphaEval.prototype.drift = function () {
+    var d = 0, n0 = 0, i, x;
+    for (i = 0; i < this.w.length; i++) {
+      x = this.w[i] - this.w0[i]; d += x * x; n0 += this.w0[i] * this.w0[i];
+    }
+    return n0 > 0 ? Math.sqrt(d / n0) : 0;
+  };
+
+  CyphaEval.prototype.reset = function () {
+    this.w.set(this.w0); this.b = this.b0; this.seen = 0; this.games = 0;
+  };
+
+  /* Persist only the displacement, rounded — the distilled weights are
+     already on disk and never change. */
+  CyphaEval.prototype.save = function () {
+    var d = new Array(this.w.length), i;
+    for (i = 0; i < this.w.length; i++) d[i] = Math.round((this.w[i] - this.w0[i]) * 1e5) / 1e5;
+    return { v: 1, dim: this.w.length, seen: this.seen, games: this.games,
+             db: Math.round((this.b - this.b0) * 1e6) / 1e6, d: d };
+  };
+  CyphaEval.prototype.restore = function (o) {
+    if (!o || o.v !== 1 || o.dim !== this.w.length || !o.d) return false;
+    for (var i = 0; i < this.w.length; i++) this.w[i] = this.w0[i] + (o.d[i] || 0);
+    this.b = this.b0 + (o.db || 0);
+    this.seen = o.seen || 0; this.games = o.games || 0;
+    return true;
+  };
 
   CyphaEval.prototype.evaluate = function (pos) {
     var f = F.extract(pos, this._buf);

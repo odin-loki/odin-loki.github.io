@@ -144,8 +144,33 @@
           <p class="small muted" style="margin-top:16px">
             R&sup2; is against held-out positions the model never saw during fitting. The match
             line is Cypha at search depth 2 against the teacher engine at the same depth, with
-            randomised openings and colours alternated.
+            randomised openings and colours alternated. All four numbers describe the model
+            <em>as distilled</em> &mdash; they are fixed, and they are not measurements of your copy.
           </p>
+
+          <div class="note note--violet" style="margin-top:20px">
+            <strong>Your copy is still learning.</strong> Cypha is an online learner, so the head
+            does not stop fitting when the download finishes. Every move it plays against you is
+            one more training pair, and the panel below the board shows how far your copy has
+            moved away from the one that shipped.
+          </div>
+
+          <div class="note note--amber" style="margin-top:16px">
+            <strong>And it does not yet make it play better. Measured, not assumed.</strong>
+            Over 12 self-play games the correction reduces the head&rsquo;s error against its own
+            search from <b>0.76</b> to <b>0.67</b> pawns &mdash; and where the frozen head drifts
+            <b>4.6%</b> worse across a session, the learning one gets <b>5.2%</b> better. So the
+            fitting is real. But a copy trained on 1,119 positions then played against the shipped
+            copy, 24 games at depth 2 with colours alternated, finishes <b>6W&ndash;7L&ndash;11D</b>:
+            a dead heat.
+            <br><br>
+            That is the expected result and it is worth stating rather than hiding. The signal is
+            the model&rsquo;s own depth-2 search, which is barely deeper than the static head&rsquo;s
+            own view &mdash; learning to agree with yourself is not the same as getting stronger.
+            A thousand positions against the 26,568 it was distilled on is also nothing. The
+            honest claim is that the online learner works and is doing what it says; the claim
+            that it will beat the shipped model has not been earned.
+          </div>
         </div>
       </div>
     </div>
@@ -156,7 +181,7 @@
   <div class="wrap">
     <div class="demo reveal" id="cx-demo">
       <div class="demo__head">
-        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head</h3>
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> cypha::Cypha &mdash; chess head <span class="badge badge--violet" style="margin-left:8px">learning</span></h3>
         <div class="controls">
           <div class="seg" role="group" aria-label="Strength">
             <button type="button" data-depth="1">Casual</button>
@@ -218,17 +243,50 @@
             <div class="log" id="cx-moves" style="height:130px"></div>
           </div>
 
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Learning from you</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Positions learned</div>
+                <div class="readout__v plain" id="cx-learn-pos" style="font-size:1rem">0</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Games finished</div>
+                <div class="readout__v plain" id="cx-learn-games" style="font-size:1rem">0</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Drift from shipped</div>
+                <div class="readout__v violet" id="cx-learn-drift" style="font-size:1rem">0.00%</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Last correction</div>
+                <div class="readout__v plain" id="cx-learn-res" style="font-size:1rem">&mdash;</div>
+              </div>
+            </div>
+            <div class="btn-row" style="margin-top:12px">
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-toggle" aria-pressed="true">Learning on</button>
+              <button type="button" class="btn btn--sm btn--ghost" id="cx-learn-reset">Reset to shipped</button>
+            </div>
+            <p class="tiny muted" style="margin-top:10px">
+              <strong>Drift</strong> is the size of the change to the weight vector, relative to the
+              distilled one. <strong>Last correction</strong> is how wrong the static head was about
+              the position it just moved from, in pawns, measured against its own deeper search.
+            </p>
+          </div>
+
           <div class="note" style="font-size:.79rem;padding:12px 14px">
             The evaluation is a <strong>linear</strong> function of 388 features. It has no search
             depth of its own, no opening book and no endgame knowledge. Beating it is expected;
             the interesting part is that a single whitened linear head reproduces an engine&rsquo;s
-            search evaluation at all.
+            search evaluation at all &mdash; and then keeps correcting itself while you play.
           </div>
         </div>
       </div>
       <div class="panel__foot">
         Engine, features, distilled weights and player all run locally. Nothing is sent anywhere,
-        and no model is downloaded beyond a few kilobytes of coefficients.
+        and no model is downloaded beyond a few kilobytes of coefficients. What your copy learns
+        is kept in your browser, belongs to you, and is never uploaded &mdash; so nobody else&rsquo;s
+        games can move your model, and yours cannot move theirs.
       </div>
     </div>
   </div>
@@ -391,7 +449,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-16T07:32:22Z &middot; No trackers, no cookies, no analytics.</span>
+      <span class="mono tiny">Built 2026-09-16T07:39:16Z &middot; No trackers, no cookies, no analytics.</span>
     </div>
   </div>
 </footer>

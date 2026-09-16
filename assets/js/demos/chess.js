@@ -35,6 +35,32 @@
   var pendingPromotion = null;
   var lastMove = null;
 
+  /* ---------- Online learning ----------
+     Cypha is an online learner, so it keeps fitting while you play. Each of
+     its moves gives one training pair: the static eval of the position it
+     moved from, corrected toward the value its own search returned. At the
+     end of a game the last few of those positions are corrected again toward
+     the result that actually happened.
+     The learned displacement lives in this browser and goes nowhere else. */
+  var LKEY = 'imortek.chess.cypha.v1';
+  var learning = true;
+  var gameFens = [];        // positions Cypha moved from, this game
+  var lastResidual = null;
+  var TERMINAL_PLIES = 8;   // how far back the result is credited
+  var TERMINAL_CP = 900;    // what a win is worth as an evaluation target
+
+  function loadLearned() {
+    if (!evaluator) return;
+    try {
+      var raw = localStorage.getItem(LKEY);
+      if (raw) evaluator.restore(JSON.parse(raw));
+    } catch (e) {}
+  }
+  function saveLearned() {
+    if (!evaluator) return;
+    try { localStorage.setItem(LKEY, JSON.stringify(evaluator.save())); } catch (e) {}
+  }
+
   /* ---------- Load the distilled model ---------- */
   fetch('/assets/data/cypha-chess.json')
     .then(function (r) {
@@ -43,6 +69,7 @@
     })
     .then(function (m) {
       evaluator = new CY.CyphaEval(m);
+      loadLearned();
 
       var mt = m.metrics || {};
       set('cx-r2', mt.testR2 !== undefined ? mt.testR2.toFixed(3) : '—');
@@ -52,6 +79,7 @@
       if (mt.match) {
         set('cx-match', mt.match.wins + 'W ' + mt.match.losses + 'L ' + mt.match.draws + 'D');
       }
+      updateLearning();
       newGame();
     })
     .catch(function (e) {
@@ -207,6 +235,15 @@
 
     if (!res.move) { thinking = false; updateStatus(); return; }
 
+    // The search looked deeper than the static head did. Correct the head
+    // toward what it found, before the move is played.
+    if (learning) {
+      lastResidual = evaluator.observe(pos, res.score);
+      gameFens.push(pos.fen());
+      saveLearned();
+      updateLearning();
+    }
+
     showCandidates(res.ranked, res.move);
     nodesEl.textContent = res.nodes.toLocaleString() + ' · ' + Math.round(ms) + 'ms';
 
@@ -251,11 +288,31 @@
     fillEl.style.height = (frac * 100).toFixed(1) + '%';
   }
 
+  /* Once the game is decided, go back over the positions Cypha moved from
+     and correct them toward what actually happened rather than what the
+     search guessed at the time. */
+  function learnFromResult(st, humanWon) {
+    if (!learning || !evaluator || !gameFens.length) return;
+    var value = (st === 'checkmate') ? (humanWon ? -TERMINAL_CP : TERMINAL_CP) : 0;
+    var from = Math.max(0, gameFens.length - TERMINAL_PLIES);
+    for (var i = from; i < gameFens.length; i++) {
+      var p = new C.Position().setFen(gameFens[i]);
+      // Decay the credit backwards: the last position is the most informative.
+      var weight = (i - from + 1) / (gameFens.length - from);
+      evaluator.observe(p, value * weight);
+    }
+    evaluator.games++;
+    gameFens = [];
+    saveLearned();
+    updateLearning();
+  }
+
   function updateStatus() {
     var st = pos.status();
     var mine = pos.turn === humanColour;
     if (st === 'checkmate') {
       var humanWon = !mine;
+      learnFromResult(st, humanWon);
       statusEl.className = 'verdict ' + (humanWon ? 'is-allow' : 'is-deny');
       statusEl.innerHTML = '<div class="verdict__label">' +
         (humanWon ? 'YOU WIN' : 'CYPHA WINS') + '</div>' +
@@ -263,6 +320,7 @@
       return;
     }
     if (st === 'stalemate' || st === 'draw-50' || st === 'draw-material') {
+      learnFromResult(st, false);
       statusEl.className = 'verdict';
       statusEl.innerHTML = '<div class="verdict__label">DRAW</div>' +
         '<div class="verdict__why">' +
@@ -283,8 +341,18 @@
   }
 
   /* ---------- Controls ---------- */
+  function updateLearning() {
+    if (!evaluator) return;
+    set('cx-learn-pos', evaluator.seen.toLocaleString());
+    set('cx-learn-games', String(evaluator.games));
+    set('cx-learn-drift', (evaluator.drift() * 100).toFixed(2) + '%');
+    set('cx-learn-res', lastResidual === null ? '—'
+        : (lastResidual >= 0 ? '+' : '') + (lastResidual / 100).toFixed(2));
+  }
+
   function newGame() {
     pos = new C.Position().setFen(C.START_FEN);
+    gameFens = [];
     sanHistory = [];
     selected = -1;
     legalCache = [];
@@ -304,6 +372,27 @@
   }
 
   document.getElementById('cx-new').addEventListener('click', newGame);
+
+  var learnToggle = document.getElementById('cx-learn-toggle');
+  if (learnToggle) {
+    learnToggle.addEventListener('click', function () {
+      learning = !learning;
+      learnToggle.setAttribute('aria-pressed', String(learning));
+      learnToggle.textContent = learning ? 'Learning on' : 'Learning off';
+    });
+  }
+  var learnReset = document.getElementById('cx-learn-reset');
+  if (learnReset) {
+    learnReset.addEventListener('click', function () {
+      if (!evaluator) return;
+      evaluator.reset();
+      lastResidual = null;
+      gameFens = [];
+      try { localStorage.removeItem(LKEY); } catch (e) {}
+      updateLearning();
+      updateEval();
+    });
+  }
 
   document.getElementById('cx-undo').addEventListener('click', function () {
     if (thinking) return;
