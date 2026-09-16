@@ -116,7 +116,7 @@ The layout adapts across three regimes rather than just collapsing at one breakp
 Canvas demos call `window.ImortekFitHeight(preferred)` (in `site.js`) rather than hard-coding
 a height, which is what keeps a 400px canvas from exceeding a 390px-tall landscape phone.
 
-Verified across **260 page/viewport combinations** (26 pages × 10 sizes from 320×568 to
+Verified across **600 page/viewport combinations** (60 pages × 10 sizes from 320×568 to
 2560×1440, including 844×390 landscape): no horizontal overflow and no page errors anywhere.
 Re-run it yourself:
 
@@ -131,6 +131,39 @@ It exits non-zero on any failure, so it drops straight into CI if you ever want 
 There is also a print stylesheet: chrome, demos and decorative canvases drop out, and the
 page prints dark-on-white.
 
+## Search
+
+Every page carries one `<script type="application/ld+json">` block holding a schema.org
+`@graph`, emitted by `emit_head` in `tools/build.sh`. The `@id`s are stable across all 60
+pages, so the organisation, the person and the site are understood as three entities
+referenced repeatedly rather than 180 unrelated copies.
+
+| Node | On | Why |
+|---|---|---|
+| `Organization`, `Person`, `WebSite` | every page | Identity — ties the site, Imortek, Odin Loch, the GitHub profile and the Kickstarter together |
+| `WebPage` / `AboutPage` / `CollectionPage` | every page | The page itself, with its canonical URL and social card |
+| `BreadcrumbList` | every page | The one node here that produces a visible SERP feature; research articles nest under the shelf |
+| `SoftwareApplication` | product pages | Name, licence and `codeRepository`, so a page and its source are the same thing |
+| `TechArticle` | research pages | Headline, author, licence, `isAccessibleForFree` |
+
+The `robots` directive asks for `max-image-preview:large` and unbounded snippets, which is
+what lets a result render as a card rather than a line of blue text. `404.html` is the one
+page emitted `noindex`.
+
+`<meta name="keywords">` is also emitted — per page from the `KEYWORDS` map, and derived from
+the title for research articles. Google has ignored it since 2009; it is there for the smaller
+engines and site-search tools that still read it, not because it moves Google.
+
+Validate after changing anything in `emit_head`:
+
+```bash
+./tools/build.sh
+python3 -c "import json,re,glob;[json.loads(re.search(r'ld\+json\">(.*?)</script>',open(f).read(),re.S).group(1)) for f in glob.glob('*.html')+glob.glob('research/*.html')]"
+```
+
+Malformed JSON-LD is silently ignored by crawlers, so it fails quietly rather than loudly —
+run the check.
+
 ## Conventions
 
 - No trackers, no cookies, no analytics, no third-party scripts. The only external request
@@ -142,6 +175,10 @@ page prints dark-on-white.
   HTML mean the page reads correctly if the API is unavailable.
 - Social cards: `assets/img/og.png` site-wide, overridden per page by convention if
   `assets/img/og-<slug>.jpg` exists (PBSD and the Kickstarter have their own).
+- The Kickstarter is live until **12 November 2026**. Campaign facts that are fixed for its
+  duration (goal, dates, funding model) are stated on `/kickstarter.html`; the pledge total and
+  backer count deliberately are not, because a running total typed into a static page is wrong
+  immediately. `KS_URL` in `tools/build.sh` is the single source of the campaign link.
 - `./tools/build.sh` also regenerates `sitemap.xml` inputs and the video manifest, so run it
   after adding pages or clips.
 

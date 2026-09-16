@@ -12,6 +12,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 SITE_URL="https://imortek.com.au"
+KS_URL="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"
 BUILT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # Escape the five XML/HTML metacharacters. Titles and descriptions carry
@@ -19,8 +20,46 @@ BUILT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 # even where browsers forgive it.
 esc() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' -e 's/"/\&quot;/g'; }
 
+# Escape for a JSON string literal. HTML entities are *not* decoded inside a
+# <script> element, so esc() is the wrong tool for the JSON-LD blocks — it would
+# put a literal "&amp;" into the data. "<" becomes < so no value can ever
+# close the script tag early.
+jesc() {
+  printf '%s' "$1" \
+    | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e 's/</\\u003C/g' -e 's/>/\\u003E/g'
+}
+
+# The leading segment of a title, i.e. everything before the first " — " or " | ":
+#   "ParanoidBSD — a capability-secured C++23 operating system | Imortek" -> "ParanoidBSD"
+# Breadcrumbs and entity names want a name, not a sentence.
+short_name() {
+  local t="${1%% | *}"
+  printf '%s' "${t%% — *}"
+}
+
+# The segment after the dash: "ARIA — nonce-free AEAD | Imortek Research" -> "nonce-free AEAD".
+sub_name() {
+  local t="${1%% | *}"
+  [[ "$t" == *" — "* ]] && t="${t#* — }"
+  printf '%s' "$t"
+}
+
+# The title with only the site suffix removed:
+#   "ARIA — nonce-free AEAD | Imortek Research" -> "ARIA — nonce-free AEAD"
+# An article headline wants the whole descriptive title, not just its first word.
+page_name() { printf '%s' "${1%% | *}"; }
+
+# Repository behind each product page — emitted as schema.org codeRepository so
+# the page and its source are understood as the same thing.
+declare -A REPOS=(
+  [pbsd]=ParanoidBSD      [cypha]=Cypha           [chess]=Cypha
+  [retdec]=RetDec-Decompiler [mathscript]=MathScript [aegis]=ANONYMOUS
+  [sentinel]=SENTINEL     [cellai]=CellAI
+)
+
 emit_head() {
-  local title="$1" desc="$2" slug="$3" extra_css="$4" og_type="$5"
+  local title="$1" desc="$2" slug="$3" extra_css="$4" og_type="$5" keywords="$6"
+  local raw_title="$title" raw_desc="$desc"
   title="$(esc "$title")"
   desc="$(esc "$desc")"
   local canon="$SITE_URL/"
@@ -33,29 +72,137 @@ emit_head() {
   if [[ -f "assets/img/og-${og_base}.jpg" ]]; then
     og_img="$SITE_URL/assets/img/og-${og_base}.jpg"
   fi
+
+  # Crawler directives. The 404 is the one page that must never be indexed.
+  # Everywhere else asks for the largest preview Google is willing to show,
+  # which is what turns a result into a card instead of a line of blue text.
+  local robots="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  [[ "$slug" == "404" ]] && robots="noindex, follow"
+
+  local kw_tag=""
+  [[ -n "$keywords" ]] && kw_tag="<meta name=\"keywords\" content=\"$(esc "$keywords")\">"
+
+  # Articles say who wrote them in the Open Graph namespace as well as in JSON-LD.
+  local article_meta=""
+  if [[ "$og_type" == "article" ]]; then
+    article_meta="<meta property=\"article:author\" content=\"Odin Loch\">
+<meta property=\"article:publisher\" content=\"$SITE_URL/\">
+<meta property=\"article:section\" content=\"Research\">"
+  fi
+
+  # ---------------------------------------------------------------
+  # Structured data. One @graph per page, with stable @ids so the
+  # organisation, the person and the site are recognised as the same
+  # entities across all 60 pages rather than 60 unrelated copies.
+  # ---------------------------------------------------------------
+  local jt jd jshort
+  jt="$(jesc "$raw_title")"
+  jd="$(jesc "$raw_desc")"
+  jshort="$(jesc "$(short_name "$raw_title")")"
+  local jname
+  jname="$(jesc "$(page_name "$raw_title")")"
+
+  # Research articles are navigated through the shelf, so their trail says so.
+  local crumbs
+  if [[ "$slug" == "index" ]]; then
+    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"}'
+  elif [[ "$slug" == research/* ]]; then
+    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"},'
+    crumbs+='{"@type":"ListItem","position":2,"name":"Research","item":"'"$SITE_URL"'/research.html"},'
+    crumbs+='{"@type":"ListItem","position":3,"name":"'"$jshort"'","item":"'"$canon"'"}'
+  else
+    crumbs='{"@type":"ListItem","position":1,"name":"Home","item":"'"$SITE_URL"'/"},'
+    crumbs+='{"@type":"ListItem","position":2,"name":"'"$jshort"'","item":"'"$canon"'"}'
+  fi
+
+  local page_type="WebPage"
+  case "$slug" in
+    about)    page_type="AboutPage" ;;
+    research) page_type="CollectionPage" ;;
+  esac
+
+  # Whatever the page is actually about, beyond being a page.
+  local entity=""
+  if [[ "$og_type" == "product" ]]; then
+    local repo="${REPOS[$slug]:-}" same=""
+    [[ -n "$repo" ]] && same=',"codeRepository":"https://github.com/odin-loki/'"$repo"'","sameAs":["https://github.com/odin-loki/'"$repo"'"]'
+    entity=',{"@type":"SoftwareApplication","@id":"'"$canon"'#software"'
+    entity+=',"name":"'"$jshort"'","description":"'"$jd"'","url":"'"$canon"'"'
+    entity+=',"applicationCategory":"DeveloperApplication"'
+    entity+=',"operatingSystem":"Linux, FreeBSD, macOS, Windows"'
+    entity+=',"license":"https://www.gnu.org/licenses/agpl-3.0.en.html"'
+    entity+=',"author":{"@id":"'"$SITE_URL"'/#odin-loch"}'
+    entity+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}'"$same"'}'
+  elif [[ "$og_type" == "article" ]]; then
+    entity=',{"@type":"TechArticle","@id":"'"$canon"'#article"'
+    entity+=',"headline":"'"$jname"'","description":"'"$jd"'","url":"'"$canon"'"'
+    entity+=',"mainEntityOfPage":{"@id":"'"$canon"'#webpage"}'
+    entity+=',"image":"'"$og_img"'","inLanguage":"en-AU","isAccessibleForFree":true'
+    entity+=',"license":"https://www.gnu.org/licenses/agpl-3.0.en.html"'
+    entity+=',"author":{"@id":"'"$SITE_URL"'/#odin-loch"}'
+    entity+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}}'
+  fi
+
+  local ld
+  ld='{"@context":"https://schema.org","@graph":['
+  ld+='{"@type":"Organization","@id":"'"$SITE_URL"'/#organization","name":"Imortek"'
+  ld+=',"alternateName":"Imortek Research & Systems","url":"'"$SITE_URL"'/"'
+  ld+=',"logo":{"@type":"ImageObject","url":"'"$SITE_URL"'/assets/img/mark.svg"}'
+  ld+=',"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence."'
+  ld+=',"founder":{"@id":"'"$SITE_URL"'/#odin-loch"}'
+  ld+=',"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"}'
+  ld+=',"sameAs":["https://github.com/odin-loki","'"$KS_URL"'"]},'
+  ld+='{"@type":"Person","@id":"'"$SITE_URL"'/#odin-loch","name":"Odin Loch"'
+  ld+=',"url":"'"$SITE_URL"'/about.html"'
+  ld+=',"jobTitle":"Independent systems engineer and researcher"'
+  ld+=',"worksFor":{"@id":"'"$SITE_URL"'/#organization"}'
+  ld+=',"sameAs":["https://github.com/odin-loki"]},'
+  ld+='{"@type":"WebSite","@id":"'"$SITE_URL"'/#website","url":"'"$SITE_URL"'/"'
+  ld+=',"name":"Imortek","inLanguage":"en-AU"'
+  ld+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}},'
+  ld+='{"@type":"'"$page_type"'","@id":"'"$canon"'#webpage","url":"'"$canon"'"'
+  ld+=',"name":"'"$jt"'","description":"'"$jd"'","inLanguage":"en-AU"'
+  ld+=',"isPartOf":{"@id":"'"$SITE_URL"'/#website"}'
+  ld+=',"primaryImageOfPage":{"@type":"ImageObject","url":"'"$og_img"'","width":1200,"height":630}'
+  ld+=',"breadcrumb":{"@id":"'"$canon"'#breadcrumb"}'
+  ld+=',"publisher":{"@id":"'"$SITE_URL"'/#organization"}},'
+  ld+='{"@type":"BreadcrumbList","@id":"'"$canon"'#breadcrumb","itemListElement":['"$crumbs"']}'
+  ld+="$entity"
+  ld+=']}'
+
   cat <<HEAD
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>$title</title>
 <meta name="description" content="$desc">
+$kw_tag
 <meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="$robots">
 <meta name="theme-color" content="#06080b">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="$canon">
 
 <meta property="og:site_name" content="Imortek">
 <meta property="og:type" content="$og_type">
+<meta property="og:locale" content="en_AU">
 <meta property="og:title" content="$title">
 <meta property="og:description" content="$desc">
 <meta property="og:url" content="$canon">
 <meta property="og:image" content="$og_img">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="$title">
+$article_meta
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="$title">
 <meta name="twitter:description" content="$desc">
 <meta name="twitter:image" content="$og_img">
+<meta name="twitter:image:alt" content="$title">
+
+<script type="application/ld+json">$ld</script>
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/mark.svg">
@@ -212,7 +359,7 @@ PAGES=(
 "sentinel~SENTINEL — crime analytics and investigative leads | Imortek~A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.~~<script src=\"/assets/js/demos/sentinel.js\" defer></script>~product"
 "cellai~Cell AI — a reaction-diffusion sequence model | Imortek~A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.~~<script src=\"/assets/js/demos/cellai.js\" defer></script>~product"
 "chess~Play chess against Cypha | Imortek~Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.~~<script src=\"/assets/js/chess/engine.js\" defer></script><script src=\"/assets/js/chess/features.js\" defer></script><script src=\"/assets/js/chess/cypha.js\" defer></script><script src=\"/assets/js/demos/chess.js\" defer></script>~product"
-"kickstarter~Back ParanoidBSD — the PBSD Kickstarter | Imortek~ParanoidBSD is porting a hardened BSD to C++23. The campaign funds the AI credits and verification compute that finish the port. Pre-launch — get notified.~~<script src=\"/assets/js/demos/funding.js\" defer></script>~website"
+"kickstarter~Back ParanoidBSD — the PBSD Kickstarter is live | Imortek~The ParanoidBSD Kickstarter is live until 12 November 2026 — AUD 10,000, all-or-nothing, funding the compute that finishes the HardenedBSD-to-C++23 port.~~<script src=\"/assets/js/demos/funding.js\" defer></script>~website"
 "research~Research shelf — cryptography, AI, physics, materials | Imortek~Odin Loch's R&D shelf: design documents and proofs of concept across cryptography, AI, tracking, mathematics, physics, materials and policy. Honestly labelled.~~<script src=\"/assets/js/demos/research.js\" defer></script>~website"
 "licensing~Licensing — AGPL-3.0+ and commercial terms | Imortek~Free under AGPL-3.0+ for personal use, charity, education and organisations under AUD 50,000/yr. Tiered commercial licence above that. Work out which applies to you.~~<script src=\"/assets/js/demos/licence.js\" defer></script>~website"
 "about~About Imortek and Odin Loch | Imortek~A one-person research and systems engineering practice in Sydney, Australia. What Imortek is, how it works, and how to get in touch.~~~profile"
@@ -265,6 +412,29 @@ PAGES=(
 "404~Page not found | Imortek~That page does not exist. Head back to the Imortek homepage.~~~website"
 )
 
+# Search keywords, per page. Google itself has ignored <meta name="keywords">
+# since 2009 — these are here for the engines and site-search tools that still
+# read it, and as a one-line statement of what each page is about. The tags that
+# actually move Google are the JSON-LD graph and the robots directives above.
+# Research articles are not listed: there are 46 of them and their titles
+# already say what they are, so keywords are derived from the title instead.
+declare -A KEYWORDS=(
+  [index]="Imortek, Odin Loch, ParanoidBSD, Cypha, secure operating system, C++23, systems software, AGPL-3.0, independent research, Sydney Australia"
+  [pbsd]="ParanoidBSD, PBSD, HardenedBSD, FreeBSD, C++23 modules, capability security, memory safety, secure operating system, KDE Plasma 6, kernel port, Capsicum"
+  [cypha]="Cypha, AI architecture, online classifier, latent sampling, information bottleneck, active inference, AIXI, minimum description length, random Fourier features"
+  [chess]="Cypha chess, chess engine, distilled model, browser chess, alpha-beta search, machine learning chess, 0x88 engine"
+  [retdec]="RetDec Imortek, decompiler, reverse engineering, binary analysis, algorithm recovery, specification extraction, Qt 6"
+  [mathscript]="MathScript, C++23, computer algebra, CAS, linear algebra, BLAS, LAPACK, ODE, PDE, FEM, numerical methods"
+  [aegis]="AEGIS, metadata-hiding transport, traffic analysis resistance, mixnet, constant-rate shaping, anonymity, privacy engineering"
+  [sentinel]="SENTINEL, crime analytics, Hawkes process, DBSCAN, KDE hotspots, Rossmo geographic profiling, investigative leads, Qt 6"
+  [cellai]="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture"
+  [kickstarter]="ParanoidBSD Kickstarter, PBSD crowdfunding, secure operating system Kickstarter, HardenedBSD C++23 port, memory-safe operating system, back ParanoidBSD, Odin Loch"
+  [research]="Imortek research, Odin Loch, cryptography research, AI research, physics, materials science, mathematics, policy, design documents"
+  [licensing]="AGPL-3.0, commercial licence, dual licensing, source available, open source licence, Imortek licensing"
+  [about]="Imortek, Odin Loch, about, Sydney Australia, systems engineering, independent research, contact"
+)
+
+
 count=0
 for row in "${PAGES[@]}"; do
   IFS='~' read -r slug title desc extra_css extra_js og_type <<< "$row"
@@ -275,7 +445,13 @@ for row in "${PAGES[@]}"; do
   fi
   out="$slug.html"
   mkdir -p "$(dirname "$out")"
-  { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type"
+
+  keywords="${KEYWORDS[$slug]:-}"
+  if [[ -z "$keywords" && "$slug" == research/* ]]; then
+    keywords="$(short_name "$title"), $(sub_name "$title"), Imortek research, Odin Loch"
+  fi
+
+  { emit_head "$title" "$desc" "$slug" "$extra_css" "$og_type" "$keywords"
     cat "$body"
     emit_foot "$extra_js"
   } > "$out"
