@@ -96,6 +96,9 @@
   "voice.goingTo": "Перехожу к",
   "voice.heading": "Заголовок.",
   "voice.or": "Или",
+  "gh.live": "напрямую из api.github.com",
+  "gh.cached": "сохранённый снимок",
+  "gh.noDescription": "Без описания",
   "gloss.notInDict": "Нет в словаре.",
   "gloss.lookingUp": "ищу…",
   "gloss.forget": "Забыть то, чему научилась Cypha"

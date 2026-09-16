@@ -10,8 +10,8 @@ Live at **https://imortek.com.au** (GitHub Pages, custom domain via `CNAME`).
 ## What is here
 
 A static site — no framework, no bundler, no npm install, no build step you have to learn.
-Twenty-six pages, each carrying a working interactive demonstration of the thing it
-describes, all running client-side.
+Sixty-one pages in English, each carrying a working interactive demonstration of the thing it
+describes, all running client-side, plus fifteen of them again in nine more languages.
 
 Two audiences share the site. The product pages stay technical, because the people who
 evaluate this software want the detail — but each one opens its `#who` section in plain
@@ -59,6 +59,80 @@ python3 tools/gen_research.py   # rebuilds src/pages/research/* and the index
 Their content lives in `tools/research_data.py`, one entry per area, drawn from the
 corresponding folder README in the `Ideas` repository.
 
+## Languages
+
+English lives at the root and every URL it has ever had still works. Nine more languages are
+served from `/<code>/`, listed in `tools/locales.json`: Chinese, Hindi, Spanish, Arabic,
+French, Bengali, Portuguese, Russian and Urdu — the ten most-spoken languages by total
+speakers. Arabic and Urdu are right-to-left.
+
+```bash
+python3 tools/i18n_segments.py extract            # re-scan the English pages for text
+python3 tools/i18n_segments.py dump  <slug> <code>   # English, numbered, in reading order
+python3 tools/i18n_segments.py merge <slug> <code>   # reads index<TAB>text on stdin
+python3 tools/i18n_segments.py stat               # coverage per language, by word
+./tools/build.sh                                  # writes all 196 pages
+python3 tools/gen_voice_index.py                  # one search index per language
+```
+
+**A translated page is the same page.** Every demo here reaches into the body by element id —
+`cap-canvas`, `cy-surface`, `cx-board` — so rebuilding those pages from a localised template
+would mean maintaining nine copies of that markup and breaking a demo in eight languages the
+first time one drifted. Nothing is rebuilt: the document structure is left alone and only the
+human-readable leaves are swapped — text nodes, and `alt`, `title`, `placeholder`,
+`aria-label`. Ids, classes, hrefs, `data-*` and script contents are never touched. Applying an
+empty catalogue reproduces the source byte for byte, and `tools/qa/i18n-check.py` proves the
+built pages still match.
+
+Keys are a hash of the English text rather than a position, so moving a section does not
+invalidate its translation and a sentence appearing on two pages is translated once. Anything
+untranslated falls through to English, and the builder measures that coverage per page and
+makes the page say so above the fold below 92%.
+
+The research ledgers are deliberately **not** translated. Every figure in them is a claim
+somebody can check, and a mistranslated claim is a false claim. They stay in English, the
+shelf says so in the reader's language, and no `hreflang` promises otherwise.
+
+Everything else keeps working per language: the selector (top right, server-rendered as plain
+links so it works with JavaScript off and a crawler can follow it), the search index, the
+spoken command vocabulary in `assets/data/say.<code>.json`, speech synthesis and recognition
+on the locale's own BCP-47 tag, and the glossary.
+
+Two rules learnt the hard way, both in `assets/js/i18n.js`:
+
+- Never run the English stemmer on another language. `/[a-z][a-z'+-]+/` on
+  "операционная система" yields no tokens at all, so the search box was not ranking the wrong
+  pages — it was never forming a query.
+- A word ends where a run of letters **and marks** ends. Python counts a Devanagari vowel sign
+  as a non-word character, so `\w+` shreds "ऑपरेटिंग" into three fragments and the Hindi index
+  came out with 23 usable terms in it.
+
+`src/i18n/TRANSLATING.md` is the brief for a page, `src/i18n/GLOSSARY.md` for the glossary.
+
+## Plain English
+
+`assets/data/glossary.json` holds 199 pieces of jargon and, for each, one or two sentences a
+person with no background can read once and understand. Click *Explain the jargon* in the page
+toolbar and the first occurrence of each is marked; the layer averages 39 marked terms a page.
+Double-click any other word and it falls through to a 144,440-word WordNet dictionary, loaded
+one shard at a time.
+
+```bash
+python3 tools/gen_glossary.py                 # English — refuses to build if it gets clever
+python3 tools/gen_glossary_locale.py stat     # translated coverage
+```
+
+The file is generated rather than hand-edited because the checks are the point. It refuses an
+explanation longer than 36 words, a sentence over 24, a word longer than 11 letters that is
+not on the allow-list, or one that leans on another piece of jargon to do the work. These are
+not definitions — a definition tells you what a word means to someone who already knows:
+
+> **capability** — a key that opens one door and nothing else. Give a program that key and it
+> can only do that one thing.
+
+Not "an unforgeable token conferring authority over a single resource", which is the same fact
+written to impress.
+
 ## The chess model
 
 `/chess.html` plays against a real distilled model, not a scripted opponent.
@@ -93,18 +167,27 @@ pointers as plain text.
 
 ```
 src/pages/          page bodies — edit these
+src/i18n/           translation catalogues, one per language, plus the two briefs
 tools/build.sh      the builder
+tools/locales.json  the ten languages, their direction and their speech tags
+tools/i18n_segments.py   extract / apply / measure a page's translatable text
+tools/gen_glossary.py    the plain-English layer, with its simplicity checks
+tools/gen_glossary_locale.py
 tools/gen_research.py + research_data.py
+tools/gen_voice_index.py one search index per language
+tools/qa/           responsive audit, structural i18n check, feature smoke test
 tools/chess/        engine verification + model training
-assets/css/main.css design system
+assets/css/main.css design system, logical properties throughout so RTL mirrors
+assets/i18n/        the chrome strings, one file per language
+assets/js/i18n.js   locale runtime — strings, URLs, tokenising
 assets/js/site.js   nav, scroll, reveal, hero canvas, live GitHub stats, video slots
 assets/js/demos/    one file per interactive demo
 assets/js/chess/    engine, features, Cypha head
-assets/data/        distilled chess weights
+assets/data/        glossary, search indexes, spoken vocabulary, chess weights
 assets/video/       optional Runway clips + generated manifest.json
 assets/img/people/  portrait
 assets/img/pbsd/    the port mascot
-*.html              generated — do not edit
+*.html, <code>/*.html   generated — do not edit
 ```
 
 ## Responsive behaviour
@@ -130,10 +213,16 @@ Re-run it yourself:
 ```bash
 npm i -D playwright              # once
 python3 -m http.server 8123 &
-node tools/qa/responsive-audit.js
+node tools/qa/responsive-audit.js   # every page, every size, every language
+python3 tools/qa/i18n-check.py      # translated pages still structurally identical
+node tools/qa/i18n-smoke.js         # selector, search, read-aloud, glossary, per language
 ```
 
-It exits non-zero on any failure, so it drops straight into CI if you ever want it there.
+All three exit non-zero on failure, so they drop straight into CI if you ever want them there.
+The responsive audit is the one that found the header: it fitted English on a wide laptop and
+nothing else, because Russian needs about 500px more for the same navigation. Rather than
+guess a breakpoint per language, the row now gives up ornament as space runs out — tagline,
+then the endonym beside the globe, then the two links reachable elsewhere, then padding.
 
 There is also a print stylesheet: chrome, demos and decorative canvases drop out, and the
 page prints dark-on-white.
@@ -159,7 +248,14 @@ page emitted `noindex`.
 
 `<meta name="keywords">` is also emitted — per page from the `KEYWORDS` map, and derived from
 the title for research articles. Google has ignored it since 2009; it is there for the smaller
-engines and site-search tools that still read it, not because it moves Google.
+engines and site-search tools that still read it, not because it moves Google. It is written
+per language rather than translated word for word, because somebody searching in Spanish types
+what a Spanish speaker types.
+
+Every translated page carries `hreflang` alternates for all ten languages plus `x-default`,
+and `sitemap.xml` repeats the whole cluster on each of its 186 URLs. Only pages that genuinely
+exist in more than one language get alternates: pointing `hreflang` at a page that is not
+actually translated promises a reader a language the page does not speak.
 
 Validate after changing anything in `emit_head`:
 

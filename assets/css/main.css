@@ -1396,8 +1396,14 @@ body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px))
 [dir="rtl"] .toolbar__grip-icon { transform: scaleX(-1); }
 [dir="rtl"] .langsel__caret { transform: rotate(45deg) translate(-1px, -1px); }
 [dir="rtl"] .skip-link { border-radius: 0 0 0 var(--r); }
-/* Numerals, code, identifiers and URLs read left to right inside RTL prose. */
-[dir="rtl"] code, [dir="rtl"] pre, [dir="rtl"] .mono, [dir="rtl"] samp, [dir="rtl"] kbd {
+/* Code, identifiers and URLs read left to right inside RTL prose. Without
+   this, "github.com/odin-loki" comes out as "com/odin-loki.github": the
+   browser is right to lay out the runs right-to-left, because the paragraph
+   is right-to-left — the string just is not Arabic, and has to say so. */
+[dir="rtl"] code, [dir="rtl"] pre, [dir="rtl"] samp, [dir="rtl"] kbd,
+[dir="rtl"] .mono, [dir="rtl"] .panel__title, [dir="rtl"] .spec__k,
+[dir="rtl"] .stat__k, [dir="rtl"] .term__title, [dir="rtl"] .badge--mono,
+[dir="rtl"] .chip__n, [dir="rtl"] .kv__k {
   direction: ltr; unicode-bidi: isolate; text-align: start;
 }
 

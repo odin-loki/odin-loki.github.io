@@ -96,6 +96,9 @@
   "voice.goingTo": "जा रहा हूँ",
   "voice.heading": "शीर्षक।",
   "voice.or": "या",
+  "gh.live": "api.github.com से सीधे",
+  "gh.cached": "सहेजी गई प्रति",
+  "gh.noDescription": "कोई विवरण नहीं",
   "gloss.notInDict": "शब्दकोश में नहीं है।",
   "gloss.lookingUp": "खोजा जा रहा है…",
   "gloss.forget": "Cypha ने जो सीखा उसे भुला दें"

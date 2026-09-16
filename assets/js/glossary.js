@@ -36,6 +36,12 @@
 
   var KEY = 'imortek.gloss.v1';
   var SKIP = /^(CODE|PRE|A|BUTTON|SCRIPT|STYLE|NOSCRIPT|SVG|H1|TEXTAREA|INPUT|SUMMARY)$/;
+  /* Elements whose text is an identifier rather than prose: a repository path,
+     a file name, a version string. Marking a word inside one splits the text
+     node in two, and on a right-to-left page the two halves then swap places —
+     "github.com/odin-loki" rendered as "com/odin-loki.github". It is also
+     simply wrong to explain "GitHub" in the middle of a URL. */
+  var SKIP_CLASS = /(^|\s)(mono|panel__title|spec__k|stat__k|term__title|kv__k|code)(\s|$)/;
   var MIN_OPENS = 3;        // before Cypha is allowed an opinion
   var MAX_AUTO   = 6;        // never flood a page, however keen the reader
   var LLR_GATE  = 0.3;      // nats over the world prior before pre-expanding
@@ -148,7 +154,9 @@
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;
           for (var p = n.parentNode; p && p !== main; p = p.parentNode) {
-            if (SKIP.test(p.nodeName) || (p.classList && p.classList.contains('gloss'))) {
+            if (SKIP.test(p.nodeName) ||
+                (p.className && typeof p.className === 'string' && SKIP_CLASS.test(p.className)) ||
+                (p.classList && p.classList.contains('gloss'))) {
               return NodeFilter.FILTER_REJECT;
             }
           }

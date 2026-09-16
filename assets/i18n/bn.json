@@ -96,6 +96,9 @@
   "voice.goingTo": "যাচ্ছি",
   "voice.heading": "শিরোনাম।",
   "voice.or": "অথবা",
+  "gh.live": "api.github.com থেকে সরাসরি",
+  "gh.cached": "সংরক্ষিত অনুলিপি",
+  "gh.noDescription": "কোনো বিবরণ নেই",
   "gloss.notInDict": "অভিধানে নেই।",
   "gloss.lookingUp": "খোঁজা হচ্ছে…",
   "gloss.forget": "Cypha যা শিখেছে তা মুছে ফেলুন"

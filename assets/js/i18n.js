@@ -67,6 +67,10 @@
     'voice.heading': 'Heading.',
     'voice.or': 'Or',
 
+    'gh.live': 'live from api.github.com',
+    'gh.cached': 'cached snapshot',
+    'gh.noDescription': 'No description',
+
     'gloss.notInDict': 'Not in the dictionary.',
     'gloss.lookingUp': 'looking it up…',
     'gloss.forget': 'Forget what Cypha learned'

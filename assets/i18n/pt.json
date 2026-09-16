@@ -96,6 +96,9 @@
   "voice.goingTo": "Indo para",
   "voice.heading": "Título.",
   "voice.or": "Ou",
+  "gh.live": "ao vivo de api.github.com",
+  "gh.cached": "cópia salva",
+  "gh.noDescription": "Sem descrição",
   "gloss.notInDict": "Não está no dicionário.",
   "gloss.lookingUp": "procurando…",
   "gloss.forget": "Esquecer o que a Cypha aprendeu"

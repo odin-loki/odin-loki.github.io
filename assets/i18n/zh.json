@@ -96,6 +96,9 @@
   "voice.goingTo": "正在前往",
   "voice.heading": "标题。",
   "voice.or": "或者",
+  "gh.live": "实时来自 api.github.com",
+  "gh.cached": "缓存快照",
+  "gh.noDescription": "没有说明",
   "gloss.notInDict": "词典中没有这个词。",
   "gloss.lookingUp": "正在查询…",
   "gloss.forget": "清除 Cypha 学到的内容"

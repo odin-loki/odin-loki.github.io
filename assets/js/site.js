@@ -353,7 +353,7 @@
       else if (field === 'size') val = (r.size / 1024).toFixed(1) + ' MB';
       else if (field === 'updated') val = relTime(r.pushed_at);
       else if (field === 'issues') val = r.open_issues_count;
-      if (val !== undefined) { el.textContent = val; el.classList.add('is-live'); }
+      if (val !== undefined) { el.textContent = num(val); el.classList.add('is-live'); }
     });
 
     // Aggregates
@@ -379,7 +379,7 @@
       feed.innerHTML = recent.map(function (r) {
         return '<a class="feed__row" href="' + r.html_url + '" target="_blank" rel="noopener">' +
           '<span class="feed__name mono">' + esc(r.name) + '</span>' +
-          '<span class="feed__desc">' + esc(r.description || 'No description') + '</span>' +
+          '<span class="feed__desc">' + esc(r.description || T('gh.noDescription')) + '</span>' +
           '<span class="feed__when mono">' + relTime(r.pushed_at) + '</span>' +
           '</a>';
       }).join('');
@@ -387,26 +387,46 @@
     }
 
     document.querySelectorAll('[data-gh-status]').forEach(function (el) {
-      el.textContent = 'live from api.github.com';
+      el.textContent = T('gh.live');
       el.classList.add('is-live');
     });
   }
 
   function setText(sel, v) {
-    document.querySelectorAll(sel).forEach(function (el) { el.textContent = v; el.classList.add('is-live'); });
+    document.querySelectorAll(sel).forEach(function (el) { el.textContent = num(v); el.classList.add('is-live'); });
   }
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+  /* "3d ago" in ten languages, without ten tables of plural rules. The browser
+     already knows how every one of them says this; Intl.RelativeTimeFormat is
+     the API that asks it. The English strings stay as the fallback for a
+     browser that does not have it. */
+  var RTF = null;
+  try { RTF = new Intl.RelativeTimeFormat(LOC.tag || 'en', { numeric: 'always', style: 'narrow' }); }
+  catch (e) { RTF = null; }
+
   function relTime(iso) {
     var diff = (Date.now() - new Date(iso).getTime()) / 1000;
-    if (diff < 3600) return Math.max(1, Math.round(diff / 60)) + 'm ago';
-    if (diff < 86400) return Math.round(diff / 3600) + 'h ago';
-    if (diff < 2592000) return Math.round(diff / 86400) + 'd ago';
-    if (diff < 31536000) return Math.round(diff / 2592000) + 'mo ago';
-    return Math.round(diff / 31536000) + 'y ago';
+    var n, unit, short;
+    if (diff < 3600)          { n = Math.max(1, Math.round(diff / 60)); unit = 'minute'; short = 'm'; }
+    else if (diff < 86400)    { n = Math.round(diff / 3600);            unit = 'hour';   short = 'h'; }
+    else if (diff < 2592000)  { n = Math.round(diff / 86400);           unit = 'day';    short = 'd'; }
+    else if (diff < 31536000) { n = Math.round(diff / 2592000);         unit = 'month';  short = 'mo'; }
+    else                      { n = Math.round(diff / 31536000);        unit = 'year';   short = 'y'; }
+    if (RTF) { try { return RTF.format(-n, unit); } catch (e) {} }
+    return n + short + ' ago';
+  }
+
+  /* Digit grouping follows the locale too: 1,234 in English, 1.234 in Spanish,
+     ١٢٣٤ nowhere here, because the Arabic pages use Western numerals so the
+     figures match the code samples beside them. */
+  var NF = null;
+  try { NF = new Intl.NumberFormat(LOC.tag || 'en'); } catch (e) { NF = null; }
+  function num(v) {
+    return (NF && typeof v === 'number' && isFinite(v)) ? NF.format(v) : String(v);
   }
 
   function initGitHub() {
@@ -438,7 +458,7 @@
       .catch(function () {
         // Static fallback values already in the HTML stay as-is.
         document.querySelectorAll('[data-gh-status]').forEach(function (el) {
-          el.textContent = 'cached snapshot';
+          el.textContent = T('gh.cached');
         });
         var feed = document.querySelector('[data-gh-feed]');
         if (feed) feed.classList.remove('is-loading');

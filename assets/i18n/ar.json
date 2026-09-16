@@ -96,6 +96,9 @@
   "voice.goingTo": "الانتقال إلى",
   "voice.heading": "عنوان.",
   "voice.or": "أو",
+  "gh.live": "مباشرة من api.github.com",
+  "gh.cached": "نسخة محفوظة",
+  "gh.noDescription": "بلا وصف",
   "gloss.notInDict": "غير موجود في القاموس.",
   "gloss.lookingUp": "جارٍ البحث عنه…",
   "gloss.forget": "نسيان ما تعلّمه Cypha"

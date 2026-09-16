@@ -118,7 +118,7 @@ load_runtime() {
   LC_RUNTIME="<script>window.__IMORTEK_I18N=$(python3 -c '
 import json, sys
 d = json.load(open("assets/i18n/%s.json" % sys.argv[1], encoding="utf-8"))
-keep = ("lang.", "tools.", "search.", "related.", "voice.", "gloss.")
+keep = ("lang.", "tools.", "search.", "related.", "voice.", "gloss.", "gh.")
 out = {k: v for k, v in d.items() if k.startswith(keep)}
 print(json.dumps(out, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003C"))
 ' "$code");</script>"
