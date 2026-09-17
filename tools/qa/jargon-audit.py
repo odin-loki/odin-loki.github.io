@@ -40,8 +40,13 @@ TAG = re.compile(r'(?s)<[^>]+>')
 # splitting it invented an acronym called INTEL that appears nowhere. A
 # subscript belongs to it too — VO\u2082 is not a term called VO.
 SUB = '\u2070-\u209f\u00b2\u00b3\u00b9'
+# A dot inside a designation belongs to it: without this the audit reads
+# "MP-4.6P Guardian LE" as the acronym MP-4, reports it as unexplained, and the
+# note recording the exception says "a bare table cell, not a term in prose",
+# which is wrong twice over. A dot at the end of a sentence is followed by a
+# space, so it cannot pull the next word in.
 ACRONYM = re.compile(
-    r'(?<![A-Za-z0-9])([A-Z]{2,}[0-9+]*(?:-[A-Z0-9]+)*)(?![A-Za-z' + SUB + r'])')
+    r'(?<![A-Za-z0-9])([A-Z]{2,}[0-9+]*(?:[-.][A-Z0-9]+)*)(?![A-Za-z' + SUB + r'])')
 
 # Capitals that are not acronyms. Three kinds, and each is a judgement someone
 # made rather than a rule a machine can apply, so they are written down.
@@ -55,6 +60,16 @@ US UK UN EU NZ AU NATO WWII II III IV VI VII VIII IX XI XII
 BY SA MO TU WE TH FR SU AM PM GMT UTC AEST
 '''.split())
 
+# A fourth kind, kept apart because each needs its own sentence: capitals that
+# only look like an acronym once the markup has been taken out from between
+# them. Stripping tags is what lets the audit read a page the way the glossary
+# matcher does, and it is also what welds two symbols into a word.
+NOT_ACRONYM = {
+    'AD': 'the adjacency and degree matrices standing next to each other in '
+          'D<sup>\u2212\u00bd</sup>AD<sup>\u2212\u00bd</sup> on research/qgo.html, which is a Laplacian, not a word',
+}
+NOT_JARGON |= set(NOT_ACRONYM)
+
 
 # Acronyms this site names but never explains, anywhere. These are not a backlog
 # item — there is nothing honest to write, because the source does not say. They
@@ -65,18 +80,18 @@ NO_SOURCE = {
     'UDA':     'same list, same problem',
     'FAC':     'never stands alone — it only occurs inside K-FAC, so a gloss would '
                'light up on half a word',
-    'LE':      'only ever "6P Guardian LE", a product variant, with nothing saying '
-               'what the two letters mark',
-    'QTR':     'research/carbide.html names a "QTR alpha constant error" and never '
-               'says what QTR is',
-    'AD':      'a bare table cell on research/pharma.html, not a term in prose',
+    'LE':      'four mentions on research/weapons-police.html, all of them the '
+               'product name "Guardian LE", with nothing saying what the two '
+               'letters mark',
+    'QTR':     'research/hybrid-components.html has a table row "QTR alpha constant '
+               'error" and never says what QTR is',
     'PC':      'the program counter, already carried as an alias of SP',
     'ID':      'only ever inside re-ID, already an alias of re-identification',
     'ECE':     'research/gf2-algebra.html names "Paper 7\'s ECE relationship" and the '
                'paper is not on the site, so nothing here says what ECE is',
     'AMS':     'only ever Verilog-AMS, which is glossed under that name',
-    'ARL':     'only ever printed as ARL with a subscript zero, glossed under that',
-    'MP-4':    'a bare table cell on research/weapons-police.html, not a term in prose',
+    'MP-4.6P': 'the model designation of the pistol research/weapons-police.html '
+               'is about, in prose, and the page never says what MP stands for',
 }
 
 
