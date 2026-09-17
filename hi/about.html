@@ -158,7 +158,10 @@
         <span class="eyebrow">परिचय</span>
         <h1>नमस्ते &mdash; मैं हूँ <span class="gradient-text">Odin Loch</span></h1>
         <p class="lede">
-          मैं ऑपरेटिंग सिस्टम, AI संरचनाएँ, डीकंपाइलर और संख्यात्मक लाइब्रेरी बनाता हूँ, ज़्यादातर रात में, सिडनी से। Imortek वह नाम है जिसके तहत मैं यह काम प्रकाशित करता हूँ।
+          I build operating systems, Artificial Intelligence (AI) architectures, maths
+          libraries, and tools that work out what a program does when nobody has the source
+          code any more. Mostly at night, from Sydney. Imortek is the name I publish that
+          work under.
         </p>
         <p class="lede">
           मेरे पास दो डिप्लोमा हैं &mdash; सॉफ़्टवेयर, और हॉस्पिटल साइंस &mdash; और इस वक़्त मैं टूलमेकर का काम करता हूँ। इस तरह के सॉफ़्टवेयर के लिए लोग जिस योग्यता की उम्मीद करते हैं, उनमें से कुछ भी यह नहीं है, और ठीक इसीलिए मैं जो कुछ प्रकाशित करता हूँ वह इस तरह लिखा जाता है कि उस पर यक़ीन नहीं, जाँच की जाए।
@@ -174,7 +177,7 @@
           <div class="phero__meta-item">कारोबार का नाम<b>Imortek</b></div>
           <div class="phero__meta-item">दिन की नौकरी<b>टूलमेकर</b></div>
           <div class="phero__meta-item">रिपॉज़िटरी<b data-gh-total="repos">15</b></div>
-          <div class="phero__meta-item">लाइसेंस<b>AGPL-3.0+</b></div>
+          <div class="phero__meta-item">GNU Affero General Public License<b>AGPL-3.0+</b></div>
         </div>
       </div>
     </div>
@@ -187,13 +190,27 @@
     <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">मैं इस तरह काम क्यों करता हूँ</h2>
     <div class="stack" style="margin-top:1.5rem;font-size:1.04rem">
       <p class="dim">
-        मुझे हर तरह की इंजीनियरिंग और हर विज्ञान पसंद है, और किसी एक के भीतर टिके रहना मुझसे कभी नहीं हुआ। इसीलिए संग्रह में एक हार्डन्ड BSD के बगल में एक AEAD योजना है, उसके बगल में कार्बाइड औज़ार, और उसके बगल में एक पेपर कि राष्ट्रीय संपत्ति को मेगाजूल में कैसे नापा जाए। यह कोई रणनीति नहीं है। मेरी दिलचस्पी सचमुच इन्हीं चीज़ों में है।
+        I like all engineering and all the sciences, and I have never been good at staying inside
+        one of them. That is why the shelf has a hardened Berkeley Software Distribution (BSD)
+        next to an Authenticated Encryption with Associated Data (AEAD) scheme next to carbide
+        tooling next to a paper about how you would measure national wealth in megajoules.
+        It is not a strategy. It is what I am actually interested in.
       </p>
       <p class="dim">
-        अकेले काम करने का मतलब है कि मेरा काम कोई जाँचता नहीं, इसलिए मैंने जाँच को काम के भीतर ही बना दिया। ParanoidBSD किसी फ़ाइल को तब तक पोर्ट हुआ नहीं मानता जब तक विभेदक या IR सत्यापन पास न हो, क्योंकि मैं अच्छी तरह जानता हूँ कि सिर्फ़ कंपाइल हो जाने वाली फ़ाइल ने मुझे कुछ नहीं बताया। MathScript हर जगह फेंकने के बजाय <code translate="no">Result&lt;T&gt;</code> लौटाता है, क्योंकि मैं चाहता था कि नाकामी के मामले टाइप में ही दिखें, न कि रात तीन बजे पता चलें। AEGIS का एक ही नियम है &mdash; जब तक कोई हमला-सिमुलेशन पुष्टि न कर दे, तब तक कुछ भी पूरा नहीं &mdash; क्योंकि ट्रैफ़िक विश्लेषण के बारे में मेरा अंदाज़ा बार-बार ग़लत निकला, और सिमुलेशन नहीं।
+        Working alone means nobody checks my work, so I built the checking into the work.
+        ParanoidBSD will not mark a file as ported until differential or Intermediate
+        Representation (IR) verification passes, because I know perfectly well that a file
+        which merely compiles has told me nothing.
+        MathScript returns <code translate="no">Result&lt;T&gt;</code> लौटाता है, क्योंकि मैं चाहता था कि नाकामी के मामले टाइप में ही दिखें, न कि रात तीन बजे पता चलें। AEGIS का एक ही नियम है &mdash; जब तक कोई हमला-सिमुलेशन पुष्टि न कर दे, तब तक कुछ भी पूरा नहीं &mdash; क्योंकि ट्रैफ़िक विश्लेषण के बारे में मेरा अंदाज़ा बार-बार ग़लत निकला, और सिमुलेशन नहीं।
       </p>
       <p class="dim">
-        जो हिस्से इस साइट पर मेरे ही ख़िलाफ़ दलील देते दिखते हैं, उनकी वजह भी यही सोच है। Cell AI की पर्प्लेक्सिटी GPT-2 से परिमाण के चार क्रम ख़राब है और यह बात उसके पहले पन्ने पर है। डीकंपाइलर सिंबल हटी बाइनरी पर एल्गोरिदम F1 0.056 पर वापस निकालता है, और उसके बगल में 1.000 छपा है जो उसे सिंबल के साथ मिलता है। AES वाला काम नाकाम रहा, और वह नाकामी के रूप में ही प्रकाशित है, उन आँकड़ों के साथ जो वजह दिखाते हैं। अगर मैं ये छिपा लेता, तो आपके पास यह जानने का कोई तरीक़ा न होता कि मेरे बाक़ी आँकड़ों में से किन पर भरोसा करें।
+        The same reasoning explains the parts of this site that look like they are arguing against
+        me. Cell AI&rsquo;s perplexity is four orders of magnitude worse than Generative
+        Pre-trained Transformer 2 (GPT-2) and that is on its front page. The decompiler recovers
+        algorithms at F1 0.056 on stripped binaries, next to the 1.000 it gets with symbols. The
+        Advanced Encryption Standard (AES) work failed, and it is published as a failure with
+        the statistics that show why. If I hid those, you would have no way of telling which
+        of my other numbers to trust.
       </p>
       <p class="dim">
         ParanoidBSD ख़ुद को &ldquo;एक सुरक्षित ऑपरेटिंग सिस्टम, जो एक सिज़ोफ्रेनिक ने बनाया है&rdquo; बताता है। यह मेरी अपने बारे में कही हुई बात है और मैं इसे रख रहा हूँ। इसका मतलब यह नहीं कि इंजीनियरिंग भरोसे लायक़ नहीं &mdash; इस काम पर लगे पहरे बहुत सारे वाणिज्यिक सॉफ़्टवेयर ने कभी देखे भी नहीं, और वे लिखकर वहाँ रखे हैं जहाँ आप उन्हें पढ़ सकते हैं। इसका मतलब यह है कि मैं आपको बाद में पता चलने देने के बजाय ख़ुद बता देना चाहता हूँ कि इसे बना कौन रहा है।
@@ -269,7 +286,7 @@
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/pbsd.html">ParanoidBSD</a></h3><p class="small dim" style="margin:0">HardenedBSD 15-STABLE से C++23, साथ में एक कैपेबिलिटी और हैंडल नाभिक।</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/cypha.html">Cypha</a></h3><p class="small dim" style="margin:0">मूल सिद्धांतों से बनी एक AI संरचना। वर्गीकरण, प्रतिगमन, नमूनाकरण, जनरेशन।</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/retdec.html">RetDec Imortek</a></h3><p class="small dim" style="margin:0">एक डीकंपाइलर जो एल्गोरिदम वापस निकालता है, सिर्फ़ छद्म-कोड नहीं।</p></div>
-      <div class="card"><h3 style="font-size:1rem"><a href="/hi/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">C++23 कंप्यूटर बीजगणित और संख्यात्मक गणना, अपने ही ट्री के BLAS और LAPACK के साथ।</p></div>
+      <div class="card"><h3 style="font-size:1rem"><a href="/hi/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">C++23 computer algebra and numerics, with its own Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) in-tree.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/aegis.html">AEGIS</a></h3><p class="small dim" style="margin:0">अनुमति-आधारित संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट।</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/sentinel.html">SENTINEL</a></h3><p class="small dim" style="margin:0">अपराध विश्लेषण, जिसमें हर सूत्र पर पूरी उत्पत्ति-श्रृंखला है।</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/hi/cellai.html">Cell AI</a></h3><p class="small dim" style="margin:0">एक ग़ैर-ट्रांसफ़ॉर्मर अनुक्रम मॉडल, जो एक ईमानदार अनुसंधान लॉग के रूप में प्रकाशित है।</p></div>
@@ -321,21 +338,21 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">संबंधित पठन</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/hi/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — विनिर्देश निकालने वाला डीकंपाइलर</h3>
-      </a>
-      <a class="card card--hover related__item" href="/hi/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
-      </a>
       <a class="card card--hover related__item" href="/hi/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
       </a>
+      <a class="card card--hover related__item" href="/hi/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट</h3>
+      </a>
       <a class="card card--hover related__item" href="/hi/trace.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -407,7 +424,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T20:39:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

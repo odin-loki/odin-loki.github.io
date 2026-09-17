@@ -149,7 +149,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>بنية ذكاء اصطناعي مبنيّة من <span class="gradient-text">المبادئ الأولى</span>، لا تفريعًا لمشروع آخر</h1>
         <p class="lede">
-          Cypha ليس غلافًا حول محوّل ولا نسخة مضبوطة من نموذج شخص آخر. نوع عام واحد &mdash; <code translate="no">cypha::Cypha</code> &mdash; يصنّف، ويُجري الانحدار، ويأخذ عيّنات من الفضاء الكامن، ويولّد المتتاليات، بقاعدة تعلّم مشتقّة من تقاطع أربعة برامج نظرية.
+          Almost all modern Artificial Intelligence (AI) is a variation on the same few
+          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
+          from mathematics rather than borrowed, that updates on every example it sees instead
+          of being trained once and frozen. It is a research project, and the failures are
+          published alongside the results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">درّب واحدًا في متصفحك</a>
@@ -159,7 +163,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">اللغة<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">الإصدار<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2.664 BPC</b></div>
           <div class="phero__meta-item">آخر دفعة<b data-gh-repo="Cypha" data-gh-field="updated">مؤخرًا</b></div>
         </div>
       </div>
@@ -168,13 +172,65 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">أربعة برامج، وقاعدة تعلّم واحدة</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; التوزيعات المسبقة بالحد الأدنى لطول الوصف تقرّر ما يُسمح للنموذج بتصديقه بثمن رخيص.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
             <li><strong>الهندسة المعلوماتية</strong> &mdash; التحديثات تتبع التدرّج الطبيعي، فيحترم التعلّم انحناء فضاء المعاملات.</li>
             <li><strong>الاستدلال النشط / الطاقة الحرة</strong> &mdash; يعطي التفكيك البنيوي إلى مسبق وفارق وسياق.</li>
             <li><strong>عنق الزجاجة المعلوماتي</strong> &mdash; يحدّد هدف المُرمِّز: احتفظ بما يتنبّأ، واطرح الباقي.</li>
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
+        <p class="small dim" style="margin:0">
+          Nearly every AI system in use is a variation on a handful of designs. They are
+          trained once on a large machine and then shipped frozen, so keeping up with
+          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
+          back and training again. They are also big, which puts them in a data centre rather
+          than on the equipment, and makes explaining any single decision hard.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
+          learning rule is derived from four bodies of mathematics rather than copied from an
+          existing architecture, and it updates on every example it sees &mdash; no batch, no
+          epoch, no retraining run. It is small enough to run on the hardware that collects
+          the data.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
+        <p class="small dim" style="margin:0">
+          Today, researchers and engineers willing to try a different design. The problems it
+          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
+          faults, changing behaviour &mdash; where the model has to sit on the device rather
+          than in a data centre, and where somebody has to explain the decision afterwards.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Judge it as research.</strong> The figures further down come from the
+      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
+      than a leaderboard position. A section headed <em>ما ليس Cypha</em> sets out the
+      limits, including the standard test where it sits near chance until one particular
+      component is switched on. The rest of this page is the architecture and the
+      measurements.
     </div>
   </div>
 </section>
@@ -199,7 +255,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            نواة RBF الدقيقة على <b>n</b> نقطة مأخوذة تعطي مصفوفة <b>K</b>. والسمات العشوائية تعيد بناء تقريبًا <b>K&#770;</b>. والمرسوم هو
+            The exact Radial Basis Function (RBF) kernel over <b>n</b> نقطة مأخوذة تعطي مصفوفة <b>K</b>. والسمات العشوائية تعيد بناء تقريبًا <b>K&#770;</b>. والمرسوم هو
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> مع تزايد عدد السمات: سمات أكثر، تقريب أقرب.
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -227,13 +283,15 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>ترجمة هذا كشفت علّة.</strong> ORF &mdash; الصيغة المتعامدة الكثيفة &mdash; كان يُعيّر كل صف إلى طول الوحدة، بينما يسحب Yu وزملاؤه معيار الصف من
-            <code translate="no">chi_d</code> كي يطابق الصفُّ المتعامد الصفَّ الغاوسي الذي يحلّ محلّه. كانت الصفوف أقصر بمقدار &radic;d، فقاربت السمات النواة الخطأ واستوى الخطأ عند حدّ بدل أن يتقارب. سطر واحد. وهو الآن أفضل الثلاثة.
+            <strong>ترجمة هذا كشفت علّة.</strong> Orthogonal Random Features (ORF)
+            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
+            et al. draw the row norm from <code translate="no">chi_d</code> كي يطابق الصفُّ المتعامد الصفَّ الغاوسي الذي يحلّ محلّه. كانت الصفوف أقصر بمقدار &radic;d، فقاربت السمات النواة الخطأ واستوى الخطأ عند حدّ بدل أن يتقارب. سطر واحد. وهو الآن أفضل الثلاثة.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        أحادي الخيط عن قصد: WebAssembly متعدّد الخيوط يحتاج SharedArrayBuffer، وهذا يحتاج ترويسات COOP/COEP لا تستطيع GitHub Pages إرسالها.
+        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
+        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -275,7 +333,9 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          توزيع غاوسي قطري مشترك يُلاءَم مباشرةً بطريقة Welford/EMA. هذا هو &ldquo;السياق اللانهائي&rdquo; الذي لا ينسى أبدًا &mdash; وحركته هي إشارة الانجراف.
+          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
+          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
+          and whose movement is the drift signal.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -416,7 +476,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>جرّب XOR ومُرمِّز RFF مُطفأ.</strong> تنهار الدقّة نحو مستوى الصدفة، وهذا ليس علّة في هذا العرض &mdash; بل هو الحدّ الموثّق لنسبة الإمكان اللوغاريتمية الخطّية، المذكور صراحةً في ملف README الخاص بـCypha. شغّل مُرمِّز RFF الكامن وراقب تعافيها. ونشر نمط الإخفاق بجوار علاجه هو المقصود كله.
+      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> تنهار الدقّة نحو مستوى الصدفة، وهذا ليس علّة في هذا العرض &mdash; بل هو الحدّ الموثّق لنسبة الإمكان اللوغاريتمية الخطّية، المذكور صراحةً في ملف README الخاص بـCypha. شغّل مُرمِّز RFF الكامن وراقب تعافيها. ونشر نمط الإخفاق بجوار علاجه هو المقصود كله.
     </div>
   </div>
 </section>
@@ -429,6 +489,10 @@
       <h2>النتائج، مع المقارنة التي تهمّ</h2>
       <p class="lede">
         أرقام من تشغيلات القياس في المستودع نفسه بعد الإصلاح التشخيصي. والصحّة تُثبَت بمصفوفة CTest تطابق مرجعيات اختبار مثبتة &mdash; لا بموقع في لوحة تصنيف.
+      </p>
+      <p class="small muted">
+        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
+        (LSTM), Backpropagation Through Time (BPTT).
       </p>
     </div>
 
@@ -499,7 +563,7 @@
           <li><strong>ليس غلافًا.</strong> مصنوع من المبادئ الأولى &mdash; وهذا يعني أيضًا أنه لا يرث ضبط أحد غيره.</li>
           <li><strong>نسبة الإمكان اللوغاريتمية الخطّية لها سقف.</strong> XOR يبقى قرب مستوى الصدفة بلا مُرمِّز RFF الكامن، الذي يرفعه إلى نحو 76.3%.</li>
           <li><strong>التحقّق قائم على التطابق.</strong> CTest في مقابل مرجعيات اختبار مثبتة. ولا تُقدَّم أي ادّعاءات عن لوحات التصنيف.</li>
-          <li><strong>CUDA للاستدلال فقط.</strong> التدريب يبقى على المعالج المركزي، لأن المعالج المركزي أسرع في هذه المعمارية.</li>
+          <li><strong>CUDA للاستدلال فقط.</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
           <li><strong>النظرية في مكان آخر.</strong> عمل الطيف التوافقي وNMP ورقة منفصلة عن خوارزميات الضغط؛ وCypha هو طبقة التنفيذ.</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -604,9 +668,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — نموذج تسلسلات بالتفاعل والانتشار</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/trace.html">
+      <a class="card card--hover related__item" href="/ar/aegis.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — طبقة نقل تُخفي البيانات الوصفية للاتحادات</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.</p>
@@ -678,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T20:39:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

@@ -152,10 +152,14 @@
         <span class="eyebrow">उत्पाद डेमो</span>
         <h1>शतरंज खेलिए, सामने है <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha ने शतरंज खेलों से नहीं सीखा। उसने एक इंजन से सीखा &mdash; Imortek का संदर्भ इंजन, एक पारंपरिक alpha-beta सर्चर, जिसमें piece-square मूल्यांकन और quiescence है। दसियों हज़ार स्थितियों को उसी इंजन के अपने सर्च मूल्यांकनों से लेबल किया गया, और Cypha के प्रतिगमन हेड को उन्हें दोहराने के लिए फ़िट किया गया।
+          Cypha never saw a chess game. It learned by watching an ordinary chess program think
+          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
+          was winning &mdash; until Cypha could produce the verdict itself.
         </p>
         <p class="lede">
-          नीचे आप जिससे खेलते हैं, वह वही फ़िट किया हुआ हेड है, जो आपके ब्राउज़र में एक उथले सर्च के भीतर चलता है। इस पृष्ठ का हर आँकड़ा उसी प्रशिक्षण रन ने नापा है जिसने यह हेड बनाया।
+          What you play below is that, running in your browser inside a shallow search. It is
+          beatable, and it still loses to the program it learned from. Every number on this page
+          came out of the training run that produced the weights the page loads.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">एक खेल खेलिए</a>
@@ -165,6 +169,10 @@
       <div>
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">नापा हुआ, दावा किया हुआ नहीं</span>
+          <p class="small muted" style="margin:0 0 16px">
+            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
+            guesses was; the smaller it is, the closer the model sits to its teacher.
+          </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
               <div class="readout__k">होल्ड-आउट R&sup2;</div>
@@ -201,6 +209,53 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
+        <p class="small dim" style="margin:0">
+          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
+          explanation tells you nothing about whether it does. Chess settles that, because the
+          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
+          and you can sit down and find out.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          An ordinary chess program judges a position by searching ahead through the moves. Cypha
+          was shown 26,568 of those judgements and fitted a single formula to reproduce them
+          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
+          the architecture for chess. Only the numbers fed into it changed.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
+        <p class="small dim" style="margin:0">
+          Anyone weighing up Cypha who would rather check than be told. People who work with
+          machine learning and want to watch a model carry on learning while it is being used.
+          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
+          you play is sent anywhere.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
+      this page claims it is. The rest of the page is how it was done, what each number means,
+      and the four things this design cannot do.
     </div>
   </div>
 </section>
@@ -309,7 +364,14 @@
               <strong>ड्रिफ़्ट</strong> यानी वेट वेक्टर में हुए बदलाव का आकार, डिस्टिल किए गए वेक्टर के मुक़ाबले। <strong>आख़िरी सुधार</strong> यानी वह जिस स्थिति से अभी चला, उसके बारे में जमा हुआ हेड कितना ग़लत था, प्यादों में, उसकी अपनी गहरी सर्च के मुक़ाबले नापा हुआ।
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>रेटिंग</strong> एक भीतरी सीढ़ी पर है, FIDE पर नहीं &mdash; जिसने कभी किसी रेटेड इंसान से नहीं खेला, उस पर FIDE का आँकड़ा चिपकाने का कोई ईमानदार तरीक़ा नहीं है। गहराई 1 पर संदर्भ इंजन को 1000 पर बाँधा गया है और बाक़ी सब 210 खेलों से Bradley-Terry अधिकतम संभाव्यता से फ़िट किया गया है, इसलिए यह इस पर निर्भर नहीं करता कि खेल किस क्रम में खेले गए। नापी हुई सीढ़ी: गहराई 1&ndash;3 पर संदर्भ 1000 / 1171 / 1245, Cypha 798 / 1010 / 1161। Cypha जिस इंजन से डिस्टिल हुआ, उससे लगभग एक सर्च गहराई पीछे चलता है, और त्रुटि की सीमाएँ लगभग &plusmn;50 हैं, यानी 210 खेल इतना ही देते हैं।
+              <strong>रेटिंग</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
+              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
+              FIDE number on something that has never played a rated human. The reference
+              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
+              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
+              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
+              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
+              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
             </p>
             <p class="tiny muted" style="margin-top:8px">
               हर ताक़त सेटिंग अपने पास रखती है <strong>अपना अलग मॉडल</strong>। गहराई 1 पर खेलने वाला हेड गहराई-1 की सर्च की ओर सुधारा जाता है; गहराई 3 पर लक्ष्य अलग और बेहतर होता है। दोनों को एक ही वेट वेक्टर में प्रशिक्षित करने से वे आपस में भिड़ जाएँगे। ताक़त बदलिए और उसके साथ गिनतियाँ भी बदल जाती हैं।
@@ -345,7 +407,10 @@
         <span class="badge badge--teal" style="margin-bottom:12px">क़दम 1</span>
         <h3 style="font-size:1.02rem">शिक्षक</h3>
         <p class="small dim" style="margin:0">
-          एक 0x88 इंजन, जिसमें पूरी जायज़-चाल जनन, सामग्री और piece-square मूल्यांकन, MVV-LVA क्रम और quiescence सर्च है। kiwipete समेत पाँच मानक perft स्थितियों के विरुद्ध जाँचा गया, ताकि उससे कुछ सीखने से पहले ही नियम प्रमाणित रूप से सही हों।
+          A 0x88 engine with full legal move generation, material and piece-square evaluation,
+          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
+          search. Verified against five standard perft positions including kiwipete, so the rules
+          are provably right before anything is learned from it.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -366,7 +431,10 @@
         <span class="badge badge--violet" style="margin-bottom:12px">क़दम 4</span>
         <h3 style="font-size:1.02rem">फ़िट</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; को Welford से ऑनलाइन फ़िट किया गया, व्हाइटनिंग प्राकृतिक-ग्रेडिएंट की मीट्रिक के रूप में, सामान्यीकृत-LMS वेट अद्यतन, MDL क्षय जो वेटों को वापस प्रायर की ओर खींचता है, और Cypha के संदर्भ 0.30 अनुपात पर चौंकाने के भार वाला रीप्ले बफ़र।
+          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
+          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
+          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
+          at Cypha&rsquo;s reference 0.30 ratio.
         </p>
       </div>
     </div>
@@ -387,7 +455,7 @@
         <span class="eyebrow eyebrow--amber">यह क्या नहीं दिखाता</span>
         <h3>ईमानदार सीमाएँ</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>यह रैखिक है।</strong> piece-square फ़ीचरों का कोई रैखिक फलन राजा की सुरक्षा, प्यादा-ढाँचे की आपसी क्रियाओं, या ऐसी किसी भी चीज़ को नहीं दिखा सकता जिसके लिए दो फ़ीचरों का गुणनफल चाहिए। इसकी वही हद है जो Cypha का README XOR के लिए बताता है।</li>
+          <li><strong>यह रैखिक है।</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
           <li><strong>शिक्षक मामूली है।</strong> संदर्भ इंजन एक काबिल क्लासिकल सर्चर है, Stockfish नहीं। उसे अच्छी तरह डिस्टिल करने का मतलब है एक मामूली मूल्यांकक से अच्छी तरह मेल खाना।</li>
           <li><strong>इसकी अपनी कोई सर्च गहराई नहीं।</strong> यहाँ ताक़त ज़्यादातर alpha-beta रैपर से आती है, ठीक वैसे ही जैसे शिक्षक के मामले में आती है।</li>
           <li><strong>डिस्टिलेशन खोज नहीं है।</strong> Cypha ने वह मूल्यांकन फलन दोहराया जो उसे दिखाया गया था। उसने शून्य से शतरंज नहीं सीखा, और इस पृष्ठ पर ऐसा कोई दावा नहीं किया गया।</li>
@@ -419,9 +487,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/sentinel.html">
+      <a class="card card--hover related__item" href="/hi/pbsd.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
+        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -493,7 +561,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T20:39:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

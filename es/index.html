@@ -148,11 +148,28 @@
     <div class="hero__grid">
       <div>
         <div><a class="eyebrow eyebrow--amber" href="/es/kickstarter.html" style="margin-bottom:.55rem"><span class="dot dot--pulse"></span> ParanoidBSD está en marcha en Kickstarter &middot; cierra el 12 de noviembre</a></div>
-        <span class="eyebrow">Sídney, Australia &middot; Investigación independiente</span>
+        <span class="eyebrow">Sydney, Australia &middot; One person, independent research</span>
         <h1>Sistemas seguros.<br><span class="gradient-text">IA original.</span><br>Ingeniería honesta.</h1>
         <p class="lede">
-          Imortek es un taller de sistemas de una sola persona que construye el software que casi ninguna empresa hace: un sistema operativo protegido por capacidades, una arquitectura de IA derivada de primeros principios, un descompilador que recupera algoritmos y no pseudocódigo. Cada afirmación va respaldada por una prueba, una medición o una limitación declarada.
+          Imortek builds specialist software for organisations whose problems ordinary tools
+          do not solve &mdash; in security, defence, government and research. An operating
+          system for equipment that cannot be patched quickly. A decompiler for binaries
+          nobody has the source to. An Artificial Intelligence (AI) architecture derived from
+          first principles rather than wrapped around someone else&rsquo;s model. Every claim
+          on this site is backed by a test, a benchmark, or an honest note about what does not
+          work yet.
         </p>
+        <div class="badge-row" style="margin-bottom:1.8rem">
+          <span class="badge">Cybersecurity</span>
+          <span class="badge">Defence</span>
+          <span class="badge">Government</span>
+          <span class="badge">Critical infrastructure</span>
+          <span class="badge">Intelligence</span>
+          <span class="badge">Investigation</span>
+          <span class="badge">Privacy</span>
+          <span class="badge">Engineering</span>
+          <span class="badge">Artificial intelligence</span>
+        </div>
         <div class="btn-row">
           <a class="btn btn--primary btn--lg" href="#products">
             Explora los productos
@@ -197,7 +214,8 @@
             </div>
           </div>
           <div class="panel__foot">
-            Leído directamente de la API de GitHub en tu navegador. No se envía nada a ninguna parte.
+            Read straight from the GitHub Application Programming Interface (API) in your browser.
+            Nothing is sent anywhere.
           </div>
         </div>
       </div>
@@ -218,10 +236,11 @@
     <span class="marquee__item">Geometría de la información</span>
     <span class="marquee__item">Gradiente natural</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">BLAS y LAPACK propios</span>
+    <span class="marquee__item">Linear algebra written in-tree</span>
+    
     <span class="marquee__item">Procesos de Hawkes</span>
     <span class="marquee__item">Verificación diferencial</span>
-    <span class="marquee__item">AGPL-3.0+</span>
+    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
     <span class="marquee__item">Módulos de C++23</span>
     <span class="marquee__item">HardenedBSD 15-STABLE</span>
     <span class="marquee__item">Seguridad por capacidades y descriptores</span>
@@ -232,10 +251,11 @@
     <span class="marquee__item">Geometría de la información</span>
     <span class="marquee__item">Gradiente natural</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">BLAS y LAPACK propios</span>
+    <span class="marquee__item">Linear algebra written in-tree</span>
+    
     <span class="marquee__item">Procesos de Hawkes</span>
     <span class="marquee__item">Verificación diferencial</span>
-    <span class="marquee__item">AGPL-3.0+</span>
+    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
   </div>
 </div>
 
@@ -247,16 +267,18 @@
         <span class="eyebrow eyebrow--amber">Proyecto principal &middot; Buscando financiación</span>
         <h2>ParanoidBSD</h2>
         <p class="lede" style="margin-bottom:1.5rem">
-          Un BSD endurecido, reescrito en C++23, con un núcleo de capacidades y descriptores encima de lo que HardenedBSD ya trae &mdash; y KDE Plasma 6 en el escritorio.
+          A hardened Berkeley Software Distribution (BSD), rewritten in C++23, with a
+          capability and handle nucleus sitting on top of what HardenedBSD already ships
+          &mdash; and KDE Plasma 6 on the desk.
         </p>
         <p class="dim">
           Casi todos los sistemas operativos siguen apoyados en C, un lenguaje sin seguridad de memoria. PBSD toma HardenedBSD 15-STABLE como especificación de comportamiento y lo porta, archivo por archivo, a módulos de C++23 &mdash; y luego añade un núcleo de seguridad donde cada recurso se alcanza por un descriptor infalsificable y no por un espacio de nombres global ambiental.
         </p>
         <ul class="flist flist--amber" style="margin:1.75rem 0">
           <li><strong>Portado con fidelidad, no &ldquo;mejorado&rdquo;.</strong> El árbol de HardenedBSD es la especificación. Los fallos también se portan, hasta que un cambio se registra aparte.</li>
-          <li><strong>Nada está hecho hasta que está verificado.</strong> Que compile no es verificación. La verificación diferencial o de IR controla cada archivo.</li>
+          <li><strong>Nada está hecho hasta que está verificado.</strong> Compile-only is unverified. Differential or Intermediate Representation (IR) verification gates every file.</li>
           <li><strong>Primero las herramientas deterministas.</strong> Las pasadas de reescritura segura se ejecutan antes de que un modelo toque el código &mdash; y el modelo nunca se certifica a sí mismo.</li>
-          <li><strong>C++ de kernel independiente.</strong> <code translate="no">-fno-exceptions -fno-rtti</code>, con una ABI de kernel documentada.</li>
+          <li><strong>C++ de kernel independiente.</strong> <code translate="no">-fno-exceptions -fno-rtti</code>, with a documented kernel Application Binary Interface (ABI).</li>
         </ul>
         <div class="btn-row">
           <a class="btn btn--fund" href="/es/kickstarter.html">El Kickstarter &rarr;</a>
@@ -620,7 +642,7 @@
         <ul class="checks" style="margin:1.5rem 0">
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span><strong>Gratis bajo AGPL-3.0+</strong> para uso personal, entidades benéficas, educación y cualquier organización que ingrese menos de <strong>50.000&nbsp;AUD</strong> al año.</span>
+            <span><strong>Gratis bajo AGPL-3.0+</strong> para uso personal, entidades benéficas, educación y cualquier organización que ingrese menos de <strong>50,000&nbsp;Australian dollars (AUD)</strong> al año.</span>
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -690,13 +712,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — un modelo de secuencia de reacción-difusión</h3>
       </a>
+      <a class="card card--hover related__item" href="/es/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
+      </a>
       <a class="card card--hover related__item" href="/es/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — una arquitectura de IA desde primeros principios</h3>
-      </a>
-      <a class="card card--hover related__item" href="/es/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — descompilador de extracción de especificaciones</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -768,7 +790,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T20:39:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-17T22:13:36Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

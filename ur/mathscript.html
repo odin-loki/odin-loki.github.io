@@ -148,7 +148,11 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 پیش ریلیز</span>
         <h1>ایک C++23 لائبریری، <span class="gradient-text">LU سے CFD تک</span></h1>
         <p class="lede">
-          گنجان اور کم گنجان لکیری الجبرا، خصوصی توابع، شماریات، ODE/PDE/FEM/CFD، بہتری، اشاروں اور تصویروں کی پروسیسنگ، نظریۂ اعداد، گراف، ہندسہ، ٹوپولوجی، کوانٹم بنیادی اکائیاں، کنٹرول، مالیات، کمپریشن &mdash; اور ایک علامتی CAS۔ LU، QR، SVD، eigensolver اور Cholesky اپنے ہی کوڈ درخت میں لکھے ہوئے۔
+          Engineering software runs on heavy mathematics, and almost nobody writes their own.
+          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
+          hard to audit, hard to change, and hard to install where the build machine has no
+          internet. MathScript does the mathematics itself, from matrix arithmetic up to
+          fluid dynamics, in one C++ library with nothing to fetch.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">براہِ راست خاکہ بنائیں اور تفرق کریں</a>
@@ -166,7 +170,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">دو فیصلے جو سب کچھ طے کرتے ہیں</span>
           <ul class="flist flist--violet">
-            <li><strong>اپنے ہی کوڈ درخت میں BLAS/LAPACK۔</strong> نہ Eigen، نہ OpenBLAS۔ <code translate="no">linalg</code> کے پاس LU، QR، SVD، eig، Cholesky اور LAPACK طرز کے کرنل ہیں، اس لیے تنصیب انحصار ڈھونڈنے کے بجائے محض ایک کمپائل ہے۔</li>
+            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
             <li><strong>C++ کا ایک محدود ذیلی مجموعہ۔</strong> نہ خام پوائنٹر، نہ استثنا، نہ غیر محفوظ کاسٹ &mdash; اور یہ کمپائل کے وقت نافذ ہوتا ہے۔ پیداواری کوڈ واپس دیتا ہے <code translate="no">Result&lt;T&gt;</code>، اس لیے غلطی سنبھالنا یقینی ہے اور قسم ہی میں نظر آتا ہے۔</li>
           </ul>
         </div>
@@ -175,13 +179,67 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">مسئلہ</span>
+        <p class="small dim" style="margin:0">
+          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
+          are rarely written by the team shipping it. They arrive from a dozen outside
+          libraries and paid platforms that have to be fetched, licensed and trusted. When an
+          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
+          machine you may not be able to fetch them at all.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          MathScript is one C++ library that does the mathematics itself: linear algebra,
+          statistics, differential equations, finite elements, fluid flow, optimisation and a
+          symbolic algebra system, across thirty-five static libraries. The matrix routines
+          most projects import from BLAS and LAPACK are written here instead. All 816 test
+          suites pass on the Windows build. v1.0.0 has not shipped yet.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">یہ کس کے لیے ہے</span>
+        <p class="small dim" style="margin:0">
+          Teams whose build machines cannot reach the internet &mdash; defence, medical,
+          aerospace, banking &mdash; where every fetched dependency is another approval.
+          Products that do their real work in C++ and their mathematics in Python, and carry
+          two sets of problems for it. Teachers and students who want the method written out
+          where it can be read.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
+      argument, and the rest of this page is the evidence: what the thirty-five libraries
+      hold, why a failure comes back in the return type instead of as an exception, and
+      exactly what the test numbers cover.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">تعامل پذیر</span>
-      <h2>ایک علامتی CAS، آپ کے براؤزر میں چلتا ہوا</h2>
+      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
       <p class="lede">
-        کوئی اظہار لکھیے۔ اسے ٹوکن میں توڑا جاتا ہے، AST میں تجزیہ کیا جاتا ہے، علامتی طور پر تفرق کیا جاتا ہے، سادہ کیا جاتا ہے، پھر خاکے کے لیے عددی طور پر حل کیا جاتا ہے &mdash; ساتھ ہی Simpson قاعدے کا تکامل اور نظر آنے والے وقفے پر دو نیم کر کے جڑ کی تلاش۔
+        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
+        differentiated symbolically, simplified, then evaluated numerically for the plot
+        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
+        visible interval.
       </p>
     </div>
 
@@ -289,7 +347,11 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            جب تک آپ لوڈ نہ دبائیں، کچھ ڈاؤن لوڈ نہیں ہوتا، اور پھر یہ ایک ہی بار آتا ہے۔ ماڈیول 113 KB WebAssembly اور 10 KB لوڈر ہے &mdash; پوری لائبریری کا بلڈ 4.9 MB ہے، اس لیے یہ صرف اتنا جوڑتا ہے جتنا یہ چار کالیں چھوتی ہیں۔
+            Nothing is downloaded until you press load, and then it is fetched once. The module
+            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
+            build is 4.9 MB, so this links only what these four calls reach. The panel shows the
+            library version and the vector Instruction Set Architecture (ISA) the build
+            reports.
           </p>
         </div>
         <div class="demo__side">
@@ -319,7 +381,9 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA کی سطر وہ جگہ ہے جہاں لائبریری اپنے بارے میں سچ بول رہی ہے۔</strong> یہ پوچھتی ہے
-            <code translate="no">ms::detect_isa()</code>، وہی کال جو وہ اصل میں کرتی ہے۔ آپ کے ڈیسک ٹاپ پر اس کا جواب AVX2 یا AVX-512 ہوتا ہے؛ یہاں ایک ہی ویکٹر ISA ہے اور وہ یہی کہتی ہے۔
+            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
+            one vector ISA and it says so.
           </div>
         </div>
       </div>
@@ -335,6 +399,14 @@
     <div class="section-head reveal">
       <span class="eyebrow">دائرہ کار</span>
       <h2>پینتیس ساکن لائبریریاں، چھ میدان</h2>
+      <p class="lede">
+        Dense and sparse linear algebra, special functions, statistics and Machine Learning
+        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
+        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
+        signal and image processing, number theory, graphs, geometry, topology, quantum
+        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
+        eigensolvers and Cholesky written in-tree.
+      </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="لائبریری کے چھ میدان — بنیادی نظام، عددی، شماریات اور مشین لرننگ، اطلاقی، علامتی اور خصوصی — سب ایک Result<T> کی بنیادی پٹڑی پر، بغیر کسی استثنا یا خام پوائنٹر کے" loading="lazy" decoding="async"></div><span class="diagram__hint">پورا خاکہ دیکھنے کے لیے اسکرول کریں &rarr;</span><figcaption><b>پینتیس لائبریریاں، غلطی کا ایک ہی طریقہ۔</b> نیچے کی پٹڑی ہی اصل نکتہ ہے: ناکامی واپسی کی قسم میں ہوتی ہے، کسی ایسے استثنا میں نہیں جو آپ کو اسٹیک کے سرے پر ملے۔</figcaption></figure>
 
@@ -369,6 +441,11 @@
       <div class="reveal">
         <span class="eyebrow">بھیجنے کی سطح</span>
         <h3>تین قابلِ عمل فائلیں، باقی سب اختیاری</h3>
+        <p class="small dim" style="margin-top:12px">
+          Everything past the three executables is a build option &mdash; a Qt Graphical User
+          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
+          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+        </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">کمپائلر / بیچ ڈرائیور</span></div>
           <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">تعامل پذیر نشست</span></div>
@@ -379,6 +456,10 @@
       <div class="reveal" data-delay=".08">
         <span class="eyebrow">تصدیق</span>
         <h3>816 سوٹ آپ کو کیا دیتے ہیں</h3>
+        <p class="small dim" style="margin-top:12px">
+          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
+          MSVC on Windows and the GNU Compiler Collection (GCC) 13 on Linux.
+        </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
             <thead><tr><th>پھاٹک</th><th class="num">ترتیب</th></tr></thead>
@@ -469,6 +550,10 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — تفصیل نامہ کشید کرنے والا ڈی کمپائلر</h3>
       </a>
+      <a class="card card--hover related__item" href="/ur/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — جرائم کا تجزیہ اور تفتیشی سراغ</h3>
+      </a>
       <a class="card card--hover related__item" href="/ur/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — بنیادی اصولوں پر بنا ایک AI ڈھانچہ</h3>
@@ -476,10 +561,6 @@
       <a class="card card--hover related__item" href="/ur/aegis.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — کنسورشیم کے لیے میٹا ڈیٹا چھپانے والا ٹرانسپورٹ</h3>
-      </a>
-      <a class="card card--hover related__item" href="/ur/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — جرائم کا تجزیہ اور تفتیشی سراغ</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">ہاتھ سے نہیں بلکہ اس صفحے کی اصطلاحات سے مطابقت دیکھ کر چنا گیا — اس لیے یہ ایمانداری سے بتاتا ہے کہ واقعی کیا قریب ہے، بشمول اس صورت کے جب کچھ بھی واضح طور پر قریب نہ ہو۔</p>
@@ -551,7 +632,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T20:39:16Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T22:13:36Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

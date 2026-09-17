@@ -148,7 +148,12 @@
         <span class="eyebrow">AEGIS &middot; পর্যায় ৮ সম্পন্ন</span>
         <h1>এনক্রিপশন লুকিয়ে রাখে আপনি কী বলেছেন। <span class="gradient-text">এটি লুকিয়ে রাখে আপনি যে বলেছেন সেটাই।</span></h1>
         <p class="lede">
-          AEGIS হলো অনুমতি-নিয়ন্ত্রিত কনসোর্টিয়ামের জন্য একটি ট্রাফিক-বিশ্লেষণ-প্রতিরোধী ট্রান্সপোর্ট। এটি ধরে নেয় বিষয়বস্তুর এনক্রিপশন সমস্যাটা মিটে গেছে, আর আক্রমণ করে সেই অংশে যেখানে এনক্রিপশন পৌঁছাতে পারে না: কে কার সঙ্গে কথা বলে, কখন এবং কতটা।
+          Encryption keeps the contents of a message private. It does not hide that the message
+          happened. An observer watching the network still sees who is talking to whom, when, and
+          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
+          the words. AEGIS keeps traffic between the members of a closed group flowing at a
+          constant rate whether there is anything to send or not, so the timing and the volume
+          carry no signal.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">সহসম্পর্ক আক্রমণটি চালান</a>
@@ -174,6 +179,53 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
+        <p class="small dim" style="margin:0">
+          Someone who can watch the network does not need to break the encryption. They see that one
+          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
+          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
+          works with whom, drawn without reading a single message.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
+          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
+          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
+          the demonstration below shows the protection and the price side by side.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
+        <p class="small dim" style="margin:0">
+          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
+          expose a person. Banks, insurers and industry bodies that compete with each other and still
+          have to exchange data. Organisations that share warnings about attacks, where being seen to
+          share can itself be the sensitive part.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
+      needs the engineering below: the threat in full, an attack you can run yourself against both
+      configurations, the test numbers, and where the guarantees stop.
     </div>
   </div>
 </section>
@@ -312,7 +364,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">প্রমাণ</span>
       <h2>আটটি পর্যায়, প্রতিটিই একটি রেড-টিম গেটের পিছনে</h2>
-      <p class="lede">পর্যায় ৮, অর্থাৎ কঠোরীকরণ পর্যন্ত বাস্তবায়ন সম্পূর্ণ। রিপোজিটরি যে সংখ্যাগুলি জানায় সেগুলি এই।</p>
+      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">ক্রিপ্টো পরীক্ষা-ভেক্টর</div></div></div>
@@ -400,7 +452,8 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>রিপোজিটরির পরিচ্ছন্নতা:</strong> GitHub Actions CI, <code translate="no">cargo deny</code> দিয়ে নির্ভরতার নিরীক্ষা, আর গোটা ওয়ার্কস্পেস জুড়ে unsafe কোড নিষিদ্ধ করার নীতি। প্রতিকূল ইনপুট সামলায় এমন একটি Rust নেটওয়ার্ক স্ট্যাকের জন্য, <code translate="no">#![forbid(unsafe_code)]</code> গোটা ওয়ার্কস্পেস জুড়ে এই লাইনটিই প্রকল্পের সবচেয়ে বেশি ভার বহনকারী একটিমাত্র লাইন।
+      <strong>রিপোজিটরির পরিচ্ছন্নতা:</strong> Continuous Integration (CI) on GitHub Actions,
+      <code translate="no">cargo deny</code> দিয়ে নির্ভরতার নিরীক্ষা, আর গোটা ওয়ার্কস্পেস জুড়ে unsafe কোড নিষিদ্ধ করার নীতি। প্রতিকূল ইনপুট সামলায় এমন একটি Rust নেটওয়ার্ক স্ট্যাকের জন্য, <code translate="no">#![forbid(unsafe_code)]</code> গোটা ওয়ার্কস্পেস জুড়ে এই লাইনটিই প্রকল্পের সবচেয়ে বেশি ভার বহনকারী একটিমাত্র লাইন।
     </div>
   </div>
 </section>
@@ -411,14 +464,6 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">সম্পর্কিত পড়া</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/bn/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — বিরল দর্শন থেকে স্থায়ী পরিচয়</h3>
-      </a>
-      <a class="card card--hover related__item" href="/bn/mathscript.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">MathScript — C++23 কম্পিউটার বীজগণিত ও সাংখ্যিক গণনা</h3>
-      </a>
       <a class="card card--hover related__item" href="/bn/chess.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha-র সঙ্গে দাবা খেলুন</h3>
@@ -426,6 +471,14 @@
       <a class="card card--hover related__item" href="/bn/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার</h3>
+      </a>
+      <a class="card card--hover related__item" href="/bn/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — অপরাধ বিশ্লেষণ ও তদন্তের সূত্র</h3>
+      </a>
+      <a class="card card--hover related__item" href="/bn/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — বিরল দর্শন থেকে স্থায়ী পরিচয়</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।</p>
@@ -497,7 +550,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T22:13:36Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

@@ -149,7 +149,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Архитектура ИИ, построенная из <span class="gradient-text">первых принципов</span>, а не форк</h1>
         <p class="lede">
-          Cypha — это не обёртка вокруг трансформера и не дообученная копия чужой модели. Один публичный тип &mdash; <code translate="no">cypha::Cypha</code> &mdash; классифицирует, делает регрессию, сэмплирует скрытые состояния и порождает последовательности, а правило обучения выведено из точки пересечения четырёх формальных программ.
+          Almost all modern Artificial Intelligence (AI) is a variation on the same few
+          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
+          from mathematics rather than borrowed, that updates on every example it sees instead
+          of being trained once and frozen. It is a research project, and the failures are
+          published alongside the results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Обучите её в браузере</a>
@@ -159,7 +163,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">Язык<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">Релиз<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2<b>2,664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2,664 BPC</b></div>
           <div class="phero__meta-item">Последняя отправка<b data-gh-repo="Cypha" data-gh-field="updated">недавно</b></div>
         </div>
       </div>
@@ -168,13 +172,65 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Четыре программы, одно правило обучения</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; априорные распределения по минимальной длине описания решают, во что модели дёшево позволено верить.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
             <li><strong>Информационная геометрия</strong> &mdash; обновления идут по естественному градиенту, так что обучение считается с кривизной пространства параметров.</li>
             <li><strong>Активный вывод / свободная энергия</strong> &mdash; даёт структурное разложение на априор, дифференциал и контекст.</li>
             <li><strong>Информационное бутылочное горлышко</strong> &mdash; задаёт целевую функцию кодировщика: оставить то, что предсказывает, остальное выбросить.</li>
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
+        <p class="small dim" style="margin:0">
+          Nearly every AI system in use is a variation on a handful of designs. They are
+          trained once on a large machine and then shipped frozen, so keeping up with
+          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
+          back and training again. They are also big, which puts them in a data centre rather
+          than on the equipment, and makes explaining any single decision hard.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
+          learning rule is derived from four bodies of mathematics rather than copied from an
+          existing architecture, and it updates on every example it sees &mdash; no batch, no
+          epoch, no retraining run. It is small enough to run on the hardware that collects
+          the data.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
+        <p class="small dim" style="margin:0">
+          Today, researchers and engineers willing to try a different design. The problems it
+          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
+          faults, changing behaviour &mdash; where the model has to sit on the device rather
+          than in a data centre, and where somebody has to explain the decision afterwards.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Judge it as research.</strong> The figures further down come from the
+      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
+      than a leaderboard position. A section headed <em>Чем Cypha не является</em> sets out the
+      limits, including the standard test where it sits near chance until one particular
+      component is switched on. The rest of this page is the architecture and the
+      measurements.
     </div>
   </div>
 </section>
@@ -199,7 +255,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            Точное ядро RBF на <b>n</b> выбранных точках даёт матрицу <b>K</b>. Случайные признаки восстанавливают приближение <b>K&#770;</b>. На графике —
+            The exact Radial Basis Function (RBF) kernel over <b>n</b> выбранных точках даёт матрицу <b>K</b>. Случайные признаки восстанавливают приближение <b>K&#770;</b>. На графике —
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> по мере роста числа признаков: больше признаков — ближе приближение.
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -227,13 +283,15 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Компиляция этого нашла баг.</strong> ORF &mdash; плотный ортогональный вариант &mdash; нормировал каждую строку до единичной длины, тогда как у Yu et al. норма строки берётся из
-            <code translate="no">chi_d</code> — и тогда ортогональная строка соответствует той гауссовой строке, которую она заменяет. Строки были короче нужного в &radic;d раз, поэтому признаки приближали не то ядро, и ошибка выходила на плато вместо сходимости. Одна строка. Теперь это лучший из трёх.
+            <strong>Компиляция этого нашла баг.</strong> Orthogonal Random Features (ORF)
+            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
+            et al. draw the row norm from <code translate="no">chi_d</code> — и тогда ортогональная строка соответствует той гауссовой строке, которую она заменяет. Строки были короче нужного в &radic;d раз, поэтому признаки приближали не то ядро, и ошибка выходила на плато вместо сходимости. Одна строка. Теперь это лучший из трёх.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Однопоточно намеренно: многопоточному WebAssembly нужен SharedArrayBuffer, которому нужны заголовки COOP/COEP, а GitHub Pages их не отдаёт.
+        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
+        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -275,7 +333,9 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          Общее диагональное гауссово распределение, подгоняемое онлайн по Уэлфорду/EMA. Это и есть &ldquo;бесконечный контекст&rdquo;, который ничего не забывает &mdash; и чьё движение служит сигналом дрейфа.
+          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
+          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
+          and whose movement is the drift signal.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -416,7 +476,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Попробуйте XOR с выключенным кодировщиком RFF.</strong> Точность падает до уровня случайного угадывания, и это не баг демонстрации &mdash; это задокументированное ограничение линейного отношения логарифмических правдоподобий, прямо названное в README Cypha. Включите скрытый кодировщик RFF и посмотрите, как она восстанавливается. Публиковать режим отказа рядом с исправлением — в этом весь смысл.
+      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> Точность падает до уровня случайного угадывания, и это не баг демонстрации &mdash; это задокументированное ограничение линейного отношения логарифмических правдоподобий, прямо названное в README Cypha. Включите скрытый кодировщик RFF и посмотрите, как она восстанавливается. Публиковать режим отказа рядом с исправлением — в этом весь смысл.
     </div>
   </div>
 </section>
@@ -429,6 +489,10 @@
       <h2>Результаты и сравнение, которое имеет значение</h2>
       <p class="lede">
         Цифры из собственных прогонов бенчмарков репозитория после исправления, найденного диагностикой. Корректность доказывается матрицей CTest, совпадающей с зафиксированными эталонами, &mdash; а не местом в рейтинге.
+      </p>
+      <p class="small muted">
+        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
+        (LSTM), Backpropagation Through Time (BPTT).
       </p>
     </div>
 
@@ -499,7 +563,7 @@
           <li><strong>Не обёртка.</strong> Сделана с нуля из первых принципов &mdash; а значит, и чужой настройки она не наследует.</li>
           <li><strong>У линейного LLR есть потолок.</strong> На XOR без скрытого кодировщика RFF результат держится около случайного, с ним поднимается примерно до 76,3%.</li>
           <li><strong>Валидация строится на совпадении.</strong> CTest против зафиксированных эталонов. Никаких заявлений о местах в рейтингах.</li>
-          <li><strong>CUDA только для инференса.</strong> Обучение остаётся на CPU, потому что на этой архитектуре CPU быстрее.</li>
+          <li><strong>CUDA только для инференса.</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
           <li><strong>Теория живёт в другом месте.</strong> Работа по гармоническому спектру и NMP — это отдельная статья про алгоритмы сжатия; Cypha — слой реализации.</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -596,17 +660,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Сыграйте в шахматы против Cypha</h3>
       </a>
-      <a class="card card--hover related__item" href="/ru/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — устойчивая идентичность по редким наблюдениям</h3>
-      </a>
       <a class="card card--hover related__item" href="/ru/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — криминальная аналитика и следственные зацепки</h3>
       </a>
-      <a class="card card--hover related__item" href="/ru/cellai.html">
+      <a class="card card--hover related__item" href="/ru/mathscript.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — модель последовательностей на реакции-диффузии</h3>
+        <h3 style="font-size:.98rem;margin:0">MathScript — компьютерная алгебра и численные методы на C++23</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ru/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — устойчивая идентичность по редким наблюдениям</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.</p>
@@ -678,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T20:39:16Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T22:13:36Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

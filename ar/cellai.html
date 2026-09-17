@@ -145,10 +145,16 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; سجلّ بحث</span>
+        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
         <h1>نموذج تسلسلات <span class="gradient-text">أسوأ بصراحة</span></h1>
         <p class="lede">
-          يستبدل Cell AI بالانتباه الذاتي ديناميكا أقسام قائمة على التفاعل والانتشار ومرونة هيبية/BCM تعمل <em>أثناء</em> المرور الأمامي. وهو لا يقارب أداء المحوّلات، وملف README الخاص به يقول ذلك في أول شاشة. ويُنشَر بوصفه سجلّ بحث: كيف يبدو نموذج تسلسلات مختلف تمامًا على نطاق كامل، وأين ينكسر بالضبط.
+          A language model built on a completely different mechanism &mdash; closer to chemistry
+          spreading across a surface than to the attention maths everything else uses. It performs
+          worse than a transformer, and its own front page says so. Not slightly worse: four
+          orders of magnitude on the standard measure, against Generative Pre-trained Transformer 2
+          (GPT-2) as the baseline, and printed on this page rather than in a footnote. It is
+          published as a research log because a documented failure is worth something and a
+          deleted one is not.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">شغّل حقل التفاعل والانتشار</a>
@@ -173,6 +179,54 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
+        <p class="small dim" style="margin:0">
+          Almost every AI that handles language is built on the same idea: let every word look at
+          every other word. It works. Nobody knows how much of that is because it is the best idea
+          available and how much is because it is the one everybody tried.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
+          across a surface, the way stripes form on an animal, with the connections changing while
+          it reads rather than afterwards. It was then trained at full size and measured. It came
+          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
+          line in an appendix.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
+        <p class="small dim" style="margin:0">
+          Researchers who want to know what happens down the road nobody took. Scientists who
+          already model living systems, because the mechanism underneath is the one that makes
+          patterns in chemistry and markings on animals. Teachers, because published research is
+          almost all successes, and a careful account of a failure is rarer and more useful.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
+      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
+      dynamics running live in your browser, what stands where attention would be, and
+      twenty-seven experiments with their failures annotated.
     </div>
   </div>
 </section>
@@ -289,7 +343,10 @@
         <span class="badge badge--blue" style="margin-bottom:12px">مسار الإشارة</span>
         <h3 style="font-size:1.05rem">الحزمة الكاملة</h3>
         <p class="small dim" style="margin:0">
-          تضمين cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem (اقتران طور بتحويل فورييه السريع) &rarr; CrystalLattice (K = 3) &rarr; اقتران Kuramoto اختياري &rarr; توجيه MultiModalModel &rarr; لوغيتات.
+          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
+          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
+          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
+          Fast Fourier Transform (FFT).
         </p></div>
     </div>
   </div>
@@ -387,7 +444,9 @@
     <span class="eyebrow" style="justify-content:center">مشاريع شقيقة</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">إلى أين ذهبت هذه الأفكار بدلًا من ذلك</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI هو خط البحث الذي لم يتقارب. أما أشقّاؤه فكانوا أفضل حالًا: صار Cypha بنية عاملة من المبادئ الأولى، وصار عمل ذاكرة السياق الطويل UHPM.
+      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
+      working first-principles architecture, and the long-context memory work became Unified
+      Hash-Predictive Memory (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/ar/cypha.html">Cypha &rarr;</a>
@@ -415,9 +474,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">العب الشطرنج ضد Cypha</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/aegis.html">
+      <a class="card card--hover related__item" href="/ar/pbsd.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — طبقة نقل تُخفي البيانات الوصفية للاتحادات</h3>
+        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.</p>
@@ -489,7 +548,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T20:39:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6 وKWin وأُطر العمل لموجة سطح المكتب</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">الجرد، ومراحل إعادة الكتابة الحتمية، والنقل بالوكلاء، ومساعدات Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">المواصفات، ونموذج الأمان، وحالة النقل، والمنشأ</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">محرّك WSL، ومُراقِب، ولوحة تقدّم</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           ولهذا يمكن لعلّة تحليل واحدة في محرّك عرض الخطوط أن تصير سرقة بيانات اعتماد. المحرّك لم يحتج يومًا إلى ملف كلمات السر &mdash; لكن لا شيء في المعمارية منعه من أن يطلبه.
         </p>
         <p class="dim">
-          HardenedBSD يقوم بعمل جادّ هنا بالفعل: ASLR، وتخفيفات مشتقّة من PaX، وSafeStack، وCFI، ومخصّصات ذاكرة مُحصَّنة. وPBSD يُبقيها كلها ويغيّر شكل السؤال الذي تحتها &mdash; من <em>&ldquo;هل يُسمح لهذه العملية؟&rdquo;</em> إلى
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;هل يُسمح لهذه العملية؟&rdquo;</em> إلى
           <em>&ldquo;هل تملك هذه العملية مقبضًا لذلك؟&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            شكل توضيحي للفرق، لا سردًا حرفيًّا لواجهة البرمجة. النموذج المعتمَد موجود في <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">النقل</span>
       <h2>أربع مراحل، ونموذج لا يشهد لنفسه أبدًا</h2>
       <p class="lede">
-        نقل فضاء مستخدم ونواة BSD إلى C++23 يدويًّا عمل عقد كامل. ونقله بأن تطلب من نموذج لغوي إعادة كتابة الملفات طريق سريع لإنتاج قمامة معقولة المظهر. وPBSD لا يفعل أيًّا من الاثنين.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">المرحلة 4</span>
         <h3 style="font-size:1.05rem">بوابة التحقّق</h3>
         <p class="small dim" style="margin:0">
-          الترجمة وASan وUBSan والتنفيذ التفاضلي ومقارنة التمثيل الوسيط. الملف الذي يُترجَم فقط هو ملف <em>غير متحقَّق منه</em>. والإخفاقات تُسجَّل في
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>غير متحقَّق منه</em>. والإخفاقات تُسجَّل في
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">التراخيص</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ترخيصان، مفصولان بصدق</h2>
         <p class="dim">
-          شيفرة PBSD الجديدة &mdash; النواة، ووحدات C++23، والأدوات &mdash; تُقدَّم وفق شروط Imortek المعتادة: AGPL-3.0+ مجانًا للاستخدام الشخصي والجمعيات الخيرية والتعليم والمؤسسات التي يقل دخلها عن 50,000&nbsp;AUD سنويًّا، مع ترخيص تجاري متدرّج فوق ذلك.
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           الشيفرة المشتقّة من HardenedBSD تبقى تحت ترخيص BSD الأصلي. لا يمكن إعادة ترخيصها، وImortek لا يدّعي ذلك. <code translate="no">docs/PROVENANCE.md</code> هو السجلّ الذي يبيّن أي شيفرة تتبع أي ترخيص.
@@ -571,10 +585,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة</h3>
-      </a>
       <a class="card card--hover related__item" href="/ar/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — تحليلات الجريمة وخيوط التحقيق</h3>
@@ -582,6 +592,10 @@
       <a class="card card--hover related__item" href="/ar/chess.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">العب الشطرنج ضد Cypha</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ar/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — نموذج تسلسلات بالتفاعل والانتشار</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T20:39:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

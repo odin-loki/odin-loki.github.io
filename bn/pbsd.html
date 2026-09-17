@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">ডেস্কটপ পর্বের জন্য Plasma 6, KWin ও ফ্রেমওয়ার্ক</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">তালিকা, নির্ধারণবাদী পুনর্লিখনের ধাপ, এজেন্ট পোর্ট, Clang সহায়ক</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">স্পেসিফিকেশন, নিরাপত্তার মডেল, মাইগ্রেশনের অবস্থা, উৎস-নির্দেশ</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL ড্রাইভার, ওয়াচডগ, অগ্রগতির কনসোল</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           এই কারণেই একটি ফন্ট রেন্ডারারের একটিমাত্র পার্সিং বাগ পাসওয়ার্ড চুরিতে গড়াতে পারে। রেন্ডারারের পাসওয়ার্ড ফাইলটির কোনো দরকারই ছিল না &mdash; কিন্তু স্থাপত্যের কিছুই তাকে চাইতে বাধা দেয়নি।
         </p>
         <p class="dim">
-          HardenedBSD এখানে ইতিমধ্যেই গুরুতর কাজ করেছে: ASLR, PaX থেকে নেওয়া প্রতিরোধ, SafeStack, CFI, কঠোর মেমরি বরাদ্দকারী। PBSD তার সবটাই রাখে, আর নিচে থাকা প্রশ্নটার চেহারা বদলে দেয় &mdash; <em>&ldquo;এই প্রসেসের কি অনুমতি আছে?&rdquo;</em> থেকে
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;এই প্রসেসের কি অনুমতি আছে?&rdquo;</em> থেকে
           <em>&ldquo;এই প্রসেস কি ওটার একটা হ্যান্ডল ধরে আছে?&rdquo;-তে।</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            পার্থক্যটার দৃষ্টান্তমূলক চেহারা, হুবহু API তালিকা নয়। প্রামাণিক মডেলটি আছে <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">পোর্ট</span>
       <h2>চারটি ধাপ, আর এমন একটি মডেল যে কখনও নিজেকে শংসা দেয় না</h2>
       <p class="lede">
-        একটি BSD ইউজারল্যান্ড ও কার্নেল হাতে C++23-এ পোর্ট করা এক দশকের কাজ। আর একটি ভাষা-মডেলকে ফাইল পুনর্লিখন করতে বলে পোর্ট করা বিশ্বাসযোগ্য দেখতে আবর্জনা বানানোর দ্রুততম উপায়। PBSD দুটোর কোনোটাই করে না।
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">ধাপ ৪</span>
         <h3 style="font-size:1.05rem">যাচাইয়ের গেট</h3>
         <p class="small dim" style="margin:0">
-          কম্পাইল, ASan, UBSan, ডিফারেনশিয়াল চালনা ও IR তুলনা। যে ফাইল কেবল কম্পাইল হয়, সেটি <em>যাচাই হয়নি</em>। ব্যর্থতাগুলি গিয়ে জমা হয়
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>যাচাই হয়নি</em>। ব্যর্থতাগুলি গিয়ে জমা হয়
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">লাইসেন্সিং</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">দুটি লাইসেন্স, সৎভাবে আলাদা করা</h2>
         <p class="dim">
-          নতুন PBSD কোড &mdash; নিউক্লিয়াস, C++23 মডিউল, সরঞ্জাম &mdash; দেওয়া হয় Imortek-এর স্বাভাবিক শর্তে: ব্যক্তিগত ব্যবহার, দাতব্য সংস্থা, শিক্ষা এবং বছরে AUD&nbsp;৫০,০০০-এর কম আয় করা প্রতিষ্ঠানের জন্য AGPL-3.0+ এ বিনামূল্যে, তার উপরে স্তরভিত্তিক বাণিজ্যিক লাইসেন্স।
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           HardenedBSD থেকে আসা কোড তার মূল BSD লাইসেন্সেই থাকে। সেটি পুনরায় লাইসেন্স করা যায় না, আর Imortek তেমন দাবিও করে না। <code translate="no">docs/PROVENANCE.md</code> বলে দেয় কোনটি কোনটা।
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T22:13:36Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

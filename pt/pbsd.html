@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin e frameworks para a fase do desktop</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventário, passagens determinísticas de reescrita, porte por agentes, utilitários de Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Especificações, modelo de segurança, estado da migração, procedência</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Driver de WSL, watchdog, console de progresso</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           É por isso que um único bug de parsing em um renderizador de fontes pode virar roubo de credenciais. O renderizador nunca precisou do arquivo de senhas &mdash; mas nada na arquitetura o impediu de pedir.
         </p>
         <p class="dim">
-          O HardenedBSD já faz um trabalho sério aqui: ASLR, mitigações derivadas do PaX, SafeStack, CFI, alocadores de memória endurecidos. O PBSD mantém tudo isso e muda o formato da pergunta que está por baixo &mdash; de <em>&ldquo;este processo tem permissão?&rdquo;</em> para
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;este processo tem permissão?&rdquo;</em> para
           <em>&ldquo;este processo detém um descritor para aquilo?&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Forma ilustrativa da diferença, não uma listagem literal da API. O modelo que vale está em <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">O porte</span>
       <h2>Quatro etapas, e um modelo que nunca certifica a si mesmo</h2>
       <p class="lede">
-        Portar à mão o userland e o kernel de um BSD para C++23 é uma década de trabalho. Portar pedindo a um modelo de linguagem que reescreva os arquivos é um jeito rápido de produzir lixo plausível. O PBSD não faz nem uma coisa nem outra.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Etapa 4</span>
         <h3 style="font-size:1.05rem">Controle de verificação</h3>
         <p class="small dim" style="margin:0">
-          Compilação, ASan, UBSan, execução diferencial e comparação de IR. Um arquivo que apenas compila está <em>não verificado</em>. As falhas vão parar em
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>não verificado</em>. As falhas vão parar em
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">Licenciamento</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Duas licenças, honestamente separadas</h2>
         <p class="dim">
-          O código novo do PBSD &mdash; o núcleo, os módulos de C++23, as ferramentas &mdash; é oferecido nos termos padrão da Imortek: AGPL-3.0+ gratuita para uso pessoal, instituições de caridade, ensino e organizações abaixo de AUD&nbsp;50.000 por ano, com uma licença comercial em faixas acima disso.
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           O código derivado do HardenedBSD permanece sob a licença BSD original. Não pode ser relicenciado, e a Imortek não pretende fazê-lo. <code translate="no">docs/PROVENANCE.md</code> é o registro de qual é qual.
@@ -567,21 +581,21 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">Leitura relacionada</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/pt/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — identidade persistente a partir de avistamentos esparsos</h3>
-      </a>
       <a class="card card--hover related__item" href="/pt/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — análise criminal e pistas de investigação</h3>
       </a>
-      <a class="card card--hover related__item" href="/pt/cellai.html">
+      <a class="card card--hover related__item" href="/pt/trace.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — um modelo de sequência por reação-difusão</h3>
+        <h3 style="font-size:.98rem;margin:0">TRACE — identidade persistente a partir de avistamentos esparsos</h3>
       </a>
       <a class="card card--hover related__item" href="/pt/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — descompilador de extração de especificação</h3>
+      </a>
+      <a class="card card--hover related__item" href="/pt/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — transporte que esconde metadados para consórcios</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Escolhido pela sobreposição de termos com esta página, não à mão — portanto é honesto sobre o que de fato está próximo, inclusive quando não há nada óbvio.</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-17T20:39:16Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
+      <span class="mono tiny">Compilado em 2026-09-17T22:13:36Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
     </div>
   </div>
 </footer>

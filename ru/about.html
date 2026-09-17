@@ -158,7 +158,10 @@
         <span class="eyebrow">О себе</span>
         <h1>Здравствуйте &mdash; я <span class="gradient-text">Odin Loch</span></h1>
         <p class="lede">
-          Я делаю операционные системы, архитектуры ИИ, декомпиляторы и численные библиотеки, в основном по ночам, из Сиднея. Imortek — имя, под которым я всё это публикую.
+          I build operating systems, Artificial Intelligence (AI) architectures, maths
+          libraries, and tools that work out what a program does when nobody has the source
+          code any more. Mostly at night, from Sydney. Imortek is the name I publish that
+          work under.
         </p>
         <p class="lede">
           У меня два диплома &mdash; по программному обеспечению и по больничным наукам &mdash; и сейчас я работаю инструментальщиком. Ни то, ни другое не является той квалификацией, которую люди ожидают от автора такого софта, и именно поэтому всё, что я публикую, написано так, чтобы это проверяли, а не принимали на веру.
@@ -174,7 +177,7 @@
           <div class="phero__meta-item">Торговое наименование<b>Imortek</b></div>
           <div class="phero__meta-item">Основная работа<b>Инструментальщик</b></div>
           <div class="phero__meta-item">Репозитории<b data-gh-total="repos">15</b></div>
-          <div class="phero__meta-item">Лицензия<b>AGPL-3.0+</b></div>
+          <div class="phero__meta-item">GNU Affero General Public License<b>AGPL-3.0+</b></div>
         </div>
       </div>
     </div>
@@ -187,13 +190,27 @@
     <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">Почему я работаю именно так</h2>
     <div class="stack" style="margin-top:1.5rem;font-size:1.04rem">
       <p class="dim">
-        Мне нравится вся инженерия и все науки, и мне никогда не удавалось удержаться внутри одной. Поэтому на полке укреплённая BSD стоит рядом со схемой AEAD, рядом с твердосплавным инструментом, рядом со статьёй о том, как измерять национальное богатство в мегаджоулях. Это не стратегия. Это то, что мне действительно интересно.
+        I like all engineering and all the sciences, and I have never been good at staying inside
+        one of them. That is why the shelf has a hardened Berkeley Software Distribution (BSD)
+        next to an Authenticated Encryption with Associated Data (AEAD) scheme next to carbide
+        tooling next to a paper about how you would measure national wealth in megajoules.
+        It is not a strategy. It is what I am actually interested in.
       </p>
       <p class="dim">
-        Работать в одиночку — значит, что мою работу никто не проверяет, поэтому проверку я встроил в саму работу. ParanoidBSD не пометит файл как перенесённый, пока не пройдена дифференциальная проверка или сверка IR, потому что я прекрасно понимаю: файл, который просто компилируется, не сказал мне ничего. MathScript везде возвращает <code translate="no">Result&lt;T&gt;</code> вместо того чтобы бросать исключения, потому что я хотел, чтобы случаи отказа были видны в типе, а не обнаруживались в три часа ночи. У AEGIS одно правило &mdash; ничего не сделано, пока это не подтвердит симуляция атаки &mdash; потому что моя интуиция про анализ трафика ошибалась снова и снова, а симуляция нет.
+        Working alone means nobody checks my work, so I built the checking into the work.
+        ParanoidBSD will not mark a file as ported until differential or Intermediate
+        Representation (IR) verification passes, because I know perfectly well that a file
+        which merely compiles has told me nothing.
+        MathScript returns <code translate="no">Result&lt;T&gt;</code> вместо того чтобы бросать исключения, потому что я хотел, чтобы случаи отказа были видны в типе, а не обнаруживались в три часа ночи. У AEGIS одно правило &mdash; ничего не сделано, пока это не подтвердит симуляция атаки &mdash; потому что моя интуиция про анализ трафика ошибалась снова и снова, а симуляция нет.
       </p>
       <p class="dim">
-        Та же логика объясняет те части этого сайта, которые выглядят как доводы против меня. Перплексия Cell AI на четыре порядка хуже, чем у GPT-2, и это написано на её первой странице. Декомпилятор восстанавливает алгоритмы с F1 0,056 на очищенных бинарниках — рядом с 1,000, которую он получает при наличии символов. Работа по AES провалилась, и она опубликована как провал, вместе со статистикой, которая показывает почему. Если бы я это прятал, у вас не было бы никакого способа понять, каким из прочих моих чисел верить.
+        The same reasoning explains the parts of this site that look like they are arguing against
+        me. Cell AI&rsquo;s perplexity is four orders of magnitude worse than Generative
+        Pre-trained Transformer 2 (GPT-2) and that is on its front page. The decompiler recovers
+        algorithms at F1 0.056 on stripped binaries, next to the 1.000 it gets with symbols. The
+        Advanced Encryption Standard (AES) work failed, and it is published as a failure with
+        the statistics that show why. If I hid those, you would have no way of telling which
+        of my other numbers to trust.
       </p>
       <p class="dim">
         ParanoidBSD описывает себя как &ldquo;защищённую операционную систему, сделанную шизофреником&rdquo;. Это моя собственная фраза о себе, и я её оставляю. Она не означает, что инженерия ненадёжна &mdash; барьеры в этой работе строже, чем многое коммерческое ПО видит за всю свою жизнь, и они записаны там, где вы можете их прочитать. Она означает, что я предпочитаю сам сказать вам, кто это строит, чем чтобы вы узнали потом.
@@ -269,7 +286,7 @@
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/pbsd.html">ParanoidBSD</a></h3><p class="small dim" style="margin:0">HardenedBSD 15-STABLE на C++23, с ядром возможностей и дескрипторов.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/cypha.html">Cypha</a></h3><p class="small dim" style="margin:0">Архитектура ИИ из первых принципов. Классифицировать, делать регрессию, сэмплировать, порождать.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/retdec.html">RetDec Imortek</a></h3><p class="small dim" style="margin:0">Декомпилятор, который восстанавливает алгоритмы, а не только псевдокод.</p></div>
-      <div class="card"><h3 style="font-size:1rem"><a href="/ru/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">Компьютерная алгебра и численные методы на C++23, BLAS и LAPACK прямо в дереве.</p></div>
+      <div class="card"><h3 style="font-size:1rem"><a href="/ru/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">C++23 computer algebra and numerics, with its own Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) in-tree.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/aegis.html">AEGIS</a></h3><p class="small dim" style="margin:0">Транспорт, скрывающий метаданные, для консорциумов с допуском по списку.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/sentinel.html">SENTINEL</a></h3><p class="small dim" style="margin:0">Криминальная аналитика с полной прослеживаемостью каждой зацепки.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ru/cellai.html">Cell AI</a></h3><p class="small dim" style="margin:0">Не-трансформерная модель последовательностей, опубликованная как честный исследовательский журнал.</p></div>
@@ -325,10 +342,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — транспорт, скрывающий метаданные, для консорциумов</h3>
       </a>
-      <a class="card card--hover related__item" href="/ru/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — декомпилятор с извлечением спецификации</h3>
-      </a>
       <a class="card card--hover related__item" href="/ru/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — операционная система на C++23 с защитой на основе возможностей</h3>
@@ -336,6 +349,10 @@
       <a class="card card--hover related__item" href="/ru/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — модель последовательностей на реакции-диффузии</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ru/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — криминальная аналитика и следственные зацепки</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.</p>
@@ -407,7 +424,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T20:39:16Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T22:13:36Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

@@ -145,10 +145,16 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; تحقیقی روزنامچہ</span>
+        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
         <h1>ایک سلسلہ ماڈل جو <span class="gradient-text">ایمان داری سے خراب ہے</span></h1>
         <p class="lede">
-          Cell AI، خود توجہ کی جگہ عمل و انتشار پر مبنی تقسیم کی حرکیات اور ہیبی/BCM لچک رکھتا ہے، جو آگے کے گزر <em>کے دوران</em> چلتی ہے۔ یہ ٹرانسفارمر کی کارکردگی کے قریب نہیں پہنچتا اور اس کا README پہلی ہی اسکرین پر یہی کہتا ہے۔ یہ ایک تحقیقی روزنامچے کے طور پر شائع ہوا ہے: کہ ایک بالکل مختلف سلسلہ ماڈل پورے پیمانے پر کیسا لگتا ہے، اور ٹھیک کہاں ٹوٹتا ہے۔
+          A language model built on a completely different mechanism &mdash; closer to chemistry
+          spreading across a surface than to the attention maths everything else uses. It performs
+          worse than a transformer, and its own front page says so. Not slightly worse: four
+          orders of magnitude on the standard measure, against Generative Pre-trained Transformer 2
+          (GPT-2) as the baseline, and printed on this page rather than in a footnote. It is
+          published as a research log because a documented failure is worth something and a
+          deleted one is not.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">عمل و انتشار کا میدان چلائیں</a>
@@ -173,6 +179,54 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">مسئلہ</span>
+        <p class="small dim" style="margin:0">
+          Almost every AI that handles language is built on the same idea: let every word look at
+          every other word. It works. Nobody knows how much of that is because it is the best idea
+          available and how much is because it is the one everybody tried.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
+          across a surface, the way stripes form on an animal, with the connections changing while
+          it reads rather than afterwards. It was then trained at full size and measured. It came
+          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
+          line in an appendix.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">یہ کس کے لیے ہے</span>
+        <p class="small dim" style="margin:0">
+          Researchers who want to know what happens down the road nobody took. Scientists who
+          already model living systems, because the mechanism underneath is the one that makes
+          patterns in chemistry and markings on animals. Teachers, because published research is
+          almost all successes, and a careful account of a failure is rarer and more useful.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
+      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
+      dynamics running live in your browser, what stands where attention would be, and
+      twenty-seven experiments with their failures annotated.
     </div>
   </div>
 </section>
@@ -289,7 +343,10 @@
         <span class="badge badge--blue" style="margin-bottom:12px">اشارہ راستہ</span>
         <h3 style="font-size:1.05rem">پورا ڈھیر</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base ایمبیڈنگ &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem (FFT فیز جوڑ) &rarr; CrystalLattice (K = 3) &rarr; اختیاری Kuramoto جوڑ &rarr; MultiModalModel راستہ سازی &rarr; logits۔
+          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
+          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
+          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
+          Fast Fourier Transform (FFT).
         </p></div>
     </div>
   </div>
@@ -387,7 +444,9 @@
     <span class="eyebrow" style="justify-content:center">بہن منصوبے</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">یہ خیال اس کے بجائے کہاں گئے</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI وہ تحقیقی لکیر ہے جو تقارب تک نہیں پہنچی۔ اس کے بہن منصوبوں نے بہتر کیا: Cypha ایک چلتا ہوا بنیادی اصولوں والا ڈھانچہ بن گیا، اور طویل سیاق کی یادداشت کا کام UHPM بن گیا۔
+      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
+      working first-principles architecture, and the long-context memory work became Unified
+      Hash-Predictive Memory (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/ur/cypha.html">Cypha &rarr;</a>
@@ -411,13 +470,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha کے خلاف شطرنج کھیلیں</h3>
       </a>
-      <a class="card card--hover related__item" href="/ur/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — جرائم کا تجزیہ اور تفتیشی سراغ</h3>
-      </a>
       <a class="card card--hover related__item" href="/ur/aegis.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — کنسورشیم کے لیے میٹا ڈیٹا چھپانے والا ٹرانسپورٹ</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ur/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — جرائم کا تجزیہ اور تفتیشی سراغ</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">ہاتھ سے نہیں بلکہ اس صفحے کی اصطلاحات سے مطابقت دیکھ کر چنا گیا — اس لیے یہ ایمانداری سے بتاتا ہے کہ واقعی کیا قریب ہے، بشمول اس صورت کے جب کچھ بھی واضح طور پر قریب نہ ہو۔</p>
@@ -489,7 +548,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T20:39:16Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T22:13:36Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

@@ -148,11 +148,28 @@
     <div class="hero__grid">
       <div>
         <div><a class="eyebrow eyebrow--amber" href="/hi/kickstarter.html" style="margin-bottom:.55rem"><span class="dot dot--pulse"></span> ParanoidBSD का Kickstarter चालू है &middot; 12 नवंबर को बंद</a></div>
-        <span class="eyebrow">सिडनी, ऑस्ट्रेलिया &middot; स्वतंत्र अनुसंधान</span>
+        <span class="eyebrow">Sydney, Australia &middot; One person, independent research</span>
         <h1>सुरक्षित सिस्टम।<br><span class="gradient-text">मौलिक AI।</span><br>ईमानदार इंजीनियरिंग।</h1>
         <p class="lede">
-          Imortek एक ही व्यक्ति की सिस्टम वर्कशॉप है, जो वह सॉफ़्टवेयर बनाती है जो ज़्यादातर कंपनियाँ नहीं बनातीं: कैपेबिलिटी से सुरक्षित एक ऑपरेटिंग सिस्टम, मूल सिद्धांतों से निकाली गई एक AI संरचना, और एक डीकंपाइलर जो छद्म-कोड नहीं बल्कि असली एल्गोरिदम वापस निकालता है। हर दावे के पीछे एक परीक्षण, एक माप, या साफ़ लिखी हुई एक सीमा है।
+          Imortek builds specialist software for organisations whose problems ordinary tools
+          do not solve &mdash; in security, defence, government and research. An operating
+          system for equipment that cannot be patched quickly. A decompiler for binaries
+          nobody has the source to. An Artificial Intelligence (AI) architecture derived from
+          first principles rather than wrapped around someone else&rsquo;s model. Every claim
+          on this site is backed by a test, a benchmark, or an honest note about what does not
+          work yet.
         </p>
+        <div class="badge-row" style="margin-bottom:1.8rem">
+          <span class="badge">Cybersecurity</span>
+          <span class="badge">Defence</span>
+          <span class="badge">Government</span>
+          <span class="badge">Critical infrastructure</span>
+          <span class="badge">Intelligence</span>
+          <span class="badge">Investigation</span>
+          <span class="badge">Privacy</span>
+          <span class="badge">Engineering</span>
+          <span class="badge">Artificial intelligence</span>
+        </div>
         <div class="btn-row">
           <a class="btn btn--primary btn--lg" href="#products">
             उत्पाद देखें
@@ -197,7 +214,8 @@
             </div>
           </div>
           <div class="panel__foot">
-            आपके ब्राउज़र में सीधे GitHub API से पढ़ा गया। कहीं कुछ भी नहीं भेजा जाता।
+            Read straight from the GitHub Application Programming Interface (API) in your browser.
+            Nothing is sent anywhere.
           </div>
         </div>
       </div>
@@ -218,10 +236,11 @@
     <span class="marquee__item">सूचना ज्यामिति</span>
     <span class="marquee__item">प्राकृतिक ग्रेडिएंट</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">अपने ही BLAS और LAPACK</span>
+    <span class="marquee__item">Linear algebra written in-tree</span>
+    
     <span class="marquee__item">हॉक्स प्रक्रियाएँ</span>
     <span class="marquee__item">विभेदक सत्यापन</span>
-    <span class="marquee__item">AGPL-3.0+</span>
+    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
     <span class="marquee__item">C++23 मॉड्यूल</span>
     <span class="marquee__item">HardenedBSD 15-STABLE</span>
     <span class="marquee__item">कैपेबिलिटी और हैंडल सुरक्षा</span>
@@ -232,10 +251,11 @@
     <span class="marquee__item">सूचना ज्यामिति</span>
     <span class="marquee__item">प्राकृतिक ग्रेडिएंट</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">अपने ही BLAS और LAPACK</span>
+    <span class="marquee__item">Linear algebra written in-tree</span>
+    
     <span class="marquee__item">हॉक्स प्रक्रियाएँ</span>
     <span class="marquee__item">विभेदक सत्यापन</span>
-    <span class="marquee__item">AGPL-3.0+</span>
+    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
   </div>
 </div>
 
@@ -247,16 +267,18 @@
         <span class="eyebrow eyebrow--amber">प्रमुख परियोजना &middot; वित्त की तलाश में</span>
         <h2>ParanoidBSD</h2>
         <p class="lede" style="margin-bottom:1.5rem">
-          एक कठोर किया हुआ BSD, C++23 में दोबारा लिखा गया, जिसमें HardenedBSD पहले से जो देता है उसके ऊपर एक कैपेबिलिटी और हैंडल नाभिक है &mdash; और डेस्क पर KDE Plasma 6।
+          A hardened Berkeley Software Distribution (BSD), rewritten in C++23, with a
+          capability and handle nucleus sitting on top of what HardenedBSD already ships
+          &mdash; and KDE Plasma 6 on the desk.
         </p>
         <p class="dim">
           स्मृति-असुरक्षित C आज भी लगभग हर ऑपरेटिंग सिस्टम की नींव है। PBSD, HardenedBSD 15-STABLE को व्यवहार का विनिर्देश मानकर उसे फ़ाइल दर फ़ाइल C++23 मॉड्यूल में पोर्ट करता है &mdash; और फिर एक सुरक्षा नाभिक जोड़ता है, जहाँ हर संसाधन तक पहुँच किसी परिवेशी वैश्विक नामस्थान से नहीं, बल्कि एक अनजाली हैंडल से होती है।
         </p>
         <ul class="flist flist--amber" style="margin:1.75rem 0">
           <li><strong>निष्ठा से पोर्ट किया गया, &ldquo;सुधारा&rdquo; नहीं गया।</strong> HardenedBSD का पेड़ ही विनिर्देश है। बग भी पोर्ट होते हैं, जब तक कोई बदलाव अलग से दर्ज न कर दिया जाए।</li>
-          <li><strong>जब तक सत्यापित नहीं, तब तक कुछ भी पूरा नहीं।</strong> सिर्फ़ कंपाइल हो जाना सत्यापन नहीं है। हर फ़ाइल पर विभेदक या IR सत्यापन का पहरा है।</li>
+          <li><strong>जब तक सत्यापित नहीं, तब तक कुछ भी पूरा नहीं।</strong> Compile-only is unverified. Differential or Intermediate Representation (IR) verification gates every file.</li>
           <li><strong>पहले नियतात्मक औज़ार।</strong> सुरक्षित पुनर्लेखन के चरण किसी मॉडल के कोड छूने से पहले चलते हैं &mdash; और मॉडल कभी अपना प्रमाणपत्र ख़ुद नहीं देता।</li>
-          <li><strong>स्वतंत्र कर्नेल C++।</strong> <code translate="no">-fno-exceptions -fno-rtti</code>, एक प्रलेखित कर्नेल ABI के साथ।</li>
+          <li><strong>स्वतंत्र कर्नेल C++।</strong> <code translate="no">-fno-exceptions -fno-rtti</code>, with a documented kernel Application Binary Interface (ABI).</li>
         </ul>
         <div class="btn-row">
           <a class="btn btn--fund" href="/hi/kickstarter.html">Kickstarter &rarr;</a>
@@ -620,7 +642,7 @@
         <ul class="checks" style="margin:1.5rem 0">
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span><strong>AGPL-3.0+ के अंतर्गत मुफ़्त</strong> व्यक्तिगत उपयोग, दान-संस्थाओं, शिक्षा, और सालाना <strong>AUD&nbsp;50,000</strong> से कम कमाने वाले किसी भी संगठन के लिए।</span>
+            <span><strong>AGPL-3.0+ के अंतर्गत मुफ़्त</strong> व्यक्तिगत उपयोग, दान-संस्थाओं, शिक्षा, और सालाना <strong>50,000&nbsp;Australian dollars (AUD)</strong> से कम कमाने वाले किसी भी संगठन के लिए।</span>
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -686,10 +708,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — विनिर्देश निकालने वाला डीकंपाइलर</h3>
-      </a>
       <a class="card card--hover related__item" href="/hi/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
@@ -697,6 +715,10 @@
       <a class="card card--hover related__item" href="/hi/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/retdec.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — विनिर्देश निकालने वाला डीकंपाइलर</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -768,7 +790,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T20:39:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

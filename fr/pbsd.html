@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin et les frameworks pour la vague bureau</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventaire, passes de réécriture déterministes, portage par agent, utilitaires Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Spécifications, modèle de sécurité, état de la migration, provenance</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Moteur WSL, watchdog, console de progression</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           C’est pourquoi un seul bug d’analyse dans un moteur de rendu de polices peut devenir un vol d’identifiants. Le moteur de rendu n’a jamais eu besoin du fichier de mots de passe &mdash; mais rien dans l’architecture ne l’empêchait de le demander.
         </p>
         <p class="dim">
-          HardenedBSD fait déjà un vrai travail ici : ASLR, mitigations dérivées de PaX, SafeStack, CFI, allocateurs mémoire durcis. PBSD conserve tout cela et change la forme de la question en dessous &mdash; de <em>&ldquo;ce processus a-t-il le droit ?&rdquo;</em> à
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;ce processus a-t-il le droit ?&rdquo;</em> à
           <em>&ldquo;ce processus détient-il un descripteur vers cela ?&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Forme illustrative de la différence, pas une liste d’API littérale. Le modèle qui fait foi est dans <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">Le portage</span>
       <h2>Quatre étapes, et un modèle qui ne se certifie jamais lui-même</h2>
       <p class="lede">
-        Porter à la main un espace utilisateur et un noyau BSD vers C++23, c’est dix ans de travail. Le porter en demandant à un modèle de langage de réécrire les fichiers, c’est un moyen rapide de produire des déchets plausibles. PBSD ne fait ni l’un ni l’autre.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Étape 4</span>
         <h3 style="font-size:1.05rem">Contrôle de vérification</h3>
         <p class="small dim" style="margin:0">
-          Compilation, ASan, UBSan, exécution différentielle et comparaison d’IR. Un fichier qui se contente de compiler est <em>non vérifié</em>. Les échecs atterrissent dans
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>non vérifié</em>. Les échecs atterrissent dans
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">Licences</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Deux licences, honnêtement séparées</h2>
         <p class="dim">
-          Le nouveau code PBSD &mdash; le noyau, les modules C++23, l’outillage &mdash; est proposé sous les conditions standard d’Imortek : AGPL-3.0+ gratuit pour l’usage personnel, les associations, l’enseignement et les organisations gagnant moins de 50 000&nbsp;AUD par an, avec une licence commerciale par paliers au-delà.
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           Le code dérivé de HardenedBSD reste sous sa licence BSD d’origine. Il ne peut pas être relicencié et Imortek ne prétend pas le faire. <code translate="no">docs/PROVENANCE.md</code> est le registre de ce qui relève de l’une ou de l’autre.
@@ -575,9 +589,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analyse criminelle et pistes d’enquête</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/retdec.html">
+      <a class="card card--hover related__item" href="/fr/chess.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — décompilateur à extraction de spécification</h3>
+        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
       </a>
       <a class="card card--hover related__item" href="/fr/cellai.html">
         <div class="card__glow"></div>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T20:39:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-17T22:13:36Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

@@ -148,10 +148,17 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>多数跟踪器止步于&ldquo;在哪里&rdquo;。 <span class="gradient-text">这一个继续往下走。</span></h1>
         <p class="lede">
-          TRACE 把混合传感器给出的稀疏、不确定的目击信息变成持续的身份。它能在没有任何东西看得见的空档里保住航迹，逐个实体地学习什么对它来说算正常，并在会面发生之前就预测出来 &mdash; 它报出的每一个数字都附带不确定度。
+          Tracking in the real world is never continuous. A vehicle goes behind a building, a
+          person walks out of camera range. Most systems treat that as the end of the track.
+          TRACE does not: it holds a track as a probability that something is still there rather
+          than a yes or no, so the track fades through the gap instead of ending at it, and can be
+          picked up again on the other side.
         </p>
         <p class="lede">
-          内核里没有任何东西知道自己在跟踪什么。摄像头、船舶、托盘、动物和球员，是同一个问题换上不同的剖面配置。
+          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
+          players are the same problem with a different profile. The MOT17 and MOT20 figures below
+          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
+          well a tracker did.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">看它跟踪一座迷宫</a>
@@ -181,6 +188,55 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
+          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
+          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
+          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          TRACE keeps a number against each track for how likely it is that the thing is still there. A
+          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
+          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
+          the engine decides whether it is the same one. Both demonstrations here let you push that until
+          it gets the decision wrong.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Anyone following things across more than one sensor, with gaps between them: a site whose
+          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
+          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
+          pallets, animals and players are the same problem with a different profile. It takes detections
+          in; producing them is someone else&rsquo;s job.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
+      the engineering: the engine itself running in your browser on two scenarios, the benchmark
+      numbers, what it costs per track, and a plain list of what it does not do.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -206,7 +262,9 @@
             <span class="badge badge--violet" style="margin-bottom:10px">存在性</span>
             <h4 style="margin:0 0 6px">Bernoulli，不是布尔值</h4>
             <p class="small dim" style="margin:0">
-              一个建立在 320 粒子滤波器之上的 PMBM 跟踪器。存在性是一个概率，会因漏检而衰减，也会凭证据而恢复，所以一次遮挡损失的是置信度，而不是身份。
+              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
+              Existence is a probability that decays through misses and recovers on evidence, so
+              an occlusion costs confidence rather than identity.
             </p>
           </div>
           <div class="card">
@@ -522,7 +580,8 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          单核，Release 构建，AVX-512。开销大约按 n<sup>1.17</sup> 增长，而单看跟踪本身，从十条航迹到四百条，都平稳保持在每条航迹 135&ndash;159 &micro;s &mdash; 可以读作&ldquo;要紧的是常数，而不是指数&rdquo;。
+          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
+          n<sup>1.17</sup> 增长，而单看跟踪本身，从十条航迹到四百条，都平稳保持在每条航迹 135&ndash;159 &micro;s &mdash; 可以读作&ldquo;要紧的是常数，而不是指数&rdquo;。
         </p>
       </div>
       <div>
@@ -579,9 +638,10 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">源码可得</span>
-    <h2>AGPL-3.0+，旁边还有一份商业授权</h2>
+    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
     <p class="lede">
-      和这里其他所有东西一样的条款：读它、跑它、查它。如果 AGPL 不适合你想做的东西，还有一份分层的商业授权。
+      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
+      AGPL does not suit what you want to build, there is a tiered commercial licence.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">阅读源码 &rarr;</a>
@@ -600,17 +660,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/aegis.html">
+      <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/cypha.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -682,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

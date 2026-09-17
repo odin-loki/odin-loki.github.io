@@ -148,7 +148,11 @@
         <span class="eyebrow">SENTINEL &middot; 第 1&ndash;2 阶段完成</span>
         <h1>侦查线索，每一条都能 <span class="gradient-text">追溯回源头</span></h1>
         <p class="lede">
-          一个 C++23 加 Qt 6 的桌面工具，摄入公开的犯罪数据，跑统计模型，产出排好序的线索 &mdash; 而每一项输出都能追回到它的原始记录、它用的模型和它的参数。如果分析人员说不出一条线索为什么排在那个位置，那它就不该是一条线索。
+          Investigators are rarely short of data. What is hard is finding the pattern inside
+          thousands of records that look unremarkable one at a time. SENTINEL is a desktop tool that
+          reads public crime data, runs the statistics over it and ranks what is worth a closer
+          look &mdash; and every result traces back to the exact records, model and settings it came
+          from. If an analyst cannot show why a lead ranked where it did, it should not be a lead.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">构建一个热点模型</a>
@@ -156,7 +160,7 @@
         </div>
         <div class="phero__meta">
           <div class="phero__meta-item">语言<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">界面<b>Qt 6，9 页仪表盘</b></div>
+          <div class="phero__meta-item">User Interface (UI)<b>Qt 6，9 页仪表盘</b></div>
           <div class="phero__meta-item">测试<b>495 个自动化</b></div>
           <div class="phero__meta-item">存储<b>SQLite</b></div>
           <div class="phero__meta-item">最近一次推送<b data-gh-repo="SENTINEL" data-gh-field="updated">不久前</b></div>
@@ -173,6 +177,53 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          A burglary, a theft from a car, an insurance claim. Each one is unremarkable on its own, and
+          what connects them only shows up when somebody lines hundreds of them up and looks. That is slow
+          work by hand, and the analytics contracts that do it at scale are priced out of reach of most
+          forces.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          SENTINEL reads the records in and runs established statistical models over them: where crime is
+          dense, which incidents look like one series rather than many, which area a series was most likely
+          run from. It ranks what is worth a closer look. Every stage writes down what it did, so a lead
+          arrives carrying its source records, the model and the settings behind it.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Smaller and regional forces, where the large analytics contracts are out of reach &mdash; this
+          runs on one ordinary desktop computer and is built for a single analyst rather than a department.
+          Fraud and repeat-offender investigators, where the pattern sits across incidents nobody filed
+          together. Researchers, who can retrace any result to the records that produced it.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>It points an analyst at something worth checking. It does not decide anything about a
+      person.</strong> The rest of this page is the engineering: two of the real models running in
+      your browser, the pipeline that feeds them, what works today, and what does not.
     </div>
   </div>
 </section>
@@ -233,7 +284,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">流水线</span>
-      <h2>摄入 &rarr; NLP &rarr; 特征 &rarr; 模型 &rarr; 推理</h2>
+      <h2>Ingest &rarr; Natural Language Processing (NLP) &rarr; features &rarr; models &rarr; inference</h2>
       <p class="lede">每一个阶段都把自己做了什么写进来源链，所以末端的一条线索，带着它一路是怎么来的记录。</p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="SENTINEL 流水线，从摄入经过基于规则的 NLP、统计模型和推理，一直到排好序的线索，还有一条来源轨道连着每一个阶段" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>底下那条轨道才是产品。</b> 每一个阶段都把自己做了什么写进来源链，所以一条线索送到你面前时，它一路怎么来的记录也跟着来了。</figcaption></figure>
@@ -241,13 +292,13 @@
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">摄入</span>
-        <p class="small dim" style="margin:0">英国警方 API 和历史数据源，CSV 导入并自动识别英国 / 美国城市 / 通用三种布局，通过 Open-Meteo 取天气，以及带隔离阈值的数据质量评分。</p></div>
+        <p class="small dim" style="margin:0">UK Police Application Programming Interface (API) and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
         <p class="small dim" style="margin:0">经典的、基于规则的作案手法提取与犯罪分类。回路里没有语言模型 &mdash; 这是故意的，因为输出必须解释得清楚。</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">模型</span>
-        <p class="small dim" style="margin:0">泊松计数、霍克斯自激过程、DBSCAN 系列案件识别、KDE 热点、高斯过程回归，以及贝叶斯层和集成层。</p></div>
+        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, series detection by Density-Based Spatial Clustering of Applications with Noise (DBSCAN), KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">推理</span>
         <p class="small dim" style="margin:0">Rossmo 地理画像、作案手法分析、证据评分、异常检测、共同作案的 PageRank 与社区发现，还有提示引擎。</p></div>
@@ -348,7 +399,7 @@
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 个自动化测试</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>在英国和美国数据集上做的真实数据验证</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows 与 Linux 打包</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>本地只读的 REST API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only Representational State Transfer (REST) API</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>九页仪表盘：事件、地图、校准、案件、共同作案图、线索、审计日志、设置、调试</span></li>
         </ul>
       </div>
@@ -359,7 +410,7 @@
           <li><strong>只有基于规则的 NLP。</strong> 作案手法提取是经典方法，也就带着这意味着的召回率上限。</li>
           <li><strong>单机桌面。</strong> 没有多用户部署，分析人员之间也没有共享的案件状态。</li>
           <li><strong>实时连接器有限。</strong> 接上的实时数据源不多。</li>
-          <li><strong>地图很基础。</strong> 是自己画的，不是 GIS。可选的 GIS 集成属于第 3&ndash;5 阶段的事项。</li>
+          <li><strong>地图很基础。</strong> Custom-rendered, not a Geographic Information System (GIS). Optional GIS integration is a Phase 3&ndash;5 item.</li>
         </ul>
         <h3 style="margin-top:2rem;font-size:1.05rem">第 3&ndash;5 阶段，计划中</h3>
         <p class="small dim">
@@ -430,10 +481,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/cellai.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/aegis.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
@@ -441,6 +488,10 @@
       <a class="card card--hover related__item" href="/zh/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -512,7 +563,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

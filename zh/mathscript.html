@@ -148,7 +148,11 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 预发布</span>
         <h1>一个 C++23 库，从 <span class="gradient-text">LU 到 CFD</span></h1>
         <p class="lede">
-          稠密与稀疏线性代数、特殊函数、统计、ODE/PDE/FEM/CFD、最优化、信号与图像处理、数论、图、几何、拓扑、量子原语、控制、金融、压缩 &mdash; 再加一个符号计算 CAS。LU、QR、SVD、特征值求解器和 Cholesky 都写在树内。
+          Engineering software runs on heavy mathematics, and almost nobody writes their own.
+          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
+          hard to audit, hard to change, and hard to install where the build machine has no
+          internet. MathScript does the mathematics itself, from matrix arithmetic up to
+          fluid dynamics, in one C++ library with nothing to fetch.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">现场作图并求导</a>
@@ -166,7 +170,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">两个决定了一切的决策</span>
           <ul class="flist flist--violet">
-            <li><strong>树内的 BLAS/LAPACK。</strong> 不用 Eigen，不用 OpenBLAS。 <code translate="no">linalg</code> 自己拥有 LU、QR、SVD、eig、Cholesky 以及 LAPACK 风格的核心例程，所以部署就是一次编译，而不是一场找依赖的苦役。</li>
+            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
             <li><strong>一个受限的 C++ 子集。</strong> 不用裸指针，不用异常，不用不安全的类型转换 &mdash; 编译期强制。生产代码返回 <code translate="no">Result&lt;T&gt;</code>，所以错误处理是确定性的，而且在类型里看得见。</li>
           </ul>
         </div>
@@ -175,13 +179,67 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
+          are rarely written by the team shipping it. They arrive from a dozen outside
+          libraries and paid platforms that have to be fetched, licensed and trusted. When an
+          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
+          machine you may not be able to fetch them at all.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          MathScript is one C++ library that does the mathematics itself: linear algebra,
+          statistics, differential equations, finite elements, fluid flow, optimisation and a
+          symbolic algebra system, across thirty-five static libraries. The matrix routines
+          most projects import from BLAS and LAPACK are written here instead. All 816 test
+          suites pass on the Windows build. v1.0.0 has not shipped yet.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Teams whose build machines cannot reach the internet &mdash; defence, medical,
+          aerospace, banking &mdash; where every fetched dependency is another approval.
+          Products that do their real work in C++ and their mathematics in Python, and carry
+          two sets of problems for it. Teachers and students who want the method written out
+          where it can be read.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
+      argument, and the rest of this page is the evidence: what the thirty-five libraries
+      hold, why a failure comes back in the return type instead of as an exception, and
+      exactly what the test numbers cover.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">交互演示</span>
-      <h2>一个符号计算 CAS，在你的浏览器里跑</h2>
+      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
       <p class="lede">
-        输入一个表达式。它会被分词、解析成 AST、做符号求导、化简，然后为了作图做数值求值 &mdash; 同时在可见区间上用辛普森法则求积分、用二分法找根。
+        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
+        differentiated symbolically, simplified, then evaluated numerically for the plot
+        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
+        visible interval.
       </p>
     </div>
 
@@ -289,7 +347,11 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            在你按下加载之前什么都不会下载，按了之后也只取一次。这个模块是 113 KB 的 WebAssembly 加 10 KB 的加载器 &mdash; 完整的库构建是 4.9 MB，所以这里只链接了这四个调用能触及的部分。
+            Nothing is downloaded until you press load, and then it is fetched once. The module
+            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
+            build is 4.9 MB, so this links only what these four calls reach. The panel shows the
+            library version and the vector Instruction Set Architecture (ISA) the build
+            reports.
           </p>
         </div>
         <div class="demo__side">
@@ -319,7 +381,9 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>指令集那一行是这个库在如实报告自己。</strong> 它调用的是
-            <code translate="no">ms::detect_isa()</code>，和它在本地运行时调用的是同一个。在你的台式机上它会回答 AVX2 或 AVX-512；在这里只有一种向量指令集，它也就照实说。
+            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
+            one vector ISA and it says so.
           </div>
         </div>
       </div>
@@ -335,6 +399,14 @@
     <div class="section-head reveal">
       <span class="eyebrow">范围</span>
       <h2>三十五个静态库，六个领域</h2>
+      <p class="lede">
+        Dense and sparse linear algebra, special functions, statistics and Machine Learning
+        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
+        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
+        signal and image processing, number theory, graphs, geometry, topology, quantum
+        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
+        eigensolvers and Cholesky written in-tree.
+      </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="六个库领域 — 核心系统、数值、统计与机器学习、应用、符号和专门领域 — 都建立在一条 Result<T> 基础轨道上，不用异常，也不用裸指针" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>三十五个库，一套错误约定。</b> 底下那条轨道才是关键：失败在返回类型里，而不是在你到栈顶才发现的那个异常里。</figcaption></figure>
 
@@ -369,6 +441,11 @@
       <div class="reveal">
         <span class="eyebrow">对外暴露的东西</span>
         <h3>三个可执行文件，其余一切都可选</h3>
+        <p class="small dim" style="margin-top:12px">
+          Everything past the three executables is a build option &mdash; a Qt Graphical User
+          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
+          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+        </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">编译器 / 批处理驱动</span></div>
           <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">交互式会话</span></div>
@@ -379,6 +456,10 @@
       <div class="reveal" data-delay=".08">
         <span class="eyebrow">验证</span>
         <h3>816 个套件能买到什么</h3>
+        <p class="small dim" style="margin-top:12px">
+          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
+          MSVC on Windows and the GNU Compiler Collection (GCC) 13 on Linux.
+        </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
             <thead><tr><th>关卡</th><th class="num">设定</th></tr></thead>
@@ -469,17 +550,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/chess.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/aegis.html">
+      <a class="card card--hover related__item" href="/zh/cypha.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
+        <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -551,7 +632,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

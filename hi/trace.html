@@ -148,10 +148,17 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>ज़्यादातर ट्रैकर &ldquo;कहाँ&rdquo; पर आकर रुक जाते हैं। <span class="gradient-text">यह वहाँ से आगे चलता रहता है।</span></h1>
         <p class="lede">
-          TRACE अलग-अलग तरह के सेंसरों से आई छिटपुट, अनिश्चित नज़रों को टिकाऊ पहचानों में बदल देता है। जहाँ उसे कोई नहीं देख पाता, वहाँ भी वह ट्रैक थामे रखता है, हर इकाई के लिए अलग से सीखता है कि उसके लिए सामान्य क्या है, और मुलाक़ातें होने से पहले उनका अनुमान लगाता है &mdash; और जो भी संख्या वह बताता है, उसके साथ उसकी अनिश्चितता भी जुड़ी रहती है।
+          Tracking in the real world is never continuous. A vehicle goes behind a building, a
+          person walks out of camera range. Most systems treat that as the end of the track.
+          TRACE does not: it holds a track as a probability that something is still there rather
+          than a yes or no, so the track fades through the gap instead of ending at it, and can be
+          picked up again on the other side.
         </p>
         <p class="lede">
-          कोर में किसी को नहीं पता कि वह किसे ट्रैक कर रहा है। कैमरे, जहाज़, पैलेट, जानवर और खिलाड़ी — सब एक ही समस्या हैं, बस प्रोफ़ाइल अलग है।
+          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
+          players are the same problem with a different profile. The MOT17 and MOT20 figures below
+          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
+          well a tracker did.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">इसे एक भूलभुलैया ट्रैक करते देखिए</a>
@@ -181,6 +188,55 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
+        <p class="small dim" style="margin:0">
+          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
+          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
+          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
+          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          TRACE keeps a number against each track for how likely it is that the thing is still there. A
+          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
+          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
+          the engine decides whether it is the same one. Both demonstrations here let you push that until
+          it gets the decision wrong.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
+        <p class="small dim" style="margin:0">
+          Anyone following things across more than one sensor, with gaps between them: a site whose
+          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
+          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
+          pallets, animals and players are the same problem with a different profile. It takes detections
+          in; producing them is someone else&rsquo;s job.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
+      the engineering: the engine itself running in your browser on two scenarios, the benchmark
+      numbers, what it costs per track, and a plain list of what it does not do.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -206,7 +262,9 @@
             <span class="badge badge--violet" style="margin-bottom:10px">अस्तित्व</span>
             <h4 style="margin:0 0 6px">Bernoulli, बूलियन नहीं</h4>
             <p class="small dim" style="margin:0">
-              320-कण वाले फ़िल्टर के ऊपर एक PMBM ट्रैकर। अस्तित्व एक प्रायिकता है जो चूक से घटती है और सबूत मिलने पर लौट आती है, इसलिए कोई ओट पहचान नहीं, भरोसा गँवाती है।
+              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
+              Existence is a probability that decays through misses and recovers on evidence, so
+              an occlusion costs confidence rather than identity.
             </p>
           </div>
           <div class="card">
@@ -522,7 +580,8 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          एक कोर, Release बिल्ड, AVX-512। ख़र्च लगभग n<sup>1.17</sup> के हिसाब से बढ़ता है, और अकेली ट्रैकिंग दस ट्रैक से चार सौ ट्रैक तक 135&ndash;159 &micro;s प्रति ट्रैक पर सपाट रहती है &mdash; इसे यूँ पढ़िए: &ldquo;स्थिरांक मायने रखता है, घातांक नहीं&rdquo;।
+          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
+          n<sup>1.17</sup> के हिसाब से बढ़ता है, और अकेली ट्रैकिंग दस ट्रैक से चार सौ ट्रैक तक 135&ndash;159 &micro;s प्रति ट्रैक पर सपाट रहती है &mdash; इसे यूँ पढ़िए: &ldquo;स्थिरांक मायने रखता है, घातांक नहीं&rdquo;।
         </p>
       </div>
       <div>
@@ -579,9 +638,10 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">स्रोत उपलब्ध</span>
-    <h2>AGPL-3.0+, साथ में एक वाणिज्यिक लाइसेंस</h2>
+    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
     <p class="lede">
-      यहाँ की बाक़ी हर चीज़ जैसी ही शर्तें: पढ़िए, चलाइए, जाँचिए। अगर आप जो बनाना चाहते हैं उसके लिए AGPL ठीक न बैठे, तो स्तरों में बँटा एक वाणिज्यिक लाइसेंस मौजूद है।
+      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
+      AGPL does not suit what you want to build, there is a tiered commercial licence.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">स्रोत पढ़िए &rarr;</a>
@@ -604,9 +664,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha के ख़िलाफ़ शतरंज खेलिए</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/sentinel.html">
+      <a class="card card--hover related__item" href="/hi/cypha.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
+        <h3 style="font-size:.98rem;margin:0">Cypha — मूल सिद्धांतों से बनी एक AI संरचना</h3>
       </a>
       <a class="card card--hover related__item" href="/hi/cellai.html">
         <div class="card__glow"></div>
@@ -682,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T20:39:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

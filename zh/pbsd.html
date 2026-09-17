@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6、KWin 与桌面批次要用的各个框架</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">清单、确定性重写流程、智能体移植、Clang 辅助工具</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">规格、安全模型、迁移状态、来源记录</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL 驱动、看门狗、进度控制台</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           这就是为什么字体渲染器里一个解析 bug 能变成一次凭据窃取。渲染器从来就不需要口令文件 &mdash; 但架构里没有任何东西拦着它去要。
         </p>
         <p class="dim">
-          HardenedBSD 在这件事上已经做了不少正经工作：ASLR、源自 PaX 的缓解措施、SafeStack、CFI、加固过的内存分配器。PBSD 把这些全部保留，并改变底下那个问题的形状 &mdash; 从 <em>&ldquo;这个进程被允许吗？&rdquo;</em> 到
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;这个进程被允许吗？&rdquo;</em> 到
           <em>&ldquo;这个进程持有指向它的句柄吗？&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            这是差异的示意形状，不是逐字的 API 清单。权威的模型在 <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">移植</span>
       <h2>四个阶段，以及一个从不给自己背书的模型</h2>
       <p class="lede">
-        把一个 BSD 的用户态和内核手工移植到 C++23 是十年的工作量。让语言模型重写文件来移植，则是一条快速产出看着像样的垃圾的路。PBSD 两条都不走。
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">第 4 阶段</span>
         <h3 style="font-size:1.05rem">验证关卡</h3>
         <p class="small dim" style="margin:0">
-          编译、ASan、UBSan、差分执行和 IR 比对。一个只是能编译的文件就是 <em>未验证</em>。失败的记录落在
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>未验证</em>。失败的记录落在
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">授权</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">两个许可证，老老实实分开</h2>
         <p class="dim">
-          新的 PBSD 代码 &mdash; 核心、C++23 模块、工具 &mdash; 按 Imortek 的标准条款提供：AGPL-3.0+ 对个人使用、慈善机构、教育机构以及年收入低于 50,000&nbsp;澳元的组织免费，超过这个数之后是分级的商业许可证。
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           源自 HardenedBSD 的代码仍然在它原本的 BSD 许可证下。它不能被重新授权，Imortek 也不声称自己有这么做。 <code translate="no">docs/PROVENANCE.md</code> 就是哪块归哪块的记录。
@@ -571,17 +585,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/retdec.html">
+      <a class="card card--hover related__item" href="/zh/chess.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
+        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/trace.html">
+      <a class="card card--hover related__item" href="/zh/retdec.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — 从稀疏目击中得到持续的身份</h3>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

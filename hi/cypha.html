@@ -149,7 +149,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>एक AI संरचना जो बनी है <span class="gradient-text">मूल सिद्धांतों से</span>, किसी का फ़ोर्क नहीं</h1>
         <p class="lede">
-          Cypha न तो ट्रांसफ़ॉर्मर का रैपर है और न किसी और के मॉडल की ट्यून की हुई नक़ल। एक ही सार्वजनिक टाइप &mdash; <code translate="no">cypha::Cypha</code> &mdash; वर्गीकरण करता है, प्रतिगमन करता है, अव्यक्त चर से नमूने लेता है और अनुक्रम बनाता है, और उसका सीखने का नियम वहाँ से निकला है जहाँ चार औपचारिक कार्यक्रम आपस में मिलते हैं।
+          Almost all modern Artificial Intelligence (AI) is a variation on the same few
+          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
+          from mathematics rather than borrowed, that updates on every example it sees instead
+          of being trained once and frozen. It is a research project, and the failures are
+          published alongside the results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">अपने ब्राउज़र में एक प्रशिक्षित कीजिए</a>
@@ -159,7 +163,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">भाषा<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">रिलीज़<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2.664 BPC</b></div>
           <div class="phero__meta-item">आख़िरी पुश<b data-gh-repo="Cypha" data-gh-field="updated">हाल ही में</b></div>
         </div>
       </div>
@@ -168,13 +172,65 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">चार कार्यक्रम, एक सीखने का नियम</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; न्यूनतम-विवरण-लंबाई की पूर्वधारणाएँ तय करती हैं कि मॉडल सस्ते में क्या-क्या मान सकता है।</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
             <li><strong>सूचना ज्यामिति</strong> &mdash; अद्यतन प्राकृतिक ग्रेडिएंट के साथ चलते हैं, इसलिए सीखना पैरामीटर स्पेस की वक्रता का लिहाज़ रखता है।</li>
             <li><strong>सक्रिय अनुमान / मुक्त ऊर्जा</strong> &mdash; इससे ढाँचे का विभाजन मिलता है: प्रायर, डिफ़रेंशियल और संदर्भ।</li>
             <li><strong>सूचना अड़चन</strong> &mdash; एनकोडर का लक्ष्य तय करती है: जो भविष्य बताता है उसे रखो, बाक़ी फेंक दो।</li>
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
+        <p class="small dim" style="margin:0">
+          Nearly every AI system in use is a variation on a handful of designs. They are
+          trained once on a large machine and then shipped frozen, so keeping up with
+          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
+          back and training again. They are also big, which puts them in a data centre rather
+          than on the equipment, and makes explaining any single decision hard.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
+          learning rule is derived from four bodies of mathematics rather than copied from an
+          existing architecture, and it updates on every example it sees &mdash; no batch, no
+          epoch, no retraining run. It is small enough to run on the hardware that collects
+          the data.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
+        <p class="small dim" style="margin:0">
+          Today, researchers and engineers willing to try a different design. The problems it
+          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
+          faults, changing behaviour &mdash; where the model has to sit on the device rather
+          than in a data centre, and where somebody has to explain the decision afterwards.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Judge it as research.</strong> The figures further down come from the
+      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
+      than a leaderboard position. A section headed <em>Cypha क्या नहीं है</em> sets out the
+      limits, including the standard test where it sits near chance until one particular
+      component is switched on. The rest of this page is the architecture and the
+      measurements.
     </div>
   </div>
 </section>
@@ -199,7 +255,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            सटीक RBF कर्नेल, जो <b>n</b> नमूना बिंदुओं पर लिया जाए, एक मैट्रिक्स देता है: <b>K</b>। यादृच्छिक फ़ीचर उसका एक सन्निकटन बनाते हैं: <b>K&#770;</b>। और जो यहाँ खींचा गया है, वह है
+            The exact Radial Basis Function (RBF) kernel over <b>n</b> नमूना बिंदुओं पर लिया जाए, एक मैट्रिक्स देता है: <b>K</b>। यादृच्छिक फ़ीचर उसका एक सन्निकटन बनाते हैं: <b>K&#770;</b>। और जो यहाँ खींचा गया है, वह है
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> जैसे-जैसे फ़ीचरों की संख्या बढ़ती है: जितने ज़्यादा फ़ीचर, उतना क़रीबी सन्निकटन।
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -227,13 +283,15 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>इसे कंपाइल करते हुए एक बग मिला।</strong> ORF &mdash; सघन ऑर्थोगोनल रूप &mdash; हर पंक्ति को इकाई लंबाई पर नॉर्मलाइज़ कर रहा था, जबकि Yu et al. पंक्ति का नॉर्म यहाँ से लेते हैं:
-            <code translate="no">chi_d</code> ताकि कोई ऑर्थोगोनल पंक्ति उस गाउसी पंक्ति से मेल खाए जिसकी वह जगह लेती है। पंक्तियाँ &radic;d गुना छोटी थीं, इसलिए फ़ीचर ग़लत कर्नेल का सन्निकटन कर रहे थे और त्रुटि अभिसरित होने के बजाय सपाट पड़ जाती थी। एक पंक्ति। अब वह तीनों में सबसे अच्छा है।
+            <strong>इसे कंपाइल करते हुए एक बग मिला।</strong> Orthogonal Random Features (ORF)
+            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
+            et al. draw the row norm from <code translate="no">chi_d</code> ताकि कोई ऑर्थोगोनल पंक्ति उस गाउसी पंक्ति से मेल खाए जिसकी वह जगह लेती है। पंक्तियाँ &radic;d गुना छोटी थीं, इसलिए फ़ीचर ग़लत कर्नेल का सन्निकटन कर रहे थे और त्रुटि अभिसरित होने के बजाय सपाट पड़ जाती थी। एक पंक्ति। अब वह तीनों में सबसे अच्छा है।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        जान-बूझकर सिंगल-थ्रेडेड: थ्रेडेड WebAssembly को SharedArrayBuffer चाहिए, और उसे COOP/COEP हेडर चाहिए, जो GitHub Pages भेज नहीं सकता।
+        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
+        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -275,7 +333,9 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          Welford/EMA से ऑनलाइन फ़िट किया गया एक साझा विकर्ण गाउसी। यही वह &ldquo;अनंत संदर्भ&rdquo; है जो कभी नहीं भूलता &mdash; और जिसका हिलना ही ड्रिफ़्ट का संकेत है।
+          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
+          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
+          and whose movement is the drift signal.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -416,7 +476,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>RFF एनकोडर बंद करके XOR आज़माइए।</strong> शुद्धता गिरकर अटकल के बराबर आ जाती है, और यह इस डेमो का बग नहीं है &mdash; यह एक रैखिक लॉग-लाइकलीहुड अनुपात की दर्ज सीमा है, जो Cypha के README में साफ़-साफ़ लिखी है। अव्यक्त RFF एनकोडर चालू कीजिए और उसे उबरते देखिए। नाकामी को उसके इलाज के बगल में छापना ही पूरी बात है।
+      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> शुद्धता गिरकर अटकल के बराबर आ जाती है, और यह इस डेमो का बग नहीं है &mdash; यह एक रैखिक लॉग-लाइकलीहुड अनुपात की दर्ज सीमा है, जो Cypha के README में साफ़-साफ़ लिखी है। अव्यक्त RFF एनकोडर चालू कीजिए और उसे उबरते देखिए। नाकामी को उसके इलाज के बगल में छापना ही पूरी बात है।
     </div>
   </div>
 </section>
@@ -429,6 +489,10 @@
       <h2>नतीजे, उसी तुलना के साथ जो मायने रखती है</h2>
       <p class="lede">
         ये आँकड़े रिपॉज़िटरी की अपनी बेंचमार्क रनों से हैं, निदान वाली ग़लती ठीक करने के बाद के। शुद्धता का प्रमाण एक CTest मैट्रिक्स है जो दर्ज फ़िक्स्चर मानकों से मेल खाता है &mdash; किसी लीडरबोर्ड की जगह नहीं।
+      </p>
+      <p class="small muted">
+        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
+        (LSTM), Backpropagation Through Time (BPTT).
       </p>
     </div>
 
@@ -499,7 +563,7 @@
           <li><strong>यह रैपर नहीं है।</strong> मूल सिद्धांतों से ख़ास तौर पर बनाया गया &mdash; और इसका यह भी मतलब है कि इसे किसी और की ट्यूनिंग विरासत में नहीं मिलती।</li>
           <li><strong>रैखिक LLR की एक हद है।</strong> अव्यक्त RFF एनकोडर के बिना XOR अटकल के आसपास ही रहता है; एनकोडर उसे लगभग 76.3% तक उठा देता है।</li>
           <li><strong>मान्यकरण बराबरी पर आधारित है।</strong> दर्ज फ़िक्स्चर मानकों के विरुद्ध CTest। लीडरबोर्ड का कोई दावा नहीं किया जाता।</li>
-          <li><strong>CUDA सिर्फ़ इन्फ़रेंस के लिए है।</strong> प्रशिक्षण CPU पर ही रहता है, क्योंकि इस संरचना पर CPU तेज़ है।</li>
+          <li><strong>CUDA सिर्फ़ इन्फ़रेंस के लिए है।</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
           <li><strong>सिद्धांत कहीं और रहता है।</strong> हार्मोनिक-स्पेक्ट्रम और NMP का काम संपीड़न-एल्गोरिदम पर एक अलग पेपर है; Cypha कार्यान्वयन की परत है।</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -678,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T20:39:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

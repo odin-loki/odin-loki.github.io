@@ -149,7 +149,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>一套从 <span class="gradient-text">第一性原理</span>出发构建的 AI 架构，不是 fork 来的</h1>
         <p class="lede">
-          Cypha 不是 transformer 的包装层，也不是别人模型调过参的副本。一个公开类型 &mdash; <code translate="no">cypha::Cypha</code> &mdash; 做分类、回归、隐变量采样和序列生成，学习规则由四条形式化研究纲领的交汇处推导而来。
+          Almost all modern Artificial Intelligence (AI) is a variation on the same few
+          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
+          from mathematics rather than borrowed, that updates on every example it sees instead
+          of being trained once and frozen. It is a research project, and the failures are
+          published alongside the results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">在你的浏览器里训练一个</a>
@@ -159,7 +163,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">语言<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">版本<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2.664 BPC</b></div>
           <div class="phero__meta-item">最近一次推送<b data-gh-repo="Cypha" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
@@ -168,13 +172,65 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">四条纲领，一条学习规则</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; 最小描述长度先验决定模型可以廉价地相信什么。</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
             <li><strong>信息几何</strong> &mdash; 更新沿着自然梯度走，所以学习尊重参数空间的曲率。</li>
             <li><strong>主动推断 / 自由能</strong> &mdash; 给出先验、差分与上下文这套结构分解。</li>
             <li><strong>信息瓶颈</strong> &mdash; 定下编码器的目标：留下能预测的，其余丢掉。</li>
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          Nearly every AI system in use is a variation on a handful of designs. They are
+          trained once on a large machine and then shipped frozen, so keeping up with
+          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
+          back and training again. They are also big, which puts them in a data centre rather
+          than on the equipment, and makes explaining any single decision hard.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
+          learning rule is derived from four bodies of mathematics rather than copied from an
+          existing architecture, and it updates on every example it sees &mdash; no batch, no
+          epoch, no retraining run. It is small enough to run on the hardware that collects
+          the data.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Today, researchers and engineers willing to try a different design. The problems it
+          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
+          faults, changing behaviour &mdash; where the model has to sit on the device rather
+          than in a data centre, and where somebody has to explain the decision afterwards.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Judge it as research.</strong> The figures further down come from the
+      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
+      than a leaderboard position. A section headed <em>Cypha 不是什么</em> sets out the
+      limits, including the standard test where it sits near chance until one particular
+      component is switched on. The rest of this page is the architecture and the
+      measurements.
     </div>
   </div>
 </section>
@@ -199,7 +255,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            在 <b>n</b> 个采样点上的精确 RBF 核给出一个矩阵 <b>K</b>。随机特征重建出一个近似 <b>K&#770;</b>。画出来的是
+            The exact Radial Basis Function (RBF) kernel over <b>n</b> 个采样点上的精确 RBF 核给出一个矩阵 <b>K</b>。随机特征重建出一个近似 <b>K&#770;</b>。画出来的是
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> 随特征数增长的变化：特征越多，近似越接近。
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -227,13 +283,15 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>编译这段代码时发现了一个 bug。</strong> ORF &mdash; 稠密正交变体 &mdash; 把每一行都归一化成了单位长度，而 Yu 等人是从
-            <code translate="no">chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
+            <strong>编译这段代码时发现了一个 bug。</strong> Orthogonal Random Features (ORF)
+            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
+            et al. draw the row norm from <code translate="no">chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        单线程是故意的：多线程 WebAssembly 需要 SharedArrayBuffer，而它需要 GitHub Pages 发不出来的 COOP/COEP 响应头。
+        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
+        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -275,7 +333,9 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          一个共享的对角高斯分布，用 Welford／EMA 在线拟合。这就是那个从不遗忘的&ldquo;无限上下文&rdquo; &mdash; 而它的移动就是漂移信号。
+          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
+          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
+          and whose movement is the drift signal.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -416,7 +476,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>把 RFF 编码器关掉，试试 XOR。</strong> 准确率会塌到接近瞎猜，而这不是这个演示里的 bug &mdash; 这是线性对数似然比被记录在案的局限，Cypha 的 README 里就直说了。把隐空间 RFF 编码器打开，看着它恢复。把失效模式和修复办法摆在一起发布，这才是重点。
+      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> 准确率会塌到接近瞎猜，而这不是这个演示里的 bug &mdash; 这是线性对数似然比被记录在案的局限，Cypha 的 README 里就直说了。把隐空间 RFF 编码器打开，看着它恢复。把失效模式和修复办法摆在一起发布，这才是重点。
     </div>
   </div>
 </section>
@@ -429,6 +489,10 @@
       <h2>结果，以及真正要紧的那组对比</h2>
       <p class="lede">
         数字来自仓库自己在诊断修复之后跑的基准测试。正确性由一套 CTest 矩阵对上已提交的夹具基准值来证明 &mdash; 不是靠排行榜上的名次。
+      </p>
+      <p class="small muted">
+        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
+        (LSTM), Backpropagation Through Time (BPTT).
       </p>
     </div>
 
@@ -499,7 +563,7 @@
           <li><strong>不是包装层。</strong> 从第一性原理定制而来 &mdash; 这也意味着它继承不到别人调好的参数。</li>
           <li><strong>线性 LLR 有天花板。</strong> 没有隐空间 RFF 编码器时，XOR 停在接近瞎猜的水平，加上它之后大约提到 76.3%。</li>
           <li><strong>验证是基于一致性的。</strong> 用 CTest 对已提交的夹具基准值。不做任何排行榜上的声称。</li>
-          <li><strong>CUDA 只用于推理。</strong> 训练留在 CPU 上，因为在这个架构上 CPU 更快。</li>
+          <li><strong>CUDA 只用于推理。</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
           <li><strong>理论在别处。</strong> 谐波谱和 NMP 的工作是另一篇讲压缩算法的论文；Cypha 是实现层。</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -678,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

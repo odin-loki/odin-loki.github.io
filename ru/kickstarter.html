@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Кампания</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Запущена</span><span class="spec__v">13 сентября 2026</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Закрывается</span><span class="spec__v">12 ноября 2026</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Цель</span><span class="spec__v">10 000 AUD</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Цель</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Модель финансирования</span><span class="spec__v">Всё или ничего &mdash; 60 дней</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Назначение</span><span class="spec__v">Кредиты на ИИ и вычисления для проверки</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Назначение</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Проект</span><span class="spec__v"><a href="/ru/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Структура</span><span class="spec__v">Пожертвования плюс один бонус за 10 000 AUD — заказ функции</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Лицензия</span><span class="spec__v">AGPL-3.0+ / BSD для кода, производного от HardenedBSD</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Лицензия</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             Цель зафиксирована на весь срок кампании, поэтому она указана здесь. Собранная сумма и число спонсоров не зафиксированы, поэтому их здесь нет &mdash; текущий итог, вписанный в статическую страницу, неверен уже в момент написания. И то и другое есть на самой кампании, в реальном времени.
@@ -209,7 +209,11 @@
           Перенести укреплённую BSD на C++23 вручную — это десять лет работы на полную ставку. Это ещё и та задача, где языковая модель действительно полезна &mdash; механический перевод при строгой спецификации, по которой можно сверяться, то есть почти лучший случай для этой технологии.
         </p>
         <p class="dim">
-          Устройство работы это уже учитывает. Детерминированные проходы переписывания берут на себя всё, что могут взять безопасно, и делают это бесплатно. Модели применяются только к остатку: заглушкам в инвентаре и файлам, от которых детерминированные проходы отказались. Любой вывод модели затем проходит компиляцию, ASan, UBSan, дифференциальное исполнение и сверку IR, прежде чем засчитаться.
+          The design already reflects that. Deterministic rewrite passes handle everything they
+          safely can, for free. Models are used only on the residue: stubbed inventory entries
+          and the files the deterministic passes refused. Every model output then goes through
+          compile, ASan, UBSan, differential execution and a comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR) before it counts.
         </p>
         <p class="dim">
           Эта проверка не опциональна и не дёшева. Каждый файл пробуют, проверяют, часто отклоняют и пробуют снова. Стоимость сидит в цикле, а не в одном проходе &mdash; и именно цикл превращает вывод модели в то, что операционная система с упором на безопасность может действительно выпустить.
@@ -228,7 +232,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Агентный движок переноса с пулами воркеров и эскалацией</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Барьеры проверки: компиляция, санитайзеры, дифференциальные прогоны и сверка IR</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Отслеживание происхождения, чтобы границы лицензий оставались проверяемыми</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Проект ядра возможностей и спецификация C++ ABI ядра</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             Всё это уже лежит в репозитории под открытой лицензией — независимо от того, соберёт эта кампания деньги или нет. Любое утверждение на этой странице можно сверить с исходниками, прежде чем что-то решать.
@@ -527,9 +531,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — модель последовательностей на реакции-диффузии</h3>
       </a>
-      <a class="card card--hover related__item" href="/ru/chess.html">
+      <a class="card card--hover related__item" href="/ru/aegis.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Сыграйте в шахматы против Cypha</h3>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — транспорт, скрывающий метаданные, для консорциумов</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.</p>
@@ -601,7 +605,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T20:39:16Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T22:13:36Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

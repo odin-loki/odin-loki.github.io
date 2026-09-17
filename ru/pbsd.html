@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin и фреймворки для волны рабочего стола</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Инвентаризация, детерминированные проходы переписывания, агентный перенос, вспомогательные средства Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Спецификации, модель безопасности, статус миграции, происхождение</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Драйвер WSL, сторожевой таймер, консоль прогресса</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           Именно поэтому одна ошибка разбора в отрисовщике шрифтов превращается в кражу учётных данных. Отрисовщику никогда не был нужен файл паролей &mdash; но в архитектуре ничто не помешало ему его запросить.
         </p>
         <p class="dim">
-          HardenedBSD здесь уже делает серьёзную работу: ASLR, механизмы защиты, производные от PaX, SafeStack, CFI, укреплённые аллокаторы памяти. PBSD сохраняет всё это и меняет сам вид вопроса, лежащего под ними &mdash; от <em>&ldquo;разрешено ли это процессу?&rdquo;</em> к
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;разрешено ли это процессу?&rdquo;</em> к
           <em>&ldquo;есть ли у процесса дескриптор на это?&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Иллюстрация формы различия, а не дословный перечень API. Авторитетная модель лежит в <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">Перенос</span>
       <h2>Четыре этапа и модель, которая никогда не удостоверяет себя сама</h2>
       <p class="lede">
-        Перенести пользовательское окружение и ядро BSD на C++23 вручную — это десять лет работы. Перенести его, попросив языковую модель переписать файлы, — быстрый способ получить правдоподобный мусор. PBSD не делает ни того, ни другого.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Этап 4</span>
         <h3 style="font-size:1.05rem">Барьер проверки</h3>
         <p class="small dim" style="margin:0">
-          Компиляция, ASan, UBSan, дифференциальное исполнение и сверка IR. Файл, который только компилируется, — <em>непроверенный</em>. Отказы попадают в
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>непроверенный</em>. Отказы попадают в
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">Лицензирование</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Две лицензии, честно разделённые</h2>
         <p class="dim">
-          Новый код PBSD &mdash; ядро, модули C++23, инструменты &mdash; предлагается на стандартных условиях Imortek: AGPL-3.0+ бесплатно для личного использования, благотворительных организаций, образования и организаций с оборотом до AUD&nbsp;50 000 в год, а выше этого порога — коммерческая лицензия по уровням.
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           Код, производный от HardenedBSD, остаётся под своей исходной лицензией BSD. Его нельзя перелицензировать, и Imortek этого не заявляет. <code translate="no">docs/PROVENANCE.md</code> — это запись о том, что к чему относится.
@@ -575,13 +589,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — криминальная аналитика и следственные зацепки</h3>
       </a>
-      <a class="card card--hover related__item" href="/ru/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — декомпилятор с извлечением спецификации</h3>
-      </a>
       <a class="card card--hover related__item" href="/ru/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — модель последовательностей на реакции-диффузии</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ru/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Сыграйте в шахматы против Cypha</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Подобрано по совпадению терминов с этой страницей, а не вручную — поэтому честно показывает, что действительно близко, включая случаи, когда ничего очевидного нет.</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T20:39:16Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T22:13:36Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

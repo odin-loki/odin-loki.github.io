@@ -148,7 +148,11 @@
         <span class="eyebrow">授权</span>
         <h1>对几乎所有人免费。 <span class="gradient-text">该收费的地方收费。</span></h1>
         <p class="lede">
-          Imortek 发布的一切都以源码形式提供，采用 GNU Affero General Public License v3.0 或更高版本。如果你是个人、慈善机构、学校，或者年收入低于 50,000&nbsp;澳元的组织，这对你不要钱。超过这个门槛，或者你需要把自己的修改保持私有，那就有一份分级的商业许可证。
+          Everything Imortek publishes is source-available under the GNU Affero General Public
+          License v3.0 or later. If you are a person, a charity, a school, or an organisation
+          earning under 50,000 Australian dollars (AUD) a year, that costs you nothing. Above
+          that threshold, or if you need to keep your modifications private, there is a tiered
+          commercial licence.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#chooser">看看哪一种适用于你</a>
@@ -173,6 +177,103 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WAYS TO WORK TOGETHER ===================== -->
+<section class="section section--tight" id="engage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>Six ways an organisation can work with Imortek</h2>
+      <p class="lede">
+        Licensing is one of them, and it is the one this page goes on to explain in detail.
+        Here are the other five first, because most people arrive with a problem rather than a
+        legal question.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">01</span>
+        <h3 style="font-size:1.05rem">Technology deployment</h3>
+        <p class="small dim" style="margin:0">
+          Take something already built and put it to work where you are. The systems on this
+          site are public, tested and documented, and each page says what its software does
+          today and what it does not. If one of them fits, the work is installation, your own
+          data, and the parts that only break under real conditions.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">02</span>
+        <h3 style="font-size:1.05rem">Commissioned development</h3>
+        <p class="small dim" style="margin:0">
+          These systems were built to be general. An operational requirement never is. Where
+          something is close to what you need but not aimed at it, it can be adapted &mdash; a
+          different data format, a model fitted to your problem, an interface built around how
+          your people actually work. Scoped and quoted before any of it starts.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">03</span>
+        <h3 style="font-size:1.05rem">Research partnership</h3>
+        <p class="small dim" style="margin:0">
+          Some of this work is research and is labelled as research. Where an approach looks
+          promising but is unproven, the honest way to settle it is to test it together: you
+          bring the problem and the data, this side brings the implementation and the
+          measurement. Findings are written down either way, negative ones included.
+        </p>
+      </div>
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">04</span>
+        <h3 style="font-size:1.05rem">授权</h3>
+        <p class="small dim" style="margin:0">
+          Put Imortek technology inside your own product or infrastructure. Everything here is
+          AGPL-3.0+ by default, which suits open work but reaches into the code you build
+          around it. A commercial licence removes that reach and the duty to publish your
+          modifications. Per-project is the normal case. The rest of this page is the detail.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">05</span>
+        <h3 style="font-size:1.05rem">Investment</h3>
+        <p class="small dim" style="margin:0">
+          There is no team, no runway and no growth plan behind this work, and the
+          <a href="/zh/about.html">about page</a> says so plainly. What money buys here is time
+          and compute. The ParanoidBSD campaign is the public version of that ask &mdash; AUD
+          10,000, all-or-nothing, with every assumption behind the figure laid out and
+          adjustable. For anything larger, email and say what interests you.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">06</span>
+        <h3 style="font-size:1.05rem">Technical evaluation</h3>
+        <p class="small dim" style="margin:0">
+          Test it against your own data before anyone signs anything. Beta access is free: no
+          contract, no Non-Disclosure Agreement (NDA), no account. You send an email, you get the software and a short
+          note on what would help most. If it falls over on your data, that is the result worth
+          having, and it is the one that changes the software.
+        </p>
+      </div>
+    </div>
+
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Not sure which of these you are after?</strong> Say what you are trying to do and
+      roughly how big your organisation is. You will get a straight answer rather than a
+      discovery call &mdash; including &ldquo;that one is not ready for you yet&rdquo; where
+      that is the truth. Everything below is the licence detail sitting underneath all six.
+    </div>
+
+    <div class="btn-row" style="margin-top:22px">
+      <a class="btn btn--primary" data-email data-subject="Working with Imortek" href="#">Email about working together</a>
+      <a class="btn btn--ghost" href="/zh/beta.html">Test it first, free</a>
     </div>
   </div>
 </section>
@@ -269,10 +370,14 @@ Licensed under AGPL-3.0+.</pre>
           <code translate="no">docs/PROVENANCE.md</code> 记录了哪些模块是移植来的、哪些是新的 PBSD 工作，所以这条边界是可以核对的，而不是空口声称的。新工作 &mdash; 能力核心、工具、合成器和 Aero 主题 &mdash; 适用 Imortek 的双重许可证。
         </p>
         <div class="note note--amber" style="margin-top:16px">
-          <strong>审计查出来的三处例外。</strong> 有二十二个移植文件继承了原始的四条款 BSD 许可证，其中的广告条款 AGPL 无法接受，所以它们被排除在 AGPL 授权之外，也绝不能进入 AGPL 的二进制文件。
+          <strong>审计查出来的三处例外。</strong> Twenty-two ported files inherit the
+          original four-clause Berkeley Software Distribution (BSD) licence, whose advertising clause
+          the AGPL cannot accept, so they are excluded from the AGPL grant and must not enter an
+          AGPL binary.
           <code translate="no">pbsd/zfs/</code> 源自 OpenZFS，它用的是 CDDL，和 AGPL 之间没有兼容的路径 &mdash; ZFS 保持为一个独立的、未经修改的模块。而源自 KDE 的部分只能通过&ldquo;或更高版本&rdquo;这一条款保持兼容，所以仅限 GPL-2.0 的代码绝不能进入这棵树。这三处都列在
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code translate="no">NOTICES.md</code></a> 里，并由一项 CI 检查来强制执行。
+             rel="noopener"><code translate="no">NOTICES.md</code></a> and enforced by a Continuous Integration
+          (CI) check.
         </div>
       </div>
     </div>
@@ -295,7 +400,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/zh/research.html">Ideas</a> &mdash; 研究书架</td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/zh/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">&mdash;</td></tr>
-          <tr><td><a href="/zh/cypha.html">Cypha</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为 CC BY 4.0</td></tr>
+          <tr><td><a href="/zh/cypha.html">Cypha</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">was Creative Commons (CC) BY 4.0</td></tr>
           <tr><td><a href="/zh/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为无许可证 &middot; <code translate="no">vendor/</code> 排除在外</td></tr>
           <tr><td><a href="/zh/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为专有</td></tr>
           <tr><td><a href="/zh/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / 商业</td><td><span class="badge badge--teal">已生效</span></td><td class="muted">原为 MIT</td></tr>
@@ -305,7 +410,12 @@ Licensed under AGPL-3.0+.</pre>
       </table>
     </div>
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>如果某个仓库的 LICENSE 文件和这张表不一致，有约束力的是 LICENSE 文件。</strong> 关于这次变更，有两件事值得直说。宽松许可证对已经分发出去的副本是不可撤销的 &mdash; 任何以 CC BY 4.0 拿到 Cypha、或以 MIT 拿到 SENTINEL 的人，对那一份副本仍然保有那些权利；新条款从这一版起生效。另外，AEGIS、MathScript 和 Cell AI 之前根本就不是开放的，所以对它们来说，这次变更是给予权利，不是收回权利。
+      <strong>如果某个仓库的 LICENSE 文件和这张表不一致，有约束力的是 LICENSE 文件。</strong> Two things worth stating plainly about the change. Permissive licences are
+      irrevocable for copies already distributed &mdash; anyone who received Cypha under CC BY 4.0,
+      or SENTINEL under MIT, keeps those rights to that copy; the new terms govern this release
+      onward. And three were not previously open at all: AEGIS, MathScript, and the Artificial
+      Intelligence (AI) research log, Cell AI. For those the change grants rights rather than
+      removing them.
     </div>
   </div>
 </section>
@@ -363,10 +473,6 @@ Licensed under AGPL-3.0+.</pre>
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">相关阅读</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/zh/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — 一个以能力机制保护的 C++23 操作系统</h3>
@@ -374,6 +480,10 @@ Licensed under AGPL-3.0+.</pre>
       <a class="card card--hover related__item" href="/zh/aegis.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/retdec.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
@@ -449,7 +559,7 @@ Licensed under AGPL-3.0+.</pre>
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

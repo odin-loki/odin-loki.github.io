@@ -152,10 +152,14 @@
         <span class="eyebrow">产品演示</span>
         <h1>来下一盘国际象棋，对手是 <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha 不是从棋局里学会下棋的。它是从一个引擎那里学的 &mdash; Imortek 的参考引擎，一个常规的 alpha-beta 搜索器，带子力位置表评估和静止搜索。几万个局面用那个引擎自己的搜索评估值做了标注，Cypha 的回归头就是拟合来复现这些值的。
+          Cypha never saw a chess game. It learned by watching an ordinary chess program think
+          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
+          was winning &mdash; until Cypha could produce the verdict itself.
         </p>
         <p class="lede">
-          你在下面对弈的就是那个拟合好的头，它在你的浏览器里跑，外面套着一层浅搜索。本页上的每一个数字，都是由产生它的那次训练测出来的。
+          What you play below is that, running in your browser inside a shallow search. It is
+          beatable, and it still loses to the program it learned from. Every number on this page
+          came out of the training run that produced the weights the page loads.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">下一盘</a>
@@ -165,6 +169,10 @@
       <div>
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">测出来的，不是说出来的</span>
+          <p class="small muted" style="margin:0 0 16px">
+            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
+            guesses was; the smaller it is, the closer the model sits to its teacher.
+          </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
               <div class="readout__k">留出集 R&sup2;</div>
@@ -201,6 +209,53 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
+          explanation tells you nothing about whether it does. Chess settles that, because the
+          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
+          and you can sit down and find out.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          An ordinary chess program judges a position by searching ahead through the moves. Cypha
+          was shown 26,568 of those judgements and fitted a single formula to reproduce them
+          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
+          the architecture for chess. Only the numbers fed into it changed.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Anyone weighing up Cypha who would rather check than be told. People who work with
+          machine learning and want to watch a model carry on learning while it is being used.
+          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
+          you play is sent anywhere.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
+      this page claims it is. The rest of the page is how it was done, what each number means,
+      and the four things this design cannot do.
     </div>
   </div>
 </section>
@@ -309,7 +364,14 @@
               <strong>漂移</strong> 是权重向量相对于蒸馏版的改动幅度。 <strong>上一次修正</strong> 是静态头对它刚刚走出的那个局面判断错了多少，以兵为单位，对着它自己更深的搜索来衡量。
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>等级分</strong> 用的是内部天梯，不是 FIDE &mdash; 对一个从没和有等级分的人类下过棋的东西，没有任何老实的办法给它一个 FIDE 分数。参考引擎在深度 1 上锚定为 1000，其余全部用 Bradley-Terry 极大似然从 210 局里拟合出来，所以结果不取决于这些棋的先后顺序。实测天梯：参考引擎在深度 1&ndash;3 上是 1000 / 1171 / 1245，Cypha 是 798 / 1010 / 1161。Cypha 大约比它蒸馏自的那个引擎落后一个搜索深度，误差棒大致是 &plusmn;50，这就是 210 局能买到的精度。
+              <strong>等级分</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
+              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
+              FIDE number on something that has never played a rated human. The reference
+              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
+              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
+              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
+              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
+              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
             </p>
             <p class="tiny muted" style="margin-top:8px">
               每一档棋力设置都保留 <strong>它自己的模型</strong>。在深度 1 下棋的头，修正目标是深度 1 的搜索；到了深度 3，目标就是另一个更好的搜索。把两者训练进同一个权重向量，只会让它们互相打架。切换棋力，计数器也跟着换。
@@ -345,7 +407,10 @@
         <span class="badge badge--teal" style="margin-bottom:12px">第 1 步</span>
         <h3 style="font-size:1.02rem">教师</h3>
         <p class="small dim" style="margin:0">
-          一个 0x88 引擎，带完整的合法着法生成、子力与子力位置表评估、MVV-LVA 排序和静止搜索。对着包括 kiwipete 在内的五个标准 perft 局面校验过，所以在从它学任何东西之前，规则就已经是可证明正确的。
+          A 0x88 engine with full legal move generation, material and piece-square evaluation,
+          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
+          search. Verified against five standard perft positions including kiwipete, so the rules
+          are provably right before anything is learned from it.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -366,7 +431,10 @@
         <span class="badge badge--violet" style="margin-bottom:12px">第 4 步</span>
         <h3 style="font-size:1.02rem">拟合</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; 用 Welford 在线拟合，白化充当自然梯度的度量，权重按归一化 LMS 更新，MDL 衰减把权重往先验拉回去，还有一个按意外程度加权的回放缓冲区，比例取 Cypha 的参考值 0.30。
+          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
+          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
+          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
+          at Cypha&rsquo;s reference 0.30 ratio.
         </p>
       </div>
     </div>
@@ -387,7 +455,7 @@
         <span class="eyebrow eyebrow--amber">这件事没有证明什么</span>
         <h3>老实说出来的局限</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>它是线性的。</strong> 子力-格位特征的线性函数表示不了王的安全、兵形之间的相互作用，也表示不了任何需要两个特征相乘的东西。它的天花板和 Cypha README 里讲 XOR 时描述的那个一样。</li>
+          <li><strong>它是线性的。</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
           <li><strong>教师本身水平一般。</strong> 参考引擎是一个称职的经典搜索器，不是 Stockfish。把它蒸馏好，意思就是把一个水平一般的评估器复现得好。</li>
           <li><strong>它自己没有搜索深度。</strong> 这里的棋力大部分来自外面那层 alpha-beta 包装，教师那边也完全一样。</li>
           <li><strong>蒸馏不是发现。</strong> Cypha 复现的是一个给它看过的评估函数。它不是从零学会下棋的，本页上也没有任何地方声称它是。</li>
@@ -411,10 +479,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/mathscript.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">MathScript — C++23 计算机代数与数值计算</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/trace.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — 从稀疏目击中得到持续的身份</h3>
@@ -422,6 +486,10 @@
       <a class="card card--hover related__item" href="/zh/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -493,7 +561,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

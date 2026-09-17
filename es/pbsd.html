@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin y frameworks para la fase de escritorio</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventario, pasadas deterministas de reescritura, port con agentes, utilidades de Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Especificaciones, modelo de seguridad, estado de la migración, procedencia</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Motor para WSL, watchdog, consola de progreso</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           Por eso un solo fallo de análisis en un renderizador de fuentes puede convertirse en un robo de credenciales. El renderizador nunca necesitó el archivo de contraseñas &mdash; pero nada en la arquitectura le impedía pedirlo.
         </p>
         <p class="dim">
-          HardenedBSD ya hace un trabajo serio aquí: ASLR, mitigaciones derivadas de PaX, SafeStack, CFI, asignadores de memoria endurecidos. PBSD conserva todo eso y cambia la forma de la pregunta que hay debajo &mdash; de <em>&ldquo;¿este proceso tiene permiso?&rdquo;</em> a
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;¿este proceso tiene permiso?&rdquo;</em> a
           <em>&ldquo;¿este proceso posee un descriptor para eso?&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Forma ilustrativa de la diferencia, no un listado literal de la API. El modelo de referencia está en <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">El port</span>
       <h2>Cuatro etapas, y un modelo que nunca se certifica a sí mismo</h2>
       <p class="lede">
-        Portar a mano un espacio de usuario y un kernel BSD a C++23 es una década de trabajo. Portarlo pidiéndole a un modelo de lenguaje que reescriba archivos es una forma rápida de producir basura verosímil. PBSD no hace ninguna de las dos cosas.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Etapa 4</span>
         <h3 style="font-size:1.05rem">Control de verificación</h3>
         <p class="small dim" style="margin:0">
-          Compilación, ASan, UBSan, ejecución diferencial y comparación de IR. Un archivo que solo compila está <em>sin verificar</em>. Los fallos van a parar a
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>sin verificar</em>. Los fallos van a parar a
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">Licencias</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Dos licencias, separadas con honestidad</h2>
         <p class="dim">
-          El código nuevo de PBSD &mdash; el núcleo, los módulos de C++23, las herramientas &mdash; se ofrece bajo los términos estándar de Imortek: AGPL-3.0+ gratis para uso personal, entidades benéficas, educación y organizaciones por debajo de 50.000&nbsp;AUD al año, con una licencia comercial por tramos por encima de esa cifra.
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           El código derivado de HardenedBSD se queda bajo su licencia BSD original. No se puede relicenciar, e Imortek no pretende hacerlo. <code translate="no">docs/PROVENANCE.md</code> es el registro de qué es qué.
@@ -575,13 +589,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — descompilador de extracción de especificaciones</h3>
       </a>
-      <a class="card card--hover related__item" href="/es/cellai.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — un modelo de secuencia de reacción-difusión</h3>
-      </a>
       <a class="card card--hover related__item" href="/es/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
+      </a>
+      <a class="card card--hover related__item" href="/es/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — transporte que oculta metadatos para consorcios</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T20:39:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-17T22:13:36Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

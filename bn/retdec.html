@@ -148,7 +148,12 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>এমন একটি ডিকম্পাইলার যা ফিরিয়ে আনে <span class="gradient-text">অ্যালগরিদম</span>, শুধু কোড নয়</h1>
         <p class="lede">
-          ছদ্মকোড বলে দেয় বাইটগুলি কী করে। সেগুলির <em>মানে কী</em>, তা সে কদাচিৎ বলে। RetDec Imortek শব্দার্থ পুনরুদ্ধারকেই প্রধান আউটপুট ধরে: এটি কোন ক্রিপ্টোগ্রাফিক প্রিমিটিভ, কোন সর্ট, কোন সিরিয়ালাইজেশন ফরম্যাট, কোন সমান্তরালতার কৌশল &mdash; আর C আসে উপজাত হিসেবে।
+          Organisations often need to understand software they have no source code for: an
+          old system, a bought-in component, something that arrived and looks suspicious.
+          Tools already exist that turn the machine code back into readable steps. RetDec
+          Imortek tries to go one further and name what those steps are &mdash; this part is
+          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
+          data is packed for sending.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">বাইট থেকে নামসহ অ্যালগরিদমে পৌঁছান</a>
@@ -176,6 +181,55 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
+        <p class="small dim" style="margin:0">
+          Software ships as something a machine reads and a person cannot. When there is no
+          source code &mdash; the supplier is gone, the contract never included it, the file
+          arrived from somewhere you do not trust &mdash; nobody can say what the program
+          actually does. Checking it by hand means reading machine instructions one at a time.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
+          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
+          cryptography, which sort, which threading, which file format &mdash; and reports how
+          often that works, including the case where it barely does.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
+        <p class="small dim" style="margin:0">
+          Security teams taking malware apart, who need the answer before they need the code.
+          Companies running software nobody has the source for, who need a description of it
+          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
+          that was never documented &mdash; old records, a machine that will only talk to its
+          own software.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
+      Given a binary that still carries its own labels, the detector agrees with them; with
+      the labels stripped it is close to the floor. The rest of this page is the engineering:
+      what was added, how it was measured, and where it falls down.
     </div>
   </div>
 </section>
@@ -212,7 +266,8 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>ডিসঅ্যাসেম্বল করুন</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            ৭৯১ KB, কারণ একটি সত্যিকারের x86 ডিকোডার গোটা নির্দেশ-সেট বহন করে &mdash; প্রতিটি এনকোডিং, প্রিফিক্স আর এক্সটেনশন। জিনিসটার সৎ মাপ এটাই।
+            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
+            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
           </p>
         </div>
         <div class="demo__side">
@@ -228,7 +283,10 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>এটি ডিকোডার, ডিকম্পাইলার নয়।</strong> উপরের ধাপগুলি &mdash; LLVM IR-এ তোলা, নিয়ন্ত্রণ-প্রবাহ সাজানো, অ্যালগরিদমের নাম দেওয়া &mdash; LLVM-এর কাজ, আর LLVM কোনো মাপেই একটা ওয়েব পাতায় আঁটে না। এর উল্টো বলাটা এই সাইটের সবচেয়ে সহজ মিথ্যে হতো।
+            <strong>এটি ডিকোডার, ডিকম্পাইলার নয়।</strong> The rungs above &mdash;
+            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
+            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
+            any size. Saying otherwise would be the easiest lie on this site.
           </div>
         </div>
       </div>
@@ -244,7 +302,12 @@
     <div class="section-head reveal">
       <span class="eyebrow">সামনের অংশ</span>
       <h2>নেটিভ, বাইটকোড ও নতুন ফরম্যাট</h2>
-      <p class="lede">আউটপুট ফরম্যাট অনুযায়ী বদলায়, কারণ সবকিছুই C-তে ডিকম্পাইল হয় বলে ভান করে কারও লাভ নেই।</p>
+      <p class="lede">
+        Output is format-dependent, because pretending everything decompiles to C helps
+        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
+        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
+        class files; and newer targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+      </p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
@@ -263,7 +326,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">নতুন</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly বদলে যায় WAT-এ। PTX-কে পরে-ভাবা বিষয় না ধরে প্রথম শ্রেণির ইনপুট হিসেবেই সামলানো হয়।</p>
+        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
       </div>
     </div>
   </div>
@@ -343,17 +406,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">রানটাইম</span>
-        <p class="small dim" style="margin:0">STL কনটেইনার ও C++ রানটাইম গঠন &mdash; একটি <code translate="no">std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
+        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">ক্রিপ্টোগ্রাফি</span>
-        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA ও উপবৃত্তীয় বক্ররেখার প্রিমিটিভ, ধ্রুবক আর রাউন্ড-গঠন দেখে শনাক্ত করা।</p></div>
+        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সর্টিং ও অনুসন্ধান</span>
         <p class="small dim" style="margin:0">ইনট্রোসর্ট, মার্জ সর্ট, বাইনারি অনুসন্ধান &mdash; সঙ্গে সেই গভীরতা-সীমার সুইচ, যেটা ইনট্রোসর্টকে ধরিয়ে দেয়।</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">গ্রাফ</span>
-        <p class="small dim" style="margin:0">গ্রাফ অ্যালগরিদম আর BFS/DFS পরিক্রমার ধরন।</p></div>
+        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">সমান্তরালতা</span>
         <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, TBB আর কাঁচা অ্যাটমিক।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সিরিয়ালাইজেশন</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON আর XML ফ্রেমিং।</p></div>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and XML framing.</p></div>
     </div>
   </div>
 </section>
@@ -373,7 +436,7 @@
             <thead><tr><th>মাপকাঠি</th><th class="num">ফল</th><th>শর্ত</th></tr></thead>
             <tbody>
               <tr><td>বিল্ডযোগ্য C আউটপুট</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, পূর্বনির্ধারিতভাবে চালু</td></tr>
-              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">নাম ছাড়া, ৯৫% CI ০.০৩৪&ndash;০.০৮৩</td></tr>
+              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
               <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">1.000</td><td class="muted">নাম সহ, সিম্বলযুক্ত বাইনারি</td></tr>
               <tr><td>পূর্বনির্ধারিত <code translate="no">.c</code> আবার কম্পাইল হয়</td><td class="num">না</td><td class="muted">এই ফর্কেও নয়, মূল RetDec-এও নয়</td></tr>
             </tbody>
@@ -445,9 +508,11 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">ইন্টারফেস</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, কিংবা একেবারেই GUI নয়</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
         <p class="dim">
-          C, অ্যাসেম্বলি, IR আর নিয়ন্ত্রণ-প্রবাহ গ্রাফ জুড়ে মিলিয়ে রাখা কোড-দৃশ্য, সঙ্গে ফাংশনে চলাফেরা, স্ট্রিং পরীক্ষা, একটি বাইনারি ব্রাউজার আর একটি সহায়ক প্যানেল। হেডলেস মোডে সব GUI নির্ভরতা বাদ পড়ে, তাই একই বিল্ড CI-তেও চলে।
+          Synchronised code views across C, assembly, IR and control-flow graphs, with function
+          navigation, string inspection, a binary browser and an assistant panel. Headless mode
+          drops every GUI dependency so the same build runs in Continuous Integration (CI).
         </p>
       </div>
       <div>
@@ -456,7 +521,9 @@
             <span class="badge badge--teal">দ্বৈত লাইসেন্স</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            ওপেন সোর্স ব্যবহারের জন্য AGPL-3.0+, নয়তো মালিকানাধীন স্থাপনার জন্য একটি বাণিজ্যিক লাইসেন্স। কপিরাইট Odin Loch, Imortek নামে ব্যবসারত, ২০২৫&ndash;২০২৬।
+            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
+            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
+            Imortek, 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
             v2.0.21-এ পাঠানোর মতো। CI গেটগুলি উৎপাদন-পর্যায়ের পরিপক্বতার মান নয়, উন্নয়নের অবস্থাই তুলে ধরে &mdash; প্রকল্প নিজেই তা বলেছে, এটি অনুমান নয়।
@@ -481,13 +548,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">MathScript — C++23 কম্পিউটার বীজগণিত ও সাংখ্যিক গণনা</h3>
       </a>
-      <a class="card card--hover related__item" href="/bn/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — অপরাধ বিশ্লেষণ ও তদন্তের সূত্র</h3>
-      </a>
       <a class="card card--hover related__item" href="/bn/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — ক্যাপাবিলিটি দিয়ে সুরক্ষিত একটি C++23 অপারেটিং সিস্টেম</h3>
+      </a>
+      <a class="card card--hover related__item" href="/bn/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — অপরাধ বিশ্লেষণ ও তদন্তের সূত্র</h3>
       </a>
       <a class="card card--hover related__item" href="/bn/cypha.html">
         <div class="card__glow"></div>
@@ -563,7 +630,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T22:13:36Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

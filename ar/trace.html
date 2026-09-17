@@ -148,10 +148,17 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>أغلب المتتبّعات تتوقّف عند &ldquo;أين&rdquo;. <span class="gradient-text">أمّا هذا فيُواصل.</span></h1>
         <p class="lede">
-          يحوّل TRACE المشاهدات المتفرّقة غير المؤكّدة الآتية من مستشعرات مختلطة إلى هويات ثابتة. يُمسك بالمسار عبر الفجوات التي لا يراه فيها شيء، ويتعلّم ما هو المعتاد لكل كيان على حدة، ويتنبّأ باللقاءات قبل وقوعها &mdash; مع إرفاق عدم اليقين بكل رقم يبلّغ عنه.
+          Tracking in the real world is never continuous. A vehicle goes behind a building, a
+          person walks out of camera range. Most systems treat that as the end of the track.
+          TRACE does not: it holds a track as a probability that something is still there rather
+          than a yes or no, so the track fades through the gap instead of ending at it, and can be
+          picked up again on the other side.
         </p>
         <p class="lede">
-          لا شيء في النواة يعرف ما الذي يتتبّعه. فالكاميرات والسفن والمنصّات النقّالة والحيوانات واللاعبون هي المسألة نفسها بملفّ تعريف مختلف.
+          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
+          players are the same problem with a different profile. The MOT17 and MOT20 figures below
+          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
+          well a tracker did.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">شاهده يتتبّع في متاهة</a>
@@ -181,6 +188,55 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
+        <p class="small dim" style="margin:0">
+          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
+          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
+          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
+          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          TRACE keeps a number against each track for how likely it is that the thing is still there. A
+          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
+          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
+          the engine decides whether it is the same one. Both demonstrations here let you push that until
+          it gets the decision wrong.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
+        <p class="small dim" style="margin:0">
+          Anyone following things across more than one sensor, with gaps between them: a site whose
+          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
+          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
+          pallets, animals and players are the same problem with a different profile. It takes detections
+          in; producing them is someone else&rsquo;s job.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
+      the engineering: the engine itself running in your browser on two scenarios, the benchmark
+      numbers, what it costs per track, and a plain list of what it does not do.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -206,7 +262,9 @@
             <span class="badge badge--violet" style="margin-bottom:10px">الوجود</span>
             <h4 style="margin:0 0 6px">‏Bernoulli، لا قيمة منطقية</h4>
             <p class="small dim" style="margin:0">
-              متتبّع PMBM فوق مرشّح بـ320 جسيمًا. الوجود احتمالٌ يضمحلّ مع الإخفاقات ويتعافى مع الدليل، فالاحتجاب يكلّف ثقةً لا هوية.
+              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
+              Existence is a probability that decays through misses and recovers on evidence, so
+              an occlusion costs confidence rather than identity.
             </p>
           </div>
           <div class="card">
@@ -522,7 +580,8 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          نواة واحدة، بناء Release، AVX-512. تنمو الكلفة بنحو n<sup>1.17</sup> ويظلّ التتبّع وحده مسطّحًا عند 135&ndash;159 &micro;s لكل مسار من 10 مسارات إلى 400 &mdash; اقرأ ذلك على أنّ &ldquo;الثابت هو المهمّ، والأُسّ ليس كذلك&rdquo;.
+          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
+          n<sup>1.17</sup> ويظلّ التتبّع وحده مسطّحًا عند 135&ndash;159 &micro;s لكل مسار من 10 مسارات إلى 400 &mdash; اقرأ ذلك على أنّ &ldquo;الثابت هو المهمّ، والأُسّ ليس كذلك&rdquo;.
         </p>
       </div>
       <div>
@@ -579,9 +638,10 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">المصدر متاح</span>
-    <h2>‏AGPL-3.0+، وإلى جانبه ترخيص تجاري</h2>
+    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
     <p class="lede">
-      الشروط نفسها كما في كل شيء آخر هنا: اقرأه، شغّله، تحقّق منه. وإن كان AGPL لا يناسب ما تريد بناءه، فهناك ترخيص تجاري متدرّج.
+      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
+      AGPL does not suit what you want to build, there is a tiered commercial licence.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">اقرأ المصدر &rarr;</a>
@@ -604,9 +664,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — طبقة نقل تُخفي البيانات الوصفية للاتحادات</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/retdec.html">
+      <a class="card card--hover related__item" href="/ar/pbsd.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة</h3>
+        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات</h3>
       </a>
       <a class="card card--hover related__item" href="/ar/sentinel.html">
         <div class="card__glow"></div>
@@ -682,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T20:39:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

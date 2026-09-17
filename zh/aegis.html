@@ -148,7 +148,12 @@
         <span class="eyebrow">AEGIS &middot; 第 8 阶段完成</span>
         <h1>加密藏住的是你说了什么。 <span class="gradient-text">这个藏住的是你说过话。</span></h1>
         <p class="lede">
-          AEGIS 是一个面向准入制联盟的抗流量分析传输层。它假定内容加密已经是个解决了的问题，转而攻击加密碰不到的那部分：谁在跟谁通信、何时通信、通信量多大。
+          Encryption keeps the contents of a message private. It does not hide that the message
+          happened. An observer watching the network still sees who is talking to whom, when, and
+          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
+          the words. AEGIS keeps traffic between the members of a closed group flowing at a
+          constant rate whether there is anything to send or not, so the timing and the volume
+          carry no signal.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">跑一遍相关性攻击</a>
@@ -174,6 +179,53 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
+        <p class="small dim" style="margin:0">
+          Someone who can watch the network does not need to break the encryption. They see that one
+          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
+          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
+          works with whom, drawn without reading a single message.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
+          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
+          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
+          the demonstration below shows the protection and the price side by side.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
+        <p class="small dim" style="margin:0">
+          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
+          expose a person. Banks, insurers and industry bodies that compete with each other and still
+          have to exchange data. Organisations that share warnings about attacks, where being seen to
+          share can itself be the sensitive part.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
+      needs the engineering below: the threat in full, an attack you can run yourself against both
+      configurations, the test numbers, and where the guarantees stop.
     </div>
   </div>
 </section>
@@ -312,7 +364,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">证据</span>
       <h2>八个阶段，每一个后面都有一道红队关卡</h2>
-      <p class="lede">实现已经完成到第 8 阶段，也就是加固阶段。下面是仓库报告出来的数字。</p>
+      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">密码测试向量</div></div></div>
@@ -400,7 +452,8 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>仓库卫生：</strong> GitHub Actions CI， <code translate="no">cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code translate="no">#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
+      <strong>仓库卫生：</strong> Continuous Integration (CI) on GitHub Actions,
+      <code translate="no">cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code translate="no">#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
     </div>
   </div>
 </section>
@@ -497,7 +550,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T20:39:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

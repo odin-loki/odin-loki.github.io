@@ -178,7 +178,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">ڈیسک ٹاپ کی لہر کے لیے Plasma 6، KWin اور فریم ورک</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">فہرست سازی، یقینی بازنویسی کے مراحل، ایجنٹ منتقلی، Clang کے معاون</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">تفصیل نامے، حفاظتی ماڈل، منتقلی کی حالت، سلسلۂ ماخذ</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL ڈرائیور، واچ ڈاگ، پیش رفت کا کنسول</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
         <p class="small dim" style="margin:0">
           ParanoidBSD changes what a program is able to ask for in the first place. Rather
           than checking permission after the request, it hands each program a short list of
@@ -251,7 +251,12 @@
           یہی وجہ ہے کہ فونٹ رینڈرر میں تجزیے کی ایک ہی خرابی پاس ورڈ کی چوری بن سکتی ہے۔ رینڈرر کو پاس ورڈ فائل کی کبھی ضرورت نہیں تھی &mdash; مگر ڈھانچے میں کوئی چیز اسے مانگنے سے نہیں روکتی تھی۔
         </p>
         <p class="dim">
-          HardenedBSD یہاں پہلے ہی سنجیدہ کام کرتا ہے: ASLR، PaX سے اخذ شدہ تدابیر، SafeStack، CFI، سخت کیے ہوئے میموری ایلوکیٹر۔ PBSD یہ سب رکھتا ہے اور نیچے کے سوال کی شکل بدل دیتا ہے &mdash; <em>&ldquo;کیا اس پروسیس کو اجازت ہے؟&rdquo;</em> سے
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;کیا اس پروسیس کو اجازت ہے؟&rdquo;</em> سے
           <em>&ldquo;کیا اس پروسیس کے پاس اس کا ہینڈل ہے؟&rdquo;</em>
         </p>
       </div>
@@ -268,7 +273,9 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            فرق کی وضاحتی شکل، لفظ بہ لفظ API فہرست نہیں۔ مستند ماڈل یہاں ہے: <code translate="no">docs/</code>.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
+            The authoritative model is in <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -360,7 +367,9 @@
       <span class="eyebrow eyebrow--violet">منتقلی</span>
       <h2>چار مرحلے، اور ایک ماڈل جو کبھی اپنی سند خود نہیں دیتا</h2>
       <p class="lede">
-        ایک BSD یوزرلینڈ اور کرنل کو ہاتھ سے C++23 میں منتقل کرنا ایک عشرے کا کام ہے۔ کسی لینگویج ماڈل سے فائلیں دوبارہ لکھوا کر منتقل کرنا قابلِ قبول دکھنے والا کچرا پیدا کرنے کا تیز طریقہ ہے۔ PBSD ان میں سے کوئی بھی نہیں کرتا۔
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -398,7 +407,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">مرحلہ 4</span>
         <h3 style="font-size:1.05rem">تصدیقی پھاٹک</h3>
         <p class="small dim" style="margin:0">
-          کمپائل، ASan، UBSan، تفریقی اجرا اور IR موازنہ۔ جو فائل صرف کمپائل ہوتی ہے وہ <em>غیر تصدیق شدہ ہے</em>۔ ناکامیاں یہاں جاتی ہیں:
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>غیر تصدیق شدہ ہے</em>۔ ناکامیاں یہاں جاتی ہیں:
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -480,7 +491,10 @@
         <span class="eyebrow">لائسنسنگ</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">دو لائسنس، ایمان داری سے الگ کیے گئے</h2>
         <p class="dim">
-          نیا PBSD کوڈ &mdash; مرکزہ، C++23 ماڈیول، اوزار &mdash; Imortek کی عام شرائط پر دیا جاتا ہے: AGPL-3.0+ ذاتی استعمال، خیراتی اداروں، تعلیم اور سالانہ AUD&nbsp;50,000 سے کم کمانے والے اداروں کے لیے مفت، اس سے اوپر درجہ بند تجارتی لائسنس کے ساتھ۔
+          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           HardenedBSD سے اخذ کیا گیا کوڈ اپنے اصل BSD لائسنس ہی پر رہتا ہے۔ اسے دوبارہ لائسنس نہیں کیا جا سکتا اور Imortek ایسا دعویٰ بھی نہیں کرتا۔ <code translate="no">docs/PROVENANCE.md</code> ہی وہ ریکارڈ ہے جو بتاتا ہے کہ کون سا کون سا ہے۔
@@ -571,17 +585,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">‏TRACE — بکھرے مشاہدات سے مستقل شناخت</h3>
       </a>
-      <a class="card card--hover related__item" href="/ur/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — تفصیل نامہ کشید کرنے والا ڈی کمپائلر</h3>
-      </a>
       <a class="card card--hover related__item" href="/ur/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — جرائم کا تجزیہ اور تفتیشی سراغ</h3>
       </a>
-      <a class="card card--hover related__item" href="/ur/cypha.html">
+      <a class="card card--hover related__item" href="/ur/retdec.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cypha — بنیادی اصولوں پر بنا ایک AI ڈھانچہ</h3>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — تفصیل نامہ کشید کرنے والا ڈی کمپائلر</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ur/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cypha کے خلاف شطرنج کھیلیں</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">ہاتھ سے نہیں بلکہ اس صفحے کی اصطلاحات سے مطابقت دیکھ کر چنا گیا — اس لیے یہ ایمانداری سے بتاتا ہے کہ واقعی کیا قریب ہے، بشمول اس صورت کے جب کچھ بھی واضح طور پر قریب نہ ہو۔</p>
@@ -653,7 +667,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T20:39:16Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T22:13:36Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

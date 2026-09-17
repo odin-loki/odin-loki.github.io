@@ -148,10 +148,17 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>বেশিরভাগ ট্র্যাকার &ldquo;কোথায়&rdquo; পর্যন্ত গিয়েই থেমে যায়। <span class="gradient-text">এটি আরও এগিয়ে যায়।</span></h1>
         <p class="lede">
-          TRACE মিশ্র সেন্সর থেকে আসা বিরল, অনিশ্চিত দর্শনকে স্থায়ী পরিচয়ে পরিণত করে। যেখানে কিছুই দেখতে পায় না, এমন ফাঁকের ভিতরেও এটি ট্র্যাক ধরে রাখে, প্রতিটি সত্তার জন্য আলাদা করে শেখে তার স্বাভাবিক আচরণ কী, আর সাক্ষাৎ ঘটার আগেই তার পূর্বাভাস দেয় &mdash; রিপোর্ট করা প্রতিটি সংখ্যার সঙ্গে তার অনিশ্চয়তা জুড়ে দিয়ে।
+          Tracking in the real world is never continuous. A vehicle goes behind a building, a
+          person walks out of camera range. Most systems treat that as the end of the track.
+          TRACE does not: it holds a track as a probability that something is still there rather
+          than a yes or no, so the track fades through the gap instead of ending at it, and can be
+          picked up again on the other side.
         </p>
         <p class="lede">
-          কোরের কিছুই জানে না সে কী ট্র্যাক করছে। ক্যামেরা, জাহাজ, প্যালেট, প্রাণী আর খেলোয়াড় একই সমস্যা, কেবল প্রোফাইল আলাদা।
+          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
+          players are the same problem with a different profile. The MOT17 and MOT20 figures below
+          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
+          well a tracker did.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">একটি গোলকধাঁধায় এটিকে ট্র্যাক করতে দেখুন</a>
@@ -181,6 +188,55 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
+        <p class="small dim" style="margin:0">
+          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
+          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
+          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
+          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          TRACE keeps a number against each track for how likely it is that the thing is still there. A
+          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
+          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
+          the engine decides whether it is the same one. Both demonstrations here let you push that until
+          it gets the decision wrong.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
+        <p class="small dim" style="margin:0">
+          Anyone following things across more than one sensor, with gaps between them: a site whose
+          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
+          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
+          pallets, animals and players are the same problem with a different profile. It takes detections
+          in; producing them is someone else&rsquo;s job.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
+      the engineering: the engine itself running in your browser on two scenarios, the benchmark
+      numbers, what it costs per track, and a plain list of what it does not do.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -206,7 +262,9 @@
             <span class="badge badge--violet" style="margin-bottom:10px">অস্তিত্ব</span>
             <h4 style="margin:0 0 6px">Bernoulli, বুলিয়ান নয়</h4>
             <p class="small dim" style="margin:0">
-              320-পার্টিকল ফিল্টারের উপর একটি PMBM ট্র্যাকার। অস্তিত্ব একটি সম্ভাব্যতা, যা মিসের সঙ্গে ক্ষয়ে যায় আর প্রমাণ পেলে ফিরে আসে, ফলে আড়ালে পড়ার দাম দিতে হয় আস্থা দিয়ে, পরিচয় দিয়ে নয়।
+              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
+              Existence is a probability that decays through misses and recovers on evidence, so
+              an occlusion costs confidence rather than identity.
             </p>
           </div>
           <div class="card">
@@ -522,7 +580,8 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          একটি কোর, Release বিল্ড, AVX-512। খরচ বাড়ে মোটামুটি n<sup>1.17</sup> হারে, আর কেবল ট্র্যাকিং দশটি ট্র্যাক থেকে চারশো পর্যন্ত ট্র্যাকপ্রতি 135&ndash;159 &micro;s-এ সমতল &mdash; একে পড়ুন এভাবে: &ldquo;ধ্রুবকটাই গুরুত্বপূর্ণ, সূচকটা নয়&rdquo;।
+          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
+          n<sup>1.17</sup> হারে, আর কেবল ট্র্যাকিং দশটি ট্র্যাক থেকে চারশো পর্যন্ত ট্র্যাকপ্রতি 135&ndash;159 &micro;s-এ সমতল &mdash; একে পড়ুন এভাবে: &ldquo;ধ্রুবকটাই গুরুত্বপূর্ণ, সূচকটা নয়&rdquo;।
         </p>
       </div>
       <div>
@@ -579,9 +638,10 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">সোর্স-উপলব্ধ</span>
-    <h2>AGPL-3.0+, পাশে একটি বাণিজ্যিক লাইসেন্স</h2>
+    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
     <p class="lede">
-      এখানকার বাকি সবকিছুর মতোই একই শর্ত: পড়ুন, চালান, যাচাই করুন। আপনি যা বানাতে চান তার সঙ্গে AGPL না মিললে, স্তরভিত্তিক একটি বাণিজ্যিক লাইসেন্স আছে।
+      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
+      AGPL does not suit what you want to build, there is a tiered commercial licence.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">সোর্স পড়ুন &rarr;</a>
@@ -600,13 +660,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — ক্যাপাবিলিটি দিয়ে সুরক্ষিত একটি C++23 অপারেটিং সিস্টেম</h3>
       </a>
-      <a class="card card--hover related__item" href="/bn/chess.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cypha-র সঙ্গে দাবা খেলুন</h3>
-      </a>
       <a class="card card--hover related__item" href="/bn/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — মৌলিক নীতি থেকে গড়া একটি AI স্থাপত্য</h3>
+      </a>
+      <a class="card card--hover related__item" href="/bn/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cypha-র সঙ্গে দাবা খেলুন</h3>
       </a>
       <a class="card card--hover related__item" href="/bn/sentinel.html">
         <div class="card__glow"></div>
@@ -682,7 +742,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T22:13:36Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

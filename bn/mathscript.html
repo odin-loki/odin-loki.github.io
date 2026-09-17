@@ -148,7 +148,11 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 প্রি-রিলিজ</span>
         <h1>একটিই C++23 লাইব্রেরি, <span class="gradient-text">LU থেকে CFD</span></h1>
         <p class="lede">
-          ঘন ও বিরল রৈখিক বীজগণিত, বিশেষ ফাংশন, পরিসংখ্যান, ODE/PDE/FEM/CFD, অপ্টিমাইজেশন, সংকেত ও চিত্র প্রক্রিয়াকরণ, সংখ্যাতত্ত্ব, গ্রাফ, জ্যামিতি, টপোলজি, কোয়ান্টাম প্রিমিটিভ, নিয়ন্ত্রণ, অর্থব্যবস্থা, সংকোচন &mdash; আর একটি প্রতীকী CAS। LU, QR, SVD, আইগেন-সমাধায়ক আর Cholesky নিজের গাছেই লেখা।
+          Engineering software runs on heavy mathematics, and almost nobody writes their own.
+          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
+          hard to audit, hard to change, and hard to install where the build machine has no
+          internet. MathScript does the mathematics itself, from matrix arithmetic up to
+          fluid dynamics, in one C++ library with nothing to fetch.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">সরাসরি আঁকুন ও অন্তরকলন করুন</a>
@@ -166,7 +170,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">দুটি সিদ্ধান্ত, যা সবকিছুর আকার দেয়</span>
           <ul class="flist flist--violet">
-            <li><strong>নিজস্ব BLAS/LAPACK।</strong> Eigen নেই, OpenBLAS নেই। <code translate="no">linalg</code> নিজেই রাখে LU, QR, SVD, eig, Cholesky আর LAPACK-ঘরানার কার্নেলগুলি, তাই স্থাপনা মানে একটা কম্পাইল, নির্ভরতা খোঁজার অভিযান নয়।</li>
+            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
             <li><strong>C++-এর একটি সীমিত উপসেট।</strong> কোনো কাঁচা পয়েন্টার নয়, কোনো এক্সেপশন নয়, কোনো অনিরাপদ কাস্ট নয় &mdash; কম্পাইলের সময়েই তা বাধ্যতামূলক। উৎপাদন কোড ফেরত দেয় <code translate="no">Result&lt;T&gt;</code>, তাই ত্রুটি সামলানো নির্ধারণবাদী আর টাইপেই দৃশ্যমান।</li>
           </ul>
         </div>
@@ -175,13 +179,67 @@
   </div>
 </section>
 
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
+        <p class="small dim" style="margin:0">
+          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
+          are rarely written by the team shipping it. They arrive from a dozen outside
+          libraries and paid platforms that have to be fetched, licensed and trusted. When an
+          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
+          machine you may not be able to fetch them at all.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <p class="small dim" style="margin:0">
+          MathScript is one C++ library that does the mathematics itself: linear algebra,
+          statistics, differential equations, finite elements, fluid flow, optimisation and a
+          symbolic algebra system, across thirty-five static libraries. The matrix routines
+          most projects import from BLAS and LAPACK are written here instead. All 816 test
+          suites pass on the Windows build. v1.0.0 has not shipped yet.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
+        <p class="small dim" style="margin:0">
+          Teams whose build machines cannot reach the internet &mdash; defence, medical,
+          aerospace, banking &mdash; where every fetched dependency is another approval.
+          Products that do their real work in C++ and their mathematics in Python, and carry
+          two sets of problems for it. Teachers and students who want the method written out
+          where it can be read.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
+      argument, and the rest of this page is the evidence: what the thirty-five libraries
+      hold, why a failure comes back in the return type instead of as an exception, and
+      exactly what the test numbers cover.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt" id="demo">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">ইন্টারঅ্যাক্টিভ</span>
-      <h2>একটি প্রতীকী CAS, চলছে আপনার ব্রাউজারে</h2>
+      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
       <p class="lede">
-        একটি রাশি লিখুন। সেটিকে টোকেনে ভাঙা হয়, AST-তে পার্স করা হয়, প্রতীকীভাবে অন্তরকলন করা হয়, সরল করা হয়, তারপর লেখচিত্রের জন্য সাংখ্যিকভাবে হিসাব করা হয় &mdash; সঙ্গে দৃশ্যমান পাল্লার উপরে একটি Simpson-নিয়মের সমাকল আর দ্বিভাজন দিয়ে মূল খোঁজা।
+        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
+        differentiated symbolically, simplified, then evaluated numerically for the plot
+        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
+        visible interval.
       </p>
     </div>
 
@@ -289,7 +347,11 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            লোড চাপার আগে কিছুই ডাউনলোড হয় না, আর তারপর একবারই আনা হয়। মডিউলটি ১১৩ KB WebAssembly আর ১০ KB লোডার &mdash; পুরো লাইব্রেরি বিল্ড ৪.৯ MB, তাই এখানে কেবল এই চারটি কল যতটুকু ছোঁয় ততটুকুই লিংক হয়েছে।
+            Nothing is downloaded until you press load, and then it is fetched once. The module
+            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
+            build is 4.9 MB, so this links only what these four calls reach. The panel shows the
+            library version and the vector Instruction Set Architecture (ISA) the build
+            reports.
           </p>
         </div>
         <div class="demo__side">
@@ -319,7 +381,9 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA লাইনটি হলো লাইব্রেরির নিজের সম্পর্কে সত্যি কথা বলা।</strong> এটি ডাকে
-            <code translate="no">ms::detect_isa()</code>, নেটিভ অবস্থায় সে ঠিক এই কলটাই করে। আপনার ডেস্কটপে এর উত্তর আসে AVX2 বা AVX-512; এখানে একটিই ভেক্টর ISA আছে, আর সে সেটাই বলে।
+            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
+            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
+            one vector ISA and it says so.
           </div>
         </div>
       </div>
@@ -335,6 +399,14 @@
     <div class="section-head reveal">
       <span class="eyebrow">পরিসর</span>
       <h2>পঁয়ত্রিশটি স্ট্যাটিক লাইব্রেরি, ছয়টি ক্ষেত্র</h2>
+      <p class="lede">
+        Dense and sparse linear algebra, special functions, statistics and Machine Learning
+        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
+        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
+        signal and image processing, number theory, graphs, geometry, topology, quantum
+        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
+        eigensolvers and Cholesky written in-tree.
+      </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="ছয়টি লাইব্রেরি ক্ষেত্র — কোর সিস্টেম, সাংখ্যিক, পরিসংখ্যান ও মেশিন লার্নিং, ফলিত, প্রতীকী ও বিশেষায়িত — একটি Result<T> ভিত্তি-রেলের উপরে, কোনো এক্সেপশন বা কাঁচা পয়েন্টার ছাড়া" loading="lazy" decoding="async"></div><span class="diagram__hint">পুরো চিত্রটি দেখতে স্ক্রল করুন &rarr;</span><figcaption><b>পঁয়ত্রিশটি লাইব্রেরি, একটিই ত্রুটি-রীতি।</b> নিচের রেলটাই আসল কথা: ব্যর্থতা থাকে রিটার্ন টাইপে, স্ট্যাকের মাথায় গিয়ে পাওয়া কোনো এক্সেপশনে নয়।</figcaption></figure>
 
@@ -369,6 +441,11 @@
       <div class="reveal">
         <span class="eyebrow">যা পাঠানো হয়</span>
         <h3>তিনটি এক্সিকিউটেবল, বাকি সব ঐচ্ছিক</h3>
+        <p class="small dim" style="margin-top:12px">
+          Everything past the three executables is a build option &mdash; a Qt Graphical User
+          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
+          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+        </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">কম্পাইলার / ব্যাচ ড্রাইভার</span></div>
           <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">ইন্টারঅ্যাক্টিভ সেশন</span></div>
@@ -379,6 +456,10 @@
       <div class="reveal" data-delay=".08">
         <span class="eyebrow">যাচাই</span>
         <h3>৮১৬টি স্যুটে আপনি কী পান</h3>
+        <p class="small dim" style="margin-top:12px">
+          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
+          MSVC on Windows and the GNU Compiler Collection (GCC) 13 on Linux.
+        </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
             <thead><tr><th>গেট</th><th class="num">সেটিং</th></tr></thead>
@@ -551,7 +632,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T22:13:36Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

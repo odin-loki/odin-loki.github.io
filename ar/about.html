@@ -158,7 +158,10 @@
         <span class="eyebrow">نبذة</span>
         <h1>مرحبًا &mdash; أنا <span class="gradient-text">Odin Loch</span></h1>
         <p class="lede">
-          أبني أنظمة تشغيل، وبنى ذكاء اصطناعي، ومفكِّكات برمجيات، ومكتبات عددية، في الليل غالبًا، من سيدني. وImortek هو الاسم الذي أنشر به هذا العمل.
+          I build operating systems, Artificial Intelligence (AI) architectures, maths
+          libraries, and tools that work out what a program does when nobody has the source
+          code any more. Mostly at night, from Sydney. Imortek is the name I publish that
+          work under.
         </p>
         <p class="lede">
           لديّ دبلومان &mdash; في البرمجيات، وفي علوم المستشفيات &mdash; وأعمل حاليًّا صانعَ عُدَد. ولا شيء من ذلك هو المؤهّل الذي يتوقّعه الناس لهذا النوع من البرمجيات، ولهذا بالضبط يُكتب كل ما أنشره ليُفحَص لا ليُصدَّق.
@@ -174,7 +177,7 @@
           <div class="phero__meta-item">الاسم التجاري<b>Imortek</b></div>
           <div class="phero__meta-item">الوظيفة النهارية<b>صانع عُدَد</b></div>
           <div class="phero__meta-item">المستودعات<b data-gh-total="repos">15</b></div>
-          <div class="phero__meta-item">الترخيص<b>AGPL-3.0+</b></div>
+          <div class="phero__meta-item">GNU Affero General Public License<b>AGPL-3.0+</b></div>
         </div>
       </div>
     </div>
@@ -187,13 +190,27 @@
     <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">لماذا أعمل هكذا</h2>
     <div class="stack" style="margin-top:1.5rem;font-size:1.04rem">
       <p class="dim">
-        أحبّ الهندسة كلها والعلوم كلها، ولم أكن يومًا جيّدًا في البقاء داخل واحد منها. ولهذا يوجد على الرفّ نظام BSD مُحصَّن بجوار مخطّط AEAD بجوار عُدَد كربيدية بجوار ورقة عن كيفية قياس الثروة الوطنية بالميغاجول. هذه ليست استراتيجية. هذا ما يهمّني فعلًا.
+        I like all engineering and all the sciences, and I have never been good at staying inside
+        one of them. That is why the shelf has a hardened Berkeley Software Distribution (BSD)
+        next to an Authenticated Encryption with Associated Data (AEAD) scheme next to carbide
+        tooling next to a paper about how you would measure national wealth in megajoules.
+        It is not a strategy. It is what I am actually interested in.
       </p>
       <p class="dim">
-        العمل وحدي يعني أن لا أحد يراجع عملي، فبنيت المراجعة داخل العمل نفسه. ولن يعدّ ParanoidBSD ملفًّا منقولًا قبل أن يجتاز التحقّق التفاضلي أو تحقّق التمثيل الوسيط، لأني أعرف تمام المعرفة أن ملفًّا يُترجَم فحسب لم يقل لي شيئًا. وMathScript يُرجِع <code translate="no">Result&lt;T&gt;</code> في كل مكان بدل رمي الاستثناءات، لأني أردت حالات الفشل ظاهرة في النوع لا مُكتشَفة في الثالثة فجرًا. ولـAEGIS قاعدة واحدة &mdash; لا شيء يُعدّ منجزًا قبل أن تؤكّده محاكاة هجوم &mdash; لأن حدسي في تحليل حركة البيانات أخطأ مرارًا، والمحاكاة لم تخطئ.
+        Working alone means nobody checks my work, so I built the checking into the work.
+        ParanoidBSD will not mark a file as ported until differential or Intermediate
+        Representation (IR) verification passes, because I know perfectly well that a file
+        which merely compiles has told me nothing.
+        MathScript returns <code translate="no">Result&lt;T&gt;</code> في كل مكان بدل رمي الاستثناءات، لأني أردت حالات الفشل ظاهرة في النوع لا مُكتشَفة في الثالثة فجرًا. ولـAEGIS قاعدة واحدة &mdash; لا شيء يُعدّ منجزًا قبل أن تؤكّده محاكاة هجوم &mdash; لأن حدسي في تحليل حركة البيانات أخطأ مرارًا، والمحاكاة لم تخطئ.
       </p>
       <p class="dim">
-        المنطق نفسه يفسّر أجزاء هذا الموقع التي تبدو كأنها تحاجّ ضدّي. حيرة Cell AI أسوأ من GPT-2 بأربع مراتب عشرية، وهذا مكتوب على صفحته الأولى. والمُفكِّك يستعيد الخوارزميات عند F1 يساوي 0.056 على الملفات المجرَّدة من الرموز، بجوار 1.000 التي يبلغها مع الرموز. وعمل AES فشل، ونُشر بوصفه فشلًا مع الإحصاءات التي تبيّن السبب. ولو أخفيت ذلك، لما كانت لديك وسيلة لتعرف أيًّا من أرقامي الأخرى تصدّق.
+        The same reasoning explains the parts of this site that look like they are arguing against
+        me. Cell AI&rsquo;s perplexity is four orders of magnitude worse than Generative
+        Pre-trained Transformer 2 (GPT-2) and that is on its front page. The decompiler recovers
+        algorithms at F1 0.056 on stripped binaries, next to the 1.000 it gets with symbols. The
+        Advanced Encryption Standard (AES) work failed, and it is published as a failure with
+        the statistics that show why. If I hid those, you would have no way of telling which
+        of my other numbers to trust.
       </p>
       <p class="dim">
         يصف ParanoidBSD نفسه بأنه &ldquo;نظام تشغيل آمن صنعه مصاب بالفصام&rdquo;. هذه عبارتي أنا عن نفسي وسأُبقيها. وهي لا تعني أن الهندسة غير موثوقة &mdash; فالبوابات على هذا العمل أصرم مما يراه كثير من البرمجيات التجارية أصلًا، وهي مكتوبة حيث تستطيع قراءتها. بل تعني أني أفضّل أن أخبرك من يبني هذا على أن تكتشفه لاحقًا.
@@ -269,7 +286,7 @@
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/pbsd.html">ParanoidBSD</a></h3><p class="small dim" style="margin:0">HardenedBSD 15-STABLE إلى C++23، مع نواة صلاحيات ومقابض.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/cypha.html">Cypha</a></h3><p class="small dim" style="margin:0">بنية ذكاء اصطناعي من المبادئ الأولى. تصنيف، وانحدار، وأخذ عيّنات، وتوليد.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/retdec.html">RetDec Imortek</a></h3><p class="small dim" style="margin:0">مُفكِّك برمجيات يستعيد الخوارزميات، لا الشيفرة الوهمية وحدها.</p></div>
-      <div class="card"><h3 style="font-size:1rem"><a href="/ar/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">جبر حاسوبي وعدديات بلغة C++23، مع BLAS وLAPACK داخل الشجرة.</p></div>
+      <div class="card"><h3 style="font-size:1rem"><a href="/ar/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">C++23 computer algebra and numerics, with its own Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) in-tree.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/aegis.html">AEGIS</a></h3><p class="small dim" style="margin:0">طبقة نقل تُخفي البيانات الوصفية لاتحادات مُصرَّح بعضويتها.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/sentinel.html">SENTINEL</a></h3><p class="small dim" style="margin:0">تحليلات جريمة مع منشأ كامل لكل خيط.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/ar/cellai.html">Cell AI</a></h3><p class="small dim" style="margin:0">نموذج تسلسلات غير محوّل، منشور بوصفه سجلّ بحث صادقًا.</p></div>
@@ -321,21 +338,21 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">قراءات ذات صلة</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/ar/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة</h3>
-      </a>
       <a class="card card--hover related__item" href="/ar/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ar/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
       </a>
       <a class="card card--hover related__item" href="/ar/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — نموذج تسلسلات بالتفاعل والانتشار</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/trace.html">
+      <a class="card card--hover related__item" href="/ar/retdec.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.</p>
@@ -407,7 +424,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T20:39:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

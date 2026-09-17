@@ -158,7 +158,10 @@
         <span class="eyebrow">À propos</span>
         <h1>Bonjour &mdash; je suis <span class="gradient-text">Odin Loch</span></h1>
         <p class="lede">
-          Je construis des systèmes d’exploitation, des architectures d’IA, des décompilateurs et des bibliothèques numériques, surtout la nuit, depuis Sydney. Imortek est le nom sous lequel je publie ce travail.
+          I build operating systems, Artificial Intelligence (AI) architectures, maths
+          libraries, and tools that work out what a program does when nobody has the source
+          code any more. Mostly at night, from Sydney. Imortek is the name I publish that
+          work under.
         </p>
         <p class="lede">
           J’ai deux diplômes &mdash; en logiciel et en sciences hospitalières &mdash; et je travaille actuellement comme outilleur. Rien de tout cela n’est la qualification qu’on attend pour ce genre de logiciel, et c’est exactement pourquoi tout ce que je publie est écrit pour être vérifié plutôt que cru.
@@ -174,7 +177,7 @@
           <div class="phero__meta-item">Exerçant sous le nom<b>Imortek</b></div>
           <div class="phero__meta-item">Emploi principal<b>Outilleur</b></div>
           <div class="phero__meta-item">Dépôts<b data-gh-total="repos">15</b></div>
-          <div class="phero__meta-item">Licence<b>AGPL-3.0+</b></div>
+          <div class="phero__meta-item">GNU Affero General Public License<b>AGPL-3.0+</b></div>
         </div>
       </div>
     </div>
@@ -187,13 +190,27 @@
     <h2 style="font-size:clamp(1.5rem,3vw,2.2rem)">Pourquoi je travaille comme ça</h2>
     <div class="stack" style="margin-top:1.5rem;font-size:1.04rem">
       <p class="dim">
-        J’aime toute l’ingénierie et toutes les sciences, et je n’ai jamais été bon pour rester dans une seule. C’est pour ça que l’étagère met un BSD durci à côté d’un schéma AEAD, à côté d’outillage carbure, à côté d’un article sur la façon dont on mesurerait la richesse nationale en mégajoules. Ce n’est pas une stratégie. C’est ce qui m’intéresse réellement.
+        I like all engineering and all the sciences, and I have never been good at staying inside
+        one of them. That is why the shelf has a hardened Berkeley Software Distribution (BSD)
+        next to an Authenticated Encryption with Associated Data (AEAD) scheme next to carbide
+        tooling next to a paper about how you would measure national wealth in megajoules.
+        It is not a strategy. It is what I am actually interested in.
       </p>
       <p class="dim">
-        Travailler seul veut dire que personne ne vérifie mon travail, alors j’ai mis la vérification dans le travail. ParanoidBSD ne marque pas un fichier comme porté tant que la vérification différentielle ou par IR n’est pas passée, parce que je sais parfaitement qu’un fichier qui se contente de compiler ne m’a rien dit. MathScript renvoie <code translate="no">Result&lt;T&gt;</code> partout au lieu de lever des exceptions, parce que je voulais les cas d’échec visibles dans le type plutôt que découverts à trois heures du matin. AEGIS a une seule règle &mdash; rien n’est fait tant qu’une simulation d’attaque ne l’a pas confirmé &mdash; parce que mon intuition sur l’analyse de trafic s’est trompée à plusieurs reprises, et pas la simulation.
+        Working alone means nobody checks my work, so I built the checking into the work.
+        ParanoidBSD will not mark a file as ported until differential or Intermediate
+        Representation (IR) verification passes, because I know perfectly well that a file
+        which merely compiles has told me nothing.
+        MathScript returns <code translate="no">Result&lt;T&gt;</code> partout au lieu de lever des exceptions, parce que je voulais les cas d’échec visibles dans le type plutôt que découverts à trois heures du matin. AEGIS a une seule règle &mdash; rien n’est fait tant qu’une simulation d’attaque ne l’a pas confirmé &mdash; parce que mon intuition sur l’analyse de trafic s’est trompée à plusieurs reprises, et pas la simulation.
       </p>
       <p class="dim">
-        Le même raisonnement explique les parties de ce site qui semblent plaider contre moi. La perplexité de Cell AI est de quatre ordres de grandeur pire que celle de GPT-2, et c’est en première page. Le décompilateur récupère les algorithmes avec un F1 de 0,056 sur des binaires dépouillés, à côté du 1,000 qu’il obtient avec les symboles. Le travail sur AES a échoué, et il est publié comme un échec, avec les statistiques qui montrent pourquoi. Si je cachais tout cela, vous n’auriez aucun moyen de savoir auxquels de mes autres chiffres vous fier.
+        The same reasoning explains the parts of this site that look like they are arguing against
+        me. Cell AI&rsquo;s perplexity is four orders of magnitude worse than Generative
+        Pre-trained Transformer 2 (GPT-2) and that is on its front page. The decompiler recovers
+        algorithms at F1 0.056 on stripped binaries, next to the 1.000 it gets with symbols. The
+        Advanced Encryption Standard (AES) work failed, and it is published as a failure with
+        the statistics that show why. If I hid those, you would have no way of telling which
+        of my other numbers to trust.
       </p>
       <p class="dim">
         ParanoidBSD se décrit comme &ldquo;un système d’exploitation sécurisé fait par un schizophrène&rdquo;. C’est ma formule sur moi-même et je la garde. Cela ne veut pas dire que l’ingénierie n’est pas fiable &mdash; les contrôles sur ce travail sont plus stricts que ce que beaucoup de logiciels commerciaux voient un jour, et ils sont écrits là où vous pouvez les lire. Cela veut dire que je préfère vous dire qui construit ceci plutôt que vous laisser le découvrir plus tard.
@@ -269,7 +286,7 @@
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/pbsd.html">ParanoidBSD</a></h3><p class="small dim" style="margin:0">HardenedBSD 15-STABLE vers C++23, avec un noyau de capacités et de descripteurs.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/cypha.html">Cypha</a></h3><p class="small dim" style="margin:0">Une architecture d’IA issue des premiers principes. Classer, régresser, échantillonner, générer.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/retdec.html">RetDec Imortek</a></h3><p class="small dim" style="margin:0">Un décompilateur qui récupère des algorithmes, pas seulement du pseudocode.</p></div>
-      <div class="card"><h3 style="font-size:1rem"><a href="/fr/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">Calcul formel et numérique en C++23, BLAS et LAPACK intégrés.</p></div>
+      <div class="card"><h3 style="font-size:1rem"><a href="/fr/mathscript.html">MathScript</a></h3><p class="small dim" style="margin:0">C++23 computer algebra and numerics, with its own Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) in-tree.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/aegis.html">AEGIS</a></h3><p class="small dim" style="margin:0">Transport masquant les métadonnées pour consortiums à accès contrôlé.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/sentinel.html">SENTINEL</a></h3><p class="small dim" style="margin:0">Analyse criminelle avec traçabilité complète sur chaque piste.</p></div>
       <div class="card"><h3 style="font-size:1rem"><a href="/fr/cellai.html">Cell AI</a></h3><p class="small dim" style="margin:0">Un modèle de séquences non transformeur, publié comme un journal de recherche honnête.</p></div>
@@ -329,9 +346,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/retdec.html">
+      <a class="card card--hover related__item" href="/fr/aegis.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — décompilateur à extraction de spécification</h3>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — transport masquant les métadonnées pour consortiums</h3>
       </a>
       <a class="card card--hover related__item" href="/fr/cellai.html">
         <div class="card__glow"></div>
@@ -407,7 +424,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T20:39:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-17T22:13:36Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>
