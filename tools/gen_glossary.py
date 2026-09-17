@@ -98,7 +98,7 @@ TERMS = [
 {"t":"C","d":"systems","g":"An old, fast, bare-bones programming language. Almost every operating system is still built on it, which is much of the problem."},
 {"t":"Rust","d":"systems","g":"A newer programming language that refuses to compile most memory mistakes. Fast like C, far harder to get wrong."},
 {"t":"Python","d":"systems","g":"A programming language that reads almost like English. Slower to run, much quicker to write."},
-{"t":"LLVM","d":"systems","alias":["Clang"],"g":"The machinery a lot of translators are built on. Clang is the one that handles C and C++."},
+{"t":"LLVM","d":"systems","g":"The machinery a lot of translators are built on. Clang is the one that handles C and C++."},
 {"t":"IR","d":"systems","alias":["intermediate representation"],"g":"A halfway form, between the text a person wrote and the numbers a machine runs. Comparing two of them shows whether two programs really do the same thing."},
 {"t":"WebAssembly","d":"systems","alias":["WASM"],"g":"A way to run fast, compiled programs inside a web page. It is why the demos on this site work without installing anything."},
 {"t":"repository","d":"systems","alias":["repo"],"g":"The folder where a project lives, with every past version of every file kept. Usually shared online."},
@@ -307,7 +307,7 @@ TERMS = [
 {"t":"Gibbs sampling","d":"maths","alias":["Gibbs"],"g":"Finding a good whole answer by fixing one piece at a time, over and over, until the whole thing settles down."},
 {"t":"Markov chain","d":"maths","alias":["Markov"],"g":"Something that changes step by step, where what happens next depends only on where it is now, not on how it got there."},
 {"t":"Ornstein-Uhlenbeck","d":"maths","alias":["OU","Ornstein","Uhlenbeck"],"g":"A way of describing something that wanders about but keeps being pulled back. A boat on a mooring, not a boat adrift."},
-{"t":"Gaussian mixture","d":"maths","alias":["Gaussian","GMM"],"g":"Several bell curves added together, to describe a thing that one bell curve cannot. Used here to learn where an entity usually goes."},
+{"t":"Gaussian mixture","d":"maths","alias":["GMM"],"g":"Several bell curves added together, to describe a thing that one bell curve cannot. Used here to learn where an entity usually goes."},
 {"t":"possibility","d":"maths","alias":["possibilistic"],"g":"How good the evidence is, rather than how much of it there is. Many weak reports can look like certainty; this is what notices."},
 {"t":"uncertainty","d":"maths","g":"How wrong a number might be. Reporting it is the difference between a measurement and a guess."},
 {"t":"CUDA","d":"systems","g":"Nvidia's way of running your own code on a graphics card instead of the main processor. Good at doing the same sum thousands of times."},
@@ -330,10 +330,10 @@ TERMS = [
 {"t":"JSON","d":"data","alias":["XML","CSV"],"g":"Plain-text ways of writing data down so two programs can pass it between them. Readable by a person, at a pinch."},
 {"t":"UI","d":"systems","alias":["interface"],"g":"The part you see and touch. Everything underneath is arranged to serve it, or ought to be."},
 {"t":"TCP","d":"security","alias":["IP"],"g":"The rules computers follow to pass messages over a network, and to notice when one goes missing."},
-{"t":"SHA","d":"security","alias":["SHA-256","hash"],"g":"A way of turning any file into one short number. Change a single letter and the number changes completely."},
+{"t":"SHA","d":"security","alias":["SHA-256"],"g":"A way of turning any file into one short number. Change a single letter and the number changes completely."},
 {"t":"RSA","d":"security","g":"An old and widely used way of locking a message with one key so that only the other key opens it."},
 {"t":"PDF","d":"data","g":"A file that looks the same everywhere, because it carries its own layout rather than trusting the reader's."},
-{"t":"REST","d":"systems","alias":["API"],"g":"A common way for one program to ask another for something over the network, using ordinary web requests."},
+{"t":"REST","d":"systems","g":"A common way for one program to ask another for something over the network, using ordinary web requests."},
 {"t":"ZFS","d":"systems","alias":["OpenZFS"],"g":"A way of storing files that checks its own work, so a disk quietly corrupting a file is noticed rather than passed on."},
 {"t":"GNU","d":"legal","alias":["GPL","GPL-2","CDDL"],"g":"A family of free-software licences, and the project that wrote them. Sharing is the condition of use, not a nice extra."},
 {"t":"MIT","d":"legal","alias":["MIT licence"],"g":"About the most permissive licence there is: do what you like, keep the notice, expect no promises."},
@@ -350,7 +350,7 @@ TERMS = [
 # ---------- money, law and the rest of the furniture ----------
 {"t":"GDP","d":"legal","g":"Everything a country produces in a year, added up and priced. A rough number that gets treated as a precise one."},
 {"t":"IMF","d":"legal","g":"A body that lends money to countries in trouble, and attaches conditions. Its figures are widely used as a reference."},
-{"t":"USD","d":"legal","alias":["AUD","dollars"],"g":"Dollars. Named here because the same number means different things in different currencies, and this site says which."},
+{"t":"USD","d":"legal","alias":["dollars"],"g":"Dollars. Named here because the same number means different things in different currencies, and this site says which."},
 {"t":"COGS","d":"legal","g":"What it costs to make each unit, before rent, wages or anything else. The floor under a price."},
 {"t":"TCO","d":"legal","g":"What a thing costs over its whole life, not just to buy: running it, fixing it, and getting rid of it."},
 {"t":"SKU","d":"legal","g":"One specific item as a shop lists it. Two sizes of the same thing are two of these."},
@@ -563,6 +563,19 @@ TERMS = [
 def check(terms):
     bad = []
     seen = {}
+    # An alias that is also another entry's term, or one claimed by two entries,
+    # means the page shows whichever sorted first — so AUD got the dollars
+    # explanation because USD listed it, and Clang was claimed by both GCC and
+    # LLVM. Nothing failed; the reader just got the wrong entry.
+    owner = {}
+    keys = {t['t'] for t in terms}
+    for t in terms:
+        for a in t.get('alias', []):
+            if a in keys and a != t['t']:
+                bad.append('%s: alias %r is another entry\'s own term' % (t['t'], a))
+            if a in owner:
+                bad.append('%s: alias %r is already claimed by %s' % (t['t'], a, owner[a]))
+            owner[a] = t['t']
     for t in terms:
         g, name = t['g'], t['t']
         if t['d'] not in DOMAINS:

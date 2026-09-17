@@ -58,6 +58,7 @@ def sync():
     """
     import glob
     en = {t['t']: t for t in load_en()['terms']}
+    keys = set(en)
     total = 0
     for p in sorted(glob.glob('assets/data/glossary.*.json')):
         code = os.path.basename(p)[len('glossary.'):-len('.json')]
@@ -70,11 +71,23 @@ def sync():
             if not src:
                 continue
             want = list(src.get('alias', []))
-            mine = [a for a in t.get('alias', []) if a not in want and a != t['t']]
+            # An alias dropped from the master looks exactly like one the
+            # translator added, so sync cannot simply keep every extra. The one
+            # thing it can decide on its own is the invariant the English file
+            # is now checked for: an alias that is another entry's own term
+            # shadows it, and does so in every language. Those go.
+            mine = [a for a in t.get('alias', [])
+                    if a not in want and a != t['t'] and a not in keys]
             merged = want + mine
             if merged != t.get('alias', []):
+                # An entry whose alias list empties has to LOSE the key, not
+                # keep the old one: assigning only when merged is truthy left
+                # the stale list in place and made sync report the same entry
+                # as changed on every run without ever changing it.
                 if merged:
                     t['alias'] = merged
+                else:
+                    t.pop('alias', None)
                 changed.append(t['t'])
             # Only stamp entries that have actually been translated; an
             # untranslated one still carries the English and is not stale.
