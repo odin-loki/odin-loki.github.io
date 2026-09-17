@@ -153,7 +153,8 @@ Two rules learnt the hard way, both in `assets/js/i18n.js`:
 
 `assets/data/glossary.json` holds 455 pieces of jargon and, for each, one or two sentences a
 person with no background can read once and understand. Click *Explain the jargon* in the page
-toolbar and the first occurrence of each is marked; the layer averages 39 marked terms a page.
+toolbar and the first occurrence of each is marked; the layer averages 34 marked terms a page,
+measured across the fifteen core pages in all ten languages.
 Double-click any other word and it falls through to a 144,440-word WordNet dictionary, loaded
 one shard at a time.
 
