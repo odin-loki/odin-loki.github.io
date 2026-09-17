@@ -7,11 +7,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
         <p class="lede">
-          Almost all modern AI is a variation on the same few designs. Cypha starts somewhere
-          else: one C++ type, with a learning rule worked out from mathematics rather than
-          borrowed, that updates on every example it sees instead of being trained once and
-          frozen. It is a research project, and the failures are published alongside the
-          results.
+          Almost all modern Artificial Intelligence (AI) is a variation on the same few
+          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
+          from mathematics rather than borrowed, that updates on every example it sees instead
+          of being trained once and frozen. It is a research project, and the failures are
+          published alongside the results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Train one in your browser</a>
@@ -21,7 +21,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">Language<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">Release<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2.664 BPC</b></div>
           <div class="phero__meta-item">Last push<b data-gh-repo="Cypha" data-gh-field="updated">recently</b></div>
         </div>
       </div>
@@ -30,7 +30,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Four programmes, one learning rule</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; minimum-description-length priors decide what the model is allowed to believe cheaply.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
             <li><strong>Information geometry</strong> &mdash; updates follow the natural gradient, so learning respects the curvature of the parameter space.</li>
             <li><strong>Active inference / free energy</strong> &mdash; gives the structural decomposition into prior, differential and context.</li>
             <li><strong>Information bottleneck</strong> &mdash; sets the encoder objective: keep what predicts, discard the rest.</li>
@@ -114,8 +114,9 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact RBF kernel over <b>n</b> sampled points gives a matrix <b>K</b>. Random
-            features reconstruct an approximation <b>K&#770;</b>. What is plotted is
+            The exact Radial Basis Function (RBF) kernel over <b>n</b> sampled points gives a
+            matrix <b>K</b>. Random features reconstruct an approximation <b>K&#770;</b>. What
+            is plotted is
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> as the number of features grows:
             more features, closer approximation.
           </p>
@@ -144,9 +145,10 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Compiling this found a bug.</strong> ORF &mdash; the dense orthogonal variant
-            &mdash; was normalising every row to unit length, when Yu et al. draw the row norm from
-            <code>chi_d</code> so an orthogonal row matches the Gaussian row it replaces. Rows were
+            <strong>Compiling this found a bug.</strong> Orthogonal Random Features (ORF)
+            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
+            et al. draw the row norm from <code>chi_d</code> so an orthogonal row matches the
+            Gaussian row it replaces. Rows were
             &radic;d too short, so the features approximated the wrong kernel and the error
             plateaued instead of converging. One line. It is now the best of the three.
           </div>
@@ -154,7 +156,7 @@
       </div>
       <div class="panel__foot">
         Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        COOP/COEP headers GitHub Pages cannot send.
+        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -199,9 +201,9 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford/EMA. This is the
-          &ldquo;infinite context&rdquo; that never forgets &mdash; and whose movement is the
-          drift signal.
+          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
+          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
+          and whose movement is the drift signal.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -353,10 +355,10 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try XOR with the RFF encoder off.</strong> Accuracy collapses toward chance, and
-      that is not a bug in this demo &mdash; it is the documented limitation of a linear
-      log-likelihood ratio, stated plainly in the Cypha README. Switch the latent RFF encoder
-      on and watch it recover. Publishing the failure mode next to the fix is the whole point.
+      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> Accuracy collapses
+      toward chance, and that is not a bug in this demo &mdash; it is the documented
+      limitation of a linear log-likelihood ratio, stated plainly in the Cypha README. Switch
+      the latent RFF encoder on and watch it recover. Publishing the failure mode next to the fix is the whole point.
     </div>
   </div>
 </section>
@@ -371,6 +373,10 @@
         Figures from the repository&rsquo;s own benchmark runs after the diagnostic fix.
         Correctness is proved by a CTest matrix matching committed fixture goldens &mdash; not
         by a leaderboard position.
+      </p>
+      <p class="small muted">
+        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
+        (LSTM), Backpropagation Through Time (BPTT).
       </p>
     </div>
 
@@ -445,7 +451,7 @@
           <li><strong>Not a wrapper.</strong> Bespoke from first principles &mdash; which also means it does not inherit anyone else&rsquo;s tuning.</li>
           <li><strong>Linear LLR has a ceiling.</strong> XOR sits near chance without the latent RFF encoder, which lifts it to roughly 76.3%.</li>
           <li><strong>Validation is parity-based.</strong> CTest against committed fixture goldens. No leaderboard claims are made.</li>
-          <li><strong>CUDA is inference-only.</strong> Training stays on CPU, because on this architecture CPU is faster.</li>
+          <li><strong>CUDA is inference-only.</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
           <li><strong>Theory lives elsewhere.</strong> Harmonic-spectrum and NMP work is a separate compression-algorithms paper; Cypha is the implementation layer.</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
