@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>کرنل C++ آزاد ہے: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        کرنل مرکزہ کسی میزبان C++ رن ٹائم پر انحصار نہیں کر سکتا۔ کرنل میں داخل ہوتے وقت نہ استثنا، نہ RTTI، نہ ایسی معیاری لائبریری کی راہیں جو ہیپ سے میموری لیں۔ حدود یہاں لکھی ہوئی ہیں: <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T22:13:36Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T23:04:13Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

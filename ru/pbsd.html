@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>C++ в ядре — freestanding: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        Ядро не может зависеть от хостовой среды выполнения C++. Никаких исключений, никакого RTTI, никаких путей стандартной библиотеки с выделением в куче на входе в ядро. Ограничения записаны в <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T22:13:36Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

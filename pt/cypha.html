@@ -242,8 +242,9 @@
       <span class="eyebrow eyebrow--violet">A biblioteca em si</span>
       <h2>Random features, medidas em vez de descritas</h2>
       <p class="lede">
-        O argumento do Cypha a favor das random Fourier features é que elas deixam uma cabeça linear separar o que uma cabeça linear não separa. Isso é uma afirmação mensurável, então aqui ela é medida &mdash; com
-        <code translate="no">cypha::rff_features</code> compilado para WebAssembly, não uma versão refeita em JavaScript.
+        Cypha&rsquo;s case for random Fourier features (RFF) is that they let a linear head
+        separate what a linear head cannot. That is a measurable claim, so this measures it
+        &mdash; with <code translate="no">cypha::rff_features</code> compilado para WebAssembly, não uma versão refeita em JavaScript.
       </p>
     </div>
 
@@ -291,7 +292,8 @@
       </div>
       <div class="panel__foot">
         Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
+        the Cross-Origin-Opener-Policy (COOP) and Cross-Origin-Embedder-Policy (COEP) headers
+        GitHub Pages cannot send.
       </div>
     </div>
   </div>
@@ -742,7 +744,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-17T22:13:36Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
+      <span class="mono tiny">Compilado em 2026-09-17T23:04:13Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
     </div>
   </div>
 </footer>

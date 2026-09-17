@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>El C++ del kernel es independiente: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        El núcleo del kernel no puede depender de un runtime de C++ alojado. Sin excepciones, sin RTTI, sin rutas de la biblioteca estándar que reserven memoria dinámica en la entrada al kernel. Las restricciones están escritas en <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> para que quien colabore pueda saber qué es legal en contexto de kernel sin adivinar.
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> para que quien colabore pueda saber qué es legal en contexto de kernel sin adivinar.
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T22:13:36Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

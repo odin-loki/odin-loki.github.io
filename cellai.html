@@ -151,10 +151,10 @@
           A language model built on a completely different mechanism &mdash; closer to chemistry
           spreading across a surface than to the attention maths everything else uses. It performs
           worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on the standard measure, against Generative Pre-trained Transformer 2
-          (GPT-2) as the baseline, and printed on this page rather than in a footnote. It is
-          published as a research log because a documented failure is worth something and a
-          deleted one is not.
+          orders of magnitude on perplexity (PPL), the standard measure, against Generative
+          Pre-trained Transformer 2 (GPT-2) as the baseline, and printed on this page rather than
+          in a footnote. It is published as a research log because a documented failure is worth
+          something and a deleted one is not.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
@@ -343,9 +343,10 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Plasticity</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          BCM-style Hebbian learning with &alpha; = 0.1, &beta; = 0.01, applied <em>during</em> the
-          forward pass rather than after it. This is the boldest idea in the architecture and the
-          source of its documented gradient-starvation problem.
+          Hebbian learning in the Bienenstock&ndash;Cooper&ndash;Munro (BCM) style, with
+          &alpha; = 0.1, &beta; = 0.01, applied <em>during</em> the forward pass rather than after
+          it. This is the boldest idea in the architecture and the source of its documented
+          gradient-starvation problem.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">v3 optimisation</span>
@@ -568,7 +569,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, trading as Imortek. Sydney, Australia.</span>
-      <span class="mono tiny">Built 2026-09-17T22:13:36Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
+      <span class="mono tiny">Built 2026-09-17T23:04:13Z &middot; No trackers, no cookies, no analytics. Only the fonts come from elsewhere.</span>
     </div>
   </div>
 </footer>

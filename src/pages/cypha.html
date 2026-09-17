@@ -100,9 +100,10 @@
       <span class="eyebrow eyebrow--violet">The library itself</span>
       <h2>Random features, measured rather than described</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features is that they let a linear head separate
-        what a linear head cannot. That is a measurable claim, so this measures it &mdash; with
-        <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling in JavaScript.
+        Cypha&rsquo;s case for random Fourier features (RFF) is that they let a linear head
+        separate what a linear head cannot. That is a measurable claim, so this measures it
+        &mdash; with <code>cypha::rff_features</code> compiled to WebAssembly, not a retelling
+        in JavaScript.
       </p>
     </div>
 
@@ -156,7 +157,8 @@
       </div>
       <div class="panel__foot">
         Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        the Cross-Origin-Opener-Policy (COOP) and COEP headers GitHub Pages cannot send.
+        the Cross-Origin-Opener-Policy (COOP) and Cross-Origin-Embedder-Policy (COEP) headers
+        GitHub Pages cannot send.
       </div>
     </div>
   </div>

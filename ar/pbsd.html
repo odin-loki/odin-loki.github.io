@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>C++ في النواة قائمة بذاتها: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        لا يمكن لنواة النظام أن تعتمد على بيئة تشغيل C++ مستضافة. لا استثناءات، ولا RTTI، ولا مسارات في المكتبة القياسية تحجز من الكومة عند الدخول إلى النواة. والقيود مكتوبة في <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T22:13:36Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-17T23:04:13Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

@@ -243,10 +243,11 @@ Licensed under AGPL-3.0+.</pre>
           original four-clause Berkeley Software Distribution (BSD) licence, whose advertising clause
           the AGPL cannot accept, so they are excluded from the AGPL grant and must not enter an
           AGPL binary.
-          <code>pbsd/zfs/</code> derives from OpenZFS, which is CDDL and has no compatibility route
-          to the AGPL &mdash; ZFS stays a separate unmodified module. And the KDE-derived work is
-          compatible only through the &ldquo;or later&rdquo; clause, so GPL-2.0-only code must never
-          enter the tree. All three are listed in
+          <code>pbsd/zfs/</code> derives from OpenZFS, which is under the Common Development and
+          Distribution License (CDDL) and has no compatibility route to the AGPL &mdash; ZFS stays
+          a separate unmodified module. And the KDE-derived work is compatible only through the
+          &ldquo;or later&rdquo; clause, so code under the GNU General Public License version 2.0
+          alone (GPL-2.0-only) must never enter the tree. All three are listed in
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
              rel="noopener"><code>NOTICES.md</code></a> and enforced by a Continuous Integration
           (CI) check.

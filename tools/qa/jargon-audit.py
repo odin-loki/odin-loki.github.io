@@ -112,6 +112,37 @@ def known_terms():
     return out
 
 
+# Capitals that get no expansion because there is nothing to expand. Each line
+# is a judgement someone made and had to check, which is why they are written
+# down rather than pattern-matched: a rule that skipped anything in the product
+# menu would also skip a real acronym the day one is added.
+NAMES = {
+    'AEGIS':      "Odin's own name for the anonymity transport; it stands for nothing",
+    'SENTINEL':   "likewise, the crime-analysis tool",
+    'TRACE':      "likewise, the tracker. Its page spells out what each letter suggests, which is not the same as an expansion",
+    'PBSD':       "short for ParanoidBSD, which is itself a name",
+    'ARIA':       "Odin's authenticated-encryption work; not an initialism",
+    'ARIA-INTEL': "same, with the analysis half named after it",
+    'GRIA':       "same family of invented names",
+    'AIXI':       "Hutter's agent, named rather than abbreviated",
+    'NMP':        "Odin's compression score; the letters are not words here",
+    'LLVM':       "llvm.org states outright that it is no longer an acronym",
+    'CUDA':       "Nvidia dropped 'Compute Unified Device Architecture' years ago",
+    'ARM':        "Arm Ltd dropped the Acorn/Advanced RISC Machine reading",
+    'ZFS':        "OpenZFS dropped 'Zettabyte File System'",
+    'QR':         "the letters name the two factor matrices, not words",
+    'LU':         "likewise, lower and upper triangular factors",
+    'MOT17':      "the name of a public dataset, with its year",
+    'MOT20':      "same",
+    'GNU':        "a name in its own right here; the licences that carry it are expanded separately",
+    'MIT':        "the licence is called that; expanding it to the university would be wrong",
+    'README':     "a filename",
+    'LICENSE':    "a filename",
+    'KDE':        "the desktop project on the pages that use it that way; the statistical sense is a separate entry",
+    'GGUF':       "its own authors never expand the letters, and the circulating expansion is a third-party backronym",
+}
+
+
 # The marketing pages. The research shelf is lab notes for people who already
 # know the vocabulary, and holding it to a sales page's rules would be silly.
 MARKETING = ['index', 'pbsd', 'cypha', 'retdec', 'mathscript', 'aegis', 'sentinel',
@@ -138,7 +169,7 @@ def first_use(gate=False):
     for t in json.load(open('assets/data/glossary.json', encoding='utf-8'))['terms']:
         if t.get('x'):
             exp[t['t']] = t['x']
-    bad, ok, noexp = [], 0, set()
+    bad, ok, noexp, named = [], 0, set(), 0
     for slug in MARKETING:
         f = slug + '.html'
         if not os.path.exists(f):
@@ -153,6 +184,9 @@ def first_use(gate=False):
         for w, at in sorted(seen.items(), key=lambda kv: kv[1]):
             # A version suffix is not a different acronym: AGPL-3.0 is AGPL.
             base = re.match(r'[A-Z]+', w).group(0)
+            if w in NAMES or base in NAMES:
+                named += 1
+                continue
             x = exp.get(w) or exp.get(base)
             if not x:
                 noexp.add(w)
@@ -163,8 +197,8 @@ def first_use(gate=False):
                 ok += 1
             else:
                 bad.append((slug, w, x, ' '.join(txt[max(0, at - 60):at + 40].split())))
-    print('  %d pages, %d acronym first-uses expanded, %d not'
-          % (len(MARKETING), ok, len(bad)))
+    print('  %d pages, %d acronym first-uses expanded, %d not, %d that are names'
+          % (len(MARKETING), ok, len(bad), named))
     if noexp:
         print('  %d acronym(s) carry no expansion in the glossary, so this cannot judge them:'
               % len(noexp))

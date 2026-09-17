@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>内核里的 C++ 是独立环境的： <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        内核核心不能依赖宿主环境的 C++ 运行时。不用异常，不用 RTTI，内核入口上不走会在堆上分配的标准库路径。这些约束都写在 <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> 里，好让贡献者不用猜就知道在内核上下文里什么是合法的。
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> 里，好让贡献者不用猜就知道在内核上下文里什么是合法的。
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T22:13:36Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

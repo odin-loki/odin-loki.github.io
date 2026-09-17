@@ -362,10 +362,10 @@
     <details class="acc reveal">
       <summary>Kernel C++ is freestanding: <code>-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no RTTI,
-        no heap-allocating standard library paths on kernel entry. The constraints are
-        written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a contributor
-        can tell what is legal in kernel context without guessing.
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code>docs/specs/KERNEL_CXX_ABI.md</code> so that a
+        contributor can tell what is legal in kernel context without guessing.
       </div>
     </details>
     <details class="acc reveal">

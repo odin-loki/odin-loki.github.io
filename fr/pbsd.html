@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>Le C++ du noyau est autonome : <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        Le cœur du noyau ne peut pas dépendre d’un runtime C++ hébergé. Pas d’exceptions, pas de RTTI, aucun chemin de bibliothèque standard allouant sur le tas à l’entrée du noyau. Les contraintes sont écrites dans <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> pour qu’un contributeur puisse savoir ce qui est légal en contexte noyau sans avoir à deviner.
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> pour qu’un contributeur puisse savoir ce qui est légal en contexte noyau sans avoir à deviner.
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T22:13:36Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

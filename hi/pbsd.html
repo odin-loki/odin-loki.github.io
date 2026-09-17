@@ -471,7 +471,9 @@
     <details class="acc reveal">
       <summary>कर्नेल का C++ फ़्रीस्टैंडिंग है: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        कर्नेल नाभिक किसी होस्टेड C++ रनटाइम पर निर्भर नहीं रह सकता। कोई एक्सेप्शन नहीं, कोई RTTI नहीं, कर्नेल में घुसते ही हीप से आवंटन करने वाले मानक लाइब्रेरी रास्ते नहीं। ये पाबंदियाँ लिखी हुई हैं <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> में, ताकि कोई योगदानकर्ता बिना अंदाज़ा लगाए बता सके कि कर्नेल के संदर्भ में क्या जायज़ है।
+        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
+        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
+        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> में, ताकि कोई योगदानकर्ता बिना अंदाज़ा लगाए बता सके कि कर्नेल के संदर्भ में क्या जायज़ है।
       </div>
     </details>
     <details class="acc reveal">
@@ -667,7 +669,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T22:13:36Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>
