@@ -80,7 +80,7 @@ function pagesFor(code) {
 // Whatever the matcher's own dash class covers, the text search here covers,
 // or this gate would report the very bug it exists to catch as a false alarm.
 const DASHES = /[-\u2010-\u2015\u2212]/g;
-const norm = s => s.replace(DASHES, '-').toLowerCase();
+const norm = s => s.replace(DASHES, '-');
 
 /* "Is this wording on the page" has to be asked the way the matcher asks it,
    or the gate files the matcher's correct refusals as breakages. Two ways to
@@ -95,8 +95,16 @@ const norm = s => s.replace(DASHES, '-').toLowerCase();
    English or the Latin locales. Applying the suffix everywhere had the gate
    claiming "particle filter" was broken because a page says "particles".
 
+   Case: the matcher matches an acronym case-sensitively and everything
+   else case-insensitively, because ML lit up on the "ml" of a cocktail
+   measure before it did. Lowercasing both sides here undoes that, and the
+   gate duly reported the French pages as breaking SES -- "ses propres
+   conditions", the possessive, four letters of French prose away from a
+   satellite operator.
+
    So the rules are lifted from pattern() in glossary.js rather than
-   approximated, and the lengths are its lengths. */
+   approximated, and the lengths and the case test are its own. */
+const ACRONYM = /^[A-Z][A-Z0-9+\-\/]*$/;
 const ARABIC = /[\u0600-\u06ff]/, CYRILLIC = /[\u0400-\u04ff]/,
       INDIC = /[\u0900-\u097f\u0980-\u09ff]/;
 const WORDCH = '\\p{L}\\p{M}\\p{N}_';
@@ -114,10 +122,11 @@ function onPage(text, s, code) {
       suffix = '[\\p{L}\\p{M}]{0,3}';
     }
   }
+  const flags = (ACRONYM.test(s) ? '' : 'i') + 'u';
   try {
     return new RegExp('(^|[^' + WORDCH + DASHCLS + '])' + prefix +
                       escRx(norm(s)).replace(/ /g, '\\s+') +
-                      suffix + '(?![' + WORDCH + DASHCLS + '])', 'u').test(text);
+                      suffix + '(?![' + WORDCH + DASHCLS + '])', flags).test(text);
   } catch (e) { return text.indexOf(norm(s)) >= 0; }
 }
 
@@ -137,13 +146,20 @@ function onPage(text, s, code) {
     for (const path of pages) {
       const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
       try {
-        await page.goto(`${BASE}/${code === 'en' ? '' : code + '/'}${path}`,
-                        { waitUntil: 'networkidle', timeout: 45000 });
+        const location_url = `${BASE}/${code === 'en' ? '' : code + '/'}${path}`;
+        await page.goto(location_url, { waitUntil: 'networkidle', timeout: 45000 });
         await page.waitForTimeout(600);
-        const got = await page.evaluate(([skipSrc, skipClassSrc]) => {
+        const got = await page.evaluate(async ([skipSrc, skipClassSrc, url]) => {
           const SKIP = eval(skipSrc), SKIP_CLASS = eval(skipClassSrc);
-          const main = document.querySelector('#main') || document.body;
-          const w = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+          /* Read the prose out of the page's own HTML rather than the live DOM.
+             The matcher marks up once, on load; a demo that writes into a
+             readout afterwards puts words on the page that were never offered
+             to it. The chess board's readout says "depth 2" while it thinks,
+             and the gate called `search depth` broken in six languages on the
+             strength of it. The served file is exactly what the matcher saw. */
+          const doc = new DOMParser().parseFromString(await (await fetch(url)).text(), 'text/html');
+          const main = doc.querySelector('#main') || doc.body;
+          const w = doc.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
             acceptNode(n) {
               for (let p = n.parentNode; p && p !== main; p = p.parentNode) {
                 if (SKIP.test(p.nodeName) ||
@@ -161,7 +177,7 @@ function onPage(text, s, code) {
             // One text node per line: the matcher cannot see across a tag either.
             prose: parts.join('\n'),
           };
-        }, [SKIP_SRC, SKIP_CLASS_SRC]);
+        }, [SKIP_SRC, SKIP_CLASS_SRC, location_url]);
         got.marked.forEach(t => reached.add(t));
         text.push(got.prose);
       } catch (e) {
