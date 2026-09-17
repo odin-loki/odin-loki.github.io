@@ -38,7 +38,15 @@
      node in two, and on a right-to-left page the two halves then swap places —
      "github.com/odin-loki" rendered as "com/odin-loki.github". It is also
      simply wrong to explain "GitHub" in the middle of a URL. */
-  var SKIP_CLASS = /(^|\s)(mono|panel__title|spec__k|stat__k|term__title|kv__k|code)(\s|$)/;
+  /* `verdict' is a demo's status block, and what the page ships inside it is a
+     loading message the demo replaces the moment it starts: chess.html says
+     "Fetching the distilled weights." until the engine is up. The layer marks
+     the FIRST mention of a term and then stops looking, so marking a
+     placeholder does not merely waste a chip -- it spends the entry. The chess
+     page mentions the weights four more times, in prose that stays put, and
+     the reader got none of them because the explanation had already been
+     placed in a sentence that no longer existed. In every language at once. */
+  var SKIP_CLASS = /(^|\s)(mono|panel__title|spec__k|stat__k|term__title|kv__k|code|verdict)(\s|$)/;
   var MIN_OPENS = 3;        // before Cypha is allowed an opinion
   var MAX_AUTO   = 6;        // never flood a page, however keen the reader
   var LLR_GATE  = 0.3;      // nats over the world prior before pre-expanding
