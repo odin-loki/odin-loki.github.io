@@ -112,6 +112,75 @@ def known_terms():
     return out
 
 
+# The marketing pages. The research shelf is lab notes for people who already
+# know the vocabulary, and holding it to a sales page's rules would be silly.
+MARKETING = ['index', 'pbsd', 'cypha', 'retdec', 'mathscript', 'aegis', 'sentinel',
+             'cellai', 'chess', 'trace', 'research', 'licensing', 'beta',
+             'kickstarter', 'about']
+
+
+def first_use(gate=False):
+    """Is every acronym spelled out the first time a page uses it?
+
+    A glossary chip you have to tap is not the same as reading the words. A
+    marketer reviewing this site got through the whole thing without learning
+    what any of it meant, and when this was first measured there were 187
+    acronym first-uses across the marketing pages and exactly ONE of them --
+    AGPL -- was expanded before use.
+
+    The rule the owner chose is the strict one: expand everything, every page,
+    first use. Not a tier list of what a reader "should" know, because the
+    reader is a procurement officer, not an engineer.
+
+        python3 tools/qa/jargon-audit.py --first-use [--gate]
+    """
+    exp = {}
+    for t in json.load(open('assets/data/glossary.json', encoding='utf-8'))['terms']:
+        if t.get('x'):
+            exp[t['t']] = t['x']
+    bad, ok, noexp = [], 0, set()
+    for slug in MARKETING:
+        f = slug + '.html'
+        if not os.path.exists(f):
+            continue
+        txt = re.sub(r'\s+', ' ', prose(f))
+        seen = {}
+        for m in ACRONYM.finditer(txt):
+            w = m.group(1)
+            if w in NOT_JARGON or w in NO_SOURCE:
+                continue
+            seen.setdefault(w, m.start())
+        for w, at in sorted(seen.items(), key=lambda kv: kv[1]):
+            # A version suffix is not a different acronym: AGPL-3.0 is AGPL.
+            base = re.match(r'[A-Z]+', w).group(0)
+            x = exp.get(w) or exp.get(base)
+            if not x:
+                noexp.add(w)
+                continue
+            # Expanded "before use" includes the ordinary form, where the
+            # expansion is immediately followed by the acronym in brackets.
+            if re.search(re.escape(x), txt[:at + len(w) + 3], re.I):
+                ok += 1
+            else:
+                bad.append((slug, w, x, ' '.join(txt[max(0, at - 60):at + 40].split())))
+    print('  %d pages, %d acronym first-uses expanded, %d not'
+          % (len(MARKETING), ok, len(bad)))
+    if noexp:
+        print('  %d acronym(s) carry no expansion in the glossary, so this cannot judge them:'
+              % len(noexp))
+        print('      ' + ' '.join(sorted(noexp)))
+    for slug, w, x, ctx in bad:
+        print('  %-12s %-10s should first read "%s (%s)"' % (slug, w, x, w))
+        print('      ...%s...' % ctx)
+    # Saying "all clear" while judging nothing is how a gate becomes decoration.
+    if not bad and not noexp:
+        print('\nEvery acronym is spelled out the first time its page uses it.')
+    elif not bad:
+        print('\nNothing failed, but %d acronym(s) could not be judged at all.' % len(noexp))
+    if gate and (bad or noexp):
+        sys.exit(1)
+
+
 def senses():
     """Every term that appears on more than one page, with the sentence it lands
     in on each.
@@ -159,6 +228,9 @@ def main():
     os.chdir(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     if '--senses' in sys.argv:
         senses()
+        return
+    if '--first-use' in sys.argv:
+        first_use(gate='--gate' in sys.argv)
         return
     known = known_terms()
     pages = [f for f in sorted(glob.glob('*.html')) if f != '404.html']
