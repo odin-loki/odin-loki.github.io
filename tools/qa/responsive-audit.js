@@ -11,13 +11,20 @@
  *   node tools/qa/responsive-audit.js
  *
  * Optional: pass a base URL as the first argument to audit a deployed
- * site instead of localhost.
+ * site instead of localhost. --only=chess,trace narrows the run to those
+ * pages in every language, for when one page changed and re-running all
+ * 2,060 combinations to learn about one of them is the wrong trade.
  * --------------------------------------------------------------- */
 'use strict';
 
 const { chromium } = require('playwright');
 
-const BASE = process.argv[2] || 'http://localhost:8123';
+const ARGS = process.argv.slice(2);
+const BASE = ARGS.find(a => !a.startsWith('--')) || 'http://localhost:8123';
+const ONLY = (() => {
+  const a = ARGS.find(x => x.startsWith('--only='));
+  return a ? new Set(a.slice(7).split(',').filter(Boolean)) : null;
+})();
 
 // Every English page the build actually produced, read out of sitemap.xml so
 // this list cannot fall behind the site the way a hand-kept one does. 404 is
@@ -55,6 +62,19 @@ const LOCALES = fs.existsSync('tools/locales.json')
       .filter(l => !l.root).map(l => l.code)
   : [];
 for (const code of LOCALES) for (const slug of CORE) PAGES.push(`${code}/${slug}`);
+
+// --only keeps a page in whatever language it appears in: the point of
+// narrowing is usually one page that changed, and a mirrored layout has its
+// own ways of overflowing.
+if (ONLY) {
+  const keep = PAGES.filter(p => ONLY.has(p.split('/').pop()));
+  PAGES.length = 0;
+  PAGES.push(...keep);
+  if (!PAGES.length) {
+    console.error(`--only matched no page; known slugs come from sitemap.xml`);
+    process.exit(2);
+  }
+}
 
 const SIZES = [
   ['iPhone SE',        320,  568],
