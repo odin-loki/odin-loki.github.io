@@ -149,7 +149,11 @@
         <span class="eyebrow eyebrow--amber">প্রধান প্রকল্প &middot; ParanoidBSD</span>
         <h1>এমন একটি অপারেটিং সিস্টেম যেখানে কর্তৃত্ব <span class="gradient-text">ধরে রাখতে হয়, ধরে নেওয়া যায় না</span></h1>
         <p class="lede">
-          ParanoidBSD, HardenedBSD 15-STABLE-কে C++23 মডিউলে পোর্ট করে এবং HBSD ইতিমধ্যেই যে কঠোরতা দেয় তার উপরে একটি ক্যাপাবিলিটি ও হ্যান্ডল নিউক্লিয়াস বসায়। ডেস্কে থাকে KDE Plasma 6। BSD গাছটিই আচরণের নির্দিষ্টকরণ &mdash; আর সেটি বিশ্বস্তভাবে পোর্ট করা হয়, বাগসহ।
+          Nearly every break-in works the same way: a program reaches something it was never
+          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
+          program is handed only what it needs, and everything else is not merely forbidden
+          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
+          original kept alongside so every change can be checked against it.
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/bn/kickstarter.html">Kickstarter-কে সমর্থন করুন</a>
@@ -183,6 +187,54 @@
 </section>
 
 <!-- ============================ THE PROBLEM ============================ -->
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
+        <p class="small dim" style="margin:0">
+          An operating system sits underneath everything else an organisation runs. Most are
+          built on decades of older code, and they let any program ask for anything at all
+          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
+          something harmless, like the code that draws a font on screen, can end with stolen
+          passwords.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          ParanoidBSD changes what a program is able to ask for in the first place. Rather
+          than checking permission after the request, it hands each program a short list of
+          things it may touch, and gives it no way to name anything else. A flaw in one part
+          stops being a route into the rest.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
+        <p class="small dim" style="margin:0">
+          Defence and government suppliers now being asked for software written in safer
+          languages. Equipment that stays in the field for years and cannot be patched
+          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
+          and researchers who want a real operating system small enough to read end to end.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Security should not start at the application layer.</strong> It should start
+      with the operating system underneath it. The rest of this page is the engineering:
+      what was changed, how it was checked, and what is not done yet.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -523,13 +575,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — স্পেসিফিকেশন-নিষ্কাশনকারী ডিকম্পাইলার</h3>
       </a>
-      <a class="card card--hover related__item" href="/bn/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — অপরাধ বিশ্লেষণ ও তদন্তের সূত্র</h3>
-      </a>
       <a class="card card--hover related__item" href="/bn/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — মৌলিক নীতি থেকে গড়া একটি AI স্থাপত্য</h3>
+      </a>
+      <a class="card card--hover related__item" href="/bn/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — অপরাধ বিশ্লেষণ ও তদন্তের সূত্র</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">হাতে বাছা নয়, এই পৃষ্ঠার শব্দের মিল দেখে বেছে নেওয়া — তাই সত্যিই কী কাছের তা সৎভাবে দেখায়, এমনকি যখন স্পষ্ট কিছুই কাছের নয় তখনও।</p>
@@ -601,7 +653,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T02:10:28Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T20:39:16Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

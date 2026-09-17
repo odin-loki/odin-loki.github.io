@@ -149,7 +149,11 @@
         <span class="eyebrow eyebrow--amber">Produit phare &middot; ParanoidBSD</span>
         <h1>Un système d’exploitation où l’autorité est <span class="gradient-text">détenue, pas présumée</span></h1>
         <p class="lede">
-          ParanoidBSD porte HardenedBSD 15-STABLE vers des modules C++23 et ajoute un noyau de capacités et de descripteurs par-dessus le durcissement que HBSD fournit déjà. KDE Plasma 6 est sur le bureau. L’arbre BSD est la spécification de comportement &mdash; et il est porté fidèlement, bugs compris.
+          Nearly every break-in works the same way: a program reaches something it was never
+          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
+          program is handed only what it needs, and everything else is not merely forbidden
+          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
+          original kept alongside so every change can be checked against it.
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/fr/kickstarter.html">Soutenir le Kickstarter</a>
@@ -183,6 +187,54 @@
 </section>
 
 <!-- ============================ THE PROBLEM ============================ -->
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">Le problème</span>
+        <p class="small dim" style="margin:0">
+          An operating system sits underneath everything else an organisation runs. Most are
+          built on decades of older code, and they let any program ask for anything at all
+          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
+          something harmless, like the code that draws a font on screen, can end with stolen
+          passwords.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          ParanoidBSD changes what a program is able to ask for in the first place. Rather
+          than checking permission after the request, it hands each program a short list of
+          things it may touch, and gives it no way to name anything else. A flaw in one part
+          stops being a route into the rest.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">À qui cela s’adresse</span>
+        <p class="small dim" style="margin:0">
+          Defence and government suppliers now being asked for software written in safer
+          languages. Equipment that stays in the field for years and cannot be patched
+          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
+          and researchers who want a real operating system small enough to read end to end.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Security should not start at the application layer.</strong> It should start
+      with the operating system underneath it. The rest of this page is the engineering:
+      what was changed, how it was checked, and what is not done yet.
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="wrap">
     <div class="section-head reveal">
@@ -601,7 +653,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T02:10:28Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-17T20:39:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>
