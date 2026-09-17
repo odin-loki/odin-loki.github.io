@@ -141,7 +141,7 @@ function onPage(text, s, code) {
     const terms = JSON.parse(fs.readFileSync(file, 'utf8')).terms;
     const pages = pagesFor(code);
     const reached = new Set();
-    const text = [];
+    const text = [], free = [];
 
     for (const path of pages) {
       const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
@@ -172,14 +172,42 @@ function onPage(text, s, code) {
           });
           const parts = [];
           for (let n = w.nextNode(); n; n = w.nextNode()) parts.push(n.nodeValue);
+
+          /* A second reading, off the live page, with one rule the file cannot
+             express: the matcher will not look inside a mark another entry has
+             already made. sentinel.html writes "KDE hotspots", `kernel
+             density' claims the whole phrase because it is the longer and more
+             specific string, and `heat map' -- which carries "hotspots" -- is
+             then correctly left with nowhere to go. Asking the file alone,
+             that reads as a breakage. A word has to survive BOTH readings to
+             count: the file, so a demo cannot invent it, and the live page, so
+             a rival entry cannot have taken it. */
+          const live = document.querySelector('#main') || document.body;
+          const lw = document.createTreeWalker(live, NodeFilter.SHOW_TEXT, {
+            acceptNode(n) {
+              for (let p = n.parentNode; p && p !== live; p = p.parentNode) {
+                if (SKIP.test(p.nodeName) ||
+                    (p.className && typeof p.className === 'string' && SKIP_CLASS.test(p.className)) ||
+                    (p.classList && p.classList.contains('gloss'))) {
+                  return NodeFilter.FILTER_REJECT;
+                }
+              }
+              return NodeFilter.FILTER_ACCEPT;
+            },
+          });
+          const lparts = [];
+          for (let n = lw.nextNode(); n; n = lw.nextNode()) lparts.push(n.nodeValue);
+
           return {
             marked: [...document.querySelectorAll('#main .gloss')].map(e => e.dataset.term),
             // One text node per line: the matcher cannot see across a tag either.
             prose: parts.join('\n'),
+            unclaimed: lparts.join('\n'),
           };
         }, [SKIP_SRC, SKIP_CLASS_SRC, location_url]);
         got.marked.forEach(t => reached.add(t));
         text.push(got.prose);
+        free.push(got.unclaimed);
       } catch (e) {
         console.log(`  ${code}/${path}: ${e.message.split('\n')[0]}`);
         errors++;
@@ -188,13 +216,14 @@ function onPage(text, s, code) {
     }
 
     const all = norm(text.join('\n'));
+    const unclaimed = norm(free.join('\n'));
     const dead = terms.filter(t => !reached.has(t.t));
     // An entry is BROKEN, not merely unused, when its own wording is sitting
     // in the prose and the matcher still walked past it.
     const broken = dead.filter(t => [t.t].concat(t.alias || [])
-      .some(s => onPage(all, s, code)));
+      .some(s => onPage(all, s, code) && onPage(unclaimed, s, code)));
     report.push({ code, pages: pages.length, terms: terms.length,
-                  fired: reached.size, dead: dead.length, broken, all });
+                  fired: reached.size, dead: dead.length, broken, all, unclaimed });
     console.log(`  ${code.padEnd(3)} ${String(pages.length).padStart(3)} pages   ` +
                 `${String(reached.size).padStart(3)}/${terms.length} entries fire   ` +
                 `${broken.length} broken`);
@@ -207,7 +236,8 @@ function onPage(text, s, code) {
     total += r.broken.length;
     console.log(`\n  ${r.code}: ${r.broken.length} entry(s) whose own wording is on a page and never mark`);
     for (const t of r.broken) {
-      const hit = [t.t].concat(t.alias || []).filter(s => onPage(r.all, s, r.code));
+      const hit = [t.t].concat(t.alias || [])
+        .filter(s => onPage(r.all, s, r.code) && onPage(r.unclaimed, s, r.code));
       console.log(`      ${t.t.padEnd(24)} page text has ${hit.map(s => JSON.stringify(s)).join(', ')}`);
     }
   }
