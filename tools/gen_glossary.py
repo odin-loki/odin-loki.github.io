@@ -341,7 +341,7 @@ TERMS = [
 {"t":"NIST","d":"security","alias":["ANSI","standards body"],"g":"A public body that publishes the reference version of things, so everyone can mean the same thing by them."},
 {"t":"RFC","d":"systems","g":"How the rules of the internet are written down and agreed. The name means Request For Comments, and that was not a joke."},
 {"t":"WSL","d":"systems","g":"A way of running Linux programs inside Windows without a second machine."},
-{"t":"KDE","d":"systems","alias":["Plasma"],"g":"One of the two main desktops for Linux: the windows, the panel, the settings. The other is GNOME."},
+{"t":"KDE","d":"systems","alias":["Plasma"],"g":"Two different things here. The desktop Linux can wear: windows, panel, settings. And a way of turning scattered dots into a smooth heat map."},
 {"t":"MPI","d":"systems","alias":["OpenMP","TBB"],"g":"Ways of splitting one job across many processors or many machines, and getting the pieces back in order."},
 {"t":"CFI","d":"security","alias":["RTTI","SafeStack"],"g":"A guard that checks a program only jumps where it was built to jump, so an attacker cannot redirect it mid-run."},
 {"t":"FSM","d":"systems","alias":["state machine"],"g":"A design with a fixed set of states and rules for moving between them. Easy to check, because you can list every case."},
@@ -359,7 +359,9 @@ TERMS = [
 {"t":"CBOE","d":"legal","g":"An American exchange, and the source of the volatility index that gets quoted as a measure of market fear."},
 {"t":"GIS","d":"data","g":"Software for maps that carry data — not a picture of a place, but a place you can ask questions of."},
 {"t":"HUMINT","d":"data","g":"Information that came from a person talking to another person, rather than from a sensor or a computer."},
-{"t":"QR","d":"data","alias":["QR code"],"g":"The square of black and white blocks a phone camera reads. It is just a short piece of text, stored oddly."},
+# Not the code a phone camera reads: every use of QR on this site is the
+# linear-algebra one, sitting in a list beside LU and SVD.
+{"t":"QR","d":"maths","g":"Splitting a grid of numbers into a square part and a triangular one. It is how a computer fits a line to data without the sums going bad."},
 {"t":"UV","d":"maths","g":"Light just past the blue end of what an eye can see. It carries enough energy to break things and to set glues."},
 {"t":"FIDE","d":"data","g":"The body that runs world chess and hands out the ratings. A rating is a number for how strong a player is."},
 {"t":"PP","d":"maths","alias":["percentage point","percentage points"],"g":"The gap between two percentages. Going from 40% to 45% is five of these, not a five per cent rise."},

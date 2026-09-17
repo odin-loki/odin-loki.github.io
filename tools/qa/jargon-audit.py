@@ -99,6 +99,43 @@ def known_terms():
     return out
 
 
+def senses():
+    """Every term that appears on more than one page, with the sentence it lands
+    in on each.
+
+    Three separate readers found three terms carrying two unrelated meanings on
+    this site — NMP is a way of scoring a compressor and also a solvent, KDE is
+    a Linux desktop and also a way of smoothing dots into a heat map, QR was
+    glossed as the code a phone camera reads when every use here is the matrix
+    one. Each was found by reading the word in context, which is luck. This
+    prints the contexts so it is a skim instead.
+
+        python3 tools/qa/jargon-audit.py --senses | less
+    """
+    known = {}
+    for t in json.load(open('assets/data/glossary.json', encoding='utf-8'))['terms']:
+        for form in [t['t']] + t.get('alias', []):
+            known.setdefault(form, t['t'])
+    pages = [f for f in sorted(glob.glob('*.html')) if f != '404.html']
+    pages += sorted(glob.glob('research/*.html'))
+    bodies = [(f, re.sub(r'\s+', ' ', prose(f))) for f in pages]
+
+    for form in sorted(known, key=lambda x: (-len(x), x)):
+        if not re.fullmatch(r'[A-Z][A-Za-z0-9+\-/]{1,9}', form):
+            continue
+        hits = []
+        rx = re.compile(r'(?<![\w-])' + re.escape(form) + r'(?![\w-])')
+        for f, body in bodies:
+            m = rx.search(body)
+            if m:
+                hits.append((f, body[max(0, m.start() - 55):m.end() + 45].strip()))
+        if len(hits) > 1:
+            print('%s  (%s)' % (form, known[form]))
+            for f, ctx in hits[:6]:
+                print('    %-34s ...%s...' % (f, ctx))
+            print()
+
+
 def main():
     # Piping this into head is the normal way to read it.
     try:
@@ -107,6 +144,9 @@ def main():
     except (ImportError, AttributeError, ValueError):
         pass
     os.chdir(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    if '--senses' in sys.argv:
+        senses()
+        return
     known = known_terms()
     pages = [f for f in sorted(glob.glob('*.html')) if f != '404.html']
     pages += sorted(glob.glob('research/*.html'))
