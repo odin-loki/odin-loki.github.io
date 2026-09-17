@@ -36,7 +36,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin and frameworks for the desktop wave</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventory, deterministic rewrite passes, agent port, Clang helpers</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Specs, security model, migration status, provenance</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
           </div>
         </div>
       </div>
@@ -113,9 +113,12 @@
           stopped it from asking.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: ASLR, PaX-derived mitigations, SafeStack,
-          CFI, hardened memory allocators. PBSD keeps all of it and changes the shape of the
-          question underneath &mdash; from <em>&ldquo;is this process allowed?&rdquo;</em> to
+          HardenedBSD already does serious work here: Address Space Layout Randomisation
+          (ASLR), which loads a program somewhere different every time so an attacker cannot
+          guess where anything is; Control Flow Integrity (CFI), which stops a program being
+          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
+          and hardened memory allocators alongside them. PBSD keeps all of it and changes
+          the shape of the question underneath &mdash; from <em>&ldquo;is this process allowed?&rdquo;</em> to
           <em>&ldquo;does this process hold a handle to that?&rdquo;</em>
         </p>
       </div>
@@ -132,7 +135,8 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim API listing.
+            Illustrative shape of the difference, not a verbatim listing of the calls a
+            program makes into the kernel &mdash; its Application Programming Interface, or API.
             The authoritative model is in <code>docs/</code>.
           </p>
         </div>
@@ -230,9 +234,9 @@
       <span class="eyebrow eyebrow--violet">The port</span>
       <h2>Four stages, and a model that never certifies itself</h2>
       <p class="lede">
-        Porting a BSD userland and kernel to C++23 by hand is a decade of work. Porting it
-        by asking a language model to rewrite files is a fast way to produce plausible
-        garbage. PBSD does neither.
+        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
+        is a decade of work. Porting it by asking a language model to rewrite files is a fast
+        way to produce plausible garbage. PBSD does neither.
       </p>
     </div>
 
@@ -274,8 +278,9 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Stage 4</span>
         <h3 style="font-size:1.05rem">Verification gate</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and IR comparison. A file that only
-          compiles is <em>unverified</em>. Failures land in
+          Compile, ASan, UBSan, differential execution and comparison at the level of the
+          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          <em>unverified</em>. Failures land in
           <code>agent_port_failures.jsonl</code>.
         </p>
       </div>
@@ -384,8 +389,9 @@
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Two licences, honestly separated</h2>
         <p class="dim">
           New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: AGPL-3.0+ free for personal use, charities, education
-          and organisations under AUD&nbsp;50,000 a year, with a tiered commercial licence above that.
+          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
+          free for personal use, charities, education and organisations under
+          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
         </p>
         <p class="dim">
           Code derived from HardenedBSD stays under its original BSD licence. It cannot be

@@ -18,7 +18,7 @@
         </div>
         <div class="phero__meta">
           <div class="phero__meta-item">Language<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">UI<b>Qt 6, 9-page dashboard</b></div>
+          <div class="phero__meta-item">User Interface (UI)<b>Qt 6, 9-page dashboard</b></div>
           <div class="phero__meta-item">Tests<b>495 automated</b></div>
           <div class="phero__meta-item">Storage<b>SQLite</b></div>
           <div class="phero__meta-item">Last push<b data-gh-repo="SENTINEL" data-gh-field="updated">recently</b></div>
@@ -154,7 +154,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Pipeline</span>
-      <h2>Ingest &rarr; NLP &rarr; features &rarr; models &rarr; inference</h2>
+      <h2>Ingest &rarr; Natural Language Processing (NLP) &rarr; features &rarr; models &rarr; inference</h2>
       <p class="lede">Each stage writes what it did into the provenance chain, so a lead at the end carries the record of how it got there.</p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="The SENTINEL pipeline from ingest through rule-based NLP, statistical models and inference to ranked leads, with a provenance rail connected to every stage" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>The rail underneath is the product.</b> Every stage writes what it did into the provenance chain, so a lead arrives with the record of how it got there.</figcaption></figure>
@@ -162,13 +162,13 @@
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Ingest</span>
-        <p class="small dim" style="margin:0">UK Police API and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+        <p class="small dim" style="margin:0">UK Police Application Programming Interface (API) and historical feeds, CSV import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
         <p class="small dim" style="margin:0">Classical, rule-based modus-operandi extraction and crime classification. No language model in the loop &mdash; deliberately, because the output has to be explainable.</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Models</span>
-        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, DBSCAN series detection, KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, series detection by Density-Based Spatial Clustering of Applications with Noise (DBSCAN), KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Inference</span>
         <p class="small dim" style="margin:0">Rossmo geographic profiling, MO analysis, evidence scoring, anomaly detection, co-offending PageRank and community detection, and the hint engine.</p></div>
@@ -275,7 +275,7 @@
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 automated tests</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-data validation on UK and US datasets</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows and Linux packaging</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only REST API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only Representational State Transfer (REST) API</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Nine-page dashboard: events, map, calibration, cases, co-offending graph, leads, audit log, settings, debug</span></li>
         </ul>
       </div>
@@ -286,7 +286,7 @@
           <li><strong>Rule-based NLP only.</strong> Modus-operandi extraction is classical, with the recall limits that implies.</li>
           <li><strong>Single-machine desktop.</strong> No multi-user deployment, no shared case state across analysts.</li>
           <li><strong>Limited live connectors.</strong> Few real-time data sources are wired up.</li>
-          <li><strong>Basic map.</strong> Custom-rendered, not a GIS. Optional GIS integration is a Phase 3&ndash;5 item.</li>
+          <li><strong>Basic map.</strong> Custom-rendered, not a Geographic Information System (GIS). Optional GIS integration is a Phase 3&ndash;5 item.</li>
         </ul>
         <h3 style="margin-top:2rem;font-size:1.05rem">Phases 3&ndash;5, planned</h3>
         <p class="small dim">

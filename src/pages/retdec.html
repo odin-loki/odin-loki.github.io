@@ -10,7 +10,8 @@
           old system, a bought-in component, something that arrived and looks suspicious.
           Tools already exist that turn the machine code back into readable steps. RetDec
           Imortek tries to go one further and name what those steps are &mdash; this part is
-          AES, this part is a sort, this part is how the data is packed for sending.
+          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
+          data is packed for sending.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
@@ -127,8 +128,8 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Disassemble</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 KB because a real x86 decoder carries the whole instruction set &mdash; every
-            encoding, prefix and extension. That is the honest size of the thing.
+            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
+            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
           </p>
         </div>
         <div class="demo__side">
@@ -145,9 +146,9 @@
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
             <strong>This is the decoder, not the decompiler.</strong> The rungs above &mdash;
-            lifting to LLVM IR, structuring control flow, naming the algorithm &mdash; are LLVM&rsquo;s
-            work, and LLVM does not fit in a web page at any size. Saying otherwise would be the
-            easiest lie on this site.
+            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
+            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
+            any size. Saying otherwise would be the easiest lie on this site.
           </div>
         </div>
       </div>
@@ -164,7 +165,12 @@
     <div class="section-head reveal">
       <span class="eyebrow">Front end</span>
       <h2>Native, bytecode and emerging formats</h2>
-      <p class="lede">Output is format-dependent, because pretending everything decompiles to C helps nobody.</p>
+      <p class="lede">
+        Output is format-dependent, because pretending everything decompiles to C helps
+        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
+        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
+        class files; and newer targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+      </p>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
@@ -183,7 +189,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">Emerging</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WAT. PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
       </div>
     </div>
   </div>
@@ -268,17 +274,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">STL containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
+        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code>std::vector</code> reappearing from the allocation pattern.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Cryptography</span>
-        <p class="small dim" style="margin:0">AES, SHA, ChaCha20, RSA and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Sorting &amp; search</span>
         <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; including the depth-limit switch that gives introsort away.</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Graphs</span>
-        <p class="small dim" style="margin:0">Graph algorithms and BFS/DFS traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrency</span>
         <p class="small dim" style="margin:0"><code>std::thread</code>, pthreads, OpenMP, TBB and raw atomics.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialization</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JSON and XML framing.</p></div>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and XML framing.</p></div>
     </div>
   </div>
 </section>
@@ -299,7 +305,7 @@
             <thead><tr><th>Metric</th><th class="num">Result</th><th>Condition</th></tr></thead>
             <tbody>
               <tr><td>Buildable C output</td><td class="num">216 / 216</td><td class="muted"><code>--buildable</code>, default on</td></tr>
-              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% CI 0.034&ndash;0.083</td></tr>
+              <tr><td>Algorithm recovery F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
               <tr><td>Algorithm recovery F1</td><td class="num">1.000</td><td class="muted">Name-assisted, symbolicated binaries</td></tr>
               <tr><td>Default <code>.c</code> recompiles</td><td class="num">No</td><td class="muted">Neither this fork nor stock RetDec</td></tr>
             </tbody>
@@ -377,11 +383,11 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">Interface</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 GUI, or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
         <p class="dim">
           Synchronised code views across C, assembly, IR and control-flow graphs, with function
           navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in CI.
+          drops every GUI dependency so the same build runs in Continuous Integration (CI).
         </p>
       </div>
       <div>
@@ -390,8 +396,9 @@
             <span class="badge badge--teal">Dual licensed</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            AGPL-3.0+ for open-source use, or a commercial licence for proprietary deployment.
-            Copyright Odin Loch, trading as Imortek, 2025&ndash;2026.
+            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
+            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
+            Imortek, 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
             Shippable at v2.0.21. CI gates reflect development rather than production maturity

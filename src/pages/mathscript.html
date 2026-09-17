@@ -28,7 +28,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Two decisions that shape everything</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree BLAS/LAPACK.</strong> No Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, SVD, eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code>linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
             <li><strong>A restricted C++ subset.</strong> No raw pointers, no exceptions, no unsafe casts &mdash; enforced at compile time. Production code returns <code>Result&lt;T&gt;</code>, so error handling is deterministic and visible in the type.</li>
           </ul>
         </div>
@@ -92,11 +92,12 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Interactive</span>
-      <h2>A symbolic CAS, running in your browser</h2>
+      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an AST, differentiated symbolically,
-        simplified, then evaluated numerically for the plot &mdash; alongside a Simpson-rule
-        integral and bisection root-finding over the visible interval.
+        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
+        differentiated symbolically, simplified, then evaluated numerically for the plot
+        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
+        visible interval.
       </p>
     </div>
 
@@ -209,8 +210,10 @@
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
             Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 KB of WebAssembly and 10 KB of loader &mdash; the full library build is 4.9 MB,
-            so this links only what these four calls reach.
+            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
+            build is 4.9 MB, so this links only what these four calls reach. The panel shows the
+            library version and the vector Instruction Set Architecture (ISA) the build
+            reports.
           </p>
         </div>
         <div class="demo__side">
@@ -241,7 +244,8 @@
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>The ISA line is the library telling the truth about itself.</strong> It asks
             <code>ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers AVX2 or AVX-512; here there is one vector ISA and it says so.
+            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
+            one vector ISA and it says so.
           </div>
         </div>
       </div>
@@ -260,10 +264,12 @@
       <span class="eyebrow">Scope</span>
       <h2>Thirty-five static libraries, six domains</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
-        optimisation, signal and image processing, number theory, graphs, geometry, topology,
-        quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
-        LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+        Dense and sparse linear algebra, special functions, statistics and Machine Learning
+        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
+        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
+        signal and image processing, number theory, graphs, geometry, topology, quantum
+        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
+        eigensolvers and Cholesky written in-tree.
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Six library domains — core systems, numerical, statistics and machine learning, applied, symbolic and specialised — over a Result<T> base rail with no exceptions or raw pointers" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>Thirty-five libraries, one error convention.</b> The rail underneath is the point: failure is in the return type, not in an exception you find at the top of the stack.</figcaption></figure>
@@ -299,6 +305,11 @@
       <div class="reveal">
         <span class="eyebrow">Shipping surface</span>
         <h3>Three executables, optional everything else</h3>
+        <p class="small dim" style="margin-top:12px">
+          Everything past the three executables is a build option &mdash; a Qt Graphical User
+          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
+          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+        </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Compiler / batch driver</span></div>
           <div class="spec__row"><span class="spec__k">mathscript-repl</span><span class="spec__v">Interactive session</span></div>
@@ -309,6 +320,10 @@
       <div class="reveal" data-delay=".08">
         <span class="eyebrow">Verification</span>
         <h3>What 816 suites buy you</h3>
+        <p class="small dim" style="margin-top:12px">
+          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
+          MSVC on Windows and the GNU Compiler Collection (GCC) 13 on Linux.
+        </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
             <thead><tr><th>Gate</th><th class="num">Setting</th></tr></thead>
