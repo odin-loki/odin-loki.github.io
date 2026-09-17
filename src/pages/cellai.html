@@ -3,15 +3,16 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
+        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
         <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
         <p class="lede">
           A language model built on a completely different mechanism &mdash; closer to chemistry
           spreading across a surface than to the attention maths everything else uses. It performs
           worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on the standard measure, printed on this page rather than in a
-          footnote. It is published as a research log because a documented failure is worth
-          something and a deleted one is not.
+          orders of magnitude on the standard measure, against Generative Pre-trained Transformer 2
+          (GPT-2) as the baseline, and printed on this page rather than in a footnote. It is
+          published as a research log because a documented failure is worth something and a
+          deleted one is not.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
@@ -217,8 +218,9 @@
         <h3 style="font-size:1.05rem">The full stack</h3>
         <p class="small dim" style="margin:0">
           cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem (FFT phase coupling) &rarr; CrystalLattice (K = 3) &rarr; optional
-          Kuramoto coupling &rarr; MultiModalModel routing &rarr; logits.
+          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
+          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
+          Fast Fourier Transform (FFT).
         </p></div>
     </div>
   </div>
@@ -321,7 +323,8 @@
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Where these ideas went instead</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
       Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became UHPM.
+      working first-principles architecture, and the long-context memory work became Unified
+      Hash-Predictive Memory (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/cypha.html">Cypha &rarr;</a>

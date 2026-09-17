@@ -8,8 +8,9 @@
         <p class="lede">
           Everything Imortek publishes is source-available under the GNU Affero General Public
           License v3.0 or later. If you are a person, a charity, a school, or an organisation
-          earning under AUD&nbsp;50,000 a year, that costs you nothing. Above that threshold, or if
-          you need to keep your modifications private, there is a tiered commercial licence.
+          earning under 50,000 Australian dollars (AUD) a year, that costs you nothing. Above
+          that threshold, or if you need to keep your modifications private, there is a tiered
+          commercial licence.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#chooser">Work out which applies to you</a>
@@ -239,14 +240,16 @@ Licensed under AGPL-3.0+.</pre>
         </p>
         <div class="note note--amber" style="margin-top:16px">
           <strong>Three carve-outs the audit turned up.</strong> Twenty-two ported files inherit the
-          original four-clause BSD licence, whose advertising clause the AGPL cannot accept, so they
-          are excluded from the AGPL grant and must not enter an AGPL binary.
+          original four-clause Berkeley Software Distribution (BSD) licence, whose advertising clause
+          the AGPL cannot accept, so they are excluded from the AGPL grant and must not enter an
+          AGPL binary.
           <code>pbsd/zfs/</code> derives from OpenZFS, which is CDDL and has no compatibility route
           to the AGPL &mdash; ZFS stays a separate unmodified module. And the KDE-derived work is
           compatible only through the &ldquo;or later&rdquo; clause, so GPL-2.0-only code must never
           enter the tree. All three are listed in
           <a href="https://github.com/odin-loki/ParanoidBSD/blob/main/NOTICES.md" target="_blank"
-             rel="noopener"><code>NOTICES.md</code></a> and enforced by a CI check.
+             rel="noopener"><code>NOTICES.md</code></a> and enforced by a Continuous Integration
+          (CI) check.
         </div>
       </div>
     </div>
@@ -272,7 +275,7 @@ Licensed under AGPL-3.0+.</pre>
           <tr><td><a href="/research.html">Ideas</a> &mdash; research shelf</td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/retdec.html">RetDec Imortek</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
           <tr><td><a href="/research/asset-tracking.html">ARIA-INTEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">&mdash;</td></tr>
-          <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was CC BY 4.0</td></tr>
+          <tr><td><a href="/cypha.html">Cypha</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was Creative Commons (CC) BY 4.0</td></tr>
           <tr><td><a href="/mathscript.html">MathScript</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was unlicensed &middot; <code>vendor/</code> excluded</td></tr>
           <tr><td><a href="/aegis.html">AEGIS</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was proprietary</td></tr>
           <tr><td><a href="/sentinel.html">SENTINEL</a></td><td>AGPL-3.0+ / commercial</td><td><span class="badge badge--teal">In place</span></td><td class="muted">was MIT</td></tr>
@@ -286,8 +289,9 @@ Licensed under AGPL-3.0+.</pre>
       binds.</strong> Two things worth stating plainly about the change. Permissive licences are
       irrevocable for copies already distributed &mdash; anyone who received Cypha under CC BY 4.0,
       or SENTINEL under MIT, keeps those rights to that copy; the new terms govern this release
-      onward. And AEGIS, MathScript and Cell AI were not previously open at all, so for those the
-      change grants rights rather than removing them.
+      onward. And three were not previously open at all: AEGIS, MathScript, and the Artificial
+      Intelligence (AI) research log, Cell AI. For those the change grants rights rather than
+      removing them.
     </div>
   </div>
 </section>

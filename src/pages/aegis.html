@@ -8,9 +8,10 @@
         <p class="lede">
           Encryption keeps the contents of a message private. It does not hide that the message
           happened. An observer watching the network still sees who is talking to whom, when, and
-          how much &mdash; which in sensitive settings can matter as much as the words. AEGIS keeps
-          traffic between the members of a closed group flowing at a constant rate whether there is
-          anything to send or not, so the timing and the volume carry no signal.
+          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
+          the words. AEGIS keeps traffic between the members of a closed group flowing at a
+          constant rate whether there is anything to send or not, so the timing and the volume
+          carry no signal.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Run the correlation attack</a>
@@ -237,7 +238,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Evidence</span>
       <h2>Eight phases, each behind a red-team gate</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports.</p>
+      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Crypto test vectors</div></div></div>
@@ -326,8 +327,9 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Repository hygiene:</strong> GitHub Actions CI, <code>cargo deny</code> dependency
-      auditing, and a workspace-wide policy forbidding unsafe code. For a Rust network stack
+      <strong>Repository hygiene:</strong> Continuous Integration (CI) on GitHub Actions,
+      <code>cargo deny</code> dependency auditing, and a workspace-wide policy forbidding unsafe
+      code. For a Rust network stack
       handling adversarial input, <code>#![forbid(unsafe_code)]</code> across the workspace is the
       single most load-bearing line in the project.
     </div>

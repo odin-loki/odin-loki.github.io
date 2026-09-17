@@ -14,7 +14,9 @@
         </p>
         <p class="lede">
           Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
-          players are the same problem with a different profile.
+          players are the same problem with a different profile. The MOT17 and MOT20 figures below
+          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
+          well a tracker did.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">Watch it track a maze</a>
@@ -127,9 +129,9 @@
             <span class="badge badge--violet" style="margin-bottom:10px">Existence</span>
             <h4 style="margin:0 0 6px">Bernoulli, not boolean</h4>
             <p class="small dim" style="margin:0">
-              A PMBM tracker over a 320-particle filter. Existence is a probability that decays
-              through misses and recovers on evidence, so an occlusion costs confidence rather
-              than identity.
+              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
+              Existence is a probability that decays through misses and recovers on evidence, so
+              an occlusion costs confidence rather than identity.
             </p>
           </div>
           <div class="card">
@@ -490,9 +492,10 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          One core, Release build, AVX-512. Cost grows as about n<sup>1.17</sup> and tracking alone
-          is flat at 135&ndash;159 &micro;s per track from ten tracks to four hundred &mdash; read it
-          as &ldquo;the constant matters and the exponent does not&rdquo;.
+          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
+          n<sup>1.17</sup> and tracking alone is flat at 135&ndash;159 &micro;s per track from ten
+          tracks to four hundred &mdash; read it as &ldquo;the constant matters and the exponent
+          does not&rdquo;.
         </p>
       </div>
       <div>
@@ -564,10 +567,10 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">Source-available</span>
-    <h2>AGPL-3.0+, with a commercial licence beside it</h2>
+    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
     <p class="lede">
-      The same terms as everything else here: read it, run it, check it. If the AGPL does not suit
-      what you want to build, there is a tiered commercial licence.
+      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
+      AGPL does not suit what you want to build, there is a tiered commercial licence.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Read the source &rarr;</a>
