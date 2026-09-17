@@ -25,7 +25,12 @@ import sys
 # Text the glossary layer refuses to mark, so an acronym living only here could
 # not be explained even if it had a gloss. Mirrors SKIP and SKIP_CLASS in
 # assets/js/glossary.js — if that list changes, this one has to follow.
-SKIP_TAG = re.compile(r'(?is)<(code|pre|script|style|svg|noscript|textarea|samp|kbd)\b.*?</\1>')
+# Mirrors SKIP in assets/js/glossary.js, which is why a, button, h1 and summary
+# are in here: the layer will not mark inside a link or a heading, so an
+# acronym that only ever appears in one is not a backlog item — it is out of
+# reach, and reporting it made the research shelf look far worse than it is.
+SKIP_TAG = re.compile(
+    r'(?is)<(code|pre|script|style|svg|noscript|textarea|samp|kbd|a|button|h1|summary)\b.*?</\1>')
 SKIP_CLASS = re.compile(
     r'(?is)<([a-z]+)[^>]*class="[^"]*\b(mono|panel__title|spec__k|stat__k|term__title|kv__k|code)\b[^"]*"[^>]*>.*?</\1>')
 TAG = re.compile(r'(?s)<[^>]+>')
@@ -44,6 +49,25 @@ UNCLASSIFIED SECRET APEX PRO PLUS CORE EDGE HOST GUEST USER ROOT
 US UK UN EU NZ AU NATO WWII II III IV VI VII VIII IX XI XII
 BY SA MO TU WE TH FR SU AM PM GMT UTC AEST
 '''.split())
+
+
+# Acronyms this site names but never explains, anywhere. These are not a backlog
+# item — there is nothing honest to write, because the source does not say. They
+# are listed rather than quietly skipped, because the right fix is on the page:
+# either say what the thing is where it is named, or stop naming it.
+NO_SOURCE = {
+    'BIFROST': 'pbsd.html lists it among the C++23 modules and nothing says what it does',
+    'UDA':     'same list, same problem',
+    'FAC':     'never stands alone — it only occurs inside K-FAC, so a gloss would '
+               'light up on half a word',
+    'LE':      'only ever "6P Guardian LE", a product variant, with nothing saying '
+               'what the two letters mark',
+    'QTR':     'research/carbide.html names a "QTR alpha constant error" and never '
+               'says what QTR is',
+    'AD':      'a bare table cell on research/pharma.html, not a term in prose',
+    'PC':      'the program counter, already carried as an alias of SP',
+    'ID':      'only ever inside re-ID, already an alias of re-identification',
+}
 
 
 def prose(path):
@@ -85,7 +109,7 @@ def main():
             # AGPL-3.0+ arrives here as "AGPL-3", so a version suffix must not
             # hide the fact that AGPL itself is already explained.
             base = re.match(r'[A-Z]+', w).group(0)
-            if {w.upper(), base} & (known | NOT_JARGON):
+            if {w.upper(), base} & (known | NOT_JARGON | set(NO_SOURCE)):
                 continue
             seen[w] += 1
             where[w].add(f)
@@ -93,6 +117,10 @@ def main():
     total = sum(seen.values())
     print('  %d pages, %d glossary terms, %d acronyms with no gloss (%d mentions)'
           % (len(pages), len(known), len(seen), total))
+    if NO_SOURCE:
+        print('  %d named but never explained anywhere on the site:' % len(NO_SOURCE))
+        for w in sorted(NO_SOURCE):
+            print('      %-9s %s' % (w, NO_SOURCE[w]))
     if not seen:
         print('\nEvery acronym in markable prose has something explaining it.')
         return
