@@ -35,10 +35,8 @@ SKIP_CLASS = re.compile(
     r'(?is)<([a-z]+)[^>]*class="[^"]*\b(mono|panel__title|spec__k|stat__k|term__title|kv__k|code)\b[^"]*"[^>]*>.*?</\1>')
 TAG = re.compile(r'(?s)<[^>]+>')
 # A hyphen inside a name belongs to the name: ARIA-INTEL is one thing, and
-# splitting it invented an acronym called INTEL that appears nowhere.
-# A hyphen inside a name belongs to the name: ARIA-INTEL is one thing, and
 # splitting it invented an acronym called INTEL that appears nowhere. A
-# subscript belongs to it too — VO\u2082 is not a term called VO.
+# subscript belongs to it too — VO₂ is not a term called VO.
 SUB = '\u2070-\u209f\u00b2\u00b3\u00b9'
 # A dot inside a designation belongs to it: without this the audit reads
 # "MP-4.6P Guardian LE" as the acronym MP-4, reports it as unexplained, and the

@@ -189,14 +189,32 @@
      ever actually fires.
 
      Matching the whole dash family in a term's own hyphen positions fixes
-     that class once instead of once per spelling per locale, and the same
-     family goes into the word boundary so AVX cannot light up inside
-     AVX–512 either. */
-  var DASH = '\\-\\u2010-\\u2015\\u2212';
+     that class once instead of once per spelling per locale.
+
+     The word boundary takes the shorter list, because only some of these
+     dashes join words. A hyphen and an en dash build a compound, so AVX must
+     not light up inside AVX–512 any more than inside AVX-512, and bare
+     Ornstein must not light up inside Ornstein–Uhlenbeck. The site leans on
+     that: strength–time, encoder–decoder, Miller–Rabin, Wyner–Ziv,
+     Marchenko–Pastur and a dozen more. An em dash is punctuation and a minus
+     sign is arithmetic; neither makes the word beside it part of something
+     longer, so neither belongs in a boundary. No page writes an em dash
+     without spaces around it today, so this costs nothing now — it is here
+     so that the first page that does still gets its jargon explained. */
+  var DASH = '\\-\\u2010-\\u2015\\u2212';   // any dash, inside a term
+  var JOIN = '\\-\\u2010-\\u2013';          // the ones that join words, for the boundary
   var DASHES = /[-\u2010-\u2015\u2212]/g;
 
+  /* A space in a term is any run of whitespace on the page.
+
+     HTML collapses whitespace, so "Gaussian mixture" written across a line
+     break is one phrase to the reader and two words with a newline between
+     them to a regex holding a literal space. Eleven entries had at least one
+     occurrence split that way on the English pages -- Gibbs sampling, dual
+     licence, search depth, capability nucleus, global passive adversary --
+     and a translated page, being longer, wraps in more places again. */
   function pattern(s) {
-    var body = esc(s).replace(DASHES, '[' + DASH + ']');
+    var body = esc(s).replace(DASHES, '[' + DASH + ']').replace(/ /g, '\\s+');
     if (LOC.code === 'en' || s.length < 5) return body;
     if (ARABIC.test(s)) {
       // و ف ب ك ل and the article ال, alone or combined.
@@ -233,7 +251,7 @@
          nothing and stops the whole class. */
       var acronym = /^[A-Z][A-Z0-9+\-/]*$/.test(s);
       var flags = (acronym ? '' : 'i') + ((!han && UNICODE_CLASSES) ? 'u' : '');
-      var re = new RegExp('(^|[^' + w + DASH + '])(' + pattern(s) + ')(?![' + w + DASH + '])', flags);
+      var re = new RegExp('(^|[^' + w + JOIN + '])(' + pattern(s) + ')(?![' + w + JOIN + '])', flags);
       var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;

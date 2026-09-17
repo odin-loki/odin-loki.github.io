@@ -39,6 +39,24 @@ const CODES = ONE ? [ONE]
     ? JSON.parse(fs.readFileSync('tools/locales.json', 'utf8')).locales.map(l => l.code)
     : ['en'];
 
+/* The matcher does not read all of a page. It skips links, code, headings and
+   anything whose class marks it as an identifier rather than prose, and it
+   works one text node at a time, so a phrase broken by an <em> is two strings
+   to it and not one. A gate that asks its question of #main.innerText asks a
+   different question and reports the difference as breakage -- which is what
+   the first run of this did: 13 entries, and most of them were the gate being
+   wrong rather than the site. Both rules are lifted out of glossary.js instead
+   of copied, so they cannot drift; a change to their shape fails loudly here
+   rather than quietly weakening the check. */
+const MATCHER = fs.readFileSync('assets/js/glossary.js', 'utf8');
+function lift(name) {
+  const m = MATCHER.match(new RegExp('var ' + name + ' = (/.*?/);'));
+  if (!m) throw new Error(`gloss-reach: cannot find ${name} in glossary.js -- ` +
+    'the matcher changed shape and this gate needs updating to match');
+  return m[1];
+}
+const SKIP_SRC = lift('SKIP'), SKIP_CLASS_SRC = lift('SKIP_CLASS');
+
 const LOCALE_CODES = JSON.parse(fs.readFileSync('tools/locales.json', 'utf8')).locales
   .filter(l => !l.root).map(l => l.code);
 
@@ -65,24 +83,41 @@ const DASHES = /[-\u2010-\u2015\u2212]/g;
 const norm = s => s.replace(DASHES, '-').toLowerCase();
 
 /* "Is this wording on the page" has to be asked the way the matcher asks it,
-   or the gate files the matcher's correct refusals as breakages. Bengali
-   writes পূর্বনির্ধারিত ("default") eight times, and that contains
-   নির্ধারিত ("determined"), which the matcher declines on purpose. A plain
-   substring test would report the refusal as a bug. So: a real boundary in
-   front, and up to three trailing letters, which is the inflection tolerance
-   the matcher itself allows Cyrillic and Indic.
+   or the gate files the matcher's correct refusals as breakages. Two ways to
+   get it wrong, and the first run of this gate managed both.
 
-   An Arabic prefix is not allowed for here. The matcher does allow one, so a
-   term the page writes with ال attached has already fired and is not in this
-   list to be asked about. */
+   Boundaries: Bengali writes পূর্বনির্ধারিত ("default") eight times, which
+   contains নির্ধারিত ("determined"). The matcher declines that on purpose;
+   a plain substring test reports the refusal as a bug.
+
+   Inflection: the matcher tolerates a short suffix in Russian, Hindi, Bengali
+   and Urdu, and a short prefix in Arabic and Urdu, and tolerates NOTHING in
+   English or the Latin locales. Applying the suffix everywhere had the gate
+   claiming "particle filter" was broken because a page says "particles".
+
+   So the rules are lifted from pattern() in glossary.js rather than
+   approximated, and the lengths are its lengths. */
+const ARABIC = /[\u0600-\u06ff]/, CYRILLIC = /[\u0400-\u04ff]/,
+      INDIC = /[\u0900-\u097f\u0980-\u09ff]/;
 const WORDCH = '\\p{L}\\p{M}\\p{N}_';
-const DASHCLS = '\\-\\u2010-\\u2015\\u2212';
+// Only the joining dashes, matching the boundary the matcher uses.
+const DASHCLS = '\\-\\u2010-\\u2013';
 const escRx = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-function onPage(text, s) {
+function onPage(text, s, code) {
   if (s.length < 3) return false;
+  let prefix = '', suffix = '';
+  if (code !== 'en' && s.length >= 5) {
+    if (ARABIC.test(s)) {
+      prefix = '(?:[\u0648\u0641\u0628\u0643\u0644]?\u0627\u0644|[\u0648\u0641\u0628\u0643\u0644])?';
+      suffix = '[\\p{L}\\p{M}]{0,2}';
+    } else if (CYRILLIC.test(s) || INDIC.test(s)) {
+      suffix = '[\\p{L}\\p{M}]{0,3}';
+    }
+  }
   try {
-    return new RegExp('(^|[^' + WORDCH + DASHCLS + '])' + escRx(norm(s)) +
-                      '[\\p{L}\\p{M}]{0,3}(?![' + WORDCH + DASHCLS + '])', 'u').test(text);
+    return new RegExp('(^|[^' + WORDCH + DASHCLS + '])' + prefix +
+                      escRx(norm(s)).replace(/ /g, '\\s+') +
+                      suffix + '(?![' + WORDCH + DASHCLS + '])', 'u').test(text);
   } catch (e) { return text.indexOf(norm(s)) >= 0; }
 }
 
@@ -105,10 +140,28 @@ function onPage(text, s) {
         await page.goto(`${BASE}/${code === 'en' ? '' : code + '/'}${path}`,
                         { waitUntil: 'networkidle', timeout: 45000 });
         await page.waitForTimeout(600);
-        const got = await page.evaluate(() => ({
-          marked: [...document.querySelectorAll('#main .gloss')].map(e => e.dataset.term),
-          prose: (document.querySelector('#main') || document.body).innerText,
-        }));
+        const got = await page.evaluate(([skipSrc, skipClassSrc]) => {
+          const SKIP = eval(skipSrc), SKIP_CLASS = eval(skipClassSrc);
+          const main = document.querySelector('#main') || document.body;
+          const w = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+            acceptNode(n) {
+              for (let p = n.parentNode; p && p !== main; p = p.parentNode) {
+                if (SKIP.test(p.nodeName) ||
+                    (p.className && typeof p.className === 'string' && SKIP_CLASS.test(p.className))) {
+                  return NodeFilter.FILTER_REJECT;
+                }
+              }
+              return NodeFilter.FILTER_ACCEPT;
+            },
+          });
+          const parts = [];
+          for (let n = w.nextNode(); n; n = w.nextNode()) parts.push(n.nodeValue);
+          return {
+            marked: [...document.querySelectorAll('#main .gloss')].map(e => e.dataset.term),
+            // One text node per line: the matcher cannot see across a tag either.
+            prose: parts.join('\n'),
+          };
+        }, [SKIP_SRC, SKIP_CLASS_SRC]);
         got.marked.forEach(t => reached.add(t));
         text.push(got.prose);
       } catch (e) {
@@ -123,7 +176,7 @@ function onPage(text, s) {
     // An entry is BROKEN, not merely unused, when its own wording is sitting
     // in the prose and the matcher still walked past it.
     const broken = dead.filter(t => [t.t].concat(t.alias || [])
-      .some(s => onPage(all, s)));
+      .some(s => onPage(all, s, code)));
     report.push({ code, pages: pages.length, terms: terms.length,
                   fired: reached.size, dead: dead.length, broken, all });
     console.log(`  ${code.padEnd(3)} ${String(pages.length).padStart(3)} pages   ` +
@@ -138,7 +191,7 @@ function onPage(text, s) {
     total += r.broken.length;
     console.log(`\n  ${r.code}: ${r.broken.length} entry(s) whose own wording is on a page and never mark`);
     for (const t of r.broken) {
-      const hit = [t.t].concat(t.alias || []).filter(s => onPage(r.all, s));
+      const hit = [t.t].concat(t.alias || []).filter(s => onPage(r.all, s, r.code));
       console.log(`      ${t.t.padEnd(24)} page text has ${hit.map(s => JSON.stringify(s)).join(', ')}`);
     }
   }

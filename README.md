@@ -151,13 +151,13 @@ Two rules learnt the hard way, both in `assets/js/i18n.js`:
 
 ## Plain English
 
-`assets/data/glossary.json` holds 199 pieces of jargon and, for each, one or two sentences a
+`assets/data/glossary.json` holds 455 pieces of jargon and, for each, one or two sentences a
 person with no background can read once and understand. Click *Explain the jargon* in the page
 toolbar and the first occurrence of each is marked; the layer averages 39 marked terms a page.
 Double-click any other word and it falls through to a 144,440-word WordNet dictionary, loaded
 one shard at a time.
 
-All 199 are written in all ten languages, with the local spelling of each term added as a
+All 455 are written in all ten languages, with the local spelling of each term added as a
 matcher so the layer lights up on a page that says *núcleo* rather than *kernel*. Arabic
 attaches its article to the front of a word and Russian, Hindi and Bengali inflect the end, so
 outside English an alias of five characters or more may carry a short prefix or suffix — five
@@ -266,12 +266,13 @@ node tools/qa/i18n-smoke.js         # selector, search, read-aloud, glossary, pe
 python3 tools/qa/urlcheck.py        # nothing points at one of the site's own redirects
 python3 tools/qa/classcheck.py      # every class a page uses has a rule behind it
 node tools/qa/gloss-check.js        # the jargon layer never marks half a word
+node tools/qa/gloss-reach.js --all --gate    # no glossary entry is quietly dead
 python3 tools/qa/jargon-audit.py --gate     # no acronym on any page is unexplained
 python3 tools/gen_glossary_locale.py stale  # no translation made from English that has since changed
 ```
 
 All of them exit non-zero on failure, so they drop straight into CI if you ever want them
-there. Three of the six exist because of a bug that had already shipped, which is the only
+there. Six of the nine exist because of a bug that had already shipped, which is the only
 honest reason to add a check:
 
 - `urlcheck.py` after Search Console reported pages it would not index. The cause turned out
@@ -299,6 +300,17 @@ honest reason to add a check:
   "limits" lit up inside the Urdu for "limited" on twelve pages. Unicode property escapes fix
   it; Han keeps the permissive form, because Chinese is written without spaces and a real word
   boundary there would match nothing.
+- `gloss-reach.js` after an entry was found that had never once fired. Every page writes
+  Ornstein–Uhlenbeck with an en dash; the glossary key was typed with an ASCII hyphen, and
+  the matcher escapes a term literally, so the two never met — in English and in all nine
+  translations at once, since the key is shared. Three checks already looked at that entry
+  and all three were happy: it was well formed, the acronym it covers had a gloss, and what
+  the page did mark was marked cleanly. None of them asked whether it did anything. This one
+  runs the real matcher over every page in every language and reports the entries that never
+  light up, failing only on the ones whose own wording is sitting in the prose — most of the
+  455 are carried for the dictionary and the translations rather than for markup. It found
+  the Bengali for "deterministic" the same way.
+
 The responsive audit is the one that found the header: it fitted English on a wide laptop and
 nothing else, because Russian needs about 500px more for the same navigation. Rather than
 guess a breakpoint per language, the row now gives up ornament as space runs out — tagline,
