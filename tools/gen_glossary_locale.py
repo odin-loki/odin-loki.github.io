@@ -114,6 +114,41 @@ def sync():
                     t.pop('ena', None)
         # Write on any change, not only an alias one: the fingerprints are the
         # point of the exercise and were being computed and thrown away.
+        # An alias claimed by two entries in the same file is wrong whoever
+        # wrote it: the reader gets whichever sorted first. Where the master
+        # says who owns the word, that settles it — Clang belongs to GCC, and
+        # the copy left on LLVM is a leftover from when the master had it there.
+        # Where neither is the master's, no rule here can choose, so it is
+        # reported for a person instead of being resolved by luck.
+        owner, undecided = {}, []
+        master_alias = {}
+        for k, src in en.items():
+            for a in src.get('alias', []):
+                master_alias[a] = k
+        for t in d['terms']:
+            for a in list(t.get('alias', [])):
+                if a not in owner:
+                    owner[a] = t['t']
+                    continue
+                keeper = master_alias.get(a)
+                if keeper == t['t']:
+                    loser = owner[a]
+                elif keeper == owner[a]:
+                    loser = t['t']
+                else:
+                    undecided.append((a, owner[a], t['t']))
+                    continue
+                for x in d['terms']:
+                    if x['t'] == loser and a in x.get('alias', []):
+                        x['alias'].remove(a)
+                        if not x['alias']:
+                            x.pop('alias')
+                        changed.append('%s (dropped %r to %s)' % (loser, a, keeper))
+                owner[a] = keeper
+        for a, one, two in undecided:
+            print('  %-3s ! %r is claimed by both %s and %s — pick one by hand'
+                  % (code, a, one, two))
+
         if json.dumps(d, ensure_ascii=False, sort_keys=True) != before:
             with open(p, 'w', encoding='utf-8') as fh:
                 json.dump(d, fh, ensure_ascii=False, separators=(',', ':'))
