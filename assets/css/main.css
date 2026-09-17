@@ -500,6 +500,9 @@ select:focus, input:focus { border-color: var(--teal); outline: none; }
 .readout__v.violet { color: var(--violet); }
 .readout__v.red { color: var(--red); }
 .readout__v.plain { color: var(--ink); }
+/* Teal is already the default, but the demos toggle this class against
+   .amber at runtime, so it has to exist to switch back to. */
+.readout__v.teal { color: var(--teal); }
 
 .demo-canvas { width: 100%; display: block; background: #04060a; border-radius: var(--r); cursor: crosshair; touch-action: none; }
 

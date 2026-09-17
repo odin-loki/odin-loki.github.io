@@ -30,6 +30,7 @@ computer-science degree, it belongs further down the page, not in the pitch.
 | `/aegis.html` | **Interactive:** run a traffic-correlation attack, with and without constant-rate shaping |
 | `/sentinel.html` | **Interactive:** KDE hotspots and Rossmo geographic profiling, scored by hit rate |
 | `/cellai.html` | **Interactive:** live Gray–Scott reaction-diffusion |
+| `/trace.html` | **Interactive:** the tracking engine itself, in WebAssembly — a maze under a camera grid, and a ship that switches off its transponder |
 | `/kickstarter.html` | **Interactive:** the PBSD funding model with every assumption exposed |
 | `/beta.html` | Recruits beta testers for all seven programs — written in plain English, no jargon |
 | `/licensing.html` | **Interactive:** AGPL vs commercial chooser |
@@ -252,7 +253,7 @@ The layout adapts across three regimes rather than just collapsing at one breakp
 Canvas demos call `window.ImortekFitHeight(preferred)` (in `site.js`) rather than hard-coding
 a height, which is what keeps a 400px canvas from exceeding a 390px-tall landscape phone.
 
-Verified across **1,960 page/viewport combinations** (196 pages × 10 sizes from 320×568 to
+Verified across **2,060 page/viewport combinations** (206 pages × 10 sizes from 320×568 to
 2560×1440, including 844×390 landscape, in all ten languages and both writing directions):
 no horizontal overflow and no page errors anywhere. Re-run it yourself:
 
@@ -262,9 +263,28 @@ python3 -m http.server 8123 &
 node tools/qa/responsive-audit.js   # every page, every size, every language
 python3 tools/qa/i18n-check.py      # translated pages still structurally identical
 node tools/qa/i18n-smoke.js         # selector, search, read-aloud, glossary, per language
+python3 tools/qa/urlcheck.py        # nothing points at one of the site's own redirects
+python3 tools/qa/classcheck.py      # every class a page uses has a rule behind it
+node tools/qa/gloss-check.js        # the jargon layer never marks half a word
 ```
 
-All three exit non-zero on failure, so they drop straight into CI if you ever want them there.
+All of them exit non-zero on failure, so they drop straight into CI if you ever want them
+there. Three of the six exist because of a bug that had already shipped, which is the only
+honest reason to add a check:
+
+- `urlcheck.py` after Search Console reported pages it would not index. The cause turned out
+  to be the old github.io addresses redirecting to the custom domain — the move working, not a
+  defect — but proving that took checking every URL the site publishes, and it seemed worth
+  keeping.
+- `classcheck.py` after a page shipped `.table-wrap` and `.table` when the site's idiom is
+  `.table-scroll` and `table.data`. A class that matches no rule fails silently; the only
+  symptom was 76px of sideways overflow, on one page, in Russian, at phone width.
+- `gloss-check.js` after the plain-English layer was found marking half a word. JavaScript's
+  `\w` is `[A-Za-z0-9_]` whatever flags you pass it, so in Urdu, Arabic, Hindi, Bengali and
+  Russian the `[^\w-]` guards around every alias asserted nothing at all, and the Urdu for
+  "limits" lit up inside the Urdu for "limited" on twelve pages. Unicode property escapes fix
+  it; Han keeps the permissive form, because Chinese is written without spaces and a real word
+  boundary there would match nothing.
 The responsive audit is the one that found the header: it fitted English on a wide laptop and
 nothing else, because Russian needs about 500px more for the same navigation. Rather than
 guess a breakpoint per language, the row now gives up ornament as space runs out — tagline,

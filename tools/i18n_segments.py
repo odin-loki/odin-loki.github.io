@@ -311,6 +311,49 @@ def stat():
             if h < len(ks):
                 print('      %-12s %3d/%3d' % (slug, h, len(ks)))
 
+def prune(force=False):
+    """Drop translations whose English no longer exists.
+
+    `merge` only ever adds, so correcting an English sentence — as opposed to
+    adding one — silently invalidates its nine translations and leaves them in
+    the catalogues saying the wrong thing. Nothing renders them, but nothing
+    surfaces them either: `dump` only offers keys the page still has, so a
+    stale entry is invisible forever.
+
+    This is deliberately NOT part of the build. `extract` reads the English out
+    of the pages, so a page half-way through an edit produces a master that is
+    briefly missing keys, and a prune running behind it would delete good work
+    permanently. Refusing when the damage would be large is the second guard:
+    a handful of dead keys is the normal case, and anything more means the
+    master is wrong rather than the locales.
+    """
+    en = load('en')
+    if not en:
+        sys.exit('no English master — run extract first')
+    total = 0
+    for path in sorted(glob.glob(SEG_DIR + '/segments.*.json')):
+        code = os.path.basename(path)[len('segments.'):-len('.json')]
+        if code in ('en', 'pages'):
+            continue
+        cat = json.load(open(path, encoding='utf-8'))
+        dead = [k for k in cat if k not in en]
+        if not dead:
+            print('  %-3s clean' % code)
+            continue
+        share = len(dead) / float(len(cat)) if cat else 0
+        if share > 0.05 and not force:
+            sys.exit('%s: %d of %d keys (%.0f%%) have no English. That is too many to be '
+                     'reworded sentences — check that segments.en.json is complete before '
+                     'pruning, then pass --force if you meant it.'
+                     % (code, len(dead), len(cat), 100 * share))
+        for k in dead:
+            del cat[k]
+        with open(path, 'w', encoding='utf-8') as fh:
+            json.dump(cat, fh, ensure_ascii=False, indent=0, sort_keys=True)
+        total += len(dead)
+        print('  %-3s -%d  (%s)' % (code, len(dead), ', '.join(sorted(dead))))
+    print('%d dead translation(s) removed' % total)
+
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else 'extract'
     if cmd == 'extract': extract()
@@ -319,5 +362,6 @@ if __name__ == '__main__':
     elif cmd == 'dump':  dump(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
     elif cmd == 'merge': merge(sys.argv[2], sys.argv[3])
     elif cmd == 'stat':  stat()
+    elif cmd == 'prune': prune('--force' in sys.argv)
     else: sys.exit('usage: extract | apply <slug> <code> | cover <slug> <code> | '
-                   'dump <slug> [code] | merge <slug> <code> | stat')
+                   'dump <slug> [code] | merge <slug> <code> | stat | prune [--force]')

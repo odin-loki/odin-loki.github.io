@@ -152,6 +152,31 @@
   var ARABIC = /[\u0600-\u06ff]/;
   var CYRILLIC = /[\u0400-\u04ff]/;
   var INDIC = /[\u0900-\u097f\u0980-\u09ff]/;
+  var HAN = /[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff]/;
+
+  /* A word boundary that knows about scripts other than English.
+
+     JavaScript's \w is [A-Za-z0-9_] whatever flags you pass it, so in Urdu,
+     Arabic, Hindi, Bengali and Russian EVERY letter satisfies [^\w-] and the
+     guards in markUp assert nothing at all. An alias could start or end in the
+     middle of a word: حدود matched inside محدود on twelve pages, and صلہ inside
+     فیصلہ. Unicode property escapes give a real boundary where the browser has
+     them, which is everywhere that matters and is feature-tested rather than
+     assumed.
+
+     Han and kana are the deliberate exception. Chinese is written without
+     spaces, so a term is always flush against more letters, and a real
+     boundary would match nothing at all. */
+  var UNICODE_CLASSES = (function () {
+    try { new RegExp('\\p{L}', 'u'); return true; } catch (e) { return false; }
+  })();
+  var WORD = UNICODE_CLASSES ? '\\p{L}\\p{M}\\p{N}_' : '\\w';
+  /* Letters and their combining marks, for the inflection tolerance below.
+     The hardcoded ranges it replaces were each short of their own script:
+     [\u0627-\u064a] has none of the Urdu letters (ٹ ڈ ڑ ک گ ہ ھ ی ے ں), so
+     بائنریوں matched as far as the و and left the ں stranded outside the
+     highlight; [\u0430-\u044f] likewise has no ё. */
+  var LETTER = UNICODE_CLASSES ? '[\\p{L}\\p{M}]' : null;
 
   function pattern(s) {
     var body = esc(s);
@@ -159,11 +184,12 @@
     if (ARABIC.test(s)) {
       // و ف ب ك ل and the article ال, alone or combined.
       return '(?:[\u0648\u0641\u0628\u0643\u0644]?\u0627\u0644|[\u0648\u0641\u0628\u0643\u0644])?' + body +
-             '[\u0627-\u064a]{0,2}';
+             (LETTER || '[\u0627-\u064a]') + '{0,2}';
     }
-    if (CYRILLIC.test(s)) return body + '[\u0430-\u044f]{0,3}';
+    if (CYRILLIC.test(s)) return body + (LETTER || '[\u0430-\u044f]') + '{0,3}';
     // U+0964 and U+0965 are the danda — sentence punctuation, not a suffix.
-    if (INDIC.test(s)) return body + '[\u0900-\u0963\u0966-\u097f\u0980-\u09ff]{0,3}';
+    // \p{L} excludes them for the same reason, so the carve-out survives.
+    if (INDIC.test(s)) return body + (LETTER || '[\u0900-\u0963\u0966-\u097f\u0980-\u09ff]') + '{0,3}';
     return body;
   }
 
@@ -178,7 +204,11 @@
     strings.forEach(function (pair) {
       var s = pair[0], t = pair[1];
       if (seen[t.t]) return;
-      var re = new RegExp('(^|[^\\w-])(' + pattern(s) + ')(?![\\w-])', 'i');
+      // Han keeps the permissive guard; everything else gets a real boundary.
+      var han = HAN.test(s);
+      var w = han ? '\\w' : WORD;
+      var re = new RegExp('(^|[^' + w + '-])(' + pattern(s) + ')(?![' + w + '-])',
+                          (!han && UNICODE_CLASSES) ? 'iu' : 'i');
       var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;
