@@ -178,8 +178,25 @@
      highlight; [\u0430-\u044f] likewise has no ё. */
   var LETTER = UNICODE_CLASSES ? '[\\p{L}\\p{M}]' : null;
 
+  /* A hyphen has six lookalikes and prose uses them interchangeably.
+
+     Every page on this site writes Ornstein–Uhlenbeck with an EN DASH,
+     because that is what the typography calls for; the glossary key was
+     typed with an ASCII hyphen, because that is what a keyboard gives you.
+     The two never met, so the entry sat in the file explaining nothing, in
+     English and in all nine translations at once. Nothing reported it: the
+     term was present, the gloss was good, and no gate asks whether an entry
+     ever actually fires.
+
+     Matching the whole dash family in a term's own hyphen positions fixes
+     that class once instead of once per spelling per locale, and the same
+     family goes into the word boundary so AVX cannot light up inside
+     AVX–512 either. */
+  var DASH = '\\-\\u2010-\\u2015\\u2212';
+  var DASHES = /[-\u2010-\u2015\u2212]/g;
+
   function pattern(s) {
-    var body = esc(s);
+    var body = esc(s).replace(DASHES, '[' + DASH + ']');
     if (LOC.code === 'en' || s.length < 5) return body;
     if (ARABIC.test(s)) {
       // و ف ب ك ل and the article ال, alone or combined.
@@ -216,7 +233,7 @@
          nothing and stops the whole class. */
       var acronym = /^[A-Z][A-Z0-9+\-/]*$/.test(s);
       var flags = (acronym ? '' : 'i') + ((!han && UNICODE_CLASSES) ? 'u' : '');
-      var re = new RegExp('(^|[^' + w + '-])(' + pattern(s) + ')(?![' + w + '-])', flags);
+      var re = new RegExp('(^|[^' + w + DASH + '])(' + pattern(s) + ')(?![' + w + DASH + '])', flags);
       var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;
