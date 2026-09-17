@@ -47,6 +47,15 @@ def stamp(gloss):
     """
     return hashlib.sha1(gloss.encode('utf-8')).hexdigest()[:8]
 
+# A limit of the fingerprint, written down because it already caught someone out
+# once: it records the English as it stood when MERGE RAN, not the English the
+# translator actually read. A translation written against an older master and
+# merged later is stamped as current and `stale` will not see it. That is what
+# happened to the Bengali KDE and QR — a batch prepared before the English was
+# corrected, merged after, and it silently reverted both. If a translation is
+# merged long after it was written, check the terms whose English moved in
+# between by hand; the fingerprint cannot do it for you.
+
 def sync():
     """Push the English aliases into every locale, keeping each one's own.
 
