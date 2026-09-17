@@ -285,7 +285,7 @@ TERMS = [
 {"t":"sighting","d":"data","alias":["detection","detections","observation"],"g":"One moment when a sensor noticed something. It says where, roughly, and nothing about what it was."},
 {"t":"coasting","d":"data","alias":["coast"],"g":"Carrying on with a guess when nothing can see the thing any more. The guess gets worse the longer it goes on, and good software says so."},
 {"t":"dormant","d":"data","alias":["dormant track"],"g":"Put aside rather than thrown away. The software stops claiming it knows where something is, but keeps what it learned in case it turns up again."},
-{"t":"re-identification","d":"data","alias":["re-identify","reacquire","reacquired"],"g":"Deciding that a thing that just turned up is one you had seen before, not a new one."},
+{"t":"re-identification","d":"data","alias":["re-identify","reacquire","reacquired","re-ID"],"g":"Deciding that a thing that just turned up is one you had seen before, not a new one."},
 {"t":"identity switch","d":"data","alias":["identity switches","id switch"],"g":"When software mixes two things up and gives one of them the other's name. Everything it later says about either is then wrong."},
 {"t":"ghost track","d":"data","alias":["ghost tracks"],"g":"Something the software thinks is there and is not. Usually a sensor error it took seriously."},
 {"t":"existence","d":"data","alias":["probability of existence"],"g":"How sure the software is that a thing is there at all, kept apart from where it thinks it is. Those are two different questions."},
@@ -294,6 +294,91 @@ TERMS = [
 {"t":"pattern of life","d":"data","g":"What is normal for one particular thing: where it goes, and when. Useful because odd behaviour only means something against a habit."},
 {"t":"rendezvous","d":"data","alias":["convergence"],"g":"Two things about to meet. Software can often tell before either has arrived, from where they are heading."},
 {"t":"transponder","d":"data","alias":["AIS"],"g":"A box on a ship or aircraft that keeps announcing where it is. Switching it off is how something disappears on purpose."},
+
+# ---------- TRACE's own vocabulary ----------
+{"t":"TRACE","d":"data","g":"The tracking engine on this site. It works out which sightings are the same thing, and holds on to that thing while nothing can see it."},
+{"t":"PMBM","d":"data","g":"The method TRACE uses to follow several things at once. Its trick is treating whether a thing is there as a separate question from where it is."},
+{"t":"MOTA","d":"data","g":"One number for how well a tracker did. It counts misses, things that were never there, and mix-ups, all together."},
+{"t":"MOT17","d":"data","alias":["MOT20"],"g":"Public video with every person in it marked by hand, so anyone's tracker can be tested on the same footage."},
+{"t":"occlusion","d":"data","alias":["occluded"],"g":"When one thing passes behind another and cannot be seen. Brief, ordinary, and the main reason a tracker loses things."},
+{"t":"descriptor","d":"data","alias":["descriptors","appearance descriptor"],"g":"A short summary of what something looks like, kept so it can be told apart from something else nearby."},
+{"t":"kinematics","d":"maths","g":"How a thing moves — how fast and which way — without asking what is pushing it."},
+{"t":"Bernoulli","d":"maths","g":"A name you meet on things that either happen or do not, with a number for how likely. Here: whether a track is real at all."},
+{"t":"Gibbs sampling","d":"maths","alias":["Gibbs"],"g":"Finding a good whole answer by fixing one piece at a time, over and over, until the whole thing settles down."},
+{"t":"Markov chain","d":"maths","alias":["Markov"],"g":"Something that changes step by step, where what happens next depends only on where it is now, not on how it got there."},
+{"t":"Ornstein-Uhlenbeck","d":"maths","alias":["OU","Ornstein","Uhlenbeck"],"g":"A way of describing something that wanders about but keeps being pulled back. A boat on a mooring, not a boat adrift."},
+{"t":"Gaussian mixture","d":"maths","alias":["Gaussian","GMM"],"g":"Several bell curves added together, to describe a thing that one bell curve cannot. Used here to learn where an entity usually goes."},
+{"t":"possibility","d":"maths","alias":["possibilistic"],"g":"How good the evidence is, rather than how much of it there is. Many weak reports can look like certainty; this is what notices."},
+{"t":"uncertainty","d":"maths","g":"How wrong a number might be. Reporting it is the difference between a measurement and a guess."},
+{"t":"CUDA","d":"systems","g":"Nvidia's way of running your own code on a graphics card instead of the main processor. Good at doing the same sum thousands of times."},
+{"t":"AVX","d":"systems","alias":["AVX2","AVX-512","SIMD"],"g":"Instructions that let one processor do the same sum on eight numbers at once instead of one at a time."},
+
+# ---------- acronyms a reader meets on these pages: the machine ----------
+{"t":"CPU","d":"systems","alias":["processor"],"g":"The part of a computer that does the actual work, one instruction after another. Everything else is storage or wiring."},
+{"t":"GPU","d":"systems","alias":["graphics card"],"g":"A chip built to do thousands of small sums at the same time. Made for drawing pictures, now used for maths of any kind."},
+{"t":"KB","d":"systems","alias":["MB","GB","TB","kilobyte","megabyte","gigabyte"],"g":"Sizes. A byte is about one letter. A thousand of them is a KB, a million an MB, a billion a GB. A thousand GB is a TB."},
+{"t":"ISA","d":"systems","g":"The list of instructions a chip understands. Two chips with the same list can run the same program without it being rebuilt."},
+{"t":"TLB","d":"systems","g":"A small fast note of where things were last found in memory, so the computer does not have to look them up again."},
+{"t":"FPGA","d":"systems","g":"A chip you rewire rather than program. Slower than a purpose-built one, but you can change your mind."},
+{"t":"HDL","d":"systems","alias":["SystemVerilog","Verilog","VHDL","RTL"],"g":"A language for describing a chip rather than a program. You write what the wiring does, and a tool works out the wiring."},
+{"t":"BIOS","d":"systems","g":"The tiny program that runs first when you press the power button, before anything else exists."},
+{"t":"JIT","d":"systems","g":"Translating a program into machine instructions while it is already running, rather than beforehand. Slower to start, faster after."},
+{"t":"JVM","d":"systems","alias":["DEX","CIL"],"g":"A pretend computer that real computers imitate, so one program can run anywhere without being rebuilt for each machine."},
+{"t":"AST","d":"systems","g":"A program drawn as a tree rather than as text, which is the shape every tool that reads code actually works on."},
+{"t":"ARM","d":"systems","g":"A family of chip designs. Phones, and now laptops and servers. The other family is the one in most desktops."},
+{"t":"GCC","d":"systems","alias":["MSVC","Clang"],"g":"Programs that turn source code into something a machine can run. Different ones, same job, and they disagree in the corners."},
+{"t":"JSON","d":"data","alias":["XML","CSV"],"g":"Plain-text ways of writing data down so two programs can pass it between them. Readable by a person, at a pinch."},
+{"t":"UI","d":"systems","alias":["interface"],"g":"The part you see and touch. Everything underneath is arranged to serve it, or ought to be."},
+{"t":"TCP","d":"security","alias":["IP"],"g":"The rules computers follow to pass messages over a network, and to notice when one goes missing."},
+{"t":"SHA","d":"security","alias":["SHA-256","hash"],"g":"A way of turning any file into one short number. Change a single letter and the number changes completely."},
+{"t":"RSA","d":"security","g":"An old and widely used way of locking a message with one key so that only the other key opens it."},
+{"t":"PDF","d":"data","g":"A file that looks the same everywhere, because it carries its own layout rather than trusting the reader's."},
+{"t":"REST","d":"systems","alias":["API"],"g":"A common way for one program to ask another for something over the network, using ordinary web requests."},
+{"t":"ZFS","d":"systems","alias":["OpenZFS"],"g":"A way of storing files that checks its own work, so a disk quietly corrupting a file is noticed rather than passed on."},
+{"t":"GNU","d":"legal","alias":["GPL","GPL-2","CDDL"],"g":"A family of free-software licences, and the project that wrote them. Sharing is the condition of use, not a nice extra."},
+{"t":"MIT","d":"legal","alias":["MIT licence"],"g":"About the most permissive licence there is: do what you like, keep the notice, expect no promises."},
+{"t":"CC","d":"legal","alias":["Creative Commons","CC BY"],"g":"Ready-made licences for writing, pictures and data, in a few strengths from \u201Ccredit me\u201D upward."},
+{"t":"NIST","d":"security","alias":["ANSI","standards body"],"g":"A public body that publishes the reference version of things, so everyone can mean the same thing by them."},
+{"t":"RFC","d":"systems","g":"How the rules of the internet are written down and agreed. The name means Request For Comments, and that was not a joke."},
+{"t":"WSL","d":"systems","g":"A way of running Linux programs inside Windows without a second machine."},
+{"t":"KDE","d":"systems","alias":["Plasma"],"g":"One of the two main desktops for Linux: the windows, the panel, the settings. The other is GNOME."},
+{"t":"MPI","d":"systems","alias":["OpenMP","TBB"],"g":"Ways of splitting one job across many processors or many machines, and getting the pieces back in order."},
+{"t":"CFI","d":"security","alias":["RTTI","SafeStack"],"g":"A guard that checks a program only jumps where it was built to jump, so an attacker cannot redirect it mid-run."},
+{"t":"FSM","d":"systems","alias":["state machine"],"g":"A design with a fixed set of states and rules for moving between them. Easy to check, because you can list every case."},
+{"t":"DAC","d":"systems","alias":["ADC"],"g":"The bridge between numbers and voltages. One turns a number into a signal; the other turns a signal into a number."},
+
+# ---------- money, law and the rest of the furniture ----------
+{"t":"GDP","d":"legal","g":"Everything a country produces in a year, added up and priced. A rough number that gets treated as a precise one."},
+{"t":"IMF","d":"legal","g":"A body that lends money to countries in trouble, and attaches conditions. Its figures are widely used as a reference."},
+{"t":"USD","d":"legal","alias":["AUD","dollars"],"g":"Dollars. Named here because the same number means different things in different currencies, and this site says which."},
+{"t":"COGS","d":"legal","g":"What it costs to make each unit, before rent, wages or anything else. The floor under a price."},
+{"t":"TCO","d":"legal","g":"What a thing costs over its whole life, not just to buy: running it, fixing it, and getting rid of it."},
+{"t":"SKU","d":"legal","g":"One specific item as a shop lists it. Two sizes of the same thing are two of these."},
+{"t":"NDA","d":"legal","g":"An agreement not to repeat what you are about to be told. Normal in business, and a reason some work cannot be shown."},
+{"t":"FDA","d":"legal","g":"The American body that decides whether a drug or device may be sold there. Approval is slow on purpose."},
+{"t":"CBOE","d":"legal","g":"An American exchange, and the source of the volatility index that gets quoted as a measure of market fear."},
+{"t":"GIS","d":"data","g":"Software for maps that carry data — not a picture of a place, but a place you can ask questions of."},
+{"t":"HUMINT","d":"data","g":"Information that came from a person talking to another person, rather than from a sensor or a computer."},
+{"t":"QR","d":"data","alias":["QR code"],"g":"The square of black and white blocks a phone camera reads. It is just a short piece of text, stored oddly."},
+{"t":"UV","d":"maths","g":"Light just past the blue end of what an eye can see. It carries enough energy to break things and to set glues."},
+{"t":"FIDE","d":"data","g":"The body that runs world chess and hands out the ratings. A rating is a number for how strong a player is."},
+{"t":"PP","d":"maths","alias":["percentage point","percentage points"],"g":"The gap between two percentages. Going from 40% to 45% is five of these, not a five per cent rise."},
+
+# ---------- the last of the everyday ones ----------
+{"t":"STL","d":"systems","g":"The set of ready-made lists, maps and sorting that comes with C++. Using it is the default; writing your own is the exception."},
+{"t":"WAT","d":"systems","g":"WebAssembly written out as readable text instead of bytes, so a person can look at what a browser is about to run."},
+{"t":"ORC","d":"systems","g":"The part of LLVM that assembles machine code while a program is already running, and hands it back ready to call."},
+{"t":"PTX","d":"systems","g":"The halfway language a graphics card program is shipped in. The driver turns it into real instructions for whichever card is present."},
+{"t":"GGUF","d":"ai","g":"A single-file format for a trained model, holding the weights and everything needed to run them. Made for running one on your own machine."},
+{"t":"COOP","d":"security","alias":["COEP"],"g":"Two headers a web server can send to wall a page off from other pages. Some browser features are only allowed behind them."},
+{"t":"CFS","d":"systems","g":"How Linux decided for years which program runs next: give everyone a fair share of time, and track who is owed."},
+{"t":"SP","d":"systems","alias":["stack pointer","program counter"],"g":"Two of the handful of slots a processor keeps for itself. One remembers where it is; the other remembers where it came from."},
+{"t":"ES","d":"ai","alias":["evolution strategy","(1+1)-ES"],"g":"Improving something by making a small random change, keeping it if it helped, and throwing it away if it did not."},
+{"t":"MVV-LVA","d":"ai","alias":["MVV","LVA"],"g":"A rule of thumb for chess engines: look first at taking a big piece with a small one. It is usually the best move and cheap to spot."},
+{"t":"BA","d":"maths","alias":["Barabasi-Albert"],"g":"A way of building a pretend network where new arrivals prefer to attach to whoever is already popular. It produces a few huge hubs."},
+{"t":"NIG","d":"maths","alias":["heavy-tailed"],"g":"A bell curve with fatter edges, for when rare big surprises happen more often than a plain bell curve would allow."},
+{"t":"IIA","d":"maths","alias":["Radau"],"g":"A family of methods for stepping an equation forward in time that stay stable when the thing being solved changes very fast."},
+{"t":"HIP","d":"systems","g":"Squeezing hot metal from every side at once until the last pores close. It turns a pressed powder into a solid part."},
 ]
 
 def check(terms):
@@ -357,5 +442,53 @@ def main(terms):
         by[t['d']] = by.get(t['d'], 0) + 1
     print('  ' + '  '.join('%s %d' % (k, by[k]) for k in DOMAINS if k in by))
 
+def check_file(path):
+    """Validate a batch of entries written elsewhere, without touching the build.
+
+    Several people writing glosses at once cannot all edit TERMS — the file is
+    rewritten whole, so two overlapping edits silently lose one. They write
+    tab-separated lines instead, and this holds them to exactly the same rules
+    the build does:
+
+        term <TAB> domain <TAB> alias,alias <TAB> explanation
+
+    Blank lines and lines starting with # are ignored.
+    """
+    batch, seen = [], {t['t'] for t in TERMS}
+    problems = []
+    for n, line in enumerate(open(path, encoding='utf-8'), 1):
+        line = line.rstrip('\n')
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        parts = line.split('\t')
+        if len(parts) < 4:
+            problems.append('line %d: needs four tab-separated fields' % n)
+            continue
+        term, dom, alias, gloss = (parts[0].strip(), parts[1].strip(),
+                                   parts[2].strip(), parts[3].strip())
+        if dom not in DOMAINS:
+            problems.append('line %d: %r is not one of %s' % (n, dom, ', '.join(DOMAINS)))
+            continue
+        if term in seen:
+            problems.append('line %d: %r is already in the glossary' % (n, term))
+            continue
+        seen.add(term)
+        rec = {'t': term, 'd': dom, 'g': gloss}
+        a = [x.strip() for x in alias.split(',') if x.strip()]
+        if a:
+            rec['alias'] = a
+        batch.append(rec)
+    problems += check(batch)
+    if problems:
+        print('%d problem(s) in %s:' % (len(problems), path))
+        for p_ in problems:
+            print('  ! ' + p_)
+        sys.exit(1)
+    print('%s: %d entries, all within the rules' % (path, len(batch)))
+
+
 if __name__ == '__main__':
-    main(TERMS)
+    if len(sys.argv) > 2 and sys.argv[1] == '--check':
+        check_file(sys.argv[2])
+    else:
+        main(TERMS)
