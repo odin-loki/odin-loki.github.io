@@ -36,7 +36,12 @@ SKIP_CLASS = re.compile(
 TAG = re.compile(r'(?s)<[^>]+>')
 # A hyphen inside a name belongs to the name: ARIA-INTEL is one thing, and
 # splitting it invented an acronym called INTEL that appears nowhere.
-ACRONYM = re.compile(r'(?<![A-Za-z0-9])([A-Z]{2,}[0-9+]*(?:-[A-Z0-9]+)*)(?![A-Za-z])')
+# A hyphen inside a name belongs to the name: ARIA-INTEL is one thing, and
+# splitting it invented an acronym called INTEL that appears nowhere. A
+# subscript belongs to it too — VO\u2082 is not a term called VO.
+SUB = '\u2070-\u209f\u00b2\u00b3\u00b9'
+ACRONYM = re.compile(
+    r'(?<![A-Za-z0-9])([A-Z]{2,}[0-9+]*(?:-[A-Z0-9]+)*)(?![A-Za-z' + SUB + r'])')
 
 # Capitals that are not acronyms. Three kinds, and each is a judgement someone
 # made rather than a rule a machine can apply, so they are written down.
@@ -67,6 +72,11 @@ NO_SOURCE = {
     'AD':      'a bare table cell on research/pharma.html, not a term in prose',
     'PC':      'the program counter, already carried as an alias of SP',
     'ID':      'only ever inside re-ID, already an alias of re-identification',
+    'ECE':     'research/gf2-algebra.html names "Paper 7\'s ECE relationship" and the '
+               'paper is not on the site, so nothing here says what ECE is',
+    'AMS':     'only ever Verilog-AMS, which is glossed under that name',
+    'ARL':     'only ever printed as ARL with a subscript zero, glossed under that',
+    'MP-4':    'a bare table cell on research/weapons-police.html, not a term in prose',
 }
 
 

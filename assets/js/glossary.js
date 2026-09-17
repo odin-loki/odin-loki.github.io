@@ -207,8 +207,16 @@
       // Han keeps the permissive guard; everything else gets a real boundary.
       var han = HAN.test(s);
       var w = han ? '\\w' : WORD;
-      var re = new RegExp('(^|[^' + w + '-])(' + pattern(s) + ')(?![' + w + '-])',
-                          (!han && UNICODE_CLASSES) ? 'iu' : 'i');
+      /* An acronym is matched case-sensitively, an ordinary word is not.
+         Everything was case-insensitive, which is right for "capability" and
+         wrong for every short acronym: ML lit up on the "ml" of a cocktail
+         measure, ARM on an arm, REST on the rest of a sentence, and NOR could
+         not be added at all because it would have matched the word "nor". An
+         acronym on this site is written in capitals, so requiring them costs
+         nothing and stops the whole class. */
+      var acronym = /^[A-Z][A-Z0-9+\-/]*$/.test(s);
+      var flags = (acronym ? '' : 'i') + ((!han && UNICODE_CLASSES) ? 'u' : '');
+      var re = new RegExp('(^|[^' + w + '-])(' + pattern(s) + ')(?![' + w + '-])', flags);
       var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
         acceptNode: function (n) {
           if (!n.nodeValue || n.nodeValue.length < s.length) return NodeFilter.FILTER_REJECT;
