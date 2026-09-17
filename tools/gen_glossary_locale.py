@@ -65,6 +65,7 @@ def sync():
         if code == 'json' or '.' in code:
             continue
         d = json.load(open(p, encoding='utf-8'))
+        before = json.dumps(d, ensure_ascii=False, sort_keys=True)
         changed = []
         for t in d['terms']:
             src = en.get(t['t'])
@@ -76,8 +77,13 @@ def sync():
             # thing it can decide on its own is the invariant the English file
             # is now checked for: an alias that is another entry's own term
             # shadows it, and does so in every language. Those go.
+            # The translator's own aliases are whatever is not, and was not,
+            # English. Where a record predates `ena` there is no way to tell,
+            # so everything unknown is kept — losing a translator's work is the
+            # worse mistake of the two.
+            was = set(t.get('ena', []))
             mine = [a for a in t.get('alias', [])
-                    if a not in want and a != t['t'] and a not in keys]
+                    if a not in want and a != t['t'] and a not in keys and a not in was]
             merged = want + mine
             if merged != t.get('alias', []):
                 # An entry whose alias list empties has to LOSE the key, not
@@ -91,16 +97,23 @@ def sync():
                 changed.append(t['t'])
             # Only stamp entries that have actually been translated; an
             # untranslated one still carries the English and is not stale.
-            if t['g'] != src['g'] and 'en' not in t:
-                t['en'] = stamp(src['g'])
-        if changed:
+            if t['g'] != src['g']:
+                t.setdefault('en', stamp(src['g']))
+                if src.get('alias'):
+                    t['ena'] = list(src['alias'])
+                else:
+                    t.pop('ena', None)
+        # Write on any change, not only an alias one: the fingerprints are the
+        # point of the exercise and were being computed and thrown away.
+        if json.dumps(d, ensure_ascii=False, sort_keys=True) != before:
             with open(p, 'w', encoding='utf-8') as fh:
                 json.dump(d, fh, ensure_ascii=False, separators=(',', ':'))
             total += len(changed)
-            print('  %-3s %d entries picked up an English alias: %s'
-                  % (code, len(changed), ', '.join(changed[:4])))
+            print('  %-3s %s' % (code, ('%d entries picked up an English alias: %s'
+                                        % (len(changed), ', '.join(changed[:4])))
+                                 if changed else 'fingerprints recorded'))
         else:
-            print('  %-3s aliases already match the master' % code)
+            print('  %-3s already matches the master' % code)
     print('%d entries updated' % total)
 
 def load_en():
@@ -143,6 +156,12 @@ def merge(code):
         if not gloss:
             continue
         rec = {'t': src['t'], 'd': src['d'], 'g': gloss, 'en': stamp(src['g'])}
+        # What the English aliases were at this moment. Without it, an alias the
+        # master later drops is indistinguishable from one this translator
+        # added, and sync has to keep both — which is how five locales went on
+        # calling a matrix decomposition a QR code.
+        if src.get('alias'):
+            rec['ena'] = list(src['alias'])
         alias = list(src.get('alias', []))
         for a in extra:
             if a not in alias and a != src['t']:
