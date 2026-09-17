@@ -1,0 +1,527 @@
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">TRACE &middot; v0.2</span>
+        <h1>Most trackers stop at &ldquo;where&rdquo;. <span class="gradient-text">This one keeps going.</span></h1>
+        <p class="lede">
+          TRACE turns sparse, uncertain sightings from mixed sensors into persistent identities.
+          It holds a track through gaps where nothing can see it, learns what is normal for each
+          entity individually, and predicts meetings before they happen &mdash; with the
+          uncertainty attached to every number it reports.
+        </p>
+        <p class="lede">
+          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
+          players are the same problem with a different profile.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#maze">Watch it track a maze</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Repository &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Language<b data-gh-repo="TRACE" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">MOT17 MOTA<b>53.0%</b></div>
+          <div class="phero__meta-item">MOT20 MOTA<b>62.5%</b></div>
+          <div class="phero__meta-item">Boxes scored<b>1.47M</b></div>
+          <div class="phero__meta-item">Last push<b data-gh-repo="TRACE" data-gh-field="updated">recently</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:14px">What the name is</span>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono">T</span><span class="spec__v">Tracking &mdash; where each thing is, and how sure we are</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono">R</span><span class="spec__v">Re-identification &mdash; the same thing, after it was lost</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono">A</span><span class="spec__v">Association &mdash; which sighting belongs to which track</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono">C</span><span class="spec__v">Convergence &mdash; who is about to meet whom</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k mono">E</span><span class="spec__v">Events &mdash; behaviour worth someone&rsquo;s attention</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>A track that is deleted on the first missed frame was never a track</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          Sensors miss things. A camera has a detection probability, not a guarantee; a ship can
+          switch off its transponder; a corridor can have no camera at all. The moment coverage
+          drops, a tracker that equates &ldquo;not seen&rdquo; with &ldquo;not there&rdquo; loses the
+          identity, and when the entity reappears it gets a new one. Every downstream question
+          &mdash; where has this been, who has it met, is this normal for it &mdash; is now
+          unanswerable.
+        </p>
+        <p class="dim">
+          TRACE separates two things most trackers conflate. Every track carries <b>r</b>, the
+          probability that it exists at all, held apart from where it is. A missed scan lowers
+          <b>r</b> and widens the position estimate; it does not delete anything. The track
+          coasts, and its uncertainty grows honestly while it does.
+        </p>
+        <p class="dim">
+          That is what both demonstrations below are showing you. The dashed circle is the engine
+          saying <em>it is somewhere in here and I am less sure by the second</em> &mdash; which is
+          a useful thing to be told, and the thing a deleted track cannot tell you.
+        </p>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <span class="badge badge--violet" style="margin-bottom:10px">Existence</span>
+            <h4 style="margin:0 0 6px">Bernoulli, not boolean</h4>
+            <p class="small dim" style="margin:0">
+              A PMBM tracker over a 320-particle filter. Existence is a probability that decays
+              through misses and recovers on evidence, so an occlusion costs confidence rather
+              than identity.
+            </p>
+          </div>
+          <div class="card">
+            <span class="badge badge--teal" style="margin-bottom:10px">Possibility</span>
+            <h4 style="margin:0 0 6px">A second opinion on the evidence</h4>
+            <p class="small dim" style="margin:0">
+              Alongside the probability runs a possibilistic existence that tracks the
+              <em>quality</em> of evidence rather than its quantity. When the two diverge, many
+              weak detections have been laundered into false certainty.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAZE ======================= -->
+<section class="section" id="maze">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The engine itself</span>
+      <h2>A camera estate, with corridors nobody is watching</h2>
+      <p class="lede">
+        A maze is a cheap stand-in for a real camera estate, and it gives you every property that
+        makes multi-camera tracking hard: walls force non-linear routes, each coloured panel is one
+        camera so crossing a boundary is a real handoff, and the hatched panels are switched
+        <b>off</b> &mdash; blind corridors where the engine has to hold identity on nothing at all
+        and pick it up again on the far side.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-maze">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> trace::Engine &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-maze-state">loading&hellip;</span>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-maze-canvas" height="460"
+                  aria-label="A maze under a grid of cameras. Lettered dots are the true positions the engine is never told; numbered circles are its tracks, drawn at the size of their own position uncertainty."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> Truth &mdash; subject</span>
+            <span><i style="background:#60a5fa"></i> Truth &mdash; others</span>
+            <span><i style="background:#a78bfa"></i> Track, being seen</span>
+            <span><i style="background:#fbbf24"></i> Track, coasting blind</span>
+            <span><i style="background:#f87171"></i> Camera switched off</span>
+          </div>
+
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-play">Pause</button>
+            <input type="range" id="tr-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="Scrub through the run">
+            <button class="btn btn--sm btn--ghost" id="tr-run">New maze</button>
+          </div>
+
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-w">Maze <b id="tr-w-v">21 &times; 11</b></label>
+              <input type="range" id="tr-w" min="11" max="31" step="2" value="21" aria-label="Maze width in cells">
+              <input type="range" id="tr-h" min="7" max="17" step="2" value="11" aria-label="Maze height in cells">
+            </div>
+            <div class="ctrl">
+              <label for="tr-t">Travellers <b id="tr-t-v">3</b></label>
+              <input type="range" id="tr-t" min="1" max="8" step="1" value="3">
+            </div>
+            <div class="ctrl">
+              <label for="tr-b">Cameras switched off <b id="tr-b-v">2</b></label>
+              <input type="range" id="tr-b" min="0" max="6" step="1" value="2">
+            </div>
+            <div class="ctrl">
+              <label for="tr-pd">Detection probability <b id="tr-pd-v">0.82</b></label>
+              <input type="range" id="tr-pd" min="0.4" max="0.98" step="0.02" value="0.82">
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Scored against truth</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Detection</div>
+                <div class="readout__v" id="tr-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Of what cameras gave</div>
+                <div class="readout__v teal" id="tr-rec">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Mean error</div>
+                <div class="readout__v" id="tr-err">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Identity switches</div>
+                <div class="readout__v teal" id="tr-sw">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Ghost tracks</div>
+                <div class="readout__v" id="tr-gh">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Median scan</div>
+                <div class="readout__v" id="tr-lat">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">This scan</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Detection so far</div>
+                <div class="readout__v" id="tr-live-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Error so far</div>
+                <div class="readout__v" id="tr-live-err">&mdash;</div>
+              </div>
+            </div>
+            <p class="tiny muted" style="margin-top:12px">
+              Events raised <b class="mono" id="tr-live-ev">&mdash;</b>
+            </p>
+            <p class="tiny muted">
+              Next predicted meeting <b class="mono" id="tr-live-rv">&mdash;</b>
+            </p>
+          </div>
+          <p class="tiny muted">
+            <b>Of what cameras gave</b> is the honest denominator: no tracker can report an entity
+            that no sensor detected, so a raw detection rate mixes the tracker&rsquo;s failures with
+            the estate&rsquo;s. Above 100% means the engine held entities through scans where nothing
+            saw them. Turn the cameras off and watch it climb.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        <code translate="no">trace::Engine</code> out of <code translate="no">libtrace_core.a</code>, the same library the native tools
+        link &mdash; <span class="mono" id="tr-version">&mdash;</span>. The whole run is computed at
+        once and played back, so the animation is not the engine&rsquo;s speed; the median scan time
+        beside it is.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Five stages, and one report</h2>
+    </div>
+    <div class="grid grid-2 reveal" style="gap:18px">
+      <div class="card">
+        <span class="badge badge--violet" style="margin-bottom:10px">T &middot; A</span>
+        <h4 style="margin:0 0 6px">Tracking and association</h4>
+        <p class="small dim" style="margin:0">
+          A PMBM tracker with Bernoulli existence over a 320-particle mixed Ornstein&ndash;Uhlenbeck
+          filter &mdash; velocity follows an OU process whose regime (on foot, in a vehicle,
+          stationary) is itself a Markov chain, which is the &ldquo;mixed&rdquo; part. Gibbs
+          sampling for one-to-one assignment across 14 sweeps, then a duplicate merge. Association
+          runs <b>per sensor</b>, because exclusivity is a fact about a sensor and not about the
+          world &mdash; two overlapping cameras both reporting one person is corroboration, not two
+          people. Enforcing it globally cost 2.08 ghost tracks per scan; per sensor it is 0.08.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--teal" style="margin-bottom:10px">R</span>
+        <h4 style="margin:0 0 6px">Re-identification by routine</h4>
+        <p class="small dim" style="margin:0">
+          A dormant track is reacquired through its pattern of life &mdash; a per-entity Gaussian
+          mixture over hour, x and y. Appearance descriptors are supported and deliberately
+          <b>off</b> on the public benchmarks, because a perfect oracle descriptor there moves the
+          score not at all: 88% of the penalty is missed detections, which appearance cannot touch.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--amber" style="margin-bottom:10px">C</span>
+        <h4 style="margin:0 0 6px">Three convergence predictors, stacked</h4>
+        <p class="small dim" style="margin:0">
+          Geometric intercept is exact for two entities walking towards each other and useless if
+          either manoeuvres. Closure-rate extrapolation handles a curving route. Pattern-of-life
+          cross-prediction is the only one that can fire while both parties are still stationary.
+          They fail in different circumstances, so all three run and the most confident wins.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge" style="margin-bottom:10px">E</span>
+        <h4 style="margin:0 0 6px">Eight behaviours, hot-swappable</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">BRUSH_PASS</code>, <code translate="no">SDR_PATTERN</code>, <code translate="no">DEAD_DROP</code>,
+          <code translate="no">PARALLEL_ROUTE</code>, <code translate="no">MODE_TRANSITION</code>, <code translate="no">LOITER</code>,
+          <code translate="no">COVER_STOP</code>, <code translate="no">CHOKEPOINT</code>. Threat scoring fuses eight
+          evidence dimensions through a Beta&ndash;Monte-Carlo, and the report carries the breakdown
+          rather than the one number.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DARK VESSEL ======================= -->
+<section class="section" id="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">The engine itself</span>
+      <h2>A ship switches off its transponder</h2>
+      <p class="lede">
+        Satellite AIS over an ocean basin. Five vessels are in transit; one of them switches off
+        its transponder mid-voyage and comes back up later. Nothing reports it in between &mdash;
+        no sensor, no detection, no evidence of any kind.
+      </p>
+      <p class="lede">
+        Watch what the engine does with that. On the first missed scan the position estimate
+        jumps from a few hundred metres to about twelve kilometres and the track coasts on
+        prediction alone. A few scans later it is retired to a dormant pool rather than deleted,
+        and when the vessel resurfaces the engine has to decide whether this is something new or
+        something it already knows.
+      </p>
+      <p class="lede">
+        <b>Drag the blackout longer and it gets that decision wrong.</b> Five scans of silence and
+        the identity survives; past about ten it does not, and the vessel comes back as a new
+        track. That is the honest result and it is worth more than a demo tuned to always win
+        &mdash; the reason is below the controls.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-sea">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> dark-vessel &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-sea-state">loading&hellip;</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-sea-canvas" height="340"
+                  aria-label="An ocean basin with five vessels in transit. One stops reporting mid-voyage and the engine's uncertainty about it grows into a wide ellipse until it reappears."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> Suspect, reporting</span>
+            <span><i style="background:#f87171"></i> Suspect, gone dark</span>
+            <span><i style="background:#60a5fa"></i> Other traffic</span>
+            <span><i style="background:#fbbf24"></i> The suspect&rsquo;s own track</span>
+            <span><i style="background:#a78bfa"></i> Other tracks</span>
+          </div>
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-sea-play">Pause</button>
+            <input type="range" id="tr-sea-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="Scrub through the voyage">
+            <button class="btn btn--sm btn--ghost" id="tr-sea-run">Run again</button>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-dark">How long it stays dark <b id="tr-dark-v">5 scans</b></label>
+              <input type="range" id="tr-dark" min="2" max="40" step="1" value="5">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">The suspect, right now</h4>
+            <div class="readout" style="grid-template-columns:1fr">
+              <div class="readout__item">
+                <div class="readout__k">Engine&rsquo;s state for it</div>
+                <div class="readout__v teal" id="tr-sea-u">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Over the whole voyage</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">After resurfacing</div>
+                <div class="readout__v" id="tr-sea-same">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Widest it coasted</div>
+                <div class="readout__v amber" id="tr-sea-coast">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Gap before it was back</div>
+                <div class="readout__v" id="tr-sea-blind">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Detection so far</div>
+                <div class="readout__v" id="tr-sea-det">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            <b>Why it breaks.</b> Re-identification here works by pattern of life &mdash; a
+            per-entity mixture over hour and position, asking whether this new sighting fits
+            something the engine already knows the routine of. A vessel on a single straight
+            transit has no routine. It has been seen going one way, once. So past a few scans the
+            only thing left is the motion prediction, and at twelve knots with hourly scans that
+            uncertainty outgrows anything useful within a day.
+          </p>
+          <p class="tiny muted">
+            The same mechanism is decisive where there <em>is</em> a routine to learn, which is
+            what the maze above is showing. A limitation with a stated cause is worth more than a
+            capability with none, and this one is in the repository&rsquo;s own list.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        The same <code translate="no">dark-vessel</code> scenario <code translate="no">trace_sim</code> runs natively, with the
+        same profile, sensor and basin.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Evidence</span>
+      <h2>Replayed against real detections, not only its own simulator</h2>
+      <p class="lede">
+        MOTChallenge sequences &mdash; real detections from real detectors on real video &mdash; are
+        the only numbers here that TRACE&rsquo;s own simulator did not produce.
+      </p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="table">
+        <thead>
+          <tr><th>Benchmark</th><th>Boxes</th><th>MOTA</th><th>Recovery of detector ceiling</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MOT17 train, 21 sequences</td><td class="mono">336,891</td><td class="mono">53.0%</td><td class="mono">108.2%</td></tr>
+          <tr><td>MOT20 train, 4 sequences, 62&ndash;226 people/frame</td><td class="mono">1,134,614</td><td class="mono">62.5%</td><td class="mono">114.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:22px">
+      <strong>Train-split numbers only.</strong> These are replayed and scored locally. Nothing has
+      been submitted to the MOTChallenge evaluation server, which is what a figure comparable to the
+      public leaderboard would require. The ceiling is what a perfect tracker would score by echoing
+      every detection it was handed; beating it is the entire job, and it is done by coasting
+      through frames the detector missed.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cost</span>
+      <h2>Effectively linear in crowd size</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Tracks</th><th>Median ms/scan</th><th>&micro;s per track</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">10</td><td class="mono">1.7</td><td class="mono">135</td></tr>
+              <tr><td class="mono">120</td><td class="mono">26.6</td><td class="mono">152</td></tr>
+              <tr><td class="mono">270</td><td class="mono">72.1</td><td class="mono">159</td></tr>
+              <tr><td class="mono">400</td><td class="mono">127.5</td><td class="mono">159</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small dim" style="margin-top:14px">
+          One core, Release build, AVX-512. Cost grows as about n<sup>1.17</sup> and tracking alone
+          is flat at 135&ndash;159 &micro;s per track from ten tracks to four hundred &mdash; read it
+          as &ldquo;the constant matters and the exponent does not&rdquo;.
+        </p>
+      </div>
+      <div>
+        <p class="dim">
+          It was n<sup>1.82</sup> until the convergence detector stopped rebuilding each
+          track&rsquo;s pattern-of-life forecast once per pair. That bought a factor of twenty in
+          the constant and <em>not</em> a better exponent &mdash; the spatial-index gate added with
+          it had a radius wider than the scene, so it returned every pair and did nothing. Bounding
+          each pair by its own two speeds took that detector from 56% of the engine to 44% and the
+          exponent to near linear.
+        </p>
+        <p class="dim">
+          At 400 simultaneous tracks that is about 8 scans per second on one core: fine for a 1 Hz
+          camera estate, not for 25 fps without partitioning across workers. The page says so
+          because the benchmark says so.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Honest limitations</span>
+      <h2>What it does not do</h2>
+    </div>
+    <div class="stack reveal">
+      <div class="card">
+        <h4 style="margin:0 0 6px">No detector, and no re-ID model</h4>
+        <p class="small dim" style="margin:0">TRACE consumes detections. Producing them is someone else&rsquo;s job.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">A velocity estimate has a floor</h4>
+        <p class="small dim" style="margin:0">
+          It needs speed &times; heading-hold well above position noise. Below a ratio of about 5 it
+          is not an estimate, and coasting is only as good as it is. A genuinely twisty target seen
+          by a coarse sensor has no measurable velocity &mdash; a modelling constraint rather than a
+          defect, but one to check a profile against before claiming anything about coasting.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Sensor availability is inferred, not known</h4>
+        <p class="small dim" style="margin:0">
+          A coverage gap is guessed at from whether anything reported at all. A real deployment
+          knows which cameras are down and currently has no way to say so.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">No audit logging, access control or retention policy</h4>
+        <p class="small dim" style="margin:0">
+          Several of the things this can be pointed at are mass-surveillance capabilities. Anyone
+          deploying it against people needs that scaffolding built around it, and it is deliberately
+          not provided as a default.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">The CUDA path is scaffolding</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">src/cuda/kernels.cu</code> exists and nothing in the engine calls it. The kernels have
+          never run. Treat it as an unfinished branch rather than a backend &mdash; the repository
+          says the same.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow" style="text-align:center">
+    <span class="eyebrow" style="justify-content:center">Source-available</span>
+    <h2>AGPL-3.0+, with a commercial licence beside it</h2>
+    <p class="lede">
+      The same terms as everything else here: read it, run it, check it. If the AGPL does not suit
+      what you want to build, there is a tiered commercial licence.
+    </p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Read the source &rarr;</a>
+      <a class="btn btn--ghost" href="/licensing.html">Licensing</a>
+    </div>
+  </div>
+</section>

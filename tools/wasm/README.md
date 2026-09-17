@@ -173,3 +173,84 @@ dashboard. This is the maths, not the tool, and the page says so.
 Cypha and RetDec's decoder are now here; see above. Cypha is built single-threaded, because
 threaded WebAssembly needs `SharedArrayBuffer`, which needs COOP/COEP response headers, and
 **GitHub Pages cannot send them**.
+
+---
+
+# TRACE's engine in the browser
+
+`/trace.html` runs **two of the engine's own simulations for real** — the maze/camera
+grid and `dark-vessel` — with `trace::Engine` out of `libtrace_core.a`, the same
+library the native tools link. **410 KB of WebAssembly, 11 KB of loader**, fetched only
+when the reader scrolls to the demo.
+
+## No patch
+
+TRACE is the first of these that needed none. `trace_core` built **21/21 objects,
+no errors, first try**, both scalar and with the vendored xsimd under
+`-msimd128`. Nothing in it assumed x86, assumed libstdc++'s transitive includes,
+or reached for a header it had not included. The engine's own
+`simd::backend_name()` answers `wasm` in the browser and `avx512f` natively, so
+the caption under the demo is the build telling you what it is rather than a
+claim typed into HTML.
+
+```bash
+git clone --depth 1 https://github.com/odin-loki/TRACE /tmp/trace
+cd /tmp/trace
+source /path/to/emsdk/emsdk_env.sh
+
+emcmake cmake -S . -B build-wasm-simd -G Ninja -DCMAKE_BUILD_TYPE=Release \
+  -DTRACE_WITH_XSIMD=ON -DTRACE_NATIVE_ARCH=OFF -DTRACE_BUILD_TESTS=OFF \
+  -DCMAKE_CXX_FLAGS="-msimd128"
+cmake --build build-wasm-simd --target trace_core -j$(nproc)
+
+em++ -std=c++23 -O3 -fno-rtti -msimd128 \
+  -I include -isystem third_party/xsimd/include -DTRACE_WITH_XSIMD \
+  /path/to/tools/wasm/trace_web.cpp build-wasm-simd/libtrace_core.a \
+  -o /path/to/assets/wasm/trace.js \
+  -sMODULARIZE=1 -sEXPORT_NAME=TRACE -sENVIRONMENT=web \
+  -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=32MB -sFILESYSTEM=0 \
+  -sEXPORTED_RUNTIME_METHODS=cwrap,ccall \
+  -sEXPORTED_FUNCTIONS=_trace_web_version,_trace_web_maze,_trace_web_vessels,_malloc,_free
+```
+
+`-o` must name `trace.js` exactly: Emscripten bakes the sibling `.wasm` filename into
+the loader, so building to a temporary name and renaming the pair afterwards gives a
+loader that 404s.
+
+## SIMD128 is worth turning on
+
+Scalar and SIMD both work; the vectorised build is closer to the native figures
+and marginally faster. Default maze, 120 scans, against the README's native
+numbers (76% detection, 118% recovery, 1.6 m error, 1 switch):
+
+| build | detection | recovery | mean error | id switches |
+|---|---|---|---|---|
+| scalar | 75.3% | 115.8% | 1.56 m | 2 |
+| `-msimd128`, xsimd | **76.4%** | **117.5%** | **1.47 m** | **1** |
+
+The gap is Monte-Carlo noise rather than accuracy: the two draw their normals in
+a different order, which TRACE's own README says is the expected difference
+between its backends.
+
+## What the demos are, and one bug they caught
+
+The whole run is computed in one call and handed back as JSON for the page to play
+back, rather than stepping the engine from JavaScript. The engine costs the same
+either way; buffering means the animation never stutters on a slow scan, and the
+page can report the real wall-clock cost of the run instead of a number smeared
+across `requestAnimationFrame`.
+
+The vessel demo was written with the suspect in the middle lane so the association
+has traffic on both sides of it to get wrong. The silencing was still keyed to
+`vessel_0`, so for one build **nothing ever went dark** and the demo showed a
+flawless track through a blackout that was not happening. It was caught by printing
+the suspect's per-scan state and noticing the uncertainty never moved — which is
+also why the page now reports the engine's own state for that track rather than the
+widest circle on screen. The widest circle in open water is usually a false alarm,
+and it was making a rather convincing case for itself.
+
+The finding the fixed demo produces is not the flattering one. Identity survives a
+five-scan blackout in 5 seeds out of 5, survives ten scans in 1 of 5, and never
+survives fifteen. The cause is in TRACE's own limitations list: re-identification
+works by pattern of life, and a vessel on a single straight transit has no pattern
+of life to be re-identified by. The page says exactly that.

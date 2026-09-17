@@ -27,6 +27,8 @@
   "menu.sentinel.desc": "Analítica criminal y líneas de investigación",
   "menu.cellai.name": "Cell AI",
   "menu.cellai.desc": "Modelo de secuencias por reacción-difusión",
+  "menu.trace.name": "TRACE",
+  "menu.trace.desc": "Identidad persistente a partir de avistamientos dispersos",
   "menu.beta.name": "Hazte probador beta",
   "menu.beta.desc": "Prueba cualquiera antes de tiempo, gratis, y cuéntanos qué falló",
   "footer.blurb": "Investigación independiente y software de sistemas de Odin Loch. Sídney, Australia. Código disponible bajo AGPL-3.0+ con una licencia comercial por niveles.",

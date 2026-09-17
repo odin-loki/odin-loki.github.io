@@ -1192,6 +1192,176 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/sentinel.html"/>
   </url>
   <url>
+    <loc>https://imortek.com.au/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/zh/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/hi/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/es/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ar/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/fr/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/bn/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/pt/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ru/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
+    <loc>https://imortek.com.au/ur/trace.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html"/>
+  </url>
+  <url>
     <loc>https://imortek.com.au/cellai.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TRACE — identité persistante à partir d’observations rares | Imortek</title>
+<meta name="description" content="Un moteur de suivi C++23 neutre vis-à-vis du domaine : existence PMBM, association de Gibbs, réidentification par habitudes de vie et prédiction de convergence empilée. Regardez le moteur lui-même suivre un labyrinthe et un navire qui passe au silence, compilé en WebAssembly.">
+<meta name="keywords" content="TRACE, suivi multicible, pistage multicible, PMBM, existence de Bernoulli, filtre particulaire, association de Gibbs, réidentification, habitudes de vie, prédiction de rencontre, MOTChallenge, fusion de capteurs, C++23">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/fr/trace.html">
+<link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html">
+<link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html">
+<link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html">
+<link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html">
+<link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html">
+<link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html">
+<link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html">
+<link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html">
+<link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html">
+<link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html">
+
+<meta name="imortek:locale" content="fr">
+<meta name="imortek:speech" content="fr-FR">
+<meta name="imortek:prefix" content="/fr">
+<script>window.__IMORTEK_I18N={"lang.label":"Langue","lang.choose":"Choisir une langue","lang.machine":"Traduire cette page","lang.machineTag":"Google","lang.machineHint":"Traduction automatique de Google, sur leurs serveurs. Rien n’a été relu.","lang.suggested":"Votre navigateur préfère cette langue","lang.close":"Fermer","tools.label":"Outils de page","tools.toggle":"Afficher ou masquer les outils","tools.readAloud":"Lire à voix haute","tools.pause":"Pause","tools.stop":"Arrêter la lecture","tools.next":"Paragraphe suivant","tools.voice":"Commandes vocales","tools.explain":"Expliquer le jargon","tools.reset":"réinitialiser","tools.termsOnPage":"termes sur cette page","tools.learned":"appris","tools.preExpanded":"déjà expliqués","tools.openMore":"Ouvrez-en {n} de plus et Cypha commencera à prédire","tools.understood":"compris","tools.corrected":"corrigés","tools.off":"arrêt","tools.reading":"lecture","search.placeholder":"Rechercher — décrivez ce que vous cherchez","search.aria":"Rechercher sur ce site","search.hint":"Correspond au sens, pas seulement aux mots exacts. Échap pour fermer.","search.nothing":"Rien d’approchant.","related.eyebrow":"Le plus proche sur ce site","related.title":"À lire ensuite","related.note":"Choisi par recoupement de termes avec cette page, non à la main — donc honnête sur ce qui est réellement proche, y compris quand rien ne l’est.","voice.help":"Vous pouvez dire : lire, arrêter, suivant, retour, haut, accueil, ou le nom d’une page. Vous pouvez aussi décrire ce que vous cherchez et je trouverai la page la plus proche.","voice.notCaught":"Je n’ai pas compris. Dites \"aide\" pour savoir quoi dire.","voice.listening":"À l’écoute. Dites \"aide\" pour savoir quoi dire.","voice.micOff":"Microphone coupé.","voice.micBlocked":"Microphone bloqué. Autorisez-le dans votre navigateur pour utiliser les commandes vocales.","voice.opening":"Ouverture de","voice.didYouMean":"Vouliez-vous dire","voice.sayNumber":"Dites un numéro, ou dites non.","voice.understood":"Compris. Reformulez, ou dites aide.","voice.endOfPage":"Fin de la page.","voice.searchOpen":"Recherche ouverte.","voice.nothingRelated":"Rien de lié sur cette page.","voice.related":"Lié","voice.goingTo":"Direction","voice.heading":"Titre.","voice.or":"Ou","gh.live":"en direct depuis api.github.com","gh.cached":"copie enregistrée","gh.noDescription":"Sans description","gloss.notInDict":"Absent du dictionnaire.","gloss.didYouMean":"Vouliez-vous dire","gloss.or":"ou","gloss.listSep":",","gloss.queryEnd":" ?","gloss.lookingUp":"recherche en cours…","gloss.forget":"Oublier ce que Cypha a appris"};</script>
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_AU">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ur_PK">
+<meta property="og:title" content="TRACE — identité persistante à partir d’observations rares | Imortek">
+<meta property="og:description" content="Un moteur de suivi C++23 neutre vis-à-vis du domaine : existence PMBM, association de Gibbs, réidentification par habitudes de vie et prédiction de convergence empilée. Regardez le moteur lui-même suivre un labyrinthe et un navire qui passe au silence, compilé en WebAssembly.">
+<meta property="og:url" content="https://imortek.com.au/fr/trace.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TRACE — identité persistante à partir d’observations rares | Imortek">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TRACE — identité persistante à partir d’observations rares | Imortek">
+<meta name="twitter:description" content="Un moteur de suivi C++23 neutre vis-à-vis du domaine : existence PMBM, association de Gibbs, réidentification par habitudes de vie et prédiction de convergence empilée. Regardez le moteur lui-même suivre un labyrinthe et un navire qui passe au silence, compilé en WebAssembly.">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image:alt" content="TRACE — identité persistante à partir d’observations rares | Imortek">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"fr","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/fr/trace.html#webpage","url":"https://imortek.com.au/fr/trace.html","name":"TRACE — identité persistante à partir d’observations rares | Imortek","description":"Un moteur de suivi C++23 neutre vis-à-vis du domaine : existence PMBM, association de Gibbs, réidentification par habitudes de vie et prédiction de convergence empilée. Regardez le moteur lui-même suivre un labyrinthe et un navire qui passe au silence, compilé en WebAssembly.","inLanguage":"fr","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"datePublished":"2026-09-17","dateModified":"2026-09-17","breadcrumb":{"@id":"https://imortek.com.au/fr/trace.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/fr/trace.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://imortek.com.au/fr/"},{"@type":"ListItem","position":2,"name":"TRACE","item":"https://imortek.com.au/fr/trace.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/fr/trace.html#software","name":"TRACE","description":"Un moteur de suivi C++23 neutre vis-à-vis du domaine : existence PMBM, association de Gibbs, réidentification par habitudes de vie et prédiction de convergence empilée. Regardez le moteur lui-même suivre un labyrinthe et un navire qui passe au silence, compilé en WebAssembly.","url":"https://imortek.com.au/fr/trace.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/TRACE","sameAs":["https://github.com/odin-loki/TRACE"]}]}</script>
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/fr/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">Recherche et Systèmes</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Afficher ou masquer la navigation">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/fr/#products" aria-haspopup="true">Produits</a>
+          <div class="nav__menu">
+            <a href="/fr/pbsd.html"><strong>ParanoidBSD</strong><span>Système d’exploitation C++23 sécurisé par capacités</span></a>
+            <a href="/fr/cypha.html"><strong>Cypha</strong><span>IA fondée sur les premiers principes : classer, échantillonner, générer</span></a>
+            <a href="/fr/chess.html"><strong>Cypha Chess</strong><span>Jouez contre le modèle, distillé d’un vrai moteur</span></a>
+            <a href="/fr/retdec.html"><strong>RetDec Imortek</strong><span>Décompilateur qui extrait la spécification</span></a>
+            <a href="/fr/mathscript.html"><strong>MathScript</strong><span>Calcul formel et numérique en C++23</span></a>
+            <a href="/fr/aegis.html"><strong>AEGIS</strong><span>Transport masquant les métadonnées</span></a>
+            <a href="/fr/sentinel.html"><strong>SENTINEL</strong><span>Analyse criminelle et pistes d’enquête</span></a>
+            <a href="/fr/cellai.html"><strong>Cell AI</strong><span>Modèle de séquences par réaction-diffusion</span></a>
+            <a href="/fr/trace.html"><strong>TRACE</strong><span>Une identité persistante à partir d’observations éparses</span></a>
+            <a href="/fr/beta.html"><strong>Devenir testeur bêta</strong><span>Essayez-les en avant-première, gratuitement, et dites-nous ce qui a cassé</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/fr/research.html">Recherche</a>
+        <a class="nav__link" href="/fr/licensing.html">Licences</a>
+        <a class="nav__link" href="/fr/about.html">À propos</a>
+        <a class="nav__link" href="#" data-search aria-label="Rechercher sur ce site">Rechercher</a>
+        <a class="nav__link nav__link--extra" href="/fr/beta.html">Bêta</a>
+        <a class="nav__link nav__link--extra" href="/fr/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/fr/kickstarter.html">Soutenir PBSD</a>
+      </div>
+
+<div class="langsel">
+  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="Langue: Français">
+    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="langsel__cur">Français</span>
+    <span class="langsel__caret" aria-hidden="true"></span>
+  </button>
+  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="Choisir une langue">
+    <a role="menuitem" href="/trace.html" data-lang="en" data-endonym="English" hreflang="en" lang="en" dir="ltr"><span class="langsel__endo">English</span><span class="langsel__name">English</span></a>
+    <a role="menuitem" href="/zh/trace.html" data-lang="zh" data-endonym="中文" hreflang="zh-Hans" lang="zh-Hans" dir="ltr"><span class="langsel__endo">中文</span><span class="langsel__name">Chinese</span></a>
+    <a role="menuitem" href="/hi/trace.html" data-lang="hi" data-endonym="हिन्दी" hreflang="hi" lang="hi" dir="ltr"><span class="langsel__endo">हिन्दी</span><span class="langsel__name">Hindi</span></a>
+    <a role="menuitem" href="/es/trace.html" data-lang="es" data-endonym="Español" hreflang="es" lang="es" dir="ltr"><span class="langsel__endo">Español</span><span class="langsel__name">Spanish</span></a>
+    <a role="menuitem" href="/ar/trace.html" data-lang="ar" data-endonym="العربية" hreflang="ar" lang="ar" dir="rtl"><span class="langsel__endo">العربية</span><span class="langsel__name">Arabic</span></a>
+    <a role="menuitem" href="/fr/trace.html" data-lang="fr" data-endonym="Français" hreflang="fr" lang="fr" dir="ltr" class="is-current" aria-current="true"><span class="langsel__endo">Français</span><span class="langsel__name">French</span></a>
+    <a role="menuitem" href="/bn/trace.html" data-lang="bn" data-endonym="বাংলা" hreflang="bn" lang="bn" dir="ltr"><span class="langsel__endo">বাংলা</span><span class="langsel__name">Bengali</span></a>
+    <a role="menuitem" href="/pt/trace.html" data-lang="pt" data-endonym="Português" hreflang="pt" lang="pt" dir="ltr"><span class="langsel__endo">Português</span><span class="langsel__name">Portuguese</span></a>
+    <a role="menuitem" href="/ru/trace.html" data-lang="ru" data-endonym="Русский" hreflang="ru" lang="ru" dir="ltr"><span class="langsel__endo">Русский</span><span class="langsel__name">Russian</span></a>
+    <a role="menuitem" href="/ur/trace.html" data-lang="ur" data-endonym="اردو" hreflang="ur" lang="ur" dir="rtl"><span class="langsel__endo">اردو</span><span class="langsel__name">Urdu</span></a>
+  </div>
+</div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">TRACE &middot; v0.2</span>
+        <h1>La plupart des systèmes de suivi s’arrêtent à &ldquo;où&rdquo;. <span class="gradient-text">Celui-ci continue.</span></h1>
+        <p class="lede">
+          TRACE transforme des observations rares et incertaines, venues de capteurs hétérogènes, en identités persistantes. Il maintient une piste à travers les trous où rien ne peut la voir, apprend ce qui est normal pour chaque entité prise séparément, et prédit les rencontres avant qu’elles n’arrivent &mdash; avec l’incertitude attachée à chaque chiffre qu’il rapporte.
+        </p>
+        <p class="lede">
+          Rien dans le cœur ne sait ce qu’il suit. Caméras, navires, palettes, animaux et joueurs sont le même problème avec un profil différent.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#maze">Regardez-le suivre un labyrinthe</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Dépôt &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">Langage<b data-gh-repo="TRACE" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">MOT17 MOTA<b>53.0%</b></div>
+          <div class="phero__meta-item">MOT20 MOTA<b>62.5%</b></div>
+          <div class="phero__meta-item">Boîtes évaluées<b>1.47M</b></div>
+          <div class="phero__meta-item">Dernier envoi<b data-gh-repo="TRACE" data-gh-field="updated">récemment</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:14px">Ce que le nom veut dire</span>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">T</span><span class="spec__v">Trajectographie &mdash; où se trouve chaque chose, et à quel point nous en sommes sûrs</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">R</span><span class="spec__v">Réidentification &mdash; la même chose, après l’avoir perdue</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">A</span><span class="spec__v">Association &mdash; quelle observation appartient à quelle piste</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">C</span><span class="spec__v">Convergence &mdash; qui est sur le point de rencontrer qui</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k mono" translate="no">E</span><span class="spec__v">Événements &mdash; un comportement qui mérite l’attention de quelqu’un</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Le problème</span>
+      <h2>Une piste supprimée à la première image manquée n’a jamais été une piste</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          Les capteurs ratent des choses. Une caméra a une probabilité de détection, pas une garantie ; un navire peut couper son transpondeur ; un couloir peut n’avoir aucune caméra du tout. Dès que la couverture tombe, un système de suivi qui confond &ldquo;pas vu&rdquo; et &ldquo;pas là&rdquo; perd l’identité, et quand l’entité réapparaît elle en reçoit une nouvelle. Toute question en aval &mdash; où est-elle passée, qui a-t-elle rencontré, est-ce normal pour elle &mdash; est désormais sans réponse.
+        </p>
+        <p class="dim">
+          TRACE sépare deux choses que la plupart des systèmes de suivi confondent. Chaque piste porte <b>r</b>, la probabilité qu’elle existe tout court, tenue à l’écart de sa position. Un balayage manqué abaisse
+          <b>r</b> et élargit l’estimation de position ; il ne supprime rien. La piste se poursuit par extrapolation, et son incertitude croît honnêtement pendant ce temps.
+        </p>
+        <p class="dim">
+          C’est ce que les deux démonstrations ci-dessous vous montrent. Le cercle en pointillés, c’est le moteur qui dit <em>il est quelque part là-dedans et j’en suis moins sûr de seconde en seconde</em> &mdash; ce qui est une chose utile à s’entendre dire, et ce qu’une piste supprimée ne peut pas vous dire.
+        </p>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <span class="badge badge--violet" style="margin-bottom:10px">Existence</span>
+            <h4 style="margin:0 0 6px">Bernoulli, pas booléen</h4>
+            <p class="small dim" style="margin:0">
+              Un système de suivi PMBM au-dessus d’un filtre à 320 particules. L’existence est une probabilité qui décroît à chaque détection manquée et se rétablit sur preuve, si bien qu’une occultation coûte de la confiance plutôt que l’identité.
+            </p>
+          </div>
+          <div class="card">
+            <span class="badge badge--teal" style="margin-bottom:10px">Possibilité</span>
+            <h4 style="margin:0 0 6px">Un second avis sur les preuves</h4>
+            <p class="small dim" style="margin:0">
+              À côté de la probabilité tourne une existence possibiliste qui suit la
+              <em>qualité</em> des preuves plutôt que leur quantité. Quand les deux divergent, c’est que beaucoup de détections faibles ont été blanchies en fausse certitude.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAZE ======================= -->
+<section class="section" id="maze">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Le moteur lui-même</span>
+      <h2>Un parc de caméras, avec des couloirs que personne ne regarde</h2>
+      <p class="lede">
+        Un labyrinthe est un substitut bon marché à un vrai parc de caméras, et il vous donne toutes les propriétés qui rendent le suivi multi-caméras difficile : les murs imposent des trajets non linéaires, chaque panneau coloré est une caméra, donc franchir une frontière est un vrai transfert, et les panneaux hachurés sont
+        <b>désactivés</b> &mdash; des couloirs aveugles où le moteur doit tenir l’identité sur rien du tout et la reprendre de l’autre côté.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-maze">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> trace::Engine &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-maze-state">chargement&hellip;</span>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-maze-canvas" height="460"
+                  aria-label="A maze under a grid of cameras. Lettered dots are the true positions the engine is never told; numbered circles are its tracks, drawn at the size of their own position uncertainty."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> Vérité &mdash; sujet</span>
+            <span><i style="background:#60a5fa"></i> Vérité &mdash; autres</span>
+            <span><i style="background:#a78bfa"></i> Piste, observée</span>
+            <span><i style="background:#fbbf24"></i> Piste, extrapolée à l’aveugle</span>
+            <span><i style="background:#f87171"></i> Caméra éteinte</span>
+          </div>
+
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-play">Pause</button>
+            <input type="range" id="tr-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="Parcourir l’exécution">
+            <button class="btn btn--sm btn--ghost" id="tr-run">Nouveau labyrinthe</button>
+          </div>
+
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-w">Labyrinthe <b id="tr-w-v">21 &times; 11</b></label>
+              <input type="range" id="tr-w" min="11" max="31" step="2" value="21" aria-label="Largeur du labyrinthe en cases">
+              <input type="range" id="tr-h" min="7" max="17" step="2" value="11" aria-label="Hauteur du labyrinthe en cases">
+            </div>
+            <div class="ctrl">
+              <label for="tr-t">Voyageurs <b id="tr-t-v">3</b></label>
+              <input type="range" id="tr-t" min="1" max="8" step="1" value="3">
+            </div>
+            <div class="ctrl">
+              <label for="tr-b">Caméras éteintes <b id="tr-b-v">2</b></label>
+              <input type="range" id="tr-b" min="0" max="6" step="1" value="2">
+            </div>
+            <div class="ctrl">
+              <label for="tr-pd">Probabilité de détection <b id="tr-pd-v">0.82</b></label>
+              <input type="range" id="tr-pd" min="0.4" max="0.98" step="0.02" value="0.82">
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Évalué face à la vérité terrain</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Détection</div>
+                <div class="readout__v" id="tr-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">De ce que les caméras ont donné</div>
+                <div class="readout__v teal" id="tr-rec">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Erreur moyenne</div>
+                <div class="readout__v" id="tr-err">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Changements d’identité</div>
+                <div class="readout__v teal" id="tr-sw">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Fausses pistes</div>
+                <div class="readout__v" id="tr-gh">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Balayage médian</div>
+                <div class="readout__v" id="tr-lat">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Ce balayage</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Détection jusqu’ici</div>
+                <div class="readout__v" id="tr-live-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Erreur jusqu’ici</div>
+                <div class="readout__v" id="tr-live-err">&mdash;</div>
+              </div>
+            </div>
+            <p class="tiny muted" style="margin-top:12px">
+              Événements déclenchés <b class="mono" id="tr-live-ev" translate="no">&mdash;</b>
+            </p>
+            <p class="tiny muted">
+              Prochaine rencontre prévue <b class="mono" id="tr-live-rv" translate="no">&mdash;</b>
+            </p>
+          </div>
+          <p class="tiny muted">
+            <b>De ce que les caméras ont donné</b> est le dénominateur honnête : aucun système de suivi ne peut rapporter une entité qu’aucun capteur n’a détectée, donc un taux de détection brut mélange les échecs du système de suivi et ceux du parc. Au-dessus de 100 %, cela veut dire que le moteur a tenu des entités à travers des balayages où rien ne les voyait. Éteignez les caméras et regardez-le grimper.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        <code translate="no">trace::Engine</code> issu de <code translate="no">libtrace_core.a</code>, la même bibliothèque que lient les outils natifs &mdash; <span class="mono" id="tr-version" translate="no">&mdash;</span>. L’exécution entière est calculée d’un coup puis rejouée, donc l’animation n’est pas la vitesse du moteur ; le temps de balayage médian à côté, si.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2>Cinq étapes, et un rapport</h2>
+    </div>
+    <div class="grid grid-2 reveal" style="gap:18px">
+      <div class="card">
+        <span class="badge badge--violet" style="margin-bottom:10px">T &middot; A</span>
+        <h4 style="margin:0 0 6px">Trajectographie et association</h4>
+        <p class="small dim" style="margin:0">
+          Un système de suivi PMBM avec existence de Bernoulli au-dessus d’un filtre d’Ornstein&ndash;Uhlenbeck mixte à 320 particules &mdash; la vitesse suit un processus OU dont le régime (à pied, en véhicule, à l’arrêt) est lui-même une chaîne de Markov, et c’est ce que veut dire le &ldquo;mixte&rdquo;. Échantillonnage de Gibbs pour l’affectation un-à-un sur 14 passes, puis une fusion des doublons. L’association tourne <b>par capteur</b>, parce que l’exclusivité est un fait qui concerne un capteur et non le monde &mdash; deux caméras qui se recouvrent et rapportent toutes deux une seule personne, c’est une corroboration, pas deux personnes. L’imposer globalement coûtait 2,08 fausses pistes par balayage ; par capteur, c’est 0,08.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--teal" style="margin-bottom:10px">R</span>
+        <h4 style="margin:0 0 6px">Réidentification par la routine</h4>
+        <p class="small dim" style="margin:0">
+          Une piste dormante est réacquise grâce à ses habitudes de vie &mdash; un mélange gaussien par entité sur l’heure, x et y. Les descripteurs d’apparence sont pris en charge et délibérément
+          <b>désactivés</b> sur les benchmarks publics, parce qu’un descripteur oracle parfait n’y déplace pas du tout le score : 88 % de la pénalité, ce sont des détections manquées, auxquelles l’apparence ne peut rien.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--amber" style="margin-bottom:10px">C</span>
+        <h4 style="margin:0 0 6px">Trois prédicteurs de convergence, empilés</h4>
+        <p class="small dim" style="margin:0">
+          L’interception géométrique est exacte pour deux entités qui marchent l’une vers l’autre et inutile si l’une manœuvre. L’extrapolation du taux de rapprochement gère un trajet courbe. La prédiction croisée par habitudes de vie est la seule qui puisse se déclencher pendant que les deux parties sont encore immobiles. Elles échouent dans des circonstances différentes, donc les trois tournent et la plus confiante l’emporte.
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge" style="margin-bottom:10px">E</span>
+        <h4 style="margin:0 0 6px">Huit comportements, interchangeables à chaud</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">BRUSH_PASS</code>, <code translate="no">SDR_PATTERN</code>, <code translate="no">DEAD_DROP</code>,
+          <code translate="no">PARALLEL_ROUTE</code>, <code translate="no">MODE_TRANSITION</code>, <code translate="no">LOITER</code>,
+          <code translate="no">COVER_STOP</code>, <code translate="no">CHOKEPOINT</code>. Le score de menace fusionne huit dimensions de preuve par un Beta&ndash;Monte-Carlo, et le rapport porte le détail plutôt que le chiffre unique.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DARK VESSEL ======================= -->
+<section class="section" id="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">Le moteur lui-même</span>
+      <h2>Un navire coupe son transpondeur</h2>
+      <p class="lede">
+        AIS satellitaire sur un bassin océanique. Cinq navires sont en transit ; l’un d’eux coupe son transpondeur en pleine traversée et le rallume plus tard. Rien ne le rapporte entre-temps &mdash; aucun capteur, aucune détection, aucune preuve d’aucune sorte.
+      </p>
+      <p class="lede">
+        Regardez ce que le moteur en fait. Au premier balayage manqué, l’estimation de position passe de quelques centaines de mètres à environ douze kilomètres et la piste se poursuit sur la seule prédiction. Quelques balayages plus tard, elle est mise au repos dans un réservoir de pistes dormantes plutôt que supprimée, et quand le navire refait surface, le moteur doit décider s’il s’agit de quelque chose de nouveau ou de quelque chose qu’il connaît déjà.
+      </p>
+      <p class="lede">
+        <b>Allongez la période de silence et il se trompe sur cette décision.</b> Cinq balayages de silence et l’identité survit ; au-delà d’une dizaine, non, et le navire revient comme une nouvelle piste. C’est le résultat honnête et il vaut plus qu’une démonstration réglée pour gagner à tous les coups &mdash; la raison est sous les commandes.
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-sea">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> dark-vessel &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-sea-state">chargement&hellip;</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-sea-canvas" height="340"
+                  aria-label="An ocean basin with five vessels in transit. One stops reporting mid-voyage and the engine's uncertainty about it grows into a wide ellipse until it reappears."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> Suspect, en émission</span>
+            <span><i style="background:#f87171"></i> Suspect, au silence</span>
+            <span><i style="background:#60a5fa"></i> Autre trafic</span>
+            <span><i style="background:#fbbf24"></i> La propre piste du suspect</span>
+            <span><i style="background:#a78bfa"></i> Autres pistes</span>
+          </div>
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-sea-play">Pause</button>
+            <input type="range" id="tr-sea-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="Parcourir la traversée">
+            <button class="btn btn--sm btn--ghost" id="tr-sea-run">Relancer</button>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-dark">Durée du silence <b id="tr-dark-v">5 balayages</b></label>
+              <input type="range" id="tr-dark" min="2" max="40" step="1" value="5">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Le suspect, à l’instant</h4>
+            <div class="readout" style="grid-template-columns:1fr">
+              <div class="readout__item">
+                <div class="readout__k">État selon le moteur</div>
+                <div class="readout__v teal" id="tr-sea-u">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">Sur toute la traversée</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">Après réapparition</div>
+                <div class="readout__v" id="tr-sea-same">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Extrapolation la plus large</div>
+                <div class="readout__v amber" id="tr-sea-coast">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Trou avant son retour</div>
+                <div class="readout__v" id="tr-sea-blind">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">Détection jusqu’ici</div>
+                <div class="readout__v" id="tr-sea-det">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            <b>Pourquoi cela échoue.</b> La réidentification fonctionne ici par habitudes de vie &mdash; un mélange par entité sur l’heure et la position, qui demande si cette nouvelle observation correspond à quelque chose dont le moteur connaît déjà la routine. Un navire sur un seul transit rectiligne n’a pas de routine. Il a été vu allant dans un sens, une fois. Donc au-delà de quelques balayages, il ne reste que la prédiction de mouvement, et à douze nœuds avec des balayages horaires, cette incertitude dépasse tout ce qui est utile en moins d’un jour.
+          </p>
+          <p class="tiny muted">
+            Le même mécanisme est décisif là où une routine à apprendre <em>est</em> bel et bien présente, ce que montre le labyrinthe ci-dessus. Une limite dont la cause est énoncée vaut plus qu’une capacité qui n’en a aucune, et celle-ci figure dans la propre liste du dépôt.
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        Le même scénario <code translate="no">dark-vessel</code> que <code translate="no">trace_sim</code> exécute nativement, avec le même profil, le même capteur et le même bassin.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Preuves</span>
+      <h2>Rejoué face à de vraies détections, pas seulement face à son propre simulateur</h2>
+      <p class="lede">
+        Les séquences MOTChallenge &mdash; de vraies détections, produites par de vrais détecteurs sur de vraies vidéos &mdash; sont les seuls chiffres ici que le propre simulateur de TRACE n’a pas produits.
+      </p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="table">
+        <thead>
+          <tr><th>Benchmark</th><th>Boîtes</th><th>MOTA</th><th>Récupération du plafond du détecteur</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MOT17 train, 21 séquences</td><td class="mono" translate="no">336,891</td><td class="mono" translate="no">53.0%</td><td class="mono" translate="no">108.2%</td></tr>
+          <tr><td>MOT20 train, 4 séquences, 62&ndash;226 personnes/image</td><td class="mono" translate="no">1,134,614</td><td class="mono" translate="no">62.5%</td><td class="mono" translate="no">114.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:22px">
+      <strong>Chiffres sur la partition d’entraînement uniquement.</strong> Ceux-ci sont rejoués et évalués en local. Rien n’a été soumis au serveur d’évaluation de MOTChallenge, ce qu’exigerait un chiffre comparable au classement public. Le plafond est ce qu’obtiendrait un système de suivi parfait en répétant chaque détection qu’on lui a donnée ; le battre est tout le travail, et cela se fait en extrapolant à travers les images que le détecteur a ratées.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Coût</span>
+      <h2>Pratiquement linéaire en taille de foule</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Pistes</th><th>Médiane ms/balayage</th><th>&micro;s par piste</th></tr></thead>
+            <tbody>
+              <tr><td class="mono" translate="no">10</td><td class="mono" translate="no">1.7</td><td class="mono" translate="no">135</td></tr>
+              <tr><td class="mono" translate="no">120</td><td class="mono" translate="no">26.6</td><td class="mono" translate="no">152</td></tr>
+              <tr><td class="mono" translate="no">270</td><td class="mono" translate="no">72.1</td><td class="mono" translate="no">159</td></tr>
+              <tr><td class="mono" translate="no">400</td><td class="mono" translate="no">127.5</td><td class="mono" translate="no">159</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small dim" style="margin-top:14px">
+          Un cœur, build Release, AVX-512. Le coût croît comme environ n<sup>1.17</sup> et le suivi seul reste plat à 135&ndash;159 &micro;s par piste, de dix pistes à quatre cents &mdash; à lire comme &ldquo;la constante compte et l’exposant non&rdquo;.
+        </p>
+      </div>
+      <div>
+        <p class="dim">
+          C’était n<sup>1.82</sup> jusqu’à ce que le détecteur de convergence cesse de reconstruire la prévision d’habitudes de vie de chaque piste une fois par paire. Cela a rapporté un facteur vingt sur la constante et <em>pas</em> un meilleur exposant &mdash; le filtre d’index spatial ajouté au passage avait un rayon plus large que la scène, donc il renvoyait toutes les paires et ne faisait rien. Borner chaque paire par ses deux propres vitesses a fait passer ce détecteur de 56 % du moteur à 44 % et l’exposant à quasi linéaire.
+        </p>
+        <p class="dim">
+          À 400 pistes simultanées, cela fait environ 8 balayages par seconde sur un cœur : bien pour un parc de caméras à 1 Hz, pas pour 25 fps sans partitionner entre plusieurs workers. La page le dit parce que le benchmark le dit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Limites honnêtes</span>
+      <h2>Ce qu’il ne fait pas</h2>
+    </div>
+    <div class="stack reveal">
+      <div class="card">
+        <h4 style="margin:0 0 6px">Pas de détecteur, et pas de modèle de réidentification</h4>
+        <p class="small dim" style="margin:0">TRACE consomme des détections. Les produire est le travail de quelqu’un d’autre.</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Une estimation de vitesse a un plancher</h4>
+        <p class="small dim" style="margin:0">
+          Il lui faut un produit vitesse &times; maintien de cap bien au-dessus du bruit de position. En dessous d’un rapport d’environ 5, ce n’est pas une estimation, et l’extrapolation ne vaut que ce que vaut cette estimation. Une cible vraiment sinueuse vue par un capteur grossier n’a pas de vitesse mesurable &mdash; une contrainte de modélisation plutôt qu’un défaut, mais une chose à vérifier sur un profil avant d’affirmer quoi que ce soit sur l’extrapolation.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">La disponibilité des capteurs est déduite, pas connue</h4>
+        <p class="small dim" style="margin:0">
+          Un trou de couverture est deviné à partir du seul fait que quelque chose ait été rapporté ou non. Un déploiement réel sait quelles caméras sont en panne et n’a actuellement aucun moyen de le dire.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Pas de journalisation d’audit, de contrôle d’accès ni de politique de rétention</h4>
+        <p class="small dim" style="margin:0">
+          Plusieurs des choses vers lesquelles on peut braquer ceci sont des capacités de surveillance de masse. Quiconque le déploie contre des personnes doit construire cet échafaudage autour, et il n’est délibérément pas fourni par défaut.
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">Le chemin CUDA est un échafaudage</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">src/cuda/kernels.cu</code> existe et rien dans le moteur ne l’appelle. Les noyaux n’ont jamais tourné. Traitez-le comme une branche inachevée plutôt que comme un backend &mdash; le dépôt dit la même chose.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow" style="text-align:center">
+    <span class="eyebrow" style="justify-content:center">À source ouverte</span>
+    <h2>AGPL-3.0+, avec une licence commerciale à côté</h2>
+    <p class="lede">
+      Les mêmes conditions que tout le reste ici : lisez-le, exécutez-le, vérifiez-le. Si l’AGPL ne convient pas à ce que vous voulez construire, il y a une licence commerciale par paliers.
+    </p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Lire le code &rarr;</a>
+      <a class="btn btn--ghost" href="/fr/licensing.html">Licences</a>
+    </div>
+  </div>
+</section>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">Le plus proche sur ce site</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">À lire ensuite</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/fr/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — un modèle de séquences par réaction-diffusion</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — analyse criminelle et pistes d’enquête</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — transport masquant les métadonnées pour consortiums</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">Choisi par recoupement de termes avec cette page, non à la main — donc honnête sur ce qui est réellement proche, y compris quand rien ne l’est.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/fr/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          Recherche indépendante et logiciels systèmes par Odin Loch. Sydney, Australie. Code disponible sous AGPL-3.0+ avec une licence commerciale par paliers.
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">Licence commerciale disponible</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Produits</h4>
+        <ul>
+          <li><a href="/fr/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/fr/cypha.html">Cypha</a></li>
+          <li><a href="/fr/chess.html">Cypha Chess</a></li>
+          <li><a href="/fr/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/fr/mathscript.html">MathScript</a></li>
+          <li><a href="/fr/aegis.html">AEGIS</a></li>
+          <li><a href="/fr/sentinel.html">SENTINEL</a></li>
+          <li><a href="/fr/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/fr/about.html">À propos d’Imortek</a></li>
+          <li><a href="/fr/research.html">Bibliothèque de recherche</a></li>
+          <li><a href="/fr/licensing.html">Licences</a></li>
+          <li><a href="/fr/beta.html">Devenir testeur bêta</a></li>
+          <li><a href="/fr/kickstarter.html">Kickstarter PBSD</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">Demandes commerciales</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Code source</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">Profil GitHub</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">Dépôt ParanoidBSD</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">Idées / recherche</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">Texte de l’AGPL-3.0</a></li>
+          <li><a href="/sitemap.xml">Plan du site</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
+      <span class="mono tiny">Compilé le 2026-09-17T01:32:47Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
+<script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"unavailable":"indisponible","running…":"en cours…","engine ran in":"moteur exécuté en","Pause":"Pause","scan":"balayage","none predicted":"aucune prévue","Play":"Lecture","scans":"balayages","same track":"même piste","new track":"nouvelle piste","not reacquired":"non réacquise","suspect":"suspect","transponder off — nothing is reporting this vessel":"transpondeur coupé — rien ne signale ce navire","AIS reporting":"AIS actif","no track — dormant":"pas de piste — dormante","no track":"pas de piste","coasting":"extrapolée","tracked":"suivie"};</script>
+<script src="/assets/js/demos/trace.js" defer></script>
+</body>
+</html>

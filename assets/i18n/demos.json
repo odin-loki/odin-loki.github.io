@@ -165,5 +165,25 @@
  "sentinel": [
   "Click to place incidents",
   "KDE needs 1 · Rossmo needs 3"
+ ],
+ "trace": [
+  "unavailable",
+  "running…",
+  "engine ran in",
+  "Pause",
+  "scan",
+  "none predicted",
+  "Play",
+  "scans",
+  "same track",
+  "new track",
+  "not reacquired",
+  "suspect",
+  "transponder off — nothing is reporting this vessel",
+  "AIS reporting",
+  "no track — dormant",
+  "no track",
+  "coasting",
+  "tracked"
  ]
 }

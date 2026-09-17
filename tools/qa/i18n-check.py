@@ -101,8 +101,8 @@ def main():
                json.load(open('tools/locales.json', encoding='utf-8'))['locales']
                if not l.get('root')]
     core = ['index', 'pbsd', 'cypha', 'retdec', 'mathscript', 'aegis', 'sentinel',
-            'cellai', 'chess', 'kickstarter', 'beta', 'research', 'licensing',
-            'about', '404']
+            'cellai', 'chess', 'trace', 'kickstarter', 'beta', 'research',
+            'licensing', 'about', '404']
     problems, warnings, checked = [], [], 0
 
     for code in locales:

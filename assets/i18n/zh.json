@@ -27,6 +27,8 @@
   "menu.sentinel.desc": "犯罪分析与侦查线索",
   "menu.cellai.name": "Cell AI",
   "menu.cellai.desc": "基于反应扩散的序列模型",
+  "menu.trace.name": "TRACE",
+  "menu.trace.desc": "从稀疏观测中保持持续身份",
   "menu.beta.name": "成为测试用户",
   "menu.beta.desc": "免费抢先试用任何一款，并告诉我们哪里出了问题",
   "footer.blurb": "由 Odin Loch 独立开展的研究与系统软件，位于澳大利亚悉尼。源码以 AGPL-3.0+ 公开，另有分级商业授权。",

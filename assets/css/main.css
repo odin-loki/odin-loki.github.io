@@ -295,6 +295,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   position: absolute; top: calc(100% + 8px); inset-inline-start: 0; min-width: 290px;
   background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--r);
   box-shadow: var(--shadow-3); padding: 8px; display: none; z-index: 10;
+  /* Ten products is taller than a laptop screen. The menu hangs from a fixed
+     header, so without this the last entries are simply below the bottom of
+     the window and cannot be reached at all — scrolling the page moves the
+     menu with it. Capping it to what is left of the viewport is the whole
+     fix, and it was already wrong at nine. */
+  max-block-size: calc(100vh - 96px);
+  max-block-size: calc(100dvh - 96px);
+  overflow-y: auto; overscroll-behavior: contain;
 }
 .nav__group:hover .nav__menu, .nav__group:focus-within .nav__menu { display: block; }
 .nav__menu a {
@@ -314,7 +322,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   }
   .nav__links.is-open { transform: none; opacity: 1; pointer-events: auto; }
   .nav__link { padding: 12px; font-size: 1rem; }
-  .nav__menu { position: static; display: block; box-shadow: none; border: 0; background: transparent; padding: 0 0 0 12px; min-width: 0; }
+  .nav__menu {
+    position: static; display: block; box-shadow: none; border: 0; background: transparent;
+    padding: 0 0 0 12px; min-width: 0;
+    max-block-size: none; overflow-y: visible;   /* the drawer scrolls, not this */
+  }
   .nav__cta { margin: 12px 0 0; }
   .brand__sub { display: none; }
 }
@@ -1424,6 +1436,17 @@ body.has-toolbar { padding-bottom: calc(74px + env(safe-area-inset-bottom, 0px))
 [dir="rtl"] .stat__k, [dir="rtl"] .term__title, [dir="rtl"] .badge--mono,
 [dir="rtl"] .chip__n, [dir="rtl"] .kv__k {
   direction: ltr; unicode-bidi: isolate; text-align: start;
+}
+
+/* A measured value is a different case from a code span. "1.62 m" came out as
+   "m 1.62" — the unit is a Latin letter, so an RTL paragraph puts it first —
+   but some of these boxes hold a translated word instead of a number, and
+   forcing them all left-to-right would mis-set those. `plaintext` resolves
+   each box on its own first strong character: a number reads LTR, an Arabic
+   word reads RTL, and the box itself stays where the locale put it. */
+[dir="rtl"] .readout__v, [dir="rtl"] .phero__meta-item b,
+[dir="rtl"] .product__meta .badge, [dir="rtl"] .fieldnav__count {
+  unicode-bidi: plaintext;
 }
 
 /* ---------- Header at intermediate widths ----------

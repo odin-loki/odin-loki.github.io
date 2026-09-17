@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek</title>
+<meta name="description" content="क्षेत्र-निरपेक्ष C++23 ट्रैकिंग इंजन: PMBM अस्तित्व, Gibbs असोसिएशन, दिनचर्या से री-आइडेंटिफ़िकेशन और एक के ऊपर एक रखे कन्वर्जेंस पूर्वानुमान। WebAssembly में कंपाइल किए गए इसी इंजन को एक भूलभुलैया और ख़ामोश हो जाते जहाज़ को ट्रैक करते देखिए।">
+<meta name="keywords" content="TRACE, मल्टी-टारगेट ट्रैकिंग, कई लक्ष्यों की ट्रैकिंग, ऑब्जेक्ट ट्रैकिंग, PMBM, Bernoulli अस्तित्व, कण फ़िल्टर, particle filter, Gibbs असोसिएशन, दोबारा पहचान, री-आइडेंटिफ़िकेशन, री-आईडी, दिनचर्या से पहचान, मुलाक़ात का पूर्वानुमान, MOTChallenge, सेंसर फ़्यूज़न, कई कैमरों से ट्रैकिंग, निगरानी, C++23">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/hi/trace.html">
+<link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html">
+<link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html">
+<link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html">
+<link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html">
+<link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html">
+<link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html">
+<link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html">
+<link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html">
+<link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html">
+<link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html">
+
+<meta name="imortek:locale" content="hi">
+<meta name="imortek:speech" content="hi-IN">
+<meta name="imortek:prefix" content="/hi">
+<script>window.__IMORTEK_I18N={"lang.label":"भाषा","lang.choose":"भाषा चुनें","lang.machine":"इस पृष्ठ का अनुवाद करें","lang.machineTag":"Google","lang.machineHint":"Google का मशीनी अनुवाद, उनके सर्वर पर। इसमें कुछ भी जाँचा नहीं गया है।","lang.suggested":"आपका ब्राउज़र यह भाषा पसंद करता है","lang.close":"बंद करें","tools.label":"पृष्ठ उपकरण","tools.toggle":"पृष्ठ उपकरण दिखाएँ या छिपाएँ","tools.readAloud":"पढ़कर सुनाएँ","tools.pause":"रोकें","tools.stop":"पढ़ना बंद करें","tools.next":"अगला अनुच्छेद","tools.voice":"आवाज़ से आदेश","tools.explain":"कठिन शब्द समझाएँ","tools.reset":"रीसेट","tools.termsOnPage":"शब्द इस पृष्ठ पर","tools.learned":"सीखे गए","tools.preExpanded":"पहले से खुले","tools.openMore":"{n} और खोलें, फिर Cypha अनुमान लगाना शुरू कर देगा","tools.understood":"समझा गया","tools.corrected":"सुधारा गया","tools.off":"बंद","tools.reading":"पढ़ा जा रहा है","search.placeholder":"खोजें — बताइए आपको क्या चाहिए","search.aria":"इस साइट पर खोजें","search.hint":"अर्थ के आधार पर मिलान करता है, सिर्फ़ शब्दों से नहीं। बंद करने के लिए Esc।","search.nothing":"कुछ भी मिलता-जुलता नहीं मिला।","related.eyebrow":"इस साइट पर सबसे निकट","related.title":"संबंधित पठन","related.note":"इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।","voice.help":"आप कह सकते हैं: पढ़ो, रुको, अगला, पीछे, ऊपर, होम, या किसी पृष्ठ का नाम। आप यह भी बता सकते हैं कि आपको क्या चाहिए और मैं सबसे निकट का पृष्ठ ढूँढ दूँगा।","voice.notCaught":"मैं समझ नहीं पाया। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.listening":"सुन रहा हूँ। क्या-क्या कह सकते हैं, यह जानने के लिए \"मदद\" कहिए।","voice.micOff":"माइक्रोफ़ोन बंद है।","voice.micBlocked":"माइक्रोफ़ोन अवरुद्ध है। आवाज़ से आदेश देने के लिए इसे ब्राउज़र में अनुमति दें।","voice.opening":"खोल रहा हूँ","voice.didYouMean":"क्या आपका मतलब था","voice.sayNumber":"कोई संख्या बोलिए, या \"नहीं\" कहिए।","voice.understood":"समझ गया। दूसरे तरीक़े से कहिए, या \"मदद\" कहिए।","voice.endOfPage":"पृष्ठ समाप्त।","voice.searchOpen":"खोज खुल गई।","voice.nothingRelated":"इस पृष्ठ पर कुछ भी संबंधित नहीं है।","voice.related":"संबंधित","voice.goingTo":"जा रहा हूँ","voice.heading":"शीर्षक।","voice.or":"या","gh.live":"api.github.com से सीधे","gh.cached":"सहेजी गई प्रति","gh.noDescription":"कोई विवरण नहीं","gloss.notInDict":"शब्दकोश में नहीं है।","gloss.didYouMean":"क्या आपका मतलब था","gloss.or":"या","gloss.listSep":",","gloss.queryEnd":"?","gloss.lookingUp":"खोजा जा रहा है…","gloss.forget":"Cypha ने जो सीखा उसे भुला दें"};</script>
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:locale:alternate" content="en_AU">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ur_PK">
+<meta property="og:title" content="TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek">
+<meta property="og:description" content="क्षेत्र-निरपेक्ष C++23 ट्रैकिंग इंजन: PMBM अस्तित्व, Gibbs असोसिएशन, दिनचर्या से री-आइडेंटिफ़िकेशन और एक के ऊपर एक रखे कन्वर्जेंस पूर्वानुमान। WebAssembly में कंपाइल किए गए इसी इंजन को एक भूलभुलैया और ख़ामोश हो जाते जहाज़ को ट्रैक करते देखिए।">
+<meta property="og:url" content="https://imortek.com.au/hi/trace.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek">
+<meta name="twitter:description" content="क्षेत्र-निरपेक्ष C++23 ट्रैकिंग इंजन: PMBM अस्तित्व, Gibbs असोसिएशन, दिनचर्या से री-आइडेंटिफ़िकेशन और एक के ऊपर एक रखे कन्वर्जेंस पूर्वानुमान। WebAssembly में कंपाइल किए गए इसी इंजन को एक भूलभुलैया और ख़ामोश हो जाते जहाज़ को ट्रैक करते देखिए।">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image:alt" content="TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"hi","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/hi/trace.html#webpage","url":"https://imortek.com.au/hi/trace.html","name":"TRACE — छिटपुट नज़रों से टिकाऊ पहचान | Imortek","description":"क्षेत्र-निरपेक्ष C++23 ट्रैकिंग इंजन: PMBM अस्तित्व, Gibbs असोसिएशन, दिनचर्या से री-आइडेंटिफ़िकेशन और एक के ऊपर एक रखे कन्वर्जेंस पूर्वानुमान। WebAssembly में कंपाइल किए गए इसी इंजन को एक भूलभुलैया और ख़ामोश हो जाते जहाज़ को ट्रैक करते देखिए।","inLanguage":"hi","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"datePublished":"2026-09-17","dateModified":"2026-09-17","breadcrumb":{"@id":"https://imortek.com.au/hi/trace.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/hi/trace.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://imortek.com.au/hi/"},{"@type":"ListItem","position":2,"name":"TRACE","item":"https://imortek.com.au/hi/trace.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/hi/trace.html#software","name":"TRACE","description":"क्षेत्र-निरपेक्ष C++23 ट्रैकिंग इंजन: PMBM अस्तित्व, Gibbs असोसिएशन, दिनचर्या से री-आइडेंटिफ़िकेशन और एक के ऊपर एक रखे कन्वर्जेंस पूर्वानुमान। WebAssembly में कंपाइल किए गए इसी इंजन को एक भूलभुलैया और ख़ामोश हो जाते जहाज़ को ट्रैक करते देखिए।","url":"https://imortek.com.au/hi/trace.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/TRACE","sameAs":["https://github.com/odin-loki/TRACE"]}]}</script>
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">सामग्री पर जाएँ</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/hi/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">अनुसंधान और सिस्टम</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="नेविगेशन दिखाएँ या छिपाएँ">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/hi/#products" aria-haspopup="true">उत्पाद</a>
+          <div class="nav__menu">
+            <a href="/hi/pbsd.html"><strong>ParanoidBSD</strong><span>कैपेबिलिटी-आधारित सुरक्षा वाला C++23 ऑपरेटिंग सिस्टम</span></a>
+            <a href="/hi/cypha.html"><strong>Cypha</strong><span>मूल सिद्धांतों से बना AI — वर्गीकरण, नमूना, निर्माण</span></a>
+            <a href="/hi/chess.html"><strong>Cypha Chess</strong><span>असली इंजन से डिस्टिल किए गए मॉडल के साथ खेलें</span></a>
+            <a href="/hi/retdec.html"><strong>RetDec Imortek</strong><span>विनिर्देश निकालने वाला डीकंपाइलर</span></a>
+            <a href="/hi/mathscript.html"><strong>MathScript</strong><span>C++23 कंप्यूटर बीजगणित और संख्यात्मक गणना</span></a>
+            <a href="/hi/aegis.html"><strong>AEGIS</strong><span>मेटाडेटा छिपाने वाला ट्रांसपोर्ट</span></a>
+            <a href="/hi/sentinel.html"><strong>SENTINEL</strong><span>अपराध विश्लेषण और जाँच के सूत्र</span></a>
+            <a href="/hi/cellai.html"><strong>Cell AI</strong><span>रिएक्शन-डिफ्यूज़न अनुक्रम मॉडल</span></a>
+            <a href="/hi/trace.html"><strong>TRACE</strong><span>बिखरी हुई झलकियों से स्थायी पहचान</span></a>
+            <a href="/hi/beta.html"><strong>बीटा टेस्टर बनें</strong><span>किसी भी उत्पाद को पहले, मुफ़्त आज़माएँ और बताएँ कि क्या टूटा</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/hi/research.html">अनुसंधान</a>
+        <a class="nav__link" href="/hi/licensing.html">लाइसेंसिंग</a>
+        <a class="nav__link" href="/hi/about.html">परिचय</a>
+        <a class="nav__link" href="#" data-search aria-label="इस साइट पर खोजें">खोज</a>
+        <a class="nav__link nav__link--extra" href="/hi/beta.html">बीटा</a>
+        <a class="nav__link nav__link--extra" href="/hi/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/hi/kickstarter.html">PBSD को समर्थन दें</a>
+      </div>
+
+<div class="langsel">
+  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="भाषा: हिन्दी">
+    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="langsel__cur">हिन्दी</span>
+    <span class="langsel__caret" aria-hidden="true"></span>
+  </button>
+  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="भाषा चुनें">
+    <a role="menuitem" href="/trace.html" data-lang="en" data-endonym="English" hreflang="en" lang="en" dir="ltr"><span class="langsel__endo">English</span><span class="langsel__name">English</span></a>
+    <a role="menuitem" href="/zh/trace.html" data-lang="zh" data-endonym="中文" hreflang="zh-Hans" lang="zh-Hans" dir="ltr"><span class="langsel__endo">中文</span><span class="langsel__name">Chinese</span></a>
+    <a role="menuitem" href="/hi/trace.html" data-lang="hi" data-endonym="हिन्दी" hreflang="hi" lang="hi" dir="ltr" class="is-current" aria-current="true"><span class="langsel__endo">हिन्दी</span><span class="langsel__name">Hindi</span></a>
+    <a role="menuitem" href="/es/trace.html" data-lang="es" data-endonym="Español" hreflang="es" lang="es" dir="ltr"><span class="langsel__endo">Español</span><span class="langsel__name">Spanish</span></a>
+    <a role="menuitem" href="/ar/trace.html" data-lang="ar" data-endonym="العربية" hreflang="ar" lang="ar" dir="rtl"><span class="langsel__endo">العربية</span><span class="langsel__name">Arabic</span></a>
+    <a role="menuitem" href="/fr/trace.html" data-lang="fr" data-endonym="Français" hreflang="fr" lang="fr" dir="ltr"><span class="langsel__endo">Français</span><span class="langsel__name">French</span></a>
+    <a role="menuitem" href="/bn/trace.html" data-lang="bn" data-endonym="বাংলা" hreflang="bn" lang="bn" dir="ltr"><span class="langsel__endo">বাংলা</span><span class="langsel__name">Bengali</span></a>
+    <a role="menuitem" href="/pt/trace.html" data-lang="pt" data-endonym="Português" hreflang="pt" lang="pt" dir="ltr"><span class="langsel__endo">Português</span><span class="langsel__name">Portuguese</span></a>
+    <a role="menuitem" href="/ru/trace.html" data-lang="ru" data-endonym="Русский" hreflang="ru" lang="ru" dir="ltr"><span class="langsel__endo">Русский</span><span class="langsel__name">Russian</span></a>
+    <a role="menuitem" href="/ur/trace.html" data-lang="ur" data-endonym="اردو" hreflang="ur" lang="ur" dir="rtl"><span class="langsel__endo">اردو</span><span class="langsel__name">Urdu</span></a>
+  </div>
+</div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">TRACE &middot; v0.2</span>
+        <h1>ज़्यादातर ट्रैकर &ldquo;कहाँ&rdquo; पर आकर रुक जाते हैं। <span class="gradient-text">यह वहाँ से आगे चलता रहता है।</span></h1>
+        <p class="lede">
+          TRACE अलग-अलग तरह के सेंसरों से आई छिटपुट, अनिश्चित नज़रों को टिकाऊ पहचानों में बदल देता है। जहाँ उसे कोई नहीं देख पाता, वहाँ भी वह ट्रैक थामे रखता है, हर इकाई के लिए अलग से सीखता है कि उसके लिए सामान्य क्या है, और मुलाक़ातें होने से पहले उनका अनुमान लगाता है &mdash; और जो भी संख्या वह बताता है, उसके साथ उसकी अनिश्चितता भी जुड़ी रहती है।
+        </p>
+        <p class="lede">
+          कोर में किसी को नहीं पता कि वह किसे ट्रैक कर रहा है। कैमरे, जहाज़, पैलेट, जानवर और खिलाड़ी — सब एक ही समस्या हैं, बस प्रोफ़ाइल अलग है।
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#maze">इसे एक भूलभुलैया ट्रैक करते देखिए</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">रिपॉज़िटरी &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">भाषा<b data-gh-repo="TRACE" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">MOT17 MOTA<b>53.0%</b></div>
+          <div class="phero__meta-item">MOT20 MOTA<b>62.5%</b></div>
+          <div class="phero__meta-item">आँके गए बॉक्स<b>1.47M</b></div>
+          <div class="phero__meta-item">आख़िरी पुश<b data-gh-repo="TRACE" data-gh-field="updated">हाल ही में</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:14px">नाम का मतलब</span>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">T</span><span class="spec__v">ट्रैकिंग &mdash; हर चीज़ कहाँ है, और हमें कितना भरोसा है</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">R</span><span class="spec__v">री-आइडेंटिफ़िकेशन &mdash; वही चीज़, खो जाने के बाद</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">A</span><span class="spec__v">असोसिएशन &mdash; कौन-सी नज़र किस ट्रैक की है</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">C</span><span class="spec__v">कन्वर्जेंस &mdash; कौन किससे मिलने वाला है</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k mono" translate="no">E</span><span class="spec__v">इवेंट &mdash; ऐसा बर्ताव जिस पर किसी का ध्यान जाना चाहिए</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">समस्या</span>
+      <h2>जो ट्रैक पहले छूटे फ़्रेम पर ही मिटा दिया जाए, वह कभी ट्रैक था ही नहीं</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          सेंसर चीज़ें चूकते हैं। कैमरे के पास पहचान की एक प्रायिकता होती है, गारंटी नहीं; जहाज़ अपना ट्रांसपोंडर बंद कर सकता है; किसी गलियारे में कैमरा हो ही न, यह भी मुमकिन है। जैसे ही कवरेज गिरता है, वह ट्रैकर जो &ldquo;नहीं दिखा&rdquo; को &ldquo;है ही नहीं&rdquo; मान लेता है, पहचान खो देता है, और इकाई के दोबारा दिखने पर उसे नई पहचान दे देता है। इसके आगे का हर सवाल &mdash; यह कहाँ-कहाँ रही, किससे मिली, क्या यह इसके लिए सामान्य है &mdash; अब अनुत्तरित रह जाता है।
+        </p>
+        <p class="dim">
+          TRACE उन दो चीज़ों को अलग रखता है जिन्हें ज़्यादातर ट्रैकर एक कर देते हैं। हर ट्रैक अपने साथ <b>r</b>, उसके अस्तित्व की प्रायिकता, लेकर चलता है &mdash; और यह इस बात से अलग रखी जाती है कि वह कहाँ है। कोई छूटा हुआ स्कैन
+          <b>r</b> को घटाता है और स्थिति के अनुमान को चौड़ा कर देता है; वह कुछ भी नहीं मिटाता। ट्रैक अनुमान के सहारे बहता रहता है, और ऐसा करते हुए उसकी अनिश्चितता ईमानदारी से बढ़ती जाती है।
+        </p>
+        <p class="dim">
+          नीचे के दोनों प्रदर्शन यही दिखा रहे हैं। बिंदुदार घेरा इंजन का यह कहना है: <em>यह कहीं इसी के भीतर है और हर पल मेरा यक़ीन घटता जा रहा है</em> &mdash; यह बताया जाना काम की बात है, और यही वह बात है जो मिटाया हुआ ट्रैक आपको नहीं बता सकता।
+        </p>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <span class="badge badge--violet" style="margin-bottom:10px">अस्तित्व</span>
+            <h4 style="margin:0 0 6px">Bernoulli, बूलियन नहीं</h4>
+            <p class="small dim" style="margin:0">
+              320-कण वाले फ़िल्टर के ऊपर एक PMBM ट्रैकर। अस्तित्व एक प्रायिकता है जो चूक से घटती है और सबूत मिलने पर लौट आती है, इसलिए कोई ओट पहचान नहीं, भरोसा गँवाती है।
+            </p>
+          </div>
+          <div class="card">
+            <span class="badge badge--teal" style="margin-bottom:10px">सम्भावना</span>
+            <h4 style="margin:0 0 6px">सबूत पर एक दूसरी राय</h4>
+            <p class="small dim" style="margin:0">
+              प्रायिकता के साथ-साथ एक सम्भावनावादी अस्तित्व भी चलता है, जो सबूत की मात्रा नहीं, बल्कि उसकी
+              <em>गुणवत्ता</em> पर नज़र रखता है। जब ये दोनों अलग-अलग दिशा में जाते हैं, तो इसका मतलब है कि बहुत-सी कमज़ोर पहचानों को धोकर झूठी निश्चितता में बदल दिया गया है।
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAZE ======================= -->
+<section class="section" id="maze">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">ख़ुद इंजन</span>
+      <h2>एक कैमरा-तंत्र, जिसके कुछ गलियारे कोई नहीं देख रहा</h2>
+      <p class="lede">
+        असली कैमरा-तंत्र की जगह भूलभुलैया एक सस्ती भरपाई है, और इसमें वे सारी ख़ूबियाँ हैं जो कई कैमरों वाली ट्रैकिंग को मुश्किल बनाती हैं: दीवारें रास्तों को टेढ़ा कर देती हैं, हर रंगीन ख़ाना एक कैमरा है, इसलिए सीमा पार करना सचमुच का हैंडऑफ़ है, और तिरछी धारियों वाले ख़ाने
+        <b>बंद</b> हैं &mdash; अंधे गलियारे, जहाँ इंजन को बिल्कुल शून्य के सहारे पहचान थामे रखनी होती है और दूसरे सिरे पर उसे फिर से पकड़ना होता है।
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-maze">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> trace::Engine &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-maze-state">लोड हो रहा है&hellip;</span>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-maze-canvas" height="460"
+                  aria-label="A maze under a grid of cameras. Lettered dots are the true positions the engine is never told; numbered circles are its tracks, drawn at the size of their own position uncertainty."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> सच्चाई &mdash; ख़ास इकाई</span>
+            <span><i style="background:#60a5fa"></i> सच्चाई &mdash; बाक़ी</span>
+            <span><i style="background:#a78bfa"></i> ट्रैक, जो दिख रहा है</span>
+            <span><i style="background:#fbbf24"></i> ट्रैक, बिना देखे बहता हुआ</span>
+            <span><i style="background:#f87171"></i> कैमरा बंद</span>
+          </div>
+
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-play">रोकें</button>
+            <input type="range" id="tr-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="रन में आगे-पीछे जाइए">
+            <button class="btn btn--sm btn--ghost" id="tr-run">नई भूलभुलैया</button>
+          </div>
+
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-w">भूलभुलैया <b id="tr-w-v">21 &times; 11</b></label>
+              <input type="range" id="tr-w" min="11" max="31" step="2" value="21" aria-label="भूलभुलैया की चौड़ाई, ख़ानों में">
+              <input type="range" id="tr-h" min="7" max="17" step="2" value="11" aria-label="भूलभुलैया की ऊँचाई, ख़ानों में">
+            </div>
+            <div class="ctrl">
+              <label for="tr-t">यात्री <b id="tr-t-v">3</b></label>
+              <input type="range" id="tr-t" min="1" max="8" step="1" value="3">
+            </div>
+            <div class="ctrl">
+              <label for="tr-b">बंद कैमरे <b id="tr-b-v">2</b></label>
+              <input type="range" id="tr-b" min="0" max="6" step="1" value="2">
+            </div>
+            <div class="ctrl">
+              <label for="tr-pd">पहचान की प्रायिकता <b id="tr-pd-v">0.82</b></label>
+              <input type="range" id="tr-pd" min="0.4" max="0.98" step="0.02" value="0.82">
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">सच्चाई के मुक़ाबले आँका गया</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">पहचान</div>
+                <div class="readout__v" id="tr-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">कैमरों ने जो दिया, उसमें से</div>
+                <div class="readout__v teal" id="tr-rec">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">औसत त्रुटि</div>
+                <div class="readout__v" id="tr-err">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">पहचान की अदला-बदली</div>
+                <div class="readout__v teal" id="tr-sw">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">फ़र्ज़ी ट्रैक</div>
+                <div class="readout__v" id="tr-gh">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">मध्यक स्कैन</div>
+                <div class="readout__v" id="tr-lat">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">यह स्कैन</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">अब तक की पहचान</div>
+                <div class="readout__v" id="tr-live-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">अब तक की त्रुटि</div>
+                <div class="readout__v" id="tr-live-err">&mdash;</div>
+              </div>
+            </div>
+            <p class="tiny muted" style="margin-top:12px">
+              उठाए गए इवेंट <b class="mono" id="tr-live-ev" translate="no">&mdash;</b>
+            </p>
+            <p class="tiny muted">
+              अगली अनुमानित मुलाक़ात <b class="mono" id="tr-live-rv" translate="no">&mdash;</b>
+            </p>
+          </div>
+          <p class="tiny muted">
+            <b>कैमरों ने जो दिया, उसमें से</b> &mdash; यही ईमानदार हर है: कोई ट्रैकर ऐसी इकाई की सूचना नहीं दे सकता जिसे किसी सेंसर ने पकड़ा ही न हो, इसलिए कच्ची पहचान-दर ट्रैकर की नाकामियों को कैमरा-तंत्र की नाकामियों के साथ मिला देती है। 100% से ऊपर का मतलब है कि इंजन ने उन स्कैनों में भी इकाइयों को थामे रखा जिनमें उन्हें कोई नहीं देख रहा था। कैमरे बंद कीजिए और इसे चढ़ते हुए देखिए।
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        <code translate="no">trace::Engine</code> का स्रोत <code translate="no">libtrace_core.a</code>, वही लाइब्रेरी जिससे नेटिव टूल भी लिंक होते हैं &mdash; <span class="mono" id="tr-version" translate="no">&mdash;</span>। पूरा रन एक ही बार में गणना करके चलाया जाता है, इसलिए यह एनिमेशन इंजन की रफ़्तार नहीं है; बग़ल में लिखा मध्यक स्कैन समय ही वह रफ़्तार है।
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">यह काम कैसे करता है</span>
+      <h2>पाँच चरण, और एक रिपोर्ट</h2>
+    </div>
+    <div class="grid grid-2 reveal" style="gap:18px">
+      <div class="card">
+        <span class="badge badge--violet" style="margin-bottom:10px">T &middot; A</span>
+        <h4 style="margin:0 0 6px">ट्रैकिंग और असोसिएशन</h4>
+        <p class="small dim" style="margin:0">
+          320-कण वाले मिश्रित Ornstein&ndash;Uhlenbeck फ़िल्टर के ऊपर Bernoulli अस्तित्व वाला एक PMBM ट्रैकर &mdash; वेग एक OU प्रक्रिया पर चलता है, जिसकी चाल का ढंग (पैदल, गाड़ी में, रुका हुआ) ख़ुद एक Markov चेन है, और यही &ldquo;मिश्रित&rdquo; वाला हिस्सा है। एक-से-एक असाइनमेंट के लिए 14 स्वीप तक Gibbs सैंपलिंग, फिर डुप्लिकेट का मर्ज। असोसिएशन अलग-अलग चलता है &mdash; <b>हर सेंसर के लिए</b>, क्योंकि विशिष्टता सेंसर के बारे में तथ्य है, दुनिया के बारे में नहीं &mdash; एक ही आदमी की सूचना देते दो अतिव्यापी कैमरे पुष्टि हैं, दो आदमी नहीं। इसे पूरी दुनिया पर लागू करने की क़ीमत प्रति स्कैन 2.08 फ़र्ज़ी ट्रैक थी; हर सेंसर के हिसाब से यह 0.08 है।
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--teal" style="margin-bottom:10px">R</span>
+        <h4 style="margin:0 0 6px">दिनचर्या से री-आइडेंटिफ़िकेशन</h4>
+        <p class="small dim" style="margin:0">
+          सुप्त पड़े ट्रैक को उसकी दिनचर्या के ज़रिए दोबारा पकड़ा जाता है &mdash; हर इकाई के लिए घंटे, x और y पर एक गाउसी मिश्रण। अपीयरेंस डिस्क्रिप्टर समर्थित हैं और सार्वजनिक बेंचमार्क पर जानबूझकर
+          <b>बंद</b> रखे गए हैं, क्योंकि वहाँ एक आदर्श ऑरेकल डिस्क्रिप्टर भी स्कोर को ज़रा भी नहीं हिलाता: 88% नुक़सान छूटी हुई पहचानों का है, जिन्हें अपीयरेंस छू तक नहीं सकती।
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--amber" style="margin-bottom:10px">C</span>
+        <h4 style="margin:0 0 6px">तीन कन्वर्जेंस पूर्वानुमानक, एक के ऊपर एक</h4>
+        <p class="small dim" style="margin:0">
+          ज्यामितीय अवरोधन उन दो इकाइयों के लिए एकदम सटीक है जो एक-दूसरे की ओर चल रही हों, और बेकार है अगर इनमें से कोई भी मुड़-घूम जाए। नज़दीकी-दर का बहिर्वेशन टेढ़े रास्ते को सँभाल लेता है। दिनचर्या से आर-पार का पूर्वानुमान अकेला ऐसा है जो दोनों पक्षों के खड़े रहते हुए भी चल सकता है। ये अलग-अलग हालात में नाकाम होते हैं, इसलिए तीनों चलते हैं और जिसका भरोसा सबसे ऊँचा हो, वही जीतता है।
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge" style="margin-bottom:10px">E</span>
+        <h4 style="margin:0 0 6px">आठ बर्ताव, चलते-चलते बदले जा सकने वाले</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">BRUSH_PASS</code>, <code translate="no">SDR_PATTERN</code>, <code translate="no">DEAD_DROP</code>,
+          <code translate="no">PARALLEL_ROUTE</code>, <code translate="no">MODE_TRANSITION</code>, <code translate="no">LOITER</code>,
+          <code translate="no">COVER_STOP</code>, <code translate="no">CHOKEPOINT</code>। ख़तरे का अंकन आठ साक्ष्य-आयामों को एक Beta&ndash;Monte-Carlo के ज़रिए मिलाता है, और रिपोर्ट एक अकेली संख्या के बजाय पूरा ब्यौरा साथ लाती है।
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DARK VESSEL ======================= -->
+<section class="section" id="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">ख़ुद इंजन</span>
+      <h2>एक जहाज़ अपना ट्रांसपोंडर बंद कर देता है</h2>
+      <p class="lede">
+        एक समुद्री बेसिन के ऊपर उपग्रह AIS। पाँच जहाज़ रास्ते में हैं; उनमें से एक बीच सफ़र में अपना ट्रांसपोंडर बंद कर देता है और बाद में फिर चालू कर देता है। इस बीच उसकी कोई ख़बर नहीं आती &mdash; न कोई सेंसर, न कोई पहचान, न किसी तरह का कोई सबूत।
+      </p>
+      <p class="lede">
+        देखिए इंजन इसके साथ क्या करता है। पहले ही छूटे स्कैन पर स्थिति का अनुमान कुछ सौ मीटर से उछलकर लगभग बारह किलोमीटर हो जाता है और ट्रैक सिर्फ़ अनुमान के सहारे बहता रहता है। कुछ स्कैन बाद उसे मिटाया नहीं जाता, बल्कि एक सुप्त पूल में डाल दिया जाता है, और जब जहाज़ फिर उभरता है तो इंजन को तय करना होता है कि यह कुछ नया है या कुछ ऐसा जिसे वह पहले से जानता है।
+      </p>
+      <p class="lede">
+        <b>ब्लैकआउट को जितना लंबा खींचिए, वह यह फ़ैसला उतना ही ग़लत करता है।</b> पाँच स्कैन की ख़ामोशी में पहचान बची रहती है; क़रीब दस के बाद नहीं बचती, और जहाज़ एक नए ट्रैक के रूप में लौटता है। यही ईमानदार नतीजा है, और यह उस प्रदर्शन से ज़्यादा क़ीमती है जिसे हमेशा जीतने के लिए सुर में बाँध दिया गया हो &mdash; इसकी वजह नियंत्रणों के नीचे लिखी है।
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-sea">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> dark-vessel &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-sea-state">लोड हो रहा है&hellip;</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-sea-canvas" height="340"
+                  aria-label="An ocean basin with five vessels in transit. One stops reporting mid-voyage and the engine's uncertainty about it grows into a wide ellipse until it reappears."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> संदिग्ध, सूचना देता हुआ</span>
+            <span><i style="background:#f87171"></i> संदिग्ध, ख़ामोश हो गया</span>
+            <span><i style="background:#60a5fa"></i> बाक़ी आवाजाही</span>
+            <span><i style="background:#fbbf24"></i> ख़ुद संदिग्ध का ट्रैक</span>
+            <span><i style="background:#a78bfa"></i> बाक़ी ट्रैक</span>
+          </div>
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-sea-play">रोकें</button>
+            <input type="range" id="tr-sea-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="सफ़र में आगे-पीछे जाइए">
+            <button class="btn btn--sm btn--ghost" id="tr-sea-run">फिर से चलाएँ</button>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-dark">कितनी देर ख़ामोश रहता है <b id="tr-dark-v">5 स्कैन</b></label>
+              <input type="range" id="tr-dark" min="2" max="40" step="1" value="5">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">संदिग्ध, अभी</h4>
+            <div class="readout" style="grid-template-columns:1fr">
+              <div class="readout__item">
+                <div class="readout__k">इंजन की नज़र में उसकी हालत</div>
+                <div class="readout__v teal" id="tr-sea-u">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">पूरे सफ़र में</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">दोबारा उभरने के बाद</div>
+                <div class="readout__v" id="tr-sea-same">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">बहते हुए सबसे चौड़ा फैलाव</div>
+                <div class="readout__v amber" id="tr-sea-coast">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">लौटने से पहले का अंतराल</div>
+                <div class="readout__v" id="tr-sea-blind">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">अब तक की पहचान</div>
+                <div class="readout__v" id="tr-sea-det">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            <b>यह क्यों टूटता है।</b> यहाँ री-आइडेंटिफ़िकेशन दिनचर्या के सहारे काम करता है &mdash; हर इकाई के लिए घंटे और स्थिति पर एक मिश्रण, जो पूछता है कि क्या यह नई नज़र किसी ऐसी चीज़ से मेल खाती है जिसकी दिनचर्या इंजन पहले से जानता है। एक ही सीधे सफ़र पर निकले जहाज़ की कोई दिनचर्या होती ही नहीं। उसे एक बार, एक ही दिशा में जाते देखा गया है। इसलिए कुछ स्कैन के बाद बचती है सिर्फ़ गति की भविष्यवाणी, और बारह नॉट की रफ़्तार पर हर घंटे होने वाले स्कैन के साथ वह अनिश्चितता एक दिन के भीतर इतनी बढ़ जाती है कि किसी काम की नहीं रहती।
+          </p>
+          <p class="tiny muted">
+            यही तंत्र वहाँ निर्णायक होता है जहाँ सीखने लायक़ कोई दिनचर्या होती <em>ही</em> है &mdash; और ऊपर की भूलभुलैया यही दिखा रही है। जिस सीमा का कारण बताया गया हो, वह बिना कारण वाली किसी क्षमता से ज़्यादा क़ीमती है, और यह सीमा रिपॉज़िटरी की अपनी सूची में दर्ज है।
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        वही <code translate="no">dark-vessel</code> परिदृश्य <code translate="no">trace_sim</code> नेटिव रूप से चलाता है, उसी प्रोफ़ाइल, सेंसर और बेसिन के साथ।
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">सबूत</span>
+      <h2>असली पहचानों पर दोबारा चलाया गया, सिर्फ़ अपने ही सिम्युलेटर पर नहीं</h2>
+      <p class="lede">
+        MOTChallenge के अनुक्रम &mdash; असली वीडियो पर असली डिटेक्टरों से आई असली पहचानें &mdash; यहाँ के अकेले ऐसे आँकड़े हैं जो TRACE के अपने सिम्युलेटर ने नहीं बनाए।
+      </p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="table">
+        <thead>
+          <tr><th>बेंचमार्क</th><th>बॉक्स</th><th>MOTA</th><th>डिटेक्टर की ऊपरी सीमा की भरपाई</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MOT17 train, 21 अनुक्रम</td><td class="mono" translate="no">336,891</td><td class="mono" translate="no">53.0%</td><td class="mono" translate="no">108.2%</td></tr>
+          <tr><td>MOT20 train, 4 अनुक्रम, 62&ndash;226 लोग/फ़्रेम</td><td class="mono" translate="no">1,134,614</td><td class="mono" translate="no">62.5%</td><td class="mono" translate="no">114.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:22px">
+      <strong>सिर्फ़ train-स्प्लिट के आँकड़े।</strong> ये स्थानीय रूप से दोबारा चलाकर आँके गए हैं। MOTChallenge के मूल्यांकन सर्वर पर कुछ भी नहीं भेजा गया है, और सार्वजनिक लीडरबोर्ड से तुलना लायक़ आँकड़े के लिए यही ज़रूरी होता। ऊपरी सीमा वह है जो एक निर्दोष ट्रैकर सिर्फ़ हर दी गई पहचान को दोहराकर पा लेता; उसे पार करना ही पूरा काम है, और यह डिटेक्टर से छूटे फ़्रेमों में अनुमान के सहारे बहते रहकर किया जाता है।
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ख़र्च</span>
+      <h2>भीड़ के आकार के साथ व्यावहारिक रूप से रैखिक</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>ट्रैक</th><th>मध्यक ms/स्कैन</th><th>&micro;s प्रति ट्रैक</th></tr></thead>
+            <tbody>
+              <tr><td class="mono" translate="no">10</td><td class="mono" translate="no">1.7</td><td class="mono" translate="no">135</td></tr>
+              <tr><td class="mono" translate="no">120</td><td class="mono" translate="no">26.6</td><td class="mono" translate="no">152</td></tr>
+              <tr><td class="mono" translate="no">270</td><td class="mono" translate="no">72.1</td><td class="mono" translate="no">159</td></tr>
+              <tr><td class="mono" translate="no">400</td><td class="mono" translate="no">127.5</td><td class="mono" translate="no">159</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small dim" style="margin-top:14px">
+          एक कोर, Release बिल्ड, AVX-512। ख़र्च लगभग n<sup>1.17</sup> के हिसाब से बढ़ता है, और अकेली ट्रैकिंग दस ट्रैक से चार सौ ट्रैक तक 135&ndash;159 &micro;s प्रति ट्रैक पर सपाट रहती है &mdash; इसे यूँ पढ़िए: &ldquo;स्थिरांक मायने रखता है, घातांक नहीं&rdquo;।
+        </p>
+      </div>
+      <div>
+        <p class="dim">
+          यह n<sup>1.82</sup> था, जब तक कि कन्वर्जेंस डिटेक्टर ने हर जोड़े के लिए एक-एक बार हर ट्रैक की दिनचर्या का पूर्वानुमान दोबारा बनाना बंद नहीं कर दिया। इससे स्थिरांक में बीस गुने का फ़ायदा मिला, बेहतर घातांक <em>नहीं</em> मिला &mdash; उसके साथ जोड़ा गया स्थानिक-सूचकांक गेट दृश्य से भी चौड़ी त्रिज्या रखता था, इसलिए वह हर जोड़ा लौटा देता था और करता कुछ नहीं था। हर जोड़े को उसकी अपनी दो रफ़्तारों से बाँधने पर वह डिटेक्टर इंजन के 56% से घटकर 44% पर आ गया और घातांक लगभग रैखिक हो गया।
+        </p>
+        <p class="dim">
+          400 एक साथ चलते ट्रैक पर यह एक कोर पर लगभग 8 स्कैन प्रति सेकंड है: 1 Hz वाले कैमरा-तंत्र के लिए ठीक, 25 fps के लिए नहीं &mdash; उसके लिए काम को कई वर्करों में बाँटना पड़ेगा। यह पृष्ठ ऐसा इसलिए कहता है क्योंकि बेंचमार्क ऐसा कहता है।
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">ईमानदार सीमाएँ</span>
+      <h2>यह क्या नहीं करता</h2>
+    </div>
+    <div class="stack reveal">
+      <div class="card">
+        <h4 style="margin:0 0 6px">न कोई डिटेक्टर, न कोई री-ID मॉडल</h4>
+        <p class="small dim" style="margin:0">TRACE पहचानें लेकर चलता है। उन्हें बनाना किसी और का काम है।</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">वेग के अनुमान की एक न्यूनतम सीमा है</h4>
+        <p class="small dim" style="margin:0">
+          इसके लिए रफ़्तार &times; दिशा-स्थिरता का स्थिति-शोर से काफ़ी ऊपर होना ज़रूरी है। क़रीब 5 के अनुपात से नीचे वह अनुमान रह ही नहीं जाता, और अनुमान के सहारे बहना उतना ही अच्छा होता है जितना वह अनुमान। मोटे सेंसर से देखा गया सचमुच का टेढ़ा-मेढ़ा निशाना कोई नापने लायक़ वेग नहीं देता &mdash; यह कोई ख़राबी नहीं, मॉडलिंग की बंदिश है, पर बहने के बारे में कुछ भी दावा करने से पहले अपनी प्रोफ़ाइल इससे जाँच लेनी चाहिए।
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">सेंसर की उपलब्धता का अंदाज़ा लगाया जाता है, वह पता नहीं होती</h4>
+        <p class="small dim" style="margin:0">
+          कवरेज के छेद का अंदाज़ा सिर्फ़ इस बात से लगाया जाता है कि कुछ भी सूचना आई या नहीं। असली तैनाती को पता होता है कि कौन-से कैमरे बंद पड़े हैं, और अभी उसे यह बताने का कोई रास्ता नहीं है।
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">न ऑडिट लॉगिंग, न पहुँच-नियंत्रण, न डेटा रखने की नीति</h4>
+        <p class="small dim" style="margin:0">
+          इसे जिन चीज़ों की तरफ़ मोड़ा जा सकता है, उनमें से कई सामूहिक निगरानी की क्षमताएँ हैं। जो कोई इसे लोगों पर तैनात करे, उसे यह ढाँचा इसके चारों ओर ख़ुद खड़ा करना होगा, और यह जानबूझकर पहले से नहीं दिया गया है।
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">CUDA वाला रास्ता सिर्फ़ ढाँचा है</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">src/cuda/kernels.cu</code> मौजूद है और इंजन में कोई भी उसे नहीं बुलाता। ये कर्नेल कभी चले ही नहीं। इसे बैकएंड नहीं, एक अधूरी शाखा मानिए &mdash; रिपॉज़िटरी भी यही कहती है।
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow" style="text-align:center">
+    <span class="eyebrow" style="justify-content:center">स्रोत उपलब्ध</span>
+    <h2>AGPL-3.0+, साथ में एक वाणिज्यिक लाइसेंस</h2>
+    <p class="lede">
+      यहाँ की बाक़ी हर चीज़ जैसी ही शर्तें: पढ़िए, चलाइए, जाँचिए। अगर आप जो बनाना चाहते हैं उसके लिए AGPL ठीक न बैठे, तो स्तरों में बँटा एक वाणिज्यिक लाइसेंस मौजूद है।
+    </p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">स्रोत पढ़िए &rarr;</a>
+      <a class="btn btn--ghost" href="/hi/licensing.html">लाइसेंसिंग</a>
+    </div>
+  </div>
+</section>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">इस साइट पर सबसे निकट</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">संबंधित पठन</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/hi/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cypha के ख़िलाफ़ शतरंज खेलिए</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/hi/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          ओडिन लोच द्वारा स्वतंत्र अनुसंधान और सिस्टम सॉफ़्टवेयर। सिडनी, ऑस्ट्रेलिया। स्रोत AGPL-3.0+ के तहत उपलब्ध, साथ में श्रेणीबद्ध वाणिज्यिक लाइसेंस।
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">वाणिज्यिक लाइसेंस उपलब्ध</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>उत्पाद</h4>
+        <ul>
+          <li><a href="/hi/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/hi/cypha.html">Cypha</a></li>
+          <li><a href="/hi/chess.html">Cypha Chess</a></li>
+          <li><a href="/hi/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/hi/mathscript.html">MathScript</a></li>
+          <li><a href="/hi/aegis.html">AEGIS</a></li>
+          <li><a href="/hi/sentinel.html">SENTINEL</a></li>
+          <li><a href="/hi/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="/hi/about.html">Imortek के बारे में</a></li>
+          <li><a href="/hi/research.html">अनुसंधान संग्रह</a></li>
+          <li><a href="/hi/licensing.html">लाइसेंसिंग</a></li>
+          <li><a href="/hi/beta.html">बीटा टेस्टर बनें</a></li>
+          <li><a href="/hi/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">व्यावसायिक पूछताछ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>स्रोत कोड</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub प्रोफ़ाइल</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD रिपॉज़िटरी</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">विचार / अनुसंधान</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 का पूरा पाठ</a></li>
+          <li><a href="/sitemap.xml">साइटमैप</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
+      <span class="mono tiny">निर्मित 2026-09-17T01:32:47Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
+<script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"unavailable":"उपलब्ध नहीं","running…":"चल रहा है…","engine ran in":"इंजन चला:","Pause":"रोकें","scan":"स्कैन","none predicted":"कोई अनुमान नहीं","Play":"चलाएँ","scans":"स्कैन","same track":"वही ट्रैक","new track":"नया ट्रैक","not reacquired":"दोबारा नहीं पकड़ा","suspect":"संदिग्ध","transponder off — nothing is reporting this vessel":"ट्रांसपोंडर बंद — इस जहाज़ की सूचना कोई नहीं दे रहा","AIS reporting":"AIS सूचना दे रहा है","no track — dormant":"कोई ट्रैक नहीं — सुप्त","no track":"कोई ट्रैक नहीं","coasting":"अनुमान पर","tracked":"ट्रैक हो रहा"};</script>
+<script src="/assets/js/demos/trace.js" defer></script>
+</body>
+</html>

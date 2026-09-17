@@ -31,7 +31,7 @@ ATTRS  = ('alt', 'title', 'placeholder', 'aria-label', 'data-subject', 'aria-des
 
 SEG_DIR = 'src/i18n'
 CORE = ['index', 'pbsd', 'cypha', 'retdec', 'mathscript', 'aegis', 'sentinel',
-        'cellai', 'chess', 'kickstarter', 'beta', 'research', 'licensing',
+        'cellai', 'chess', 'trace', 'kickstarter', 'beta', 'research', 'licensing',
         'about', '404']
 
 def key(s):

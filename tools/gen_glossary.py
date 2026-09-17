@@ -111,7 +111,7 @@ TERMS = [
 {"t":"CTest","d":"systems","g":"The tool that runs all the checks for a project and reports which ones failed."},
 {"t":"CI","d":"systems","alias":["continuous integration"],"g":"A robot that rebuilds the project and runs every check each time somebody changes a file. It catches breakage the same day."},
 {"t":"build gate","d":"systems","alias":["build gates","verification gate","verification gates"],"g":"A rule that stops a change getting in until the checks pass. No argument, no exceptions."},
-{"t":"benchmark","d":"data","g":"A fixed test everyone runs, so two different things can be compared on the same ground."},
+{"t":"benchmark","d":"data","alias":["benchmarks","MOTChallenge"],"g":"A fixed test everyone runs, so two different things can be compared on the same ground. Doing well on your own test proves nothing."},
 {"t":"regression test","d":"systems","g":"A check that something which used to work still works. Named after the thing it stops: quietly going backwards."},
 {"t":"differential execution","d":"systems","alias":["differential verification","differential"],"g":"Run the old version and the new version on the same input and compare. If they ever disagree, the new one is wrong."},
 {"t":"golden","d":"data","alias":["goldens"],"g":"A known-correct answer saved on purpose, so later runs can be checked against it."},
@@ -276,8 +276,24 @@ TERMS = [
 {"t":"heat map","d":"data","alias":["hotspot","hotspots"],"g":"A picture where colour means how much. Red for busy, blue for quiet."},
 {"t":"provisional","d":"data","alias":["planning estimate","planning estimates"],"g":"A best guess, labelled as a guess. It is there so you can argue with it, not so you can rely on it."},
 {"t":"investigative lead","d":"data","alias":["investigative leads"],"g":"A suggestion worth looking into. Not evidence, and not an accusation."},
-{"t":"tracker","d":"data","alias":["trackers"],"g":"Hidden code on a web page that reports what you did back to somebody else. There are none on this site."},
+{"t":"tracker","d":"data","alias":["trackers"],"g":"Two different things. On this site: software that follows where things are. On the web: hidden code that reports what you did to somebody else."},
 {"t":"cookie","d":"data","alias":["cookies"],"g":"A small note a website leaves in your browser to recognise you later. This site leaves none."},
+
+# ---------- keeping track of things that move ----------
+{"t":"tracking","d":"data","alias":["multi-target tracking","tracker engine"],"g":"Working out, from lots of separate sightings, which ones are the same thing. A camera sees a dot; tracking says which dot is which person."},
+{"t":"track","d":"data","alias":["tracks"],"g":"The software's idea of one thing it is following: where it is, how fast, and how sure it is. Not the thing itself, only the belief about it."},
+{"t":"sighting","d":"data","alias":["detection","detections","observation"],"g":"One moment when a sensor noticed something. It says where, roughly, and nothing about what it was."},
+{"t":"coasting","d":"data","alias":["coast"],"g":"Carrying on with a guess when nothing can see the thing any more. The guess gets worse the longer it goes on, and good software says so."},
+{"t":"dormant","d":"data","alias":["dormant track"],"g":"Put aside rather than thrown away. The software stops claiming it knows where something is, but keeps what it learned in case it turns up again."},
+{"t":"re-identification","d":"data","alias":["re-identify","reacquire","reacquired"],"g":"Deciding that a thing that just turned up is one you had seen before, not a new one."},
+{"t":"identity switch","d":"data","alias":["identity switches","id switch"],"g":"When software mixes two things up and gives one of them the other's name. Everything it later says about either is then wrong."},
+{"t":"ghost track","d":"data","alias":["ghost tracks"],"g":"Something the software thinks is there and is not. Usually a sensor error it took seriously."},
+{"t":"existence","d":"data","alias":["probability of existence"],"g":"How sure the software is that a thing is there at all, kept apart from where it thinks it is. Those are two different questions."},
+{"t":"particle filter","d":"maths","alias":["particles"],"g":"Guessing where something is by keeping thousands of possible answers at once and letting evidence kill off the wrong ones."},
+{"t":"association","d":"data","alias":["data association"],"g":"Deciding which new sighting belongs to which thing already being followed. Get it wrong and two things swap names."},
+{"t":"pattern of life","d":"data","g":"What is normal for one particular thing: where it goes, and when. Useful because odd behaviour only means something against a habit."},
+{"t":"rendezvous","d":"data","alias":["convergence"],"g":"Two things about to meet. Software can often tell before either has arrived, from where they are heading."},
+{"t":"transponder","d":"data","alias":["AIS"],"g":"A box on a ship or aircraft that keeps announcing where it is. Switching it off is how something disappears on purpose."},
 ]
 
 def check(terms):

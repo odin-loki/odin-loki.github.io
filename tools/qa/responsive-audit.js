@@ -47,7 +47,7 @@ const PAGES = (() => {
 // ways of overflowing, and nothing else in this repository would catch them.
 const CORE = [
   'index', 'pbsd', 'cypha', 'chess', 'retdec', 'mathscript', 'aegis',
-  'sentinel', 'cellai', 'kickstarter', 'beta', 'research', 'licensing',
+  'sentinel', 'cellai', 'trace', 'kickstarter', 'beta', 'research', 'licensing',
   'about', '404',
 ];
 const LOCALES = fs.existsSync('tools/locales.json')

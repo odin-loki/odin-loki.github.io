@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TRACE — 从稀疏目击中得到持续的身份 | Imortek</title>
+<meta name="description" content="一个与领域无关的 C++23 跟踪引擎：PMBM 存在性、Gibbs 关联、基于生活模式的重识别，以及叠加式的汇合预测。来看引擎本身跟踪一座迷宫和一艘转入静默的船，编译成了 WebAssembly。">
+<meta name="keywords" content="TRACE, 多目标跟踪, PMBM, 随机有限集, 粒子滤波, 目标跟踪算法, 重识别, 数据关联, 生活模式建模, 多摄像头跟踪, 多传感器融合, 会合预测, MOTChallenge, C++23">
+<meta name="author" content="Odin Loch — Imortek">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#06080b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://imortek.com.au/zh/trace.html">
+<link rel="alternate" hreflang="en" href="https://imortek.com.au/trace.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://imortek.com.au/zh/trace.html">
+<link rel="alternate" hreflang="hi" href="https://imortek.com.au/hi/trace.html">
+<link rel="alternate" hreflang="es" href="https://imortek.com.au/es/trace.html">
+<link rel="alternate" hreflang="ar" href="https://imortek.com.au/ar/trace.html">
+<link rel="alternate" hreflang="fr" href="https://imortek.com.au/fr/trace.html">
+<link rel="alternate" hreflang="bn" href="https://imortek.com.au/bn/trace.html">
+<link rel="alternate" hreflang="pt" href="https://imortek.com.au/pt/trace.html">
+<link rel="alternate" hreflang="ru" href="https://imortek.com.au/ru/trace.html">
+<link rel="alternate" hreflang="ur" href="https://imortek.com.au/ur/trace.html">
+<link rel="alternate" hreflang="x-default" href="https://imortek.com.au/trace.html">
+
+<meta name="imortek:locale" content="zh">
+<meta name="imortek:speech" content="zh-CN">
+<meta name="imortek:prefix" content="/zh">
+<script>window.__IMORTEK_I18N={"lang.label":"语言","lang.choose":"选择语言","lang.machine":"翻译此页","lang.machineTag":"Google","lang.machineHint":"由 Google 在其服务器上机器翻译。这些内容未经我们校对。","lang.suggested":"您的浏览器偏好这种语言","lang.close":"关闭","tools.label":"页面工具","tools.toggle":"显示或隐藏页面工具","tools.readAloud":"朗读","tools.pause":"暂停","tools.stop":"停止朗读","tools.next":"下一段","tools.voice":"语音命令","tools.explain":"解释术语","tools.reset":"重置","tools.termsOnPage":"个术语在本页","tools.learned":"已学会","tools.preExpanded":"已预先展开","tools.openMore":"再打开 {n} 个，Cypha 就会开始预测","tools.understood":"已理解","tools.corrected":"已纠正","tools.off":"关闭","tools.reading":"朗读中","search.placeholder":"搜索——描述你想找什么","search.aria":"搜索本站","search.hint":"按含义匹配，不只是逐字匹配。按 Esc 关闭。","search.nothing":"没有接近的结果。","related.eyebrow":"本站最接近的内容","related.title":"相关阅读","related.note":"根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。","voice.help":"你可以说：朗读、停止、下一段、返回、顶部、首页，或某个页面的名称。也可以直接描述你想找什么，我会找出最接近的页面。","voice.notCaught":"我没听清。说“帮助”可以了解能说哪些命令。","voice.listening":"正在聆听。说“帮助”可以了解能说哪些命令。","voice.micOff":"麦克风已关闭。","voice.micBlocked":"麦克风被阻止。请在浏览器中允许使用，才能使用语音命令。","voice.opening":"正在打开","voice.didYouMean":"你是想说","voice.sayNumber":"说一个数字，或者说“不是”。","voice.understood":"明白了。换个说法，或者说“帮助”。","voice.endOfPage":"页面结束。","voice.searchOpen":"搜索已打开。","voice.nothingRelated":"本页没有相关内容。","voice.related":"相关","voice.goingTo":"正在前往","voice.heading":"标题。","voice.or":"或者","gh.live":"实时来自 api.github.com","gh.cached":"缓存快照","gh.noDescription":"没有说明","gloss.notInDict":"词典中没有这个词。","gloss.didYouMean":"你是想找","gloss.or":"或","gloss.listSep":"、","gloss.queryEnd":"？","gloss.lookingUp":"正在查询…","gloss.forget":"清除 Cypha 学到的内容"};</script>
+
+<meta property="og:site_name" content="Imortek">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_AU">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="bn_BD">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="ur_PK">
+<meta property="og:title" content="TRACE — 从稀疏目击中得到持续的身份 | Imortek">
+<meta property="og:description" content="一个与领域无关的 C++23 跟踪引擎：PMBM 存在性、Gibbs 关联、基于生活模式的重识别，以及叠加式的汇合预测。来看引擎本身跟踪一座迷宫和一艘转入静默的船，编译成了 WebAssembly。">
+<meta property="og:url" content="https://imortek.com.au/zh/trace.html">
+<meta property="og:image" content="https://imortek.com.au/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TRACE — 从稀疏目击中得到持续的身份 | Imortek">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TRACE — 从稀疏目击中得到持续的身份 | Imortek">
+<meta name="twitter:description" content="一个与领域无关的 C++23 跟踪引擎：PMBM 存在性、Gibbs 关联、基于生活模式的重识别，以及叠加式的汇合预测。来看引擎本身跟踪一座迷宫和一艘转入静默的船，编译成了 WebAssembly。">
+<meta name="twitter:image" content="https://imortek.com.au/assets/img/og.png">
+<meta name="twitter:image:alt" content="TRACE — 从稀疏目击中得到持续的身份 | Imortek">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://imortek.com.au/#organization","name":"Imortek","alternateName":"Imortek Research & Systems","url":"https://imortek.com.au/","logo":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/mark.svg"},"description":"Independent research and systems software by Odin Loch. Source-available under AGPL-3.0+ with a tiered commercial licence.","founder":{"@id":"https://imortek.com.au/#odin-loch"},"address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://github.com/odin-loki","https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd"]},{"@type":"Person","@id":"https://imortek.com.au/#odin-loch","name":"Odin Loch","url":"https://imortek.com.au/about.html","jobTitle":"Independent systems engineer and researcher","worksFor":{"@id":"https://imortek.com.au/#organization"},"sameAs":["https://github.com/odin-loki"]},{"@type":"WebSite","@id":"https://imortek.com.au/#website","url":"https://imortek.com.au/","name":"Imortek","inLanguage":"zh-Hans","publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"WebPage","@id":"https://imortek.com.au/zh/trace.html#webpage","url":"https://imortek.com.au/zh/trace.html","name":"TRACE — 从稀疏目击中得到持续的身份 | Imortek","description":"一个与领域无关的 C++23 跟踪引擎：PMBM 存在性、Gibbs 关联、基于生活模式的重识别，以及叠加式的汇合预测。来看引擎本身跟踪一座迷宫和一艘转入静默的船，编译成了 WebAssembly。","inLanguage":"zh-Hans","isPartOf":{"@id":"https://imortek.com.au/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://imortek.com.au/assets/img/og.png","width":1200,"height":630},"datePublished":"2026-09-17","dateModified":"2026-09-17","breadcrumb":{"@id":"https://imortek.com.au/zh/trace.html#breadcrumb"},"publisher":{"@id":"https://imortek.com.au/#organization"}},{"@type":"BreadcrumbList","@id":"https://imortek.com.au/zh/trace.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://imortek.com.au/zh/"},{"@type":"ListItem","position":2,"name":"TRACE","item":"https://imortek.com.au/zh/trace.html"}]},{"@type":"SoftwareApplication","@id":"https://imortek.com.au/zh/trace.html#software","name":"TRACE","description":"一个与领域无关的 C++23 跟踪引擎：PMBM 存在性、Gibbs 关联、基于生活模式的重识别，以及叠加式的汇合预测。来看引擎本身跟踪一座迷宫和一艘转入静默的船，编译成了 WebAssembly。","url":"https://imortek.com.au/zh/trace.html","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, FreeBSD, macOS, Windows","license":"https://www.gnu.org/licenses/agpl-3.0.en.html","author":{"@id":"https://imortek.com.au/#odin-loch"},"publisher":{"@id":"https://imortek.com.au/#organization"},"codeRepository":"https://github.com/odin-loki/TRACE","sameAs":["https://github.com/odin-loki/TRACE"]}]}</script>
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/mark.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<div class="progress-bar" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/zh/">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#bg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+          <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#bg1)" opacity=".9"/>
+          <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+        </svg>
+        <span>Imortek</span>
+        <span class="brand__sub">研究与系统</span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="切换导航">
+        <span></span>
+      </button>
+
+      <div class="nav__links" id="nav-links">
+        <div class="nav__group">
+          <a class="nav__link" href="/zh/#products" aria-haspopup="true">产品</a>
+          <div class="nav__menu">
+            <a href="/zh/pbsd.html"><strong>ParanoidBSD</strong><span>以能力机制保护的 C++23 操作系统</span></a>
+            <a href="/zh/cypha.html"><strong>Cypha</strong><span>从第一性原理出发的人工智能——分类、采样、生成</span></a>
+            <a href="/zh/chess.html"><strong>Cypha 国际象棋</strong><span>与从真实引擎蒸馏出的模型对弈</span></a>
+            <a href="/zh/retdec.html"><strong>RetDec Imortek</strong><span>能还原规格说明的反编译器</span></a>
+            <a href="/zh/mathscript.html"><strong>MathScript</strong><span>C++23 计算机代数与数值计算</span></a>
+            <a href="/zh/aegis.html"><strong>AEGIS</strong><span>隐藏元数据的传输层</span></a>
+            <a href="/zh/sentinel.html"><strong>SENTINEL</strong><span>犯罪分析与侦查线索</span></a>
+            <a href="/zh/cellai.html"><strong>Cell AI</strong><span>基于反应扩散的序列模型</span></a>
+            <a href="/zh/trace.html"><strong>TRACE</strong><span>从稀疏观测中保持持续身份</span></a>
+            <a href="/zh/beta.html"><strong>成为测试用户</strong><span>免费抢先试用任何一款，并告诉我们哪里出了问题</span></a>
+          </div>
+        </div>
+        <a class="nav__link" href="/zh/research.html">研究</a>
+        <a class="nav__link" href="/zh/licensing.html">授权</a>
+        <a class="nav__link" href="/zh/about.html">关于</a>
+        <a class="nav__link" href="#" data-search aria-label="搜索本站">搜索</a>
+        <a class="nav__link nav__link--extra" href="/zh/beta.html">测试版</a>
+        <a class="nav__link nav__link--extra" href="/zh/kickstarter.html">Kickstarter</a>
+        <a class="btn btn--fund btn--sm nav__cta" href="/zh/kickstarter.html">支持 PBSD</a>
+      </div>
+
+<div class="langsel">
+  <button class="langsel__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="langsel-menu" aria-label="语言: 中文">
+    <svg class="langsel__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="langsel__cur">中文</span>
+    <span class="langsel__caret" aria-hidden="true"></span>
+  </button>
+  <div class="langsel__menu" id="langsel-menu" role="menu" aria-label="选择语言">
+    <a role="menuitem" href="/trace.html" data-lang="en" data-endonym="English" hreflang="en" lang="en" dir="ltr"><span class="langsel__endo">English</span><span class="langsel__name">English</span></a>
+    <a role="menuitem" href="/zh/trace.html" data-lang="zh" data-endonym="中文" hreflang="zh-Hans" lang="zh-Hans" dir="ltr" class="is-current" aria-current="true"><span class="langsel__endo">中文</span><span class="langsel__name">Chinese</span></a>
+    <a role="menuitem" href="/hi/trace.html" data-lang="hi" data-endonym="हिन्दी" hreflang="hi" lang="hi" dir="ltr"><span class="langsel__endo">हिन्दी</span><span class="langsel__name">Hindi</span></a>
+    <a role="menuitem" href="/es/trace.html" data-lang="es" data-endonym="Español" hreflang="es" lang="es" dir="ltr"><span class="langsel__endo">Español</span><span class="langsel__name">Spanish</span></a>
+    <a role="menuitem" href="/ar/trace.html" data-lang="ar" data-endonym="العربية" hreflang="ar" lang="ar" dir="rtl"><span class="langsel__endo">العربية</span><span class="langsel__name">Arabic</span></a>
+    <a role="menuitem" href="/fr/trace.html" data-lang="fr" data-endonym="Français" hreflang="fr" lang="fr" dir="ltr"><span class="langsel__endo">Français</span><span class="langsel__name">French</span></a>
+    <a role="menuitem" href="/bn/trace.html" data-lang="bn" data-endonym="বাংলা" hreflang="bn" lang="bn" dir="ltr"><span class="langsel__endo">বাংলা</span><span class="langsel__name">Bengali</span></a>
+    <a role="menuitem" href="/pt/trace.html" data-lang="pt" data-endonym="Português" hreflang="pt" lang="pt" dir="ltr"><span class="langsel__endo">Português</span><span class="langsel__name">Portuguese</span></a>
+    <a role="menuitem" href="/ru/trace.html" data-lang="ru" data-endonym="Русский" hreflang="ru" lang="ru" dir="ltr"><span class="langsel__endo">Русский</span><span class="langsel__name">Russian</span></a>
+    <a role="menuitem" href="/ur/trace.html" data-lang="ur" data-endonym="اردو" hreflang="ur" lang="ur" dir="rtl"><span class="langsel__endo">اردو</span><span class="langsel__name">Urdu</span></a>
+  </div>
+</div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="phero">
+  <div class="gridlines" aria-hidden="true"></div>
+  <div class="wrap phero__inner">
+    <div class="split split--wide-left split--center">
+      <div>
+        <span class="eyebrow">TRACE &middot; v0.2</span>
+        <h1>多数跟踪器止步于&ldquo;在哪里&rdquo;。 <span class="gradient-text">这一个继续往下走。</span></h1>
+        <p class="lede">
+          TRACE 把混合传感器给出的稀疏、不确定的目击信息变成持续的身份。它能在没有任何东西看得见的空档里保住航迹，逐个实体地学习什么对它来说算正常，并在会面发生之前就预测出来 &mdash; 它报出的每一个数字都附带不确定度。
+        </p>
+        <p class="lede">
+          内核里没有任何东西知道自己在跟踪什么。摄像头、船舶、托盘、动物和球员，是同一个问题换上不同的剖面配置。
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#maze">看它跟踪一座迷宫</a>
+          <a class="btn btn--ghost" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">仓库 &rarr;</a>
+        </div>
+        <div class="phero__meta">
+          <div class="phero__meta-item">语言<b data-gh-repo="TRACE" data-gh-field="language">C++23</b></div>
+          <div class="phero__meta-item">MOT17 MOTA<b>53.0%</b></div>
+          <div class="phero__meta-item">MOT20 MOTA<b>62.5%</b></div>
+          <div class="phero__meta-item">已评分的检测框<b>1.47M</b></div>
+          <div class="phero__meta-item">最近一次推送<b data-gh-repo="TRACE" data-gh-field="updated">不久前</b></div>
+        </div>
+      </div>
+      <div>
+        <div class="card card--pad-lg">
+          <span class="eyebrow" style="margin-bottom:14px">这个名字是什么意思</span>
+          <div class="spec" style="border:0">
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">T</span><span class="spec__v">Tracking 跟踪 &mdash; 每样东西在哪里，以及我们有多确定</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">R</span><span class="spec__v">Re-identification 重识别 &mdash; 同一个东西，在丢失之后</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">A</span><span class="spec__v">Association 关联 &mdash; 哪一次目击属于哪一条航迹</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k mono" translate="no">C</span><span class="spec__v">Convergence 汇合 &mdash; 谁即将与谁碰面</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k mono" translate="no">E</span><span class="spec__v">Events 事件 &mdash; 值得有人关注的行为</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">问题所在</span>
+      <h2>一漏检就被删掉的航迹，从来就不算航迹</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <p class="dim">
+          传感器会漏掉东西。摄像头有的是检测概率，不是保证；船可以关掉自己的应答器；走廊里可能根本没有摄像头。覆盖一旦出现缺口，把&ldquo;没看见&rdquo;等同于&ldquo;不存在&rdquo;的跟踪器就会丢掉身份，等该实体重新出现时又给它一个新的。所有下游的问题 &mdash; 它去过哪里，和谁碰过面，这对它来说正常吗 &mdash; 现在都答不上来了。
+        </p>
+        <p class="dim">
+          TRACE 把多数跟踪器混为一谈的两件事分开。每条航迹都带有 <b>r</b>，即它究竟存不存在的概率，与它在哪里分开保存。一次漏掉的扫描会降低
+          <b>r</b> 并让位置估计变宽；它不会删除任何东西。航迹转入惰行，而在惰行的同时，它的不确定度会诚实地增长。
+        </p>
+        <p class="dim">
+          下面两个演示给你看的正是这件事。那个虚线圆圈就是引擎在说 <em>它就在这一圈里的某个地方，而我每一秒都更不确定</em> &mdash; 这是一句有用的话，也正是一条被删掉的航迹没法告诉你的话。
+        </p>
+      </div>
+      <div>
+        <div class="grid" style="gap:14px">
+          <div class="card">
+            <span class="badge badge--violet" style="margin-bottom:10px">存在性</span>
+            <h4 style="margin:0 0 6px">Bernoulli，不是布尔值</h4>
+            <p class="small dim" style="margin:0">
+              一个建立在 320 粒子滤波器之上的 PMBM 跟踪器。存在性是一个概率，会因漏检而衰减，也会凭证据而恢复，所以一次遮挡损失的是置信度，而不是身份。
+            </p>
+          </div>
+          <div class="card">
+            <span class="badge badge--teal" style="margin-bottom:10px">可能性</span>
+            <h4 style="margin:0 0 6px">对证据的第二种意见</h4>
+            <p class="small dim" style="margin:0">
+              在概率之外，还并行跑着一个可能性意义上的存在度，它跟踪的是证据的
+              <em>质量</em> 而不是数量。当两者出现分歧时，就说明大量微弱的检测被洗成了虚假的确定性。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAZE ======================= -->
+<section class="section" id="maze">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">引擎本身</span>
+      <h2>一片摄像头布设，其中有没人盯着的走廊</h2>
+      <p class="lede">
+        迷宫是真实摄像头布设的一个廉价替身，而它把让多摄像头跟踪变难的每一种性质都给齐了：墙迫使路线变得非线性，每一块彩色面板就是一台摄像头，所以越过边界就是一次真正的交接，而带斜纹的面板则处于
+        <b>关闭</b> 状态 &mdash; 那是盲区走廊，引擎必须在完全没有任何信息的情况下保住身份，并在另一端重新接上。
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-maze">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> trace::Engine &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-maze-state">加载中&hellip;</span>
+      </div>
+
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-maze-canvas" height="460"
+                  aria-label="A maze under a grid of cameras. Lettered dots are the true positions the engine is never told; numbered circles are its tracks, drawn at the size of their own position uncertainty."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> 真值 &mdash; 目标对象</span>
+            <span><i style="background:#60a5fa"></i> 真值 &mdash; 其他人</span>
+            <span><i style="background:#a78bfa"></i> 航迹，正被看见</span>
+            <span><i style="background:#fbbf24"></i> 航迹，盲态惰行</span>
+            <span><i style="background:#f87171"></i> 摄像头已关闭</span>
+          </div>
+
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-play">暂停</button>
+            <input type="range" id="tr-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="拖动查看整次运行">
+            <button class="btn btn--sm btn--ghost" id="tr-run">换个迷宫</button>
+          </div>
+
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-w">迷宫 <b id="tr-w-v">21 &times; 11</b></label>
+              <input type="range" id="tr-w" min="11" max="31" step="2" value="21" aria-label="迷宫宽度，以格计">
+              <input type="range" id="tr-h" min="7" max="17" step="2" value="11" aria-label="迷宫高度，以格计">
+            </div>
+            <div class="ctrl">
+              <label for="tr-t">行人 <b id="tr-t-v">3</b></label>
+              <input type="range" id="tr-t" min="1" max="8" step="1" value="3">
+            </div>
+            <div class="ctrl">
+              <label for="tr-b">关闭的摄像头 <b id="tr-b-v">2</b></label>
+              <input type="range" id="tr-b" min="0" max="6" step="1" value="2">
+            </div>
+            <div class="ctrl">
+              <label for="tr-pd">检测概率 <b id="tr-pd-v">0.82</b></label>
+              <input type="range" id="tr-pd" min="0.4" max="0.98" step="0.02" value="0.82">
+            </div>
+          </div>
+        </div>
+
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">对照真值评分</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">检测率</div>
+                <div class="readout__v" id="tr-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">占摄像头所给的比例</div>
+                <div class="readout__v teal" id="tr-rec">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">平均误差</div>
+                <div class="readout__v" id="tr-err">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">身份切换次数</div>
+                <div class="readout__v teal" id="tr-sw">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">幽灵航迹</div>
+                <div class="readout__v" id="tr-gh">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">扫描时间中位数</div>
+                <div class="readout__v" id="tr-lat">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">本次扫描</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">目前检测率</div>
+                <div class="readout__v" id="tr-live-det">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">目前误差</div>
+                <div class="readout__v" id="tr-live-err">&mdash;</div>
+              </div>
+            </div>
+            <p class="tiny muted" style="margin-top:12px">
+              已触发事件 <b class="mono" id="tr-live-ev" translate="no">&mdash;</b>
+            </p>
+            <p class="tiny muted">
+              预测的下一次会面 <b class="mono" id="tr-live-rv" translate="no">&mdash;</b>
+            </p>
+          </div>
+          <p class="tiny muted">
+            <b>占摄像头所给的比例</b> 用的才是诚实的分母：没有哪个跟踪器能报出任何传感器都没检测到的实体，所以原始检测率会把跟踪器自己的失败和这片布设的失败混在一起。超过 100% 说明引擎在没有任何东西看见它们的扫描里也保住了实体。把摄像头关掉，看着它往上爬。
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        <code translate="no">trace::Engine</code> 取自 <code translate="no">libtrace_core.a</code>，即原生工具所链接的同一个库 &mdash; <span class="mono" id="tr-version" translate="no">&mdash;</span>。整次运行是一次性算完再回放的，所以动画速度不是引擎的速度；旁边那个扫描时间中位数才是。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">它是怎么工作的</span>
+      <h2>五个阶段，一份报告</h2>
+    </div>
+    <div class="grid grid-2 reveal" style="gap:18px">
+      <div class="card">
+        <span class="badge badge--violet" style="margin-bottom:10px">T &middot; A</span>
+        <h4 style="margin:0 0 6px">跟踪与关联</h4>
+        <p class="small dim" style="margin:0">
+          一个带 Bernoulli 存在性的 PMBM 跟踪器，跑在 320 粒子的混合 Ornstein&ndash;Uhlenbeck 滤波器上 &mdash; 速度服从一个 OU 过程，而它处在哪种运动模式（步行、乘车、静止）本身又是一条马尔可夫链，&ldquo;混合&rdquo;指的就是这件事。用 Gibbs 采样做一对一指派，扫过 14 轮，然后合并重复项。关联是 <b>按传感器分别进行的</b>，因为排他性是关于某个传感器的事实，而不是关于世界的事实 &mdash; 两台视野重叠的摄像头同时报出一个人，那是相互印证，不是两个人。在全局强制排他性的代价是每次扫描 2.08 条幽灵航迹；按传感器来则是 0.08。
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--teal" style="margin-bottom:10px">R</span>
+        <h4 style="margin:0 0 6px">靠生活规律做重识别</h4>
+        <p class="small dim" style="margin:0">
+          休眠的航迹靠它的生活模式重新捕获 &mdash; 对每个实体在小时、x 和 y 上建一个高斯混合。外观描述子是支持的，但在公开基准上刻意处于
+          <b>关闭</b> 状态，因为在那里即使换上完美的先知描述子，分数也纹丝不动：88% 的失分是漏检，而外观对漏检无能为力。
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge badge--amber" style="margin-bottom:10px">C</span>
+        <h4 style="margin:0 0 6px">三个汇合预测器，叠在一起</h4>
+        <p class="small dim" style="margin:0">
+          几何拦截法对两个相向而行的实体是精确的，只要有一方机动就完全没用。接近率外推能处理弯曲的路线。生活模式交叉预测是唯一能在双方都还静止不动时就给出结果的。它们各自在不同情况下失效，所以三个都跑，最有把握的那个胜出。
+        </p>
+      </div>
+      <div class="card">
+        <span class="badge" style="margin-bottom:10px">E</span>
+        <h4 style="margin:0 0 6px">八种行为，可热插拔</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">BRUSH_PASS</code>, <code translate="no">SDR_PATTERN</code>, <code translate="no">DEAD_DROP</code>,
+          <code translate="no">PARALLEL_ROUTE</code>, <code translate="no">MODE_TRANSITION</code>, <code translate="no">LOITER</code>,
+          <code translate="no">COVER_STOP</code>, <code translate="no">CHOKEPOINT</code>。威胁评分通过 Beta&ndash;Monte-Carlo 融合八个证据维度，报告里给出的是各项分解，而不是一个数字。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DARK VESSEL ======================= -->
+<section class="section" id="dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow eyebrow--violet">引擎本身</span>
+      <h2>一艘船关掉了自己的应答器</h2>
+      <p class="lede">
+        一片洋区上空的卫星 AIS。五艘船在航行中；其中一艘在航程中途关掉应答器，之后又重新开机。在这中间没有任何东西报告过它 &mdash; 没有传感器，没有检测，没有任何形式的证据。
+      </p>
+      <p class="lede">
+        看看引擎拿这种情况怎么办。在第一次漏掉的扫描上，位置估计就从几百米跳到约 12 公里，航迹只靠预测惰行。再过几次扫描，它会被退入休眠池而不是被删除；等这艘船重新出现，引擎必须判断这是个新东西，还是它已经认识的东西。
+      </p>
+      <p class="lede">
+        <b>把静默期拖得更长，它这个判断就会出错。</b> 五次扫描的静默，身份还能保住；超过大约十次就保不住了，这艘船会以一条新航迹的身份回来。这就是诚实的结果，它比一个调到永远获胜的演示更有价值 &mdash; 原因就在控件下面。
+      </p>
+    </div>
+
+    <div class="demo reveal" id="tr-sea">
+      <div class="demo__head">
+        <h3 class="demo__label"><span class="dot dot--pulse"></span> dark-vessel &mdash; WebAssembly</h3>
+        <span class="badge badge--violet" id="tr-sea-state">加载中&hellip;</span>
+      </div>
+      <div class="demo__split">
+        <div class="demo__stage">
+          <canvas class="demo-canvas" id="tr-sea-canvas" height="340"
+                  aria-label="An ocean basin with five vessels in transit. One stops reporting mid-voyage and the engine's uncertainty about it grows into a wide ellipse until it reappears."></canvas>
+          <div class="legend" style="margin-top:14px">
+            <span><i style="background:#5eead4"></i> 目标船，正在报告</span>
+            <span><i style="background:#f87171"></i> 目标船，已静默</span>
+            <span><i style="background:#60a5fa"></i> 其他船只</span>
+            <span><i style="background:#fbbf24"></i> 目标船自己的航迹</span>
+            <span><i style="background:#a78bfa"></i> 其他航迹</span>
+          </div>
+          <div class="btn-row" style="margin-top:16px;gap:10px;align-items:center">
+            <button class="btn btn--sm" id="tr-sea-play">暂停</button>
+            <input type="range" id="tr-sea-scrub" min="0" max="119" value="0" step="1"
+                   style="flex:1;min-width:140px" aria-label="拖动查看整段航程">
+            <button class="btn btn--sm btn--ghost" id="tr-sea-run">再跑一次</button>
+          </div>
+          <div class="controls" style="margin-top:18px">
+            <div class="ctrl">
+              <label for="tr-dark">静默持续多久 <b id="tr-dark-v">5 次扫描</b></label>
+              <input type="range" id="tr-dark" min="2" max="40" step="1" value="5">
+            </div>
+          </div>
+        </div>
+        <div class="demo__side">
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">目标船，此刻</h4>
+            <div class="readout" style="grid-template-columns:1fr">
+              <div class="readout__item">
+                <div class="readout__k">引擎对它的状态判断</div>
+                <div class="readout__v teal" id="tr-sea-u">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="panel__title" style="margin-bottom:10px">整段航程</h4>
+            <div class="readout" style="grid-template-columns:1fr 1fr">
+              <div class="readout__item">
+                <div class="readout__k">重新出现之后</div>
+                <div class="readout__v" id="tr-sea-same">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">惰行时最大的不确定范围</div>
+                <div class="readout__v amber" id="tr-sea-coast">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">回来之前断了多久</div>
+                <div class="readout__v" id="tr-sea-blind">&mdash;</div>
+              </div>
+              <div class="readout__item">
+                <div class="readout__k">目前检测率</div>
+                <div class="readout__v" id="tr-sea-det">&mdash;</div>
+              </div>
+            </div>
+          </div>
+          <p class="tiny muted">
+            <b>它为什么会失效。</b> 这里的重识别靠的是生活模式 &mdash; 对每个实体在小时和位置上建的混合分布，问的是这次新的目击是否符合引擎已经掌握其规律的某个东西。一艘只走一条直线航程的船没有规律。它只被看见过一次，朝一个方向走。所以过了几次扫描之后，剩下的就只有运动预测，而在 12 节的航速、每小时扫描一次的条件下，那个不确定度在一天之内就会涨到没有任何用处。
+          </p>
+          <p class="tiny muted">
+            在确实有规律可学的场合，同一套机制 <em>就是</em> 决定性的一环，上面那座迷宫展示的正是这一点。一条说明了成因的局限，比一条什么都没说明的能力更有价值，而这一条就写在仓库自己的清单里。
+          </p>
+        </div>
+      </div>
+      <div class="panel__foot">
+        同一个 <code translate="no">dark-vessel</code> 场景由 <code translate="no">trace_sim</code> 在本地原生运行，剖面配置、传感器和洋区都相同。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">证据</span>
+      <h2>在真实检测数据上回放，而不只是在它自己的模拟器上</h2>
+      <p class="lede">
+        MOTChallenge 序列 &mdash; 真实视频上真实检测器给出的真实检测 &mdash; 是这里唯一不是由 TRACE 自己的模拟器产出的数字。
+      </p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="table">
+        <thead>
+          <tr><th>基准测试</th><th>检测框数</th><th>MOTA</th><th>对检测器上限的还原度</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MOT17 训练集，21 个序列</td><td class="mono" translate="no">336,891</td><td class="mono" translate="no">53.0%</td><td class="mono" translate="no">108.2%</td></tr>
+          <tr><td>MOT20 训练集，4 个序列，每帧 62&ndash;226 人</td><td class="mono" translate="no">1,134,614</td><td class="mono" translate="no">62.5%</td><td class="mono" translate="no">114.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note--amber reveal" style="margin-top:22px">
+      <strong>只有训练集划分上的数字。</strong> 这些都是在本地回放并评分的。没有任何东西提交给 MOTChallenge 的评测服务器，而要得到一个能和公开排行榜相比的数字，就必须那样做。所谓上限，是指一个完美的跟踪器把拿到的每一个检测原样回显所能得到的分数；超过它才是全部的工作，而做到这一点靠的是在检测器漏掉的帧上惰行。
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">费用</span>
+      <h2>对人群规模实际上是线性的</h2>
+    </div>
+    <div class="split reveal">
+      <div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>航迹数</th><th>每次扫描 ms 中位数</th><th>每条航迹 &micro;s</th></tr></thead>
+            <tbody>
+              <tr><td class="mono" translate="no">10</td><td class="mono" translate="no">1.7</td><td class="mono" translate="no">135</td></tr>
+              <tr><td class="mono" translate="no">120</td><td class="mono" translate="no">26.6</td><td class="mono" translate="no">152</td></tr>
+              <tr><td class="mono" translate="no">270</td><td class="mono" translate="no">72.1</td><td class="mono" translate="no">159</td></tr>
+              <tr><td class="mono" translate="no">400</td><td class="mono" translate="no">127.5</td><td class="mono" translate="no">159</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small dim" style="margin-top:14px">
+          单核，Release 构建，AVX-512。开销大约按 n<sup>1.17</sup> 增长，而单看跟踪本身，从十条航迹到四百条，都平稳保持在每条航迹 135&ndash;159 &micro;s &mdash; 可以读作&ldquo;要紧的是常数，而不是指数&rdquo;。
+        </p>
+      </div>
+      <div>
+        <p class="dim">
+          它原本是 n<sup>1.82</sup> 这么高，直到汇合检测器不再对每一对组合都重建一遍每条航迹的生活模式预报。那换来了常数上二十倍的改善，而 <em>并不是</em> 更好的指数 &mdash; 随之加上的空间索引门半径比整个场景还大，所以它返回了每一对组合，什么也没做。改成用每一对各自的两个速度来界定范围，把这个检测器从占引擎的 56% 降到 44%，指数也降到接近线性。
+        </p>
+        <p class="dim">
+          在 400 条并发航迹下，单核大约是每秒 8 次扫描：对 1 Hz 的摄像头布设够用，对 25 fps 就不行，除非在多个工作单元之间分区。这个页面这么说，是因为基准测试就是这么说的。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">诚实的局限</span>
+      <h2>它做不到什么</h2>
+    </div>
+    <div class="stack reveal">
+      <div class="card">
+        <h4 style="margin:0 0 6px">没有检测器，也没有重识别模型</h4>
+        <p class="small dim" style="margin:0">TRACE 消费检测结果。产生它们是别人的活。</p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">速度估计有一个下限</h4>
+        <p class="small dim" style="margin:0">
+          它需要速度 &times; 航向保持远高于位置噪声。比值低于大约 5 时，那就不算估计了，而惰行的好坏完全取决于它。一个真正曲折的目标被一个粗糙的传感器看到时，没有可测的速度 &mdash; 这是一条建模上的约束，而不是缺陷，但在对惰行下任何结论之前，都要拿剖面配置来对照检查这一条。
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">传感器可用性是推断出来的，不是已知的</h4>
+        <p class="small dim" style="margin:0">
+          覆盖缺口是靠有没有任何东西上报来猜的。真实部署知道哪些摄像头宕了，而目前没有办法把这件事说出来。
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">没有审计日志、访问控制或留存策略</h4>
+        <p class="small dim" style="margin:0">
+          它能被对准的若干对象，属于大规模监控能力。任何要把它用在人身上的部署方，都需要在它周围搭起那套配套设施，而这里刻意没有把它作为默认提供。
+        </p>
+      </div>
+      <div class="card">
+        <h4 style="margin:0 0 6px">CUDA 这条路径只是骨架</h4>
+        <p class="small dim" style="margin:0">
+          <code translate="no">src/cuda/kernels.cu</code> 存在，但引擎里没有任何地方调用它。这些内核从未运行过。把它当成一条没做完的分支，而不是一个后端 &mdash; 仓库里说的也是同一句话。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap-narrow" style="text-align:center">
+    <span class="eyebrow" style="justify-content:center">源码可得</span>
+    <h2>AGPL-3.0+，旁边还有一份商业授权</h2>
+    <p class="lede">
+      和这里其他所有东西一样的条款：读它、跑它、查它。如果 AGPL 不适合你想做的东西，还有一份分层的商业授权。
+    </p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">阅读源码 &rarr;</a>
+      <a class="btn btn--ghost" href="/zh/licensing.html">授权</a>
+    </div>
+  </div>
+</section>
+<section class="section section--tight related">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:1.5rem">
+      <span class="eyebrow">本站最接近的内容</span>
+      <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">相关阅读</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card--hover related__item" href="/zh/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
+      </a>
+    </div>
+    <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <a class="brand" href="/zh/" style="margin-bottom:14px">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <defs><linearGradient id="fg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient></defs>
+            <path d="M16 2.5 28.5 9v14L16 29.5 3.5 23V9z" stroke="url(#fg1)" stroke-width="1.6" fill="rgba(94,234,212,.06)"/>
+            <path d="M16 9.5 22.5 13v6L16 22.5 9.5 19v-6z" fill="url(#fg1)" opacity=".9"/>
+            <circle cx="16" cy="16" r="1.9" fill="#06080b"/>
+          </svg>
+          <span>Imortek</span>
+        </a>
+        <p class="small muted" style="max-width:38ch">
+          由 Odin Loch 独立开展的研究与系统软件，位于澳大利亚悉尼。源码以 AGPL-3.0+ 公开，另有分级商业授权。
+        </p>
+        <div class="badge-row" style="margin-top:16px">
+          <span class="badge badge--teal">AGPL-3.0+</span>
+          <span class="badge">提供商业授权</span>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>产品</h4>
+        <ul>
+          <li><a href="/zh/pbsd.html">ParanoidBSD</a></li>
+          <li><a href="/zh/cypha.html">Cypha</a></li>
+          <li><a href="/zh/chess.html">Cypha 国际象棋</a></li>
+          <li><a href="/zh/retdec.html">RetDec Imortek</a></li>
+          <li><a href="/zh/mathscript.html">MathScript</a></li>
+          <li><a href="/zh/aegis.html">AEGIS</a></li>
+          <li><a href="/zh/sentinel.html">SENTINEL</a></li>
+          <li><a href="/zh/cellai.html">Cell AI</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/zh/about.html">关于 Imortek</a></li>
+          <li><a href="/zh/research.html">研究书架</a></li>
+          <li><a href="/zh/licensing.html">授权</a></li>
+          <li><a href="/zh/beta.html">成为测试用户</a></li>
+          <li><a href="/zh/kickstarter.html">PBSD Kickstarter</a></li>
+          <li><a data-email data-subject="Commercial licence enquiry" href="#">商务洽谈</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>源码</h4>
+        <ul>
+          <li><a href="https://github.com/odin-loki" target="_blank" rel="noopener">GitHub 主页</a></li>
+          <li><a href="https://github.com/odin-loki/ParanoidBSD" target="_blank" rel="noopener">ParanoidBSD 代码库</a></li>
+          <li><a href="https://github.com/odin-loki/Ideas" target="_blank" rel="noopener">想法与研究</a></li>
+          <li><a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank" rel="noopener">AGPL-3.0 许可证全文</a></li>
+          <li><a href="/sitemap.xml">网站地图</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
+      <span class="mono tiny">构建于 2026-09-17T01:32:47Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/dictionary.js" defer></script>
+<script src="/assets/js/similar.js" defer></script>
+<script src="/assets/js/voice.js" defer></script>
+<script src="/assets/js/glossary.js" defer></script>
+<script>window.__IMORTEK_DEMO={"unavailable":"不可用","running…":"运行中…","engine ran in":"引擎用时","Pause":"暂停","scan":"扫描","none predicted":"未预测到","Play":"播放","scans":"次扫描","same track":"同一条航迹","new track":"新航迹","not reacquired":"未重新捕获","suspect":"嫌疑船","transponder off — nothing is reporting this vessel":"应答器已关——没有东西在报告这艘船","AIS reporting":"AIS 正在报告","no track — dormant":"无航迹 — 已休眠","no track":"无航迹","coasting":"惰行","tracked":"已跟踪"};</script>
+<script src="/assets/js/demos/trace.js" defer></script>
+</body>
+</html>

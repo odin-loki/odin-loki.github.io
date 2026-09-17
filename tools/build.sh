@@ -76,7 +76,7 @@ page_name() { printf '%s' "${1%% | *}"; }
 # claim somebody can check, and a claim that survives translation intact is
 # not something this site can promise, so they stay in English and say so.
 # ---------------------------------------------------------------
-CORE_PAGES=" index pbsd cypha retdec mathscript aegis sentinel cellai chess kickstarter beta research licensing about 404 "
+CORE_PAGES=" index pbsd cypha retdec mathscript aegis sentinel cellai chess trace kickstarter beta research licensing about 404 "
 
 mapfile -t LOC_ROWS < <(python3 -c '
 import json
@@ -163,7 +163,7 @@ u() {
 declare -A REPOS=(
   [pbsd]=ParanoidBSD      [cypha]=Cypha           [chess]=Cypha
   [retdec]=RetDec-Decompiler [mathscript]=MathScript [aegis]=ANONYMOUS
-  [sentinel]=SENTINEL     [cellai]=CellAI
+  [sentinel]=SENTINEL     [cellai]=CellAI         [trace]=TRACE
 )
 
 # The language selector. Rendered server-side as a plain list of links, so it
@@ -476,6 +476,7 @@ $extra_css
             <a href="$(u /aegis.html)"><strong>$(te menu.aegis.name)</strong><span>$(te menu.aegis.desc)</span></a>
             <a href="$(u /sentinel.html)"><strong>$(te menu.sentinel.name)</strong><span>$(te menu.sentinel.desc)</span></a>
             <a href="$(u /cellai.html)"><strong>$(te menu.cellai.name)</strong><span>$(te menu.cellai.desc)</span></a>
+            <a href="$(u /trace.html)"><strong>$(te menu.trace.name)</strong><span>$(te menu.trace.desc)</span></a>
             <a href="$(u /beta.html)"><strong>$(te menu.beta.name)</strong><span>$(te menu.beta.desc)</span></a>
           </div>
         </div>
@@ -609,6 +610,7 @@ PAGES=(
 "mathscript~MathScript — C++23 computer algebra and numerics | Imortek~Dense and sparse linear algebra, ODE/PDE/FEM, statistics, optimisation and a symbolic CAS in one C++23 library with in-tree BLAS/LAPACK. Try the live plotter.~~<script src=\"/assets/js/demos/mathscript.js\" defer></script><script src=\"/assets/js/demos/mathscript-wasm.js\" defer></script>~product"
 "aegis~AEGIS — metadata-hiding transport for consortiums | Imortek~Traffic-analysis resistant transport that hides who talks to whom, when, and how much. Constant-rate mixnet plus a bulk plane. Run the live correlation attack.~~<script src=\"/assets/js/demos/aegis.js\" defer></script>~product"
 "sentinel~SENTINEL — crime analytics and investigative leads | Imortek~A C++23 / Qt 6 analyst tool: Poisson and Hawkes models, DBSCAN series detection, KDE hotspots and Rossmo geographic profiling, with full provenance. Try the live hotspot model.~~<script src=\"/assets/js/demos/sentinel.js\" defer></script><script src=\"/assets/js/demos/sentinel-wasm.js\" defer></script>~product"
+"trace~TRACE — persistent identity from sparse sightings | Imortek~A domain-neutral C++23 tracking engine: PMBM existence, Gibbs association, pattern-of-life re-identification and stacked convergence prediction. Watch the engine itself track a maze and a ship that goes dark, compiled to WebAssembly.~~<script src=\"/assets/js/demos/trace.js\" defer></script>~product"
 "cellai~Cell AI — a reaction-diffusion sequence model | Imortek~A deliberately non-transformer architecture: partition dynamics, in-forward Hebbian/BCM plasticity, spectral PDE. An honest research log. Run the live simulation.~~<script src=\"/assets/js/demos/cellai.js\" defer></script>~product"
 "chess~Play chess against Cypha | Imortek~Cypha distilled from a real chess engine: 26,568 positions labelled with the engine's own search evaluations. Held-out R2 0.866. Play it in your browser.~~<script src=\"/assets/js/chess/engine.js\" defer></script><script src=\"/assets/js/chess/features.js\" defer></script><script src=\"/assets/js/chess/cypha.js\" defer></script><script src=\"/assets/js/demos/chess.js\" defer></script>~product"
 "kickstarter~Back ParanoidBSD — the PBSD Kickstarter is live | Imortek~The ParanoidBSD Kickstarter is live until 12 November 2026 — AUD 10,000, all-or-nothing, funding the compute that finishes the HardenedBSD-to-C++23 port.~~<script src=\"/assets/js/demos/funding.js\" defer></script>~website"
@@ -680,6 +682,7 @@ declare -A KEYWORDS=(
   [mathscript]="MathScript, C++23, computer algebra, CAS, linear algebra, BLAS, LAPACK, ODE, PDE, FEM, numerical methods"
   [aegis]="AEGIS, metadata-hiding transport, traffic analysis resistance, mixnet, constant-rate shaping, anonymity, privacy engineering"
   [sentinel]="SENTINEL, crime analytics, Hawkes process, DBSCAN, KDE hotspots, Rossmo geographic profiling, investigative leads, Qt 6"
+  [trace]="TRACE, multi-target tracking, PMBM, Bernoulli existence, particle filter, Gibbs association, re-identification, pattern of life, rendezvous prediction, MOTChallenge, sensor fusion, C++23"
   [cellai]="Cell AI, reaction-diffusion, Gray-Scott, sequence model, Hebbian plasticity, BCM rule, non-transformer architecture"
   [kickstarter]="ParanoidBSD Kickstarter, PBSD crowdfunding, secure operating system Kickstarter, HardenedBSD C++23 port, memory-safe operating system, back ParanoidBSD, Odin Loch"
   [beta]="beta testing, beta testers wanted, early access software, try before release, open source beta, Imortek beta, software testing volunteers"
