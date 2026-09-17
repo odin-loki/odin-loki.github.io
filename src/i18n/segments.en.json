@@ -1451,7 +1451,7 @@
 "bcb7e97e6d": "Provider pricing could move",
 "2cece30fc3": "The budget is denominated in tokens, not dollars, precisely because rates move. A price rise means fewer files per dollar, and the honest response is to report that and slow down &mdash; not to drop the verification gates to save money. Dropping the gates would make the whole exercise pointless.",
 "f4fd0ff80d": "This is one person",
-"5cdd9333b0": "Imortek is Odin Loch, working as a toolmaker in Sydney. There is no team, no runway, and no continuity plan beyond the fact that everything is published under an open licence as it is written. If this stops, what exists stays public and forkable. That is the only guarantee that can honestly be offered, so it is the one being offered.",
+"d46230dc07": "Imortek is Odin Loch, working as a toolmaker in Sydney. There is no team, no investor money to spend down, and no continuity plan beyond the fact that everything is published under an open licence as it is written. If this stops, what exists stays public and forkable. That is the only guarantee that can honestly be offered, so it is the one being offered.",
 "4b92a93c01": "An AI-assisted OS port invites justified scepticism",
 "bf1da98a72": "It should. The mitigation is structural rather than rhetorical: models never self-certify, compile-only is treated as unverified, HardenedBSD is the behavioural specification, and every module needs a provenance entry before it counts as done. You do not have to take that on trust &mdash; the gates are in the repository and you can read them before backing anything.",
 "7b3f8f5dab": "Security software from an unaudited source",
