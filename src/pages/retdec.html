@@ -6,10 +6,11 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>A decompiler that recovers the <span class="gradient-text">algorithm</span>, not just the code</h1>
         <p class="lede">
-          Pseudocode tells you what the bytes do. It rarely tells you what they <em>mean</em>.
-          RetDec Imortek treats semantic recovery as the primary output: which cryptographic
-          primitive this is, which sort, which serialization format, which concurrency
-          mechanism &mdash; with C as a by-product.
+          Organisations often need to understand software they have no source code for: an
+          old system, a bought-in component, something that arrived and looks suspicious.
+          Tools already exist that turn the machine code back into readable steps. RetDec
+          Imortek tries to go one further and name what those steps are &mdash; this part is
+          AES, this part is a sort, this part is how the data is packed for sending.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Lift bytes to a named algorithm</a>
@@ -39,6 +40,55 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          Software ships as something a machine reads and a person cannot. When there is no
+          source code &mdash; the supplier is gone, the contract never included it, the file
+          arrived from somewhere you do not trust &mdash; nobody can say what the program
+          actually does. Checking it by hand means reading machine instructions one at a time.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
+          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
+          cryptography, which sort, which threading, which file format &mdash; and reports how
+          often that works, including the case where it barely does.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Security teams taking malware apart, who need the answer before they need the code.
+          Companies running software nobody has the source for, who need a description of it
+          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
+          that was never documented &mdash; old records, a machine that will only talk to its
+          own software.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
+      Given a binary that still carries its own labels, the detector agrees with them; with
+      the labels stripped it is close to the floor. The rest of this page is the engineering:
+      what was added, how it was measured, and where it falls down.
     </div>
   </div>
 </section>

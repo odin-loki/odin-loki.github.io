@@ -6,10 +6,11 @@
         <span class="eyebrow">SENTINEL &middot; Phases 1&ndash;2 complete</span>
         <h1>Investigative leads that can be <span class="gradient-text">traced back</span></h1>
         <p class="lede">
-          A C++23 and Qt 6 desktop tool that ingests public crime data, runs statistical models,
-          and produces ranked leads &mdash; where every output traces to its source record, its model,
-          and its parameters. If an analyst cannot show why a lead ranked where it did, it should
-          not be a lead.
+          Investigators are rarely short of data. What is hard is finding the pattern inside
+          thousands of records that look unremarkable one at a time. SENTINEL is a desktop tool that
+          reads public crime data, runs the statistics over it and ranks what is worth a closer
+          look &mdash; and every result traces back to the exact records, model and settings it came
+          from. If an analyst cannot show why a lead ranked where it did, it should not be a lead.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Build a hotspot model</a>
@@ -39,6 +40,53 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          A burglary, a theft from a car, an insurance claim. Each one is unremarkable on its own, and
+          what connects them only shows up when somebody lines hundreds of them up and looks. That is slow
+          work by hand, and the analytics contracts that do it at scale are priced out of reach of most
+          forces.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          SENTINEL reads the records in and runs established statistical models over them: where crime is
+          dense, which incidents look like one series rather than many, which area a series was most likely
+          run from. It ranks what is worth a closer look. Every stage writes down what it did, so a lead
+          arrives carrying its source records, the model and the settings behind it.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Smaller and regional forces, where the large analytics contracts are out of reach &mdash; this
+          runs on one ordinary desktop computer and is built for a single analyst rather than a department.
+          Fraud and repeat-offender investigators, where the pattern sits across incidents nobody filed
+          together. Researchers, who can retrace any result to the records that produced it.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>It points an analyst at something worth checking. It does not decide anything about a
+      person.</strong> The rest of this page is the engineering: two of the real models running in
+      your browser, the pipeline that feeds them, what works today, and what does not.
     </div>
   </div>
 </section>

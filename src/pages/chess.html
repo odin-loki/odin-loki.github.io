@@ -10,15 +10,14 @@
         <span class="eyebrow">Product demo</span>
         <h1>Play chess against <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha did not learn chess from games. It learned it from an engine &mdash; the Imortek
-          reference engine, a conventional alpha-beta searcher with piece-square evaluation and
-          quiescence. Tens of thousands of positions were labelled with that engine&rsquo;s own
-          search evaluations, and Cypha&rsquo;s regression head was fitted to reproduce them.
+          Cypha never saw a chess game. It learned by watching an ordinary chess program think
+          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
+          was winning &mdash; until Cypha could produce the verdict itself.
         </p>
         <p class="lede">
-          What you play against below is that fitted head, running in your browser, inside a
-          shallow search. Every number on this page was measured by the training run that
-          produced it.
+          What you play below is that, running in your browser inside a shallow search. It is
+          beatable, and it still loses to the program it learned from. Every number on this page
+          came out of the training run that produced the weights the page loads.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">Play a game</a>
@@ -78,6 +77,53 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          Every new AI design arrives with an explanation of why it ought to work. Reading the
+          explanation tells you nothing about whether it does. Chess settles that, because the
+          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
+          and you can sit down and find out.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          An ordinary chess program judges a position by searching ahead through the moves. Cypha
+          was shown 26,568 of those judgements and fitted a single formula to reproduce them
+          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
+          the architecture for chess. Only the numbers fed into it changed.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Anyone weighing up Cypha who would rather check than be told. People who work with
+          machine learning and want to watch a model carry on learning while it is being used.
+          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
+          you play is sent anywhere.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
+      this page claims it is. The rest of the page is how it was done, what each number means,
+      and the four things this design cannot do.
     </div>
   </div>
 </section>

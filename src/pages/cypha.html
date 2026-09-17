@@ -7,10 +7,11 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>An AI architecture built from <span class="gradient-text">first principles</span>, not a fork</h1>
         <p class="lede">
-          Cypha is not a transformer wrapper and not a tuned copy of somebody else&rsquo;s model.
-          One public type &mdash; <code>cypha::Cypha</code> &mdash; classifies, regresses, samples
-          latents and generates sequences, with a learning rule derived from where four
-          formal programmes intersect.
+          Almost all modern AI is a variation on the same few designs. Cypha starts somewhere
+          else: one C++ type, with a learning rule worked out from mathematics rather than
+          borrowed, that updates on every example it sees instead of being trained once and
+          frozen. It is a research project, and the failures are published alongside the
+          results.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Train one in your browser</a>
@@ -36,6 +37,58 @@
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          Nearly every AI system in use is a variation on a handful of designs. They are
+          trained once on a large machine and then shipped frozen, so keeping up with
+          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
+          back and training again. They are also big, which puts them in a data centre rather
+          than on the equipment, and makes explaining any single decision hard.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
+          learning rule is derived from four bodies of mathematics rather than copied from an
+          existing architecture, and it updates on every example it sees &mdash; no batch, no
+          epoch, no retraining run. It is small enough to run on the hardware that collects
+          the data.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Today, researchers and engineers willing to try a different design. The problems it
+          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
+          faults, changing behaviour &mdash; where the model has to sit on the device rather
+          than in a data centre, and where somebody has to explain the decision afterwards.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Judge it as research.</strong> The figures further down come from the
+      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
+      than a leaderboard position. A section headed <em>What Cypha is not</em> sets out the
+      limits, including the standard test where it sits near chance until one particular
+      component is switched on. The rest of this page is the architecture and the
+      measurements.
     </div>
   </div>
 </section>

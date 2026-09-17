@@ -6,10 +6,11 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 pre-release</span>
         <h1>One C++23 library, from <span class="gradient-text">LU to CFD</span></h1>
         <p class="lede">
-          Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
-          optimisation, signal and image processing, number theory, graphs, geometry, topology,
-          quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
-          LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+          Engineering software runs on heavy mathematics, and almost nobody writes their own.
+          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
+          hard to audit, hard to change, and hard to install where the build machine has no
+          internet. MathScript does the mathematics itself, from matrix arithmetic up to
+          fluid dynamics, in one C++ library with nothing to fetch.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Plot and differentiate live</a>
@@ -32,6 +33,57 @@
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
+          are rarely written by the team shipping it. They arrive from a dozen outside
+          libraries and paid platforms that have to be fetched, licensed and trusted. When an
+          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
+          machine you may not be able to fetch them at all.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          MathScript is one C++ library that does the mathematics itself: linear algebra,
+          statistics, differential equations, finite elements, fluid flow, optimisation and a
+          symbolic algebra system, across thirty-five static libraries. The matrix routines
+          most projects import from BLAS and LAPACK are written here instead. All 816 test
+          suites pass on the Windows build. v1.0.0 has not shipped yet.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Teams whose build machines cannot reach the internet &mdash; defence, medical,
+          aerospace, banking &mdash; where every fetched dependency is another approval.
+          Products that do their real work in C++ and their mathematics in Python, and carry
+          two sets of problems for it. Teachers and students who want the method written out
+          where it can be read.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
+      argument, and the rest of this page is the evidence: what the thirty-five libraries
+      hold, why a failure comes back in the return type instead of as an exception, and
+      exactly what the test numbers cover.
     </div>
   </div>
 </section>
@@ -207,6 +259,12 @@
     <div class="section-head reveal">
       <span class="eyebrow">Scope</span>
       <h2>Thirty-five static libraries, six domains</h2>
+      <p class="lede">
+        Dense and sparse linear algebra, special functions, statistics, ODE/PDE/FEM/CFD,
+        optimisation, signal and image processing, number theory, graphs, geometry, topology,
+        quantum primitives, control, finance, compression &mdash; and a symbolic CAS. With
+        LU, QR, SVD, eigensolvers and Cholesky written in-tree.
+      </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Six library domains — core systems, numerical, statistics and machine learning, applied, symbolic and specialised — over a Result<T> base rail with no exceptions or raw pointers" loading="lazy" decoding="async"></div><span class="diagram__hint">scroll to see the whole diagram &rarr;</span><figcaption><b>Thirty-five libraries, one error convention.</b> The rail underneath is the point: failure is in the return type, not in an exception you find at the top of the stack.</figcaption></figure>
 

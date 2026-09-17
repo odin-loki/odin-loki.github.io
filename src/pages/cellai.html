@@ -6,11 +6,12 @@
         <span class="eyebrow eyebrow--violet">Cell AI &middot; research log</span>
         <h1>A sequence model that is <span class="gradient-text">honestly worse</span></h1>
         <p class="lede">
-          Cell AI replaces self-attention with reaction-diffusion partition dynamics and
-          Hebbian/BCM plasticity that runs <em>during</em> the forward pass. It does not approach
-          transformer performance and its README says so on the first screen. It is published as
-          a research log: what a fully different sequence model looks like at full scale, and
-          exactly where it breaks.
+          A language model built on a completely different mechanism &mdash; closer to chemistry
+          spreading across a surface than to the attention maths everything else uses. It performs
+          worse than a transformer, and its own front page says so. Not slightly worse: four
+          orders of magnitude on the standard measure, printed on this page rather than in a
+          footnote. It is published as a research log because a documented failure is worth
+          something and a deleted one is not.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Run the reaction-diffusion field</a>
@@ -39,6 +40,54 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= IN PLAIN ENGLISH ========================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In plain English</span>
+      <h2>What this is, in one minute</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card--hover reveal">
+        <div class="card__glow"></div>
+        <span class="badge badge--amber" style="margin-bottom:12px">The problem</span>
+        <p class="small dim" style="margin:0">
+          Almost every AI that handles language is built on the same idea: let every word look at
+          every other word. It works. Nobody knows how much of that is because it is the best idea
+          available and how much is because it is the one everybody tried.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".06">
+        <div class="card__glow"></div>
+        <span class="badge badge--teal" style="margin-bottom:12px">What it does</span>
+        <p class="small dim" style="margin:0">
+          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
+          across a surface, the way stripes form on an animal, with the connections changing while
+          it reads rather than afterwards. It was then trained at full size and measured. It came
+          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
+          line in an appendix.
+        </p>
+      </div>
+      <div class="card card--hover reveal" data-delay=".12">
+        <div class="card__glow"></div>
+        <span class="badge badge--violet" style="margin-bottom:12px">Who it is for</span>
+        <p class="small dim" style="margin:0">
+          Researchers who want to know what happens down the road nobody took. Scientists who
+          already model living systems, because the mechanism underneath is the one that makes
+          patterns in chemistry and markings on animals. Teachers, because published research is
+          almost all successes, and a careful account of a failure is rarer and more useful.
+        </p>
+      </div>
+    </div>
+    <div class="note reveal" style="margin-top:28px">
+      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
+      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
+      dynamics running live in your browser, what stands where attention would be, and
+      twenty-seven experiments with their failures annotated.
     </div>
   </div>
 </section>
