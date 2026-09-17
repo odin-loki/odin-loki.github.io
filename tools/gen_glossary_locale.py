@@ -28,12 +28,67 @@ The merge input is tab separated, one term per line:
 The third column is optional. Anything not supplied keeps the English text, so
 a partial file degrades to a partly-English glossary rather than a broken one.
 """
-import json, os, sys
+import hashlib, json, os, sys
 
 EN = 'assets/data/glossary.json'
 
 def path(code):
     return 'assets/data/glossary.%s.json' % code
+
+def stamp(gloss):
+    """A short fingerprint of the English a translation was made from.
+
+    Without it, correcting an English gloss rather than adding one leaves nine
+    translations of the old sentence in place, saying something the site no
+    longer says, and no command will ever surface them: `dump` only offers
+    terms with no translation at all. That happened three times on this
+    glossary before anyone noticed — benchmark, tracker and QR — and each was
+    caught by a person reading, not by a tool.
+    """
+    return hashlib.sha1(gloss.encode('utf-8')).hexdigest()[:8]
+
+def sync():
+    """Push the English aliases into every locale, keeping each one's own.
+
+    `merge` builds a record's alias list from the English entry plus whatever
+    the translator supplied, which is right at the moment of writing and wrong
+    ever after: an alias added to the English master later never reaches the
+    locales, because nothing re-touches an entry that is already translated.
+    Glosses are not touched here — only the alias lists and the fingerprints.
+    """
+    import glob
+    en = {t['t']: t for t in load_en()['terms']}
+    total = 0
+    for p in sorted(glob.glob('assets/data/glossary.*.json')):
+        code = os.path.basename(p)[len('glossary.'):-len('.json')]
+        if code == 'json' or '.' in code:
+            continue
+        d = json.load(open(p, encoding='utf-8'))
+        changed = []
+        for t in d['terms']:
+            src = en.get(t['t'])
+            if not src:
+                continue
+            want = list(src.get('alias', []))
+            mine = [a for a in t.get('alias', []) if a not in want and a != t['t']]
+            merged = want + mine
+            if merged != t.get('alias', []):
+                if merged:
+                    t['alias'] = merged
+                changed.append(t['t'])
+            # Only stamp entries that have actually been translated; an
+            # untranslated one still carries the English and is not stale.
+            if t['g'] != src['g'] and 'en' not in t:
+                t['en'] = stamp(src['g'])
+        if changed:
+            with open(p, 'w', encoding='utf-8') as fh:
+                json.dump(d, fh, ensure_ascii=False, separators=(',', ':'))
+            total += len(changed)
+            print('  %-3s %d entries picked up an English alias: %s'
+                  % (code, len(changed), ', '.join(changed[:4])))
+        else:
+            print('  %-3s aliases already match the master' % code)
+    print('%d entries updated' % total)
 
 def load_en():
     return json.load(open(EN, encoding='utf-8'))
@@ -74,7 +129,7 @@ def merge(code):
             sys.exit('unknown term %r — it must match the English file exactly' % term)
         if not gloss:
             continue
-        rec = {'t': src['t'], 'd': src['d'], 'g': gloss}
+        rec = {'t': src['t'], 'd': src['d'], 'g': gloss, 'en': stamp(src['g'])}
         alias = list(src.get('alias', []))
         for a in extra:
             if a not in alias and a != src['t']:
@@ -101,6 +156,40 @@ def merge(code):
     print('%s: +%d this run, %d of %d terms now translated, %.1f KB'
           % (code, n, done, len(terms), os.path.getsize(path(code)) / 1024))
 
+def stale():
+    """Translations made from an English sentence that has since been rewritten.
+
+    This is the failure the fingerprint exists for. Correcting an English gloss
+    leaves nine translations of the old one behind, and no other command will
+    ever offer them again — `dump` only lists terms with no translation at all.
+    It had happened four times here before anyone noticed: benchmark, tracker,
+    KDE and QR, each caught by a person reading rather than by a tool.
+    """
+    import glob
+    en = {t['t']: t for t in load_en()['terms']}
+    total = 0
+    for p in sorted(glob.glob('assets/data/glossary.*.json')):
+        code = os.path.basename(p)[len('glossary.'):-len('.json')]
+        if code == 'json' or '.' in code:
+            continue
+        d = json.load(open(p, encoding='utf-8'))
+        out = []
+        for t in d['terms']:
+            src = en.get(t['t'])
+            if not src or t['g'] == src['g']:
+                continue        # untranslated, so not stale
+            want = stamp(src['g'])
+            if t.get('en') and t['en'] != want:
+                out.append(t['t'])
+        total += len(out)
+        print('  %-3s %s' % (code, ', '.join(out) if out else 'up to date'))
+    if total:
+        print('\n%d translation(s) made from English that has since changed. '
+              'Re-translate them; merge will restamp.' % total)
+        sys.exit(1)
+    print('\nEvery translation was made from the English that is there now.')
+
+
 def stat():
     en = load_en()
     en_g = {t['t']: t['g'] for t in en['terms']}
@@ -116,5 +205,7 @@ if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else 'stat'
     if cmd == 'dump':    dump(sys.argv[2])
     elif cmd == 'merge': merge(sys.argv[2])
+    elif cmd == 'sync':  sync()
+    elif cmd == 'stale': stale()
     elif cmd == 'stat':  stat()
     else: sys.exit('usage: dump <code> | merge <code> | stat')

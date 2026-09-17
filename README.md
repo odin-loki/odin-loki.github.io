@@ -266,6 +266,8 @@ node tools/qa/i18n-smoke.js         # selector, search, read-aloud, glossary, pe
 python3 tools/qa/urlcheck.py        # nothing points at one of the site's own redirects
 python3 tools/qa/classcheck.py      # every class a page uses has a rule behind it
 node tools/qa/gloss-check.js        # the jargon layer never marks half a word
+python3 tools/qa/jargon-audit.py --gate     # no acronym on any page is unexplained
+python3 tools/gen_glossary_locale.py stale  # no translation made from English that has since changed
 ```
 
 All of them exit non-zero on failure, so they drop straight into CI if you ever want them
@@ -279,6 +281,18 @@ honest reason to add a check:
 - `classcheck.py` after a page shipped `.table-wrap` and `.table` when the site's idiom is
   `.table-scroll` and `table.data`. A class that matches no rule fails silently; the only
   symptom was 76px of sideways overflow, on one page, in Russian, at phone width.
+- `jargon-audit.py` after nobody could say how many acronyms the site used without
+  explaining. The answer was 262, and it was invisible: the layer just does not mark
+  a word it has never been given, which looks identical to a word that needed no
+  help. `--senses` prints every term that appears on more than one page with the
+  sentence it lands in, which is how three terms carrying two unrelated meanings
+  were found — QR was glossed as the code a phone camera reads when every use here
+  is the matrix one.
+- `gen_glossary_locale.py stale` after four English glosses were corrected and their
+  nine translations each kept saying the old thing. Nothing surfaced them: `dump`
+  only offers terms with no translation at all. Each locale entry now records a
+  fingerprint of the English it was written from, so the next one is caught by a
+  command instead of by somebody reading.
 - `gloss-check.js` after the plain-English layer was found marking half a word. JavaScript's
   `\w` is `[A-Za-z0-9_]` whatever flags you pass it, so in Urdu, Arabic, Hindi, Bengali and
   Russian the `[^\w-]` guards around every alias asserted nothing at all, and the Urdu for
