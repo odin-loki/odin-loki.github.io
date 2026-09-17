@@ -1203,6 +1203,32 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 .gloss-ctl__reset:hover { color: var(--ink-dim); }
 .gloss-ctl:not(.is-on) .gloss-ctl__reset { display: none; }
 
+/* The toolbar is a horizontally scrolling strip with its scrollbar hidden, and
+   on a phone it held 689px of controls inside a 299px window. "Explain the
+   jargon" sat at x=406 on a 375px screen -- thirty-one pixels past the right
+   edge, with nothing on screen to suggest anything was there. A marketer
+   reviewing the site read the whole thing on his phone and reported that we
+   never explain our jargon; we do, and we had hidden the switch.
+
+   The responsive audit passed throughout, correctly: the strip is meant to
+   scroll, so there is no page overflow to find. Off-screen is not overflow.
+
+   So below the phone breakpoint the jargon control comes first, its
+   term count gives up its space to the label that matters, and the strip
+   gets a fade at the edge so it is visibly a strip that continues. */
+@media (max-width: 720px) {
+  .gloss-ctl { order: -1; }
+  .gloss-ctl__stat { display: none; }
+  .toolbar__items {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+            mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  }
+  [dir="rtl"] .toolbar__items {
+    -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 28px), transparent);
+            mask-image: linear-gradient(to left, #000 calc(100% - 28px), transparent);
+  }
+}
+
 @media print { .gloss { border-bottom: 0; } }
 .gloss__pop.is-dict { border-inline-start-color: var(--violet); }
 .gloss__pos { font-weight: 400; color: var(--ink-mute); font-size: .92em; }
