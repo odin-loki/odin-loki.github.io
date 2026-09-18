@@ -152,14 +152,10 @@
         <span class="eyebrow">उत्पाद डेमो</span>
         <h1>शतरंज खेलिए, सामने है <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha never saw a chess game. It learned by watching an ordinary chess program think
-          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
-          was winning &mdash; until Cypha could produce the verdict itself.
+          Cypha ने शतरंज का कोई खेल कभी देखा ही नहीं। उसने एक आम शतरंज प्रोग्राम को सोचते हुए देखकर सीखा &mdash; 26,568 स्थितियाँ, हर एक पर उसी प्रोग्राम का अपना फ़ैसला चिपका हुआ कि कौन जीत रहा है &mdash; जब तक Cypha ख़ुद वह फ़ैसला न देने लगा।
         </p>
         <p class="lede">
-          What you play below is that, running in your browser inside a shallow search. It is
-          beatable, and it still loses to the program it learned from. Every number on this page
-          came out of the training run that produced the weights the page loads.
+          नीचे आप उसी से खेलते हैं, जो आपके ब्राउज़र में एक उथली सर्च के भीतर चल रहा है। उसे हराया जा सकता है, और जिस प्रोग्राम से उसने सीखा, उससे वह आज भी हारता है। इस पृष्ठ का हर आँकड़ा उसी प्रशिक्षण रन से निकला है जिसने वे भार बनाए जो यह पृष्ठ लोड करता है।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">एक खेल खेलिए</a>
@@ -170,8 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">नापा हुआ, दावा किया हुआ नहीं</span>
           <p class="small muted" style="margin:0 0 16px">
-            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
-            guesses was; the smaller it is, the closer the model sits to its teacher.
+            नीचे दी गई मूल माध्य वर्ग त्रुटि (RMSE) यह नापने का आम तरीक़ा है कि अनुमानों का एक समूह कितना दूर था; यह जितनी छोटी, मॉडल अपने शिक्षक के उतना ही पास।
           </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -217,45 +212,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">सीधी-सादी भाषा में</span>
+      <h2>यह क्या है, एक मिनट में</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
         <p class="small dim" style="margin:0">
-          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
-          explanation tells you nothing about whether it does. Chess settles that, because the
-          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
-          and you can sit down and find out.
+          कृत्रिम बुद्धिमत्ता (AI) का हर नया डिज़ाइन यह समझाते हुए आता है कि उसे काम क्यों करना चाहिए। वह समझ पढ़ लेने से यह पता नहीं चलता कि वह करता भी है या नहीं। शतरंज इसका फ़ैसला कर देता है, क्योंकि जवाब राय की बात नहीं है: या तो वह समझदार और नियमों के भीतर शतरंज खेलता है, या नहीं खेलता &mdash; और आप बैठकर ख़ुद देख सकते हैं।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">समाधान</span>
         <p class="small dim" style="margin:0">
-          An ordinary chess program judges a position by searching ahead through the moves. Cypha
-          was shown 26,568 of those judgements and fitted a single formula to reproduce them
-          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
-          the architecture for chess. Only the numbers fed into it changed.
+          एक आम शतरंज प्रोग्राम किसी स्थिति को आगे की चालों में खोजकर आँकता है। Cypha को उन्हीं में से 26,568 आकलन दिखाए गए और उन्हें दोबारा बनाने के लिए एक ही फ़ॉर्मूला फ़िट किया गया &mdash; बोर्ड को बताने वाले 388 आँकड़ों पर गणित की एक पंक्ति। शतरंज के लिए संरचना में कुछ भी नहीं जोड़ा गया। सिर्फ़ उसमें डाले गए आँकड़े बदले।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
         <p class="small dim" style="margin:0">
-          Anyone weighing up Cypha who would rather check than be told. People who work with
-          machine learning and want to watch a model carry on learning while it is being used.
-          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
-          you play is sent anywhere.
+          वे सब जो Cypha को तौल रहे हैं और बताए जाने के बजाय ख़ुद जाँचना चाहेंगे। मशीन लर्निंग में काम करने वाले लोग, जो देखना चाहते हैं कि इस्तेमाल के दौरान भी कोई मॉडल सीखता कैसे रहता है। और वे सब जिनका बस एक खेल खेलने का मन है &mdash; सब कुछ आपके ब्राउज़र में चलता है, और आप जो खेलते हैं वह कहीं नहीं भेजा जाता।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
-      this page claims it is. The rest of the page is how it was done, what each number means,
-      and the four things this design cannot do.
+      <strong>किसी शतरंज इंजन का आकलन नक़ल कर लेना शतरंज सीखना नहीं है।</strong> इस पृष्ठ पर ऐसा दावा कहीं नहीं है। बाक़ी पृष्ठ यह है कि यह हुआ कैसे, हर आँकड़े का मतलब क्या है, और वे चार चीज़ें क्या हैं जो यह डिज़ाइन नहीं कर सकता।
     </div>
   </div>
 </section>
@@ -364,14 +348,7 @@
               <strong>ड्रिफ़्ट</strong> यानी वेट वेक्टर में हुए बदलाव का आकार, डिस्टिल किए गए वेक्टर के मुक़ाबले। <strong>आख़िरी सुधार</strong> यानी वह जिस स्थिति से अभी चला, उसके बारे में जमा हुआ हेड कितना ग़लत था, प्यादों में, उसकी अपनी गहरी सर्च के मुक़ाबले नापा हुआ।
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>रेटिंग</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
-              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
-              FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>रेटिंग</strong> एक आंतरिक सीढ़ी पर है, F&eacute;d&eacute;ration Internationale des &Eacute;checs (FIDE) के पैमाने पर नहीं &mdash; जिसने कभी किसी रेटेड इंसान से खेला ही नहीं, उस पर FIDE का आँकड़ा चिपकाने का कोई ईमानदार तरीक़ा है ही नहीं। गहराई 1 पर संदर्भ इंजन को 1000 पर बाँधा गया है और बाक़ी सब 210 खेलों से Bradley-Terry अधिकतम संभाव्यता द्वारा फ़िट किया गया है, इसलिए यह इस पर निर्भर नहीं करता कि खेल किस क्रम में खेले गए। नापी हुई सीढ़ी: गहराई 1&ndash;3 पर संदर्भ 1000 / 1171 / 1245, Cypha 798 / 1010 / 1161। Cypha जिस इंजन से डिस्टिल हुआ, उससे लगभग एक सर्च-गहराई पीछे चलता है, और त्रुटि-पट्टियाँ मोटे तौर पर &plusmn;50 हैं, जो 210 खेलों से इतना ही मिलता है।
             </p>
             <p class="tiny muted" style="margin-top:8px">
               हर ताक़त सेटिंग अपने पास रखती है <strong>अपना अलग मॉडल</strong>। गहराई 1 पर खेलने वाला हेड गहराई-1 की सर्च की ओर सुधारा जाता है; गहराई 3 पर लक्ष्य अलग और बेहतर होता है। दोनों को एक ही वेट वेक्टर में प्रशिक्षित करने से वे आपस में भिड़ जाएँगे। ताक़त बदलिए और उसके साथ गिनतियाँ भी बदल जाती हैं।
@@ -407,10 +384,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">क़दम 1</span>
         <h3 style="font-size:1.02rem">शिक्षक</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
-          search. Verified against five standard perft positions including kiwipete, so the rules
-          are provably right before anything is learned from it.
+          एक 0x88 इंजन, जिसमें नियमों के भीतर पूरी चाल-उत्पत्ति, सामग्री और piece-square मूल्यांकन, सबसे क़ीमती शिकार &ndash; सबसे कम क़ीमती हमलावर (MVV-LVA) क्रम, और शांत-अवस्था सर्च है। kiwipete समेत पाँच मानक perft स्थितियों पर सत्यापित, ताकि उससे कुछ भी सीखने से पहले नियम प्रमाणित रूप से सही हों।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -431,10 +405,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">क़दम 4</span>
         <h3 style="font-size:1.02rem">फ़िट</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
-          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
-          at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; को Welford से ऑनलाइन फ़िट किया गया, प्राकृतिक-ग्रेडिएंट मापक के रूप में व्हाइटनिंग, सामान्यीकृत न्यूनतम माध्य वर्ग (LMS) भार-अद्यतन, न्यूनतम विवरण लंबाई (MDL) का क्षय जो भारों को वापस प्रायर की ओर खींचता है, और Cypha के संदर्भ 0.30 अनुपात पर एक आश्चर्य-भारित रीप्ले बफ़र।
         </p>
       </div>
     </div>
@@ -455,7 +426,7 @@
         <span class="eyebrow eyebrow--amber">यह क्या नहीं दिखाता</span>
         <h3>ईमानदार सीमाएँ</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>यह रैखिक है।</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
+          <li><strong>यह रैखिक है।</strong> piece-square फ़ीचर का कोई रैखिक फलन राजा की सुरक्षा, प्यादा-संरचना की आपसी क्रियाओं, या ऐसी किसी भी चीज़ को नहीं दिखा सकता जिसके लिए दो फ़ीचर का गुणनफल चाहिए। इसकी छत वही है जो Cypha का README अनन्य OR (XOR) के लिए बताता है।</li>
           <li><strong>शिक्षक मामूली है।</strong> संदर्भ इंजन एक काबिल क्लासिकल सर्चर है, Stockfish नहीं। उसे अच्छी तरह डिस्टिल करने का मतलब है एक मामूली मूल्यांकक से अच्छी तरह मेल खाना।</li>
           <li><strong>इसकी अपनी कोई सर्च गहराई नहीं।</strong> यहाँ ताक़त ज़्यादातर alpha-beta रैपर से आती है, ठीक वैसे ही जैसे शिक्षक के मामले में आती है।</li>
           <li><strong>डिस्टिलेशन खोज नहीं है।</strong> Cypha ने वह मूल्यांकन फलन दोहराया जो उसे दिखाया गया था। उसने शून्य से शतरंज नहीं सीखा, और इस पृष्ठ पर ऐसा कोई दावा नहीं किया गया।</li>
@@ -487,9 +458,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/pbsd.html">
+      <a class="card card--hover related__item" href="/hi/sentinel.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -561,7 +532,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

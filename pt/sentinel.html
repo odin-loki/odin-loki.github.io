@@ -148,11 +148,7 @@
         <span class="eyebrow">SENTINEL &middot; Fases 1&ndash;2 concluídas</span>
         <h1>Pistas de investigação que dá para <span class="gradient-text">rastrear até a origem</span></h1>
         <p class="lede">
-          Investigators are rarely short of data. What is hard is finding the pattern inside
-          thousands of records that look unremarkable one at a time. SENTINEL is a desktop tool that
-          reads public crime data, runs the statistics over it and ranks what is worth a closer
-          look &mdash; and every result traces back to the exact records, model and settings it came
-          from. If an analyst cannot show why a lead ranked where it did, it should not be a lead.
+          Raramente falta dado a um investigador. O difícil é achar o padrão dentro de milhares de registros que, um a um, não chamam atenção. O SENTINEL é uma ferramenta de desktop que lê dados públicos de criminalidade, roda a estatística sobre eles e ranqueia o que vale um olhar mais atento &mdash; e cada resultado volta até os registros, o modelo e os ajustes exatos de onde veio. Se um analista não consegue mostrar por que uma pista ficou onde ficou, ela não deveria ser uma pista.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Monte um modelo de pontos quentes</a>
@@ -160,7 +156,7 @@
         </div>
         <div class="phero__meta">
           <div class="phero__meta-item">Linguagem<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">User Interface (UI)<b>Qt 6, painel de 9 páginas</b></div>
+          <div class="phero__meta-item">Interface de usuário (UI)<b>Qt 6, painel de 9 páginas</b></div>
           <div class="phero__meta-item">Testes<b>495 automatizados</b></div>
           <div class="phero__meta-item">Armazenamento<b>SQLite</b></div>
           <div class="phero__meta-item">Último envio<b data-gh-repo="SENTINEL" data-gh-field="updated">há pouco</b></div>
@@ -185,45 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Em português claro</span>
+      <h2>O que isto é, em um minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">O problema</span>
         <p class="small dim" style="margin:0">
-          A burglary, a theft from a car, an insurance claim. Each one is unremarkable on its own, and
-          what connects them only shows up when somebody lines hundreds of them up and looks. That is slow
-          work by hand, and the analytics contracts that do it at scale are priced out of reach of most
-          forces.
+          Um arrombamento, um furto de dentro de um carro, um sinistro de seguro. Cada um, sozinho, não chama atenção, e o que os liga só aparece quando alguém enfileira centenas deles e olha. À mão, esse trabalho é lento, e os contratos de análise que o fazem em escala têm preço fora do alcance da maioria das polícias.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">A solução</span>
         <p class="small dim" style="margin:0">
-          SENTINEL reads the records in and runs established statistical models over them: where crime is
-          dense, which incidents look like one series rather than many, which area a series was most likely
-          run from. It ranks what is worth a closer look. Every stage writes down what it did, so a lead
-          arrives carrying its source records, the model and the settings behind it.
+          O SENTINEL lê os registros e roda sobre eles modelos estatísticos consagrados: onde o crime é denso, quais ocorrências parecem uma série em vez de várias, de que área uma série mais provavelmente foi operada. Ele ranqueia o que vale um olhar mais atento. Cada etapa anota o que fez, então a pista chega carregando os registros de origem, o modelo e os ajustes por trás dela.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quem é</span>
         <p class="small dim" style="margin:0">
-          Smaller and regional forces, where the large analytics contracts are out of reach &mdash; this
-          runs on one ordinary desktop computer and is built for a single analyst rather than a department.
-          Fraud and repeat-offender investigators, where the pattern sits across incidents nobody filed
-          together. Researchers, who can retrace any result to the records that produced it.
+          Polícias menores e regionais, para quem os grandes contratos de análise estão fora de alcance &mdash; isto roda em um computador de mesa comum e é feito para um analista só, não para um departamento. Investigadores de fraude e de reincidência, em que o padrão atravessa ocorrências que ninguém arquivou juntas. Pesquisadores, que podem refazer o caminho de qualquer resultado até os registros que o produziram.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>It points an analyst at something worth checking. It does not decide anything about a
-      person.</strong> The rest of this page is the engineering: two of the real models running in
-      your browser, the pipeline that feeds them, what works today, and what does not.
+      <strong>Ele aponta o analista para algo que vale conferir. Não decide nada sobre uma pessoa.</strong> O resto desta página é a engenharia: dois dos modelos reais rodando no seu navegador, o pipeline que os alimenta, o que funciona hoje e o que não funciona.
     </div>
   </div>
 </section>
@@ -253,8 +238,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">Limpar</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            2.4 megabytes (MB) because Qt6Core comes with it. That is the honest cost of running the real
-            model rather than a lookalike, and nothing downloads until you ask.
+            2,4 megabytes (MB) porque o Qt6Core vem junto. Esse é o custo honesto de rodar o modelo de verdade em vez de um parecido, e nada é baixado até você pedir.
           </p>
         </div>
         <div class="demo__side">
@@ -285,7 +269,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Pipeline</span>
-      <h2>Ingest &rarr; Natural Language Processing (NLP) &rarr; features &rarr; models &rarr; inference</h2>
+      <h2>Ingestão &rarr; Processamento de Linguagem Natural (PLN) &rarr; features &rarr; modelos &rarr; inferência</h2>
       <p class="lede">Cada estágio escreve o que fez na cadeia de procedência, então a pista que sai no fim carrega o registro de como chegou até ali.</p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="O pipeline do SENTINEL, da ingestão passando por PLN baseado em regras, modelos estatísticos e inferência até as pistas ranqueadas, com um trilho de procedência ligado a cada estágio" loading="lazy" decoding="async"></div><span class="diagram__hint">role para ver o diagrama inteiro &rarr;</span><figcaption><b>O trilho por baixo é o produto.</b> Cada estágio escreve o que fez na cadeia de procedência, então a pista chega com o registro de como chegou até ali.</figcaption></figure>
@@ -293,13 +277,13 @@
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Ingestão</span>
-        <p class="small dim" style="margin:0">UK Police Application Programming Interface (API) and historical feeds, Comma-Separated Values (CSV) import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+        <p class="small dim" style="margin:0">Interface de Programação de Aplicações (API) da polícia do Reino Unido e feeds históricos, importação de Valores Separados por Vírgula (CSV) com detecção automática de layouts do Reino Unido / de cidades dos EUA / genéricos, clima via Open-Meteo, e pontuação de qualidade dos dados com limiares de quarentena.</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">PLN</span>
         <p class="small dim" style="margin:0">Extração clássica de modus operandi baseada em regras e classificação de crimes. Nenhum modelo de linguagem no circuito &mdash; de propósito, porque a saída precisa ser explicável.</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Modelos</span>
-        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, series detection by Density-Based Spatial Clustering of Applications with Noise (DBSCAN), KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+        <p class="small dim" style="margin:0">Contagens de Poisson, processos auto-excitantes de Hawkes, detecção de séries por Agrupamento Espacial de Aplicações com Ruído Baseado em Densidade (DBSCAN), focos por KDE, regressão por processos gaussianos, camadas bayesianas e de ensemble.</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Inferência</span>
         <p class="small dim" style="margin:0">Perfilamento geográfico de Rossmo, análise de MO, pontuação de evidências, detecção de anomalias, PageRank de coautoria criminal e detecção de comunidades, e o motor de dicas.</p></div>
@@ -400,7 +384,7 @@
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 testes automatizados</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Validação com dados reais em conjuntos do Reino Unido e dos EUA</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Empacotamento para Windows e Linux</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only Representational State Transfer (REST) API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>API de Transferência de Estado Representacional (REST) local, somente leitura</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Painel de nove páginas: eventos, mapa, calibração, casos, grafo de coautoria criminal, pistas, log de auditoria, configurações, depuração</span></li>
         </ul>
       </div>
@@ -411,7 +395,7 @@
           <li><strong>Só PLN baseado em regras.</strong> A extração de modus operandi é clássica, com os limites de recall que isso implica.</li>
           <li><strong>Desktop de uma máquina só.</strong> Sem implantação multiusuário, sem estado de caso compartilhado entre analistas.</li>
           <li><strong>Poucos conectores ao vivo.</strong> Poucas fontes de dados em tempo real estão ligadas.</li>
-          <li><strong>Mapa básico.</strong> Custom-rendered, not a Geographic Information System (GIS). Optional GIS integration is a Phase 3&ndash;5 item.</li>
+          <li><strong>Mapa básico.</strong> Desenhado sob medida, não um Sistema de Informação Geográfica (GIS). A integração opcional com GIS é item da Fase 3&ndash;5.</li>
         </ul>
         <h3 style="margin-top:2rem;font-size:1.05rem">Fases 3&ndash;5, planejadas</h3>
         <p class="small dim">
@@ -564,7 +548,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-17T23:04:13Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
+      <span class="mono tiny">Compilado em 2026-09-17T23:58:50Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
     </div>
   </div>
 </footer>

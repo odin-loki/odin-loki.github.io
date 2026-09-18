@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; Фаза 8 завершена</span>
         <h1>Шифрование скрывает, что вы сказали. <span class="gradient-text">Это скрывает сам факт разговора.</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          Шифрование скрывает содержимое сообщения. Оно не скрывает, что сообщение было. Наблюдатель за сетью всё равно видит, кто с кем говорит, когда и сколько килобайт (КБ) прошло &mdash; а в чувствительной обстановке это может значить не меньше самих слов. AEGIS держит трафик между участниками закрытой группы с постоянной скоростью, есть что отправлять или нет, так что время и объём не несут сигнала.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Запустить корреляционную атаку</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          Тому, кто может смотреть на сеть, не нужно ломать шифрование. Он видит, что одна точка отправила 14 КБ в 09:41:03, а другая получила 14 КБ через три секунды, и что то же самое происходит дважды в день одиннадцать недель подряд. Если это повторяется достаточно часто, получается карта того, кто с кем работает, нарисованная без чтения единого сообщения.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          AEGIS делает так, что провод всегда выглядит одинаково. Трафик уходит с постоянной скоростью, есть что отправлять или нет, а приходящее добивается до фиксированного размера, так что нет всплеска на одном конце, который можно сопоставить со всплеском на другом. Это стоит полосы и добавляет задержку; демонстрация ниже показывает защиту и цену рядом.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          Редакциям и всем, кто защищает источник, где человека выдают время и размер контакта. Банкам, страховщикам и отраслевым объединениям, которые конкурируют друг с другом и всё равно должны обмениваться данными. Организациям, которые делятся предупреждениями об атаках, где сам факт обмена и есть чувствительная часть.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>Спрятать содержимое — половина полегче.</strong> Спрятать рисунок трафика — та часть, ради которой нужна инженерия ниже: угроза целиком, атака, которую вы сами можете запустить против обеих конфигураций, цифры тестов и место, где гарантии кончаются.
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Признаки</span>
       <h2>Восемь фаз, каждая за барьером red team</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">Реализация завершена по фазу 8, укрепление. Это цифры, которые сообщает репозиторий: фаззинг шёл в подсистеме Windows для Linux (WSL), а тестовая сеть работала на реальных сокетах протокола управления передачей (TCP).</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Криптографические тест-векторы</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Гигиена репозитория:</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>Гигиена репозитория:</strong> непрерывная интеграция (CI) на GitHub Actions,
       <code translate="no">cargo deny</code> и общая для воркспейса политика, запрещающая unsafe-код. Для сетевого стека на Rust, обрабатывающего враждебный вход, <code translate="no">#![forbid(unsafe_code)]</code> по всему воркспейсу — самая несущая строка во всём проекте.
     </div>
   </div>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

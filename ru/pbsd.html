@@ -149,11 +149,7 @@
         <span class="eyebrow eyebrow--amber">Флагман &middot; ParanoidBSD</span>
         <h1>Операционная система, где полномочия <span class="gradient-text">держат в руках, а не подразумевают</span></h1>
         <p class="lede">
-          Nearly every break-in works the same way: a program reaches something it was never
-          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
-          program is handed only what it needs, and everything else is not merely forbidden
-          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
-          original kept alongside so every change can be checked against it.
+          Почти любой взлом устроен одинаково: программа дотягивается до того, до чего не должна. ParanoidBSD — операционная система, построенная так, чтобы это было невозможно. Каждой программе выдаётся только то, что ей нужно, а всё остальное не просто запрещено &mdash; оно недосягаемо. Основана на HardenedBSD, переписана на современном C++, а оригинал лежит рядом, чтобы каждое изменение можно было с ним сверить.
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/ru/kickstarter.html">Поддержать на Kickstarter</a>
@@ -178,7 +174,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin и фреймворки для волны рабочего стола</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Инвентаризация, детерминированные проходы переписывания, агентный перенос, вспомогательные средства Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Спецификации, модель безопасности, статус миграции, происхождение</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Управляющий скрипт подсистемы Windows для Linux (WSL), сторожевой процесс, консоль прогресса</span></div>
           </div>
         </div>
       </div>
@@ -191,46 +187,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          An operating system sits underneath everything else an organisation runs. Most are
-          built on decades of older code, and they let any program ask for anything at all
-          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
-          something harmless, like the code that draws a font on screen, can end with stolen
-          passwords.
+          Операционная система лежит под всем остальным, что работает в организации. Большинство построено на коде, которому десятки лет, и любая программа может попросить что угодно &mdash; система решает уже потом, разрешить ли. Поэтому одна дыра в чём-то безобидном, например в коде, который рисует шрифт на экране, может закончиться кражей паролей.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          ParanoidBSD changes what a program is able to ask for in the first place. Rather
-          than checking permission after the request, it hands each program a short list of
-          things it may touch, and gives it no way to name anything else. A flaw in one part
-          stops being a route into the rest.
+          ParanoidBSD меняет то, о чём программа вообще способна попросить. Вместо проверки прав после запроса каждой программе выдаётся короткий список того, к чему ей можно прикоснуться, и никакого способа назвать что-то ещё. Дыра в одной части перестаёт быть дорогой ко всему остальному.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Defence and government suppliers now being asked for software written in safer
-          languages. Equipment that stays in the field for years and cannot be patched
-          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
-          and researchers who want a real operating system small enough to read end to end.
+          Поставщики в обороне и госсекторе, от которых теперь требуют софт на более безопасных языках. Техника, которая годами стоит в поле и которую нельзя быстро обновить &mdash; заводские контроллеры, медицинские аппараты, оборудование коммунальных служб. Преподаватели и исследователи, которым нужна настоящая операционная система, достаточно небольшая, чтобы прочитать её целиком.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Security should not start at the application layer.</strong> It should start
-      with the operating system underneath it. The rest of this page is the engineering:
-      what was changed, how it was checked, and what is not done yet.
+      <strong>Безопасность не должна начинаться на уровне приложений.</strong> Она должна начинаться с операционной системы под ними. Дальше на этой странице — инженерия: что изменено, как это проверено и что ещё не сделано.
     </div>
   </div>
 </section>
@@ -251,12 +235,7 @@
           Именно поэтому одна ошибка разбора в отрисовщике шрифтов превращается в кражу учётных данных. Отрисовщику никогда не был нужен файл паролей &mdash; но в архитектуре ничто не помешало ему его запросить.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: Address Space Layout Randomisation
-          (ASLR), which loads a program somewhere different every time so an attacker cannot
-          guess where anything is; Control Flow Integrity (CFI), which stops a program being
-          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
-          and hardened memory allocators alongside them. PBSD keeps all of it and changes
-          the shape of the question underneath &mdash; from <em>&ldquo;разрешено ли это процессу?&rdquo;</em> к
+          HardenedBSD здесь уже делает серьёзную работу: рандомизация размещения адресного пространства (ASLR), которая каждый раз загружает программу в другое место, так что атакующий не угадает, где что лежит; целостность потока управления (CFI), которая не даёт увести программу в код, для исполнения которого она не предназначалась; а рядом с ними меры из PaX, SafeStack и укреплённые распределители памяти. PBSD сохраняет всё это и меняет сам вопрос, который стоит ниже &mdash; от <em>&ldquo;разрешено ли это процессу?&rdquo;</em> к
           <em>&ldquo;есть ли у процесса дескриптор на это?&rdquo;</em>
         </p>
       </div>
@@ -273,9 +252,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim listing of the calls a
-            program makes into the kernel &mdash; its Application Programming Interface, or API.
-            The authoritative model is in <code translate="no">docs/</code>.
+            Иллюстративная форма различия, а не дословный перечень вызовов, которые программа делает в ядро &mdash; его интерфейса прикладного программирования, или API. Эталонная модель лежит в <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -367,9 +344,7 @@
       <span class="eyebrow eyebrow--violet">Перенос</span>
       <h2>Четыре этапа и модель, которая никогда не удостоверяет себя сама</h2>
       <p class="lede">
-        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
-        is a decade of work. Porting it by asking a language model to rewrite files is a fast
-        way to produce plausible garbage. PBSD does neither.
+        Перенести пользовательское окружение и ядро Berkeley Software Distribution (BSD) на C++23 вручную — это десять лет работы. Перенести, попросив языковую модель переписать файлы, — быстрый способ получить правдоподобный мусор. PBSD не делает ни того, ни другого.
       </p>
     </div>
 
@@ -407,8 +382,7 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Этап 4</span>
         <h3 style="font-size:1.05rem">Барьер проверки</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          Компиляция, ASan, UBSan, дифференциальное исполнение и сравнение на уровне промежуточного представления (IR) компилятора. Файл, который только компилируется, —
           <em>непроверенный</em>. Отказы попадают в
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
@@ -471,9 +445,7 @@
     <details class="acc reveal">
       <summary>C++ в ядре — freestanding: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
-        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
-        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
+        Ядро не может зависеть от hosted-среды выполнения C++. Никаких исключений, никакой информации о типах во время выполнения (RTTI), никаких путей стандартной библиотеки с выделением в куче на входе в ядро. Ограничения записаны в <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> чтобы участник мог понять, что допустимо в контексте ядра, не гадая.
       </div>
     </details>
     <details class="acc reveal">
@@ -493,10 +465,7 @@
         <span class="eyebrow">Лицензирование</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Две лицензии, честно разделённые</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
-          free for personal use, charities, education and organisations under
-          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
+          Новый код PBSD &mdash; ядро, модули C++23, инструменты &mdash; предлагается на стандартных условиях Imortek: GNU Affero General Public License (AGPL-3.0+), бесплатно для личного использования, благотворительности, образования и организаций с доходом меньше 50 000 австралийских долларов (AUD) в год, с многоуровневой коммерческой лицензией выше этого порога.
         </p>
         <p class="dim">
           Код, производный от HardenedBSD, остаётся под своей исходной лицензией BSD. Его нельзя перелицензировать, и Imortek этого не заявляет. <code translate="no">docs/PROVENANCE.md</code> — это запись о том, что к чему относится.
@@ -669,7 +638,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

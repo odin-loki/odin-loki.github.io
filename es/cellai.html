@@ -145,16 +145,10 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
+        <span class="eyebrow eyebrow--violet">Inteligencia artificial (IA) &middot; Diario de investigación de Cell AI</span>
         <h1>Un modelo de secuencia que es <span class="gradient-text">honestamente peor</span></h1>
         <p class="lede">
-          A language model built on a completely different mechanism &mdash; closer to chemistry
-          spreading across a surface than to the attention maths everything else uses. It performs
-          worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on perplexity (PPL), the standard measure, against Generative
-          Pre-trained Transformer 2 (GPT-2) as the baseline, and printed on this page rather than
-          in a footnote. It is published as a research log because a documented failure is worth
-          something and a deleted one is not.
+          Un modelo de lenguaje construido sobre un mecanismo completamente distinto &mdash; más cerca de la química extendiéndose por una superficie que de las matemáticas de atención que usa todo lo demás. Rinde peor que un transformer, y su propia portada lo dice. No un poco peor: cuatro órdenes de magnitud en perplejidad (PPL), la medida estándar, frente al Transformador Generativo Preentrenado 2 (GPT-2) como línea base, e impreso en esta página y no en una nota al pie. Se publica como diario de investigación porque un fracaso documentado vale algo y uno borrado no.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Ejecuta el campo de reacción-difusión</a>
@@ -187,46 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En lenguaje llano</span>
+      <h2>Qué es esto, en un minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">El problema</span>
         <p class="small dim" style="margin:0">
-          Almost every AI that handles language is built on the same idea: let every word look at
-          every other word. It works. Nobody knows how much of that is because it is the best idea
-          available and how much is because it is the one everybody tried.
+          Casi toda la IA que maneja lenguaje está construida sobre la misma idea: dejar que cada palabra mire a todas las demás. Funciona. Nadie sabe cuánto de eso se debe a que es la mejor idea disponible y cuánto a que es la que probó todo el mundo.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solución</span>
         <p class="small dim" style="margin:0">
-          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
-          across a surface, the way stripes form on an animal, with the connections changing while
-          it reads rather than afterwards. It was then trained at full size and measured. It came
-          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
-          line in an appendix.
+          Cell AI quita eso y pone otra cosa: dos sustancias químicas que se extienden y reaccionan por una superficie, igual que se forman las rayas de un animal, con las conexiones cambiando mientras lee y no después. Luego se entrenó a tamaño completo y se midió. Salió cuatro órdenes de magnitud peor que GPT-2. Ese es el titular de esta página, no una línea en un apéndice.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quién es</span>
         <p class="small dim" style="margin:0">
-          Researchers who want to know what happens down the road nobody took. Scientists who
-          already model living systems, because the mechanism underneath is the one that makes
-          patterns in chemistry and markings on animals. Teachers, because published research is
-          almost all successes, and a careful account of a failure is rarer and more useful.
+          Investigadores que quieren saber qué pasa por el camino que nadie tomó. Científicos que ya modelan sistemas vivos, porque el mecanismo de debajo es el que hace los patrones en química y las marcas de los animales. Docentes, porque la investigación publicada es casi toda éxitos, y un relato cuidadoso de un fracaso es más raro y más útil.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
-      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
-      dynamics running live in your browser, what stands where attention would be, and
-      twenty-seven experiments with their failures annotated.
+      <strong>Aquí no se te está vendiendo nada.</strong> Cell AI es peor que lo que ya tienes, y decirlo claramente es su razón de ser. El resto de esta página son las pruebas: la dinámica funcionando en directo en tu navegador, qué hay donde estaría la atención y veintisiete experimentos con sus fracasos anotados.
     </div>
   </div>
 </section>
@@ -331,8 +313,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Plasticidad</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          Hebbian learning in the Bienenstock&ndash;Cooper&ndash;Munro (BCM) style, with
-          &alpha; = 0.1, &beta; = 0.01, applied <em>durante</em> el paso hacia delante y no después. Esta es la idea más atrevida de la arquitectura y el origen de su documentado problema de inanición de gradiente.
+          Aprendizaje hebbiano al estilo de Bienenstock&ndash;Cooper&ndash;Munro (BCM), con &alpha; = 0,1, &beta; = 0,01, aplicado <em>durante</em> el paso hacia delante y no después. Esta es la idea más atrevida de la arquitectura y el origen de su documentado problema de inanición de gradiente.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Optimización v3</span>
@@ -344,10 +325,7 @@
         <span class="badge badge--blue" style="margin-bottom:12px">Ruta de señal</span>
         <h3 style="font-size:1.05rem">La pila completa</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
-          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
-          Fast Fourier Transform (FFT).
+          Incrustación cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; acoplamiento Kuramoto opcional &rarr; enrutado de MultiModalModel &rarr; logits. La etapa de resonancia acopla fases con una transformada rápida de Fourier (FFT).
         </p></div>
     </div>
   </div>
@@ -445,9 +423,7 @@
     <span class="eyebrow" style="justify-content:center">Proyectos hermanos</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Adónde fueron estas ideas en su lugar</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became Unified
-      Hash-Predictive Memory (UHPM).
+      Cell AI es la línea de investigación que no convergió. A sus hermanos les fue mejor: Cypha se convirtió en una arquitectura funcional desde primeros principios, y el trabajo de memoria de contexto largo se convirtió en Memoria Unificada Hash-Predictiva (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/es/cypha.html">Cypha &rarr;</a>
@@ -467,6 +443,10 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — una arquitectura de IA desde primeros principios</h3>
       </a>
+      <a class="card card--hover related__item" href="/es/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — identidad persistente a partir de avistamientos escasos</h3>
+      </a>
       <a class="card card--hover related__item" href="/es/chess.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Juega al ajedrez contra Cypha</h3>
@@ -474,10 +454,6 @@
       <a class="card card--hover related__item" href="/es/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
-      </a>
-      <a class="card card--hover related__item" href="/es/pbsd.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — un sistema operativo en C++23 protegido por capacidades</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -549,7 +525,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-18T00:00:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

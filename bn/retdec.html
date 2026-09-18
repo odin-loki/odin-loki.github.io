@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>এমন একটি ডিকম্পাইলার যা ফিরিয়ে আনে <span class="gradient-text">অ্যালগরিদম</span>, শুধু কোড নয়</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          প্রতিষ্ঠানগুলিকে প্রায়ই এমন সফটওয়্যার বুঝতে হয় যার সোর্স কোড তাদের কাছে নেই: পুরনো কোনো ব্যবস্থা, বাইরে থেকে কেনা কোনো অংশ, কিংবা এসে পৌঁছেছে অথচ সন্দেহজনক ঠেকছে এমন কিছু। মেশিন কোডকে আবার পড়ার মতো ধাপে ফিরিয়ে আনে এমন সরঞ্জাম আগে থেকেই আছে। RetDec Imortek আরও এক ধাপ এগিয়ে ওই ধাপগুলির নাম বলতে চায় &mdash; এই অংশটি অ্যাডভান্সড এনক্রিপশন স্ট্যান্ডার্ড (AES), এই অংশটি একটি সর্ট, এই অংশটি পাঠানোর জন্য ডেটা গোছানোর কায়দা।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">বাইট থেকে নামসহ অ্যালগরিদমে পৌঁছান</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">সহজ কথায়</span>
+      <h2>এটি কী, এক মিনিটে</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          সফটওয়্যার এমন চেহারায় আসে যা মেশিন পড়তে পারে, মানুষ পারে না। যখন সোর্স কোড নেই &mdash; সরবরাহকারী আর নেই, চুক্তিতে কখনও ছিলই না, ফাইলটি এসেছে এমন জায়গা থেকে যাকে আপনি বিশ্বাস করেন না &mdash; তখন প্রোগ্রামটি আসলে কী করে তা কেউ বলতে পারে না। হাতে যাচাই করা মানে একটার পর একটা মেশিন নির্দেশ পড়া।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">সমাধান</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          এটি কম্পাইল করা ফাইলটি খুলে ফেলে তা থেকে আবার C গড়ে: পরীক্ষা-সংগ্রহের ২১৬টি বাইনারিই বিল্ডযোগ্য C হয়ে ফেরে। তারপর এটি মানের পিছনে ছোটে &mdash; কোন ক্রিপ্টোগ্রাফি, কোন সর্ট, কোন থ্রেডিং, কোন ফাইল ফরম্যাট &mdash; আর কতবার তা কাজে লাগে তা জানায়, যেখানে প্রায় লাগেই না সেই অবস্থাটিসহ।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          ম্যালওয়্যার খুলে দেখা নিরাপত্তা দল, যাদের কোডের আগে উত্তরটা দরকার। যেসব কোম্পানি এমন সফটওয়্যার চালায় যার সোর্স কারও কাছে নেই, আর নিরাপদে কিছু নতুন করে গড়া বা বদলানোর আগে যাদের তার একটি বিবরণ দরকার। যে-কেউ এমন ফাইল ফরম্যাটে আটকে আছেন যা কখনও নথিভুক্ত হয়নি &mdash; পুরনো নথি, কিংবা এমন যন্ত্র যা কেবল নিজের সফটওয়্যারের সঙ্গেই কথা বলে।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>অ্যালগরিদমের নাম বলাই কঠিন অংশ, আর তার দুটি সংখ্যাই এখানে আছে।</strong>
+      যে বাইনারি এখনও নিজের লেবেল বয়ে বেড়ায়, তাতে শনাক্তকারী সেগুলির সঙ্গে একমত হয়; লেবেল ছেঁটে ফেললে সে প্রায় আন্দাজের সমান। এই পাতার বাকিটা প্রকৌশল: কী যোগ হলো, কীভাবে মাপা হলো, আর কোথায় এটি ভেঙে পড়ে।
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>ডিসঅ্যাসেম্বল করুন</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            ৭৯১ কিলোবাইট (KB), কারণ সত্যিকারের একটি x86 ডিকোডার গোটা নির্দেশ-সেট বয়ে নেয় &mdash; প্রতিটি এনকোডিং, প্রিফিক্স ও এক্সটেনশন। জিনিসটার সৎ মাপ এটাই।
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>এটি ডিকোডার, ডিকম্পাইলার নয়।</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>এটি ডিকোডার, ডিকম্পাইলার নয়।</strong> উপরের ধাপগুলি &mdash; LLVM মধ্যবর্তী উপস্থাপনায় (IR) তোলা, নিয়ন্ত্রণ-প্রবাহ গুছিয়ে আনা, অ্যালগরিদমের নাম বলা &mdash; LLVM-এর কাজ, আর LLVM কোনো মাপেই একটি ওয়েব পাতায় আঁটে না। অন্য কিছু বলা এই সাইটের সবচেয়ে সহজ মিথ্যা হতো।
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">সামনের অংশ</span>
       <h2>নেটিভ, বাইটকোড ও নতুন ফরম্যাট</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        আউটপুট ফরম্যাটের উপর নির্ভর করে, কারণ সবকিছুই C-তে ডিকম্পাইল হয় বলে ভান করলে কারও লাভ নেই। সামনের অংশ নেটিভ বাইনারি নেয় নির্বাহযোগ্য ও লিংকযোগ্য ফরম্যাটে (ELF), পোর্টেবল এক্সিকিউটেবলে (PE) আর Mach-O-তে; বাইটকোড নেয়, যার মধ্যে আছে জাভা ভার্চুয়াল মেশিনের (JVM) ক্লাস ফাইল, ডালভিক এক্সিকিউটেবল (DEX) ও কমন ইন্টারমিডিয়েট ল্যাঙ্গুয়েজ (CIL); আর নেয় নতুন লক্ষ্য, যেমন CUDA-র প্যারালাল থ্রেড এক্সিকিউশন (PTX)।
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">নতুন</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly রূপান্তরিত হয় WebAssembly টেক্সট ফরম্যাটে (WAT)। PTX-কে পরে জোড়া কিছু নয়, প্রথম শ্রেণির ইনপুট হিসেবেই ধরা হয়।</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">রানটাইম</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
+        <p class="small dim" style="margin:0">স্ট্যান্ডার্ড টেমপ্লেট লাইব্রেরির (STL) কনটেইনার আর C++ রানটাইম গঠন &mdash; একটি <code translate="no">std::vector</code> কনটেইনারের আকার আবার ফুটে উঠছে বরাদ্দের ধরন থেকে।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">ক্রিপ্টোগ্রাফি</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES, সিকিউর হ্যাশ অ্যালগরিদম (SHA) পরিবার, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) আর উপবৃত্তীয় বক্ররেখার আদি-উপাদান, ধ্রুবক ও রাউন্ডের গঠন দেখে চেনা।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সর্টিং ও অনুসন্ধান</span>
         <p class="small dim" style="margin:0">ইনট্রোসর্ট, মার্জ সর্ট, বাইনারি অনুসন্ধান &mdash; সঙ্গে সেই গভীরতা-সীমার সুইচ, যেটা ইনট্রোসর্টকে ধরিয়ে দেয়।</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">গ্রাফ</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">গ্রাফ অ্যালগরিদম, সঙ্গে প্রস্থ-প্রথম অনুসন্ধান (BFS) ও গভীরতা-প্রথম অনুসন্ধানের (DFS) পরিভ্রমণ-ধরন।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">সমান্তরালতা</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, থ্রেডিং বিল্ডিং ব্লকস (TBB) আর কাঁচা অ্যাটমিক।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">সিরিয়ালাইজেশন</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript অবজেক্ট নোটেশন (JSON) আর এক্সটেনসিবল মার্কআপ ল্যাঙ্গুয়েজের (XML) ফ্রেমিং।</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>মাপকাঠি</th><th class="num">ফল</th><th>শর্ত</th></tr></thead>
             <tbody>
               <tr><td>বিল্ডযোগ্য C আউটপুট</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, পূর্বনির্ধারিতভাবে চালু</td></tr>
-              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">0.056</td><td class="muted">নাম ছাড়া, ৯৫% আস্থা ব্যবধান ০.০৩৪&ndash;০.০৮৩</td></tr>
               <tr><td>অ্যালগরিদম উদ্ধারের F1</td><td class="num">1.000</td><td class="muted">নাম সহ, সিম্বলযুক্ত বাইনারি</td></tr>
               <tr><td>পূর্বনির্ধারিত <code translate="no">.c</code> আবার কম্পাইল হয়</td><td class="num">না</td><td class="muted">এই ফর্কেও নয়, মূল RetDec-এও নয়</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>ওই দুটি F1 সংখ্যা একসঙ্গে পড়ুন।</strong> সিম্বল থাকলে ১.০০০ মানে শনাক্তকারী সিম্বল টেবিলের সঙ্গে একমত। সিম্বল ছাড়া ০.০৫৬ মানে, ছেঁটে ফেলা বাইনারিতে গঠন থেকে উদ্ধার আজকের দিনে প্রায় মেঝেতেই পড়ে আছে। শুধু প্রথমটা বললে সেটা হতো বিপণন; শুধু দ্বিতীয়টা বললে চাপা পড়ে যেত যে, হাতে কিছু থাকলে পাইপলাইনটা কাজ করে।
+          <strong>ওই দুটি F1 সংখ্যা একসঙ্গে পড়ুন।</strong> সিম্বল থাকলে ১.০০০ মানে শনাক্তকারী সিম্বল টেবিলের সঙ্গে একমত। সিম্বল ছাড়া ০.০৫৬ মানে, ছেঁটে ফেলা বাইনারিতে গঠন থেকে উদ্ধার আজকের দিনে প্রায় আন্দাজের সমান। শুধু প্রথমটা বললে সেটা হতো বিপণন; শুধু দ্বিতীয়টা বললে চাপা পড়ে যেত যে, হাতে কিছু থাকলে পাইপলাইনটা কাজ করে।
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">ইন্টারফেস</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 গ্রাফিকাল ইউজার ইন্টারফেস (GUI), কিংবা GUI-ই নয়</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          C, অ্যাসেম্বলি, IR আর নিয়ন্ত্রণ-প্রবাহের গ্রাফ জুড়ে মিলিয়ে রাখা কোড-দৃশ্য, সঙ্গে ফাংশন ভ্রমণ, স্ট্রিং পরিদর্শন, একটি বাইনারি ব্রাউজার ও একটি সহায়ক প্যানেল। হেডলেস মোড প্রতিটি GUI নির্ভরতা বাদ দেয়, ফলে একই বিল্ড কন্টিনিউয়াস ইন্টিগ্রেশনেও (CI) চলে।
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">দ্বৈত লাইসেন্স</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            ওপেন সোর্স ব্যবহারের জন্য GNU Affero জেনারেল পাবলিক লাইসেন্স (AGPL-3.0+), কিংবা মালিকানাধীন স্থাপনার জন্য একটি বাণিজ্যিক লাইসেন্স। কপিরাইট Odin Loch, Imortek নামে ব্যবসারত, ২০২৫&ndash;২০২৬।
           </p>
           <p class="small muted" style="margin:0">
             v2.0.21-এ পাঠানোর মতো। CI গেটগুলি উৎপাদন-পর্যায়ের পরিপক্বতার মান নয়, উন্নয়নের অবস্থাই তুলে ধরে &mdash; প্রকল্প নিজেই তা বলেছে, এটি অনুমান নয়।
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

@@ -148,17 +148,10 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>La mayoría de los rastreadores se quedan en el &ldquo;dónde&rdquo;. <span class="gradient-text">Este sigue adelante.</span></h1>
         <p class="lede">
-          Tracking in the real world is never continuous. A vehicle goes behind a building, a
-          person walks out of camera range. Most systems treat that as the end of the track.
-          TRACE does not: it holds a track as a probability that something is still there rather
-          than a yes or no, so the track fades through the gap instead of ending at it, and can be
-          picked up again on the other side.
+          El seguimiento en el mundo real nunca es continuo. Un vehículo pasa por detrás de un edificio, una persona sale del alcance de la cámara. Casi todos los sistemas tratan eso como el final de la traza. TRACE no: mantiene una traza como una probabilidad de que algo siga ahí y no como un sí o un no, así que la traza se desvanece a lo largo del hueco en vez de terminar en él, y se puede retomar al otro lado.
         </p>
         <p class="lede">
-          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
-          players are the same problem with a different profile. The MOT17 and MOT20 figures below
-          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
-          well a tracker did.
+          Nada en el núcleo sabe qué está siguiendo. Cámaras, barcos, palés, animales y jugadores son el mismo problema con otro perfil. Las cifras de MOT17 y MOT20 de abajo son la precisión de seguimiento de múltiples objetos (MOTA), el único número que usa el campo para decir lo bien que lo hizo un rastreador.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">Míralo seguir un laberinto</a>
@@ -192,47 +185,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En lenguaje llano</span>
+      <h2>Qué es esto, en un minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">El problema</span>
         <p class="small dim" style="margin:0">
-          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
-          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
-          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
-          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+          Los sensores se dejan cosas. Una cámara no capta a todo el que pasa por delante, un barco puede apagar su transpondedor, un pasillo puede no tener cámara. Casi todos los rastreadores leen &ldquo;no visto&rdquo; como &ldquo;no está&rdquo;, así que cuando la cosa reaparece se registra como algo nuevo. Dónde ha estado, con quién se ha cruzado, si esto es normal en ella &mdash; ya no se puede responder a nada de eso.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solución</span>
         <p class="small dim" style="margin:0">
-          TRACE keeps a number against each track for how likely it is that the thing is still there. A
-          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
-          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
-          the engine decides whether it is the same one. Both demonstrations here let you push that until
-          it gets the decision wrong.
+          TRACE guarda junto a cada traza un número de lo probable que es que la cosa siga ahí. Un avistamiento perdido baja ese número y ensancha la zona en la que podría estar; no borra nada. La traza sigue por inercia sobre la predicción, con su incertidumbre creciendo honestamente, y cuando algo vuelve a aparecer el motor decide si es la misma. Las dos demostraciones de aquí te dejan forzar eso hasta que se equivoca en la decisión.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quién es</span>
         <p class="small dim" style="margin:0">
-          Anyone following things across more than one sensor, with gaps between them: a site whose
-          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
-          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
-          pallets, animals and players are the same problem with a different profile. It takes detections
-          in; producing them is someone else&rsquo;s job.
+          Cualquiera que siga cosas a través de más de un sensor, con huecos entre ellos: una instalación cuyas cámaras no cubren todos los pasillos, o la vigilancia marítima donde un buque puede apagar su transpondedor a mitad de travesía. El núcleo no sabe qué está siguiendo &mdash; cámaras, barcos, palés, animales y jugadores son el mismo problema con otro perfil. Recibe detecciones; producirlas es trabajo de otro.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
-      the engineering: the engine itself running in your browser on two scenarios, the benchmark
-      numbers, what it costs per track, and a plain list of what it does not do.
+      <strong>Un hueco en la cobertura no es lo mismo que una ausencia.</strong> El resto de esta página es la ingeniería: el motor mismo funcionando en tu navegador sobre dos escenarios, las cifras de los benchmarks, lo que cuesta por traza y una lista llana de lo que no hace.
     </div>
   </div>
 </section>
@@ -262,9 +242,7 @@
             <span class="badge badge--violet" style="margin-bottom:10px">Existencia</span>
             <h4 style="margin:0 0 6px">Bernoulli, no booleano</h4>
             <p class="small dim" style="margin:0">
-              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
-              Existence is a probability that decays through misses and recovers on evidence, so
-              an occlusion costs confidence rather than identity.
+              Un rastreador de mezcla multi-Bernoulli de Poisson (PMBM) sobre un filtro de 320 partículas. La existencia es una probabilidad que decae con las detecciones perdidas y se recupera con evidencia, así que una oclusión cuesta confianza y no identidad.
             </p>
           </div>
           <div class="card">
@@ -449,10 +427,7 @@
       <span class="eyebrow eyebrow--violet">El motor en sí</span>
       <h2>Un barco apaga su transpondedor</h2>
       <p class="lede">
-        Satellite Automatic Identification System (AIS) coverage over an ocean basin. Five
-        vessels are in transit; one of them switches off its transponder mid-voyage and comes
-        back up later. Nothing reports it in between &mdash; no sensor, no detection, no
-        evidence of any kind.
+        Cobertura por sistema de identificación automática (AIS) por satélite sobre una cuenca oceánica. Cinco buques en tránsito; uno de ellos apaga su transpondedor a mitad de travesía y vuelve a aparecer más tarde. Nada lo reporta mientras tanto &mdash; sin sensor, sin detección, sin evidencia de ningún tipo.
       </p>
       <p class="lede">
         Mira lo que hace el motor con eso. En el primer barrido perdido la estimación de posición salta de unos cientos de metros a unos doce kilómetros y la traza sigue solo por predicción. Unos barridos después se retira a una reserva de trazas latentes en vez de borrarse, y cuando el buque reaparece el motor tiene que decidir si esto es algo nuevo o algo que ya conoce.
@@ -583,8 +558,7 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
-          n<sup>1.17</sup> y el seguimiento por sí solo se mantiene plano en 135&ndash;159 &micro;s por traza desde diez trazas hasta cuatrocientas &mdash; léelo como &ldquo;la constante importa y el exponente no&rdquo;.
+          Un núcleo de procesador, compilación Release, extensiones vectoriales avanzadas (AVX-512). El coste crece como unos n<sup>1.17</sup> y el seguimiento por sí solo se mantiene plano en 135&ndash;159 &micro;s por traza desde diez trazas hasta cuatrocientas &mdash; léelo como &ldquo;la constante importa y el exponente no&rdquo;.
         </p>
       </div>
       <div>
@@ -592,7 +566,7 @@
           Era n<sup>1.82</sup> hasta que el detector de convergencia dejó de reconstruir la previsión de patrón de vida de cada traza una vez por pareja. Eso ganó un factor de veinte en la constante y <em>no</em> un exponente mejor &mdash; la puerta de índice espacial añadida con ello tenía un radio más ancho que la escena, así que devolvía todas las parejas y no hacía nada. Acotar cada pareja por sus propias dos velocidades llevó ese detector del 56% del motor al 44% y el exponente a casi lineal.
         </p>
         <p class="dim">
-          Con 400 trazas simultáneas eso son unos 8 barridos por segundo en un núcleo: bien para un parque de cámaras a 1 Hz, no para 25 fps sin repartir entre varios trabajadores. La página lo dice porque lo dice el benchmark.
+          Con 400 trazas simultáneas eso son unos 8 barridos por segundo en un núcleo de procesador: bien para un parque de cámaras a 1 Hz, no para 25 fps sin repartir entre varios trabajadores. La página lo dice porque lo dice el benchmark.
         </p>
       </div>
     </div>
@@ -641,10 +615,9 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">Código disponible</span>
-    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
+    <h2>La Licencia Pública General Affero de GNU, con una licencia comercial al lado</h2>
     <p class="lede">
-      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
-      AGPL does not suit what you want to build, there is a tiered commercial licence.
+      AGPL-3.0+, y los mismos términos que todo lo demás aquí: léelo, ejecútalo, compruébalo. Si la AGPL no encaja con lo que quieres construir, hay una licencia comercial por tramos.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Lee el código &rarr;</a>
@@ -663,17 +636,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — transporte que oculta metadatos para consorcios</h3>
       </a>
-      <a class="card card--hover related__item" href="/es/pbsd.html">
+      <a class="card card--hover related__item" href="/es/chess.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — un sistema operativo en C++23 protegido por capacidades</h3>
+        <h3 style="font-size:.98rem;margin:0">Juega al ajedrez contra Cypha</h3>
       </a>
       <a class="card card--hover related__item" href="/es/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
       </a>
-      <a class="card card--hover related__item" href="/es/chess.html">
+      <a class="card card--hover related__item" href="/es/cellai.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Juega al ajedrez contra Cypha</h3>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — un modelo de secuencia de reacción-difusión</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -745,7 +718,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-18T00:00:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

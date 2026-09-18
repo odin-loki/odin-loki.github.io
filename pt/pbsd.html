@@ -149,11 +149,7 @@
         <span class="eyebrow eyebrow--amber">Principal &middot; ParanoidBSD</span>
         <h1>Um sistema operacional em que a autoridade é <span class="gradient-text">detida, não presumida</span></h1>
         <p class="lede">
-          Nearly every break-in works the same way: a program reaches something it was never
-          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
-          program is handed only what it needs, and everything else is not merely forbidden
-          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
-          original kept alongside so every change can be checked against it.
+          Quase toda invasão funciona do mesmo jeito: um programa alcança algo em que nunca deveria tocar. O ParanoidBSD é um sistema operacional construído para que ele não consiga. Cada programa recebe só o que precisa, e todo o resto não é apenas proibido &mdash; está fora de alcance. Construído sobre o HardenedBSD, reescrito em C++ moderno, com o original guardado ao lado para que cada mudança possa ser conferida contra ele.
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/pt/kickstarter.html">Apoie o Kickstarter</a>
@@ -178,7 +174,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6, KWin e frameworks para a fase do desktop</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">Inventário, passagens determinísticas de reescrita, porte por agentes, utilitários de Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">Especificações, modelo de segurança, estado da migração, procedência</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Script condutor do Subsistema do Windows para Linux (WSL), watchdog, console de progresso</span></div>
           </div>
         </div>
       </div>
@@ -191,46 +187,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Em português claro</span>
+      <h2>O que isto é, em um minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">O problema</span>
         <p class="small dim" style="margin:0">
-          An operating system sits underneath everything else an organisation runs. Most are
-          built on decades of older code, and they let any program ask for anything at all
-          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
-          something harmless, like the code that draws a font on screen, can end with stolen
-          passwords.
+          Um sistema operacional fica embaixo de tudo o mais que uma organização roda. A maioria é feita sobre décadas de código antigo e deixa qualquer programa pedir qualquer coisa &mdash; o sistema decide depois se permite. É por isso que uma falha em algo inofensivo, como o código que desenha uma fonte na tela, pode terminar em senhas roubadas.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">A solução</span>
         <p class="small dim" style="margin:0">
-          ParanoidBSD changes what a program is able to ask for in the first place. Rather
-          than checking permission after the request, it hands each program a short list of
-          things it may touch, and gives it no way to name anything else. A flaw in one part
-          stops being a route into the rest.
+          O ParanoidBSD muda o que um programa consegue pedir, de saída. Em vez de checar a permissão depois do pedido, entrega a cada programa uma lista curta do que ele pode tocar e não lhe dá jeito nenhum de nomear o resto. Uma falha em uma parte deixa de ser um caminho para as outras.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quem é</span>
         <p class="small dim" style="margin:0">
-          Defence and government suppliers now being asked for software written in safer
-          languages. Equipment that stays in the field for years and cannot be patched
-          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
-          and researchers who want a real operating system small enough to read end to end.
+          Fornecedores de defesa e de governo a quem agora se pede software escrito em linguagens mais seguras. Equipamentos que ficam anos em campo e não dá para corrigir rápido &mdash; controladores de fábrica, máquinas médicas, hardware de concessionárias. Professores e pesquisadores que querem um sistema operacional de verdade, pequeno o bastante para ler de ponta a ponta.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Security should not start at the application layer.</strong> It should start
-      with the operating system underneath it. The rest of this page is the engineering:
-      what was changed, how it was checked, and what is not done yet.
+      <strong>A segurança não deveria começar na camada de aplicação.</strong> Deveria começar no sistema operacional que está embaixo dela. O resto desta página é a engenharia: o que foi mudado, como foi conferido e o que ainda não está pronto.
     </div>
   </div>
 </section>
@@ -251,12 +235,7 @@
           É por isso que um único bug de parsing em um renderizador de fontes pode virar roubo de credenciais. O renderizador nunca precisou do arquivo de senhas &mdash; mas nada na arquitetura o impediu de pedir.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: Address Space Layout Randomisation
-          (ASLR), which loads a program somewhere different every time so an attacker cannot
-          guess where anything is; Control Flow Integrity (CFI), which stops a program being
-          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
-          and hardened memory allocators alongside them. PBSD keeps all of it and changes
-          the shape of the question underneath &mdash; from <em>&ldquo;este processo tem permissão?&rdquo;</em> para
+          O HardenedBSD já faz trabalho sério aqui: a Aleatorização do Layout do Espaço de Endereçamento (ASLR), que carrega o programa em um lugar diferente a cada vez, para que o atacante não consiga adivinhar onde está o quê; a Integridade de Fluxo de Controle (CFI), que impede que o programa seja desviado para código que ele nunca foi feito para executar; e, ao lado delas, mitigações derivadas do PaX, SafeStack e alocadores de memória endurecidos. O PBSD mantém tudo isso e muda o formato da pergunta que está por baixo &mdash; de <em>&ldquo;este processo tem permissão?&rdquo;</em> para
           <em>&ldquo;este processo detém um descritor para aquilo?&rdquo;</em>
         </p>
       </div>
@@ -273,9 +252,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim listing of the calls a
-            program makes into the kernel &mdash; its Application Programming Interface, or API.
-            The authoritative model is in <code translate="no">docs/</code>.
+            Formato ilustrativo da diferença, não uma listagem literal das chamadas que um programa faz ao kernel &mdash; a sua Interface de Programação de Aplicações, ou API. O modelo autoritativo está em <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -367,9 +344,7 @@
       <span class="eyebrow eyebrow--violet">O porte</span>
       <h2>Quatro etapas, e um modelo que nunca certifica a si mesmo</h2>
       <p class="lede">
-        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
-        is a decade of work. Porting it by asking a language model to rewrite files is a fast
-        way to produce plausible garbage. PBSD does neither.
+        Portar à mão o userland e o kernel de um Berkeley Software Distribution (BSD) para C++23 é uma década de trabalho. Portar pedindo a um modelo de linguagem que reescreva os arquivos é um jeito rápido de produzir lixo plausível. O PBSD não faz nem uma coisa nem outra.
       </p>
     </div>
 
@@ -407,8 +382,7 @@
         <span class="badge badge--amber" style="margin-bottom:12px">Etapa 4</span>
         <h3 style="font-size:1.05rem">Controle de verificação</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          Compilação, ASan, UBSan, execução diferencial e comparação no nível da Representação Intermediária (IR) do compilador. Um arquivo que só compila fica
           <em>não verificado</em>. As falhas vão parar em
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
@@ -471,9 +445,7 @@
     <details class="acc reveal">
       <summary>O C++ de kernel é independente: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
-        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
-        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> para que um colaborador saiba o que é permitido em contexto de kernel sem ter de adivinhar.
+        O núcleo do kernel não pode depender de um runtime C++ hospedado. Sem exceções, sem Informação de Tipo em Tempo de Execução (RTTI), sem caminhos da biblioteca padrão que alocam no heap na entrada do kernel. As restrições estão escritas em <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> para que um colaborador saiba o que é permitido em contexto de kernel sem ter de adivinhar.
       </div>
     </details>
     <details class="acc reveal">
@@ -493,10 +465,7 @@
         <span class="eyebrow">Licenciamento</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Duas licenças, honestamente separadas</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
-          free for personal use, charities, education and organisations under
-          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
+          O código novo do PBSD &mdash; o núcleo, os módulos C++23, as ferramentas &mdash; é oferecido sob os termos padrão da Imortek: a Licença Pública Geral Affero do GNU (AGPL-3.0+), grátis para uso pessoal, entidades beneficentes, educação e organizações com menos de 50.000 dólares australianos (AUD) por ano, com uma licença comercial em faixas acima disso.
         </p>
         <p class="dim">
           O código derivado do HardenedBSD permanece sob a licença BSD original. Não pode ser relicenciado, e a Imortek não pretende fazê-lo. <code translate="no">docs/PROVENANCE.md</code> é o registro de qual é qual.
@@ -669,7 +638,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-17T23:04:13Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
+      <span class="mono tiny">Compilado em 2026-09-17T23:58:50Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
     </div>
   </div>
 </footer>

@@ -149,11 +149,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>Una arquitectura de IA construida desde <span class="gradient-text">primeros principios</span>, no un fork</h1>
         <p class="lede">
-          Almost all modern Artificial Intelligence (AI) is a variation on the same few
-          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
-          from mathematics rather than borrowed, that updates on every example it sees instead
-          of being trained once and frozen. It is a research project, and the failures are
-          published alongside the results.
+          Casi toda la inteligencia artificial (IA) moderna es una variación sobre los mismos pocos diseños. Cypha parte de otro sitio: un solo tipo de C++, con una regla de aprendizaje deducida de las matemáticas en vez de tomada prestada, que se actualiza con cada ejemplo que ve en lugar de entrenarse una vez y quedarse congelado. Es un proyecto de investigación, y los fracasos se publican junto a los resultados.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Entrena uno en tu navegador</a>
@@ -163,7 +159,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">Lenguaje<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">Versión<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2,664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, bits por carácter (BPC)<b>2,664 BPC</b></div>
           <div class="phero__meta-item">Último envío<b data-gh-repo="Cypha" data-gh-field="updated">hace poco</b></div>
         </div>
       </div>
@@ -172,7 +168,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Cuatro programas, una sola regla de aprendizaje</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; los priores de longitud mínima de descripción (MDL) deciden qué puede creer el modelo a bajo coste.</li>
             <li><strong>Geometría de la información</strong> &mdash; las actualizaciones siguen el gradiente natural, así que el aprendizaje respeta la curvatura del espacio de parámetros.</li>
             <li><strong>Inferencia activa / energía libre</strong> &mdash; da la descomposición estructural en prior, diferencial y contexto.</li>
             <li><strong>Cuello de botella de la información</strong> &mdash; fija el objetivo del codificador: conservar lo que predice, descartar el resto.</li>
@@ -187,50 +183,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En lenguaje llano</span>
+      <h2>Qué es esto, en un minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">El problema</span>
         <p class="small dim" style="margin:0">
-          Nearly every AI system in use is a variation on a handful of designs. They are
-          trained once on a large machine and then shipped frozen, so keeping up with
-          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
-          back and training again. They are also big, which puts them in a data centre rather
-          than on the equipment, and makes explaining any single decision hard.
+          Casi todos los sistemas de IA en uso son una variación sobre un puñado de diseños. Se entrenan una vez en una máquina grande y luego se envían congelados, así que seguir el ritmo de algo que se mueve &mdash; un fraude nuevo, una avería nueva &mdash; obliga a volver atrás y entrenar otra vez. También son grandes, lo que los coloca en un centro de datos y no en el equipo, y dificulta explicar cualquier decisión concreta.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solución</span>
         <p class="small dim" style="margin:0">
-          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
-          learning rule is derived from four bodies of mathematics rather than copied from an
-          existing architecture, and it updates on every example it sees &mdash; no batch, no
-          epoch, no retraining run. It is small enough to run on the hardware that collects
-          the data.
+          Cypha es un solo tipo de C++ que clasifica, predice números y genera secuencias. Su regla de aprendizaje se deriva de cuatro cuerpos de matemáticas en vez de copiarse de una arquitectura existente, y se actualiza con cada ejemplo que ve &mdash; sin lote, sin época, sin reentrenamiento. Es lo bastante pequeño para funcionar en el propio equipo que recoge los datos.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quién es</span>
         <p class="small dim" style="margin:0">
-          Today, researchers and engineers willing to try a different design. The problems it
-          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
-          faults, changing behaviour &mdash; where the model has to sit on the device rather
-          than in a data centre, and where somebody has to explain the decision afterwards.
+          Hoy, investigadores e ingenieros dispuestos a probar un diseño distinto. Los problemas a los que apunta son aquellos en los que los datos no paran de moverse &mdash; fraude, averías de equipos, comportamiento cambiante &mdash;, en los que el modelo tiene que estar en el dispositivo y no en un centro de datos, y en los que alguien tiene que explicar la decisión después.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Judge it as research.</strong> The figures further down come from the
-      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
-      than a leaderboard position. A section headed <em>Lo que Cypha no es</em> sets out the
-      limits, including the standard test where it sits near chance until one particular
-      component is switched on. The rest of this page is the architecture and the
-      measurements.
+      <strong>Júzgalo como investigación.</strong> Las cifras de más abajo salen de las propias ejecuciones de benchmark del repositorio, contrastadas con fixtures de prueba versionados y no con un puesto en una clasificación. Una sección titulada <em>Lo que Cypha no es</em> expone los límites, incluida la prueba estándar en la que se queda cerca del azar hasta que se enciende un componente concreto. El resto de esta página es la arquitectura y las mediciones.
     </div>
   </div>
 </section>
@@ -242,9 +222,7 @@
       <span class="eyebrow eyebrow--violet">La biblioteca en sí</span>
       <h2>Características aleatorias, medidas y no descritas</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features (RFF) is that they let a linear head
-        separate what a linear head cannot. That is a measurable claim, so this measures it
-        &mdash; with <code translate="no">cypha::rff_features</code> compilado a WebAssembly, no una recreación en JavaScript.
+        El argumento de Cypha a favor de las características de Fourier aleatorias (RFF) es que permiten a una cabeza lineal separar lo que una cabeza lineal no puede. Eso es una afirmación medible, así que aquí se mide &mdash; con <code translate="no">cypha::rff_features</code> compilado a WebAssembly, no una recreación en JavaScript.
       </p>
     </div>
 
@@ -256,7 +234,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact Radial Basis Function (RBF) kernel over <b>n</b> puntos muestreados da una matriz <b>K</b>. Las características aleatorias reconstruyen una aproximación <b>K&#770;</b>. Lo que se representa es
+            El kernel exacto de función de base radial (RBF) sobre <b>n</b> puntos muestreados da una matriz <b>K</b>. Las características aleatorias reconstruyen una aproximación <b>K&#770;</b>. Lo que se representa es
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> a medida que crece el número de características: más características, aproximación más cercana.
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -284,16 +262,12 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>Compilar esto sacó a la luz un fallo.</strong> Orthogonal Random Features (ORF)
-            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
-            et al. draw the row norm from <code translate="no">chi_d</code> para que una fila ortogonal encaje con la fila gaussiana a la que sustituye. Las filas quedaban &radic;d veces demasiado cortas, así que las características aproximaban el kernel equivocado y el error se estancaba en lugar de converger. Una línea. Ahora es la mejor de las tres.
+            <strong>Compilar esto sacó a la luz un fallo.</strong> Las características aleatorias ortogonales (ORF) &mdash; la variante densa &mdash; normalizaban cada fila a longitud unidad, cuando Yu et al. toman la norma de fila de <code translate="no">chi_d</code> para que una fila ortogonal encaje con la fila gaussiana a la que sustituye. Las filas quedaban &radic;d veces demasiado cortas, así que las características aproximaban el kernel equivocado y el error se estancaba en lugar de converger. Una línea. Ahora es la mejor de las tres.
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        the Cross-Origin-Opener-Policy (COOP) and Cross-Origin-Embedder-Policy (COEP) headers
-        GitHub Pages cannot send.
+        De un solo hilo a propósito: WebAssembly con hilos necesita SharedArrayBuffer, que necesita las cabeceras Cross-Origin-Opener-Policy (COOP) y Cross-Origin-Embedder-Policy (COEP) que GitHub Pages no puede enviar.
       </div>
     </div>
   </div>
@@ -335,9 +309,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
-          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
-          and whose movement is the drift signal.
+          Una gaussiana diagonal compartida ajustada en línea con Welford y actualizaciones de media móvil exponencial (EMA). Este es el &ldquo;contexto infinito&rdquo; que nunca olvida &mdash; y cuyo movimiento es la señal de deriva.
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -478,7 +450,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> La exactitud se desploma hacia el azar, y eso no es un fallo de esta demo &mdash; es la limitación documentada de una razón de verosimilitud logarítmica lineal, dicha sin rodeos en el README de Cypha. Enciende el codificador RFF latente y míralo recuperarse. Publicar el modo de fallo al lado del arreglo es justamente el objetivo.
+      <strong>Prueba el O exclusivo (XOR) con el codificador RFF apagado.</strong> La exactitud se desploma hacia el azar, y eso no es un fallo de esta demo &mdash; es la limitación documentada de una razón de verosimilitud logarítmica lineal, dicha sin rodeos en el README de Cypha. Enciende el codificador RFF latente y míralo recuperarse. Publicar el modo de fallo al lado del arreglo es justamente el objetivo.
     </div>
   </div>
 </section>
@@ -493,8 +465,7 @@
         Cifras de las propias ejecuciones de benchmark del repositorio, después del arreglo del diagnóstico. La corrección se demuestra con una matriz de CTest que coincide con los goldens de fixtures versionados &mdash; no con un puesto en una tabla de clasificación.
       </p>
       <p class="small muted">
-        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
-        (LSTM), Backpropagation Through Time (BPTT).
+        Abreviaturas de la tabla: descenso de gradiente estocástico (SGD), memoria larga de corto plazo (LSTM), retropropagación a través del tiempo (BPTT).
       </p>
     </div>
 
@@ -565,7 +536,7 @@
           <li><strong>No es un envoltorio.</strong> Hecho a medida desde primeros principios &mdash; lo que también significa que no hereda el ajuste de nadie más.</li>
           <li><strong>El LLR lineal tiene un techo.</strong> XOR se queda cerca del azar sin el codificador RFF latente, que lo sube hasta aproximadamente el 76,3%.</li>
           <li><strong>La validación es por paridad.</strong> CTest contra goldens de fixtures versionados. No se hace ninguna afirmación sobre tablas de clasificación.</li>
-          <li><strong>CUDA es solo para inferencia.</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
+          <li><strong>CUDA es solo para inferencia.</strong> El entrenamiento se queda en la unidad central de proceso (CPU), porque en esta arquitectura la CPU es más rápida.</li>
           <li><strong>La teoría está en otro sitio.</strong> El trabajo sobre espectro armónico y NMP es un artículo aparte sobre algoritmos de compresión; Cypha es la capa de implementación.</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -670,9 +641,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
       </a>
-      <a class="card card--hover related__item" href="/es/trace.html">
+      <a class="card card--hover related__item" href="/es/pbsd.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — identidad persistente a partir de avistamientos escasos</h3>
+        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — un sistema operativo en C++23 protegido por capacidades</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -744,7 +715,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-18T00:00:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

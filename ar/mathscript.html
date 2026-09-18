@@ -148,11 +148,7 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 إصدار تمهيدي</span>
         <h1>مكتبة C++23 واحدة، من <span class="gradient-text">LU إلى CFD</span></h1>
         <p class="lede">
-          Engineering software runs on heavy mathematics, and almost nobody writes their own.
-          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
-          hard to audit, hard to change, and hard to install where the build machine has no
-          internet. MathScript does the mathematics itself, from matrix arithmetic up to
-          fluid dynamics, in one C++ library with nothing to fetch.
+          برمجيات الهندسة تقوم على رياضيات ثقيلة، ولا يكاد أحد يكتب رياضياته بنفسه. بل تُرقَّع من مكتبات الآخرين ومنصّات مدفوعة &mdash; يصعب تدقيقها، ويصعب تغييرها، ويصعب تثبيتها حيث لا إنترنت على آلة البناء. يؤدّي MathScript الرياضيات بنفسه، من حساب المصفوفات إلى ديناميكا الموائع، في مكتبة C++ واحدة لا شيء فيها يُجلب.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">ارسم وفاضِل مباشرةً</a>
@@ -170,7 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">قراران يشكّلان كل شيء</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>نوى مصفوفات داخل الشجرة.</strong> البرامج الفرعية للجبر الخطي الأساسي (BLAS) وحزمة الجبر الخطي (LAPACK) مُنفَّذة هنا لا مجلوبة: بلا Eigen وبلا OpenBLAS. <code translate="no">linalg</code> يملك LU وQR وتحليل القيم المفردة (SVD) وeig وCholesky والنوى على طراز LAPACK، فالنشر تصريفٌ لا مطاردة اعتماديات.</li>
             <li><strong>مجموعة فرعية مقيَّدة من C++.</strong> لا مؤشّرات خام، ولا استثناءات، ولا تحويلات غير آمنة &mdash; مفروضة وقت الترجمة. وشيفرة الإنتاج تُرجِع <code translate="no">Result&lt;T&gt;</code>، فتكون معالجة الأخطاء حتمية وظاهرة في النوع.</li>
           </ul>
         </div>
@@ -183,49 +179,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">بلغة بسيطة</span>
+      <h2>ما هذا، في دقيقة واحدة</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
         <p class="small dim" style="margin:0">
-          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
-          are rarely written by the team shipping it. They arrive from a dozen outside
-          libraries and paid platforms that have to be fetched, licensed and trusted. When an
-          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
-          machine you may not be able to fetch them at all.
+          الإجهاد، والتدفّق، والإشارات، والمخاطر &mdash; نادرًا ما يكتب الفريق الذي يشحن البرمجية الحساباتِ التي تقوم عليها. فهي تأتي من عشرات المكتبات الخارجية والمنصّات المدفوعة التي يجب جلبها وترخيصها والوثوق بها. وحين يبدو جواب خاطئًا، تكون الخطوات في شيفرة شخص آخر؛ وعلى آلة بناء مغلقة قد لا تستطيع جلبها أصلًا.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">الحل</span>
         <p class="small dim" style="margin:0">
-          MathScript is one C++ library that does the mathematics itself: linear algebra,
-          statistics, differential equations, finite elements, fluid flow, optimisation and a
-          symbolic algebra system, across thirty-five static libraries. The matrix routines
-          most projects import from BLAS and LAPACK are written here instead. All 816 test
-          suites pass on the Windows build. v1.0.0 has not shipped yet.
+          ‏MathScript مكتبة C++ واحدة تؤدّي الرياضيات بنفسها: جبر خطي، وإحصاء، ومعادلات تفاضلية، وعناصر منتهية، وجريان موائع، وتحسين، ونظام جبر رمزي، عبر خمس وثلاثين مكتبة ساكنة. وروتينات المصفوفات التي تستوردها معظم المشاريع من BLAS وLAPACK مكتوبة هنا بدلًا من ذلك. وتنجح جميع مجموعات الاختبار الـ816 على بناء Windows. ولم يصدر الإصدار v1.0.0 بعد.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
         <p class="small dim" style="margin:0">
-          Teams whose build machines cannot reach the internet &mdash; defence, medical,
-          aerospace, banking &mdash; where every fetched dependency is another approval.
-          Products that do their real work in C++ and their mathematics in Python, and carry
-          two sets of problems for it. Teachers and students who want the method written out
-          where it can be read.
+          الفرق التي لا تصل آلات بنائها إلى الإنترنت &mdash; الدفاع، والطب، والطيران والفضاء، والمصارف &mdash; حيث كل اعتمادية مجلوبة موافقةٌ إضافية. والمنتجات التي تؤدّي عملها الحقيقي بلغة C++ ورياضياتها بلغة Python، فتحمل مجموعتَي مشكلات بسبب ذلك. والمعلّمون والطلاب الذين يريدون الطريقة مكتوبة حيث يمكن قراءتها.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
-      argument, and the rest of this page is the evidence: what the thirty-five libraries
-      hold, why a failure comes back in the return type instead of as an exception, and
-      exactly what the test numbers cover.
+      <strong>الرياضيات في الشجرة، لا في قائمة اعتماديات.</strong> تلك هي الحجّة، وبقية هذه الصفحة هي الدليل: ما تحويه المكتبات الخمس والثلاثون، ولماذا يعود الإخفاق في نوع الإرجاع لا بوصفه استثناءً، وما الذي تغطّيه أرقام الاختبار بالضبط.
     </div>
   </div>
 </section>
@@ -234,12 +215,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">تفاعلي</span>
-      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
+      <h2>نظام جبر حاسوبي رمزي (CAS) يعمل في متصفحك</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
-        differentiated symbolically, simplified, then evaluated numerically for the plot
-        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
-        visible interval.
+        اكتب تعبيرًا. يُقسَّم إلى رموز، ويُحلَّل إلى شجرة التركيب المجرّدة، ويُشتَقّ رمزيًّا، ويُبسَّط، ثم يُقيَّم عدديًّا للرسم &mdash; إلى جانب تكامل بقاعدة سمبسون وإيجاد جذور بالتنصيف على المجال المرئي.
       </p>
     </div>
 
@@ -347,11 +325,7 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
-            build is 4.9 megabytes (MB), so this links only what these four calls reach. The
-            panel shows the library version and the vector Instruction Set Architecture (ISA)
-            the build reports.
+            لا يُنزَّل شيء حتى تضغط على التحميل، ثم يُجلب مرّة واحدة. الوحدة 113 كيلوبايت (KB) من WebAssembly و10 KB من المُحمِّل &mdash; وبناء المكتبة الكامل 4.9 ميغابايت (MB)، فهذا يربط ما تصل إليه هذه النداءات الأربعة فقط. وتُظهر اللوحة إصدار المكتبة ومعمارية مجموعة التعليمات (ISA) المتجهية التي يبلّغ عنها البناء.
           </p>
         </div>
         <div class="demo__side">
@@ -381,9 +355,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>سطر ISA هو المكتبة تقول الحقيقة عن نفسها.</strong> فهي تستدعي
-            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
-            one vector ISA and it says so.
+            <code translate="no">ms::detect_isa()</code>، وهو النداء نفسه الذي يجريه أصليًّا. على حاسوبك المكتبي يجيب بأحد امتدادات المتجهات المتقدّمة (AVX2 أو AVX-512)؛ وهنا توجد معمارية متجهات واحدة، وهو يقول ذلك.
           </div>
         </div>
       </div>
@@ -400,12 +372,7 @@
       <span class="eyebrow">النطاق</span>
       <h2>خمس وثلاثون مكتبة ساكنة، وستة مجالات</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics and Machine Learning
-        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
-        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
-        signal and image processing, number theory, graphs, geometry, topology, quantum
-        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
-        eigensolvers and Cholesky written in-tree.
+        جبر خطي كثيف ومتناثر، ودوال خاصة، وإحصاء، وتعلّم الآلة. ومعادلات تفاضلية عادية (ODE) وجزئية (PDE)، وطريقة العناصر المنتهية (FEM)، وديناميكا الموائع الحسابية (CFD). وتحسين، ومعالجة إشارات وصور، ونظرية أعداد، ورسوم، وهندسة، وطوبولوجيا، وأوليّات كمّية، وتحكّم، وتمويل، وضغط &mdash; ونظام جبر رمزي. مع LU وQR وSVD وحلّالات القيم الذاتية وCholesky مكتوبة داخل الشجرة.
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="ستة مجالات للمكتبة — الأنظمة الأساسية، والعدديات، والإحصاء وتعلّم الآلة، والتطبيقي، والرمزي، والمتخصّص — فوق مسار أساسي من Result<T> بلا استثناءات ولا مؤشّرات خام" loading="lazy" decoding="async"></div><span class="diagram__hint">مرّر لرؤية المخطّط كاملًا &rarr;</span><figcaption><b>خمس وثلاثون مكتبة، وعُرف خطأ واحد.</b> المسار الذي تحتها هو المقصود: الفشل في نوع الإرجاع، لا في استثناء تجده في أعلى المكدس.</figcaption></figure>
@@ -442,9 +409,7 @@
         <span class="eyebrow">ما يُشحَن</span>
         <h3>ثلاثة تنفيذيات، وكل ما عداها اختياري</h3>
         <p class="small dim" style="margin-top:12px">
-          Everything past the three executables is a build option &mdash; a Qt Graphical User
-          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
-          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+          كل ما بعد الملفات التنفيذية الثلاثة خيار بناء &mdash; واجهة Qt الرسومية، وCUDA، وواجهة تمرير الرسائل (MPI)، ومصرّف آنيّ (JIT) مبنيّ على طبقة التصريف عند الطلب (ORC) في LLVM.
         </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">مترجم / محرّك دفعات</span></div>
@@ -457,9 +422,7 @@
         <span class="eyebrow">التحقّق</span>
         <h3>ما الذي تشتريه 816 مجموعة اختبار</h3>
         <p class="small dim" style="margin-top:12px">
-          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
-          Microsoft Visual C++ (MSVC) on Windows and the GNU Compiler Collection (GCC) 13 on
-          Linux.
+          مصفوفة التكامل المستمر خلف البوابات أدناه تغطّي مصرّفَين: Microsoft Visual C++ (MSVC) على Windows، ومجموعة مصرّفات جنو (GCC) 13 على Linux.
         </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
@@ -559,9 +522,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — تحليلات الجريمة وخيوط التحقيق</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/pbsd.html">
+      <a class="card card--hover related__item" href="/ar/trace.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات</h3>
+        <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">اختيرت بتقاطع المصطلحات مع هذه الصفحة، لا يدويًّا — لذا فهي صادقة بشأن ما هو قريب فعلًا، بما في ذلك حين لا يكون هناك قريب واضح.</p>
@@ -633,7 +596,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T23:04:13Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-18T00:00:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

@@ -145,16 +145,10 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
+        <span class="eyebrow eyebrow--violet">Intelligence artificielle (IA) &middot; Journal de recherche Cell AI</span>
         <h1>Un modèle de séquences <span class="gradient-text">honnêtement moins bon</span></h1>
         <p class="lede">
-          A language model built on a completely different mechanism &mdash; closer to chemistry
-          spreading across a surface than to the attention maths everything else uses. It performs
-          worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on perplexity (PPL), the standard measure, against Generative
-          Pre-trained Transformer 2 (GPT-2) as the baseline, and printed on this page rather than
-          in a footnote. It is published as a research log because a documented failure is worth
-          something and a deleted one is not.
+          Un modèle de langage bâti sur un mécanisme complètement différent &mdash; plus proche d’une réaction chimique qui se propage sur une surface que des mathématiques de l’attention qu’emploie tout le reste. Il fait moins bien qu’un transformeur, et sa propre page d’accueil le dit. Pas un peu moins bien : quatre ordres de grandeur sur la perplexité (PPL), la mesure standard, face au transformeur génératif pré-entraîné 2 (GPT-2) comme référence, et imprimé sur cette page plutôt qu’en note de bas de page. C’est publié comme un journal de recherche parce qu’un échec documenté vaut quelque chose, et un échec effacé rien.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Lancer le champ de réaction-diffusion</a>
@@ -187,46 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En clair</span>
+      <h2>Ce que c’est, en une minute</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Le problème</span>
         <p class="small dim" style="margin:0">
-          Almost every AI that handles language is built on the same idea: let every word look at
-          every other word. It works. Nobody knows how much of that is because it is the best idea
-          available and how much is because it is the one everybody tried.
+          Presque toutes les IA qui traitent le langage reposent sur la même idée : laisser chaque mot regarder tous les autres mots. Ça marche. Personne ne sait quelle part vient de ce que c’est la meilleure idée disponible et quelle part de ce que c’est celle que tout le monde a essayée.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solution</span>
         <p class="small dim" style="margin:0">
-          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
-          across a surface, the way stripes form on an animal, with the connections changing while
-          it reads rather than afterwards. It was then trained at full size and measured. It came
-          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
-          line in an appendix.
+          Cell AI retire cela et met autre chose à la place : deux substances chimiques qui se propagent et réagissent sur une surface, comme se forment les rayures d’un animal, avec des connexions qui changent pendant la lecture plutôt qu’après. Il a ensuite été entraîné à pleine taille et mesuré. Il est ressorti quatre ordres de grandeur moins bon que GPT-2. C’est le titre de cette page, pas une ligne en annexe.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">À qui cela s’adresse</span>
         <p class="small dim" style="margin:0">
-          Researchers who want to know what happens down the road nobody took. Scientists who
-          already model living systems, because the mechanism underneath is the one that makes
-          patterns in chemistry and markings on animals. Teachers, because published research is
-          almost all successes, and a careful account of a failure is rarer and more useful.
+          Les chercheurs qui veulent savoir ce qu’il y a au bout du chemin que personne n’a pris. Les scientifiques qui modélisent déjà le vivant, parce que le mécanisme sous-jacent est celui qui fait les motifs en chimie et les marques sur les animaux. Les enseignants, parce que la recherche publiée n’est presque que des succès, et qu’un compte rendu soigneux d’un échec est plus rare et plus utile.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
-      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
-      dynamics running live in your browser, what stands where attention would be, and
-      twenty-seven experiments with their failures annotated.
+      <strong>On ne vous vend rien ici.</strong> Cell AI est moins bon que ce que vous avez déjà, et le dire franchement, c’est tout l’intérêt. Le reste de cette page en est la preuve : la dynamique qui tourne en direct dans votre navigateur, ce qui tient la place de l’attention, et vingt-sept expériences avec leurs échecs annotés.
     </div>
   </div>
 </section>
@@ -331,8 +313,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Plasticité</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          Hebbian learning in the Bienenstock&ndash;Cooper&ndash;Munro (BCM) style, with
-          &alpha; = 0.1, &beta; = 0.01, applied <em>pendant</em> la passe avant plutôt qu’après elle. C’est l’idée la plus audacieuse de l’architecture et la source de son problème documenté de famine de gradient.
+          Apprentissage hebbien à la Bienenstock&ndash;Cooper&ndash;Munro (BCM), avec &alpha; = 0,1, &beta; = 0,01, appliqué <em>pendant</em> la passe avant plutôt qu’après elle. C’est l’idée la plus audacieuse de l’architecture et la source de son problème documenté de famine de gradient.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Optimisation v3</span>
@@ -344,10 +325,7 @@
         <span class="badge badge--blue" style="margin-bottom:12px">Chemin du signal</span>
         <h3 style="font-size:1.05rem">La pile complète</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
-          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
-          Fast Fourier Transform (FFT).
+          Embedding cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; couplage de Kuramoto optionnel &rarr; routage MultiModalModel &rarr; logits. L’étage de résonance couple les phases par une transformation de Fourier rapide (FFT).
         </p></div>
     </div>
   </div>
@@ -445,9 +423,7 @@
     <span class="eyebrow" style="justify-content:center">Projets frères</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Où ces idées sont allées à la place</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became Unified
-      Hash-Predictive Memory (UHPM).
+      Cell AI est la ligne de recherche qui n’a pas convergé. Ses voisines s’en sont mieux tirées : Cypha est devenue une architecture par premiers principes qui fonctionne, et le travail sur la mémoire à long contexte est devenu Unified Hash-Predictive Memory (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/fr/cypha.html">Cypha &rarr;</a>
@@ -463,13 +439,13 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">À lire ensuite</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/fr/chess.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
-      </a>
       <a class="card card--hover related__item" href="/fr/trace.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
       </a>
       <a class="card card--hover related__item" href="/fr/cypha.html">
         <div class="card__glow"></div>
@@ -549,7 +525,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-18T00:00:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

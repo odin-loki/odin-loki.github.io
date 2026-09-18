@@ -148,17 +148,10 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>বেশিরভাগ ট্র্যাকার &ldquo;কোথায়&rdquo; পর্যন্ত গিয়েই থেমে যায়। <span class="gradient-text">এটি আরও এগিয়ে যায়।</span></h1>
         <p class="lede">
-          Tracking in the real world is never continuous. A vehicle goes behind a building, a
-          person walks out of camera range. Most systems treat that as the end of the track.
-          TRACE does not: it holds a track as a probability that something is still there rather
-          than a yes or no, so the track fades through the gap instead of ending at it, and can be
-          picked up again on the other side.
+          বাস্তব দুনিয়ায় ট্র্যাকিং কখনও নিরবচ্ছিন্ন নয়। একটি গাড়ি বাড়ির পিছনে চলে যায়, একজন মানুষ ক্যামেরার নাগালের বাইরে হেঁটে যান। বেশিরভাগ ব্যবস্থা সেটিকেই ট্র্যাকের শেষ ধরে নেয়। TRACE ধরে না: এটি ট্র্যাককে হ্যাঁ-না নয়, কিছু একটা এখনও সেখানে আছে কি না তার সম্ভাব্যতা হিসেবে ধরে রাখে, ফলে ট্র্যাক ফাঁকটায় শেষ না হয়ে তার ভিতর দিয়ে ম্লান হতে হতে যায়, আর ওপারে আবার তুলে নেওয়া যায়।
         </p>
         <p class="lede">
-          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
-          players are the same problem with a different profile. The MOT17 and MOT20 figures below
-          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
-          well a tracker did.
+          কোরের কিছুই জানে না সে কী ট্র্যাক করছে। ক্যামেরা, জাহাজ, প্যালেট, প্রাণী আর খেলোয়াড় &mdash; সবই একই সমস্যা, কেবল প্রোফাইল আলাদা। নিচের MOT17 ও MOT20 সংখ্যাগুলি হলো বহু-বস্তু ট্র্যাকিং নির্ভুলতা (MOTA), একটি ট্র্যাকার কতটা ভালো করল তা বোঝাতে এই ক্ষেত্র যে একটিমাত্র সংখ্যা ব্যবহার করে।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">একটি গোলকধাঁধায় এটিকে ট্র্যাক করতে দেখুন</a>
@@ -192,47 +185,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">সহজ কথায়</span>
+      <h2>এটি কী, এক মিনিটে</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
         <p class="small dim" style="margin:0">
-          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
-          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
-          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
-          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+          সেন্সর জিনিস মিস করে। একটি ক্যামেরা তার সামনে দিয়ে হেঁটে যাওয়া সবাইকে ধরে না, একটি জাহাজ তার ট্রান্সপন্ডার বন্ধ করে দিতে পারে, একটি করিডরে হয়তো ক্যামেরাই নেই। বেশিরভাগ ট্র্যাকার &ldquo;দেখা যায়নি&rdquo;-কে পড়ে &ldquo;নেই&rdquo; বলে, তাই জিনিসটা আবার দেখা দিলে সেটি নতুন কিছু হিসেবে নথিভুক্ত হয়। সে কোথায় ছিল, কার সঙ্গে দেখা হয়েছে, এটা তার জন্য স্বাভাবিক কি না &mdash; এসবের কোনোটারই আর উত্তর মেলে না।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">সমাধান</span>
         <p class="small dim" style="margin:0">
-          TRACE keeps a number against each track for how likely it is that the thing is still there. A
-          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
-          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
-          the engine decides whether it is the same one. Both demonstrations here let you push that until
-          it gets the decision wrong.
+          TRACE প্রতিটি ট্র্যাকের পাশে একটি সংখ্যা রাখে &mdash; জিনিসটা এখনও সেখানে থাকার সম্ভাবনা কতটা। একটি মিস হওয়া দেখা ওই সংখ্যা কমায় আর সে কোথায় থাকতে পারে সেই এলাকা বাড়িয়ে দেয়; কিছুই মোছে না। ট্র্যাক তখন কেবল পূর্বাভাসের উপর ভেসে চলে, তার অনিশ্চয়তা সৎভাবেই বাড়ে, আর কিছু একটা আবার দেখা দিলে ইঞ্জিন ঠিক করে সেটি সেই একই কি না। এখানকার দুটি প্রদর্শনীতেই আপনি সেটাকে ততদূর ঠেলতে পারেন যতক্ষণ না সে সিদ্ধান্তটা ভুল করে।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
         <p class="small dim" style="margin:0">
-          Anyone following things across more than one sensor, with gaps between them: a site whose
-          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
-          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
-          pallets, animals and players are the same problem with a different profile. It takes detections
-          in; producing them is someone else&rsquo;s job.
+          যাঁরা একাধিক সেন্সর জুড়ে কিছু অনুসরণ করেন, আর সেন্সরগুলির মাঝে ফাঁক থাকে: এমন একটি চত্বর যার ক্যামেরা প্রতিটি করিডর ঢাকে না, কিংবা সমুদ্রে নজরদারি, যেখানে একটি জাহাজ যাত্রার মাঝপথে ট্রান্সপন্ডার বন্ধ করে দিতে পারে। কোর জানে না সে কী ট্র্যাক করছে &mdash; ক্যামেরা, জাহাজ, প্যালেট, প্রাণী আর খেলোয়াড় সবই একই সমস্যা, কেবল প্রোফাইল আলাদা। এটি শনাক্তকরণ নেয়; সেগুলি তৈরি করা অন্য কারও কাজ।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
-      the engineering: the engine itself running in your browser on two scenarios, the benchmark
-      numbers, what it costs per track, and a plain list of what it does not do.
+      <strong>নজরদারির ফাঁক আর অনুপস্থিতি এক জিনিস নয়।</strong> এই পাতার বাকিটা প্রকৌশল: ইঞ্জিনটাই দুটি পরিস্থিতিতে আপনার ব্রাউজারে চলছে, বেঞ্চমার্কের সংখ্যা, প্রতি ট্র্যাকে কত খরচ, আর সে যা করে না তার একটি সাদামাটা তালিকা।
     </div>
   </div>
 </section>
@@ -262,9 +242,7 @@
             <span class="badge badge--violet" style="margin-bottom:10px">অস্তিত্ব</span>
             <h4 style="margin:0 0 6px">Bernoulli, বুলিয়ান নয়</h4>
             <p class="small dim" style="margin:0">
-              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
-              Existence is a probability that decays through misses and recovers on evidence, so
-              an occlusion costs confidence rather than identity.
+              320-পার্টিকলের একটি ফিল্টারের উপরে একটি Poisson Multi-Bernoulli Mixture (PMBM) ট্র্যাকার। অস্তিত্ব একটি সম্ভাব্যতা, যা মিসে ক্ষয়ে যায় আর প্রমাণে ফিরে আসে, ফলে আড়ালে পড়ার দাম পরিচয় নয়, আত্মবিশ্বাস।
             </p>
           </div>
           <div class="card">
@@ -449,10 +427,7 @@
       <span class="eyebrow eyebrow--violet">ইঞ্জিনটি নিজেই</span>
       <h2>একটি জাহাজ তার ট্রান্সপন্ডার বন্ধ করে দেয়</h2>
       <p class="lede">
-        Satellite Automatic Identification System (AIS) coverage over an ocean basin. Five
-        vessels are in transit; one of them switches off its transponder mid-voyage and comes
-        back up later. Nothing reports it in between &mdash; no sensor, no detection, no
-        evidence of any kind.
+        একটি সমুদ্র-অববাহিকার উপরে স্যাটেলাইট স্বয়ংক্রিয় শনাক্তকরণ ব্যবস্থার (AIS) নজরদারি। পাঁচটি জাহাজ চলছে; তাদের একটি যাত্রার মাঝপথে ট্রান্সপন্ডার বন্ধ করে দেয় আর পরে আবার চালু করে। মাঝের সময়টায় কিছুই তার খবর দেয় না &mdash; কোনো সেন্সর নয়, কোনো শনাক্তকরণ নয়, কোনো ধরনের প্রমাণই নয়।
       </p>
       <p class="lede">
         ইঞ্জিন এই অবস্থায় কী করে, দেখুন। প্রথম মিস হওয়া স্ক্যানেই অবস্থানের অনুমান কয়েকশো মিটার থেকে লাফিয়ে প্রায় বারো কিলোমিটারে ওঠে আর ট্র্যাকটি কেবল পূর্বানুমানের উপর ভেসে চলে। কয়েকটি স্ক্যান পরে সেটিকে মুছে না ফেলে একটি সুপ্ত পুলে সরিয়ে রাখা হয়, আর জাহাজটি আবার ভেসে উঠলে ইঞ্জিনকে ঠিক করতে হয় এটি নতুন কিছু নাকি এমন কিছু যা সে আগে থেকেই চেনে।
@@ -583,8 +558,7 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
-          n<sup>1.17</sup> হারে, আর কেবল ট্র্যাকিং দশটি ট্র্যাক থেকে চারশো পর্যন্ত ট্র্যাকপ্রতি 135&ndash;159 &micro;s-এ সমতল &mdash; একে পড়ুন এভাবে: &ldquo;ধ্রুবকটাই গুরুত্বপূর্ণ, সূচকটা নয়&rdquo;।
+          একটি প্রসেসর কোর, Release বিল্ড, অ্যাডভান্সড ভেক্টর এক্সটেনশন (AVX-512)। খরচ বাড়ে প্রায় n<sup>1.17</sup> হারে, আর কেবল ট্র্যাকিং দশটি ট্র্যাক থেকে চারশো পর্যন্ত ট্র্যাকপ্রতি 135&ndash;159 &micro;s-এ সমতল &mdash; একে পড়ুন এভাবে: &ldquo;ধ্রুবকটাই গুরুত্বপূর্ণ, সূচকটা নয়&rdquo;।
         </p>
       </div>
       <div>
@@ -592,7 +566,7 @@
           এটি ছিল n<sup>1.82</sup> যতক্ষণ না অভিসরণ-শনাক্তকারী প্রতিটি জোড়ার জন্য একবার করে প্রতিটি ট্র্যাকের জীবনধারার পূর্বাভাস নতুন করে গড়া বন্ধ করল। তাতে ধ্রুবকের ঘরে কুড়ি গুণ লাভ হলো, কিন্তু সূচকের ঘরে <em>নয়</em> &mdash; এর সঙ্গে যোগ করা স্থানিক-সূচক গেটটির ব্যাসার্ধ ছিল দৃশ্যের চেয়েও চওড়া, তাই সেটি প্রতিটি জোড়াই ফেরত দিত আর কিছুই করত না। প্রতিটি জোড়াকে তার নিজের দুটি গতি দিয়ে সীমাবদ্ধ করায় ওই শনাক্তকারী ইঞ্জিনের 56% থেকে নেমে 44%-এ এল, আর সূচক প্রায় রৈখিক হলো।
         </p>
         <p class="dim">
-          একসঙ্গে 400টি ট্র্যাকে একটি কোরে সেটি সেকেন্ডে প্রায় 8টি স্ক্যান: 1 Hz-এর ক্যামেরা-বহরের জন্য যথেষ্ট, ওয়ার্কারদের মধ্যে ভাগ না করে 25 fps-এর জন্য নয়। পাতাটি তা-ই বলছে, কারণ বেঞ্চমার্ক তা-ই বলছে।
+          একসঙ্গে 400টি ট্র্যাকে একটি প্রসেসর কোরে সেটি সেকেন্ডে প্রায় 8টি স্ক্যান: 1 Hz-এর ক্যামেরা-বহরের জন্য যথেষ্ট, ওয়ার্কারদের মধ্যে ভাগ না করে 25 fps-এর জন্য নয়। পাতাটি তা-ই বলছে, কারণ বেঞ্চমার্ক তা-ই বলছে।
         </p>
       </div>
     </div>
@@ -641,10 +615,9 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">সোর্স-উপলব্ধ</span>
-    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
+    <h2>GNU Affero জেনারেল পাবলিক লাইসেন্স, পাশে একটি বাণিজ্যিক লাইসেন্স</h2>
     <p class="lede">
-      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
-      AGPL does not suit what you want to build, there is a tiered commercial licence.
+      AGPL-3.0+, আর এখানকার বাকি সবকিছুর মতোই একই শর্ত: পড়ুন, চালান, যাচাই করুন। আপনি যা বানাতে চান তার সঙ্গে AGPL না মিললে স্তরভিত্তিক একটি বাণিজ্যিক লাইসেন্স আছে।
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">সোর্স পড়ুন &rarr;</a>
@@ -745,7 +718,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

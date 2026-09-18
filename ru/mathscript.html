@@ -148,11 +148,7 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0, пре-релиз</span>
         <h1>Одна библиотека на C++23 — от <span class="gradient-text">LU до CFD</span></h1>
         <p class="lede">
-          Engineering software runs on heavy mathematics, and almost nobody writes their own.
-          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
-          hard to audit, hard to change, and hard to install where the build machine has no
-          internet. MathScript does the mathematics itself, from matrix arithmetic up to
-          fluid dynamics, in one C++ library with nothing to fetch.
+          Инженерный софт держится на тяжёлой математике, и почти никто не пишет её сам. Её сшивают из чужих библиотек и платных платформ &mdash; это трудно проверить, трудно изменить и трудно поставить там, где у сборочной машины нет интернета. MathScript делает математику сам, от матричной арифметики до гидродинамики, в одной библиотеке C++, и скачивать ничего не надо.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Постройте график и продифференцируйте вживую</a>
@@ -170,7 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Два решения, которые определяют всё</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>Матричные ядра в дереве.</strong> Базовые подпрограммы линейной алгебры (BLAS) и пакет линейной алгебры (LAPACK) реализованы здесь, а не подтянуты: без Eigen, без OpenBLAS. <code translate="no">linalg</code> владеет LU, QR, сингулярным разложением (SVD), eig, Холецким и ядрами в стиле LAPACK, поэтому развёртывание — это компиляция, а не охота за зависимостями.</li>
             <li><strong>Ограниченное подмножество C++.</strong> Никаких сырых указателей, никаких исключений, никаких небезопасных приведений &mdash; проверяется на этапе компиляции. Продакшен-код возвращает <code translate="no">Result&lt;T&gt;</code>, так что обработка ошибок детерминирована и видна в типе.</li>
           </ul>
         </div>
@@ -183,49 +179,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
-          are rarely written by the team shipping it. They arrive from a dozen outside
-          libraries and paid platforms that have to be fetched, licensed and trusted. When an
-          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
-          machine you may not be able to fetch them at all.
+          Напряжения, потоки, сигналы, риск &mdash; расчёты под инженерным софтом редко пишет та команда, которая его выпускает. Они приходят из десятка чужих библиотек и платных платформ, которые надо скачать, лицензировать и которым надо доверять. Когда ответ выглядит неверным, выкладки лежат в чужом коде; а на закрытой сборочной машине их может быть вообще не скачать.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          MathScript is one C++ library that does the mathematics itself: linear algebra,
-          statistics, differential equations, finite elements, fluid flow, optimisation and a
-          symbolic algebra system, across thirty-five static libraries. The matrix routines
-          most projects import from BLAS and LAPACK are written here instead. All 816 test
-          suites pass on the Windows build. v1.0.0 has not shipped yet.
+          MathScript — одна библиотека C++, которая делает математику сама: линейная алгебра, статистика, дифференциальные уравнения, конечные элементы, течения, оптимизация и система символьной алгебры — тридцать пять статических библиотек. Матричные процедуры, которые большинство проектов берёт из BLAS и LAPACK, написаны здесь. Все 816 наборов тестов проходят на сборке под Windows. v1.0.0 ещё не вышла.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Teams whose build machines cannot reach the internet &mdash; defence, medical,
-          aerospace, banking &mdash; where every fetched dependency is another approval.
-          Products that do their real work in C++ and their mathematics in Python, and carry
-          two sets of problems for it. Teachers and students who want the method written out
-          where it can be read.
+          Командам, у которых сборочные машины не выходят в интернет &mdash; оборона, медицина, авиакосмос, банки &mdash; где каждая скачанная зависимость это ещё одно согласование. Продуктам, которые делают основную работу на C++, а математику на Python, и несут за это два набора проблем. Преподавателям и студентам, которым нужен метод, выписанный так, чтобы его можно было прочитать.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
-      argument, and the rest of this page is the evidence: what the thirty-five libraries
-      hold, why a failure comes back in the return type instead of as an exception, and
-      exactly what the test numbers cover.
+      <strong>Математика лежит в дереве, а не в списке зависимостей.</strong> Это и есть аргумент, а дальше на странице — доказательства: что лежит в тридцати пяти библиотеках, почему отказ возвращается в типе результата, а не исключением, и что именно покрывают цифры тестов.
     </div>
   </div>
 </section>
@@ -234,12 +215,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Интерактив</span>
-      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
+      <h2>Символьная система компьютерной алгебры (CAS) прямо в браузере</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
-        differentiated symbolically, simplified, then evaluated numerically for the plot
-        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
-        visible interval.
+        Введите выражение. Оно разбивается на токены, разбирается в абстрактное синтаксическое дерево (AST), символьно дифференцируется, упрощается, затем численно вычисляется для графика &mdash; вместе с интегралом по правилу Симпсона и поиском корня делением пополам на видимом интервале.
       </p>
     </div>
 
@@ -347,11 +325,7 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
-            build is 4.9 megabytes (MB), so this links only what these four calls reach. The
-            panel shows the library version and the vector Instruction Set Architecture (ISA)
-            the build reports.
+            Ничего не скачивается, пока вы не нажмёте загрузку, и потом скачивается один раз. Модуль — 113 килобайт (КБ) WebAssembly и 10 КБ загрузчика &mdash; полная сборка библиотеки весит 4,9 мегабайта (МБ), так что сюда линкуется только то, до чего дотягиваются эти четыре вызова. Панель показывает версию библиотеки и векторную архитектуру набора команд (ISA), о которой сообщает сборка.
           </p>
         </div>
         <div class="demo__side">
@@ -381,9 +355,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>Строка ISA — это библиотека, говорящая о себе правду.</strong> Она спрашивает
-            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
-            one vector ISA and it says so.
+            <code translate="no">ms::detect_isa()</code>, тот же вызов, что и в нативной сборке. На вашем рабочем столе он отвечает одним из продвинутых векторных расширений (AVX2 или AVX-512); здесь векторная ISA одна, и он так и говорит.
           </div>
         </div>
       </div>
@@ -400,12 +372,7 @@
       <span class="eyebrow">Объём</span>
       <h2>Тридцать пять статических библиотек, шесть областей</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics and Machine Learning
-        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
-        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
-        signal and image processing, number theory, graphs, geometry, topology, quantum
-        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
-        eigensolvers and Cholesky written in-tree.
+        Плотная и разреженная линейная алгебра, специальные функции, статистика и машинное обучение (ML). Обыкновенные дифференциальные уравнения (ODE) и уравнения в частных производных (PDE), метод конечных элементов (FEM) и вычислительная гидродинамика (CFD). Оптимизация, обработка сигналов и изображений, теория чисел, графы, геометрия, топология, квантовые примитивы, управление, финансы, сжатие &mdash; и символьная CAS. С LU, QR, SVD, решателями задач на собственные значения и Холецким прямо в дереве.
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Шесть областей библиотеки — базовые системы, численные методы, статистика и машинное обучение, прикладные задачи, символьные вычисления и специализированное — поверх общей основы Result<T> без исключений и сырых указателей" loading="lazy" decoding="async"></div><span class="diagram__hint">прокрутите, чтобы увидеть всю схему &rarr;</span><figcaption><b>Тридцать пять библиотек, одно соглашение об ошибках.</b> Смысл в общей основе снизу: отказ живёт в возвращаемом типе, а не в исключении, которое вы обнаружите на вершине стека.</figcaption></figure>
@@ -442,9 +409,7 @@
         <span class="eyebrow">Что поставляется</span>
         <h3>Три исполняемых файла, всё остальное опционально</h3>
         <p class="small dim" style="margin-top:12px">
-          Everything past the three executables is a build option &mdash; a Qt Graphical User
-          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
-          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+          Всё, что за пределами трёх исполняемых файлов, — это опция сборки &mdash; графический интерфейс пользователя (GUI) на Qt, CUDA, интерфейс передачи сообщений (MPI) и компилятор «на лету» (JIT) поверх слоя компиляции по запросу (ORC) из LLVM.
         </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Компилятор / пакетный движок</span></div>
@@ -457,9 +422,7 @@
         <span class="eyebrow">Проверка</span>
         <h3>Что дают 816 наборов тестов</h3>
         <p class="small dim" style="margin-top:12px">
-          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
-          Microsoft Visual C++ (MSVC) on Windows and the GNU Compiler Collection (GCC) 13 on
-          Linux.
+          Матрица непрерывной интеграции (CI) за барьерами ниже покрывает два компилятора: Microsoft Visual C++ (MSVC) под Windows и GNU Compiler Collection (GCC) 13 под Linux.
         </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
@@ -633,7 +596,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

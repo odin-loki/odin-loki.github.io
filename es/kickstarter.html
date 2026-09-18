@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Campaña</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Lanzada</span><span class="spec__v">13 de septiembre de 2026</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Cierra</span><span class="spec__v">12 de noviembre de 2026</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objetivo</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objetivo</span><span class="spec__v">10.000 dólares australianos (AUD)</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Modelo de financiación</span><span class="spec__v">Todo o nada &mdash; 60 días</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Finalidad</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Finalidad</span><span class="spec__v">Créditos de inteligencia artificial (IA) y cómputo de verificación</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Proyecto</span><span class="spec__v"><a href="/es/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Estructura</span><span class="spec__v">Donaciones, más una recompensa de petición de función de 10.000 AUD</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Licencia</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Licencia</span><span class="spec__v">Licencia Pública General Affero de GNU (AGPL-3.0+); Distribución de Software de Berkeley (BSD) para el código derivado de HardenedBSD</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             El objetivo está fijado durante toda la campaña, así que se indica aquí. La cantidad recaudada y el número de mecenas no lo están, así que no aparecen &mdash; un total en marcha escrito a mano en una página estática ya es falso en el momento de escribirlo. Ambos están en la campaña, en vivo.
@@ -209,11 +209,7 @@
           Portar un BSD endurecido a C++23 es una década de trabajo a tiempo completo hecho a mano. También es justo el tipo de tarea en que un modelo de lenguaje resulta de verdad útil &mdash; traducción mecánica con una especificación estricta contra la que comprobar, que es casi el mejor caso posible para esta tecnología.
         </p>
         <p class="dim">
-          The design already reflects that. Deterministic rewrite passes handle everything they
-          safely can, for free. Models are used only on the residue: stubbed inventory entries
-          and the files the deterministic passes refused. Every model output then goes through
-          compile, ASan, UBSan, differential execution and a comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR) before it counts.
+          El diseño ya lo refleja. Las pasadas de reescritura determinista se ocupan de todo lo que pueden con seguridad, gratis. Los modelos se usan solo sobre el residuo: entradas de inventario sin resolver y los archivos que las pasadas deterministas rechazaron. Después, cada salida del modelo pasa por compilación, ASan, UBSan, ejecución diferencial y una comparación al nivel de la representación intermedia (IR) del compilador antes de contar.
         </p>
         <p class="dim">
           Esa verificación no es opcional y no es barata. Cada archivo se intenta, se comprueba, a menudo se rechaza y se reintenta. El coste está en el bucle, no en una sola pasada &mdash; y el bucle es lo que convierte la salida de un modelo en algo que un sistema operativo centrado en seguridad puede publicar de verdad.
@@ -232,7 +228,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>El motor de port con agentes, con grupos de trabajadores y escalado</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Controles de verificación de compilación, sanitizadores, diferencial e IR</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Seguimiento de procedencia, para que los límites de licencia sigan siendo auditables</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>El diseño del núcleo de capacidades y la especificación de la interfaz binaria de aplicación (ABI) de C++ del kernel</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             Todo eso está hoy en el repositorio, bajo licencia abierta, se financie o no esta campaña. Puedes comprobar cada afirmación de esta página contra el código antes de decidir nada.
@@ -473,7 +469,7 @@
         <details class="acc">
           <summary>Esto es una sola persona</summary>
           <div class="acc__body">
-            Imortek es Odin Loch, que trabaja de matricero en Sídney. No hay equipo, no hay colchón financiero y no hay plan de continuidad más allá de que todo se publica bajo licencia abierta a medida que se escribe. Si esto se detiene, lo que exista sigue siendo público y bifurcable. Esa es la única garantía que se puede ofrecer con honestidad, así que es la que se ofrece.
+            Imortek es Odin Loch, que trabaja de matricero en Sídney. No hay equipo, no hay dinero de inversores que ir gastando y no hay plan de continuidad más allá de que todo se publica bajo licencia abierta a medida que se escribe. Si esto se detiene, lo que exista sigue siendo público y bifurcable. Esa es la única garantía que se puede ofrecer con honestidad, así que es la que se ofrece.
           </div>
         </details>
         <details class="acc">
@@ -523,13 +519,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — un sistema operativo en C++23 protegido por capacidades</h3>
       </a>
-      <a class="card card--hover related__item" href="/es/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — identidad persistente a partir de avistamientos escasos</h3>
-      </a>
       <a class="card card--hover related__item" href="/es/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — descompilador de extracción de especificaciones</h3>
+      </a>
+      <a class="card card--hover related__item" href="/es/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — identidad persistente a partir de avistamientos escasos</h3>
       </a>
       <a class="card card--hover related__item" href="/es/sentinel.html">
         <div class="card__glow"></div>
@@ -605,7 +601,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-18T00:00:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

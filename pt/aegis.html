@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; Fase 8 concluída</span>
         <h1>A criptografia esconde o que você disse. <span class="gradient-text">Isto esconde que você falou.</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          A criptografia mantém o conteúdo de uma mensagem privado. Ela não esconde que a mensagem aconteceu. Quem observa a rede continua vendo quem fala com quem, quando, e quantos kilobytes (KB) se moveram &mdash; o que, em contextos sensíveis, pode importar tanto quanto as palavras. O AEGIS mantém o tráfego entre os membros de um grupo fechado fluindo a taxa constante, havendo ou não algo para enviar, de modo que a temporização e o volume não carregam sinal nenhum.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Rode o ataque de correlação</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Em português claro</span>
+      <h2>O que isto é, em um minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">O problema</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          Quem consegue observar a rede não precisa quebrar a criptografia. Vê que um ponto enviou 14 KB às 09:41:03 e outro recebeu 14 KB três segundos depois, e que a mesma coisa acontece duas vezes por dia durante onze semanas. Repetido o bastante, isso é um mapa de quem trabalha com quem, desenhado sem ler uma única mensagem.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">A solução</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          O AEGIS faz o fio parecer igual o tempo todo. O tráfego sai a taxa constante, havendo ou não algo para enviar, e o que chega é enchido até um tamanho fixo, então não há rajada em uma ponta para casar com uma rajada na outra. Isso custa banda e acrescenta atraso; a demonstração abaixo mostra a proteção e o preço lado a lado.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quem é</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          Redações e quem protege uma fonte, em que a hora e o tamanho de um contato são o que expõe a pessoa. Bancos, seguradoras e entidades setoriais que competem entre si e ainda assim precisam trocar dados. Organizações que compartilham alertas sobre ataques, em que ser visto compartilhando já pode ser a parte sensível.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>Esconder o conteúdo é a metade mais fácil.</strong> Esconder o padrão é a parte que precisa da engenharia abaixo: a ameaça por inteiro, um ataque que você mesmo pode rodar contra as duas configurações, os números dos testes, e onde as garantias acabam.
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Evidência</span>
       <h2>Oito fases, cada uma atrás de um controle de red team</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">A implementação está completa até a Fase 8, endurecimento. Estes são os números que o repositório relata: o fuzzing rodou sob o Subsistema do Windows para Linux (WSL), e a testnet rodou sobre sockets reais de Protocolo de Controle de Transmissão (TCP).</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Vetores de teste de cripto</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Higiene do repositório:</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>Higiene do repositório:</strong> Integração Contínua (CI) no GitHub Actions,
       <code translate="no">cargo deny</code> auditoria de dependências e uma política de todo o workspace proibindo código unsafe. Para uma pilha de rede em Rust que trata entrada adversária, <code translate="no">#![forbid(unsafe_code)]</code> em todo o workspace é a linha que mais sustenta o projeto.
     </div>
   </div>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, atuando como Imortek. Sydney, Austrália.</span>
-      <span class="mono tiny">Compilado em 2026-09-17T23:04:13Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
+      <span class="mono tiny">Compilado em 2026-09-17T23:58:50Z &middot; Sem rastreadores, sem cookies, sem analytics. Só as fontes vêm de fora.</span>
     </div>
   </div>
 </footer>

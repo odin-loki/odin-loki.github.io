@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; 第 8 阶段完成</span>
         <h1>加密藏住的是你说了什么。 <span class="gradient-text">这个藏住的是你说过话。</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          加密让消息的内容保持私密。它藏不住消息发生过这件事。盯着网络看的观察者照样能看到谁在跟谁说话、什么时候说的、搬了多少千字节（KB）&mdash; 在敏感场合，这些和话的内容一样要紧。AEGIS 让一个封闭小组成员之间的流量始终以恒定速率流动，不管有没有东西要发，于是时间和流量都不携带任何信号。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">跑一遍相关性攻击</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          能看到网络的人不需要破解加密。他们看到一个端点在 09:41:03 发出 14 KB，另一个端点三秒后收到 14 KB，而同样的事情连着十一周每天发生两次。重复得够多，这就是一张谁和谁一起工作的地图，画的时候一条消息都没读。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          AEGIS 让线路上看起来永远一个样。流量以恒定速率发出，不管有没有东西要发；收到的东西被填充到固定大小，所以这一端没有突发可以拿去和那一端的突发对上。它要花带宽，也要加延迟；下面的演示把保护和代价并排摆出来。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          新闻编辑室，以及任何要保护线人的人：在那里，一次联系的时间和大小才是暴露一个人的东西。互相竞争却还得交换数据的银行、保险公司和行业组织。互相通报攻击预警的机构：在那里，被看见在通报本身就可能是敏感的部分。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>藏住内容是容易的那一半。</strong> 藏住模式才是需要下面这些工程的那一半：完整的威胁、一个你可以自己对两种配置跑一遍的攻击、测试数字，以及保证到哪里为止。
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">证据</span>
       <h2>八个阶段，每一个后面都有一道红队关卡</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">实现已经完整做到第 8 阶段，也就是加固。下面是仓库报告出来的数字：模糊测试是在适用于 Linux 的 Windows 子系统（WSL）下跑的，测试网跑在真实的传输控制协议（TCP）套接字上。</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">密码测试向量</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>仓库卫生：</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>仓库卫生：</strong> GitHub Actions 上的持续集成（CI），用
       <code translate="no">cargo deny</code> 做依赖审计，还有一条覆盖整个工作区、禁止 unsafe 代码的规定。对一个要处理敌意输入的 Rust 网络栈来说， <code translate="no">#![forbid(unsafe_code)]</code> 贯穿整个工作区，是这个项目里最吃重的一行。
     </div>
   </div>
@@ -464,14 +448,6 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">相关阅读</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/zh/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
-      </a>
-      <a class="card card--hover related__item" href="/zh/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/chess.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
@@ -479,6 +455,14 @@
       <a class="card card--hover related__item" href="/zh/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/retdec.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/mathscript.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">MathScript — C++23 计算机代数与数值计算</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

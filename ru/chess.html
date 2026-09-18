@@ -152,14 +152,10 @@
         <span class="eyebrow">Демонстрация продукта</span>
         <h1>Сыграйте в шахматы против <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha never saw a chess game. It learned by watching an ordinary chess program think
-          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
-          was winning &mdash; until Cypha could produce the verdict itself.
+          Cypha никогда не видела шахматной партии. Она училась, глядя, как думает обычная шахматная программа &mdash; 26 568 позиций, каждая размечена собственным вердиктом этой программы о том, кто выигрывает &mdash; пока Cypha не научилась выдавать вердикт сама.
         </p>
         <p class="lede">
-          What you play below is that, running in your browser inside a shallow search. It is
-          beatable, and it still loses to the program it learned from. Every number on this page
-          came out of the training run that produced the weights the page loads.
+          То, во что вы играете ниже, — это она, работающая в вашем браузере внутри неглубокого перебора. Её можно обыграть, и она по-прежнему проигрывает той программе, у которой училась. Каждое число на этой странице вышло из того прогона обучения, который дал загружаемые страницей веса.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">Сыграть партию</a>
@@ -170,8 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Измерено, а не заявлено</span>
           <p class="small muted" style="margin:0 0 16px">
-            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
-            guesses was; the smaller it is, the closer the model sits to its teacher.
+            Среднеквадратичная ошибка (RMSE) ниже — обычная мера того, насколько далеко промахнулся набор догадок; чем она меньше, тем ближе модель к своему учителю.
           </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -217,45 +212,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
-          explanation tells you nothing about whether it does. Chess settles that, because the
-          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
-          and you can sit down and find out.
+          Каждая новая конструкция искусственного интеллекта (ИИ) приходит с объяснением, почему она должна работать. Чтение объяснения не говорит ничего о том, работает ли она. Шахматы это решают, потому что ответ не дело вкуса: либо она играет разумно и по правилам, либо нет, и вы можете сесть и выяснить.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          An ordinary chess program judges a position by searching ahead through the moves. Cypha
-          was shown 26,568 of those judgements and fitted a single formula to reproduce them
-          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
-          the architecture for chess. Only the numbers fed into it changed.
+          Обычная шахматная программа оценивает позицию перебором ходов вперёд. Cypha показали 26 568 таких оценок и подогнали одну формулу, чтобы их воспроизвести &mdash; одна строка математики над 388 числами, описывающими доску. В архитектуру ради шахмат ничего не добавили. Поменялись только числа, которые в неё подавали.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Anyone weighing up Cypha who would rather check than be told. People who work with
-          machine learning and want to watch a model carry on learning while it is being used.
-          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
-          you play is sent anywhere.
+          Всем, кто взвешивает Cypha и предпочёл бы проверить, а не поверить на слово. Тем, кто работает с машинным обучением и хочет посмотреть, как модель продолжает учиться прямо во время использования. И всем, кому просто хочется партию &mdash; всё работает в браузере, и ничего из сыгранного никуда не уходит.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
-      this page claims it is. The rest of the page is how it was done, what each number means,
-      and the four things this design cannot do.
+      <strong>Копировать оценку шахматного движка — не значит учиться шахматам.</strong> Ничто на этой странице этого и не утверждает. Дальше — как это сделано, что значит каждое число и четыре вещи, которых эта конструкция не может.
     </div>
   </div>
 </section>
@@ -364,14 +348,7 @@
               <strong>Отход</strong> — это величина изменения вектора весов относительно дистиллированного. <strong>Последняя поправка</strong> — это насколько статическая голова ошибалась в позиции, из которой только что сделала ход, в пешках, относительно её собственного более глубокого перебора.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>Рейтинг</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
-              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
-              FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>Рейтинг</strong> считается по внутренней лестнице, а не по шкале F&eacute;d&eacute;ration Internationale des &Eacute;checs (FIDE) &mdash; нет честного способа поставить число FIDE тому, кто никогда не играл с рейтинговым человеком. Эталонный движок на глубине 1 закреплён за 1000, и всё подогнано по 210 партиям методом максимального правдоподобия Брэдли — Терри, так что от порядка партий это не зависит. Измеренная лестница: эталон 1000 / 1171 / 1245 на глубинах 1&ndash;3, Cypha 798 / 1010 / 1161. Cypha отстаёт примерно на одну глубину перебора от движка, из которого дистиллирована, а погрешности примерно &plusmn;50 — вот что дают 210 партий.
             </p>
             <p class="tiny muted" style="margin-top:8px">
               У каждой настройки силы <strong>своя модель</strong>. Голову, играющую на глубине 1, поправляют в сторону перебора глубины 1; на глубине 3 цель другая и лучше. Загонять обе в один вектор весов — значит просто заставить их спорить. Переключите силу, и счётчики сменятся вместе с ней.
@@ -407,10 +384,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Шаг 1</span>
         <h3 style="font-size:1.02rem">Учитель</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
-          search. Verified against five standard perft positions including kiwipete, so the rules
-          are provably right before anything is learned from it.
+          Движок на 0x88 с полной генерацией легальных ходов, оценкой по материалу и таблицам фигура-клетка, упорядочиванием «самая ценная жертва &ndash; наименее ценный атакующий» (MVV-LVA) и поиском спокойных позиций. Проверен на пяти стандартных позициях perft, включая kiwipete, так что правила доказуемо верны ещё до того, как из него что-то выучат.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -431,10 +405,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Шаг 4</span>
         <h3 style="font-size:1.02rem">Подгонка</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
-          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
-          at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320;, подгоняемый онлайн по Велфорду, отбеливание как метрика естественного градиента, нормализованные обновления весов методом наименьших средних квадратов (LMS), затухание по минимальной длине описания (MDL), тянущее веса обратно к априору, и буфер повтора со взвешиванием по неожиданности с эталонной для Cypha долей 0,30.
         </p>
       </div>
     </div>
@@ -455,7 +426,7 @@
         <span class="eyebrow eyebrow--amber">Чего это не показывает</span>
         <h3>Честные границы</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>Она линейная.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
+          <li><strong>Она линейная.</strong> Линейная функция признаков фигура-клетка не может выразить безопасность короля, взаимодействие пешечной структуры или что-либо, требующее произведения двух признаков. У неё тот же потолок, который README Cypha описывает для исключающего ИЛИ (XOR).</li>
           <li><strong>Учитель скромный.</strong> Эталонный движок — грамотный классический перебор, а не Stockfish. Хорошо дистиллировать его — значит хорошо повторить скромный оценщик.</li>
           <li><strong>Своей глубины перебора нет.</strong> Сила здесь в основном идёт от альфа-бета обёртки, ровно как и у учителя.</li>
           <li><strong>Дистилляция — это не открытие.</strong> Cypha воспроизвела показанную ей оценочную функцию. Она не училась шахматам с нуля, и ничто на этой странице этого не утверждает.</li>
@@ -561,7 +532,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

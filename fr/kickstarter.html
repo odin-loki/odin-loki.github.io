@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Campagne</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Lancée</span><span class="spec__v">13 septembre 2026</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Clôture</span><span class="spec__v">12 novembre 2026</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objectif</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objectif</span><span class="spec__v">10 000 dollars australiens (AUD)</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Modèle de financement</span><span class="spec__v">Tout ou rien &mdash; 60 jours</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objet</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">Objet</span><span class="spec__v">Crédits d’intelligence artificielle (IA) et calcul de vérification</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Projet</span><span class="spec__v"><a href="/fr/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">Structure</span><span class="spec__v">Dons, plus une contrepartie « demande de fonctionnalité » à 10 000 AUD</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Licence</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">Licence</span><span class="spec__v">Licence publique générale GNU Affero (AGPL-3.0+) ; Berkeley Software Distribution (BSD) pour le code dérivé de HardenedBSD</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             L’objectif est fixé pour toute la durée de la campagne, il est donc indiqué ici. Le montant collecté et le nombre de contributeurs ne le sont pas, donc ils n’y figurent pas &mdash; un total courant tapé dans une page statique est faux dès l’instant où il est écrit. Les deux sont sur la campagne, en direct.
@@ -209,11 +209,7 @@
           Porter un BSD durci vers C++23, à la main, c’est une décennie de travail à plein temps. C’est aussi exactement le genre de tâche où un modèle de langage est réellement utile &mdash; de la traduction mécanique avec une spécification stricte contre laquelle vérifier, ce qui est à peu près le meilleur cas pour cette technologie.
         </p>
         <p class="dim">
-          The design already reflects that. Deterministic rewrite passes handle everything they
-          safely can, for free. Models are used only on the residue: stubbed inventory entries
-          and the files the deterministic passes refused. Every model output then goes through
-          compile, ASan, UBSan, differential execution and a comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR) before it counts.
+          La conception le reflète déjà. Les passes de réécriture déterministes traitent tout ce qu’elles peuvent sans risque, gratuitement. Les modèles ne servent que sur le résidu : les entrées d’inventaire ébauchées et les fichiers que les passes déterministes ont refusés. Chaque sortie de modèle passe ensuite par la compilation, ASan, UBSan, l’exécution différentielle et une comparaison au niveau de la représentation intermédiaire (IR) du compilateur avant de compter.
         </p>
         <p class="dim">
           Cette vérification n’est pas facultative et elle n’est pas gratuite. Chaque fichier est tenté, contrôlé, souvent rejeté et retenté. Le coût est dans la boucle, pas dans une passe unique &mdash; et c’est la boucle qui transforme une sortie de modèle en quelque chose qu’un système d’exploitation axé sur la sécurité peut réellement livrer.
@@ -232,7 +228,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Le moteur de portage à agents, avec pools de travailleurs et escalade</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Des contrôles de compilation, de sanitizers, différentiels et d’IR</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Un suivi de provenance, pour que les frontières de licence restent auditables</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>La conception du noyau à capacités et la spécification de l’interface binaire d’application (ABI) C++ du noyau</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             Tout cela est dans le dépôt dès maintenant, sous licence ouverte, que cette campagne aboutisse ou non. Vous pouvez vérifier chaque affirmation de cette page dans le code avant de décider quoi que ce soit.
@@ -473,7 +469,7 @@
         <details class="acc">
           <summary>C’est une seule personne</summary>
           <div class="acc__body">
-            Imortek, c’est Odin Loch, outilleur à Sydney. Il n’y a pas d’équipe, pas de trésorerie, et pas de plan de continuité au-delà du fait que tout est publié sous licence ouverte à mesure que c’est écrit. Si cela s’arrête, ce qui existe reste public et forkable. C’est la seule garantie qu’on puisse honnêtement offrir, c’est donc celle qui est offerte.
+            Imortek, c’est Odin Loch, outilleur à Sydney. Il n’y a pas d’équipe, pas d’argent d’investisseurs à dépenser, et pas de plan de continuité au-delà du fait que tout est publié sous licence ouverte à mesure que c’est écrit. Si cela s’arrête, ce qui existe reste public et forkable. C’est la seule garantie qu’on puisse honnêtement offrir, c’est donc celle qui est offerte.
           </div>
         </details>
         <details class="acc">
@@ -527,13 +523,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/chess.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
-      </a>
       <a class="card card--hover related__item" href="/fr/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — décompilateur à extraction de spécification</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — un modèle de séquences par réaction-diffusion</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Choisi par recoupement de termes avec cette page, non à la main — donc honnête sur ce qui est réellement proche, y compris quand rien ne l’est.</p>
@@ -605,7 +601,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-18T00:00:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

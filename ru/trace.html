@@ -148,17 +148,10 @@
         <span class="eyebrow">TRACE &middot; v0.2</span>
         <h1>Большинство трекеров останавливается на &ldquo;где&rdquo;. <span class="gradient-text">Этот идёт дальше.</span></h1>
         <p class="lede">
-          Tracking in the real world is never continuous. A vehicle goes behind a building, a
-          person walks out of camera range. Most systems treat that as the end of the track.
-          TRACE does not: it holds a track as a probability that something is still there rather
-          than a yes or no, so the track fades through the gap instead of ending at it, and can be
-          picked up again on the other side.
+          Слежение в реальном мире никогда не бывает непрерывным. Машина заходит за здание, человек выходит из поля зрения камеры. Большинство систем считают это концом трека. TRACE — нет: он держит трек как вероятность того, что объект всё ещё там, а не как «да» или «нет», поэтому трек гаснет сквозь разрыв, а не обрывается на нём, и его можно подхватить с другой стороны.
         </p>
         <p class="lede">
-          Nothing in the core knows what it is tracking. Cameras, ships, pallets, animals and
-          players are the same problem with a different profile. The MOT17 and MOT20 figures below
-          are Multiple Object Tracking Accuracy (MOTA), the single number the field uses for how
-          well a tracker did.
+          Ядро не знает, за чем оно следит. Камеры, корабли, паллеты, животные и игроки — одна и та же задача с разным профилем. Цифры MOT17 и MOT20 ниже — это точность слежения за множеством объектов (MOTA), то единственное число, которым в этой области измеряют, насколько хорошо отработал трекер.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#maze">Посмотреть его на лабиринте</a>
@@ -192,47 +185,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Sensors miss things. A camera does not catch everyone who walks past it, a ship can switch off
-          its transponder, a corridor may have no camera at all. Most trackers read &ldquo;not seen&rdquo;
-          as &ldquo;not there&rdquo;, so when the thing reappears it is logged as something new. Where has
-          it been, who has it met, is this normal for it &mdash; none of those can be answered any more.
+          Датчики пропускают. Камера ловит не каждого, кто проходит мимо, корабль может выключить транспондер, в коридоре камеры может не быть вовсе. Большинство трекеров читают &ldquo;не увиден&rdquo; как &ldquo;его нет&rdquo;, поэтому когда объект появляется снова, его записывают как новый. Где он был, с кем встречался, нормально ли это для него &mdash; ни на один из этих вопросов уже не ответить.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          TRACE keeps a number against each track for how likely it is that the thing is still there. A
-          missed sighting lowers that number and widens the area it could be in; it deletes nothing. The
-          track coasts on prediction, its uncertainty growing honestly, and when something turns up again
-          the engine decides whether it is the same one. Both demonstrations here let you push that until
-          it gets the decision wrong.
+          TRACE держит при каждом треке число: насколько вероятно, что объект всё ещё там. Пропущенное наблюдение снижает это число и расширяет область, где объект может быть; оно ничего не удаляет. Трек идёт по инерции на предсказании, его неопределённость честно растёт, а когда что-то появляется снова, движок решает, тот ли это самый. Обе демонстрации здесь позволяют давить на это, пока решение не станет неверным.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Anyone following things across more than one sensor, with gaps between them: a site whose
-          cameras do not cover every corridor, or maritime monitoring where a vessel can switch off its
-          transponder mid-voyage. The core does not know what it is tracking &mdash; cameras, ships,
-          pallets, animals and players are the same problem with a different profile. It takes detections
-          in; producing them is someone else&rsquo;s job.
+          Всем, кто ведёт объекты через несколько датчиков с разрывами между ними: площадка, чьи камеры покрывают не каждый коридор, или морской мониторинг, где судно может выключить транспондер посреди рейса. Ядро не знает, за чем оно следит &mdash; камеры, корабли, паллеты, животные и игроки — одна и та же задача с разным профилем. На вход идут детекции; получать их — чужая работа.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>A gap in the coverage is not the same as an absence.</strong> The rest of this page is
-      the engineering: the engine itself running in your browser on two scenarios, the benchmark
-      numbers, what it costs per track, and a plain list of what it does not do.
+      <strong>Разрыв в покрытии — это не отсутствие.</strong> Дальше на этой странице — инженерия: сам движок, работающий в вашем браузере на двух сценариях, цифры бенчмарков, во что обходится один трек, и простой список того, чего он не делает.
     </div>
   </div>
 </section>
@@ -262,9 +242,7 @@
             <span class="badge badge--violet" style="margin-bottom:10px">Существование</span>
             <h4 style="margin:0 0 6px">Bernoulli, а не булево значение</h4>
             <p class="small dim" style="margin:0">
-              A Poisson Multi-Bernoulli Mixture (PMBM) tracker over a 320-particle filter.
-              Existence is a probability that decays through misses and recovers on evidence, so
-              an occlusion costs confidence rather than identity.
+              Трекер на пуассоновской мульти-бернуллиевой смеси (PMBM) поверх фильтра на 320 частиц. Существование — это вероятность, которая убывает на пропусках и восстанавливается на свидетельствах, поэтому перекрытие стоит уверенности, а не личности.
             </p>
           </div>
           <div class="card">
@@ -449,10 +427,7 @@
       <span class="eyebrow eyebrow--violet">Сам движок</span>
       <h2>Судно выключает транспондер</h2>
       <p class="lede">
-        Satellite Automatic Identification System (AIS) coverage over an ocean basin. Five
-        vessels are in transit; one of them switches off its transponder mid-voyage and comes
-        back up later. Nothing reports it in between &mdash; no sensor, no detection, no
-        evidence of any kind.
+        Покрытие спутниковой автоматической идентификационной системы (AIS) над океанским бассейном. Пять судов в пути; одно из них выключает транспондер посреди рейса и включается позже. Между этим о нём не сообщает ничто &mdash; ни датчик, ни детекция, ни свидетельство любого рода.
       </p>
       <p class="lede">
         Посмотрите, что движок с этим делает. На первом же пропущенном скане оценка положения прыгает с нескольких сотен метров примерно до двенадцати километров, и трек идёт на одном прогнозе. Через несколько сканов он уходит в пул спящих, а не удаляется, и когда судно снова появляется, движку приходится решать, новое это или то, что он уже знает.
@@ -583,8 +558,7 @@
           </table>
         </div>
         <p class="small dim" style="margin-top:14px">
-          One core, Release build, Advanced Vector Extensions (AVX-512). Cost grows as about
-          n<sup>1.17</sup> &mdash; само отслеживание при этом держится ровно на 135&ndash;159 &micro;s на трек от десяти треков до четырёхсот, и читать это надо как &ldquo;важна константа, а показатель степени — нет&rdquo;.
+          Одно процессорное ядро, сборка Release, продвинутые векторные расширения (AVX-512). Стоимость растёт примерно как n<sup>1.17</sup> &mdash; само отслеживание при этом держится ровно на 135&ndash;159 &micro;s на трек от десяти треков до четырёхсот, и читать это надо как &ldquo;важна константа, а показатель степени — нет&rdquo;.
         </p>
       </div>
       <div>
@@ -592,7 +566,7 @@
           Было n<sup>1.82</sup> до тех пор, пока детектор сближения не перестал перестраивать прогноз распорядка жизни каждого трека по одному разу на пару. Это дало двадцатикратный выигрыш в константе и <em>не</em> дало лучшего показателя степени &mdash; у добавленного вместе с ним отсечения по пространственному индексу радиус был шире сцены, поэтому оно возвращало все пары и не делало ничего. Ограничение каждой пары её собственными двумя скоростями увело этот детектор с 56% движка до 44%, а показатель степени — почти к линейному.
         </p>
         <p class="dim">
-          На 400 одновременных треках это примерно 8 сканов в секунду на одном ядре: нормально для парка камер с 1 Гц, но не для 25 кадров/с без разбиения по рабочим процессам. На странице так написано, потому что так говорит бенчмарк.
+          На 400 одновременных треках это примерно 8 сканов в секунду на одном процессорном ядре: нормально для парка камер с 1 Гц, но не для 25 кадров/с без разбиения по рабочим процессам. На странице так написано, потому что так говорит бенчмарк.
         </p>
       </div>
     </div>
@@ -641,10 +615,9 @@
 <section class="section">
   <div class="wrap wrap-narrow" style="text-align:center">
     <span class="eyebrow" style="justify-content:center">Исходный код доступен</span>
-    <h2>The GNU Affero General Public License, with a commercial licence beside it</h2>
+    <h2>GNU Affero General Public License, и рядом с ней коммерческая лицензия</h2>
     <p class="lede">
-      AGPL-3.0+, and the same terms as everything else here: read it, run it, check it. If the
-      AGPL does not suit what you want to build, there is a tiered commercial licence.
+      AGPL-3.0+, и условия те же, что и у всего остального здесь: читайте, запускайте, проверяйте. Если AGPL не подходит под то, что вы хотите построить, есть многоуровневая коммерческая лицензия.
     </p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--primary" href="https://github.com/odin-loki/TRACE" target="_blank" rel="noopener">Читать исходники &rarr;</a>
@@ -745,7 +718,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

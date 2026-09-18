@@ -148,11 +148,7 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; préversion v1.0.0</span>
         <h1>Une seule bibliothèque C++23, de <span class="gradient-text">LU à la CFD</span></h1>
         <p class="lede">
-          Engineering software runs on heavy mathematics, and almost nobody writes their own.
-          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
-          hard to audit, hard to change, and hard to install where the build machine has no
-          internet. MathScript does the mathematics itself, from matrix arithmetic up to
-          fluid dynamics, in one C++ library with nothing to fetch.
+          Le logiciel d’ingénierie repose sur des mathématiques lourdes, et presque personne n’écrit les siennes. Il est cousu à partir des bibliothèques des autres et de plateformes payantes &mdash; difficile à auditer, difficile à modifier, et difficile à installer là où la machine de build n’a pas d’internet. MathScript fait les mathématiques lui-même, de l’arithmétique matricielle jusqu’à la dynamique des fluides, dans une seule bibliothèque C++ sans rien à télécharger.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Tracer et dériver en direct</a>
@@ -170,7 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Deux décisions qui façonnent tout</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>Noyaux matriciels intégrés.</strong> Les sous-programmes d’algèbre linéaire de base (BLAS) et la bibliothèque d’algèbre linéaire (LAPACK) sont implémentés ici plutôt que téléchargés : pas d’Eigen, pas d’OpenBLAS. <code translate="no">linalg</code> possède LU, QR, la décomposition en valeurs singulières (SVD), eig, Cholesky et les noyaux à la LAPACK, si bien que le déploiement est une compilation plutôt qu’une chasse aux dépendances.</li>
             <li><strong>Un sous-ensemble restreint de C++.</strong> Pas de pointeurs bruts, pas d’exceptions, pas de conversions non sûres &mdash; imposé à la compilation. Le code de production renvoie <code translate="no">Result&lt;T&gt;</code>, si bien que la gestion des erreurs est déterministe et visible dans le type.</li>
           </ul>
         </div>
@@ -183,49 +179,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En clair</span>
+      <h2>Ce que c’est, en une minute</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Le problème</span>
         <p class="small dim" style="margin:0">
-          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
-          are rarely written by the team shipping it. They arrive from a dozen outside
-          libraries and paid platforms that have to be fetched, licensed and trusted. When an
-          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
-          machine you may not be able to fetch them at all.
+          Contraintes, écoulements, signaux, risque &mdash; les calculs sous le logiciel d’ingénierie sont rarement écrits par l’équipe qui le livre. Ils arrivent d’une douzaine de bibliothèques extérieures et de plateformes payantes qu’il faut télécharger, licencier et croire sur parole. Quand une réponse semble fausse, le détail du calcul est dans le code de quelqu’un d’autre ; sur une machine de build scellée, vous ne pourrez peut-être même pas le télécharger.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solution</span>
         <p class="small dim" style="margin:0">
-          MathScript is one C++ library that does the mathematics itself: linear algebra,
-          statistics, differential equations, finite elements, fluid flow, optimisation and a
-          symbolic algebra system, across thirty-five static libraries. The matrix routines
-          most projects import from BLAS and LAPACK are written here instead. All 816 test
-          suites pass on the Windows build. v1.0.0 has not shipped yet.
+          MathScript est une seule bibliothèque C++ qui fait les mathématiques elle-même : algèbre linéaire, statistiques, équations différentielles, éléments finis, écoulement des fluides, optimisation et un système d’algèbre symbolique, répartis sur trente-cinq bibliothèques statiques. Les routines matricielles que la plupart des projets importent de BLAS et LAPACK sont écrites ici. Les 816 suites de tests passent toutes sur le build Windows. La v1.0.0 n’est pas encore sortie.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">À qui cela s’adresse</span>
         <p class="small dim" style="margin:0">
-          Teams whose build machines cannot reach the internet &mdash; defence, medical,
-          aerospace, banking &mdash; where every fetched dependency is another approval.
-          Products that do their real work in C++ and their mathematics in Python, and carry
-          two sets of problems for it. Teachers and students who want the method written out
-          where it can be read.
+          Les équipes dont les machines de build n’ont pas accès à internet &mdash; défense, médical, aérospatial, banque &mdash; où chaque dépendance téléchargée est une validation de plus. Les produits qui font leur vrai travail en C++ et leurs mathématiques en Python, et qui en portent les deux séries de problèmes. Les enseignants et les étudiants qui veulent la méthode écrite là où on peut la lire.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
-      argument, and the rest of this page is the evidence: what the thirty-five libraries
-      hold, why a failure comes back in the return type instead of as an exception, and
-      exactly what the test numbers cover.
+      <strong>Les mathématiques sont dans l’arbre, pas dans une liste de dépendances.</strong> C’est l’argument, et le reste de cette page en est la preuve : ce que contiennent les trente-cinq bibliothèques, pourquoi un échec revient dans le type de retour plutôt qu’en exception, et ce que couvrent exactement les chiffres des tests.
     </div>
   </div>
 </section>
@@ -234,12 +215,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Interactif</span>
-      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
+      <h2>Un système de calcul formel (CAS) symbolique, dans votre navigateur</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
-        differentiated symbolically, simplified, then evaluated numerically for the plot
-        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
-        visible interval.
+        Tapez une expression. Elle est découpée en jetons, analysée en arbre syntaxique abstrait (AST), dérivée symboliquement, simplifiée, puis évaluée numériquement pour le tracé &mdash; avec une intégrale par la règle de Simpson et une recherche de racines par bissection sur l’intervalle visible.
       </p>
     </div>
 
@@ -347,11 +325,7 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
-            build is 4.9 megabytes (MB), so this links only what these four calls reach. The
-            panel shows the library version and the vector Instruction Set Architecture (ISA)
-            the build reports.
+            Rien n’est téléchargé tant que vous n’appuyez pas sur charger, et ensuite c’est téléchargé une seule fois. Le module fait 113 kilooctets (Ko) de WebAssembly et 10 Ko de chargeur &mdash; le build complet de la bibliothèque fait 4,9 mégaoctets (Mo), donc on ne lie ici que ce que ces quatre appels atteignent. Le panneau affiche la version de la bibliothèque et l’architecture de jeu d’instructions (ISA) vectorielle que le build rapporte.
           </p>
         </div>
         <div class="demo__side">
@@ -381,9 +355,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>La ligne ISA, c’est la bibliothèque qui dit la vérité sur elle-même.</strong> Elle appelle
-            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
-            one vector ISA and it says so.
+            <code translate="no">ms::detect_isa()</code>, le même appel qu’elle fait en natif. Sur votre poste, ça répond avec l’une des Advanced Vector Extensions (AVX2 ou AVX-512) ; ici il n’y a qu’un seul ISA vectoriel, et elle le dit.
           </div>
         </div>
       </div>
@@ -400,12 +372,7 @@
       <span class="eyebrow">Périmètre</span>
       <h2>Trente-cinq bibliothèques statiques, six domaines</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics and Machine Learning
-        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
-        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
-        signal and image processing, number theory, graphs, geometry, topology, quantum
-        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
-        eigensolvers and Cholesky written in-tree.
+        Algèbre linéaire dense et creuse, fonctions spéciales, statistiques et apprentissage automatique (ML). Équations différentielles ordinaires (EDO) et équations aux dérivées partielles (EDP), méthode des éléments finis (FEM) et mécanique des fluides numérique (CFD). Optimisation, traitement du signal et de l’image, théorie des nombres, graphes, géométrie, topologie, primitives quantiques, contrôle, finance, compression &mdash; et un CAS symbolique. Avec LU, QR, SVD, solveurs de valeurs propres et Cholesky intégrés.
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="Six domaines de bibliothèques — systèmes de base, numérique, statistiques et apprentissage automatique, appliqué, symbolique et spécialisé — sur un rail de base Result<T> sans exceptions ni pointeurs bruts" loading="lazy" decoding="async"></div><span class="diagram__hint">faites défiler pour voir tout le schéma &rarr;</span><figcaption><b>Trente-cinq bibliothèques, une seule convention d’erreur.</b> Le rail en dessous est l’essentiel : l’échec est dans le type de retour, pas dans une exception que vous trouvez en haut de la pile.</figcaption></figure>
@@ -442,9 +409,7 @@
         <span class="eyebrow">Surface livrée</span>
         <h3>Trois exécutables, tout le reste en option</h3>
         <p class="small dim" style="margin-top:12px">
-          Everything past the three executables is a build option &mdash; a Qt Graphical User
-          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
-          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+          Tout ce qui dépasse les trois exécutables est une option de build &mdash; une interface graphique utilisateur (GUI) Qt, CUDA, l’interface de passage de messages (MPI), et un compilateur juste-à-temps (JIT) bâti sur la couche On-Request Compilation (ORC) de LLVM.
         </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">Compilateur / moteur par lots</span></div>
@@ -457,9 +422,7 @@
         <span class="eyebrow">Vérification</span>
         <h3>Ce que valent 816 suites</h3>
         <p class="small dim" style="margin-top:12px">
-          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
-          Microsoft Visual C++ (MSVC) on Windows and the GNU Compiler Collection (GCC) 13 on
-          Linux.
+          La matrice d’intégration continue (CI) derrière les contrôles ci-dessous couvre deux compilateurs : Microsoft Visual C++ (MSVC) sous Windows et la GNU Compiler Collection (GCC) 13 sous Linux.
         </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
@@ -555,9 +518,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — une architecture d’IA issue des premiers principes</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/aegis.html">
+      <a class="card card--hover related__item" href="/fr/sentinel.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — transport masquant les métadonnées pour consortiums</h3>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — analyse criminelle et pistes d’enquête</h3>
       </a>
       <a class="card card--hover related__item" href="/fr/trace.html">
         <div class="card__glow"></div>
@@ -633,7 +596,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-18T00:00:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

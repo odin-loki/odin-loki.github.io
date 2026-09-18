@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>Декомпилятор, который восстанавливает <span class="gradient-text">алгоритм</span>, а не только код</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          Организациям часто нужно понять софт, исходников к которому нет: старая система, купленный компонент, файл, который откуда-то пришёл и выглядит подозрительно. Инструменты, превращающие машинный код обратно в читаемые шаги, уже есть. RetDec Imortek пытается пойти на шаг дальше и назвать эти шаги &mdash; вот тут улучшенный стандарт шифрования (AES), тут сортировка, а тут упаковка данных для отправки.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Поднять байты до названного алгоритма</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          Софт поставляется в виде, который читает машина, а человек — нет. Когда исходников нет &mdash; поставщик исчез, в договоре их не было, файл пришёл от того, кому вы не доверяете &mdash; никто не скажет, что программа на самом деле делает. Проверять вручную — значит читать машинные инструкции по одной.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          Он разбирает скомпилированный файл и восстанавливает из него C: все 216 бинарников в тестовом корпусе возвращаются собираемым C. Потом он берётся за смысл &mdash; какая криптография, какая сортировка, какая многопоточность, какой формат файла &mdash; и сообщает, как часто это удаётся, включая случай, когда почти не удаётся.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          Командам безопасности, разбирающим вредоносное ПО, которым ответ нужен раньше кода. Компаниям, у которых работает софт без исходников и которым нужно его описание, прежде чем что-то безопасно переписать или заменить. Всем, кто застрял с форматом файла, который никто не документировал &mdash; старые записи, станок, который говорит только со своим софтом.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>Назвать алгоритм — трудная часть, и обе цифры по ней приведены здесь.</strong>
+      Если у бинарника остались собственные метки, детектор с ними согласен; если метки сняты, он близок к угадыванию. Дальше на этой странице — инженерия: что добавлено, как это измерено и где оно проваливается.
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Дизассемблировать</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            791 килобайт (КБ), потому что настоящий декодер x86 несёт весь набор инструкций &mdash; каждую кодировку, каждый префикс, каждое расширение. Это честный размер этой штуки.
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>Это декодер, а не декомпилятор.</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>Это декодер, а не декомпилятор.</strong> Ступени выше &mdash; подъём в промежуточное представление (IR) LLVM, структурирование потока управления, называние алгоритма &mdash; это работа LLVM, а LLVM не помещается в веб-страницу ни в каком размере. Утверждать обратное было бы самой лёгкой ложью на этом сайте.
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">Фронтенд</span>
       <h2>Нативные форматы, байт-код и новые форматы</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        Вывод зависит от формата, потому что делать вид, будто всё декомпилируется в C, никому не помогает. Фронтенд принимает нативные бинарники в формате исполняемых и компонуемых файлов (ELF), переносимых исполняемых файлов (PE) и Mach-O; байт-код, включая class-файлы виртуальной машины Java (JVM), исполняемые файлы Dalvik (DEX) и общий промежуточный язык (CIL); и новые цели вроде параллельного исполнения потоков (PTX) из CUDA.
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">Новые</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly преобразуется в текстовый формат WebAssembly (WAT). PTX обрабатывается как полноценный вход, а не как довесок.</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Рантайм</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> снова проступает из схемы выделения памяти.</p></div>
+        <p class="small dim" style="margin:0">Контейнеры стандартной библиотеки шаблонов (STL) и структуры среды выполнения C++ &mdash; форма <code translate="no">std::vector</code> снова проступает из схемы выделения памяти.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Криптография</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES, семейство защищённых алгоритмов хеширования (SHA), ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) и примитивы на эллиптических кривых, опознаваемые по константам и структуре раундов.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сортировка и поиск</span>
         <p class="small dim" style="margin:0">Introsort, сортировка слиянием, двоичный поиск &mdash; включая переключение по пределу глубины, которое выдаёт introsort.</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Графы</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">Алгоритмы на графах плюс шаблоны обхода: поиск в ширину (BFS) и поиск в глубину (DFS).</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Параллелизм</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) и сырые атомарные операции.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Сериализация</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">Обрамление Protobuf, FlatBuffers, MessagePack, нотации объектов JavaScript (JSON) и расширяемого языка разметки (XML).</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>Метрика</th><th class="num">Результат</th><th>Условие</th></tr></thead>
             <tbody>
               <tr><td>Собираемый вывод на C</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, включён по умолчанию</td></tr>
-              <tr><td>F1 восстановления алгоритмов</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>F1 восстановления алгоритмов</td><td class="num">0.056</td><td class="muted">Без имён, 95% доверительный интервал 0,034&ndash;0,083</td></tr>
               <tr><td>F1 восстановления алгоритмов</td><td class="num">1.000</td><td class="muted">С подсказкой по именам, бинарники с символами</td></tr>
               <tr><td>Стандартный <code translate="no">.c</code> перекомпилируется</td><td class="num">Нет</td><td class="muted">Ни этот форк, ни исходный RetDec</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>Читайте эти два числа F1 вместе.</strong> 1,000 с символами означает, что детектор согласен с таблицей символов. 0,056 без них означает, что структурное восстановление на очищенных бинарниках сегодня близко к полу. Приводить только первое было бы маркетингом; приводить только второе значило бы скрыть, что конвейер работает, когда ему есть от чего оттолкнуться.
+          <strong>Читайте эти два числа F1 вместе.</strong> 1,000 с символами означает, что детектор согласен с таблицей символов. 0,056 без них означает, что структурное восстановление на очищенных бинарниках сегодня близко к угадыванию. Приводить только первое было бы маркетингом; приводить только второе значило бы скрыть, что конвейер работает, когда ему есть от чего оттолкнуться.
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">Интерфейс</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Графический интерфейс пользователя (GUI) на Qt 6 или без него</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          Синхронизированные виды кода по C, ассемблеру, IR и графам потока управления, с навигацией по функциям, просмотром строк, обозревателем бинарника и панелью ассистента. Безголовый режим убирает все зависимости GUI, поэтому та же сборка работает в непрерывной интеграции (CI).
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">Двойное лицензирование</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            GNU Affero General Public License (AGPL-3.0+) для открытого использования или коммерческая лицензия для проприетарного развёртывания. Copyright Odin Loch, торговое наименование Imortek, 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
             Готово к поставке на v2.0.21. Барьеры CI отражают стандарты разработки, а не промышленной зрелости &mdash; это заявлено самим проектом, а не выведено со стороны.
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

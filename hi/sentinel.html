@@ -148,11 +148,7 @@
         <span class="eyebrow">SENTINEL &middot; चरण 1&ndash;2 पूरे</span>
         <h1>जाँच के ऐसे सूत्र, जिन्हें <span class="gradient-text">पीछे तक खोजा जा सके</span></h1>
         <p class="lede">
-          Investigators are rarely short of data. What is hard is finding the pattern inside
-          thousands of records that look unremarkable one at a time. SENTINEL is a desktop tool that
-          reads public crime data, runs the statistics over it and ranks what is worth a closer
-          look &mdash; and every result traces back to the exact records, model and settings it came
-          from. If an analyst cannot show why a lead ranked where it did, it should not be a lead.
+          जाँचकर्ताओं के पास डेटा की कमी शायद ही होती है। मुश्किल यह है कि हज़ारों ऐसे रिकॉर्डों के भीतर पैटर्न ढूँढा जाए जो एक-एक करके देखने पर मामूली लगते हैं। SENTINEL एक डेस्कटॉप औज़ार है जो सार्वजनिक अपराध डेटा पढ़ता है, उस पर सांख्यिकी चलाता है और यह क्रम में रखता है कि किस पर क़रीब से नज़र डालने लायक़ है &mdash; और हर नतीजा ठीक उन्हीं रिकॉर्डों, मॉडल और सेटिंग तक पीछे खोजा जा सकता है जिनसे वह आया। अगर कोई विश्लेषक यह न दिखा सके कि कोई सूत्र जिस जगह है वहाँ क्यों है, तो वह सूत्र होना ही नहीं चाहिए।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">एक हॉटस्पॉट मॉडल बनाइए</a>
@@ -160,7 +156,7 @@
         </div>
         <div class="phero__meta">
           <div class="phero__meta-item">भाषा<b data-gh-repo="SENTINEL" data-gh-field="language">C++23</b></div>
-          <div class="phero__meta-item">User Interface (UI)<b>Qt 6, 9-पृष्ठ डैशबोर्ड</b></div>
+          <div class="phero__meta-item">यूज़र इंटरफ़ेस (UI)<b>Qt 6, 9-पृष्ठ डैशबोर्ड</b></div>
           <div class="phero__meta-item">परीक्षण<b>495 स्वचालित</b></div>
           <div class="phero__meta-item">भंडारण<b>SQLite</b></div>
           <div class="phero__meta-item">आख़िरी पुश<b data-gh-repo="SENTINEL" data-gh-field="updated">हाल ही में</b></div>
@@ -185,45 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">सीधी-सादी भाषा में</span>
+      <h2>यह क्या है, एक मिनट में</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
         <p class="small dim" style="margin:0">
-          A burglary, a theft from a car, an insurance claim. Each one is unremarkable on its own, and
-          what connects them only shows up when somebody lines hundreds of them up and looks. That is slow
-          work by hand, and the analytics contracts that do it at scale are priced out of reach of most
-          forces.
+          एक सेंधमारी, गाड़ी से हुई एक चोरी, बीमे का एक दावा। अकेले-अकेले हर एक मामूली है, और इन्हें जोड़ने वाली बात तभी सामने आती है जब कोई सैकड़ों को क़तार में रखकर देखे। हाथ से यह धीमा काम है, और जो विश्लेषण अनुबंध इसे बड़े पैमाने पर करते हैं, उनकी क़ीमत ज़्यादातर पुलिस बलों की पहुँच से बाहर है।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">समाधान</span>
         <p class="small dim" style="margin:0">
-          SENTINEL reads the records in and runs established statistical models over them: where crime is
-          dense, which incidents look like one series rather than many, which area a series was most likely
-          run from. It ranks what is worth a closer look. Every stage writes down what it did, so a lead
-          arrives carrying its source records, the model and the settings behind it.
+          SENTINEL रिकॉर्ड पढ़कर उन पर जमे-जमाए सांख्यिकीय मॉडल चलाता है: अपराध कहाँ घना है, कौन-सी घटनाएँ कई नहीं बल्कि एक ही शृंखला लगती हैं, कोई शृंखला किस इलाक़े से चलाई गई होगी। वह यह क्रम में रखता है कि किस पर क़रीब से नज़र डालने लायक़ है। हर चरण अपना किया हुआ लिख देता है, इसलिए हर सूत्र अपने साथ अपने स्रोत रिकॉर्ड, मॉडल और सेटिंग लेकर आता है।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
         <p class="small dim" style="margin:0">
-          Smaller and regional forces, where the large analytics contracts are out of reach &mdash; this
-          runs on one ordinary desktop computer and is built for a single analyst rather than a department.
-          Fraud and repeat-offender investigators, where the pattern sits across incidents nobody filed
-          together. Researchers, who can retrace any result to the records that produced it.
+          छोटे और क्षेत्रीय पुलिस बल, जिनकी पहुँच बड़े विश्लेषण अनुबंधों तक नहीं &mdash; यह एक आम डेस्कटॉप कंप्यूटर पर चलता है और किसी विभाग के लिए नहीं, एक अकेले विश्लेषक के लिए बना है। धोखाधड़ी और बार-बार अपराध करने वालों की जाँच करने वाले, जहाँ पैटर्न उन घटनाओं में बिखरा होता है जिन्हें किसी ने साथ दर्ज ही नहीं किया। शोधकर्ता, जो किसी भी नतीजे को उन्हीं रिकॉर्डों तक पीछे खोज सकते हैं जिनसे वह निकला।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>It points an analyst at something worth checking. It does not decide anything about a
-      person.</strong> The rest of this page is the engineering: two of the real models running in
-      your browser, the pipeline that feeds them, what works today, and what does not.
+      <strong>यह विश्लेषक को उस चीज़ की ओर इशारा करता है जिसे जाँचना चाहिए। यह किसी व्यक्ति के बारे में कुछ तय नहीं करता।</strong> इस पृष्ठ का बाक़ी हिस्सा इंजीनियरिंग है: आपके ब्राउज़र में चलते असली मॉडलों में से दो, उन्हें खिलाने वाली पाइपलाइन, आज क्या काम करता है, और क्या नहीं।
     </div>
   </div>
 </section>
@@ -253,8 +238,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="snw-clear">साफ़ करें</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            2.4 megabytes (MB) because Qt6Core comes with it. That is the honest cost of running the real
-            model rather than a lookalike, and nothing downloads until you ask.
+            2.4 मेगाबाइट (MB), क्योंकि Qt6Core साथ आता है। किसी नक़ल के बजाय असली मॉडल चलाने की ईमानदार क़ीमत यही है, और जब तक आप न कहें, कुछ भी डाउनलोड नहीं होता।
           </p>
         </div>
         <div class="demo__side">
@@ -285,7 +269,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">पाइपलाइन</span>
-      <h2>Ingest &rarr; Natural Language Processing (NLP) &rarr; features &rarr; models &rarr; inference</h2>
+      <h2>इनजेस्ट &rarr; प्राकृतिक भाषा प्रसंस्करण (NLP) &rarr; फ़ीचर &rarr; मॉडल &rarr; इन्फ़रेंस</h2>
       <p class="lede">हर चरण अपना किया हुआ उत्पत्ति-श्रृंखला में लिख देता है, इसलिए आख़िर में मिलने वाला सूत्र अपने साथ यह रिकॉर्ड लाता है कि वह वहाँ तक पहुँचा कैसे।</p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/sentinel-pipeline.svg" alt="SENTINEL की पाइपलाइन: इनजेस्ट से होकर नियम-आधारित NLP, सांख्यिकीय मॉडल और इन्फ़रेंस तक, और वहाँ से क्रम में लगे सूत्रों तक, जिसमें हर चरण से जुड़ी एक उत्पत्ति-पटरी है" loading="lazy" decoding="async"></div><span class="diagram__hint">पूरा आरेख देखने के लिए स्क्रॉल करें &rarr;</span><figcaption><b>नीचे की पटरी ही उत्पाद है।</b> हर चरण अपना किया हुआ उत्पत्ति-श्रृंखला में लिख देता है, इसलिए सूत्र इस रिकॉर्ड के साथ आता है कि वह वहाँ तक पहुँचा कैसे।</figcaption></figure>
@@ -293,13 +277,13 @@
     <div class="grid grid-4">
       <div class="card card--hover reveal"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">इनजेस्ट</span>
-        <p class="small dim" style="margin:0">UK Police Application Programming Interface (API) and historical feeds, Comma-Separated Values (CSV) import with auto-detected UK / US-city / generic layouts, weather via Open-Meteo, and data-quality scoring with quarantine thresholds.</p></div>
+        <p class="small dim" style="margin:0">UK पुलिस का अनुप्रयोग प्रोग्रामिंग इंटरफ़ेस (API) और ऐतिहासिक फ़ीड, अल्पविराम-पृथक मान (CSV) आयात, जिसमें UK / US-शहर / सामान्य लेआउट अपने आप पहचाने जाते हैं, Open-Meteo से मौसम, और क्वारंटीन सीमाओं के साथ डेटा-गुणवत्ता का अंकन।</p></div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">NLP</span>
         <p class="small dim" style="margin:0">शास्त्रीय, नियम-आधारित तरीक़े से modus operandi निकालना और अपराध का वर्गीकरण। लूप में कोई भाषा मॉडल नहीं &mdash; जान-बूझकर, क्योंकि आउटपुट ऐसा होना चाहिए जिसे समझाया जा सके।</p></div>
       <div class="card card--hover reveal" data-delay=".08"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">मॉडल</span>
-        <p class="small dim" style="margin:0">Poisson counts, Hawkes self-exciting processes, series detection by Density-Based Spatial Clustering of Applications with Noise (DBSCAN), KDE hotspots, Gaussian process regression, Bayesian and ensemble layers.</p></div>
+        <p class="small dim" style="margin:0">पॉइसों गणनाएँ, हॉक्स की स्व-उत्तेजक प्रक्रियाएँ, शोर के साथ अनुप्रयोगों का घनत्व-आधारित स्थानिक क्लस्टरिंग (DBSCAN) से शृंखला की पहचान, KDE हॉटस्पॉट, गाउसी प्रक्रिया प्रतिगमन, बेयेसीय और समूह परतें।</p></div>
       <div class="card card--hover reveal" data-delay=".12"><div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">इन्फ़रेंस</span>
         <p class="small dim" style="margin:0">रॉसमो भौगोलिक प्रोफ़ाइलिंग, MO विश्लेषण, सबूत का अंकन, विसंगति पहचान, साथ-अपराध का PageRank और समुदाय पहचान, और संकेत इंजन।</p></div>
@@ -400,7 +384,7 @@
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>495 स्वचालित परीक्षण</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>UK और US डेटासेट पर असली डेटा से मान्यकरण</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Windows और Linux के लिए पैकेजिंग</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Local read-only Representational State Transfer (REST) API</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>स्थानीय, सिर्फ़-पढ़ने वाला प्रातिनिधिक स्थिति अंतरण (REST) API</span></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>नौ पृष्ठों का डैशबोर्ड: घटनाएँ, नक़्शा, अंशांकन, मामले, साथ-अपराध का ग्राफ़, सूत्र, ऑडिट लॉग, सेटिंग, डीबग</span></li>
         </ul>
       </div>
@@ -411,7 +395,7 @@
           <li><strong>सिर्फ़ नियम-आधारित NLP।</strong> modus operandi निकालना शास्त्रीय तरीक़े से होता है, और उसकी रिकॉल की सीमाएँ भी साथ आती हैं।</li>
           <li><strong>एक ही मशीन का डेस्कटॉप।</strong> कोई बहु-उपयोक्ता तैनाती नहीं, विश्लेषकों के बीच मामले की कोई साझा हालत नहीं।</li>
           <li><strong>जीवित कनेक्टर थोड़े ही हैं।</strong> वास्तविक-समय के गिने-चुने डेटा स्रोत ही जुड़े हुए हैं।</li>
-          <li><strong>नक़्शा बुनियादी है।</strong> Custom-rendered, not a Geographic Information System (GIS). Optional GIS integration is a Phase 3&ndash;5 item.</li>
+          <li><strong>नक़्शा बुनियादी है।</strong> ख़ुद बनाया गया, कोई भौगोलिक सूचना प्रणाली (GIS) नहीं। वैकल्पिक GIS एकीकरण चरण 3&ndash;5 की चीज़ है।</li>
         </ul>
         <h3 style="margin-top:2rem;font-size:1.05rem">चरण 3&ndash;5, योजना में</h3>
         <p class="small dim">
@@ -482,17 +466,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — मूल सिद्धांतों से बनी एक AI संरचना</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/aegis.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट</h3>
-      </a>
-      <a class="card card--hover related__item" href="/hi/pbsd.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
-      </a>
       <a class="card card--hover related__item" href="/hi/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — एक अभिक्रिया-विसरण अनुक्रम मॉडल</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cypha के ख़िलाफ़ शतरंज खेलिए</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -564,7 +548,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; Phase 8 terminée</span>
         <h1>Le chiffrement cache ce que vous avez dit. <span class="gradient-text">Ceci cache que vous avez parlé.</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          Le chiffrement garde privé le contenu d’un message. Il ne cache pas que le message a eu lieu. Un observateur qui surveille le réseau voit toujours qui parle à qui, quand, et combien de kilooctets (Ko) ont circulé &mdash; ce qui, dans un contexte sensible, peut compter autant que les mots. AEGIS maintient le trafic entre les membres d’un groupe fermé à débit constant, qu’il y ait quelque chose à envoyer ou non, si bien que le rythme et le volume ne portent aucun signal.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Lancer l’attaque par corrélation</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En clair</span>
+      <h2>Ce que c’est, en une minute</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Le problème</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          Qui peut observer le réseau n’a pas besoin de casser le chiffrement. Il voit qu’un point a émis 14 Ko à 09:41:03 et qu’un autre a reçu 14 Ko trois secondes plus tard, et que la même chose se produit deux fois par jour pendant onze semaines. Répété assez souvent, c’est une carte de qui travaille avec qui, dessinée sans lire un seul message.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solution</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          AEGIS fait en sorte que le fil ait toujours la même allure. Le trafic sort à débit constant qu’il y ait quelque chose à envoyer ou non, et ce qui arrive est rempli jusqu’à une taille fixe, si bien qu’il n’y a pas de rafale d’un côté à faire correspondre à une rafale de l’autre. Ça coûte de la bande passante et ça ajoute du délai ; la démonstration ci-dessous montre la protection et son prix côte à côte.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">À qui cela s’adresse</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          Les rédactions et quiconque protège une source, où l’heure et la taille d’un contact sont ce qui expose une personne. Les banques, les assureurs et les fédérations professionnelles qui se concurrencent et doivent tout de même échanger des données. Les organisations qui partagent des alertes d’attaque, où être vu en train de partager peut être en soi la partie sensible.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>Cacher le contenu, c’est la moitié la plus facile.</strong> Cacher le motif, c’est la partie qui demande l’ingénierie ci-dessous : la menace en entier, une attaque que vous pouvez lancer vous-même contre les deux configurations, les chiffres des tests, et là où les garanties s’arrêtent.
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Preuves</span>
       <h2>Huit phases, chacune derrière un contrôle d’équipe rouge</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">L’implémentation est complète jusqu’à la phase 8, le durcissement. Voici les chiffres que rapporte le dépôt : le fuzzing a tourné sous Windows Subsystem for Linux (WSL), et le testnet sur de vraies sockets du protocole de contrôle de transmission (TCP).</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">Vecteurs de test cryptographiques</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>Hygiène du dépôt :</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>Hygiène du dépôt :</strong> Intégration continue (CI) sur GitHub Actions,
       <code translate="no">cargo deny</code> et une politique à l’échelle du workspace interdisant le code unsafe. Pour une pile réseau Rust qui traite des entrées hostiles, <code translate="no">#![forbid(unsafe_code)]</code> sur tout le workspace est la ligne la plus porteuse du projet.
     </div>
   </div>
@@ -468,17 +452,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
       </a>
+      <a class="card card--hover related__item" href="/fr/retdec.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — décompilateur à extraction de spécification</h3>
+      </a>
       <a class="card card--hover related__item" href="/fr/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analyse criminelle et pistes d’enquête</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/chess.html">
+      <a class="card card--hover related__item" href="/fr/cellai.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Jouez aux échecs contre Cypha</h3>
-      </a>
-      <a class="card card--hover related__item" href="/fr/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — décompilateur à extraction de spécification</h3>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — un modèle de séquences par réaction-diffusion</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Choisi par recoupement de termes avec cette page, non à la main — donc honnête sur ce qui est réellement proche, y compris quand rien ne l’est.</p>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-18T00:00:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">अभियान</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">शुरू हुआ</span><span class="spec__v">13 सितंबर 2026</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">बंद होगा</span><span class="spec__v">12 नवंबर 2026</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">लक्ष्य</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">लक्ष्य</span><span class="spec__v">10,000 ऑस्ट्रेलियाई डॉलर (AUD)</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">फ़ंडिंग का मॉडल</span><span class="spec__v">सब या कुछ नहीं &mdash; 60 दिन</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">मक़सद</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">मक़सद</span><span class="spec__v">कृत्रिम बुद्धिमत्ता (AI) क्रेडिट और सत्यापन के लिए कंप्यूट</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">परियोजना</span><span class="spec__v"><a href="/hi/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">ढाँचा</span><span class="spec__v">दान, और साथ में AUD 10,000 वाला एक फ़ीचर-अनुरोध इनाम</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">लाइसेंस</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">लाइसेंस</span><span class="spec__v">GNU Affero जनरल पब्लिक लाइसेंस (AGPL-3.0+); HardenedBSD से निकले कोड के लिए बर्कले सॉफ़्टवेयर डिस्ट्रिब्यूशन (BSD)</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             लक्ष्य अभियान भर तय रहता है, इसलिए वह यहाँ लिखा है। जमा हुई राशि और समर्थकों की गिनती तय नहीं रहती, इसलिए वे यहाँ नहीं हैं &mdash; किसी स्थिर पृष्ठ पर टाइप किया गया चलता जोड़ लिखे जाते ही ग़लत हो जाता है। दोनों अभियान पर हैं, लाइव।
@@ -209,11 +209,7 @@
           एक हार्डन्ड BSD को हाथ से C++23 में पोर्ट करना दस साल का पूर्णकालिक काम है। यह उस तरह का काम भी है जहाँ भाषा मॉडल सचमुच काम आता है &mdash; यांत्रिक अनुवाद, जिसे जाँचने के लिए एक सख़्त विनिर्देश मौजूद है, और यह इस तकनीक के लिए लगभग सबसे अनुकूल हालत है।
         </p>
         <p class="dim">
-          The design already reflects that. Deterministic rewrite passes handle everything they
-          safely can, for free. Models are used only on the residue: stubbed inventory entries
-          and the files the deterministic passes refused. Every model output then goes through
-          compile, ASan, UBSan, differential execution and a comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR) before it counts.
+          डिज़ाइन में यह बात पहले से है। नियतात्मक पुनर्लेखन के चरण जितना सुरक्षित ढंग से कर सकते हैं, उतना मुफ़्त में कर देते हैं। मॉडल सिर्फ़ बचे हुए हिस्से पर लगाए जाते हैं: सूची की स्टब प्रविष्टियाँ और वे फ़ाइलें जिन्हें नियतात्मक चरणों ने मना कर दिया। फिर मॉडल का हर आउटपुट गिना जाने से पहले कंपाइल, ASan, UBSan, विभेदक निष्पादन और कंपाइलर के मध्यवर्ती निरूपण (IR) के स्तर पर तुलना से गुज़रता है।
         </p>
         <p class="dim">
           वह सत्यापन न वैकल्पिक है, न सस्ता। हर फ़ाइल पर कोशिश होती है, जाँच होती है, अक्सर वह ख़ारिज होती है और फिर से कोशिश होती है। ख़र्च लूप में है, किसी एक पास में नहीं &mdash; और लूप ही वह चीज़ है जो मॉडल के आउटपुट को ऐसी चीज़ में बदलती है जिसे सुरक्षा-केंद्रित ऑपरेटिंग सिस्टम सचमुच भेज सके।
@@ -232,7 +228,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>एजेंट पोर्ट ड्राइवर, वर्कर पूल और एस्केलेशन के साथ</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>कंपाइल, सैनिटाइज़र, विभेदक और IR सत्यापन के पहरे</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>उत्पत्ति-श्रृंखला का हिसाब, ताकि लाइसेंस की सीमाएँ जाँची जा सकें</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>कैपेबिलिटी नाभिक का डिज़ाइन और कर्नेल C++ अनुप्रयोग बाइनरी इंटरफ़ेस (ABI) का विनिर्देश</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             यह सब अभी रिपॉज़िटरी में है, एक खुले लाइसेंस के अंतर्गत, चाहे इस अभियान को पैसा मिले या न मिले। कुछ भी तय करने से पहले आप इस पृष्ठ के हर दावे को स्रोत के विरुद्ध जाँच सकते हैं।
@@ -473,7 +469,7 @@
         <details class="acc">
           <summary>यह एक ही आदमी है</summary>
           <div class="acc__body">
-            Imortek यानी Odin Loch, जो सिडनी में टूलमेकर का काम करता है। कोई टीम नहीं, कोई रनवे नहीं, और निरंतरता की कोई योजना नहीं, सिवाय इसके कि जो कुछ लिखा जाता है, वह लिखे जाते ही खुले लाइसेंस पर प्रकाशित हो जाता है। अगर यह रुक गया, तो जो मौजूद है वह सार्वजनिक रहेगा और उसे फ़ोर्क किया जा सकेगा। ईमानदारी से बस यही एक गारंटी दी जा सकती है, इसलिए यही दी जा रही है।
+            Imortek यानी Odin Loch, जो सिडनी में टूलमेकर का काम करता है। न कोई टीम है, न ख़र्च करने को निवेशकों का पैसा, और आगे चलते रहने की कोई योजना भी नहीं, सिवाय इस बात के कि सब कुछ लिखे जाने के साथ-साथ एक खुले लाइसेंस के अंतर्गत प्रकाशित होता जाता है। अगर यह रुक गया, तो जो मौजूद है वह सार्वजनिक रहेगा और उसका फ़ोर्क बनाया जा सकेगा। ईमानदारी से यही एक गारंटी दी जा सकती है, इसलिए यही दी जा रही है।
           </div>
         </details>
         <details class="acc">
@@ -527,13 +523,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
       </a>
+      <a class="card card--hover related__item" href="/hi/retdec.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — विनिर्देश निकालने वाला डीकंपाइलर</h3>
+      </a>
       <a class="card card--hover related__item" href="/hi/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
-      </a>
-      <a class="card card--hover related__item" href="/hi/aegis.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">इस पृष्ठ के शब्दों से मेल के आधार पर चुना गया, हाथ से नहीं — इसलिए यह ईमानदारी से बताता है कि वास्तव में क्या निकट है, और यह भी कि कब कुछ भी स्पष्ट रूप से निकट नहीं है।</p>
@@ -605,7 +601,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

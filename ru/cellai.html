@@ -145,16 +145,10 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
+        <span class="eyebrow eyebrow--violet">Искусственный интеллект (ИИ) &middot; исследовательский журнал Cell AI</span>
         <h1>Модель последовательностей, которая <span class="gradient-text">честно хуже</span></h1>
         <p class="lede">
-          A language model built on a completely different mechanism &mdash; closer to chemistry
-          spreading across a surface than to the attention maths everything else uses. It performs
-          worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on perplexity (PPL), the standard measure, against Generative
-          Pre-trained Transformer 2 (GPT-2) as the baseline, and printed on this page rather than
-          in a footnote. It is published as a research log because a documented failure is worth
-          something and a deleted one is not.
+          Языковая модель на совсем другом механизме &mdash; ближе к химии, растекающейся по поверхности, чем к математике внимания, на которой стоит всё остальное. Она работает хуже трансформера, и её собственная первая страница это говорит. Не слегка хуже: на четыре порядка по перплексии (PPL), стандартной мере, против эталона в виде генеративного предобученного трансформера 2 (GPT-2) — и напечатано это здесь, а не в сноске. Она опубликована как исследовательский журнал, потому что задокументированная неудача чего-то стоит, а удалённая — нет.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Запустить поле реакции-диффузии</a>
@@ -187,46 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">Простыми словами</span>
+      <h2>Что это такое за минуту</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Проблема</span>
         <p class="small dim" style="margin:0">
-          Almost every AI that handles language is built on the same idea: let every word look at
-          every other word. It works. Nobody knows how much of that is because it is the best idea
-          available and how much is because it is the one everybody tried.
+          Почти весь ИИ, работающий с языком, построен на одной идее: пусть каждое слово смотрит на каждое другое. Это работает. Никто не знает, насколько это потому, что идея лучшая из доступных, и насколько потому, что её попробовали все.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">Решение</span>
         <p class="small dim" style="margin:0">
-          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
-          across a surface, the way stripes form on an animal, with the connections changing while
-          it reads rather than afterwards. It was then trained at full size and measured. It came
-          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
-          line in an appendix.
+          Cell AI убирает это и ставит другое: два вещества, растекающиеся и реагирующие по поверхности, так же как на животном возникают полосы, причём связи меняются прямо во время чтения, а не после. Затем модель обучили в полном размере и измерили. Вышло на четыре порядка хуже GPT-2. Это заголовок этой страницы, а не строчка в приложении.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Кому это нужно</span>
         <p class="small dim" style="margin:0">
-          Researchers who want to know what happens down the road nobody took. Scientists who
-          already model living systems, because the mechanism underneath is the one that makes
-          patterns in chemistry and markings on animals. Teachers, because published research is
-          almost all successes, and a careful account of a failure is rarer and more useful.
+          Исследователям, которые хотят знать, что лежит на дороге, по которой никто не пошёл. Учёным, которые уже моделируют живые системы, потому что механизм внизу — тот самый, что делает узоры в химии и отметины на животных. Преподавателям, потому что публикуют почти только успехи, а аккуратный разбор неудачи встречается реже и полезнее.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
-      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
-      dynamics running live in your browser, what stands where attention would be, and
-      twenty-seven experiments with their failures annotated.
+      <strong>Вам здесь ничего не продают.</strong> Cell AI хуже того, что у вас уже есть, и сказать это прямо — весь его смысл. Дальше на этой странице — доказательства: динамика, работающая вживую в вашем браузере, то, что стоит на месте внимания, и двадцать семь экспериментов с разобранными неудачами.
     </div>
   </div>
 </section>
@@ -331,8 +313,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Пластичность</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          Hebbian learning in the Bienenstock&ndash;Cooper&ndash;Munro (BCM) style, with
-          &alpha; = 0.1, &beta; = 0.01, applied <em>во время</em> прямого прохода, а не после него. Это самая смелая идея архитектуры и источник её задокументированной проблемы голодания градиентов.
+          Хеббовское обучение в стиле Bienenstock&ndash;Cooper&ndash;Munro (BCM), с &alpha; = 0,1, &beta; = 0,01, применяемое <em>во время</em> прямого прохода, а не после него. Это самая смелая идея архитектуры и источник её задокументированной проблемы голодания градиентов.
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">Оптимизация v3</span>
@@ -344,10 +325,7 @@
         <span class="badge badge--blue" style="margin-bottom:12px">Путь сигнала</span>
         <h3 style="font-size:1.05rem">Весь стек</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
-          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
-          Fast Fourier Transform (FFT).
+          эмбеддинг cl100k_base &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; опциональная связь Курамото &rarr; маршрутизация MultiModalModel &rarr; логиты. Этап резонанса связывает фазы быстрым преобразованием Фурье (FFT).
         </p></div>
     </div>
   </div>
@@ -445,9 +423,7 @@
     <span class="eyebrow" style="justify-content:center">Родственные проекты</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Куда эти идеи ушли вместо этого</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became Unified
-      Hash-Predictive Memory (UHPM).
+      Cell AI — исследовательская линия, которая не сошлась. Её родственники вышли лучше: Cypha стала работающей архитектурой из первых принципов, а работа по памяти длинного контекста превратилась в единую хеш-предиктивную память (UHPM).
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/ru/cypha.html">Cypha &rarr;</a>
@@ -549,7 +525,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, работает под именем Imortek. Сидней, Австралия.</span>
-      <span class="mono tiny">Собрано 2026-09-17T23:04:13Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
+      <span class="mono tiny">Собрано 2026-09-17T23:58:50Z &middot; Ни трекеров, ни куки, ни аналитики. Извне приходят только шрифты.</span>
     </div>
   </div>
 </footer>

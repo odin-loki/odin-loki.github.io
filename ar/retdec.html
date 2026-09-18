@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>مُفكِّك برمجيات يستعيد <span class="gradient-text">الخوارزمية</span>، لا الشيفرة وحدها</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          كثيرًا ما تحتاج المؤسسات إلى فهم برمجيات لا تملك شيفرتها المصدرية: نظام قديم، أو مكوّن مُشترى، أو ملف وصل ويبدو مريبًا. توجد أدوات بالفعل تعيد شيفرة الآلة إلى خطوات مقروءة. ويحاول RetDec Imortek خطوة أبعد: أن يسمّي ما هذه الخطوات &mdash; هذا الجزء معيار التعمية المتقدّم (AES)، وهذا الجزء فرز، وهذا الجزء كيفية حزم البيانات للإرسال.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">انتقل من البايتات إلى خوارزمية لها اسم</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">بلغة بسيطة</span>
+      <h2>ما هذا، في دقيقة واحدة</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          تُشحن البرمجيات في صورة تقرأها الآلة ولا يقرأها الإنسان. وحين لا توجد شيفرة مصدرية &mdash; اختفى المورّد، أو لم يشملها العقد يومًا، أو وصل الملف من جهة لا تثق بها &mdash; لا يستطيع أحد أن يقول ما يفعله البرنامج فعلًا. وفحصه يدويًّا يعني قراءة تعليمات الآلة واحدة تلو الأخرى.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">الحل</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          يفكّك الملف المُصرَّف ويعيد بناء شيفرة C منه: كل الملفات الثنائية الـ216 في مجموعة الاختبار تعود شيفرة C قابلة للبناء. ثم يطارد المعنى &mdash; أي تعمية، وأي فرز، وأي تعدّد خيوط، وأي صيغة ملف &mdash; ويبلّغ عن نسبة نجاح ذلك، بما في ذلك الحالة التي يكاد فيها لا ينجح.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          فرق الأمن التي تفكّك البرمجيات الخبيثة وتحتاج إلى الجواب قبل أن تحتاج إلى الشيفرة. والشركات التي تشغّل برمجيات لا يملك أحد مصدرها وتحتاج إلى وصف لها قبل أن يُعاد بناء أي شيء أو استبداله بأمان. وكل من علِق بصيغة ملف لم تُوثَّق قط &mdash; سجلات قديمة، أو آلة لا تكلّم إلا برمجيتها الخاصة.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>تسمية الخوارزمية هي الجزء الصعب، ورقماها كلاهما هنا.</strong>
+      مع ملف ثنائي لا يزال يحمل تسمياته، يوافقها الكاشف؛ ومع تجريد التسميات يقترب من التخمين. وبقية هذه الصفحة هي الهندسة: ما الذي أُضيف، وكيف قيس، وأين يتهاوى.
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>فكّ التجميع</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            ‏791 كيلوبايت (KB) لأن فاكّ ترميز x86 الحقيقي يحمل مجموعة التعليمات كاملة &mdash; كل ترميز وبادئة وامتداد. هذا هو الحجم الصادق للشيء.
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>هذا فاكّ الترميز، لا المُفكِّك.</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>هذا فاكّ الترميز، لا المُفكِّك.</strong> الدرجات الأعلى &mdash; الرفع إلى التمثيل الوسيط لـLLVM، وهيكلة تدفّق التحكّم، وتسمية الخوارزمية &mdash; هي عمل LLVM، وLLVM لا تتّسع له صفحة وِب بأي حجم. والقول بغير ذلك أسهل كذبة في هذا الموقع.
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">الواجهة الأمامية</span>
       <h2>صيغ أصلية وشيفرة بايت وصيغ ناشئة</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        المخرَج يعتمد على الصيغة، لأن ادّعاء أن كل شيء يُفكَّك إلى C لا يفيد أحدًا. تتلقّى الواجهة الأمامية ملفات ثنائية أصلية بصيغة التنفيذ والربط (ELF)، والتنفيذي المحمول (PE)، وMach-O؛ وشيفرة بايت، منها ملفات أصناف آلة جافا الافتراضية (JVM)، وتنفيذي دالفيك (DEX)، واللغة الوسيطة المشتركة (CIL)؛ وأهدافًا أحدث مثل تنفيذ الخيوط المتوازي (PTX) من CUDA.
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">ناشئ</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">يتحوّل WebAssembly إلى صيغة WebAssembly النصية (WAT). ويُعامَل PTX مُدخَلًا من الدرجة الأولى لا فكرةً لاحقة.</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">بيئة التشغيل</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> يعاود الظهور من نمط الحجز.</p></div>
+        <p class="small dim" style="margin:0">حاويات مكتبة القوالب القياسية (STL) وبنى زمن تشغيل C++ &mdash; شكل <code translate="no">std::vector</code> يعاود الظهور من نمط الحجز.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التعمية</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">‏AES، وعائلة خوارزمية التجزئة الآمنة (SHA)، وChaCha20، وريفست&ndash;شامير&ndash;أدلمان (RSA)، وأوليّات المنحنيات الإهليلجية، تُعرَّف بالثوابت وبنية الجولات.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">الفرز &amp; البحث</span>
         <p class="small dim" style="margin:0">introsort، والفرز بالدمج، والبحث الثنائي &mdash; بما في ذلك تبديل حدّ العمق الذي يفضح introsort.</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">الرسوم البيانية</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">خوارزميات الرسوم، إضافة إلى أنماط الاجتياز بالبحث بالعرض أولًا (BFS) والبحث بالعمق أولًا (DFS).</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">التزامن</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>، وpthreads، وOpenMP، وThreading Building Blocks (TBB)، والذرّيات الخام.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">التسلسل</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">‏Protobuf، وFlatBuffers، وMessagePack، وترميز كائنات جافاسكربت (JSON)، وتأطير لغة الترميز الموسّعة (XML).</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>المقياس</th><th class="num">النتيجة</th><th>الشرط</th></tr></thead>
             <tbody>
               <tr><td>مخرَج C قابل للبناء</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>، مفعَّل افتراضيًّا</td></tr>
-              <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">0.056</td><td class="muted">بلا مساعدة الأسماء، فاصل ثقة 95% يبلغ 0.034&ndash;0.083</td></tr>
               <tr><td>F1 لاستعادة الخوارزميات</td><td class="num">1.000</td><td class="muted">بمساعدة الأسماء، ملفات ثنائية ذات رموز</td></tr>
               <tr><td>إعادة ترجمة ملف <code translate="no">.c</code> الافتراضي</td><td class="num">لا</td><td class="muted">لا هذا التفريع ولا RetDec الأصلي</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>اقرأ رقمَي F1 معًا.</strong> 1.000 مع الرموز يعني أن الكاشف يتفق مع جدول الرموز. و0.056 بدونها يعني أن الاستعادة البنيوية على ملفات مجرَّدة من الرموز قريبة اليوم من الحضيض. وذكر الأول وحده تسويق؛ وذكر الثاني وحده يخفي أن الخط يعمل حين يجد ما يستند إليه.
+          <strong>اقرأ رقمَي F1 معًا.</strong> 1.000 مع الرموز يعني أن الكاشف يتفق مع جدول الرموز. و0.056 بدونها يعني أن الاستعادة البنيوية على ملفات مجرَّدة من الرموز قريبة اليوم من التخمين. وذكر الأول وحده تسويق؛ وذكر الثاني وحده يخفي أن الخط يعمل حين يجد ما يستند إليه.
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">الواجهة</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">واجهة Qt 6 الرسومية، أو بلا واجهة رسومية إطلاقًا</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          عروض شيفرة متزامنة عبر C والتجميع والتمثيل الوسيط ورسوم تدفّق التحكّم، مع تنقّل بين الدوال، وفحص للسلاسل، ومتصفّح للملف الثنائي، ولوحة مساعد. ويُسقط الوضع بلا رأس كل اعتمادية للواجهة الرسومية، فيعمل البناء نفسه في التكامل المستمر.
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">ترخيص مزدوج</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            رخصة جنو أفيرو العمومية العامة (AGPL-3.0+) للاستخدام مفتوح المصدر، أو ترخيص تجاري للنشر الاحتكاري. حقوق النشر Odin Loch، متاجرًا باسم Imortek، 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
             قابل للشحن عند v2.0.21. وبوابات التكامل المستمر تعكس معايير التطوير لا معايير نضج الإنتاج &mdash; هذا ما يقوله المشروع نفسه، لا استنتاجًا.
@@ -549,13 +520,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">MathScript — جبر حاسوبي وعدديات بلغة C++23</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/aegis.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — طبقة نقل تُخفي البيانات الوصفية للاتحادات</h3>
-      </a>
       <a class="card card--hover related__item" href="/ar/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — نظام تشغيل بلغة C++23 مؤمَّن بالصلاحيات</h3>
+      </a>
+      <a class="card card--hover related__item" href="/ar/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — طبقة نقل تُخفي البيانات الوصفية للاتحادات</h3>
       </a>
       <a class="card card--hover related__item" href="/ar/trace.html">
         <div class="card__glow"></div>
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T23:04:13Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-18T00:00:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

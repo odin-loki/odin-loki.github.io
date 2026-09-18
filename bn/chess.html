@@ -152,14 +152,10 @@
         <span class="eyebrow">পণ্যের প্রদর্শনী</span>
         <h1>দাবা খেলুন, প্রতিপক্ষ <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha never saw a chess game. It learned by watching an ordinary chess program think
-          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
-          was winning &mdash; until Cypha could produce the verdict itself.
+          Cypha কখনও একটি দাবার খেলাও দেখেনি। সে শিখেছে একটি সাধারণ দাবা প্রোগ্রামকে ভাবতে দেখে &mdash; ২৬,৫৬৮টি অবস্থান, প্রতিটিতে কে জিতছে তা নিয়ে ওই প্রোগ্রামের নিজের রায় লেবেল হিসেবে দেওয়া &mdash; যতক্ষণ না Cypha নিজেই রায়টা দিতে পারল।
         </p>
         <p class="lede">
-          What you play below is that, running in your browser inside a shallow search. It is
-          beatable, and it still loses to the program it learned from. Every number on this page
-          came out of the training run that produced the weights the page loads.
+          নিচে আপনি তার সঙ্গেই খেলছেন, আপনার ব্রাউজারে একটি অগভীর অনুসন্ধানের ভিতরে চলছে। একে হারানো যায়, আর যার কাছ থেকে সে শিখেছে তার কাছে সে এখনও হারে। এই পাতার প্রতিটি সংখ্যা এসেছে সেই প্রশিক্ষণ-চালনা থেকে, যা এই পাতার লোড করা ওজনগুলি তৈরি করেছে।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">একটা খেলা খেলুন</a>
@@ -170,8 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">মাপা, দাবি করা নয়</span>
           <p class="small muted" style="margin:0 0 16px">
-            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
-            guesses was; the smaller it is, the closer the model sits to its teacher.
+            নিচের বর্গমূল গড়-বর্গ ত্রুটি (RMSE) হলো একগুচ্ছ আন্দাজ কতটা দূরে ছিল তার চেনা মাপকাঠি; যত ছোট, মডেল তত তার শিক্ষকের কাছাকাছি।
           </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -217,45 +212,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">সহজ কথায়</span>
+      <h2>এটি কী, এক মিনিটে</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
         <p class="small dim" style="margin:0">
-          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
-          explanation tells you nothing about whether it does. Chess settles that, because the
-          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
-          and you can sit down and find out.
+          প্রতিটি নতুন কৃত্রিম বুদ্ধিমত্তার (AI) নকশা আসে কেন সেটির কাজ করা উচিত তার ব্যাখ্যা নিয়ে। ব্যাখ্যাটা পড়ে সত্যিই কাজ করে কি না তার কিছুই জানা যায় না। দাবা সেটা মিটিয়ে দেয়, কারণ উত্তরটা মতামতের ব্যাপার নয়: হয় সে বৈধ ও বুদ্ধিমান দাবা খেলে, নয় খেলে না &mdash; আর আপনি বসে গিয়ে দেখে নিতে পারেন।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">সমাধান</span>
         <p class="small dim" style="margin:0">
-          An ordinary chess program judges a position by searching ahead through the moves. Cypha
-          was shown 26,568 of those judgements and fitted a single formula to reproduce them
-          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
-          the architecture for chess. Only the numbers fed into it changed.
+          একটি সাধারণ দাবা প্রোগ্রাম চালগুলির ভিতর দিয়ে সামনে খুঁজে একটি অবস্থান বিচার করে। Cypha-কে সেই বিচারের ২৬,৫৬৮টি দেখানো হয়েছে, আর সেগুলি হুবহু ফিরিয়ে দিতে বসানো হয়েছে একটিমাত্র সূত্র &mdash; বোর্ডের বর্ণনা দেওয়া ৩৮৮টি সংখ্যার উপরে এক লাইনের গণিত। দাবার জন্য স্থাপত্যে কিছুই যোগ করা হয়নি। কেবল তাতে ঢোকানো সংখ্যাগুলিই বদলেছে।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
         <p class="small dim" style="margin:0">
-          Anyone weighing up Cypha who would rather check than be told. People who work with
-          machine learning and want to watch a model carry on learning while it is being used.
-          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
-          you play is sent anywhere.
+          Cypha-কে যাঁরা মেপে দেখছেন, শোনা কথায় ভরসা না করে যাচাই করতে চান। যাঁরা মেশিন লার্নিং নিয়ে কাজ করেন আর দেখতে চান একটি মডেল ব্যবহারের মধ্যেই শিখে চলেছে। আর যাঁর স্রেফ একটা খেলার শখ &mdash; সবই আপনার ব্রাউজারে চলে, আর আপনি যা খেলেন তার কিছুই কোথাও পাঠানো হয় না।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
-      this page claims it is. The rest of the page is how it was done, what each number means,
-      and the four things this design cannot do.
+      <strong>একটি দাবা ইঞ্জিনের বিচার নকল করা মানে দাবা শেখা নয়।</strong> এই পাতা তেমন দাবিও করে না। পাতার বাকিটা হলো কীভাবে করা হলো, প্রতিটি সংখ্যার মানে কী, আর এই নকশা যে চারটি জিনিস পারে না।
     </div>
   </div>
 </section>
@@ -364,14 +348,7 @@
               <strong>ড্রিফট</strong> মানে ওজন-ভেক্টরে হওয়া পরিবর্তনের মাপ, ডিস্টিল করাটির তুলনায়। <strong>শেষ সংশোধন</strong> মানে, এইমাত্র যে অবস্থান থেকে চাল দেওয়া হলো তা নিয়ে জমে থাকা হেডটি কতটা ভুল ছিল, পনে মাপা, তার নিজের আরও গভীর অনুসন্ধানের বিপরীতে।
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>রেটিং</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
-              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
-              FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>রেটিং</strong> একটি অভ্যন্তরীণ সিঁড়ির মাপ, F&eacute;d&eacute;ration Internationale des &Eacute;checs (FIDE) মাপ নয় &mdash; যে কখনও রেটিংধারী মানুষের সঙ্গে খেলেনি তার গায়ে সৎভাবে FIDE সংখ্যা বসানোর উপায় নেই। গভীরতা ১-এ রেফারেন্স ইঞ্জিনকে ১০০০-এ বাঁধা হয়েছে, আর সবটাই বসানো হয়েছে ২১০টি খেলা থেকে Bradley-Terry সর্বাধিক সম্ভাব্যতা দিয়ে, তাই খেলাগুলি কোন ক্রমে হয়েছিল তার উপর এটি নির্ভর করে না। মাপা সিঁড়ি: গভীরতা ১&ndash;৩-এ রেফারেন্স ১০০০ / ১১৭১ / ১২৪৫, Cypha ৭৯৮ / ১০১০ / ১১৬১। যে ইঞ্জিন থেকে Cypha ডিস্টিল করা, তার চেয়ে সে প্রায় এক ধাপ অনুসন্ধান-গভীরতা পিছিয়ে চলে, আর ত্রুটির দণ্ড মোটামুটি &plusmn;৫০ &mdash; ২১০টি খেলায় এটুকুই মেলে।
             </p>
             <p class="tiny muted" style="margin-top:8px">
               প্রতিটি শক্তি-সেটিং রাখে <strong>নিজের আলাদা মডেল</strong>। গভীরতা ১-এ খেলা একটি হেডকে গভীরতা ১-এর অনুসন্ধানের দিকে শোধরানো হয়; গভীরতা ৩-এ লক্ষ্যটা অন্য, আরও ভালো একটা। দুটোকে একই ওজন-ভেক্টরে প্রশিক্ষণ দিলে তারা কেবল নিজেদের মধ্যে ঝগড়া করবে। শক্তি বদলান, সঙ্গে গোনাগুনতিও বদলাবে।
@@ -407,10 +384,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">ধাপ ১</span>
         <h3 style="font-size:1.02rem">শিক্ষক</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
-          search. Verified against five standard perft positions including kiwipete, so the rules
-          are provably right before anything is learned from it.
+          একটি 0x88 ইঞ্জিন, সঙ্গে পূর্ণ বৈধ চাল তৈরি, ঘুঁটির মান ও ঘুঁটি-ঘর মূল্যায়ন, সবচেয়ে দামি শিকার &ndash; সবচেয়ে সস্তা আক্রমণকারী (MVV-LVA) ক্রম আর শান্ত-অবস্থা অনুসন্ধান। kiwipete-সহ পাঁচটি আদর্শ perft অবস্থানের বিপরীতে যাচাই করা, তাই তার কাছ থেকে কিছু শেখার আগেই নিয়মগুলি প্রমাণসহ ঠিক।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -431,10 +405,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">ধাপ ৪</span>
         <h3 style="font-size:1.02rem">বসানো</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
-          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
-          at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; Welford দিয়ে অনলাইনে বসানো, প্রাকৃতিক-গ্রেডিয়েন্টের মেট্রিক হিসেবে হোয়াইটনিং, স্বাভাবিকীকৃত ন্যূনতম গড় বর্গ (LMS) ওজন-হালনাগাদ, ন্যূনতম বর্ণনা-দৈর্ঘ্যের (MDL) ক্ষয় ওজনগুলিকে পূর্বধারণার দিকে ফিরিয়ে আনছে, আর Cypha-র রেফারেন্স ০.৩০ অনুপাতে বিস্ময়-ওজনযুক্ত রিপ্লে বাফার।
         </p>
       </div>
     </div>
@@ -455,7 +426,7 @@
         <span class="eyebrow eyebrow--amber">এটি যা দেখায় না</span>
         <h3>সৎ সীমা</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>এটি রৈখিক।</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
+          <li><strong>এটি রৈখিক।</strong> ঘুঁটি-ঘর ফিচারের একটি রৈখিক ফাংশন রাজার নিরাপত্তা, বোড়ের গঠনের পারস্পরিক ক্রিয়া, কিংবা দুটি ফিচারের গুণফল লাগে এমন কিছুই প্রকাশ করতে পারে না। Cypha README এক্সক্লুসিভ অর (XOR) নিয়ে যে ছাদের কথা বলে, এরও সেই একই ছাদ।</li>
           <li><strong>শিক্ষকটি সাধারণ মানের।</strong> রেফারেন্স ইঞ্জিনটি একজন দক্ষ চিরায়ত অনুসন্ধানকারী, Stockfish নয়। একে ভালোভাবে ডিস্টিল করার মানে একটি সাধারণ মানের মূল্যায়নকারীকে ভালোভাবে মেলানো।</li>
           <li><strong>নিজের কোনো অনুসন্ধান গভীরতা নেই।</strong> এখানে শক্তির বেশিরভাগটাই আসে আলফা-বিটা মোড়ক থেকে, শিক্ষকের ক্ষেত্রে যেমন আসে ঠিক তেমনই।</li>
           <li><strong>ডিস্টিলেশন আবিষ্কার নয়।</strong> Cypha তাকে দেখানো একটি মূল্যায়ন ফাংশন ফিরিয়ে এনেছে। সে শূন্য থেকে দাবা শেখেনি, আর এই পাতায় কোথাও তেমন দাবিও করা হয়নি।</li>
@@ -561,7 +532,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; चरण 8 पूरा</span>
         <h1>एन्क्रिप्शन छिपाता है कि आपने क्या कहा। <span class="gradient-text">यह छिपाता है कि आपने कुछ कहा भी।</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          एन्क्रिप्शन संदेश की सामग्री को निजी रखता है। वह यह नहीं छिपाता कि संदेश हुआ ही था। नेटवर्क देख रहे किसी भी शख़्स को अब भी दिखता है कि कौन किससे बात कर रहा है, कब, और कितने किलोबाइट (KB) इधर से उधर गए &mdash; और संवेदनशील हालात में यह शब्दों जितना ही मायने रख सकता है। AEGIS किसी बंद समूह के सदस्यों के बीच का ट्रैफ़िक एक स्थिर दर पर चलाता रहता है, चाहे भेजने को कुछ हो या न हो, ताकि समय और मात्रा में कोई संकेत ही न बचे।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">सहसंबंध हमला चलाइए</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">सीधी-सादी भाषा में</span>
+      <h2>यह क्या है, एक मिनट में</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          नेटवर्क देख सकने वाले को एन्क्रिप्शन तोड़ने की ज़रूरत ही नहीं। उसे दिखता है कि एक एंडपॉइंट ने 09:41:03 पर 14 KB भेजे और तीन सेकंड बाद दूसरे ने 14 KB पाए, और यही बात ग्यारह हफ़्ते तक दिन में दो बार होती है। इतनी बार दोहराए जाने पर यह इस बात का नक़्शा बन जाता है कि कौन किसके साथ काम करता है &mdash; और वह एक भी संदेश पढ़े बिना खींचा गया।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">समाधान</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          AEGIS तार को हर वक़्त एक जैसा दिखाता है। ट्रैफ़िक स्थिर दर पर निकलता है, चाहे भेजने को कुछ हो या न हो, और जो पहुँचता है उसे एक तय आकार तक भर दिया जाता है, ताकि एक छोर के उछाल को दूसरे छोर के उछाल से मिलाया ही न जा सके। इसकी क़ीमत बैंडविड्थ में चुकानी पड़ती है और देरी भी बढ़ती है; नीचे का प्रदर्शन बचाव और क़ीमत, दोनों साथ-साथ दिखाता है।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          न्यूज़रूम और वे सब जो किसी स्रोत को बचा रहे हैं, जहाँ संपर्क का समय और आकार ही किसी व्यक्ति को उजागर कर देता है। वे बैंक, बीमा कंपनियाँ और उद्योग संगठन जो आपस में मुक़ाबला करते हैं और फिर भी जिन्हें डेटा का लेन-देन करना पड़ता है। वे संस्थाएँ जो हमलों की चेतावनियाँ साझा करती हैं, जहाँ साझा करते दिखना ही संवेदनशील हिस्सा हो सकता है।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>सामग्री छिपाना आसान वाला आधा हिस्सा है।</strong> पैटर्न छिपाना वह हिस्सा है जिसके लिए नीचे की इंजीनियरिंग चाहिए: पूरा ख़तरा, एक हमला जो आप ख़ुद दोनों विन्यासों पर चला सकते हैं, परीक्षण के आँकड़े, और यह कि गारंटियाँ कहाँ जाकर ख़त्म हो जाती हैं।
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">सबूत</span>
       <h2>आठ चरण, हर एक रेड-टीम पहरे के पीछे</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">क्रियान्वयन चरण 8, यानी कठोरीकरण, तक पूरा है। ये वे आँकड़े हैं जो रिपॉज़िटरी ख़ुद बताती है: फ़ज़िंग Windows Subsystem for Linux (WSL) के नीचे चली, और टेस्टनेट असली संचरण नियंत्रण प्रोटोकॉल (TCP) सॉकेट पर चला।</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">क्रिप्टो परीक्षण सदिश</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>रिपॉज़िटरी की सफ़ाई:</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>रिपॉज़िटरी की सफ़ाई:</strong> GitHub Actions पर सतत एकीकरण (CI),
       <code translate="no">cargo deny</code> से निर्भरताओं की जाँच, और पूरे वर्कस्पेस पर unsafe कोड मना करने की नीति। विरोधी इनपुट सँभालने वाले किसी Rust नेटवर्क स्टैक के लिए, <code translate="no">#![forbid(unsafe_code)]</code> पूरे वर्कस्पेस पर, इस परियोजना की सबसे ज़्यादा बोझ उठाने वाली इकलौती पंक्ति है।
     </div>
   </div>
@@ -468,13 +452,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — छिटपुट नज़रों से टिकाऊ पहचान</h3>
       </a>
-      <a class="card card--hover related__item" href="/hi/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
-      </a>
       <a class="card card--hover related__item" href="/hi/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — विनिर्देश निकालने वाला डीकंपाइलर</h3>
+      </a>
+      <a class="card card--hover related__item" href="/hi/sentinel.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
       </a>
       <a class="card card--hover related__item" href="/hi/cellai.html">
         <div class="card__glow"></div>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

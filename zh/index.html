@@ -148,27 +148,21 @@
     <div class="hero__grid">
       <div>
         <div><a class="eyebrow eyebrow--amber" href="/zh/kickstarter.html" style="margin-bottom:.55rem"><span class="dot dot--pulse"></span> ParanoidBSD 众筹进行中 &middot; 11 月 12 日截止</a></div>
-        <span class="eyebrow">Sydney, Australia &middot; One person, independent research</span>
+        <span class="eyebrow">澳大利亚悉尼 &middot; 一个人，独立研究</span>
         <h1>安全的系统。<br><span class="gradient-text">原创的人工智能。</span><br>诚实的工程。</h1>
         <p class="lede">
-          Imortek builds specialist software for organisations whose problems ordinary tools
-          do not solve &mdash; in security, defence, government and research. An operating
-          system for equipment that cannot be patched quickly. A decompiler for binaries
-          nobody has the source to. An Artificial Intelligence (AI) architecture derived from
-          first principles rather than wrapped around someone else&rsquo;s model. Every claim
-          on this site is backed by a test, a benchmark, or an honest note about what does not
-          work yet.
+          Imortek 为那些常规工具解决不了问题的机构开发专用软件 &mdash; 涵盖安全、国防、政府与研究。一套给无法快速打补丁的设备用的操作系统。一个专门对付没人有源码的二进制程序的反编译器。一套从第一性原理推导出来的人工智能（AI）架构，而不是在别人的模型外面包一层。本站的每一条主张背后，都有一项测试、一组基准，或者一句关于哪里还不行的老实话。
         </p>
         <div class="badge-row" style="margin-bottom:1.8rem">
-          <span class="badge">Cybersecurity</span>
-          <span class="badge">Defence</span>
-          <span class="badge">Government</span>
-          <span class="badge">Critical infrastructure</span>
-          <span class="badge">Intelligence</span>
-          <span class="badge">Investigation</span>
-          <span class="badge">Privacy</span>
-          <span class="badge">Engineering</span>
-          <span class="badge">Artificial intelligence</span>
+          <span class="badge">网络安全</span>
+          <span class="badge">国防</span>
+          <span class="badge">政府</span>
+          <span class="badge">关键基础设施</span>
+          <span class="badge">情报</span>
+          <span class="badge">调查</span>
+          <span class="badge">隐私</span>
+          <span class="badge">工程</span>
+          <span class="badge">人工智能</span>
         </div>
         <div class="btn-row">
           <a class="btn btn--primary btn--lg" href="#products">
@@ -214,8 +208,7 @@
             </div>
           </div>
           <div class="panel__foot">
-            Read straight from the GitHub Application Programming Interface (API) in your browser.
-            Nothing is sent anywhere.
+            在你的浏览器里直接从 GitHub 应用程序接口（API）读取。没有任何东西被发送出去。
           </div>
         </div>
       </div>
@@ -236,11 +229,11 @@
     <span class="marquee__item">信息几何</span>
     <span class="marquee__item">自然梯度</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">Linear algebra written in-tree</span>
+    <span class="marquee__item">树内自写的线性代数</span>
     
     <span class="marquee__item">霍克斯过程</span>
     <span class="marquee__item">差分验证</span>
-    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
+    <span class="marquee__item">GNU Affero 通用公共许可证（AGPL-3.0+）</span>
     <span class="marquee__item">C++23 模块</span>
     <span class="marquee__item">HardenedBSD 15-STABLE</span>
     <span class="marquee__item">能力与句柄安全</span>
@@ -251,11 +244,11 @@
     <span class="marquee__item">信息几何</span>
     <span class="marquee__item">自然梯度</span>
     <span class="marquee__item">LLVM / Clang 18</span>
-    <span class="marquee__item">Linear algebra written in-tree</span>
+    <span class="marquee__item">树内自写的线性代数</span>
     
     <span class="marquee__item">霍克斯过程</span>
     <span class="marquee__item">差分验证</span>
-    <span class="marquee__item">GNU Affero General Public License (AGPL-3.0+)</span>
+    <span class="marquee__item">GNU Affero 通用公共许可证（AGPL-3.0+）</span>
   </div>
 </div>
 
@@ -267,18 +260,16 @@
         <span class="eyebrow eyebrow--amber">旗舰项目 &middot; 正在募资</span>
         <h2>ParanoidBSD</h2>
         <p class="lede" style="margin-bottom:1.5rem">
-          A hardened Berkeley Software Distribution (BSD), rewritten in C++23, with a
-          capability and handle nucleus sitting on top of what HardenedBSD already ships
-          &mdash; and KDE Plasma 6 on the desk.
+          一个加固过的伯克利软件套件（BSD），用 C++23 重写，在 HardenedBSD 已有的东西之上架起一层能力与句柄内核 &mdash; 桌面则是 KDE Plasma 6。
         </p>
         <p class="dim">
           几乎所有操作系统至今仍建立在没有内存安全的 C 之上。PBSD 把 HardenedBSD 15-STABLE 当作行为规格，逐个文件移植到 C++23 模块 &mdash; 再加上一个安全内核：每一项资源都必须通过无法伪造的句柄取得，而不是通过环境中的全局命名空间。
         </p>
         <ul class="flist flist--amber" style="margin:1.75rem 0">
           <li><strong>忠实移植，而不是&ldquo;顺手改进&rdquo;。</strong> HardenedBSD 的代码树就是规格。连缺陷也照样移植，直到某项改动被单独记录下来为止。</li>
-          <li><strong>没有验证，就不算做完。</strong> Compile-only is unverified. Differential or Intermediate Representation (IR) verification gates every file.</li>
+          <li><strong>没有验证，就不算做完。</strong> 只是能编译，就等于没验证。每一个文件都要过差分验证或中间表示（IR）验证这道门禁。</li>
           <li><strong>确定性工具优先。</strong> 安全重写流程在任何模型碰代码之前运行 &mdash; 而模型永远不为自己背书。</li>
-          <li><strong>自由站立的内核 C++。</strong> <code translate="no">-fno-exceptions -fno-rtti</code>, with a documented kernel Application Binary Interface (ABI).</li>
+          <li><strong>自由站立的内核 C++。</strong> <code translate="no">-fno-exceptions -fno-rtti</code>，外加一份有文档的内核应用二进制接口（ABI）。</li>
         </ul>
         <div class="btn-row">
           <a class="btn btn--fund" href="/zh/kickstarter.html">众筹页面 &rarr;</a>
@@ -642,7 +633,7 @@
         <ul class="checks" style="margin:1.5rem 0">
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span><strong>按 AGPL-3.0+ 免费</strong> 适用于个人使用、慈善机构、教育机构，以及年收入低于 <strong>50,000&nbsp;Australian dollars (AUD)</strong> 的任何组织。</span>
+            <span><strong>按 AGPL-3.0+ 免费</strong> 适用于个人使用、慈善机构、教育机构，以及年收入低于 <strong>50,000&nbsp;澳元</strong> 的任何组织。</span>
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -712,13 +703,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
+      <a class="card card--hover related__item" href="/zh/mathscript.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">MathScript — C++23 计算机代数与数值计算</h3>
+      </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
-      </a>
-      <a class="card card--hover related__item" href="/zh/cellai.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -790,7 +781,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>एक डीकंपाइलर जो वापस निकालता है <span class="gradient-text">एल्गोरिदम</span>, सिर्फ़ कोड नहीं</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          संगठनों को अक्सर ऐसा सॉफ़्टवेयर समझना पड़ता है जिसका स्रोत कोड उनके पास नहीं है: कोई पुराना सिस्टम, बाहर से ख़रीदा गया कोई हिस्सा, या कुछ ऐसा जो आया है और संदिग्ध लगता है। ऐसे औज़ार पहले से हैं जो मशीन कोड को वापस पढ़ने लायक़ चरणों में बदल देते हैं। RetDec Imortek एक क़दम और आगे जाकर यह बताने की कोशिश करता है कि वे चरण हैं क्या &mdash; यह हिस्सा उन्नत एन्क्रिप्शन मानक (AES) है, यह हिस्सा एक छँटाई है, यह हिस्सा बताता है कि भेजने के लिए डेटा कैसे बाँधा गया है।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">बाइट्स से एक नामित एल्गोरिदम तक पहुँचिए</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">सीधी-सादी भाषा में</span>
+      <h2>यह क्या है, एक मिनट में</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          सॉफ़्टवेयर ऐसी शक्ल में भेजा जाता है जिसे मशीन पढ़ लेती है और इंसान नहीं। जब स्रोत कोड है ही नहीं &mdash; आपूर्तिकर्ता जा चुका, अनुबंध में वह कभी शामिल ही नहीं था, फ़ाइल ऐसी जगह से आई जिस पर आपको भरोसा नहीं &mdash; तब कोई नहीं बता सकता कि प्रोग्राम सचमुच करता क्या है। हाथ से जाँचने का मतलब है मशीन के निर्देश एक-एक करके पढ़ना।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">समाधान</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          यह कंपाइल हो चुकी फ़ाइल को खोलकर उससे C दोबारा बनाता है: परीक्षण संग्रह की सभी 216 बाइनरी ऐसी C बनकर लौटती हैं जो बिल्ड हो जाती है। फिर वह मतलब के पीछे जाता है &mdash; कौन-सी क्रिप्टोग्राफ़ी, कौन-सी छँटाई, कौन-सी थ्रेडिंग, कौन-सा फ़ाइल प्रारूप &mdash; और बताता है कि यह कितनी बार काम करता है, उस हालत समेत जहाँ यह मुश्किल से ही चलता है।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          मैलवेयर खोलकर देखने वाली सुरक्षा टीमें, जिन्हें कोड से पहले जवाब चाहिए। ऐसा सॉफ़्टवेयर चला रही कंपनियाँ जिसका स्रोत किसी के पास नहीं, और जिन्हें कुछ भी सुरक्षित ढंग से दोबारा बनाने या बदलने से पहले उसका ब्यौरा चाहिए। और वे सब जो ऐसे फ़ाइल प्रारूप में फँसे हैं जिसका दस्तावेज़ कभी बना ही नहीं &mdash; पुराने रिकॉर्ड, या ऐसी मशीन जो सिर्फ़ अपने ही सॉफ़्टवेयर से बात करती है।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>एल्गोरिदम का नाम बताना ही मुश्किल हिस्सा है, और उसके दोनों आँकड़े यहीं हैं।</strong>
+      जिस बाइनरी पर उसके अपने लेबल अब भी हों, उस पर डिटेक्टर उनसे सहमत रहता है; लेबल हटा दिए जाएँ तो वह अटकल के क़रीब है। इस पृष्ठ का बाक़ी हिस्सा इंजीनियरिंग है: क्या जोड़ा गया, उसे कैसे नापा गया, और वह कहाँ गिरता है।
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>डिसअसेंबल करें</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            791 किलोबाइट (KB), क्योंकि एक असली x86 डिकोडर पूरा इंस्ट्रक्शन सेट साथ रखता है &mdash; हर एनकोडिंग, हर प्रीफ़िक्स, हर एक्सटेंशन। इस चीज़ का ईमानदार आकार यही है।
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>यह डिकोडर है, डीकंपाइलर नहीं।</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>यह डिकोडर है, डीकंपाइलर नहीं।</strong> ऊपर के पायदान &mdash; LLVM मध्यवर्ती निरूपण (IR) तक उठाना, नियंत्रण-प्रवाह को ढाँचा देना, एल्गोरिदम का नाम बताना &mdash; LLVM का काम हैं, और LLVM किसी भी आकार में एक वेब पृष्ठ में नहीं समाता। इससे उलट कहना इस साइट का सबसे आसान झूठ होता।
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">फ़्रंट एंड</span>
       <h2>नेटिव, बाइटकोड और उभरते प्रारूप</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        आउटपुट प्रारूप पर निर्भर करता है, क्योंकि यह दिखावा कि हर चीज़ C में डीकंपाइल हो जाती है, किसी के काम नहीं आता। फ़्रंट एंड नेटिव बाइनरी लेता है: निष्पादनीय और लिंक-योग्य प्रारूप (ELF), पोर्टेबल निष्पादनीय (PE) और Mach-O; बाइटकोड, जिनमें Java वर्चुअल मशीन (JVM) की क्लास फ़ाइलें, Dalvik निष्पादनीय (DEX) और साझा मध्यवर्ती भाषा (CIL) शामिल हैं; और CUDA की समांतर थ्रेड निष्पादन (PTX) जैसे नए लक्ष्य।
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">उभरते हुए</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly को WebAssembly टेक्स्ट प्रारूप (WAT) में बदला जाता है। PTX को बाद की सोच नहीं, बल्कि पहले दर्जे का इनपुट माना गया है।</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">रनटाइम</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> का आकार।</p></div>
+        <p class="small dim" style="margin:0">मानक टेम्पलेट लाइब्रेरी (STL) के कंटेनर और C++ रनटाइम की संरचनाएँ &mdash; आवंटन के पैटर्न से दोबारा उभरते <code translate="no">std::vector</code> का आकार।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">क्रिप्टोग्राफ़ी</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES, सुरक्षित हैश एल्गोरिदम (SHA) परिवार, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) और दीर्घवृत्तीय वक्र की आदिम क्रियाएँ, जिन्हें स्थिरांकों और राउंड की बनावट से पहचाना जाता है।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">छँटाई &amp; खोज</span>
         <p class="small dim" style="margin:0">Introsort, merge sort, binary search &mdash; उस गहराई-सीमा वाले स्विच समेत जो introsort की चुगली कर देता है।</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">ग्राफ़</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">ग्राफ़ एल्गोरिदम, साथ ही चौड़ाई-प्रथम खोज (BFS) और गहराई-प्रथम खोज (DFS) के भ्रमण पैटर्न।</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">समवर्तीता</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) और कच्चे एटॉमिक।</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">क्रमबद्धीकरण</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript ऑब्जेक्ट नोटेशन (JSON) और एक्सटेंसिबल मार्कअप लैंग्वेज (XML) की फ़्रेमिंग।</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>माप</th><th class="num">नतीजा</th><th>शर्त</th></tr></thead>
             <tbody>
               <tr><td>बिल्ड होने लायक़ C आउटपुट</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, तयशुदा तौर पर चालू</td></tr>
-              <tr><td>एल्गोरिदम वापस निकालने का F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>एल्गोरिदम वापस निकालने का F1</td><td class="num">0.056</td><td class="muted">नाम-रहित, 95% विश्वास अंतराल 0.034&ndash;0.083</td></tr>
               <tr><td>एल्गोरिदम वापस निकालने का F1</td><td class="num">1.000</td><td class="muted">नाम-सहित, सिंबल वाली बाइनरी</td></tr>
               <tr><td>तयशुदा <code translate="no">.c</code> दोबारा कंपाइल होती है</td><td class="num">नहीं</td><td class="muted">न यह फ़ोर्क, न स्टॉक RetDec</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>उन दोनों F1 आँकड़ों को साथ पढ़िए।</strong> सिंबल के साथ 1.000 का मतलब है कि पहचानकर्ता सिंबल टेबल से सहमत है। उनके बिना 0.056 का मतलब है कि सिंबल हटी बाइनरी पर ढाँचे से पहचान आज फ़र्श के क़रीब है। सिर्फ़ पहला आँकड़ा बताना मार्केटिंग होती; सिर्फ़ दूसरा बताना यह छिपा देता कि जहाँ पाइपलाइन को कुछ सहारा मिलता है, वहाँ वह काम करती है।
+          <strong>उन दोनों F1 आँकड़ों को साथ पढ़िए।</strong> सिंबल के साथ 1.000 का मतलब है कि डिटेक्टर सिंबल टेबल से सहमत है। सिंबल के बिना 0.056 का मतलब है कि सिंबल हटी बाइनरी पर ढाँचे की वापसी आज अटकल के क़रीब है। सिर्फ़ पहला आँकड़ा बताना मार्केटिंग होती; सिर्फ़ दूसरा बताना यह छिपा लेता कि जब पाइपलाइन को कुछ भी सहारा मिलता है, तब वह काम करती है।
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">इंटरफ़ेस</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 ग्राफ़िकल यूज़र इंटरफ़ेस (GUI), या कोई GUI ही नहीं</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          C, असेंबली, IR और नियंत्रण-प्रवाह ग्राफ़ पर तालमेल में चलने वाले कोड दृश्य, साथ में फ़ंक्शन नेविगेशन, स्ट्रिंग जाँच, एक बाइनरी ब्राउज़र और एक सहायक पैनल। हेडलेस मोड हर GUI निर्भरता हटा देता है, ताकि वही बिल्ड सतत एकीकरण (CI) में चल सके।
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">दोहरा लाइसेंस</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            खुले स्रोत के इस्तेमाल के लिए GNU Affero जनरल पब्लिक लाइसेंस (AGPL-3.0+), या मालिकाना तैनाती के लिए वाणिज्यिक लाइसेंस। कॉपीराइट Odin Loch, Imortek के नाम से कारोबार करते हुए, 2025&ndash;2026।
           </p>
           <p class="small muted" style="margin:0">
             v2.0.21 पर भेजने लायक़। CI के पहरे उत्पादन की परिपक्वता के मानकों के बजाय विकास की हालत दिखाते हैं &mdash; यह परियोजना ख़ुद कहती है, अंदाज़े से निकाला हुआ नहीं।
@@ -549,13 +520,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">MathScript — C++23 कंप्यूटर बीजगणित और संख्यात्मक गणना</h3>
       </a>
+      <a class="card card--hover related__item" href="/hi/pbsd.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">ParanoidBSD — कैपेबिलिटी से सुरक्षित एक C++23 ऑपरेटिंग सिस्टम</h3>
+      </a>
       <a class="card card--hover related__item" href="/hi/aegis.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">AEGIS — संघों के लिए मेटाडेटा छिपाने वाला ट्रांसपोर्ट</h3>
-      </a>
-      <a class="card card--hover related__item" href="/hi/sentinel.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — अपराध विश्लेषण और जाँच के सूत्र</h3>
       </a>
       <a class="card card--hover related__item" href="/hi/trace.html">
         <div class="card__glow"></div>
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

@@ -149,11 +149,7 @@
         <span class="eyebrow eyebrow--amber">المشروع الرئيسي &middot; ParanoidBSD</span>
         <h1>نظام تشغيل تكون فيه السلطة <span class="gradient-text">مملوكة، لا مفترضة</span></h1>
         <p class="lede">
-          Nearly every break-in works the same way: a program reaches something it was never
-          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
-          program is handed only what it needs, and everything else is not merely forbidden
-          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
-          original kept alongside so every change can be checked against it.
+          كل اختراق تقريبًا يجري بالطريقة نفسها: برنامج يصل إلى شيء لم يكن مقصودًا له أن يمسّه. ParanoidBSD نظام تشغيل مبنيّ بحيث لا يستطيع ذلك. يُسلَّم كل برنامج ما يحتاجه فقط، وما عداه ليس ممنوعًا فحسب &mdash; بل هو خارج متناوله. مبنيّ على HardenedBSD، ومعاد كتابته بلغة C++ حديثة، مع الاحتفاظ بالأصل إلى جانبه ليُفحَص كل تغيير في مقابله.
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/ar/kickstarter.html">ادعم حملة Kickstarter</a>
@@ -178,7 +174,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6 وKWin وأُطر العمل لموجة سطح المكتب</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">الجرد، ومراحل إعادة الكتابة الحتمية، والنقل بالوكلاء، ومساعدات Clang</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">المواصفات، ونموذج الأمان، وحالة النقل، والمنشأ</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">سكربت التشغيل على نظام ويندوز الفرعي للينكس (WSL)، ومراقِب، وطرفية تقدّم</span></div>
           </div>
         </div>
       </div>
@@ -191,46 +187,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">بلغة بسيطة</span>
+      <h2>ما هذا، في دقيقة واحدة</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">المشكلة</span>
         <p class="small dim" style="margin:0">
-          An operating system sits underneath everything else an organisation runs. Most are
-          built on decades of older code, and they let any program ask for anything at all
-          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
-          something harmless, like the code that draws a font on screen, can end with stolen
-          passwords.
+          نظام التشغيل يقع تحت كل ما تشغّله المؤسسة. ومعظم الأنظمة مبنيّة على عقود من شيفرة أقدم، وتسمح لأي برنامج أن يطلب أي شيء على الإطلاق &mdash; ثم يقرّر النظام بعد ذلك أيسمح أم لا. لهذا يمكن لعيب واحد في شيء غير مؤذٍ، كالشيفرة التي ترسم خطًّا على الشاشة، أن ينتهي بسرقة كلمات المرور.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">الحل</span>
         <p class="small dim" style="margin:0">
-          ParanoidBSD changes what a program is able to ask for in the first place. Rather
-          than checking permission after the request, it hands each program a short list of
-          things it may touch, and gives it no way to name anything else. A flaw in one part
-          stops being a route into the rest.
+          يغيّر ParanoidBSD ما يستطيع البرنامج طلبه أصلًا. فبدل التحقّق من الإذن بعد الطلب، يسلّم كل برنامج قائمة قصيرة بما يجوز له مسّه، ولا يترك له سبيلًا لتسمية أي شيء آخر. وعيبٌ في جزء واحد يكفّ عن كونه طريقًا إلى البقية.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">لمن هو</span>
         <p class="small dim" style="margin:0">
-          Defence and government suppliers now being asked for software written in safer
-          languages. Equipment that stays in the field for years and cannot be patched
-          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
-          and researchers who want a real operating system small enough to read end to end.
+          موردو الدفاع والحكومة الذين يُطلب منهم اليوم برمجيات مكتوبة بلغات أكثر أمانًا. والمعدّات التي تبقى في الميدان سنوات ولا يمكن ترقيعها بسرعة &mdash; متحكّمات المصانع، والأجهزة الطبية، وعتاد المرافق. والمعلّمون والباحثون الذين يريدون نظام تشغيل حقيقيًّا صغيرًا بما يكفي لقراءته من أوّله إلى آخره.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Security should not start at the application layer.</strong> It should start
-      with the operating system underneath it. The rest of this page is the engineering:
-      what was changed, how it was checked, and what is not done yet.
+      <strong>الأمان لا ينبغي أن يبدأ عند طبقة التطبيقات.</strong> بل عند نظام التشغيل الذي تحتها. وبقية هذه الصفحة هي الهندسة: ما الذي تغيّر، وكيف جرى فحصه، وما لم يُنجَز بعد.
     </div>
   </div>
 </section>
@@ -251,12 +235,7 @@
           ولهذا يمكن لعلّة تحليل واحدة في محرّك عرض الخطوط أن تصير سرقة بيانات اعتماد. المحرّك لم يحتج يومًا إلى ملف كلمات السر &mdash; لكن لا شيء في المعمارية منعه من أن يطلبه.
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: Address Space Layout Randomisation
-          (ASLR), which loads a program somewhere different every time so an attacker cannot
-          guess where anything is; Control Flow Integrity (CFI), which stops a program being
-          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
-          and hardened memory allocators alongside them. PBSD keeps all of it and changes
-          the shape of the question underneath &mdash; from <em>&ldquo;هل يُسمح لهذه العملية؟&rdquo;</em> إلى
+          يقوم HardenedBSD بعمل جادّ هنا أصلًا: التوزيع العشوائي لتخطيط فضاء العناوين (ASLR)، الذي يُحمِّل البرنامج في موضع مختلف في كل مرّة فلا يستطيع المهاجم تخمين مكان أي شيء؛ وسلامة تدفّق التحكّم (CFI)، التي تمنع توجيه البرنامج إلى شيفرة لم يُبنَ لتشغيلها؛ ومعها تخفيفات مشتقّة من PaX، وSafeStack، ومُخصِّصات ذاكرة مُحصَّنة. يحتفظ PBSD بذلك كله ويغيّر شكل السؤال تحته &mdash; من <em>&ldquo;هل يُسمح لهذه العملية؟&rdquo;</em> إلى
           <em>&ldquo;هل تملك هذه العملية مقبضًا لذلك؟&rdquo;</em>
         </p>
       </div>
@@ -273,9 +252,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim listing of the calls a
-            program makes into the kernel &mdash; its Application Programming Interface, or API.
-            The authoritative model is in <code translate="no">docs/</code>.
+            شكل توضيحي للفرق، لا سردٌ حرفيّ للنداءات التي يوجّهها برنامج إلى النواة &mdash; أي واجهة برمجة التطبيقات الخاصة بها. والنموذج المُعتمَد في <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -367,9 +344,7 @@
       <span class="eyebrow eyebrow--violet">النقل</span>
       <h2>أربع مراحل، ونموذج لا يشهد لنفسه أبدًا</h2>
       <p class="lede">
-        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
-        is a decade of work. Porting it by asking a language model to rewrite files is a fast
-        way to produce plausible garbage. PBSD does neither.
+        نقل فضاء مستخدم ونواة توزيعة برمجيات بيركلي (BSD) إلى C++23 يدويًّا عملُ عقد كامل. ونقله بمطالبة نموذج لغوي بإعادة كتابة الملفات طريقٌ سريع لإنتاج قمامة معقولة المظهر. وPBSD لا يفعل أيًّا منهما.
       </p>
     </div>
 
@@ -407,8 +382,7 @@
         <span class="badge badge--amber" style="margin-bottom:12px">المرحلة 4</span>
         <h3 style="font-size:1.05rem">بوابة التحقّق</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          تصريف، وASan، وUBSan، وتنفيذ تفاضلي، ومقارنة على مستوى التمثيل الوسيط للمصرّف. والملف الذي يُصرَّف فقط هو
           <em>غير متحقَّق منه</em>. والإخفاقات تُسجَّل في
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
@@ -471,9 +445,7 @@
     <details class="acc reveal">
       <summary>C++ في النواة قائمة بذاتها: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
-        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
-        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
+        لا يمكن لنواة النظام أن تعتمد على زمن تشغيل C++ مستضاف. بلا استثناءات، وبلا معلومات نوع في زمن التشغيل (RTTI)، وبلا مسارات مكتبة قياسية تحجز من الكومة عند دخول النواة. والقيود مكتوبة في <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> كي يعرف المساهم ما هو مسموح في سياق النواة دون تخمين.
       </div>
     </details>
     <details class="acc reveal">
@@ -493,10 +465,7 @@
         <span class="eyebrow">التراخيص</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">ترخيصان، مفصولان بصدق</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
-          free for personal use, charities, education and organisations under
-          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
+          الشيفرة الجديدة في PBSD &mdash; النواة، ووحدات C++23، والأدوات &mdash; تُقدَّم بشروط Imortek المعتادة: رخصة جنو أفيرو العمومية العامة (AGPL-3.0+)، مجانية للاستخدام الشخصي والجمعيات الخيرية والتعليم والمؤسسات دون 50,000 دولار أسترالي (AUD) سنويًّا، مع ترخيص تجاري متعدّد المستويات فوق ذلك.
         </p>
         <p class="dim">
           الشيفرة المشتقّة من HardenedBSD تبقى تحت ترخيص BSD الأصلي. لا يمكن إعادة ترخيصها، وImortek لا يدّعي ذلك. <code translate="no">docs/PROVENANCE.md</code> هو السجلّ الذي يبيّن أي شيفرة تتبع أي ترخيص.
@@ -587,9 +556,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">‏TRACE — هوية مستمرّة من مشاهدات متفرّقة</h3>
       </a>
-      <a class="card card--hover related__item" href="/ar/sentinel.html">
+      <a class="card card--hover related__item" href="/ar/retdec.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — تحليلات الجريمة وخيوط التحقيق</h3>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — مُفكِّك برمجيات يستخرج المواصفة</h3>
       </a>
       <a class="card card--hover related__item" href="/ar/chess.html">
         <div class="card__glow"></div>
@@ -669,7 +638,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> أودن لوك، يعمل باسم Imortek. سيدني، أستراليا.</span>
-      <span class="mono tiny">بُني في 2026-09-17T23:04:13Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
+      <span class="mono tiny">بُني في 2026-09-18T00:00:16Z &middot; بلا متتبِّعات، بلا كوكيز، بلا تحليلات. الخطوط وحدها تأتي من الخارج.</span>
     </div>
   </div>
 </footer>

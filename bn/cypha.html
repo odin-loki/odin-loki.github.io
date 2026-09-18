@@ -149,11 +149,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>একটি AI স্থাপত্য, গড়া <span class="gradient-text">মৌলিক নীতি থেকে</span>, কোনো ফর্ক থেকে নয়</h1>
         <p class="lede">
-          Almost all modern Artificial Intelligence (AI) is a variation on the same few
-          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
-          from mathematics rather than borrowed, that updates on every example it sees instead
-          of being trained once and frozen. It is a research project, and the failures are
-          published alongside the results.
+          আধুনিক প্রায় সব কৃত্রিম বুদ্ধিমত্তাই (AI) একই গুটিকয়েক নকশার হেরফের। Cypha শুরু করে অন্য জায়গা থেকে: একটিমাত্র C++ টাইপ, যার শিখনের নিয়ম ধার করা নয়, গণিত থেকে বের করা, আর যা একবার প্রশিক্ষণ নিয়ে জমে যাওয়ার বদলে দেখা প্রতিটি উদাহরণেই নিজেকে হালনাগাদ করে। এটি একটি গবেষণা প্রকল্প, আর ফলাফলের পাশে ব্যর্থতাগুলিও প্রকাশ করা হয়।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">ব্রাউজারেই একটিকে প্রশিক্ষণ দিন</a>
@@ -163,7 +159,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">ভাষা<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">রিলিজ<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>২.৬৬৪ BPC</b></div>
+          <div class="phero__meta-item">WikiText-2, প্রতি অক্ষরে বিট (BPC)<b>২.৬৬৪ BPC</b></div>
           <div class="phero__meta-item">সর্বশেষ পুশ<b data-gh-repo="Cypha" data-gh-field="updated">সম্প্রতি</b></div>
         </div>
       </div>
@@ -172,7 +168,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">চারটি ধারা, একটিই শিখন নিয়ম</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; ন্যূনতম বর্ণনা-দৈর্ঘ্যের (MDL) পূর্বধারণা ঠিক করে মডেল সস্তায় কী কী বিশ্বাস করতে পারবে।</li>
             <li><strong>তথ্য জ্যামিতি</strong> &mdash; হালনাগাদ চলে প্রাকৃতিক গ্রেডিয়েন্ট ধরে, তাই শিখন প্যারামিটার-স্থানের বক্রতাকে মেনে চলে।</li>
             <li><strong>সক্রিয় অনুমান / মুক্ত শক্তি</strong> &mdash; কাঠামোটাকে ভেঙে দেয় পূর্বধারণা, ডিফারেনশিয়াল ও প্রেক্ষাপটে।</li>
             <li><strong>তথ্য-সংকীর্ণতা</strong> &mdash; এনকোডারের লক্ষ্য ঠিক করে দেয়: যা পূর্বাভাস দেয় তা রাখো, বাকিটা ফেলে দাও।</li>
@@ -187,50 +183,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">সহজ কথায়</span>
+      <h2>এটি কী, এক মিনিটে</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
         <p class="small dim" style="margin:0">
-          Nearly every AI system in use is a variation on a handful of designs. They are
-          trained once on a large machine and then shipped frozen, so keeping up with
-          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
-          back and training again. They are also big, which puts them in a data centre rather
-          than on the equipment, and makes explaining any single decision hard.
+          ব্যবহারে থাকা প্রায় প্রতিটি AI ব্যবস্থাই গুটিকয়েক নকশার হেরফের। এগুলিকে একবার বড় যন্ত্রে প্রশিক্ষণ দিয়ে জমাট অবস্থায় পাঠানো হয়, তাই যা বদলাতে থাকে &mdash; নতুন ধরনের জালিয়াতি, নতুন ত্রুটি &mdash; তার সঙ্গে তাল মেলাতে হলে ফিরে গিয়ে আবার প্রশিক্ষণ দিতে হয়। এগুলি আবার বড়, তাই বসে যন্ত্রের গায়ে নয়, ডেটা সেন্টারে, আর একটিমাত্র সিদ্ধান্ত ব্যাখ্যা করাও কঠিন হয়ে পড়ে।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">সমাধান</span>
         <p class="small dim" style="margin:0">
-          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
-          learning rule is derived from four bodies of mathematics rather than copied from an
-          existing architecture, and it updates on every example it sees &mdash; no batch, no
-          epoch, no retraining run. It is small enough to run on the hardware that collects
-          the data.
+          Cypha একটিমাত্র C++ টাইপ, যা শ্রেণিবদ্ধ করে, সংখ্যার পূর্বাভাস দেয় আর সিকোয়েন্স তৈরি করে। এর শিখনের নিয়ম প্রচলিত কোনো স্থাপত্য থেকে নকল করা নয়, গণিতের চারটি শাখা থেকে বের করা, আর এটি দেখা প্রতিটি উদাহরণেই হালনাগাদ হয় &mdash; কোনো ব্যাচ নয়, এপক নয়, আবার প্রশিক্ষণের দৌড় নয়। যে হার্ডওয়্যার ডেটা জোগাড় করে তার উপরেই চলার মতো ছোট।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
         <p class="small dim" style="margin:0">
-          Today, researchers and engineers willing to try a different design. The problems it
-          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
-          faults, changing behaviour &mdash; where the model has to sit on the device rather
-          than in a data centre, and where somebody has to explain the decision afterwards.
+          আজকের দিনে, ভিন্ন নকশা পরখ করতে রাজি গবেষক ও প্রকৌশলীরা। যেসব সমস্যার দিকে এটি তাক করা, সেখানে ডেটা বদলাতেই থাকে &mdash; জালিয়াতি, যন্ত্রের ত্রুটি, বদলে যাওয়া আচরণ &mdash; মডেলটিকে ডেটা সেন্টারে নয়, যন্ত্রের গায়েই বসতে হয়, আর পরে কাউকে না কাউকে সিদ্ধান্তটা ব্যাখ্যা করতে হয়।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Judge it as research.</strong> The figures further down come from the
-      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
-      than a leaderboard position. A section headed <em>Cypha যা নয়</em> sets out the
-      limits, including the standard test where it sits near chance until one particular
-      component is switched on. The rest of this page is the architecture and the
-      measurements.
+      <strong>গবেষণা হিসেবেই একে বিচার করুন।</strong> নিচের সংখ্যাগুলি এসেছে রিপোজিটরির নিজের বেঞ্চমার্ক চালনা থেকে, লিডারবোর্ডের অবস্থান নয়, সংরক্ষিত পরীক্ষার ফিক্সচারের বিপরীতে যাচাই করা। যে অংশের শিরোনাম <em>Cypha যা নয়</em> , সেটি সীমাগুলি খুলে বলে &mdash; সেই আদর্শ পরীক্ষাটিসহ, যেখানে একটি নির্দিষ্ট অংশ চালু না করা পর্যন্ত এটি এলোমেলো আন্দাজের কাছাকাছি পড়ে থাকে। এই পাতার বাকিটা স্থাপত্য আর মাপজোখ।
     </div>
   </div>
 </section>
@@ -242,9 +222,7 @@
       <span class="eyebrow eyebrow--violet">লাইব্রেরিটি নিজেই</span>
       <h2>র‍্যান্ডম ফিচার, বর্ণনা নয়, মেপে দেখা</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features (RFF) is that they let a linear head
-        separate what a linear head cannot. That is a measurable claim, so this measures it
-        &mdash; with <code translate="no">cypha::rff_features</code> WebAssembly-তে কম্পাইল করে, JavaScript-এ নতুন করে বলে নয়।
+        র‍্যান্ডম ফুরিয়ে ফিচার (RFF) নিয়ে Cypha-র যুক্তি হলো, এগুলি একটি রৈখিক হেডকে এমন কিছু আলাদা করতে দেয় যা রৈখিক হেড পারে না। এটি মাপা যায় এমন দাবি, তাই এখানে সেটাই মাপা হচ্ছে &mdash; সঙ্গে <code translate="no">cypha::rff_features</code> WebAssembly-তে কম্পাইল করে, JavaScript-এ নতুন করে বলে নয়।
       </p>
     </div>
 
@@ -256,7 +234,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact Radial Basis Function (RBF) kernel over <b>n</b> সংখ্যক নমুনা বিন্দুর উপরে, আর তাতে পাওয়া যায় একটি ম্যাট্রিক্স <b>K</b>। র‍্যান্ডম ফিচার তার একটি আসন্ন মান পুনর্গঠন করে <b>K&#770;</b>। যা আঁকা হয়েছে তা হলো
+            হুবহু রেডিয়াল বেসিস ফাংশন (RBF) কার্নেল <b>n</b> সংখ্যক নমুনা বিন্দুর উপরে, আর তাতে পাওয়া যায় একটি ম্যাট্রিক্স <b>K</b>। র‍্যান্ডম ফিচার তার একটি আসন্ন মান পুনর্গঠন করে <b>K&#770;</b>। যা আঁকা হয়েছে তা হলো
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> ফিচারের সংখ্যা বাড়ার সঙ্গে সঙ্গে: যত বেশি ফিচার, তত কাছাকাছি আসন্ন মান।
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -284,16 +262,12 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>এটি কম্পাইল করতে গিয়ে একটি বাগ ধরা পড়ল।</strong> Orthogonal Random Features (ORF)
-            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
-            et al. draw the row norm from <code translate="no">chi_d</code> থেকে, যাতে একটি অর্থোগোনাল সারি যে গাউসীয় সারির জায়গা নিচ্ছে তার সঙ্গে মেলে। সারিগুলি &radic;d গুণ বেশি ছোট ছিল, তাই ফিচারগুলি ভুল কার্নেলের কাছাকাছি যাচ্ছিল আর ভুলের মাত্রা অভিসারী না হয়ে থমকে যাচ্ছিল। এক লাইন। এখন তিনটির মধ্যে এটিই সবচেয়ে ভালো।
+            <strong>এটি কম্পাইল করতে গিয়ে একটি বাগ ধরা পড়ল।</strong> অর্থোগোনাল র‍্যান্ডম ফিচার (ORF) &mdash; ঘন রূপটি &mdash; প্রতিটি সারিকে একক দৈর্ঘ্যে স্বাভাবিক করছিল, অথচ Yu et al. সারির নর্ম নেন <code translate="no">chi_d</code> থেকে, যাতে একটি অর্থোগোনাল সারি যে গাউসীয় সারির জায়গা নিচ্ছে তার সঙ্গে মেলে। সারিগুলি &radic;d গুণ বেশি ছোট ছিল, তাই ফিচারগুলি ভুল কার্নেলের কাছাকাছি যাচ্ছিল আর ভুলের মাত্রা অভিসারী না হয়ে থমকে যাচ্ছিল। এক লাইন। এখন তিনটির মধ্যে এটিই সবচেয়ে ভালো।
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        the Cross-Origin-Opener-Policy (COOP) and Cross-Origin-Embedder-Policy (COEP) headers
-        GitHub Pages cannot send.
+        ইচ্ছে করেই একক-থ্রেড: থ্রেডযুক্ত WebAssembly-র দরকার SharedArrayBuffer, যার দরকার Cross-Origin-Opener-Policy (COOP) ও Cross-Origin-Embedder-Policy (COEP) হেডার, যা GitHub Pages পাঠাতে পারে না।
       </div>
     </div>
   </div>
@@ -335,9 +309,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
-          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
-          and whose movement is the drift signal.
+          একটি ভাগ করা কর্ণ গাউসীয় বণ্টন, Welford আর সূচকীয় চলমান গড়ের (EMA) হালনাগাদ দিয়ে অনলাইনে বসানো। এটিই সেই &ldquo;অসীম প্রেক্ষাপট&rdquo; যা কখনও ভোলে না &mdash; আর যার নড়াচড়াই ড্রিফট সংকেত।
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -478,7 +450,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> শুদ্ধতা নেমে এলোমেলো আন্দাজের কাছে চলে যায়, আর এটি এই প্রদর্শনীর কোনো বাগ নয় &mdash; এটি একটি রৈখিক লগ-সম্ভাবনার অনুপাতের নথিভুক্ত সীমাবদ্ধতা, Cypha README-তে সোজাসুজি লেখা। সুপ্ত RFF এনকোডার চালু করে দেখুন কীভাবে তা ফিরে আসে। সারাইয়ের পাশেই ব্যর্থতার ধরনটি প্রকাশ করাই তো আসল কথা।
+      <strong>RFF এনকোডার বন্ধ রেখে এক্সক্লুসিভ অর (XOR) চালিয়ে দেখুন।</strong> শুদ্ধতা নেমে এলোমেলো আন্দাজের কাছে চলে যায়, আর এটি এই প্রদর্শনীর কোনো বাগ নয় &mdash; এটি একটি রৈখিক লগ-সম্ভাবনার অনুপাতের নথিভুক্ত সীমাবদ্ধতা, Cypha README-তে সোজাসুজি লেখা। সুপ্ত RFF এনকোডার চালু করে দেখুন কীভাবে তা ফিরে আসে। সারাইয়ের পাশেই ব্যর্থতার ধরনটি প্রকাশ করাই তো আসল কথা।
     </div>
   </div>
 </section>
@@ -493,8 +465,7 @@
         রোগনির্ণয়ের সারাইয়ের পরে রিপোজিটরির নিজের বেঞ্চমার্ক চালনা থেকে পাওয়া সংখ্যা। শুদ্ধতার প্রমাণ হলো সংরক্ষিত ফিক্সচার মানের সঙ্গে মিলে যাওয়া একটি CTest ম্যাট্রিক্স &mdash; লিডারবোর্ডের অবস্থান নয়।
       </p>
       <p class="small muted">
-        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
-        (LSTM), Backpropagation Through Time (BPTT).
+        সারণির সংক্ষেপ: স্টোক্যাস্টিক গ্রেডিয়েন্ট ডিসেন্ট (SGD), লং শর্ট-টার্ম মেমরি (LSTM), সময়ের মধ্য দিয়ে ব্যাকপ্রোপাগেশন (BPTT)।
       </p>
     </div>
 
@@ -565,7 +536,7 @@
           <li><strong>কোনো র‍্যাপার নয়।</strong> মৌলিক নীতি থেকে নিজের মতো গড়া &mdash; যার মানে আবার এই যে, এটি অন্য কারও টিউনিং উত্তরাধিকারসূত্রে পায় না।</li>
           <li><strong>রৈখিক LLR-এর একটা ছাদ আছে।</strong> সুপ্ত RFF এনকোডার ছাড়া XOR এলোমেলো আন্দাজের কাছাকাছি পড়ে থাকে; এনকোডারটি তাকে প্রায় ৭৬.৩% পর্যন্ত তোলে।</li>
           <li><strong>যাচাই হয় মিল দেখে।</strong> সংরক্ষিত ফিক্সচার মানের বিপরীতে CTest। লিডারবোর্ড নিয়ে কোনো দাবি করা হয় না।</li>
-          <li><strong>CUDA কেবল ইনফারেন্সের জন্য।</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
+          <li><strong>CUDA কেবল ইনফারেন্সের জন্য।</strong> প্রশিক্ষণ কেন্দ্রীয় প্রক্রিয়াকরণ ইউনিটেই (CPU) থাকে, কারণ এই স্থাপত্যে CPU-ই দ্রুততর।</li>
           <li><strong>তত্ত্ব থাকে অন্যত্র।</strong> হারমোনিক-স্পেকট্রাম ও NMP-র কাজ একটি আলাদা কম্প্রেশন-অ্যালগরিদম গবেষণাপত্রের বিষয়; Cypha হলো বাস্তবায়নের স্তর।</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -744,7 +715,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

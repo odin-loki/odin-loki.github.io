@@ -148,11 +148,7 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 预发布</span>
         <h1>一个 C++23 库，从 <span class="gradient-text">LU 到 CFD</span></h1>
         <p class="lede">
-          Engineering software runs on heavy mathematics, and almost nobody writes their own.
-          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
-          hard to audit, hard to change, and hard to install where the build machine has no
-          internet. MathScript does the mathematics itself, from matrix arithmetic up to
-          fluid dynamics, in one C++ library with nothing to fetch.
+          工程软件跑在很重的数学上，而几乎没人自己写这些数学。它是用别人的库和收费平台拼起来的 &mdash; 难审计，难改动，在不联网的构建机上还难安装。MathScript 自己把这些数学做了，从矩阵运算一直到流体力学，装在一个什么都不用取的 C++ 库里。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">现场作图并求导</a>
@@ -170,7 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">两个决定了一切的决策</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>树内自带矩阵内核。</strong> 基础线性代数子程序（BLAS）和线性代数软件包（LAPACK）在这里是自己实现的，不是取来的：不用 Eigen，也不用 OpenBLAS。 <code translate="no">linalg</code> 拥有 LU、QR、奇异值分解（SVD）、eig、Cholesky 以及 LAPACK 风格的那些内核，所以部署是一次编译，而不是一场找依赖的搜捕。</li>
             <li><strong>一个受限的 C++ 子集。</strong> 不用裸指针，不用异常，不用不安全的类型转换 &mdash; 编译期强制。生产代码返回 <code translate="no">Result&lt;T&gt;</code>，所以错误处理是确定性的，而且在类型里看得见。</li>
           </ul>
         </div>
@@ -183,49 +179,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
-          are rarely written by the team shipping it. They arrive from a dozen outside
-          libraries and paid platforms that have to be fetched, licensed and trusted. When an
-          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
-          machine you may not be able to fetch them at all.
+          应力、流动、信号、风险 &mdash; 工程软件底下那些计算，很少是交付它的团队自己写的。它们来自十几个外部库和收费平台，得取下来、买授权、还得信得过。一旦答案看着不对，推导过程在别人的代码里；在一台封闭的构建机上，你可能连取都取不下来。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          MathScript is one C++ library that does the mathematics itself: linear algebra,
-          statistics, differential equations, finite elements, fluid flow, optimisation and a
-          symbolic algebra system, across thirty-five static libraries. The matrix routines
-          most projects import from BLAS and LAPACK are written here instead. All 816 test
-          suites pass on the Windows build. v1.0.0 has not shipped yet.
+          MathScript 是一个自己做数学的 C++ 库：线性代数、统计、微分方程、有限元、流体流动、优化，还有一个符号代数系统，分在三十五个静态库里。大多数项目从 BLAS 和 LAPACK 引入的那些矩阵例程，这里是自己写的。Windows 构建上全部 816 个测试套件通过。v1.0.0 还没发布。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Teams whose build machines cannot reach the internet &mdash; defence, medical,
-          aerospace, banking &mdash; where every fetched dependency is another approval.
-          Products that do their real work in C++ and their mathematics in Python, and carry
-          two sets of problems for it. Teachers and students who want the method written out
-          where it can be read.
+          构建机上不了网的团队 &mdash; 国防、医疗、航空航天、银行 &mdash; 在那里每取一个依赖就多一道审批。真正的活用 C++ 干、数学却用 Python 干的产品，也因此背着两套问题。以及想看到方法被写出来、能读得到的教师和学生。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
-      argument, and the rest of this page is the evidence: what the thirty-five libraries
-      hold, why a failure comes back in the return type instead of as an exception, and
-      exactly what the test numbers cover.
+      <strong>数学在代码树里，不在依赖清单里。</strong> 这就是论点，本页余下的部分是证据：三十五个库里装了什么、为什么失败是从返回类型里回来而不是抛异常，以及那些测试数字到底覆盖了什么。
     </div>
   </div>
 </section>
@@ -234,12 +215,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">交互演示</span>
-      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
+      <h2>一个在你浏览器里跑的符号计算机代数系统（CAS）</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
-        differentiated symbolically, simplified, then evaluated numerically for the plot
-        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
-        visible interval.
+        输入一个表达式。它会被切成词法单元、解析成抽象语法树（AST）、做符号求导、化简，然后为作图做数值求值 &mdash; 同时在可见区间上做一次辛普森法则积分和一次二分法求根。
       </p>
     </div>
 
@@ -347,11 +325,7 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
-            build is 4.9 megabytes (MB), so this links only what these four calls reach. The
-            panel shows the library version and the vector Instruction Set Architecture (ISA)
-            the build reports.
+            你不按加载就什么都不下载，按了也只取一次。这个模块是 113 千字节（KB）的 WebAssembly 加 10 KB 的加载器 &mdash; 完整的库构建是 4.9 兆字节（MB），所以这里只链接了这四个调用能够到的部分。面板上显示库的版本，以及这份构建报告出来的向量指令集架构（ISA）。
           </p>
         </div>
         <div class="demo__side">
@@ -381,9 +355,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>指令集那一行是这个库在如实报告自己。</strong> 它调用的是
-            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
-            one vector ISA and it says so.
+            <code translate="no">ms::detect_isa()</code>，和它在本机上发起的是同一个调用。在你的桌面机上，它会回答高级向量扩展（AVX2 或 AVX-512）里的一种；在这里只有一种向量 ISA，它就照实说。
           </div>
         </div>
       </div>
@@ -400,12 +372,7 @@
       <span class="eyebrow">范围</span>
       <h2>三十五个静态库，六个领域</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics and Machine Learning
-        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
-        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
-        signal and image processing, number theory, graphs, geometry, topology, quantum
-        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
-        eigensolvers and Cholesky written in-tree.
+        稠密与稀疏线性代数、特殊函数、统计和机器学习（ML）。常微分方程（ODE）和偏微分方程（PDE）、有限元方法（FEM）与计算流体力学（CFD）。优化、信号与图像处理、数论、图、几何、拓扑、量子原语、控制、金融、压缩 &mdash; 外加一个符号 CAS。LU、QR、SVD、特征值求解器和 Cholesky 都写在树内。
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="六个库领域 — 核心系统、数值、统计与机器学习、应用、符号和专门领域 — 都建立在一条 Result<T> 基础轨道上，不用异常，也不用裸指针" loading="lazy" decoding="async"></div><span class="diagram__hint">滑动查看完整示意图 &rarr;</span><figcaption><b>三十五个库，一套错误约定。</b> 底下那条轨道才是关键：失败在返回类型里，而不是在你到栈顶才发现的那个异常里。</figcaption></figure>
@@ -442,9 +409,7 @@
         <span class="eyebrow">对外暴露的东西</span>
         <h3>三个可执行文件，其余一切都可选</h3>
         <p class="small dim" style="margin-top:12px">
-          Everything past the three executables is a build option &mdash; a Qt Graphical User
-          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
-          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+          三个可执行文件之外的一切都是构建选项 &mdash; 一个 Qt 图形用户界面（GUI）、CUDA、消息传递接口（MPI），以及一个即时编译器（JIT），建在 LLVM 的按需编译（ORC）层之上。
         </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">编译器 / 批处理驱动</span></div>
@@ -457,9 +422,7 @@
         <span class="eyebrow">验证</span>
         <h3>816 个套件能买到什么</h3>
         <p class="small dim" style="margin-top:12px">
-          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
-          Microsoft Visual C++ (MSVC) on Windows and the GNU Compiler Collection (GCC) 13 on
-          Linux.
+          下面这些门禁背后的持续集成（CI）矩阵覆盖两个编译器：Windows 上的 Microsoft Visual C++（MSVC），以及 Linux 上的 GNU 编译器套装（GCC）13。
         </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
@@ -551,17 +514,17 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
       </a>
+      <a class="card card--hover related__item" href="/zh/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
+      </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/cypha.html">
+      <a class="card card--hover related__item" href="/zh/aegis.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
-      </a>
-      <a class="card card--hover related__item" href="/zh/chess.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -633,7 +596,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

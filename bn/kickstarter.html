@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">অভিযান</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">শুরু</span><span class="spec__v">১৩ সেপ্টেম্বর ২০২৬</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">শেষ</span><span class="spec__v">১২ নভেম্বর ২০২৬</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">লক্ষ্য</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">লক্ষ্য</span><span class="spec__v">১০,০০০ অস্ট্রেলীয় ডলার (AUD)</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">তহবিলের ধরন</span><span class="spec__v">সব বা কিছুই নয় &mdash; ৬০ দিন</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">উদ্দেশ্য</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">উদ্দেশ্য</span><span class="spec__v">কৃত্রিম বুদ্ধিমত্তার (AI) ক্রেডিট আর যাচাইয়ের কম্পিউট</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">প্রকল্প</span><span class="spec__v"><a href="/bn/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">গঠন</span><span class="spec__v">অনুদান, সঙ্গে AUD ১০,০০০-এর একটি ফিচার-অনুরোধ পুরস্কার</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">লাইসেন্স</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">লাইসেন্স</span><span class="spec__v">GNU Affero জেনারেল পাবলিক লাইসেন্স (AGPL-3.0+); HardenedBSD থেকে আসা কোডের জন্য বার্কলি সফটওয়্যার ডিস্ট্রিবিউশন (BSD)</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             লক্ষ্যটি অভিযানের পুরো সময় ধরে অপরিবর্তিত, তাই সেটি এখানে লেখা আছে। প্রতিশ্রুত অর্থ আর সমর্থকের সংখ্যা অপরিবর্তিত নয়, তাই সেগুলি এখানে নেই &mdash; স্থির পাতায় বসানো চলমান হিসাব লেখামাত্রই ভুল হয়ে যায়। দুটোই অভিযানের পাতায় আছে, সরাসরি।
@@ -209,11 +209,7 @@
           সুরক্ষা-কঠোর করা একটি BSD-কে C++23-এ পোর্ট করা, হাতে করলে, এক দশকের পূর্ণ-সময়ের কাজ। আবার এটা ঠিক সেই ধরনের কাজ যেখানে ভাষা-মডেল সত্যিই কাজে লাগে &mdash; কঠোর নির্দিষ্টকরণের বিপরীতে মিলিয়ে দেখা যায় এমন যান্ত্রিক অনুবাদ, যা এই প্রযুক্তির জন্য প্রায় সবচেয়ে অনুকূল পরিস্থিতি।
         </p>
         <p class="dim">
-          The design already reflects that. Deterministic rewrite passes handle everything they
-          safely can, for free. Models are used only on the residue: stubbed inventory entries
-          and the files the deterministic passes refused. Every model output then goes through
-          compile, ASan, UBSan, differential execution and a comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR) before it counts.
+          নকশাটাই সেটা দেখায়। নির্ধারণবাদী পুনর্লিখনের ধাপগুলি নিরাপদে যা যা পারে সবই বিনা খরচে সামলায়। মডেল ব্যবহার হয় কেবল অবশিষ্টটুকুতে: স্টাব করা তালিকা-ভুক্তি আর যে ফাইলগুলি নির্ধারণবাদী ধাপগুলি নিতে চায়নি। তারপর প্রতিটি মডেল-আউটপুট গোনার আগে পেরোয় কম্পাইল, ASan, UBSan, ডিফারেনশিয়াল এক্সিকিউশন আর কম্পাইলারের মধ্যবর্তী উপস্থাপনার (IR) স্তরে একটি তুলনা।
         </p>
         <p class="dim">
           সেই যাচাই ঐচ্ছিক নয়, সস্তাও নয়। প্রতিটি ফাইলে চেষ্টা হয়, পরীক্ষা হয়, প্রায়ই বাতিল হয় এবং আবার চেষ্টা হয়। খরচটা লুপে, একটিমাত্র চালনায় নয় &mdash; আর ওই লুপই মডেলের আউটপুটকে এমন কিছুতে বদলায় যা নিরাপত্তা-কেন্দ্রিক একটি অপারেটিং সিস্টেম সত্যিই পাঠাতে পারে।
@@ -232,7 +228,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>এজেন্ট পোর্ট ড্রাইভার, সঙ্গে ওয়ার্কার পুল ও এসকেলেশন</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>কম্পাইল, স্যানিটাইজার, ডিফারেনশিয়াল ও IR যাচাইয়ের গেট</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>উৎস-নির্দেশের হিসাব রাখা, যাতে লাইসেন্সের সীমানা নিরীক্ষাযোগ্য থাকে</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ক্যাপাবিলিটি নিউক্লিয়াসের নকশা আর কার্নেল C++ অ্যাপ্লিকেশন বাইনারি ইন্টারফেসের (ABI) নির্দিষ্টকরণ</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             এই অভিযান তহবিল পাক বা না পাক, এর সবটাই এখনই রিপোজিটরিতে আছে, একটি উন্মুক্ত লাইসেন্সে। কিছু ঠিক করার আগে এই পাতার প্রতিটি দাবি আপনি সোর্সে মিলিয়ে দেখতে পারেন।
@@ -473,7 +469,7 @@
         <details class="acc">
           <summary>এটা একজন মানুষের কাজ</summary>
           <div class="acc__body">
-            Imortek মানে Odin Loch, যিনি সিডনিতে টুলমেকারের কাজ করেন। কোনো দল নেই, কোনো জমানো টাকা নেই, ধারাবাহিকতার কোনো পরিকল্পনাও নেই; আছে শুধু এটুকু যে সবকিছু লেখার সঙ্গে সঙ্গেই উন্মুক্ত লাইসেন্সে প্রকাশিত হয়। এটা থেমে গেলেও যা আছে তা সর্বজনীন ও ফর্ক করার মতোই থাকবে। সৎভাবে এইটুকুই একমাত্র নিশ্চয়তা দেওয়া যায়, তাই এটাই দেওয়া হচ্ছে।
+            Imortek মানে Odin Loch, যিনি সিডনিতে টুলমেকারের কাজ করেন। কোনো দল নেই, খরচ করার মতো বিনিয়োগকারীর টাকা নেই, আর ধারাবাহিকতার কোনো পরিকল্পনাও নেই; আছে শুধু এটুকু যে সবকিছু লেখার সঙ্গে সঙ্গেই উন্মুক্ত লাইসেন্সে প্রকাশিত হয়। এটা থেমে গেলেও যা আছে তা সর্বজনীন ও ফর্ক করার মতোই থাকবে। সৎভাবে এইটুকুই একমাত্র নিশ্চয়তা দেওয়া যায়, তাই এটাই দেওয়া হচ্ছে।
           </div>
         </details>
         <details class="acc">
@@ -605,7 +601,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

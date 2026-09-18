@@ -149,11 +149,7 @@
         <span class="eyebrow">Cypha &middot; v2.4.0</span>
         <h1>一套从 <span class="gradient-text">第一性原理</span>出发构建的 AI 架构，不是 fork 来的</h1>
         <p class="lede">
-          Almost all modern Artificial Intelligence (AI) is a variation on the same few
-          designs. Cypha starts somewhere else: one C++ type, with a learning rule worked out
-          from mathematics rather than borrowed, that updates on every example it sees instead
-          of being trained once and frozen. It is a research project, and the failures are
-          published alongside the results.
+          几乎所有现代人工智能（AI）都是同样那几种设计的变体。Cypha 的起点在别处：一个 C++ 类型，学习规则是从数学里推出来的，不是借来的，而且它每见到一个样本就更新一次，而不是训练一次就冻住。这是一个研究项目，失败的部分和结果一起发布。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">在你的浏览器里训练一个</a>
@@ -163,7 +159,7 @@
         <div class="phero__meta">
           <div class="phero__meta-item">语言<b data-gh-repo="Cypha" data-gh-field="language">C++</b></div>
           <div class="phero__meta-item">版本<b>v2.4.0</b></div>
-          <div class="phero__meta-item">WikiText-2, Bits Per Character<b>2.664 BPC</b></div>
+          <div class="phero__meta-item">WikiText-2，每字符比特数（BPC）<b>2.664 BPC</b></div>
           <div class="phero__meta-item">最近一次推送<b data-gh-repo="Cypha" data-gh-field="updated">不久前</b></div>
         </div>
       </div>
@@ -172,7 +168,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">四条纲领，一条学习规则</span>
           <ul class="flist">
-            <li><strong>AIXI / Solomonoff</strong> &mdash; Minimum Description Length (MDL) priors decide what the model is allowed to believe cheaply.</li>
+            <li><strong>AIXI / Solomonoff</strong> &mdash; 最小描述长度（MDL）先验决定模型可以廉价地相信哪些东西。</li>
             <li><strong>信息几何</strong> &mdash; 更新沿着自然梯度走，所以学习尊重参数空间的曲率。</li>
             <li><strong>主动推断 / 自由能</strong> &mdash; 给出先验、差分与上下文这套结构分解。</li>
             <li><strong>信息瓶颈</strong> &mdash; 定下编码器的目标：留下能预测的，其余丢掉。</li>
@@ -187,50 +183,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          Nearly every AI system in use is a variation on a handful of designs. They are
-          trained once on a large machine and then shipped frozen, so keeping up with
-          something that moves &mdash; a new kind of fraud, a new fault &mdash; means going
-          back and training again. They are also big, which puts them in a data centre rather
-          than on the equipment, and makes explaining any single decision hard.
+          在用的 AI 系统几乎全是少数几种设计的变体。它们在大机器上训练一次，然后冻住发出去，所以要跟上会变的东西 &mdash; 一种新的欺诈手法、一种新的故障 &mdash; 就得回去重新训练。它们还很大，于是只能待在数据中心里而不是设备上，也让解释任何一次单独的决定变得很难。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          Cypha is one C++ type that classifies, predicts numbers and generates sequences. Its
-          learning rule is derived from four bodies of mathematics rather than copied from an
-          existing architecture, and it updates on every example it sees &mdash; no batch, no
-          epoch, no retraining run. It is small enough to run on the hardware that collects
-          the data.
+          Cypha 是一个 C++ 类型，能分类、预测数值、生成序列。它的学习规则是从四套数学里推导出来的，不是从现成架构抄来的，而且它每见到一个样本就更新一次 &mdash; 没有批次，没有轮次，也没有重训这一步。它小到可以在采集数据的那台硬件上跑。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Today, researchers and engineers willing to try a different design. The problems it
-          is aimed at are the ones where the data keeps moving &mdash; fraud, equipment
-          faults, changing behaviour &mdash; where the model has to sit on the device rather
-          than in a data centre, and where somebody has to explain the decision afterwards.
+          眼下是愿意试一种不同设计的研究者和工程师。它瞄准的问题，是数据一直在动的那些 &mdash; 欺诈、设备故障、变化中的行为 &mdash; 是模型必须待在设备上而不是数据中心里的那些，也是事后得有人把决定解释清楚的那些。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Judge it as research.</strong> The figures further down come from the
-      repository&rsquo;s own benchmark runs, checked against committed test fixtures rather
-      than a leaderboard position. A section headed <em>Cypha 不是什么</em> sets out the
-      limits, including the standard test where it sits near chance until one particular
-      component is switched on. The rest of this page is the architecture and the
-      measurements.
+      <strong>把它当研究来评判。</strong> 下面那些数字来自仓库自己跑的基准测试，对照的是已提交的测试夹具，而不是排行榜上的名次。一个标题叫 <em>Cypha 不是什么</em> 的小节列出了这些局限，其中包括那个标准测试：在某一个特定组件被打开之前，它在上面一直停在接近瞎猜的水平。本页余下的部分是架构和测量结果。
     </div>
   </div>
 </section>
@@ -242,9 +222,7 @@
       <span class="eyebrow eyebrow--violet">库本身</span>
       <h2>随机特征，测出来的，不是说出来的</h2>
       <p class="lede">
-        Cypha&rsquo;s case for random Fourier features (RFF) is that they let a linear head
-        separate what a linear head cannot. That is a measurable claim, so this measures it
-        &mdash; with <code translate="no">cypha::rff_features</code> 编译成的 WebAssembly，不是用 JavaScript 复述一遍。
+        Cypha 为随机傅里叶特征（RFF）给出的理由是：它们能让一个线性头分开线性头本来分不开的东西。这是一个可以测量的主张，所以这里就把它测出来 &mdash; 用的是 <code translate="no">cypha::rff_features</code> 编译成的 WebAssembly，不是用 JavaScript 复述一遍。
       </p>
     </div>
 
@@ -256,7 +234,7 @@
       <div class="demo__split">
         <div class="demo__stage">
           <p class="small dim" style="margin-top:0">
-            The exact Radial Basis Function (RBF) kernel over <b>n</b> 个采样点上的精确 RBF 核给出一个矩阵 <b>K</b>。随机特征重建出一个近似 <b>K&#770;</b>。画出来的是
+            径向基函数（RBF）：在 <b>n</b> 个采样点上的精确 RBF 核给出一个矩阵 <b>K</b>。随机特征重建出一个近似 <b>K&#770;</b>。画出来的是
             <b>&#8214;K &minus; K&#770;&#8214;<sub>F</sub></b> 随特征数增长的变化：特征越多，近似越接近。
           </p>
           <div class="grid grid-2" style="gap:18px;margin-top:16px">
@@ -284,16 +262,12 @@
             </div>
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
-            <strong>编译这段代码时发现了一个 bug。</strong> Orthogonal Random Features (ORF)
-            &mdash; the dense variant &mdash; was normalising every row to unit length, when Yu
-            et al. draw the row norm from <code translate="no">chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
+            <strong>编译这段代码时发现了一个 bug。</strong> 正交随机特征（ORF）&mdash; 稠密的那个变体 &mdash; 原本把每一行都归一化成单位长度，而 Yu 等人是从 <code translate="no">chi_d</code> 里抽取行范数的，好让一个正交行与它替换掉的那个高斯行对得上。行短了 &radic;d 倍，于是特征近似的是错的核，误差不收敛，而是走平了。一行代码。现在它是三者里最好的。
           </div>
         </div>
       </div>
       <div class="panel__foot">
-        Single-threaded on purpose: threaded WebAssembly needs SharedArrayBuffer, which needs
-        the Cross-Origin-Opener-Policy (COOP) and Cross-Origin-Embedder-Policy (COEP) headers
-        GitHub Pages cannot send.
+        故意做成单线程：多线程的 WebAssembly 需要 SharedArrayBuffer，而它需要 Cross-Origin-Opener-Policy（COOP）和 Cross-Origin-Embedder-Policy（COEP）这两个响应头，GitHub Pages 发不出来。
       </div>
     </div>
   </div>
@@ -335,9 +309,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">&theta;&#8320;</span>
         <h3 style="font-size:1.02rem">WorldPrior</h3>
         <p class="small dim" style="margin:0">
-          A shared diagonal Gaussian fitted online by Welford and Exponential Moving Average
-          (EMA) updates. This is the &ldquo;infinite context&rdquo; that never forgets &mdash;
-          and whose movement is the drift signal.
+          一个共享的对角高斯分布，由 Welford 与指数滑动平均（EMA）更新在线拟合。这就是那个从不遗忘的&ldquo;无限上下文&rdquo; &mdash; 而它的移动就是漂移信号。
         </p>
       </div>
       <div class="card card--hover reveal">
@@ -478,7 +450,7 @@
     </div>
 
     <div class="note note--amber reveal" style="margin-top:24px">
-      <strong>Try Exclusive OR (XOR) with the RFF encoder off.</strong> 准确率会塌到接近瞎猜，而这不是这个演示里的 bug &mdash; 这是线性对数似然比被记录在案的局限，Cypha 的 README 里就直说了。把隐空间 RFF 编码器打开，看着它恢复。把失效模式和修复办法摆在一起发布，这才是重点。
+      <strong>把 RFF 编码器关掉，试试异或（XOR）。</strong> 准确率会塌到接近瞎猜，而这不是这个演示里的 bug &mdash; 这是线性对数似然比被记录在案的局限，Cypha 的 README 里就直说了。把隐空间 RFF 编码器打开，看着它恢复。把失效模式和修复办法摆在一起发布，这才是重点。
     </div>
   </div>
 </section>
@@ -493,8 +465,7 @@
         数字来自仓库自己在诊断修复之后跑的基准测试。正确性由一套 CTest 矩阵对上已提交的夹具基准值来证明 &mdash; 不是靠排行榜上的名次。
       </p>
       <p class="small muted">
-        Abbreviations in the table: Stochastic Gradient Descent (SGD), Long Short-Term Memory
-        (LSTM), Backpropagation Through Time (BPTT).
+        表里的缩写：随机梯度下降（SGD）、长短期记忆（LSTM）、随时间反向传播（BPTT）。
       </p>
     </div>
 
@@ -565,7 +536,7 @@
           <li><strong>不是包装层。</strong> 从第一性原理定制而来 &mdash; 这也意味着它继承不到别人调好的参数。</li>
           <li><strong>线性 LLR 有天花板。</strong> 没有隐空间 RFF 编码器时，XOR 停在接近瞎猜的水平，加上它之后大约提到 76.3%。</li>
           <li><strong>验证是基于一致性的。</strong> 用 CTest 对已提交的夹具基准值。不做任何排行榜上的声称。</li>
-          <li><strong>CUDA 只用于推理。</strong> Training stays on the Central Processing Unit (CPU), because on this architecture the CPU is faster.</li>
+          <li><strong>CUDA 只用于推理。</strong> 训练留在中央处理器（CPU）上，因为在这套架构上 CPU 更快。</li>
           <li><strong>理论在别处。</strong> 谐波谱和 NMP 的工作是另一篇讲压缩算法的论文；Cypha 是实现层。</li>
         </ul>
         <div class="btn-row" style="margin-top:24px">
@@ -662,10 +633,6 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/cellai.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
@@ -673,6 +640,10 @@
       <a class="card card--hover related__item" href="/zh/retdec.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/cellai.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -744,7 +715,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

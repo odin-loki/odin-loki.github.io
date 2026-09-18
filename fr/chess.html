@@ -152,14 +152,10 @@
         <span class="eyebrow">Démonstration produit</span>
         <h1>Jouez aux échecs contre <span class="gradient-text">Cypha</span></h1>
         <p class="lede">
-          Cypha never saw a chess game. It learned by watching an ordinary chess program think
-          &mdash; 26,568 positions, each one labelled with that program&rsquo;s own verdict on who
-          was winning &mdash; until Cypha could produce the verdict itself.
+          Cypha n’a jamais vu une partie d’échecs. Elle a appris en regardant un programme d’échecs ordinaire réfléchir &mdash; 26 568 positions, chacune étiquetée par le verdict de ce programme sur qui était en train de gagner &mdash; jusqu’à savoir produire le verdict elle-même.
         </p>
         <p class="lede">
-          What you play below is that, running in your browser inside a shallow search. It is
-          beatable, and it still loses to the program it learned from. Every number on this page
-          came out of the training run that produced the weights the page loads.
+          Ce contre quoi vous jouez ci-dessous, c’est cela, qui tourne dans votre navigateur au sein d’une recherche peu profonde. Elle est battable, et elle perd toujours contre le programme dont elle a appris. Chaque chiffre de cette page vient de l’entraînement qui a produit les poids que la page charge.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#board">Jouer une partie</a>
@@ -170,8 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">Mesuré, pas affirmé</span>
           <p class="small muted" style="margin:0 0 16px">
-            Root Mean Square Error (RMSE), below, is the usual measure of how far off a set of
-            guesses was; the smaller it is, the closer the model sits to its teacher.
+            La racine de l’erreur quadratique moyenne (RMSE), ci-dessous, est la mesure habituelle de l’écart d’un ensemble d’estimations ; plus elle est petite, plus le modèle est proche de son maître.
           </p>
           <div class="readout" style="grid-template-columns:1fr 1fr">
             <div class="readout__item">
@@ -217,45 +212,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En clair</span>
+      <h2>Ce que c’est, en une minute</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">Le problème</span>
         <p class="small dim" style="margin:0">
-          Every new Artificial Intelligence (AI) design arrives with an explanation of why it ought to work. Reading the
-          explanation tells you nothing about whether it does. Chess settles that, because the
-          answer is not a matter of opinion: either it plays sensible legal chess or it does not,
-          and you can sit down and find out.
+          Chaque nouvelle conception d’intelligence artificielle (IA) arrive avec une explication de pourquoi elle devrait marcher. Lire l’explication ne dit rien sur le fait qu’elle marche. Les échecs tranchent, parce que la réponse n’est pas affaire d’opinion : ou bien elle joue des coups légaux et sensés, ou bien non, et vous pouvez vous asseoir et le constater.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solution</span>
         <p class="small dim" style="margin:0">
-          An ordinary chess program judges a position by searching ahead through the moves. Cypha
-          was shown 26,568 of those judgements and fitted a single formula to reproduce them
-          &mdash; one line of maths over 388 numbers describing the board. Nothing was added to
-          the architecture for chess. Only the numbers fed into it changed.
+          Un programme d’échecs ordinaire juge une position en explorant les coups à l’avance. On a montré à Cypha 26 568 de ces jugements et ajusté une seule formule pour les reproduire &mdash; une ligne de mathématiques sur 388 nombres qui décrivent l’échiquier. Rien n’a été ajouté à l’architecture pour les échecs. Seuls les nombres qu’on lui donne ont changé.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">À qui cela s’adresse</span>
         <p class="small dim" style="margin:0">
-          Anyone weighing up Cypha who would rather check than be told. People who work with
-          machine learning and want to watch a model carry on learning while it is being used.
-          And anyone who simply fancies a game &mdash; it all runs in your browser, and nothing
-          you play is sent anywhere.
+          Quiconque évalue Cypha et préfère vérifier plutôt qu’être cru sur parole. Les gens qui travaillent en apprentissage automatique et veulent voir un modèle continuer d’apprendre pendant qu’on s’en sert. Et quiconque a simplement envie d’une partie &mdash; tout tourne dans votre navigateur, et rien de ce que vous jouez n’est envoyé nulle part.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Copying a chess engine&rsquo;s judgement is not learning chess.</strong> Nothing on
-      this page claims it is. The rest of the page is how it was done, what each number means,
-      and the four things this design cannot do.
+      <strong>Copier le jugement d’un moteur d’échecs, ce n’est pas apprendre les échecs.</strong> Rien sur cette page ne prétend le contraire. Le reste de la page, c’est comment ça a été fait, ce que signifie chaque chiffre, et les quatre choses que cette conception ne peut pas faire.
     </div>
   </div>
 </section>
@@ -364,14 +348,7 @@
               <strong>L’écart</strong> est la taille du changement apporté au vecteur de poids, par rapport à celui qui a été distillé. <strong>Dernière correction</strong> désigne l’erreur de la tête statique sur la position qu’elle vient de quitter, en pions, mesurée face à sa propre recherche plus profonde.
             </p>
             <p class="tiny muted" style="margin-top:8px">
-              <strong>Le classement</strong> is on an internal ladder, not the F&eacute;d&eacute;ration
-              Internationale des &Eacute;checs (FIDE) scale &mdash; there is no honest way to put a
-              FIDE number on something that has never played a rated human. The reference
-              engine at depth 1 is anchored to 1000 and everything is fitted from 210 games by
-              Bradley-Terry maximum likelihood, so it does not depend on the order they were played.
-              The measured ladder: reference 1000 / 1171 / 1245 at depths 1&ndash;3, Cypha 798 / 1010
-              / 1161. Cypha runs about one search depth behind the engine it was distilled from,
-              and the error bars are roughly &plusmn;50, which is what 210 games buys you.
+              <strong>Le classement</strong> est sur une échelle interne, pas celle de la F&eacute;d&eacute;ration Internationale des &Eacute;checs (FIDE) &mdash; il n’y a pas de façon honnête de coller un chiffre FIDE à quelque chose qui n’a jamais joué contre un humain classé. Le moteur de référence à la profondeur 1 est ancré à 1000 et tout est ajusté à partir de 210 parties par maximum de vraisemblance de Bradley-Terry, donc cela ne dépend pas de l’ordre dans lequel elles ont été jouées. L’échelle mesurée : référence 1000 / 1171 / 1245 aux profondeurs 1&ndash;3, Cypha 798 / 1010 / 1161. Cypha tourne environ une profondeur de recherche derrière le moteur dont elle a été distillée, et les barres d’erreur sont d’environ &plusmn;50, ce que 210 parties vous offrent.
             </p>
             <p class="tiny muted" style="margin-top:8px">
               Chaque réglage de niveau conserve <strong>son propre modèle</strong>. Une tête qui joue à profondeur 1 est corrigée vers une recherche à profondeur 1 ; à profondeur 3, la cible est différente et meilleure. Entraîner les deux dans un seul vecteur de poids ne ferait que les opposer. Changez de niveau et les compteurs changent avec lui.
@@ -407,10 +384,7 @@
         <span class="badge badge--teal" style="margin-bottom:12px">Étape 1</span>
         <h3 style="font-size:1.02rem">L’enseignant</h3>
         <p class="small dim" style="margin:0">
-          A 0x88 engine with full legal move generation, material and piece-square evaluation,
-          Most Valuable Victim &ndash; Least Valuable Attacker (MVV-LVA) ordering and quiescence
-          search. Verified against five standard perft positions including kiwipete, so the rules
-          are provably right before anything is learned from it.
+          Un moteur 0x88 avec génération complète des coups légaux, évaluation matérielle et pièce-case, ordonnancement victime la plus précieuse &ndash; attaquant le moins précieux (MVV-LVA) et recherche de quiescence. Vérifié sur cinq positions perft standard dont kiwipete, si bien que les règles sont prouvées justes avant qu’on en apprenne quoi que ce soit.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".04"><div class="card__glow"></div>
@@ -431,10 +405,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">Étape 4</span>
         <h3 style="font-size:1.02rem">L’ajustement</h3>
         <p class="small dim" style="margin:0">
-          WorldPrior &theta;&#8320; fitted online by Welford, whitening as the natural-gradient
-          metric, normalised Least Mean Squares (LMS) weight updates, Minimum Description Length
-          (MDL) decay pulling weights back toward the prior, and a surprise-weighted replay buffer
-          at Cypha&rsquo;s reference 0.30 ratio.
+          WorldPrior &theta;&#8320; ajusté en ligne par Welford, blanchiment comme métrique du gradient naturel, mises à jour de poids par moindres carrés moyens normalisés (LMS), décroissance par longueur de description minimale (MDL) qui ramène les poids vers le prior, et un tampon de rejeu pondéré par la surprise au ratio de référence 0,30 de Cypha.
         </p>
       </div>
     </div>
@@ -455,7 +426,7 @@
         <span class="eyebrow eyebrow--amber">Ce que cela ne montre pas</span>
         <h3>Les limites, honnêtement</h3>
         <ul class="flist flist--amber" style="margin-top:1.2rem">
-          <li><strong>C’est linéaire.</strong> A linear function of piece-square features cannot represent king safety, pawn structure interactions, or anything requiring a product of two features. It has the same ceiling the Cypha README describes for Exclusive OR (XOR).</li>
+          <li><strong>C’est linéaire.</strong> Une fonction linéaire de caractéristiques pièce-case ne peut pas représenter la sécurité du roi, les interactions de structure de pions, ni rien qui demande un produit de deux caractéristiques. Elle a le même plafond que celui que le README de Cypha décrit pour le OU exclusif (XOR).</li>
           <li><strong>L’enseignant est modeste.</strong> Le moteur de référence est un moteur de recherche classique compétent, pas Stockfish. Bien le distiller revient à bien reproduire un évaluateur modeste.</li>
           <li><strong>Pas de profondeur de recherche propre.</strong> Ici, la force vient surtout de l’enveloppe alpha-bêta, exactement comme pour l’enseignant.</li>
           <li><strong>La distillation n’est pas une découverte.</strong> Cypha a reproduit une fonction d’évaluation qu’on lui a montrée. Elle n’a pas appris les échecs à partir de rien, et rien sur cette page ne prétend le contraire.</li>
@@ -479,13 +450,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — une architecture d’IA issue des premiers principes</h3>
       </a>
-      <a class="card card--hover related__item" href="/fr/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
-      </a>
       <a class="card card--hover related__item" href="/fr/cellai.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cell AI — un modèle de séquences par réaction-diffusion</h3>
+      </a>
+      <a class="card card--hover related__item" href="/fr/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — identité persistante à partir d’observations rares</h3>
       </a>
       <a class="card card--hover related__item" href="/fr/sentinel.html">
         <div class="card__glow"></div>
@@ -561,7 +532,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, exerçant sous le nom d’Imortek. Sydney, Australie.</span>
-      <span class="mono tiny">Compilé le 2026-09-17T23:04:13Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
+      <span class="mono tiny">Compilé le 2026-09-18T00:00:16Z &middot; Aucun traceur, aucun cookie, aucune analytique. Seules les polices viennent d’ailleurs.</span>
     </div>
   </div>
 </footer>

@@ -148,12 +148,7 @@
         <span class="eyebrow">AEGIS &middot; পর্যায় ৮ সম্পন্ন</span>
         <h1>এনক্রিপশন লুকিয়ে রাখে আপনি কী বলেছেন। <span class="gradient-text">এটি লুকিয়ে রাখে আপনি যে বলেছেন সেটাই।</span></h1>
         <p class="lede">
-          Encryption keeps the contents of a message private. It does not hide that the message
-          happened. An observer watching the network still sees who is talking to whom, when, and
-          how many kilobytes (KB) moved &mdash; which in sensitive settings can matter as much as
-          the words. AEGIS keeps traffic between the members of a closed group flowing at a
-          constant rate whether there is anything to send or not, so the timing and the volume
-          carry no signal.
+          এনক্রিপশন একটি বার্তার বিষয়বস্তু গোপন রাখে। বার্তাটি যে ঘটেছিল, তা লুকায় না। নেটওয়ার্কে নজর রাখা কেউ তখনও দেখে কে কার সঙ্গে কথা বলছে, কখন, আর কত কিলোবাইট (KB) সরল &mdash; স্পর্শকাতর পরিস্থিতিতে যা কথাগুলির মতোই গুরুত্বপূর্ণ হতে পারে। AEGIS একটি বন্ধ দলের সদস্যদের মধ্যেকার ট্রাফিক ধ্রুব হারে বইয়ে রাখে, পাঠানোর কিছু থাক বা না থাক, ফলে সময় আর পরিমাণ কোনো সংকেত বয়ে নেয় না।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">সহসম্পর্ক আক্রমণটি চালান</a>
@@ -187,45 +182,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">সহজ কথায়</span>
+      <h2>এটি কী, এক মিনিটে</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">সমস্যা</span>
         <p class="small dim" style="margin:0">
-          Someone who can watch the network does not need to break the encryption. They see that one
-          endpoint sent 14 KB at 09:41:03 and another received 14 KB three seconds later, and that the
-          same thing happens twice a day for eleven weeks. Repeated often enough, that is a map of who
-          works with whom, drawn without reading a single message.
+          যে নেটওয়ার্ক দেখতে পারে, তার এনক্রিপশন ভাঙার দরকার নেই। সে দেখে একটি প্রান্ত ০৯:৪১:০৩-এ ১৪ KB পাঠাল, তিন সেকেন্ড পরে আরেকটি প্রান্ত ১৪ KB পেল, আর এগারো সপ্তাহ ধরে দিনে দুবার ঠিক এটাই ঘটে। যথেষ্টবার ঘটলে সেটাই হয়ে ওঠে কে কার সঙ্গে কাজ করে তার মানচিত্র &mdash; একটি বার্তাও না পড়ে আঁকা।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">সমাধান</span>
         <p class="small dim" style="margin:0">
-          AEGIS makes the wire look the same at all times. Traffic goes out at a constant rate whether
-          there is anything to send or not, and what arrives is padded to a fixed size, so there is no
-          burst at one end to match against a burst at the other. It costs bandwidth and it adds delay;
-          the demonstration below shows the protection and the price side by side.
+          AEGIS তারটিকে সব সময় একরকম দেখায়। পাঠানোর কিছু থাক বা না থাক, ট্রাফিক বেরোয় ধ্রুব হারে, আর যা পৌঁছায় তা নির্দিষ্ট মাপে প্যাড করা, ফলে এক প্রান্তে এমন কোনো ঝাঁক নেই যাকে অন্য প্রান্তের ঝাঁকের সঙ্গে মেলানো যায়। এতে ব্যান্ডউইথ খরচ হয় আর বিলম্ব বাড়ে; নিচের প্রদর্শনী সুরক্ষা আর তার দাম পাশাপাশি দেখায়।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">কাদের জন্য</span>
         <p class="small dim" style="margin:0">
-          Newsrooms and anyone protecting a source, where the time and the size of a contact are what
-          expose a person. Banks, insurers and industry bodies that compete with each other and still
-          have to exchange data. Organisations that share warnings about attacks, where being seen to
-          share can itself be the sensitive part.
+          সংবাদকক্ষ আর সূত্র আড়াল করেন এমন যে-কেউ, যেখানে যোগাযোগের সময় আর আকারই একজন মানুষকে ফাঁস করে দেয়। ব্যাংক, বিমা সংস্থা আর শিল্পের সংগঠন, যারা একে অন্যের প্রতিযোগী, তবু যাদের ডেটা বিনিময় করতেই হয়। যেসব প্রতিষ্ঠান আক্রমণের সতর্কবার্তা ভাগ করে নেয়, যেখানে ভাগ করতে দেখা যাওয়াটাই স্পর্শকাতর অংশ হতে পারে।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Hiding the contents is the easier half.</strong> Hiding the pattern is the part that
-      needs the engineering below: the threat in full, an attack you can run yourself against both
-      configurations, the test numbers, and where the guarantees stop.
+      <strong>বিষয়বস্তু লুকানোটাই সহজ অর্ধেক।</strong> ধরনটা লুকানোর জন্যই দরকার নিচের প্রকৌশল: পুরো হুমকির ছবি, দুটি বিন্যাসের বিরুদ্ধেই নিজে চালিয়ে দেখার মতো একটি আক্রমণ, পরীক্ষার সংখ্যা, আর নিশ্চয়তা কোথায় গিয়ে থামে।
     </div>
   </div>
 </section>
@@ -364,7 +348,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">প্রমাণ</span>
       <h2>আটটি পর্যায়, প্রতিটিই একটি রেড-টিম গেটের পিছনে</h2>
-      <p class="lede">Implementation is complete through Phase 8, hardening. These are the numbers the repository reports: the fuzzing ran under the Windows Subsystem for Linux (WSL), and the testnet ran over real Transmission Control Protocol (TCP) sockets.</p>
+      <p class="lede">বাস্তবায়ন পর্যায় ৮, অর্থাৎ কঠোরীকরণ পর্যন্ত সম্পূর্ণ। রিপোজিটরি যে সংখ্যাগুলি জানায় সেগুলি এই: ফাজিং চলেছে Linux-এর জন্য Windows সাবসিস্টেমের (WSL) নিচে, আর টেস্টনেট চলেছে সত্যিকারের ট্রান্সমিশন কন্ট্রোল প্রোটোকল (TCP) সকেটের উপরে।</p>
     </div>
     <div class="grid grid-4 reveal">
       <div class="card"><div class="stat"><div class="stat__num"><em data-count="36" data-suffix="/36">36/36</em></div><div class="stat__label">ক্রিপ্টো পরীক্ষা-ভেক্টর</div></div></div>
@@ -452,7 +436,7 @@
       </div>
     </div>
     <div class="note reveal" style="margin-top:32px">
-      <strong>রিপোজিটরির পরিচ্ছন্নতা:</strong> Continuous Integration (CI) on GitHub Actions,
+      <strong>রিপোজিটরির পরিচ্ছন্নতা:</strong> GitHub Actions-এ কন্টিনিউয়াস ইন্টিগ্রেশন (CI),
       <code translate="no">cargo deny</code> দিয়ে নির্ভরতার নিরীক্ষা, আর গোটা ওয়ার্কস্পেস জুড়ে unsafe কোড নিষিদ্ধ করার নীতি। প্রতিকূল ইনপুট সামলায় এমন একটি Rust নেটওয়ার্ক স্ট্যাকের জন্য, <code translate="no">#![forbid(unsafe_code)]</code> গোটা ওয়ার্কস্পেস জুড়ে এই লাইনটিই প্রকল্পের সবচেয়ে বেশি ভার বহনকারী একটিমাত্র লাইন।
     </div>
   </div>
@@ -550,7 +534,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ওডিন লক, Imortek নামে পরিচালিত। সিডনি, অস্ট্রেলিয়া।</span>
-      <span class="mono tiny">তৈরি 2026-09-17T23:04:13Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
+      <span class="mono tiny">তৈরি 2026-09-17T23:58:50Z &middot; কোনো ট্র্যাকার নেই, কুকি নেই, অ্যানালিটিক্স নেই। বাইরে থেকে আসে কেবল ফন্ট।</span>
     </div>
   </div>
 </footer>

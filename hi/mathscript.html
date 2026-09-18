@@ -148,11 +148,7 @@
         <span class="eyebrow eyebrow--violet">MathScript &middot; v1.0.0 पूर्व-रिलीज़</span>
         <h1>एक C++23 लाइब्रेरी, <span class="gradient-text">LU से CFD तक</span></h1>
         <p class="lede">
-          Engineering software runs on heavy mathematics, and almost nobody writes their own.
-          It is stitched together from other people&rsquo;s libraries and paid platforms &mdash;
-          hard to audit, hard to change, and hard to install where the build machine has no
-          internet. MathScript does the mathematics itself, from matrix arithmetic up to
-          fluid dynamics, in one C++ library with nothing to fetch.
+          इंजीनियरिंग सॉफ़्टवेयर भारी गणित पर चलता है, और अपना गणित ख़ुद लगभग कोई नहीं लिखता। वह दूसरों की लाइब्रेरियों और सशुल्क प्लेटफ़ॉर्मों से जोड़-जोड़कर बनाया जाता है &mdash; जिसका ऑडिट मुश्किल, बदलाव मुश्किल, और जहाँ बिल्ड मशीन पर इंटरनेट नहीं है वहाँ इंस्टॉल करना भी मुश्किल। MathScript गणित ख़ुद करता है, मैट्रिक्स के अंकगणित से लेकर द्रव-गतिकी तक, एक ही C++ लाइब्रेरी में, कुछ भी बाहर से लाए बिना।
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">जीते-जी आलेख बनाइए और अवकलन कीजिए</a>
@@ -170,7 +166,7 @@
         <div class="card card--pad-lg">
           <span class="eyebrow" style="margin-bottom:16px">दो फ़ैसले, जो सब कुछ तय करते हैं</span>
           <ul class="flist flist--violet">
-            <li><strong>In-tree matrix kernels.</strong> Basic Linear Algebra Subprograms (BLAS) and Linear Algebra PACKage (LAPACK) are implemented here rather than fetched: no Eigen, no OpenBLAS. <code translate="no">linalg</code> owns LU, QR, Singular Value Decomposition (SVD), eig, Cholesky and the LAPACK-style kernels, so deployment is a compile rather than a dependency hunt.</li>
+            <li><strong>मैट्रिक्स कर्नेल अपने ही पेड़ में।</strong> बुनियादी रैखिक बीजगणित उपप्रोग्राम (BLAS) और रैखिक बीजगणित पैकेज (LAPACK) यहीं लागू किए गए हैं, बाहर से लाए नहीं गए: न Eigen, न OpenBLAS। <code translate="no">linalg</code> के पास LU, QR, एकल मान अपघटन (SVD), eig, Cholesky और LAPACK-शैली के कर्नेल हैं, इसलिए तैनाती एक कंपाइल है, निर्भरताओं की तलाश नहीं।</li>
             <li><strong>C++ का एक सीमित उपसमुच्चय।</strong> न कच्चे पॉइंटर, न एक्सेप्शन, न असुरक्षित कास्ट &mdash; और यह कंपाइल के समय ही लागू होता है। उत्पादन कोड लौटाता है <code translate="no">Result&lt;T&gt;</code>, इसलिए त्रुटि-संभाल नियतात्मक है और टाइप में ही दिखती है।</li>
           </ul>
         </div>
@@ -183,49 +179,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">सीधी-सादी भाषा में</span>
+      <h2>यह क्या है, एक मिनट में</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">समस्या</span>
         <p class="small dim" style="margin:0">
-          Stress, flow, signals, risk &mdash; the calculations underneath engineering software
-          are rarely written by the team shipping it. They arrive from a dozen outside
-          libraries and paid platforms that have to be fetched, licensed and trusted. When an
-          answer looks wrong, the workings are in somebody else&rsquo;s code; on a sealed build
-          machine you may not be able to fetch them at all.
+          तनाव, प्रवाह, सिग्नल, जोखिम &mdash; इंजीनियरिंग सॉफ़्टवेयर के नीचे की गणनाएँ उसे भेजने वाली टीम शायद ही ख़ुद लिखती है। वे दर्जन भर बाहरी लाइब्रेरियों और सशुल्क प्लेटफ़ॉर्मों से आती हैं, जिन्हें लाना पड़ता है, जिनका लाइसेंस लेना पड़ता है और जिन पर भरोसा करना पड़ता है। जब कोई जवाब ग़लत लगे, तो हिसाब किसी और के कोड में पड़ा होता है; और बंद बिल्ड मशीन पर शायद आप उसे ला ही न सकें।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">समाधान</span>
         <p class="small dim" style="margin:0">
-          MathScript is one C++ library that does the mathematics itself: linear algebra,
-          statistics, differential equations, finite elements, fluid flow, optimisation and a
-          symbolic algebra system, across thirty-five static libraries. The matrix routines
-          most projects import from BLAS and LAPACK are written here instead. All 816 test
-          suites pass on the Windows build. v1.0.0 has not shipped yet.
+          MathScript एक C++ लाइब्रेरी है जो गणित ख़ुद करती है: रैखिक बीजगणित, सांख्यिकी, अवकल समीकरण, परिमित अवयव, द्रव प्रवाह, अनुकूलन और एक प्रतीकात्मक बीजगणित प्रणाली &mdash; पैंतीस स्टैटिक लाइब्रेरियों में फैली हुई। जो मैट्रिक्स रूटीन ज़्यादातर परियोजनाएँ BLAS और LAPACK से आयात करती हैं, वे यहाँ ख़ुद लिखी गई हैं। Windows बिल्ड पर सभी 816 टेस्ट सूट पास होते हैं। v1.0.0 अभी भेजा नहीं गया है।
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">यह किसके लिए है</span>
         <p class="small dim" style="margin:0">
-          Teams whose build machines cannot reach the internet &mdash; defence, medical,
-          aerospace, banking &mdash; where every fetched dependency is another approval.
-          Products that do their real work in C++ and their mathematics in Python, and carry
-          two sets of problems for it. Teachers and students who want the method written out
-          where it can be read.
+          वे टीमें जिनकी बिल्ड मशीनें इंटरनेट तक नहीं पहुँच सकतीं &mdash; रक्षा, चिकित्सा, विमानन, बैंकिंग &mdash; जहाँ बाहर से लाई गई हर निर्भरता एक और मंज़ूरी है। वे उत्पाद जो असली काम C++ में करते हैं और गणित Python में, और इसकी क़ीमत दो-दो तरह की दिक़्क़तों से चुकाते हैं। वे शिक्षक और विद्यार्थी जो तरीक़ा वहीं लिखा देखना चाहते हैं जहाँ उसे पढ़ा जा सके।
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>The mathematics is in the tree, not in a dependency list.</strong> That is the
-      argument, and the rest of this page is the evidence: what the thirty-five libraries
-      hold, why a failure comes back in the return type instead of as an exception, and
-      exactly what the test numbers cover.
+      <strong>गणित पेड़ के भीतर है, किसी निर्भरता-सूची में नहीं।</strong> दलील यही है, और इस पृष्ठ का बाक़ी हिस्सा उसका सबूत: पैंतीस लाइब्रेरियों में क्या है, नाकामी एक्सेप्शन के बजाय रिटर्न टाइप में क्यों लौटती है, और परीक्षण के आँकड़े ठीक-ठीक किन चीज़ों को घेरते हैं।
     </div>
   </div>
 </section>
@@ -234,12 +215,9 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">इंटरैक्टिव</span>
-      <h2>A symbolic Computer Algebra System (CAS), running in your browser</h2>
+      <h2>एक प्रतीकात्मक कंप्यूटर बीजगणित प्रणाली (CAS), आपके ब्राउज़र में चलती हुई</h2>
       <p class="lede">
-        Type an expression. It is tokenised, parsed to an Abstract Syntax Tree (AST),
-        differentiated symbolically, simplified, then evaluated numerically for the plot
-        &mdash; alongside a Simpson-rule integral and bisection root-finding over the
-        visible interval.
+        कोई व्यंजक लिखिए। उसे टोकन में बाँटा जाता है, अमूर्त वाक्य-रचना वृक्ष (AST) में पार्स किया जाता है, प्रतीकात्मक रूप से अवकलित किया जाता है, सरल किया जाता है, और फिर आलेख के लिए संख्यात्मक रूप से आँका जाता है &mdash; साथ ही दिखाई दे रहे अंतराल पर Simpson नियम से समाकल और द्विभाजन से मूल-खोज भी।
       </p>
     </div>
 
@@ -347,11 +325,7 @@
           </div>
           <div class="chips" id="msw-examples" style="margin-top:14px"></div>
           <p class="tiny muted" style="margin-top:12px">
-            Nothing is downloaded until you press load, and then it is fetched once. The module
-            is 113 kilobytes (KB) of WebAssembly and 10 KB of loader &mdash; the full library
-            build is 4.9 megabytes (MB), so this links only what these four calls reach. The
-            panel shows the library version and the vector Instruction Set Architecture (ISA)
-            the build reports.
+            जब तक आप लोड नहीं दबाते, कुछ भी डाउनलोड नहीं होता, और फिर वह एक ही बार आता है। मॉड्यूल 113 किलोबाइट (KB) का WebAssembly और 10 KB का लोडर है &mdash; पूरी लाइब्रेरी का बिल्ड 4.9 मेगाबाइट (MB) का है, इसलिए यहाँ सिर्फ़ उतना ही लिंक होता है जितने तक ये चार कॉल पहुँचते हैं। पैनल लाइब्रेरी का संस्करण और वह वेक्टर निर्देश-समुच्चय संरचना (ISA) दिखाता है जो बिल्ड बताता है।
           </p>
         </div>
         <div class="demo__side">
@@ -381,9 +355,7 @@
           </div>
           <div class="note note--violet" style="font-size:.8rem;padding:12px 14px">
             <strong>ISA वाली पंक्ति में लाइब्रेरी अपने बारे में सच बता रही है।</strong> वह पूछती है
-            <code translate="no">ms::detect_isa()</code>, the same call it makes natively. On your desktop that
-            answers with one of the Advanced Vector Extensions (AVX2 or AVX-512); here there is
-            one vector ISA and it says so.
+            <code translate="no">ms::detect_isa()</code>, वही कॉल जो वह नेटिव रूप में करती है। आपके डेस्कटॉप पर इसका जवाब उन्नत वेक्टर एक्सटेंशन (AVX2 या AVX-512) में से कोई एक होता है; यहाँ एक ही वेक्टर ISA है और वह यही कहती है।
           </div>
         </div>
       </div>
@@ -400,12 +372,7 @@
       <span class="eyebrow">दायरा</span>
       <h2>पैंतीस स्टैटिक लाइब्रेरी, छह क्षेत्र</h2>
       <p class="lede">
-        Dense and sparse linear algebra, special functions, statistics and Machine Learning
-        (ML). Ordinary Differential Equations (ODEs) and Partial Differential Equations (PDEs),
-        the Finite Element Method (FEM) and Computational Fluid Dynamics (CFD). Optimisation,
-        signal and image processing, number theory, graphs, geometry, topology, quantum
-        primitives, control, finance, compression &mdash; and a symbolic CAS. With LU, QR, SVD,
-        eigensolvers and Cholesky written in-tree.
+        सघन और विरल रैखिक बीजगणित, विशेष फलन, सांख्यिकी और मशीन लर्निंग (ML)। साधारण अवकल समीकरण (ODE) और आंशिक अवकल समीकरण (PDE), परिमित अवयव विधि (FEM) और अभिकलनात्मक द्रव गतिकी (CFD)। अनुकूलन, सिग्नल और छवि प्रसंस्करण, संख्या सिद्धांत, ग्राफ़, ज्यामिति, टोपोलॉजी, क्वांटम आदिम क्रियाएँ, नियंत्रण, वित्त, संपीड़न &mdash; और एक प्रतीकात्मक CAS। LU, QR, SVD, eigensolver और Cholesky इसी पेड़ में लिखे हुए।
       </p>
     </div>
     <figure class="diagram reveal"><div class="diagram__scroll"><img src="/assets/img/diagrams/mathscript-domains.svg" alt="लाइब्रेरी के छह क्षेत्र — मूल सिस्टम, संख्यात्मक, सांख्यिकी और मशीन लर्निंग, अनुप्रयुक्त, प्रतीकात्मक और विशिष्ट — सब एक Result<T> की बुनियादी पटरी पर, बिना एक्सेप्शन और बिना कच्चे पॉइंटर के" loading="lazy" decoding="async"></div><span class="diagram__hint">पूरा आरेख देखने के लिए स्क्रॉल करें &rarr;</span><figcaption><b>पैंतीस लाइब्रेरी, त्रुटि की एक ही परंपरा।</b> नीचे की पटरी ही असली बात है: नाकामी रिटर्न टाइप में है, किसी ऐसे एक्सेप्शन में नहीं जो आपको स्टैक के सिरे पर मिले।</figcaption></figure>
@@ -442,9 +409,7 @@
         <span class="eyebrow">जो असल में भेजा जाता है</span>
         <h3>तीन एक्ज़ीक्यूटेबल, बाक़ी सब वैकल्पिक</h3>
         <p class="small dim" style="margin-top:12px">
-          Everything past the three executables is a build option &mdash; a Qt Graphical User
-          Interface (GUI), CUDA, the Message Passing Interface (MPI), and a Just-In-Time (JIT)
-          compiler built on LLVM&rsquo;s On-Request Compilation (ORC) layer.
+          तीन एक्ज़ीक्यूटेबल के बाद सब कुछ एक बिल्ड विकल्प है &mdash; एक Qt ग्राफ़िकल यूज़र इंटरफ़ेस (GUI), CUDA, संदेश-पारण इंटरफ़ेस (MPI), और LLVM की माँग-पर-कंपाइलेशन (ORC) परत पर बना एक जस्ट-इन-टाइम (JIT) कंपाइलर।
         </p>
         <div class="spec" style="margin-top:16px">
           <div class="spec__row"><span class="spec__k">mathscriptc</span><span class="spec__v">कंपाइलर / बैच ड्राइवर</span></div>
@@ -457,9 +422,7 @@
         <span class="eyebrow">सत्यापन</span>
         <h3>816 सूट से आपको क्या मिलता है</h3>
         <p class="small dim" style="margin-top:12px">
-          The Continuous Integration (CI) matrix behind the gates below covers two compilers:
-          Microsoft Visual C++ (MSVC) on Windows and the GNU Compiler Collection (GCC) 13 on
-          Linux.
+          नीचे दिए पहरों के पीछे का सतत एकीकरण (CI) मैट्रिक्स दो कंपाइलर घेरता है: Windows पर Microsoft Visual C++ (MSVC) और Linux पर GNU Compiler Collection (GCC) 13।
         </p>
         <div class="table-scroll" style="margin-top:16px">
           <table class="data">
@@ -633,7 +596,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> ओडिन लोच, Imortek के नाम से कार्यरत। सिडनी, ऑस्ट्रेलिया।</span>
-      <span class="mono tiny">निर्मित 2026-09-17T23:04:13Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
+      <span class="mono tiny">निर्मित 2026-09-18T00:00:16Z &middot; कोई ट्रैकर नहीं, कोई कुकी नहीं, कोई एनालिटिक्स नहीं। बाहर से सिर्फ़ फ़ॉन्ट आते हैं।</span>
     </div>
   </div>
 </footer>

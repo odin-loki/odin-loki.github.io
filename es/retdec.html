@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>Un descompilador que recupera el <span class="gradient-text">algoritmo</span>, no solo el código</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          A menudo las organizaciones necesitan entender software del que no tienen el código fuente: un sistema antiguo, un componente comprado, algo que ha llegado y tiene mala pinta. Ya existen herramientas que convierten el código máquina de vuelta en pasos legibles. RetDec Imortek intenta ir un paso más allá y poner nombre a esos pasos &mdash; esta parte es el Estándar de Cifrado Avanzado (AES), esta parte es una ordenación, esta parte es cómo se empaquetan los datos para enviarlos.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">Eleva bytes a un algoritmo con nombre</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">En lenguaje llano</span>
+      <h2>Qué es esto, en un minuto</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">El problema</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          El software se entrega como algo que lee una máquina y una persona no. Cuando no hay código fuente &mdash; el proveedor ya no está, el contrato nunca lo incluyó, el archivo llegó de un sitio del que no te fías &mdash; nadie puede decir qué hace realmente el programa. Comprobarlo a mano significa leer instrucciones máquina de una en una.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">La solución</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          Desmonta el archivo compilado y reconstruye C a partir de él: los 216 binarios del corpus de prueba vuelven como C compilable. Después va a por el significado &mdash; qué criptografía, qué ordenación, qué hilos, qué formato de archivo &mdash; e informa de con qué frecuencia eso funciona, incluido el caso en que apenas lo hace.
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">Para quién es</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          Equipos de seguridad que desmontan malware y necesitan la respuesta antes que el código. Empresas que ejecutan software del que nadie tiene el fuente y necesitan una descripción antes de poder rehacer o sustituir nada con seguridad. Cualquiera atrapado con un formato de archivo que nunca se documentó &mdash; registros antiguos, una máquina que solo habla con su propio software.
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>Poner nombre al algoritmo es la parte difícil, y aquí están sus dos cifras.</strong>
+      Dado un binario que aún lleva sus propias etiquetas, el detector coincide con ellas; con las etiquetas eliminadas queda cerca de adivinar al azar. El resto de esta página es la ingeniería: qué se añadió, cómo se midió y dónde falla.
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>Desensamblar</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            791 kilobytes (KB) porque un decodificador x86 de verdad lleva todo el juego de instrucciones &mdash; cada codificación, prefijo y extensión. Ese es el tamaño honesto de la cosa.
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>Esto es el decodificador, no el descompilador.</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>Esto es el decodificador, no el descompilador.</strong> Los peldaños de arriba &mdash; elevar a la representación intermedia (IR) de LLVM, estructurar el flujo de control, poner nombre al algoritmo &mdash; son trabajo de LLVM, y LLVM no cabe en una página web a ningún tamaño. Decir lo contrario sería la mentira más fácil de este sitio.
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">Front end</span>
       <h2>Formatos nativos, de bytecode y emergentes</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        La salida depende del formato, porque fingir que todo se descompila a C no ayuda a nadie. El front end acepta binarios nativos en Formato Ejecutable y Enlazable (ELF), Ejecutable Portable (PE) y Mach-O; bytecode, incluidos los archivos class de la Máquina Virtual de Java (JVM), Ejecutable de Dalvik (DEX) y Lenguaje Intermedio Común (CIL); y objetivos más nuevos como la Ejecución Paralela de Hilos (PTX) de CUDA.
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">Emergentes</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly se convierte al formato de texto de WebAssembly (WAT). PTX se trata como una entrada de primera clase y no como un añadido.</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Runtime</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> reapareciendo a partir del patrón de asignación.</p></div>
+        <p class="small dim" style="margin:0">Contenedores de la Biblioteca Estándar de Plantillas (STL) y estructuras del runtime de C++ &mdash; la forma de un <code translate="no">std::vector</code> reapareciendo a partir del patrón de asignación.</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Criptografía</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES, la familia de algoritmos de hash seguro (SHA), ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) y primitivas de curva elíptica, identificadas por constantes y estructura de rondas.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Ordenación y búsqueda</span>
         <p class="small dim" style="margin:0">Introsort, merge sort, búsqueda binaria &mdash; incluido el cambio por límite de profundidad que delata a introsort.</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">Grafos</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">Algoritmos de grafos, más patrones de recorrido de búsqueda en anchura (BFS) y en profundidad (DFS).</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">Concurrencia</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) y atómicos en crudo.</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">Serialización</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, Notación de Objetos de JavaScript (JSON) y encuadre de Lenguaje de Marcado Extensible (XML).</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>Métrica</th><th class="num">Resultado</th><th>Condición</th></tr></thead>
             <tbody>
               <tr><td>Salida en C compilable</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>, activado por defecto</td></tr>
-              <tr><td>F1 de recuperación de algoritmos</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>F1 de recuperación de algoritmos</td><td class="num">0.056</td><td class="muted">Sin nombres, intervalo de confianza del 95% 0,034&ndash;0,083</td></tr>
               <tr><td>F1 de recuperación de algoritmos</td><td class="num">1.000</td><td class="muted">Con ayuda de nombres, binarios con símbolos</td></tr>
               <tr><td>El <code translate="no">.c</code> por defecto recompila</td><td class="num">No</td><td class="muted">Ni este fork ni el RetDec original</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>Lee esos dos números F1 juntos.</strong> 1,000 con símbolos significa que el detector coincide con la tabla de símbolos. 0,056 sin ellos significa que hoy la recuperación estructural sobre binarios sin símbolos está cerca del suelo. Citar solo el primero sería marketing; citar solo el segundo escondería que la cadena funciona cuando tiene algo a lo que agarrarse.
+          <strong>Lee esos dos números F1 juntos.</strong> 1,000 con símbolos significa que el detector coincide con la tabla de símbolos. 0,056 sin ellos significa que hoy la recuperación estructural sobre binarios sin símbolos está cerca de adivinar al azar. Citar solo el primero sería marketing; citar solo el segundo escondería que la cadena funciona cuando tiene algo a lo que agarrarse.
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">Interfaz</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Interfaz gráfica de usuario (GUI) en Qt 6, o ninguna</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          Vistas de código sincronizadas entre C, ensamblador, IR y grafos de flujo de control, con navegación de funciones, inspección de cadenas, un explorador de binarios y un panel asistente. El modo sin interfaz elimina toda dependencia de GUI, así que la misma compilación funciona en integración continua (CI).
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">Doble licencia</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            La Licencia Pública General Affero de GNU (AGPL-3.0+) para uso de código abierto, o una licencia comercial para despliegue propietario. Copyright Odin Loch, que opera como Imortek, 2025&ndash;2026.
           </p>
           <p class="small muted" style="margin:0">
             Distribuible en v2.0.21. Los controles de CI reflejan estándares de madurez de desarrollo, no de producción &mdash; lo dice el proyecto, no es una inferencia.
@@ -549,6 +520,10 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">MathScript — álgebra por ordenador y cálculo numérico en C++23</h3>
       </a>
+      <a class="card card--hover related__item" href="/es/chess.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">Juega al ajedrez contra Cypha</h3>
+      </a>
       <a class="card card--hover related__item" href="/es/pbsd.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">ParanoidBSD — un sistema operativo en C++23 protegido por capacidades</h3>
@@ -556,10 +531,6 @@
       <a class="card card--hover related__item" href="/es/sentinel.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — analítica de delincuencia y pistas de investigación</h3>
-      </a>
-      <a class="card card--hover related__item" href="/es/trace.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">TRACE — identidad persistente a partir de avistamientos escasos</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">Elegido por coincidencia de términos con esta página, no a mano — así que es honesto sobre lo que de verdad se parece, incluso cuando no hay nada obvio.</p>
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch, operando como Imortek. Sídney, Australia.</span>
-      <span class="mono tiny">Compilado 2026-09-17T23:04:13Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
+      <span class="mono tiny">Compilado 2026-09-18T00:00:16Z &middot; Ni rastreadores, ni cookies, ni analíticas. Solo las tipografías vienen de fuera.</span>
     </div>
   </div>
 </footer>

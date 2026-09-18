@@ -148,12 +148,7 @@
         <span class="eyebrow">RetDec Imortek &middot; v2.0.21</span>
         <h1>一个还原 <span class="gradient-text">算法</span>的反编译器，不只是还原代码</h1>
         <p class="lede">
-          Organisations often need to understand software they have no source code for: an
-          old system, a bought-in component, something that arrived and looks suspicious.
-          Tools already exist that turn the machine code back into readable steps. RetDec
-          Imortek tries to go one further and name what those steps are &mdash; this part is
-          the Advanced Encryption Standard (AES), this part is a sort, this part is how the
-          data is packed for sending.
+          机构常常需要弄懂自己没有源码的软件：一套老系统、一个买来的组件、一个来路不明又看着可疑的东西。把机器码还原成可读步骤的工具已经有了。RetDec Imortek 想再往前走一步，给这些步骤起个名字 &mdash; 这一段是高级加密标准（AES），这一段是排序，这一段是数据发送前的打包方式。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">把字节抬升成一个有名字的算法</a>
@@ -189,47 +184,35 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          Software ships as something a machine reads and a person cannot. When there is no
-          source code &mdash; the supplier is gone, the contract never included it, the file
-          arrived from somewhere you do not trust &mdash; nobody can say what the program
-          actually does. Checking it by hand means reading machine instructions one at a time.
+          软件交付出去的形态，是机器读得懂、人读不懂的东西。一旦没有源码 &mdash; 供应商没了、合同里本来就没写、文件来自你不信任的地方 &mdash; 就没人说得清这个程序到底在干什么。靠手工去查，就是一条一条读机器指令。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          It takes the compiled file apart and rebuilds C from it: all 216 binaries in the
-          test corpus come back as buildable C. Then it goes after the meaning &mdash; which
-          cryptography, which sort, which threading, which file format &mdash; and reports how
-          often that works, including the case where it barely does.
+          它把编译好的文件拆开，再从里面重建出 C：测试语料里全部 216 个二进制文件都能还原成可构建的 C。然后它去追意义 &mdash; 哪种密码学、哪种排序、哪种线程、哪种文件格式 &mdash; 并报告这件事成功的频率，包括它几乎不成功的那种情况。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Security teams taking malware apart, who need the answer before they need the code.
-          Companies running software nobody has the source for, who need a description of it
-          before anything can safely be rebuilt or replaced. Anyone stuck with a file format
-          that was never documented &mdash; old records, a machine that will only talk to its
-          own software.
+          拆恶意软件的安全团队，他们先要答案，再要代码。在跑没人有源码的软件的公司，在安全地重建或替换任何东西之前，先得有一份对它的描述。以及任何被一种从来没有文档的文件格式卡住的人 &mdash; 旧档案，或者一台只肯跟自家软件说话的机器。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Naming the algorithm is the hard part, and both numbers for it are here.</strong>
-      Given a binary that still carries its own labels, the detector agrees with them; with
-      the labels stripped it is close to the floor. The rest of this page is the engineering:
-      what was added, how it was measured, and where it falls down.
+      <strong>给算法起出名字才是难的那部分，而它的两个数字这里都摆出来了。</strong>
+      给它一个还带着自己标签的二进制文件，识别器和这些标签一致；把标签剥掉，它就接近瞎猜。本页余下的部分是工程细节：加了什么、怎么测的、在哪里垮掉。
     </div>
   </div>
 </section>
@@ -266,8 +249,7 @@
             <button type="button" class="btn btn--ghost btn--sm" id="rdw-run" disabled>反汇编</button>
           </div>
           <p class="tiny muted" style="margin-top:12px">
-            791 kilobytes (KB) because a real x86 decoder carries the whole instruction set
-            &mdash; every encoding, prefix and extension. That is the honest size of the thing.
+            791 千字节（KB），因为一个真正的 x86 解码器带着整套指令集 &mdash; 每一种编码、前缀和扩展。这就是这东西老实的大小。
           </p>
         </div>
         <div class="demo__side">
@@ -283,10 +265,7 @@
             </div>
           </div>
           <div class="note note--amber" style="font-size:.8rem;padding:12px 14px">
-            <strong>这是解码器，不是反编译器。</strong> The rungs above &mdash;
-            lifting to LLVM Intermediate Representation (IR), structuring control flow, naming
-            the algorithm &mdash; are LLVM&rsquo;s work, and LLVM does not fit in a web page at
-            any size. Saying otherwise would be the easiest lie on this site.
+            <strong>这是解码器，不是反编译器。</strong> 再往上的那几级 &mdash; 提升到 LLVM 中间表示（IR）、整理控制流、给算法起名 &mdash; 是 LLVM 的活，而 LLVM 无论做到多小都塞不进一个网页。说得不是这样，会是这个站上最容易撒的谎。
           </div>
         </div>
       </div>
@@ -303,11 +282,7 @@
       <span class="eyebrow">前端</span>
       <h2>原生、字节码和新兴格式</h2>
       <p class="lede">
-        Output is format-dependent, because pretending everything decompiles to C helps
-        nobody. The front end takes native binaries in Executable and Linkable Format (ELF),
-        Portable Executable (PE) and Mach-O; bytecode, including Java Virtual Machine (JVM)
-        class files, Dalvik Executable (DEX) and Common Intermediate Language (CIL); and newer
-        targets such as CUDA&rsquo;s Parallel Thread Execution (PTX).
+        输出取决于格式，因为假装什么东西都能反编译成 C 帮不了任何人。前端接受可执行与可链接格式（ELF）、可移植可执行文件（PE）和 Mach-O 的原生二进制；字节码，包括 Java 虚拟机（JVM）class 文件、Dalvik 可执行文件（DEX）和公共中间语言（CIL）；以及 CUDA 的并行线程执行（PTX）这类较新的目标。
       </p>
     </div>
     <div class="grid grid-3">
@@ -327,7 +302,7 @@
         <div class="card__glow"></div>
         <span class="badge badge--blue" style="margin-bottom:12px">新兴</span>
         <h3 style="font-size:1.02rem">WebAssembly &middot; CUDA PTX</h3>
-        <p class="small dim" style="margin:0">WebAssembly converts to WebAssembly Text format (WAT). PTX is handled as a first-class input rather than an afterthought.</p>
+        <p class="small dim" style="margin:0">WebAssembly 转成 WebAssembly 文本格式（WAT）。PTX 是当作一等输入来处理的，不是事后补的。</p>
       </div>
     </div>
   </div>
@@ -407,17 +382,17 @@
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">运行时</span>
-        <p class="small dim" style="margin:0">Standard Template Library (STL) containers and C++ runtime structures &mdash; the shape of a <code translate="no">std::vector</code> 的形状从分配模式里重新浮现出来。</p></div>
+        <p class="small dim" style="margin:0">标准模板库（STL）容器和 C++ 运行时结构 &mdash; 一个 <code translate="no">std::vector</code> 的形状从分配模式里重新浮现出来。</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">密码学</span>
-        <p class="small dim" style="margin:0">AES, the Secure Hash Algorithm (SHA) family, ChaCha20, Rivest&ndash;Shamir&ndash;Adleman (RSA) and elliptic curve primitives, identified by constants and round structure.</p></div>
+        <p class="small dim" style="margin:0">AES、安全散列算法（SHA）家族、ChaCha20、Rivest&ndash;Shamir&ndash;Adleman（RSA）以及椭圆曲线原语，靠常量和轮结构辨认出来。</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">排序 &amp; 查找</span>
         <p class="small dim" style="margin:0">内省排序、归并排序、二分查找 &mdash; 包括那个会暴露内省排序身份的深度限制切换。</p></div>
       <div class="card reveal"><span class="eyebrow" style="margin-bottom:10px">图</span>
-        <p class="small dim" style="margin:0">Graph algorithms, plus Breadth-First Search (BFS) and Depth-First Search (DFS) traversal patterns.</p></div>
+        <p class="small dim" style="margin:0">图算法，外加广度优先搜索（BFS）和深度优先搜索（DFS）的遍历模式。</p></div>
       <div class="card reveal" data-delay=".04"><span class="eyebrow" style="margin-bottom:10px">并发</span>
-        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>, pthreads, OpenMP, Threading Building Blocks (TBB) and raw atomics.</p></div>
+        <p class="small dim" style="margin:0"><code translate="no">std::thread</code>、pthreads、OpenMP、线程构建模块（TBB）和裸原子操作。</p></div>
       <div class="card reveal" data-delay=".08"><span class="eyebrow" style="margin-bottom:10px">序列化</span>
-        <p class="small dim" style="margin:0">Protobuf, FlatBuffers, MessagePack, JavaScript Object Notation (JSON) and Extensible Markup Language (XML) framing.</p></div>
+        <p class="small dim" style="margin:0">Protobuf、FlatBuffers、MessagePack、JavaScript 对象表示法（JSON）和可扩展标记语言（XML）的封帧。</p></div>
     </div>
   </div>
 </section>
@@ -437,14 +412,14 @@
             <thead><tr><th>指标</th><th class="num">结果</th><th>条件</th></tr></thead>
             <tbody>
               <tr><td>可构建的 C 输出</td><td class="num">216 / 216</td><td class="muted"><code translate="no">--buildable</code>，默认开启</td></tr>
-              <tr><td>算法还原 F1</td><td class="num">0.056</td><td class="muted">Name-blind, 95% confidence interval 0.034&ndash;0.083</td></tr>
+              <tr><td>算法还原 F1</td><td class="num">0.056</td><td class="muted">不借助符号名，95% 置信区间 0.034&ndash;0.083</td></tr>
               <tr><td>算法还原 F1</td><td class="num">1.000</td><td class="muted">借助符号名，带符号的二进制文件</td></tr>
               <tr><td>默认的 <code translate="no">.c</code> 能重新编译</td><td class="num">否</td><td class="muted">这个 fork 和原版 RetDec 都不行</td></tr>
             </tbody>
           </table>
         </div>
         <div class="note note--amber" style="margin-top:20px">
-          <strong>这两个 F1 数字要一起读。</strong> 有符号时的 1.000 意味着识别器和符号表意见一致。没有符号时的 0.056 意味着在剥掉符号的二进制上做结构还原，今天还接近地板。只报第一个数字是营销；只报第二个数字，则会掩盖一件事：只要流水线有点线索可循，它是能工作的。
+          <strong>这两个 F1 数字要一起读。</strong> 有符号时的 1.000 意味着识别器和符号表意见一致。没有符号时的 0.056 意味着在剥掉符号的二进制上做结构还原，今天还接近瞎猜。只报第一个数字是营销；只报第二个数字，则会掩盖一件事：只要流水线有点线索可循，它是能工作的。
         </div>
       </div>
 
@@ -509,11 +484,9 @@
     <div class="split split--center reveal">
       <div>
         <span class="eyebrow">界面</span>
-        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 Graphical User Interface (GUI), or no GUI at all</h2>
+        <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">Qt 6 图形用户界面（GUI），或者完全不用 GUI</h2>
         <p class="dim">
-          Synchronised code views across C, assembly, IR and control-flow graphs, with function
-          navigation, string inspection, a binary browser and an assistant panel. Headless mode
-          drops every GUI dependency so the same build runs in Continuous Integration (CI).
+          C、汇编、IR 和控制流图之间同步的代码视图，配上函数导航、字符串检视、二进制浏览器和一个助手面板。无界面模式去掉全部 GUI 依赖，所以同一份构建也能在持续集成（CI）里跑。
         </p>
       </div>
       <div>
@@ -522,9 +495,7 @@
             <span class="badge badge--teal">双重许可</span>
           </div>
           <p class="small dim" style="margin:0 0 12px">
-            The GNU Affero General Public License (AGPL-3.0+) for open-source use, or a
-            commercial licence for proprietary deployment. Copyright Odin Loch, trading as
-            Imortek, 2025&ndash;2026.
+            开源使用适用 GNU Affero 通用公共许可证（AGPL-3.0+），专有部署则用商业授权。版权归 Odin Loch，以 Imortek 名义经营，2025&ndash;2026 年。
           </p>
           <p class="small muted" style="margin:0">
             在 v2.0.21 上可以发布。CI 关卡反映的是开发阶段的标准，不是生产成熟度的标准 &mdash; 这是项目自己说的，不是推断出来的。
@@ -553,13 +524,13 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/aegis.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
-      </a>
       <a class="card card--hover related__item" href="/zh/cypha.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/aegis.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">AEGIS — 面向联盟的元数据隐藏传输层</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -631,7 +602,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

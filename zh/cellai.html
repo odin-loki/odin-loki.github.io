@@ -145,16 +145,10 @@
   <div class="wrap phero__inner">
     <div class="split split--wide-left split--center">
       <div>
-        <span class="eyebrow eyebrow--violet">Artificial Intelligence (AI) &middot; Cell AI research log</span>
+        <span class="eyebrow eyebrow--violet">人工智能（AI）&middot; Cell AI 研究日志</span>
         <h1>一个序列模型，它 <span class="gradient-text">老老实实地更差</span></h1>
         <p class="lede">
-          A language model built on a completely different mechanism &mdash; closer to chemistry
-          spreading across a surface than to the attention maths everything else uses. It performs
-          worse than a transformer, and its own front page says so. Not slightly worse: four
-          orders of magnitude on perplexity (PPL), the standard measure, against Generative
-          Pre-trained Transformer 2 (GPT-2) as the baseline, and printed on this page rather than
-          in a footnote. It is published as a research log because a documented failure is worth
-          something and a deleted one is not.
+          一个建立在完全不同机制上的语言模型 &mdash; 比起别人都在用的那套注意力数学，它更接近化学物质在一个表面上扩散。它的表现比 transformer 差，它自己的首页就是这么写的。不是差一点：在标准度量困惑度（PPL）上差四个数量级，基线是生成式预训练变换器 2（GPT-2），而且这话印在本页上，不是印在脚注里。它作为研究日志发布，因为一次被记录下来的失败是有价值的，被删掉的那种没有。
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#demo">跑一遍反应扩散场</a>
@@ -187,46 +181,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          Almost every AI that handles language is built on the same idea: let every word look at
-          every other word. It works. Nobody knows how much of that is because it is the best idea
-          available and how much is because it is the one everybody tried.
+          几乎所有处理语言的 AI 都建在同一个想法上：让每个词去看所有别的词。它管用。至于其中有多少是因为这是现有最好的想法，有多少只是因为这是大家都试了的那一个，没人知道。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          Cell AI takes that out and puts something else in: two chemicals spreading and reacting
-          across a surface, the way stripes form on an animal, with the connections changing while
-          it reads rather than afterwards. It was then trained at full size and measured. It came
-          out four orders of magnitude worse than GPT-2. That is the headline of this page, not a
-          line in an appendix.
+          Cell AI 把那个想法拿掉，换上另一个：两种化学物质在一个表面上扩散并反应，就像动物身上长出条纹那样，而且连接是在它读的过程中改变，不是读完之后。然后它按完整规模训练并做了测量。结果比 GPT-2 差四个数量级。这是本页的头条，不是附录里的一行。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Researchers who want to know what happens down the road nobody took. Scientists who
-          already model living systems, because the mechanism underneath is the one that makes
-          patterns in chemistry and markings on animals. Teachers, because published research is
-          almost all successes, and a careful account of a failure is rarer and more useful.
+          想知道没人走的那条路尽头是什么的研究者。已经在给生命系统建模的科学家，因为底下这套机制，正是在化学里造出花纹、在动物身上造出斑纹的那一套。还有教师，因为发表出来的研究几乎全是成功，而一份认真写下的失败记录更少见，也更有用。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Nothing here is being sold to you.</strong> Cell AI is worse than what you already
-      have, and saying so plainly is the point of it. The rest of this page is the evidence: the
-      dynamics running live in your browser, what stands where attention would be, and
-      twenty-seven experiments with their failures annotated.
+      <strong>这里没有任何东西在卖给你。</strong> Cell AI 比你手上已经有的东西更差，而把这话直说出来就是它的意义所在。本页余下的部分是证据：在你浏览器里实时跑的动力学、在注意力本该在的位置上站着的是什么，以及二十七个实验，失败之处都做了标注。
     </div>
   </div>
 </section>
@@ -331,8 +313,7 @@
         <span class="badge badge--violet" style="margin-bottom:12px">可塑性</span>
         <h3 style="font-size:1.05rem">MetaplasticityLayer</h3>
         <p class="small dim" style="margin:0">
-          Hebbian learning in the Bienenstock&ndash;Cooper&ndash;Munro (BCM) style, with
-          &alpha; = 0.1, &beta; = 0.01, applied <em>过程中</em> ，而不是在它之后。这是这个架构里最大胆的想法，也是它那个被记录在案的梯度饥饿问题的来源。
+          Bienenstock&ndash;Cooper&ndash;Munro（BCM）式的赫布学习，&alpha; = 0.1，&beta; = 0.01，作用在前向传播 <em>过程中</em> ，而不是在它之后。这是这个架构里最大胆的想法，也是它那个被记录在案的梯度饥饿问题的来源。
         </p></div>
       <div class="card card--hover reveal" data-delay=".1"><div class="card__glow"></div>
         <span class="badge badge--teal" style="margin-bottom:12px">v3 优化</span>
@@ -344,10 +325,7 @@
         <span class="badge badge--blue" style="margin-bottom:12px">信号通路</span>
         <h3 style="font-size:1.05rem">完整的栈</h3>
         <p class="small dim" style="margin:0">
-          cl100k_base embedding &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation
-          &rarr; ResonanceSystem &rarr; CrystalLattice (K = 3) &rarr; optional Kuramoto coupling
-          &rarr; MultiModalModel routing &rarr; logits. The resonance stage couples phases with a
-          Fast Fourier Transform (FFT).
+          cl100k_base 嵌入 &rarr; CellularPDE &rarr; MetaplasticityLayer &rarr; MemoryFormation &rarr; ResonanceSystem &rarr; CrystalLattice（K = 3）&rarr; 可选的 Kuramoto 耦合 &rarr; MultiModalModel 路由 &rarr; logits。共振这一级用快速傅里叶变换（FFT）耦合相位。
         </p></div>
     </div>
   </div>
@@ -445,9 +423,7 @@
     <span class="eyebrow" style="justify-content:center">姊妹项目</span>
     <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">这些想法后来去了哪里</h2>
     <p class="lede" style="margin-inline:auto;text-align:center">
-      Cell AI is the research line that did not converge. Its siblings did better: Cypha became a
-      working first-principles architecture, and the long-context memory work became Unified
-      Hash-Predictive Memory (UHPM).
+      Cell AI 是那条没有收敛的研究线。它的兄弟项目走得更好：Cypha 成了一套能用的第一性原理架构，长上下文记忆那部分工作则成了统一哈希预测记忆（UHPM）。
     </p>
     <div class="btn-row" style="justify-content:center;margin-top:24px">
       <a class="btn btn--ghost" href="/zh/cypha.html">Cypha &rarr;</a>
@@ -463,9 +439,9 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">相关阅读</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/zh/cypha.html">
+      <a class="card card--hover related__item" href="/zh/chess.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
+        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
       <a class="card card--hover related__item" href="/zh/sentinel.html">
         <div class="card__glow"></div>
@@ -475,9 +451,9 @@
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">TRACE — 从稀疏目击中得到持续的身份</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/chess.html">
+      <a class="card card--hover related__item" href="/zh/cypha.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
+        <h3 style="font-size:.98rem;margin:0">Cypha — 一套从第一性原理出发的 AI 架构</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -549,7 +525,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>

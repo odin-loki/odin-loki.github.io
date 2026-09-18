@@ -149,11 +149,7 @@
         <span class="eyebrow eyebrow--amber">بنیادی منصوبہ &middot; ParanoidBSD</span>
         <h1>ایک ایسا آپریٹنگ سسٹم جہاں اختیار <span class="gradient-text">رکھا جاتا ہے، فرض نہیں کیا جاتا</span></h1>
         <p class="lede">
-          Nearly every break-in works the same way: a program reaches something it was never
-          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
-          program is handed only what it needs, and everything else is not merely forbidden
-          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
-          original kept alongside so every change can be checked against it.
+          تقریباً ہر نقب زنی ایک ہی طرح ہوتی ہے: کوئی پروگرام ایسی چیز تک پہنچ جاتا ہے جسے چھونا اس کا کام کبھی نہیں تھا۔ ParanoidBSD ایسا آپریٹنگ سسٹم ہے جو اسے یہ کرنے ہی نہیں دیتا۔ ہر پروگرام کو صرف اتنا دیا جاتا ہے جتنی اس کی ضرورت ہے، اور باقی سب محض ممنوع نہیں &mdash; پہنچ ہی سے باہر ہے۔ HardenedBSD پر بنا، جدید C++ میں دوبارہ لکھا گیا، اور اصل کوڈ ساتھ رکھا گیا تاکہ ہر تبدیلی اس کے مقابل جانچی جا سکے۔
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/ur/kickstarter.html">Kickstarter کی حمایت کریں</a>
@@ -178,7 +174,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">ڈیسک ٹاپ کی لہر کے لیے Plasma 6، KWin اور فریم ورک</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">فہرست سازی، یقینی بازنویسی کے مراحل، ایجنٹ منتقلی، Clang کے معاون</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">تفصیل نامے، حفاظتی ماڈل، منتقلی کی حالت، سلسلۂ ماخذ</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">WSL ڈرائیور اسکرپٹ، واچ ڈاگ، پیش رفت کا کنسول</span></div>
           </div>
         </div>
       </div>
@@ -191,46 +187,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">سادہ الفاظ میں</span>
+      <h2>یہ کیا ہے، ایک منٹ میں</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">مسئلہ</span>
         <p class="small dim" style="margin:0">
-          An operating system sits underneath everything else an organisation runs. Most are
-          built on decades of older code, and they let any program ask for anything at all
-          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
-          something harmless, like the code that draws a font on screen, can end with stolen
-          passwords.
+          آپریٹنگ سسٹم اُس ہر چیز کے نیچے ہوتا ہے جو کوئی ادارہ چلاتا ہے۔ زیادہ تر دہائیوں پرانے کوڈ پر بنے ہیں، اور کسی بھی پروگرام کو کچھ بھی مانگنے دیتے ہیں &mdash; اجازت دینی ہے یا نہیں، نظام یہ فیصلہ بعد میں کرتا ہے۔ یہی وجہ ہے کہ کسی بے ضرر چیز کی ایک خرابی، مثلاً اسکرین پر فونٹ بنانے والے کوڈ کی، پاس ورڈ کی چوری پر ختم ہو سکتی ہے۔
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">حل</span>
         <p class="small dim" style="margin:0">
-          ParanoidBSD changes what a program is able to ask for in the first place. Rather
-          than checking permission after the request, it hands each program a short list of
-          things it may touch, and gives it no way to name anything else. A flaw in one part
-          stops being a route into the rest.
+          ParanoidBSD پہلے ہی یہ بدل دیتا ہے کہ کوئی پروگرام مانگ کیا سکتا ہے۔ درخواست کے بعد اجازت جانچنے کے بجائے، وہ ہر پروگرام کو ایک مختصر فہرست تھما دیتا ہے کہ وہ کن چیزوں کو چھو سکتا ہے، اور کسی اور چیز کا نام لینے کا راستہ ہی نہیں دیتا۔ ایک حصے کی خرابی باقی نظام تک پہنچنے کا راستہ نہیں رہتی۔
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">یہ کس کے لیے ہے</span>
         <p class="small dim" style="margin:0">
-          Defence and government suppliers now being asked for software written in safer
-          languages. Equipment that stays in the field for years and cannot be patched
-          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
-          and researchers who want a real operating system small enough to read end to end.
+          دفاع اور حکومت کے وہ فراہم کنندہ جن سے اب محفوظ تر زبانوں میں لکھا سافٹ ویئر مانگا جا رہا ہے۔ وہ آلات جو برسوں میدان میں رہتے ہیں اور جنہیں جلدی پیچ نہیں کیا جا سکتا &mdash; کارخانوں کے کنٹرولر، طبی مشینیں، بنیادی خدمات کا ہارڈویئر۔ اور وہ اساتذہ و محققین جنہیں ایسا حقیقی آپریٹنگ سسٹم چاہیے جو اتنا چھوٹا ہو کہ سرے سے سرے تک پڑھا جا سکے۔
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Security should not start at the application layer.</strong> It should start
-      with the operating system underneath it. The rest of this page is the engineering:
-      what was changed, how it was checked, and what is not done yet.
+      <strong>حفاظت کا آغاز ایپلیکیشن کی سطح سے نہیں ہونا چاہیے۔</strong> اسے نیچے موجود آپریٹنگ سسٹم سے شروع ہونا چاہیے۔ اس صفحے کا باقی حصہ انجینئرنگ ہے: کیا بدلا گیا، اسے کیسے جانچا گیا، اور کیا ابھی باقی ہے۔
     </div>
   </div>
 </section>
@@ -251,12 +235,7 @@
           یہی وجہ ہے کہ فونٹ رینڈرر میں تجزیے کی ایک ہی خرابی پاس ورڈ کی چوری بن سکتی ہے۔ رینڈرر کو پاس ورڈ فائل کی کبھی ضرورت نہیں تھی &mdash; مگر ڈھانچے میں کوئی چیز اسے مانگنے سے نہیں روکتی تھی۔
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: Address Space Layout Randomisation
-          (ASLR), which loads a program somewhere different every time so an attacker cannot
-          guess where anything is; Control Flow Integrity (CFI), which stops a program being
-          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
-          and hardened memory allocators alongside them. PBSD keeps all of it and changes
-          the shape of the question underneath &mdash; from <em>&ldquo;کیا اس پروسیس کو اجازت ہے؟&rdquo;</em> سے
+          HardenedBSD یہاں پہلے ہی سنجیدہ کام کرتا ہے: ASLR، جو ہر بار پروگرام کو کسی اور جگہ لادتی ہے تاکہ حملہ آور اندازہ نہ لگا سکے کہ کیا کہاں ہے؛ CFI، جو پروگرام کو ایسے کوڈ کی طرف موڑنے سے روکتی ہے جسے چلانے کے لیے وہ بنا ہی نہیں تھا؛ اور ان کے ساتھ PaX سے اخذ کردہ تدابیر، SafeStack اور سخت میموری ایلوکیٹر۔ PBSD یہ سب رکھتا ہے اور نیچے کے سوال کی شکل بدل دیتا ہے &mdash; <em>&ldquo;کیا اس پروسیس کو اجازت ہے؟&rdquo;</em> سے
           <em>&ldquo;کیا اس پروسیس کے پاس اس کا ہینڈل ہے؟&rdquo;</em>
         </p>
       </div>
@@ -273,9 +252,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim listing of the calls a
-            program makes into the kernel &mdash; its Application Programming Interface, or API.
-            The authoritative model is in <code translate="no">docs/</code>.
+            فرق کی وضاحتی شکل، نہ کہ اُن کالوں کی لفظ بہ لفظ فہرست جو کوئی پروگرام کرنل میں کرتا ہے &mdash; یعنی اس کا API۔ مستند ماڈل یہاں ہے <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -367,9 +344,7 @@
       <span class="eyebrow eyebrow--violet">منتقلی</span>
       <h2>چار مرحلے، اور ایک ماڈل جو کبھی اپنی سند خود نہیں دیتا</h2>
       <p class="lede">
-        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
-        is a decade of work. Porting it by asking a language model to rewrite files is a fast
-        way to produce plausible garbage. PBSD does neither.
+        کسی BSD کے یوزرلینڈ اور کرنل کو ہاتھ سے C++23 میں منتقل کرنا ایک عشرے کا کام ہے۔ اسے کسی لینگویج ماڈل سے فائلیں دوبارہ لکھوا کر منتقل کرنا بظاہر درست کوڑا تیزی سے پیدا کرنے کا طریقہ ہے۔ PBSD ان میں سے کوئی نہیں کرتا۔
       </p>
     </div>
 
@@ -407,8 +382,7 @@
         <span class="badge badge--amber" style="margin-bottom:12px">مرحلہ 4</span>
         <h3 style="font-size:1.05rem">تصدیقی پھاٹک</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          کمپائل، ASan، UBSan، تفریقی عمل درآمد اور کمپائلر کے IR کی سطح پر موازنہ۔ وہ فائل جو صرف کمپائل ہوتی ہے
           <em>غیر تصدیق شدہ ہے</em>۔ ناکامیاں یہاں جاتی ہیں:
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
@@ -471,9 +445,7 @@
     <details class="acc reveal">
       <summary>کرنل C++ آزاد ہے: <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
-        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
-        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
+        کرنل مرکزہ کسی میزبان C++ رن ٹائم پر انحصار نہیں کر سکتا۔ نہ استثنا، نہ RTTI، اور نہ کرنل میں داخلے پر ہیپ سے میموری لینے والے معیاری لائبریری کے راستے۔ پابندیاں یہاں لکھی ہیں <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> تاکہ کوئی معاون بغیر اندازے کے بتا سکے کہ کرنل کے سیاق میں کیا جائز ہے۔
       </div>
     </details>
     <details class="acc reveal">
@@ -493,10 +465,7 @@
         <span class="eyebrow">لائسنسنگ</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">دو لائسنس، ایمان داری سے الگ کیے گئے</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
-          free for personal use, charities, education and organisations under
-          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
+          نیا PBSD کوڈ &mdash; مرکزہ، C++23 ماڈیولز، اوزار &mdash; Imortek کی معیاری شرائط پر دستیاب ہے: GNU Affero General Public License (AGPL-3.0+)، جو ذاتی استعمال، خیراتی اداروں، تعلیم اور سالانہ AUD 50,000 سے کم کمانے والے اداروں کے لیے مفت ہے، اور اس سے اوپر درجہ وار تجارتی لائسنس۔
         </p>
         <p class="dim">
           HardenedBSD سے اخذ کیا گیا کوڈ اپنے اصل BSD لائسنس ہی پر رہتا ہے۔ اسے دوبارہ لائسنس نہیں کیا جا سکتا اور Imortek ایسا دعویٰ بھی نہیں کرتا۔ <code translate="no">docs/PROVENANCE.md</code> ہی وہ ریکارڈ ہے جو بتاتا ہے کہ کون سا کون سا ہے۔
@@ -669,7 +638,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T23:04:13Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T23:58:50Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

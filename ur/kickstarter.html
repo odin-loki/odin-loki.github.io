@@ -169,12 +169,12 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">مہم</span><span class="spec__v"><a href="https://www.kickstarter.com/projects/1070199318/secure-operating-system-based-on-hbsd" target="_blank" rel="noopener">Secure Operating System Based on HBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">آغاز</span><span class="spec__v">13 ستمبر 2026</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">اختتام</span><span class="spec__v">12 نومبر 2026</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">ہدف</span><span class="spec__v">10,000 Australian dollars (AUD)</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">ہدف</span><span class="spec__v">AUD 10,000</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">مالی معاونت کا طریقہ</span><span class="spec__v">سب یا کچھ نہیں &mdash; 60 دن</span></div>
-            <div class="spec__row" style="padding-inline:0"><span class="spec__k">مقصد</span><span class="spec__v">Artificial Intelligence (AI) credits and verification compute</span></div>
+            <div class="spec__row" style="padding-inline:0"><span class="spec__k">مقصد</span><span class="spec__v">مصنوعی ذہانت (AI) کے کریڈٹ اور تصدیقی کمپیوٹ</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">منصوبہ</span><span class="spec__v"><a href="/ur/pbsd.html">ParanoidBSD</a></span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">ساخت</span><span class="spec__v">عطیات، اور ساتھ AUD 10,000 والا ایک فیچر کی درخواست کا انعام</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">لائسنس</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+); Berkeley Software Distribution (BSD) for HardenedBSD-derived code</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">لائسنس</span><span class="spec__v">GNU Affero General Public License (AGPL-3.0+)؛ HardenedBSD سے اخذ کردہ کوڈ کے لیے BSD</span></div>
           </div>
           <div class="note note--amber" style="margin-top:18px;font-size:.84rem">
             ہدف پوری مہم کے دوران طے شدہ رہتا ہے، اس لیے وہ یہاں درج ہے۔ وعدہ شدہ رقم اور حمایتیوں کی تعداد طے شدہ نہیں، اس لیے وہ یہاں درج نہیں &mdash; ایک ساکن صفحے پر ٹائپ کیا ہوا چلتا میزان لکھے جاتے ہی غلط ہو جاتا ہے۔ دونوں مہم کے صفحے پر براہِ راست موجود ہیں۔
@@ -209,11 +209,7 @@
           ایک سخت کیے ہوئے BSD کو C++23 میں ہاتھ سے منتقل کرنا ایک عشرے کا کل وقتی کام ہے۔ یہ اس قسم کا کام بھی ہے جہاں لینگویج ماڈل واقعی کارآمد ہے &mdash; مشینی ترجمہ، جس کے مقابل جانچنے کے لیے ایک سخت تفصیل نامہ موجود ہو، اور یہ اس ٹیکنالوجی کے بہترین استعمال کے قریب ترین ہے۔
         </p>
         <p class="dim">
-          The design already reflects that. Deterministic rewrite passes handle everything they
-          safely can, for free. Models are used only on the residue: stubbed inventory entries
-          and the files the deterministic passes refused. Every model output then goes through
-          compile, ASan, UBSan, differential execution and a comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR) before it counts.
+          ڈیزائن پہلے ہی اس کا لحاظ رکھتا ہے۔ یقینی بازنویسی کے مراحل وہ سب کچھ سنبھال لیتے ہیں جو وہ محفوظ طریقے سے کر سکتے ہیں، مفت۔ ماڈل صرف بچی ہوئی باقیات پر استعمال ہوتے ہیں: فہرست کے ادھورے اندراج اور وہ فائلیں جنہیں یقینی مراحل نے رد کر دیا۔ پھر ماڈل کی ہر پیداوار شمار میں آنے سے پہلے کمپائل، ASan، UBSan، تفریقی عمل درآمد اور کمپائلر کے IR کی سطح پر موازنے سے گزرتی ہے۔
         </p>
         <p class="dim">
           یہ تصدیق نہ اختیاری ہے نہ سستی۔ ہر فائل پر کوشش ہوتی ہے، جانچ ہوتی ہے، اکثر رد ہوتی ہے اور دوبارہ کوشش ہوتی ہے۔ خرچ اسی چکر میں ہے، کسی ایک گزر میں نہیں &mdash; اور یہی چکر ماڈل کی پیداوار کو ایسی چیز بناتا ہے جو ایک حفاظت پر مرکوز آپریٹنگ سسٹم واقعی بھیج سکے۔
@@ -232,7 +228,7 @@
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>ایجنٹ منتقلی انجن، ورکر پول اور escalation کے ساتھ</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>کمپائل، سینیٹائزر، تفریقی اور IR تصدیق کے پھاٹک</span></li>
             <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلسلۂ ماخذ کی پیروی، تاکہ لائسنس کی حدیں جانچی جا سکیں</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The capability nucleus design and the kernel C++ Application Binary Interface (ABI) spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>اختیارات کے مرکزے کا ڈیزائن اور کرنل C++ ABI کا تفصیل نامہ</span></li>
           </ul>
           <p class="small muted" style="margin-top:16px">
             یہ سب ابھی ریپازٹری میں موجود ہے، ایک کھلے لائسنس کے تحت، چاہے اس مہم کو رقم ملے یا نہ ملے۔ کوئی فیصلہ کرنے سے پہلے آپ اس صفحے کا ہر دعویٰ سورس کے مقابل پرکھ سکتے ہیں۔
@@ -473,7 +469,7 @@
         <details class="acc">
           <summary>یہ ایک ہی شخص ہے</summary>
           <div class="acc__body">
-            Imortek یعنی Odin Loch، جو سڈنی میں اوزار ساز کے طور پر کام کرتا ہے۔ نہ کوئی ٹیم ہے، نہ مالی گنجائش، اور نہ تسلسل کا کوئی منصوبہ، سوائے اس کے کہ ہر چیز لکھے جانے کے ساتھ ہی کھلے لائسنس پر شائع ہو جاتی ہے۔ اگر یہ کام رک گیا تو جو موجود ہے وہ عام رہے گا اور اس کا فورک بنایا جا سکے گا۔ ایمان داری سے صرف یہی ضمانت دی جا سکتی ہے، اس لیے یہی دی جا رہی ہے۔
+            Imortek یعنی Odin Loch، جو سڈنی میں اوزار ساز کے طور پر کام کرتا ہے۔ نہ کوئی ٹیم ہے، نہ خرچ کرنے کو سرمایہ کاروں کا پیسہ، اور نہ تسلسل کا کوئی منصوبہ، سوائے اس کے کہ ہر چیز لکھے جانے کے ساتھ ہی کھلے لائسنس پر شائع ہو جاتی ہے۔ اگر یہ کام رک گیا تو جو موجود ہے وہ عام رہے گا اور اس کا فورک بنایا جا سکے گا۔ ایمان داری سے صرف یہی ضمانت دی جا سکتی ہے، اس لیے یہی دی جا رہی ہے۔
           </div>
         </details>
         <details class="acc">
@@ -605,7 +601,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> اوڈن لوک، Imortek کے نام سے کاروبار کرتے ہیں۔ سڈنی، آسٹریلیا۔</span>
-      <span class="mono tiny">تیار شدہ 2026-09-17T23:04:13Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
+      <span class="mono tiny">تیار شدہ 2026-09-17T23:58:50Z &middot; نہ ٹریکر، نہ کوکیز، نہ اینالٹکس۔ باہر سے صرف فونٹ آتے ہیں۔</span>
     </div>
   </div>
 </footer>

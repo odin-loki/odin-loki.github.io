@@ -149,11 +149,7 @@
         <span class="eyebrow eyebrow--amber">旗舰项目 &middot; ParanoidBSD</span>
         <h1>在这个操作系统里，权限靠 <span class="gradient-text">持有，而不是默认拥有</span></h1>
         <p class="lede">
-          Nearly every break-in works the same way: a program reaches something it was never
-          meant to touch. ParanoidBSD is an operating system built so that it cannot. Each
-          program is handed only what it needs, and everything else is not merely forbidden
-          &mdash; it is out of reach. Built on HardenedBSD, rewritten in modern C++, with the
-          original kept alongside so every change can be checked against it.
+          几乎每一次入侵都是同一个路子：某个程序碰到了它本不该碰的东西。ParanoidBSD 这套操作系统就是照着让它碰不到来造的。每个程序只拿到自己需要的那些，其余的不只是被禁止 &mdash; 而是根本够不着。基于 HardenedBSD，用现代 C++ 重写，原件一直摆在旁边，任何改动都能拿它对照检查。
         </p>
         <div class="btn-row">
           <a class="btn btn--fund" href="/zh/kickstarter.html">支持这次 Kickstarter 众筹</a>
@@ -178,7 +174,7 @@
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">kde/</span><span class="spec__v">Plasma 6、KWin 与桌面批次要用的各个框架</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">tools/</span><span class="spec__v">清单、确定性重写流程、智能体移植、Clang 辅助工具</span></div>
             <div class="spec__row" style="padding-inline:0"><span class="spec__k">docs/</span><span class="spec__v">规格、安全模型、迁移状态、来源记录</span></div>
-            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">Windows Subsystem for Linux (WSL) driver, watchdog, progress console</span></div>
+            <div class="spec__row" style="padding-inline:0;border-bottom:0"><span class="spec__k">scripts/</span><span class="spec__v">适用于 Linux 的 Windows 子系统（WSL）驱动脚本、看门狗、进度控制台</span></div>
           </div>
         </div>
       </div>
@@ -191,46 +187,34 @@
 <section class="section section--tight">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">In plain English</span>
-      <h2>What this is, in one minute</h2>
+      <span class="eyebrow">大白话</span>
+      <h2>一分钟说清这是什么</h2>
     </div>
     <div class="grid grid-3">
       <div class="card card--hover reveal">
         <div class="card__glow"></div>
         <span class="badge badge--amber" style="margin-bottom:12px">问题所在</span>
         <p class="small dim" style="margin:0">
-          An operating system sits underneath everything else an organisation runs. Most are
-          built on decades of older code, and they let any program ask for anything at all
-          &mdash; the system decides afterwards whether to allow it. That is why one flaw in
-          something harmless, like the code that draws a font on screen, can end with stolen
-          passwords.
+          一个机构跑的其他一切，底下都压着一套操作系统。大多数操作系统建在几十年的旧代码之上，允许任何程序开口要任何东西 &mdash; 准不准，系统事后才判。所以，一个人畜无害的部件里的一个缺陷，比如往屏幕上画字体的那段代码，最后能变成口令被偷。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".06">
         <div class="card__glow"></div>
-        <span class="badge badge--teal" style="margin-bottom:12px">The solution</span>
+        <span class="badge badge--teal" style="margin-bottom:12px">解决办法</span>
         <p class="small dim" style="margin:0">
-          ParanoidBSD changes what a program is able to ask for in the first place. Rather
-          than checking permission after the request, it hands each program a short list of
-          things it may touch, and gives it no way to name anything else. A flaw in one part
-          stops being a route into the rest.
+          ParanoidBSD 改的是程序一开始能开口要什么。它不在请求之后再查权限，而是先发给每个程序一份很短的清单，写明它可以碰哪些东西，别的一概叫不出名字。一处的缺陷，就不再是通往其余部分的路。
         </p>
       </div>
       <div class="card card--hover reveal" data-delay=".12">
         <div class="card__glow"></div>
         <span class="badge badge--violet" style="margin-bottom:12px">这是给谁用的</span>
         <p class="small dim" style="margin:0">
-          Defence and government suppliers now being asked for software written in safer
-          languages. Equipment that stays in the field for years and cannot be patched
-          quickly &mdash; factory controllers, medical machines, utility hardware. Teachers
-          and researchers who want a real operating system small enough to read end to end.
+          正在被要求交付用更安全语言写成的软件的国防与政府供应商。在现场一放好几年、没法快速打补丁的设备 &mdash; 工厂控制器、医疗机器、公用事业硬件。想要一套小到能从头读到尾的真实操作系统的教师与研究者。
         </p>
       </div>
     </div>
     <div class="note reveal" style="margin-top:28px">
-      <strong>Security should not start at the application layer.</strong> It should start
-      with the operating system underneath it. The rest of this page is the engineering:
-      what was changed, how it was checked, and what is not done yet.
+      <strong>安全不该从应用层开始。</strong> 它该从底下那套操作系统开始。本页余下的部分是工程细节：改了什么、怎么查的、还有什么没做完。
     </div>
   </div>
 </section>
@@ -251,12 +235,7 @@
           这就是为什么字体渲染器里一个解析 bug 能变成一次凭据窃取。渲染器从来就不需要口令文件 &mdash; 但架构里没有任何东西拦着它去要。
         </p>
         <p class="dim">
-          HardenedBSD already does serious work here: Address Space Layout Randomisation
-          (ASLR), which loads a program somewhere different every time so an attacker cannot
-          guess where anything is; Control Flow Integrity (CFI), which stops a program being
-          steered into code it was never built to run; and PaX-derived mitigations, SafeStack
-          and hardened memory allocators alongside them. PBSD keeps all of it and changes
-          the shape of the question underneath &mdash; from <em>&ldquo;这个进程被允许吗？&rdquo;</em> 到
+          HardenedBSD 在这方面已经做了不少正经工作：地址空间布局随机化（ASLR），每次都把程序装到不同的位置，攻击者就猜不到东西在哪；控制流完整性（CFI），不让程序被引到它根本不是为之而建的代码上；再加上源自 PaX 的各种缓解措施、SafeStack 和加固过的内存分配器。这些 PBSD 全部保留，只是换掉了底下那个问题的形式 &mdash; 从 <em>&ldquo;这个进程被允许吗？&rdquo;</em> 到
           <em>&ldquo;这个进程持有指向它的句柄吗？&rdquo;</em>
         </p>
       </div>
@@ -273,9 +252,7 @@
 <span class="c-com">// there is no global namespace to walk.
 // no handle, no name, no operation.</span></pre>
           <p class="small muted" style="margin-top:14px">
-            Illustrative shape of the difference, not a verbatim listing of the calls a
-            program makes into the kernel &mdash; its Application Programming Interface, or API.
-            The authoritative model is in <code translate="no">docs/</code>.
+            这是差别的示意形状，不是逐条列出程序打进内核的那些调用 &mdash; 也就是它的应用程序接口（API）。权威模型在 <code translate="no">docs/</code>.
           </p>
         </div>
       </div>
@@ -367,9 +344,7 @@
       <span class="eyebrow eyebrow--violet">移植</span>
       <h2>四个阶段，以及一个从不给自己背书的模型</h2>
       <p class="lede">
-        Porting a Berkeley Software Distribution (BSD) userland and kernel to C++23 by hand
-        is a decade of work. Porting it by asking a language model to rewrite files is a fast
-        way to produce plausible garbage. PBSD does neither.
+        把一套伯克利软件套件（BSD）的用户态和内核手工移植到 C++23，是十年的工作量。让语言模型重写文件来移植，则是飞快产出看着像样的垃圾的办法。PBSD 两样都不干。
       </p>
     </div>
 
@@ -407,8 +382,7 @@
         <span class="badge badge--amber" style="margin-bottom:12px">第 4 阶段</span>
         <h3 style="font-size:1.05rem">验证关卡</h3>
         <p class="small dim" style="margin:0">
-          Compile, ASan, UBSan, differential execution and comparison at the level of the
-          compiler&rsquo;s Intermediate Representation (IR). A file that only compiles is
+          编译、ASan、UBSan、差分执行，以及在编译器中间表示（IR）这一层上的比对。一个只是能编译的文件，就是
           <em>未验证</em>。失败的记录落在
           <code translate="no">agent_port_failures.jsonl</code>.
         </p>
@@ -471,9 +445,7 @@
     <details class="acc reveal">
       <summary>内核里的 C++ 是独立环境的： <code translate="no">-fno-exceptions -fno-rtti</code></summary>
       <div class="acc__body">
-        The kernel nucleus cannot depend on a hosted C++ runtime. No exceptions, no Run-Time
-        Type Information (RTTI), no heap-allocating standard library paths on kernel entry.
-        The constraints are written down in <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> 里，好让贡献者不用猜就知道在内核上下文里什么是合法的。
+        内核核心不能依赖托管的 C++ 运行时。不用异常，不用运行时类型信息（RTTI），内核入口上也不走任何会在堆上分配的标准库路径。这些约束写在 <code translate="no">docs/specs/KERNEL_CXX_ABI.md</code> 里，好让贡献者不用猜就知道在内核上下文里什么是合法的。
       </div>
     </details>
     <details class="acc reveal">
@@ -493,10 +465,7 @@
         <span class="eyebrow">授权</span>
         <h2 style="font-size:clamp(1.4rem,2.6vw,2rem)">两个许可证，老老实实分开</h2>
         <p class="dim">
-          New PBSD code &mdash; the nucleus, the C++23 modules, the tooling &mdash; is offered under
-          Imortek&rsquo;s standard terms: the GNU Affero General Public License (AGPL-3.0+),
-          free for personal use, charities, education and organisations under
-          50,000 Australian dollars (AUD) a year, with a tiered commercial licence above that.
+          新写的 PBSD 代码 &mdash; 核心、C++23 模块、工具 &mdash; 按 Imortek 的标准条款提供：GNU Affero 通用公共许可证（AGPL-3.0+），对个人使用、慈善机构、教育机构以及年收入低于 50,000 澳元的组织免费，超过这个门槛则适用分级商业授权。
         </p>
         <p class="dim">
           源自 HardenedBSD 的代码仍然在它原本的 BSD 许可证下。它不能被重新授权，Imortek 也不声称自己有这么做。 <code translate="no">docs/PROVENANCE.md</code> 就是哪块归哪块的记录。
@@ -583,21 +552,21 @@
       <h2 style="font-size:clamp(1.2rem,2.2vw,1.6rem)">相关阅读</h2>
     </div>
     <div class="grid grid-2">
-      <a class="card card--hover related__item" href="/zh/cellai.html">
+      <a class="card card--hover related__item" href="/zh/retdec.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
+        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
+      </a>
+      <a class="card card--hover related__item" href="/zh/trace.html">
+        <div class="card__glow"></div>
+        <h3 style="font-size:.98rem;margin:0">TRACE — 从稀疏目击中得到持续的身份</h3>
       </a>
       <a class="card card--hover related__item" href="/zh/chess.html">
         <div class="card__glow"></div>
         <h3 style="font-size:.98rem;margin:0">和 Cypha 下国际象棋</h3>
       </a>
-      <a class="card card--hover related__item" href="/zh/sentinel.html">
+      <a class="card card--hover related__item" href="/zh/cellai.html">
         <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">SENTINEL — 犯罪数据分析与侦查线索</h3>
-      </a>
-      <a class="card card--hover related__item" href="/zh/retdec.html">
-        <div class="card__glow"></div>
-        <h3 style="font-size:.98rem;margin:0">RetDec Imortek — 规格提取型反编译器</h3>
+        <h3 style="font-size:.98rem;margin:0">Cell AI — 一个反应扩散序列模型</h3>
       </a>
     </div>
     <p class="tiny muted" style="margin-top:14px">根据与本页的术语重合度自动选出，而非人工挑选——所以它会如实反映真正接近的内容，包括确实没有明显相关内容的情况。</p>
@@ -669,7 +638,7 @@
 
     <div class="footer__bottom">
       <span>&copy; 2025&ndash;<span data-year>2026</span> Odin Loch，以 Imortek 名义经营。澳大利亚悉尼。</span>
-      <span class="mono tiny">构建于 2026-09-17T23:04:13Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
+      <span class="mono tiny">构建于 2026-09-18T00:00:16Z &middot; 没有追踪器，没有 Cookie，没有统计分析。只有字体来自外部。</span>
     </div>
   </div>
 </footer>
