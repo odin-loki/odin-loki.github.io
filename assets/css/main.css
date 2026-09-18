@@ -1196,6 +1196,7 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 .gloss-ctl__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line-3); }
 .gloss-ctl.is-on .gloss-ctl__dot { background: #06080b; }
 .gloss-ctl__stat { font-size: .68rem; color: var(--ink-mute); }
+.gloss-ctl__stat:empty { display: none; }
 .gloss-ctl__reset {
   background: none; border: 0; cursor: pointer; padding: 4px 8px;
   font-family: var(--mono); font-size: .66rem; color: var(--ink-mute);
@@ -1231,6 +1232,13 @@ body.gloss-on .gloss--picked { color: var(--teal); border-bottom-style: solid; }
 
 @media print { .gloss { border-bottom: 0; } }
 .gloss__pop.is-dict { border-inline-start-color: var(--violet); }
+.gloss__pop.is-float {
+  position: fixed; z-index: 70; margin: 0;
+  max-width: min(22rem, calc(100vw - 24px));
+  max-height: min(40vh, calc(100vh - 24px));
+  overflow: auto;
+  box-shadow: var(--shadow-3);
+}
 .gloss__pos { font-weight: 400; color: var(--ink-mute); font-size: .92em; }
 .gloss__src {
   display: block; margin-top: 6px; font-family: var(--mono);

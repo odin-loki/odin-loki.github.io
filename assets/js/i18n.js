@@ -30,7 +30,7 @@
     'tools.stop': 'Stop reading',
     'tools.next': 'Next paragraph',
     'tools.voice': 'Voice commands',
-    'tools.explain': 'Explain the jargon',
+    'tools.explain': 'Explain',
     'tools.reset': 'reset',
     'tools.termsOnPage': 'terms on this page',
     'tools.learned': 'learned',

@@ -52,7 +52,7 @@
   var LLR_GATE  = 0.3;      // nats over the world prior before pre-expanding
   var DIM = 10;
 
-  var terms = [], byKey = {}, nodes = [], on = false, model = null, popped = null;
+  var terms = [], byKey = {}, bySurface = {}, nodes = [], on = false, model = null, popped = null;
 
   /* ---------- feature map: what kind of term is this ---------- */
   var DOMAINS = ['systems', 'security', 'ai', 'maths', 'data', 'legal'];
@@ -185,6 +185,14 @@
      بائنریوں matched as far as the و and left the ں stranded outside the
      highlight; [\u0430-\u044f] likewise has no ё. */
   var LETTER = UNICODE_CLASSES ? '[\\p{L}\\p{M}]' : null;
+  /* Same character class the matcher uses, for hover hit-testing. A second
+     \w-based expander would re-open the mid-word bug this class exists to
+     close: in Arabic, Urdu, Hindi, Bengali and Russian every letter is
+     [^\w], so a "word" would start and end in the middle of a real one. */
+  var WORD_CHAR = UNICODE_CLASSES
+    ? new RegExp('[' + WORD + ']', 'u')
+    : /\w/;
+  var JOIN_CHAR = /[\-\u2010-\u2013+'+\u2019]/;
 
   /* A hyphen has six lookalikes and prose uses them interchangeably.
 
@@ -293,10 +301,27 @@
     });
   }
 
+  function addSurface(s, t) {
+    if (!s) return;
+    /* Acronyms stay case-sensitive, matching markUp(): "REST" is the
+       protocol, "rest" is the rest of a sentence. */
+    if (/^[A-Z][A-Z0-9+\-/]*$/.test(s)) {
+      if (!bySurface[s]) bySurface[s] = t;
+    } else {
+      var k = s.toLowerCase();
+      if (!bySurface[k]) bySurface[k] = t;
+    }
+  }
+  function curatedFor(word) {
+    if (!word) return null;
+    return bySurface[word] || bySurface[word.toLowerCase()] || null;
+  }
+
   /* ---------- popover ---------- */
   function close() {
     if (!popped) return;
-    popped.el.setAttribute('aria-expanded', 'false');
+    if (popped.el && popped.el.hasAttribute && popped.el.hasAttribute('aria-expanded'))
+      popped.el.setAttribute('aria-expanded', 'false');
     if (popped.pop && popped.pop.parentNode) popped.pop.parentNode.removeChild(popped.pop);
     popped = null;
   }
@@ -308,8 +333,47 @@
     pop.innerHTML = '<b>' + rec.term.t + '</b>' + rec.term.g;
     rec.el.insertAdjacentElement('afterend', pop);
     rec.el.setAttribute('aria-expanded', 'true');
-    popped = { el: rec.el, pop: pop };
+    popped = { el: rec.el, pop: pop, via: 'click' };
     if (viaClick) learn(rec);
+  }
+
+  function placePop(pop, rect) {
+    var gap = 8, pad = 12;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var w = pop.offsetWidth, h = pop.offsetHeight;
+    var left = rect.left;
+    if (left + w > vw - pad) left = vw - w - pad;
+    if (left < pad) left = pad;
+    var top = rect.bottom + gap;
+    if (top + h > vh - pad) top = rect.top - h - gap;
+    if (top < pad) top = pad;
+    pop.style.left = Math.round(left) + 'px';
+    pop.style.top = Math.round(top) + 'px';
+  }
+
+  function fillGloss(pop, term) {
+    pop.innerHTML = '<b>' + escHtml(term.t) + '</b>' + term.g;
+  }
+  function fillDict(pop, hit) {
+    pop.innerHTML = '<b>' + escHtml(hit.word) +
+      (hit.pos ? ' <span class="gloss__pos">' + POS[hit.pos] + '</span>' : '') +
+      '</b>' + hit.gloss + '<span class="gloss__src">WordNet</span>';
+  }
+
+  /* Hover popovers are position-fixed so they do not shove the paragraph
+     down and lose the pointer — which would strobe. Click popovers stay
+     in the flow, where they already were. */
+  function openHover(htmlClass, fill, rect, word) {
+    close();
+    var pop = document.createElement('span');
+    pop.className = 'gloss__pop is-float' + (htmlClass ? ' ' + htmlClass : '');
+    pop.setAttribute('role', 'note');
+    fill(pop);
+    document.body.appendChild(pop);
+    placePop(pop, rect);
+    pop.addEventListener('pointerenter', cancelClose);
+    pop.addEventListener('pointerleave', scheduleClose);
+    popped = { el: null, pop: pop, via: 'hover', word: word };
   }
 
   /* Any word can be looked up, not just the curated ones. The hand-written
@@ -323,7 +387,7 @@
     pop.innerHTML = '<b>' + escHtml(word) + '</b><span class="dim">looking it up\u2026</span>';
     host.insertAdjacentElement('afterend', pop);
     close();
-    popped = { el: host, pop: pop };
+    popped = { el: host, pop: pop, via: 'click' };
     root.ImortekDict.lookup(word).then(function (hit) {
       if (!popped || popped.pop !== pop) return;
       if (hit) {
@@ -386,7 +450,161 @@
     });
   }
 
+  function isWordChar(ch) {
+    return !!ch && (WORD_CHAR.test(ch) || JOIN_CHAR.test(ch));
+  }
+
+  function caretFromPoint(x, y) {
+    if (document.caretPositionFromPoint) {
+      var p = document.caretPositionFromPoint(x, y);
+      if (p && p.offsetNode) return { node: p.offsetNode, offset: p.offset };
+    }
+    if (document.caretRangeFromPoint) {
+      var r = document.caretRangeFromPoint(x, y);
+      if (r && r.startContainer) return { node: r.startContainer, offset: r.startOffset };
+    }
+    return null;
+  }
+
+  /* The word under the pointer, with no wrapping of the page in advance. */
+  function wordAtPoint(x, y, target) {
+    if (!target) return null;
+    if (target.closest && target.closest('.gloss__pop')) return { kind: 'pop' };
+    if (!main.contains(target)) return null;
+    var chip = target.closest('.gloss');
+    if (chip) {
+      var rec = null, ci;
+      for (ci = 0; ci < nodes.length; ci++) if (nodes[ci].el === chip) { rec = nodes[ci]; break; }
+      return {
+        kind: 'chip',
+        word: (chip.dataset && chip.dataset.term) || chip.textContent,
+        rec: rec,
+        rect: chip.getBoundingClientRect()
+      };
+    }
+    if (target.closest('a, code, pre, .toolbar, .gloss-ctl, .voice-ctl, .langsel, button, textarea, input, summary, svg'))
+      return null;
+    var caret = caretFromPoint(x, y);
+    if (!caret || !caret.node) return null;
+    var node = caret.node, offset = caret.offset;
+    if (node.nodeType !== 3) {
+      if (node.nodeType === 1 && node.childNodes.length) {
+        var ch = node.childNodes[Math.min(offset, node.childNodes.length - 1)] || node.childNodes[0];
+        if (!ch || ch.nodeType !== 3) return null;
+        node = ch;
+        offset = Math.min(offset, ch.nodeValue.length);
+      } else return null;
+    }
+    if (!main.contains(node)) return null;
+    for (var p = node.parentNode; p && p !== main; p = p.parentNode) {
+      if (SKIP.test(p.nodeName) ||
+          (p.className && typeof p.className === 'string' && SKIP_CLASS.test(p.className)))
+        return null;
+    }
+    var text = node.nodeValue;
+    if (!text) return null;
+    var n = text.length;
+    if (offset >= n) offset = n - 1;
+    if (offset < 0) offset = 0;
+    var at = offset;
+    if (!isWordChar(text.charAt(at)) && at > 0 && isWordChar(text.charAt(at - 1))) at--;
+    if (!isWordChar(text.charAt(at))) return null;
+    /* Han has no spaces, so expanding to letter runs would swallow a
+       whole sentence. Chips already cover the curated terms; WordNet
+       does not apply. */
+    if (HAN.test(text.charAt(at))) return null;
+    var lo = at, hi = at + 1;
+    while (lo > 0 && isWordChar(text.charAt(lo - 1))) lo--;
+    while (hi < n && isWordChar(text.charAt(hi))) hi++;
+    var word = text.slice(lo, hi);
+    if (!word || word.length > 32 || !WORD_CHAR.test(word)) return null;
+    var range = document.createRange();
+    range.setStart(node, lo);
+    range.setEnd(node, hi);
+    return { kind: 'word', word: word, rect: range.getBoundingClientRect() };
+  }
+
+  function hoverFine() {
+    try { return window.matchMedia('(hover: hover) and (pointer: fine)').matches; }
+    catch (e) { return false; }
+  }
+
+  var OPEN_MS = 250, CLOSE_MS = 400;
+  var openTimer = null, closeTimer = null, hoverKey = null, hoverGen = 0;
+  var lookupCache = {};
+
+  function cancelClose() {
+    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+  }
+  function scheduleClose() {
+    cancelClose();
+    closeTimer = setTimeout(function () {
+      closeTimer = null;
+      if (popped && popped.via === 'hover') close();
+    }, CLOSE_MS);
+  }
+  function cancelOpen() {
+    if (openTimer) { clearTimeout(openTimer); openTimer = null; }
+    hoverGen++;
+  }
+
+  function lookupHover(hit) {
+    var word = hit.word, t;
+    if (hit.kind === 'chip' && hit.rec) t = hit.rec.term;
+    else t = curatedFor(word);
+    if (t) {
+      openHover('', function (pop) { fillGloss(pop, t); }, hit.rect, word);
+      return;
+    }
+    /* Dictionary fallthrough is English-only: a translated page getting
+       an English WordNet gloss is worse than getting nothing. */
+    if (LOC.code !== 'en' || !root.ImortekDict) { close(); return; }
+    var key = word.toLowerCase();
+    if (key.length < 3) { close(); return; }
+    if (lookupCache[key] === false) { close(); return; }
+    if (lookupCache[key]) {
+      var cached = lookupCache[key];
+      openHover('is-dict', function (pop) { fillDict(pop, cached); }, hit.rect, word);
+      return;
+    }
+    var gen = ++hoverGen;
+    root.ImortekDict.lookup(key).then(function (dhit) {
+      if (gen !== hoverGen) return;
+      if (!dhit) { lookupCache[key] = false; close(); return; }
+      lookupCache[key] = dhit;
+      openHover('is-dict', function (pop) { fillDict(pop, dhit); }, hit.rect, word);
+    });
+  }
+
+  function onPointerMove(e) {
+    if (!hoverFine()) return;
+    if (e.buttons) return;
+    var hit = wordAtPoint(e.clientX, e.clientY, e.target);
+    if (hit && hit.kind === 'pop') { cancelClose(); cancelOpen(); return; }
+    var key = hit ? hit.kind + ':' + hit.word : '';
+    if (key && key === hoverKey) {
+      cancelClose();
+      return;
+    }
+    hoverKey = key;
+    cancelOpen();
+    if (!hit) { scheduleClose(); return; }
+    if (popped && popped.via === 'click') return;
+    if (popped && popped.via === 'hover' && popped.word === hit.word) {
+      cancelClose();
+      return;
+    }
+    scheduleClose();
+    var saved = hit;
+    openTimer = setTimeout(function () {
+      openTimer = null;
+      cancelClose();
+      lookupHover(saved);
+    }, OPEN_MS);
+  }
+
   function learn(rec) {
+    if (!model || !rec) return;
     if (model.opened.indexOf(rec.term.t) >= 0) return;
     model.opened.push(rec.term.t);
     updateWant(rec.z);
@@ -428,7 +646,7 @@
       ? (model.want.n < MIN_OPENS
           ? T('tools.openMore', { n: MIN_OPENS - model.want.n })
           : model.want.n + ' ' + T('tools.learned') + ' \u00b7 ' + picked + ' ' + T('tools.preExpanded'))
-      : String(nodes.length) + ' ' + T('tools.termsOnPage');
+      : '';
   }
 
   function build() {
@@ -471,31 +689,37 @@
     })
     .then(function (data) {
     terms = data.terms || [];
-    terms.forEach(function (t) { byKey[t.t] = t; });
+    terms.forEach(function (t) {
+      byKey[t.t] = t;
+      addSurface(t.t, t);
+      (t.alias || []).forEach(function (s) { addSurface(s, t); });
+    });
     markUp();
-    if (!nodes.length) return;
 
-    var saved = load();
-    model = saved || newModel();
-    // The world prior is this page's own vocabulary, refitted on every visit.
-    model.prior = { n: 0, mean: zeros(DIM), m2: zeros(DIM) };
-    nodes.forEach(function (r) { updatePrior(r.z); });
+    if (nodes.length) {
+      var saved = load();
+      model = saved || newModel();
+      // The world prior is this page's own vocabulary, refitted on every visit.
+      model.prior = { n: 0, mean: zeros(DIM), m2: zeros(DIM) };
+      nodes.forEach(function (r) { updatePrior(r.z); });
 
-    build();
-    panel.classList.toggle('is-on', on);
-    panel.querySelector('.gloss-ctl__btn').setAttribute('aria-pressed', String(on));
-    document.body.classList.toggle('gloss-on', on);
-    predict();
-    readout();
+      build();
+      panel.classList.toggle('is-on', on);
+      panel.querySelector('.gloss-ctl__btn').setAttribute('aria-pressed', String(on));
+      document.body.classList.toggle('gloss-on', on);
+      predict();
+      readout();
+    }
 
     main.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.gloss__pop')) return;
       var btn = e.target.closest && e.target.closest('.gloss');
       if (!btn) { close(); return; }
       e.preventDefault();
       if (popped && popped.el === btn) { close(); return; }
       var rec = nodes.filter(function (r) { return r.el === btn; })[0];
       if (!rec) return;
-      if (!on) {
+      if (panel && !on) {
         on = true;
         panel.classList.add('is-on');
         panel.querySelector('.gloss-ctl__btn').setAttribute('aria-pressed', 'true');
@@ -503,17 +727,47 @@
       }
       open(rec, true);
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { close(); hoverKey = null; }
+    });
+    document.addEventListener('click', function (e) {
+      if (!popped) return;
+      if (e.target.closest && e.target.closest('.gloss, .gloss__pop, .gloss-ctl')) return;
+      close();
+    });
 
-    // Double-click any word on the page and it gets looked up. This is what the
-    // 144,440-word dictionary is for: the curated list covers this site's own
-    // jargon, and everything else falls through to WordNet.
+    main.addEventListener('pointermove', onPointerMove);
+    main.addEventListener('pointerleave', function (e) {
+      if (e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.gloss__pop')) return;
+      hoverKey = null;
+      cancelOpen();
+      scheduleClose();
+    });
+    window.addEventListener('scroll', function () {
+      if (popped && popped.via === 'hover') close();
+    }, true);
+
+    // Double-click any word on the page and it gets looked up. Hover is
+    // the discoverable path; this remains for explicit lookup, including
+    // a miss with suggestions. Dictionary fallthrough is English-only.
     main.addEventListener('dblclick', function (e) {
       var sel = (window.getSelection ? String(window.getSelection()) : '').trim();
       if (!sel || /\s/.test(sel) || sel.length < 3 || sel.length > 32) return;
       if (e.target.closest('code, pre, .gloss')) return;
       var host = e.target.closest('p, li, td, h2, h3, h4, figcaption, .note');
       if (!host) return;
+      var t = curatedFor(sel);
+      if (t) {
+        close();
+        var pop = document.createElement('span');
+        pop.className = 'gloss__pop';
+        pop.setAttribute('role', 'note');
+        fillGloss(pop, t);
+        host.insertAdjacentElement('afterend', pop);
+        popped = { el: host, pop: pop, via: 'click' };
+        return;
+      }
+      if (LOC.code !== 'en') return;
       lookupWord(sel.toLowerCase().replace(/[^a-z'-]/gi, ''), host);
     });
   }).catch(function () { /* no glossary, no layer — the page is unchanged */ });
